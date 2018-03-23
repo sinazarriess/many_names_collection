@@ -1,0 +1,2667 @@
+*** bull Synset: ???
+20945 4 : guy on bull
+11318 4 : right bull thing
+18952 4 : front wheel of bike closest to bullet-like cone near street
+10536 2 : the bull head
+*** focus Synset: focus.n.02
+10141 5 : mountain in focus right side
+*** spiders Synset: spider.n.01
+26032 4 : okay so the lamp on the right that's near the bed covered in spiders
+9817 6 : any of the people in the sign at the top  they are looking at spiders
+15539 5 : for the love of spiders click the long white building
+3109 5 : water where no more spiders are cuz it's old news already
+1069 1 : okay so the red thing in the bottom left of the picture -  i bet there's spiders in the fridge though
+*** railing Synset: railing.n.01
+27641 1 : the bushes above the railing on the bottom right
+18830 6 : just above railing to the right of the man with yellow shirt
+26589 10 : door under railing on left
+27385 7 : stair railing left
+10399 3 : water above the railing on the right
+*** dish Synset: ???
+4743 14 : 2nd yellow dish on right of table
+15652 14 : table near left side with dishes on it
+38656 7 : botoom yellow dish contents
+12953 14 : empty dish in front of picture
+7002 12 : any dish
+*** chair Synset: chair.n.01
+8973 13 : the chair of the woman in light blue
+19502 10 : lady's chair back
+26990 5 : red chair
+22944 3 : the chair with the yellow crap on it
+9409 10 : the greenery right behind left chair top
+*** greens Synset: greens.n.01
+32374 2 : top greens
+25174 3 : top greens
+2047 1 : bottom greens
+22699 3 : top greens
+11609 3 : center greens
+*** row Synset: row.n.01
+679 5 : girl right second row
+7533 7 : hat of the guy top row far right
+26025 9 : full row of books 2nd row up from bottom first full row
+19497 7 : the hat on the kid in the second row farthest right
+9455 5 : girl in the red shirt second row
+*** tv Synset: television_receiver.n.01
+1273 13 : the tv if you can see it
+10210 3 : boombox on top of tv
+1421 2 : bed closest to tv
+19970 11 : table below tv on left
+15942 7 : wall below tv
+*** oclock Synset: ???
+24028 1 : water coming down far left top between 9 to 10 oclock
+*** tail Synset: ???
+22541 3 : horse tail closest to us
+15764 5 : girl on right with pony tail bottom right
+11746 4 : small square of land benead tail of fish
+25485 5 : white horse tail
+13757 4 : red part of the train tail
+*** bike Synset: ???
+37706 2 : grass left of bike
+10559 5 : the bike in the middle
+8613 8 : second from left bike
+37823 4 : grass in in middle - left of biker
+30095 3 : road next to the biker
+*** gravel Synset: gravel.n.01
+22361 12 : clear gravel behind people no grass
+19808 1 : rock gravel bottom
+8966 1 : left gravel
+3695 3 : bottom right gravel
+17388 2 : bottom middle gravel
+*** case Synset: ???
+8771 2 : drink case
+15942 4 : guitar case in front of man in red shirt
+11080 3 : display case in middle
+31062 2 : okay so on the left is a stair case rail leading to victoria bitter spiders  click the stair-rail
+19581 2 : wood glass case left
+*** woman Synset: woman.n.01
+11674 5 : plant to the left of the front woman
+20180 2 : the womans face in the center
+8973 13 : the chair of the woman in light blue
+20954 1 : the old woman
+15307 6 : second  woman from right
+*** dessert Synset: ???
+9894 3 : the dessert any ground but road
+*** blanket Synset: blanket.n.01
+7849 7 : white blanket left
+19410 5 : top right blanket brown
+4768 5 : bed on left but not the red blanket
+1551 4 : the yellow and green blanket under the window
+18297 1 : ground around blanket
+*** kitty Synset: kitten.n.01
+12558 3 : hello kitty face
+*** vase Synset: vase.n.01
+4248 12 : table below vase
+8838 4 : glass vase bottom center
+9347 7 : middle vase
+19034 9 : blue vase in middle
+12901 10 : painting middle blue vase
+*** spoon Synset: spoon.n.01
+11125 4 : paper with spoon () at the very bottom
+37849 4 : small area below spoon
+16142 11 : white plate in front of right black spoon
+11737 5 : pasta with spoon in it
+11737 5 : food in front left with the spoon in it
+*** llama Synset: llama.n.01
+18942 8 : brown grass just above llama's butt
+8555 2 : the shrub between the llama
+4996 2 : middle llama
+10712 2 : big llama
+18370 3 : the white llama
+*** clouds Synset: cloud.n.02
+37131 1 : orange clouds
+23822 7 : the mountain tops or maybe thoseare clouds
+2235 1 : the clouds
+2857 1 : click above the clouds
+40206 3 : blue sky above clouds
+*** parrot Synset: parrot.n.01
+19977 1 : the parrot in the middle
+14836 1 : far left parrot
+19977 1 : left parrot
+15381 2 : anything but the parrot
+19977 1 : large parrot in front
+*** wooden Synset: wooden.s.01
+9076 5 : the wooden thing in the top right corner
+7890 3 : left long wooden limb extending into water
+4503 4 : small wooden stool on bottom right
+7369 7 : house behind wooden railing
+20820 3 : portion of wooden floor right behind chair
+*** peeps Synset: ???
+26065 5 : ground in ront of peeps
+7747 2 : the ground below the peeps
+11408 6 : the rock wall on the left or right side of the peeps
+6821 4 : sand in front of peeps
+15653 6 : the 3 peeps all in blue
+*** item Synset: item.n.03
+26217 11 : the item on the roof above the driver
+8705 2 : the item on top of pink ball
+15930 3 : right bed comforter not the items on it
+11295 8 : middle under train above stack of white items
+8178 7 : yellow wall not the items
+*** sand Synset: ???
+15169 5 : the sand in the bottom right corner
+13797 3 : the sand
+32142 2 : green grass above sand
+17128 1 : he sand on the bottom left corner
+15771 3 : shoes on left sandles
+*** guy Synset: guy.n.01
+4449 3 : left guy
+19314 4 : tree behind the guy
+27437 4 : brown shirt guy on right
+30781 1 : ground left of dis guy
+3842 4 : thing on left next to guy's shoe
+*** rack Synset: rack.n.01
+22288 12 : left bottle rack
+19283 9 : spice rack to the right of stove under cubboard
+8433 7 : middle car top rack bags
+8593 8 : below bike rack
+19677 7 : hat rack on her right
+*** clothes Synset: apparel.n.01
+5159 9 : hanging clothes on the right
+19883 8 : last piece  green or gray clothes center and up a little
+37777 4 : gravel area just under right of clothes
+26614 14 : the guy in light clothes kneelingthe plate in front of him
+16105 1 : in black clothes crossing street
+*** bicycle Synset: bicycle.n.01
+9286 8 : front bicycle tire on the right
+8811 12 : second bicycle on right
+37560 3 : behind bicycle white
+30251 4 : lady behind guy on bicycle 
+16406 10 : the front left most bicycle
+*** fence Synset: fence.n.01
+1960 19 : most left part of the fence
+4267 7 : right fence white
+31877 2 : bluish fence front
+30958 2 : shrubs above fence on right side
+33483 4 : grass in front next to fence
+*** sign Synset: sign.n.02
+12727 2 : anywhere under sign
+9857 11 : the gap towards top left to the right of the paper sign
+19626 6 : grass in front of sign
+18420 10 : sign to left of blue sign
+38043 4 : the sidewalk area left to the stop sign
+*** chef Synset: chef.n.01
+1956 10 : woman to left of chef in brown coat
+1956 8 : person right of chef
+1956 10 : lady left of chef
+1956 3 : door left of chef
+1956 8 : woman right chef
+*** street Synset: street.n.01
+35683 7 : far right above the street
+18202 1 : bottom left street
+9332 11 : green produce in center near the street
+37691 1 : the street
+15588 7 : sidewalk (not street)
+*** cactus Synset: cactus.n.01
+15950 3 : tallest cactus
+24923 3 : the two cactus on the left of the big one
+8115 4 : middle cactus
+25320 6 : tallest cactus 
+10174 2 : prickly cactus
+*** soup Synset: soup.n.01
+23773 3 : bottom empty soup bowl
+15512 8 : bowl of soup
+9251 5 : closest bowl of soup on right
+12953 18 : bowl of soup front center under raised bottle
+38721 5 : bowl of soup girl is eating
+*** sun Synset: ???
+33417 3 : cliffs in the sun on left
+31262 2 : grass in sun to left
+11547 7 : edge of cup right below sunglass man's left shoulder
+39114 1 : okay so  any of the orangey area like the sun over looking spider meadow
+5201 9 : girl with sunglasses on head
+*** section Synset: section.n.04
+26089 9 : rock section above woman on top far left
+15969 2 : i think it's the green section i can't tell which one they're showing me
+9533 3 : mountains dark section below sky
+23713 5 : blue cloudless section of sky at top
+35923 1 : right section of city
+*** stool Synset: stool.n.01
+12731 17 : second stool from the right
+12731 18 : bottom right stool
+12593 4 : the stool next to the tree on the right
+4040 2 : middle stool
+12731 13 : 3rd empty stool
+*** man's Synset: ???
+11405 3 : yellow above left man's head
+11547 7 : edge of cup right below sunglass man's left shoulder
+11530 1 : ground below man's foot
+19365 9 : streetlights just to the right of the man's stomach
+7043 3 : water just above man's right hand
+*** cell Synset: ???
+38124 2 : bottom row of cells on the right closest to us
+7803 10 : the cell tower
+*** lights Synset: light.n.02
+39491 3 : building with green lights
+9091 6 : row of ceiling lights on left
+18420 15 : right side 2nd set of lights from top
+2512 13 : the center light in the bottom row of lights
+35993 5 : white car parked under casino brake lights visible
+*** carpet Synset: rug.n.01
+1155 2 : the carpet
+2512 1 : red carpet
+1137 7 : floor to left of left bed carpet area
+4252 2 : patterned carpet
+22843 6 : blue carpet
+*** bird Synset: bird.n.01
+27224 17 : group of birds
+4856 5 : fern to bottom left of bird
+14817 1 : closest bird
+11481 3 : the bird
+30770 1 : the bird/emu thing
+*** body Synset: ???
+39803 2 : left body of water
+10756 1 : person's body
+3102 6 : the parrton on the left you can see its whole body
+23163 1 : what body  the boat
+2073 1 : the body in the foreground
+*** leg Synset: ???
+7299 2 : between guy s  legs ground
+18458 7 : brown area to right of right most ladies legs
+4951 2 : center group of three animals - its the brown one with black legs on the right
+9768 8 : in between the far right horse legs
+39942 1 : bed between legs
+*** men Synset: man.n.01
+30548 3 : the two men on the left
+31657 2 : floor in front of men
+40550 5 : one of the 3 men direct middle of picture
+22180 9 : water between the two men lefgs onright
+4041 5 : road between two men front center
+*** water Synset: water.n.01
+4626 10 : boat on laft side in water - not red
+2207 5 : the water
+8458 3 : animal coming out of water
+19136 2 : left hills beyond water
+14843 2 : the water
+*** baseball Synset: baseball.n.01
+3791 11 : space on the ground next to man in baseball cap on left bottom corner
+8991 10 : brown baseball cap middle
+32060 4 : the man in the blue baseball cap
+6956 4 : water to the left of guy in baseball hat
+37487 3 : man in baseball cap and blue shirt
+*** sink Synset: ???
+23165 3 : thing that cause sinking of titanic
+1262 6 :  wall tile below sink
+12784 8 : wall  under sink
+16156 4 : the sink
+15852 2 : boat that looks like it may sink any minute
+*** trunk Synset: trunk.n.01
+2477 2 : white tree truck tree in center of 3 white tree trunks
+32670 3 : tree trunk far right
+5036 10 : brown tree trunk that's going up the right side
+3250 13 : tree trunk coming out of red shirt dude's head
+11626 4 : tree trunk
+*** path Synset: path.n.02
+6263 1 : dirt path
+22816 7 : dark patch of grass bottom right corner not the path
+9501 4 : shadow near the bottom of the path
+7770 3 : middle patheway to left of man walkn
+26962 5 : the path right under the door
+*** box Synset: box.n.01
+11785 6 : the colored box things
+2318 2 : brown box 
+5145 4 : second shelf from bottom brown bottle above box
+4592 8 : my bad boxes on right
+22625 9 : window above brown box upper left
+*** boy Synset: ???
+19877 3 : bag in front of boy
+4300 5 : holla atcha boy! bed at the bottom
+668 9 : girl and boy behind other children
+9615 15 : hat of boy closest to us
+803 3 : yellow shirt boy
+*** greenery Synset: greenery.n.01
+9409 10 : the greenery right behind left chair top
+35657 3 : floating greenery
+21680 3 : upper right corner of pic greenery
+23832 4 : the greenery above the people at the top of the photo
+9678 8 : the greenery just below clouds but not too low
+*** kids Synset: child.n.01
+15907 5 : strip of grass in front of kids
+20920 1 : lol   kids
+12620 6 : two kids on left
+22598 2 : the big rock behind he kids directly behind them
+15907 7 : standing on the left in front of the post looking out at the kids
+*** luggage Synset: baggage.n.01
+15778 1 : stack of luggage
+15711 7 : large luggage women in blue holding
+11465 12 : white hat on red luggage
+26187 11 : second to last luggage rack
+15711 4 : black luggage between blue and red bottom left
+*** leaves Synset: leaf.n.01
+10247 2 : patch of leaves at top right
+16988 2 : tree leaves or bush leaves on the left
+12289 3 : the palm tree leaves
+6270 4 : upper left leaves
+37079 8 : trees no leaves any
+*** soldier Synset: soldier.n.01
+35686 7 : grass to the left of soldier's upper back
+35686 8 : right road by soldiers stomach
+6221 6 : lady soldier
+11413 12 : center short soldier's hat
+37988 5 : the building above soldier poster
+*** smoke Synset: ???
+21629 2 : dense white smoke right side
+3786 1 : mountain (not anything covered by smoke)
+24305 1 : top right sky away from smoke
+7506 2 : the smoke coming out of the cimniy on the right
+4941 2 : the mountains just below the smoke
+*** pillow Synset: pillow.n.01
+18849 6 : brown cot with white pillow at middle left
+17454 1 : bed with 2 pillows
+22408 7 : thing after pillow 
+22407 4 : the red pillow on the sofa
+8421 10 : brown pillow on chair left
+*** apple Synset: apple.n.01
+11878 3 : pile of apples below the red ones
+11878 4 : red apple near green one
+9577 12 : yellow kid apple
+11878 12 : white thing in middle above apples
+12156 6 : paper to right of apple
+*** snowboard Synset: snowboard.n.01
+34143 7 : buildings left of snowboarder
+11252 4 : green snowboard the lady in middle is holding
+8516 12 : third snowboard from the right (second white)
+8516 11 : mustard colored snowboard
+39541 1 : the snow below the snowboarder
+*** duck Synset: duck.n.01
+6281 6 : can't seem to keep in touch with anyone here for too long rocks right above freaky duck monster
+23116 6 : yellow duck on right
+865 5 : donald duck above girls head
+40471 1 : left duck 
+23116 4 : rubber ducky on left wall
+*** forefront Synset: forefront.n.01
+3046 5 : tree forefront far right white
+1957 11 : pony tail lady on right forefront
+26127 3 : face in forefront
+7165 3 : empty large bottle forefront
+10847 1 : most forefront person
+*** cloud Synset: cloud.n.02
+37131 1 : orange clouds
+23822 7 : the mountain tops or maybe thoseare clouds
+2235 1 : the clouds
+11077 6 : white cloud between building and tree
+2857 1 : click above the clouds
+*** sweater Synset: sweater.n.01
+2050 10 : man in red sweater
+40556 3 : girl on left in sweater
+4164 7 : boy in orange sweater
+24391 3 : green sweater
+22151 3 : girl in green hat and pink sweater on right
+*** dude Synset: fellow.n.06
+22572 5 : people behind dude in middle
+3250 13 : tree trunk coming out of red shirt dude's head
+7181 4 : water by dude head
+7562 16 : beer bottle in front odf dude with white shirt on the right
+12601 2 : the entire top left of picture dude
+*** arms Synset: arm.n.01
+27305 13 : jacket in left woman's arms
+8217 5 : sweater guy arms crossed front
+23832 5 : the dude on the far left with arms up
+10118 4 : woman on left crossing arms (in red)
+19262 8 : legs and arms of girl lying down
+*** camera Synset: camera.n.01
+19070 3 : fat man looking at camera bottom
+19308 3 : woman facing camera in far left
+22665 5 : window nearest to camera
+9258 6 : left of that dick with a camera on the left
+15760 2 : closest bed to camera
+*** vehicle Synset: vehicle.n.01
+8433 4 : middle vehicle
+1169 3 : doorway right behind two toned vehicle
+9782 2 : bus vehicle
+27514 7 : small portion of grass between vehicles
+12708 6 : road left side of the vehicle
+*** raft Synset: raft.n.01
+18412 5 : rightmost raft 
+11322 2 : wooden rafters
+6552 2 : water in front of the rafts
+24029 6 : girl in the front of the left raft
+7314 9 : yellow raft
+*** door Synset: ???
+3005 6 : grey door on the left
+1947 5 : the door looking thing to the right of all the windows
+1333 3 : brown door left edge
+4781 9 : ground in front of door
+11548 6 : second doorway center left
+*** plant Synset: plant.n.02
+8651 3 : the pot of the plant right in the middle but not the plant
+20159 3 : tellest plant nearest the center
+9589 7 : green plant bottom right
+4865 5 : leaf under red plant
+23128 13 : green plant between the sitting woman in white and the sitting man
+*** glass Synset: ???
+8933 8 : woman with glasses in the back
+20121 1 : 1st guy glasses
+7005 4 : guy left side glasses
+11381 2 : the glass near the man in red's hand
+8792 15 : small plate below glass at center of picture
+*** flag Synset: ???
+7357 5 : thanks! flag over people
+32146 2 : middle flag
+12769 8 : usa flag
+4663 10 : the bush to the right of the flagpole
+23963 2 : rainbowy flag
+*** train Synset: train.n.01
+3657 6 : cluster of ppl in front of middle train car
+8087 8 : right part of train
+10919 3 : the front three train cars
+15500 5 : gravel along train 
+11957 13 : right side train
+*** adult Synset: adult.n.01
+10833 6 : kid in gray shirt looking at adult
+10833 6 : child looking at the adult with grey shirt
+6780 4 : grass between little kids and adults behind them
+15019 3 : standing adult
+4164 4 : pants of the adult male
+*** baby Synset: ???
+3859 3 : middle baby pelican 
+4262 8 : the man holding the baby (but not the baby)
+27238 5 : pink cap baby
+22491 2 : the mother holding the baby click on face
+4749 2 : ice ice baby ice
+*** hole Synset: hole.n.01
+2715 7 : anywhere but the hole
+8015 3 : tree poking out of the hole on the left
+116 4 : rocks aroudnd hole in ground
+37741 2 : group of clouds with holes in center of pic
+21353 1 : wall down inside hole
+*** women Synset: woman.n.01
+9237 5 : over women on the left heads
+33453 1 : green car next to women with cruthes
+16245 4 : blanket beneath women
+13175 1 : orange fruit in front of women
+15238 3 : rocks above women
+*** animals Synset: animal.n.01
+4951 2 : center group of three animals - its the brown one with black legs on the right
+1809 2 : group of animals left of river
+4951 2 : animal on right of large animals
+5004 5 : patch of flat ground left of animals
+6255 6 : group of animals to the right
+*** salad Synset: salad.n.01
+8064 2 : you're like potato salad mtg clouds on the right
+*** car Synset: ???
+27627 5 : sky car red
+37284 7 : tree right above white car
+2572 10 : white car bottom right
+11662 7 : luggage cart on left
+18203 7 : red cart
+*** cap Synset: ???
+24012 6 : cloud above woman's cap
+19773 3 : ball cap
+16408 13 : red cape closest
+3791 11 : space on the ground next to man in baseball cap on left bottom corner
+21935 4 : dark tall bottle  with black cap
+*** roof Synset: ???
+37311 4 : snow covered roof on far left of picture
+16420 9 : white pillar thing protruding from roof on top
+11873 7 : any part of the roof
+687 6 : i'm on mturk the bottom left roof just the roof
+26217 11 : the item on the roof above the driver
+*** can Synset: ???
+37902 3 : garbage can in back right
+6215 1 : bottom left canes
+32829 3 : road on left of cans
+7960 22 : bottle just left of the candle in the front
+9706 6 : people on canoe
+*** cam Synset: ???
+19070 3 : fat man looking at camera bottom
+19308 3 : woman facing camera in far left
+22665 5 : window nearest to camera
+9258 6 : left of that dick with a camera on the left
+15760 2 : closest bed to camera
+*** figure Synset: figure.n.06
+6629 5 : middle figure older man in khakis and a brown jacket 
+22346 1 : red figure
+37237 5 : whoops the three figures on left
+40124 1 : giant koala rock figure
+1747 5 : hat on central sitting figure
+*** something Synset: ???
+9393 14 : the sign that says sidra or something
+2834 15 : guy on the right with white shirt has something in front of him click that
+6285 3 : or ground or something
+7504 10 : bundles something top center
+39304 6 : car second row from top far right has something on top
+*** triangle Synset: triangle.n.02
+2408 5 : okay so like what looks like it might be the darker part of the triangle but totally not the door but like anyother part
+31011 4 : three people in the middle form a triangle - center of it
+12364 16 : view out of the triangle shaped right above the water bottle
+7714 7 : darker grey triangle in distance over green hat
+9475 7 : white triangle bottom near us
+*** airplane Synset: airplane.n.01
+9112 4 : direct left of airplane
+11460 1 : tarmac under airplane
+21162 3 : window of airplane
+13326 3 : pavement under airplane
+27582 4 : ground in front of the airplane and the people
+*** skirt Synset: skirt.n.02
+4106 9 : pink top and skirt
+12601 5 : woman on right with red skirt
+9074 9 : face of woman yellow skirt far right
+7782 2 : sky (better the skirt than his crotch)
+12020 3 : blue skirt
+*** lamb Synset: lamb.n.01
+22248 6 : space just left of his cock and under the lamb
+2283 9 : area left under top lamb
+*** court Synset: ???
+26845 3 : basketball court
+40562 1 : empty area of tennis court
+40550 1 : back court
+31780 1 : on the court where words are
+32071 1 : tennis court 
+*** dress Synset: ???
+12620 8 : kid in flower dress
+15366 2 : person lightly dressed in middle
+1653 8 : girl in blue dress on left
+15189 1 : woman with long dress
+8968 3 : big picture on wall looks like maybe someone in a dress
+*** bunk Synset: bunk.n.03
+4313 2 : top bunk
+19410 4 : blanket stack on left top bunk
+12519 1 : top bunk bed
+19410 1 : okay so like totally like click like the bunk beds on the left
+1290 5 : top bunk
+*** lamp Synset: ???
+32851 3 : the glowing hanging lamps
+9570 12 : tall lampost onb right
+19561 3 : curtain to the right of lamp at the back
+26032 4 : okay so the lamp on the right that's near the bed covered in spiders
+8806 6 : the wall to the right of the lamp
+*** gate Synset: gate.n.01
+12765 8 : left gate
+24474 2 : the stone gate
+12243 10 : backwards l shape of white stone right of the gate
+12761 5 : the gate looking portion of the wall
+2536 4 : right gate and post
+*** beach Synset: beach.n.01
+38110 4 : the building above the beach in the center
+13249 2 : the large strip of beach
+23157 13 : the beach on the mid part o the picture on the left
+2262 9 : the part of the beach to the right of the man in a white shirt
+15576 2 : middle of the beach
+*** goat Synset: goat.n.01
+23495 2 : the goat at the front
+9126 5 : older man with goatee
+1806 9 : cliff behind the goats
+2319 3 : white goat
+9655 5 : the goats under the purple gate
+*** pizza Synset: pizza.n.01
+8961 10 : bowl to the left of slice of pizza
+7923 3 : omg pizza
+8961 15 : slice of pizza
+9459 11 : the cup directly behind hte pizza
+9459 11 : very small glass thingy behind pizza in back
+*** buildings Synset: building.n.01
+37435 3 : right side buildings
+2608 8 : side of buildings left and down from visa sign
+8361 6 : the dark blob above the buildings on the right
+2849 8 : clouds above buildings on left
+35729 5 : right buildings
+*** sandwich Synset: sandwich.n.01
+11707 11 : black thing between the black bags and sandwich
+11486 5 : tray just below lady's sandwich on right side
+*** okay Synset: ???
+7658 5 : it's okay lol top right
+16592 3 : it was confusing okay click on red shirt
+40135 1 : ah okay lol grass
+2483 12 : lolit's okay: "pillar" on far right
+18418 8 : okay so like you see the clock tower  okay so like there's a tree below it - it's like a totally short tree but like totally directly under the clock 
+*** helmet Synset: helmet.n.02
+37546 2 : green just above helmet
+18414 6 : white helmet
+32373 2 : blue helmet
+32374 3 : guy with the blue helmet
+10559 2 : mountain above middle helmet
+*** stop Synset: ???
+38043 4 : the sidewalk area left to the stop sign
+37982 3 : black area of nothingness between wachovia sign and stoplight
+38041 8 : flowers left of stop sign
+9080 4 : rockand can you stop with the spiders
+37982 2 : the stop light full of spiders that is facing away from you
+*** spot Synset: topographic_point.n.01
+4094 7 : the spot of blue sky just on top of the tree on the left center of the tree
+19340 4 : bottom right black spot
+3151 13 : purple spot on right
+4772 7 : white spot bottom right bed
+11570 11 : tiny spot mountain left of building
+*** plane Synset: airplane.n.01
+9693 5 : trees behind back wing of plane
+7700 3 : mountains behind plane
+6685 2 : sky above plane
+26376 9 : man left to the stairs of the plane
+9266 4 : mountain area to left of plane
+*** bear Synset: ???
+30777 1 : khoala bear
+40620 1 : log above bear
+32237 2 : man with beard with hat on back right
+8172 7 : the guy on the right side in the light blue shirt with a beard who is standing up
+40684 1 : the rocks under the bear
+*** waves Synset: wave.n.01
+4027 4 : the waves in the water
+8150 2 : blue water between white waves and sky
+3981 4 : white crashing waves (or steam) at bottom
+17378 3 : ocean above waves
+4965 5 : water above the breaking waves
+*** tablecloth Synset: tablecloth.n.01
+15822 4 : blue tablecloth
+1230 8 : table with green tablecloth in background
+2059 4 : front tablecloth
+11078 6 : the green tablecloth in front of girl in yellow
+9393 10 : table with pink tablecloth right side
+*** arch Synset: ???
+8668 2 : sky in the middle archway
+19978 10 : the reddish building with arches in center
+11548 8 : dark area on the left in far left arch
+7433 4 : right archway
+2149 9 : post on right arch
+*** man Synset: man.n.01
+7047 15 : face of man on right
+14756 2 : wall behind man
+19070 3 : fat man looking at camera bottom
+5191 8 : sitting man
+4187 1 : woman overlooking man
+*** branches Synset: ???
+9008 2 : tree branches up there
+9976 2 : sand below branches
+3215 5 : lower row of trees second bunch of branches
+40650 1 : no prob! :) palm branches
+8648 13 : tree branches to the right of the green pole left of the light green sign to the right
+*** neck Synset: ???
+4887 5 : the mans bling bling teeth necklace
+16116 2 : guitar neck
+26434 4 : water to the left of dude's neck
+16530 6 : trunk of the tree that looks like it's coming out of the horse's neck
+20746 1 : camera around her neck
+*** light Synset: ???
+8973 13 : the chair of the woman in light blue
+1030 4 : right light
+8168 9 : sky right above light post
+7657 5 : ceiling light middle
+9023 18 : spot right behind the big rectangular light on the lower floor
+*** counter Synset: ???
+22132 3 : the purple/brown object on the counter near bottom right
+19715 2 : lady behind counter 
+8990 14 : the towel on the of the counter to the right of the man's head
+13759 2 : that guy was creepy :( the wall below the counter
+12763 12 : white shirt kid at counter
+*** truck Synset: truck.n.01
+2477 2 : white tree truck tree in center of 3 white tree trunks
+9542 7 : road to left of people behind truck
+39188 1 : white truck
+3010 6 : perosn on truck
+9996 8 : white truck behind bus right
+*** basket Synset: basket.n.01
+19868 13 : far right dark basket
+22474 7 : 2nd hanging basket from right
+9841 8 : the flowers in the basket
+12349 7 : tower base under basket with people
+9157 6 : floor below kraft basket
+*** wine Synset: wine.n.01
+9356 7 : the bottle with a white label on the left under the lady's wineglass
+8717 18 : glass of wine in womans hand
+11503 16 : glass in center below and left of red wine
+19561 13 : first wine glass
+22288 12 : left wine rack
+*** shoes Synset: shoe.n.01
+31552 3 : left side of grass above shoes
+9390 6 : his shoes
+16220 11 : brown shoes bottom right
+9209 10 : area above shoes on ground
+10086 3 : middle of shoes sunlight floor
+*** meter Synset: meter.n.02
+30630 7 : tiled walkway wear the meters are
+*** paper Synset: paper.n.01
+16078 4 : right paper on desk
+9857 11 : the gap towards top left to the right of the paper sign
+1961 11 : bottom piece of paper on the side of the shelf
+2058 5 : white paper or book on table
+23366 23 : what that was right! the paper in hand all the way to left
+*** motorcycle Synset: motorcycle.n.01
+26509 10 : lounge chairs just right of motorcycle
+27434 4 : black truck on rode next to motorcycle
+38653 3 : ground below guy on motorcycle
+31284 5 : fourth motorcycle from left
+22369 5 : the motorcycle on the bottom in the middle
+*** keyboard Synset: keyboard.n.01
+8976 12 : not the person on keyboard but the other two memebers of band
+*** birds Synset: bird.n.01
+27224 17 : group of birds
+7380 1 : the ground in front but not the birds
+32836 1 : the area where the birds are 
+9204 2 : branch the birds are sitting on -- the right part
+2814 5 : water just under birds
+*** bunch Synset: ???
+9898 10 : small yellow balloon right side of bunch in far back
+7002 7 : red potatoes left bunch
+3215 5 : lower row of trees second bunch of branches
+9788 7 : blue bunch balloons farthest back
+38723 4 : the clouds bunched together right above the mountain
+*** group Synset: group.n.01
+663 7 : right group of people the mid guy
+14115 4 : the group of rocks at the bottom right
+4951 2 : center group of three animals - its the brown one with black legs on the right
+11834 1 : grass in front of group
+7709 5 : sea lion on far left in the center group of four
+*** monitor Synset: monitor.n.04
+26527 9 : picture above monitor
+26527 6 : computer monitor
+1421 6 : the black old computer monitor thing
+12115 3 : computer monitor
+19422 9 : the monitor/black box on the far left above the c
+*** backpack Synset: backpack.n.01
+8188 3 : red backpack
+11558 24 : light purple backpack thingie in center
+18515 5 : yellow backpack right
+38823 3 : grass behind backpack man
+18405 12 : lady with black backpack with back to camera
+*** window Synset: window.n.01
+19713 5 : gridded window bottom left
+21728 3 : center window
+17215 6 : middle bottom window
+1312 3 : left orange window
+27521 4 : bottom window second from left
+*** orange Synset: ???
+1312 3 : left orange window
+4164 7 : boy in orange sweater
+16136 3 : the guy in the middle in the red and orange
+8064 14 : old lady in orange
+39047 3 : right orange
+*** main Synset: chief.s.01
+15612 5 : stack of papers to right of main child
+22778 4 : the roof of the main building in the back
+10080 4 : upper wall between main and statue
+18403 7 : upper part of main building
+12852 11 : grassy area behind rocks but in front of main cactus on the left
+*** sauce Synset: sauce.n.01
+11539 2 : yellow sauce
+7091 2 : peppr sauce 
+7091 2 : chili sauce right
+4117 5 : bowl of sauce bottom right one
+11539 2 : yellow sauce
+*** dad Synset: dad.n.01
+10353 4 : drunk dad facing us
+669 3 : face only grand dad
+*** apron Synset: apron.n.01
+4245 4 : the top of her apron
+7202 5 : white apron/dress
+11573 12 : vegetables in front of lady in apron
+15650 2 : floor to left of dude in apron
+12730 3 : lady in white apron on the left
+*** coffee Synset: coffee.n.01
+16077 3 : below coffee
+19288 11 : white coffee  mug
+35731 1 : starbucks coffee logo
+7567 4 : the tan coffee mug in the very center of the table
+15424 5 : cup pf coffee in middle bottom
+*** animal Synset: animal.n.01
+2283 7 : patch of snow to the middle left below second animal
+16889 4 : left animal
+1742 2 : left animal
+8720 8 : leftest animal
+23327 4 : the right animal
+*** food Synset: food.n.02
+12953 13 : middle bottom plate of food
+26793 8 : lower left plate yellow food
+38712 3 : plate nearest white shirt with flat food
+18662 12 : left plate of food in front of the front hands
+17135 1 : plate of food
+*** oranges Synset: orange.n.01
+38692 2 : sliced oranges
+11703 3 : plate of oranges above plate of oranges
+38692 3 : morebowl above oranges with green in it
+13175 4 : red fruit between oranges
+3238 11 : on the pillar on the right third from top oranges
+*** walls Synset: wall.n.01
+27010 7 : the area on the walls 
+4761 7 : yellow walls
+4116 9 : the white walls
+4295 7 : painted part of walls
+35737 9 : right walls
+*** giraffe Synset: giraffe.n.01
+18829 4 : glass thing behind giraffes
+40649 1 : a giraffe
+40651 3 : the giraffe !!!
+18829 2 : trinkets left of giraffes
+40650 5 : tall giraffe
+*** half Synset: one-half.n.01
+22129 3 : bottom half of pic
+15387 10 : pile of junk on the left side half way up
+32167 2 : lower half of the sky
+8961 17 : right most half guy
+39406 1 : bottom half
+*** foot Synset: foot.n.01
+16413 2 : bottle standing up by foot on the right
+11530 1 : ground below man's foot
+7869 5 : grey step to the right of persons foot
+4445 5 : log foot rest
+37822 10 : grass in front of foot lefft side
+*** bread Synset: bread.n.01
+8371 6 : green fruits right and above bottom bread
+4872 8 : green food behind bread
+4872 5 : cake i think between the bread its white
+10166 1 : bottle on left of bread
+4872 8 : plate behind the bread rolls on the right side of the table
+*** meat Synset: meat.n.01
+2195 5 : where water meats the beach
+15232 3 : the one cutting the meat
+3842 5 : bolw under meat
+22825 8 : the meat  on the grill
+19522 6 : grill the meat is on but not the meat
+*** rocks Synset: rock.n.01
+14115 4 : the group of rocks at the bottom right
+8522 2 : the rocks below the left most person
+37573 2 : red rocks
+5184 3 : the rocks in the center at the bottom
+11586 1 : whitish rocks in to pleft
+*** rock Synset: rock.n.01
+17414 3 : bottom left but above the rock
+18393 5 : tri rock near people
+2778 4 : big rock right corner
+14115 4 : the group of rocks at the bottom right
+8522 2 : the rocks below the left most person
+*** tray Synset: tray.n.01
+7094 7 : ash tray up front
+14825 2 : big middle tray
+19502 7 : ash tray
+27051 9 : turtle on the left inside the tray in the middle of the 3
+8304 12 : left drink on waiters tray
+*** side Synset: side.n.01
+4626 10 : boat on laft side in water - not red
+39836 1 : trees upper right side
+11623 6 : light colored area on the left side next to pool table
+35944 6 : left most side
+39395 1 : the sidewalk towards the bottom
+*** trailer Synset: trailer.n.03
+9315 13 : sidewalk  right side but not the one the boat trailer is on
+23139 4 : middle in front of trailer
+3477 2 : any trailer
+*** glasses Synset: spectacles.n.01
+8933 8 : woman with glasses in the back
+20121 1 : 1st guy glasses
+7005 4 : guy left side glasses
+7361 6 : food in bowl in front of lady with glasses and black jacket on the left
+23349 13 : smiling kid on the left right above girl in glasses
+*** turtle Synset: turtle.n.02
+7040 6 : ground below adorable turtle
+27051 2 : bottom right turtle
+16756 10 : far left turtle
+27051 7 : top middle turtle
+16756 10 : farthest left turtle
+*** square Synset: square.n.04
+23082 5 : yellow square on wall
+4311 4 : black square to the right of mirror
+9540 4 : poster on the wall with colorful squares to the left of the corner
+3731 13 : yellow square thing on the wall on the right
+11746 4 : small square of land benead tail of fish
+*** house Synset: house.n.01
+20344 2 : blue house in middle front
+17227 6 : grass in front of houses
+3329 8 : yellow house
+1370 5 : ground infront of house
+19015 10 : big white house back left
+*** fish Synset: fish.n.01
+3829 2 : table fish is on but not fish
+11746 4 : small square of land benead tail of fish
+6297 1 : the fish in the lower right at the bottom of pic
+7714 3 : the white fishing hat of the kid in purple
+4219 2 : left fish second from bottom left
+*** spider Synset: spider.n.01
+32427 1 : okay so any where in the top left corner   don't click the guy - he is a spider!
+26032 4 : okay so the lamp on the right that's near the bed covered in spiders
+7039 3 : ack spider
+8990 12 : that weird spider machine that's on the top right
+9817 6 : any of the people in the sign at the top  they are looking at spiders
+*** books Synset: book.n.02
+26025 9 : full row of books 2nd row up from bottom first full row
+26025 12 : third set of books on top
+7553 12 : the purple-ish blue books next to the green books on the kids desks
+22527 12 : topmost books on the left
+2606 5 : 1st floor books
+*** navy Synset: dark_blue.n.01
+8165 8 : man with navy jacket 6th from right
+8991 12 : boy navy shirt foreground
+24640 2 : boy towards front in navy hat and shirt
+12548 3 : man in navy jacket and khakis
+22191 4 : man in gray shirt sitting in between man in navy standing and man in blue and red jacket
+*** girl Synset: female_child.n.01
+23730 2 : middle girl
+736 8 : any of the two girls closest to chalkboard on left
+10894 4 : middle desk with girl in black shirt
+1957 10 : blue girl on left
+674 3 : blue pants girl to center-right
+*** sandy Synset: arenaceous.a.01
+11734 2 : the sandy area at the top
+30345 3 : the sandy part on the bottom middle
+18102 3 : the sandy beach
+26971 4 : bottom middle sandy looking ground
+8843 3 : right of smoke above sandy ground
+*** flower Synset: flower.n.01
+16082 4 : pink flowers
+23084 2 : chair by flowers
+12620 8 : kid in flower dress
+38174 7 : center flowers
+12723 3 : green leaf at bottom under flower
+*** container Synset: container.n.01
+2847 4 : fish on top of container
+37701 2 : tupperware container
+11737 5 : food in container on left
+8802 8 : third container with stuff inside
+2483 4 : bottom area of plant on left side maybe the container its in
+*** space Synset: space.n.02
+18655 7 : any space above the ladies in red
+31500 2 : the space to the right of the woman above the mic
+8252 11 : tiny space to the right of the door
+16591 9 : dark area between boats on right left space of orange shirt guy
+39466 1 : 2nd from the right on the way bottom diamond space on the wall
+*** fountain Synset: fountain.n.01
+8660 8 : tree right of fountain
+5013 7 : flag touching fountain
+8318 13 : ground by tree by fountain 
+40148 1 : the fountain
+23270 14 : the palm tree in the background to the immediate right of the tall fountain right behind the people
+*** hill Synset: hill.n.01
+19136 2 : left hills beyond water
+15763 5 : green hills
+10594 1 : the grassy hill above/behind the riders
+11881 2 : rocky hill wall thing
+8083 4 : right hill
+*** blk Synset: ???
+8977 7 : skeapker left blk
+30619 3 : sky above blk shirt guy
+16568 5 : girl in white t blk short bending over
+1079 3 : bottom row blk window left
+12003 4 : guy in blk
+*** ass Synset: ???
+26572 12 : notebook right of front guy ass
+22628 7 : the left ass
+12662 4 : that fine ass chick
+39936 1 : lame ass sky
+35987 1 : big ass building
+*** foreground Synset: foreground.n.01
+15970 6 : backpacks in foreground
+3584 4 : whiter rock area foreground
+2921 5 : stone wall in foreground left
+3135 1 : grass foreground
+37630 1 : rock in foreground
+*** drink Synset: ???
+20754 4 : brown drink
+17515 1 : the drink on the bottom left
+9025 8 : group of drinking glasses in front of third man from the left
+8961 11 : guy's drink wearing green
+20754 3 : green drink
+*** umbrella Synset: umbrella.n.01
+3001 14 : ugh person in white holding umbrella() in front of building on right
+10606 2 : the blue umbrella the man is holding next to the dotted one
+16391 7 : water behind the guys back under the umbrella
+19523 8 : the umbrella in the back on the right
+35649 10 : right umbrella
+*** dirt Synset: soil.n.02
+38005 1 : the dirt on the bottom
+13328 2 : brown dirt on bottom right
+15965 2 : any dirt
+17465 1 : bottom right dirt
+23583 7 : click the spider dirt on the bottom right
+*** cars Synset: car.n.01
+23354 13 : area behind the 2 parked cars
+61 1 : road left of cars
+10919 3 : the front three train cars
+3188 7 : the cars on the road
+35983 3 : street in front of cars
+*** bldg Synset: ???
+40130 3 : sorry top part of bldg on right
+8537 5 : far right white bldg
+18188 5 : trees upper right of bldg
+37950 4 : rt bldg
+6415 2 : tallest part of bldg
+*** cart Synset: handcart.n.01
+11662 7 : luggage cart on left
+18203 7 : red cart
+9992 3 : shadow under cart
+8407 5 : anywhere on the train cart
+18121 1 : any of the people not in carts/trucks
+*** houses Synset: house.n.01
+17227 6 : grass in front of houses
+17227 5 : bush between houses
+7064 8 : the houses to the right 
+20796 1 : the houses in the bottom half of the picture
+8685 8 : the houses in the middle
+*** base Synset: ???
+22911 3 : dark part of base of mountain
+3791 11 : space on the ground next to man in baseball cap on left bottom corner
+26422 5 : fountain base
+8991 10 : brown baseball cap middle
+12349 7 : tower base under basket with people
+*** cookie Synset: cookie.n.01
+23074 17 : ok the plate of cookies near the fat guy in red
+10961 2 : you wanna buy some girl scout cookies
+*** hoodie Synset: ???
+4246 4 : 1st guy has hoodie on
+27519 13 : table leg with girl with pink hoodie
+9180 4 : the guy in front with pink hoodie
+7161 8 : guy on right in blue hoodie
+27112 2 : person in blue hoodie in the foreground
+*** sidewalk Synset: sidewalk.n.01
+39395 1 : the sidewalk towards the bottom
+13921 2 : far right sidewalk
+9996 2 : below sidewalk
+38043 4 : the sidewalk area left to the stop sign
+11957 2 : the sidewalk
+*** bushes Synset: shrub.n.01
+38205 3 : the bushes on the left
+27641 1 : the bushes above the railing on the bottom right
+3405 7 : 5 bushes lined up on right
+9207 5 : left bushes
+39060 4 : green bushes below the hill
+*** woman's Synset: ???
+15691 8 : whatever is in the woman's lap
+24012 6 : cloud above woman's cap
+24282 11 : ground behind left woman's leg
+27305 13 : jacket in left woman's arms
+18815 5 : green doorway behind woman's head
+*** skateboard Synset: skateboard.n.01
+32853 1 : ground below the skateboarder
+8516 9 : striped skateboard
+34143 6 : house under skateboard
+8516 13 : red skateboard on right 
+8429 5 : red skateboard or surfboard
+*** thing Synset: thing.n.08
+13511 1 : persons face with rainbow scarf thing
+39051 1 : click on the brush grass things in the middle of pic
+11785 6 : the colored box things
+11713 10 : brown thing just under the sky
+11486 4 : white thing center bottom
+*** waterfall Synset: waterfall.n.01
+23686 3 : the mid waterfall
+18115 4 : trees left of and closest to waterfall
+2887 5 : the rocks between the rightmost waterfall and the trees
+30999 1 : the waterfall 
+39673 2 : right waterfall white part
+*** scarf Synset: scarf.n.01
+13511 1 : persons face with rainbow scarf thing
+8938 6 : skateboard of man with brown shirt hat and pink scarf
+27253 1 : any white scarf headdress
+16887 3 : plate in front of red scarf person
+11389 7 : hat only on person w/ red scarf
+*** cheese Synset: cheese.n.01
+22472 6 : guys face behind cheese grater instrument
+10176 2 : plate with cheese behind yellow cup from front woman
+*** dont Synset: ???
+19306 5 : windows of the jeep dont fuck up liek a dumb dumb
+30537 3 : water  to the right of the tree in middle dont worry about it
+32799 2 : the sky but dont touch a firework!
+15582 7 : i dont even know what this is its a dark spot on the right right next to the leaves on the tree and above the roof
+6881 2 : wtf i dont know what just happened this one is the rocks above the bunny
+*** number Synset: ???
+8030 9 : patch of brick between man number 2 (from left) and man number 3
+16548 3 : white thing above numbers
+11713 6 : 1649 numbers
+19697 5 : i think the game ends after a certain number and it auto submits flowers on top of table
+19318 6 : the sign at the bottom with number 3
+*** feet Synset: foot.n.01
+37489 1 : road under their feet
+7840 3 : ground under people's feet
+8721 3 : ground under feet of the lovely people
+1739 5 : under people feet
+22577 6 : water b y left guy feet
+*** hood Synset: ???
+4246 4 : 1st guy has hoodie on
+23166 3 : main guy with blue hood
+3787 8 : tree right just looks like a pole above hood
+27519 13 : table leg with girl with pink hoodie
+7005 5 : the man wearing the hooded jacket
+*** sheep Synset: ???
+14365 3 : white sheep middle
+9244 3 : grass next to sheep
+14294 1 : the sheeple
+19161 7 : left sheep
+2789 6 : wall above sheep on left
+*** city Synset: city.n.01
+35724 1 : the city
+37129 1 : left city
+38046 5 : the city area between the building and the tree on the right
+35970 1 : any portion of the city in the upper right
+20836 2 : the city in the center
+*** horse Synset: horse.n.01
+26521 14 : white horse second from left
+17723 3 : the horse in front
+17724 3 : left horse
+26521 16 : person on the second horse (starting left)
+22956 6 : center horse
+*** toy Synset: plaything.n.01
+23116 8 : green toy in corner between yellow and green 
+21345 3 : floor right next to pink toy on right
+8990 9 : lego toy
+2565 9 : that person standing in the middle between the toyota truck and car
+23116 3 : red toy next to donald duck
+*** monkey Synset: monkey.n.01
+4874 3 : the big leaf infront of the monkey
+2288 3 : leaves left of monkey
+11592 3 : anything but right monkey
+8093 3 : bench left of monkey
+2117 1 : tree just right of monkey
+*** guys Synset: guy.n.01
+11088 8 : 2nd from left above guys head leaf
+18733 6 : two tall guys on the left
+37723 5 : bike guys riding
+8912 9 : plate under left guys arm
+16391 7 : water behind the guys back under the umbrella
+*** girls Synset: female_child.n.01
+736 8 : any of the two girls closest to chalkboard on left
+9237 6 : space above two girls on right
+26138 2 : the girls shadow
+9028 8 : the girls head between the 2 on the left
+3168 5 : man in white between the front girls
+*** stack Synset: stack.n.01
+12548 11 : wood stacked on left of house
+19410 4 : blanket stack on left top bunk
+37821 3 : right side stack of paper in the back
+11295 8 : middle under train above stack of white items
+35612 5 : the stack of rocks on the left the one closest to you
+*** anyone Synset: ???
+6281 6 : can't seem to keep in touch with anyone here for too long rocks right above freaky duck monster
+23023 2 : people anyone
+23592 16 : light blue mug that's not in front of anyone
+8964 4 : click anyone in the group
+14822 1 : group anyone
+*** legs Synset: ???
+7299 2 : between guy s  legs ground
+18458 7 : brown area to right of right most ladies legs
+4951 2 : center group of three animals - its the brown one with black legs on the right
+9768 8 : in between the far right horse legs
+39942 1 : bed between legs
+*** banana Synset: banana.n.02
+2099 6 : oh lord to the right banana shaped boat in front of building 
+21940 2 : big banana horizontal on left
+40241 5 : tomatoes or whatever behind bananas
+40241 5 : tangerines() right above bananas
+3050 5 : click bananas under second canopy from right
+*** beard Synset: beard.n.01
+32237 2 : man with beard with hat on back right
+8172 7 : the guy on the right side in the light blue shirt with a beard who is standing up
+8976 10 : guy on left with beard is holding a cup click the cup
+1747 3 : man with beard's hat
+7190 8 : person with the salt n pepper beard on the right that is half cut off
+*** curtains Synset: curtain.n.01
+15930 7 : black window in between blue curtains
+1201 1 : blue curtains top
+22843 4 : beige curtains
+9099 4 : middle curtains on right side
+19257 5 : white curtains behind nurse
+*** ceiling Synset: ceiling.n.01
+3737 1 : black thing near ceiling top left
+7498 6 : the light fixture hanging from the ceiling
+15651 15 : red thing hanging off ceiling // farthest one / leftmost
+19182 10 : wooden ceiling beam above and left of woman's head
+7324 6 : the thing on the ceiling in the middle
+*** shorts Synset: short_pants.n.01
+23333 8 : man in green shorts holding bag in front of him
+6328 3 : girl with black top and tiny shorts
+22343 1 : blue shorts
+7552 5 : man with blue shirt on and blue shorts
+7491 12 : lady in shorts
+*** hut Synset: hovel.n.01
+11564 10 : reeds on top of mountain left of hut
+9294 7 : rightmost grass hut
+23336 7 : green patch beneath 3 pointed huts mid page
+13585 3 : the green trees in front of the hut
+13515 2 : guy leaning on hut
+*** butt Synset: buttocks.n.01
+18942 8 : brown grass just above llama's butt
+26990 10 : the chair behind the standing lady's butt
+19283 14 : stove buttons
+14648 1 : booty butt
+7842 10 : rocks right of guy butt
+*** flowers Synset: flower.n.01
+16082 4 : pink flowers
+23084 2 : chair by flowers
+38174 7 : center flowers
+18640 9 : bench above flowers on left
+4495 4 : the purple flowers
+*** stairs Synset: stairs.n.01
+22839 2 : grass on stairs
+26376 9 : man left to the stairs of the plane
+7255 5 : any of the people on the stairs
+19893 8 : stone stairs
+15584 4 : ground infront of the stairs
+*** surfboard Synset: surfboard.n.01
+34143 1 : the snow beneath the surfboarder
+31260 1 : the surfboard
+2374 5 : to the right of the surfboard thingies the big rocks
+14844 4 : the two idiots bottom right not their surfboards
+18733 10 : blue surfboard on left
+*** distance Synset: distance.n.02
+3362 2 : left building in distance
+8349 8 : mountains in distance
+4881 2 : land in distance
+7218 2 : hills in the distance
+32174 3 : buildings in the distance
+*** tree Synset: tree.n.01
+32670 3 : mid tree most right
+26033 8 : area just to right of palm tree
+15827 6 : high tree in the left
+12248 8 : fence above the trees bottom right
+11570 7 : middle tree
+*** bed Synset: bed.n.01
+12772 3 : in between the bed
+4500 1 : left bed
+17742 2 : right bed
+4300 5 : holla atcha boy! bed at the bottom
+22159 6 : phone next to bed
+*** apples Synset: apple.n.01
+11878 3 : pile of apples below the red ones
+11878 12 : white thing in middle above apples
+7504 5 : the apples and brown things in back only
+11878 4 : red apples to left of green apples
+3809 12 : above apples in the middle
+*** bridge Synset: bridge.n.01
+19248 4 : wood part of bridge
+19248 6 : green part on left side of bridge
+16649 2 : wood on bridge front
+38062 4 : the bridge
+35726 6 : 2nd bridge
+*** donkey Synset: domestic_ass.n.01
+8001 1 : head of donkey 
+3125 4 : brown donkey not being ridden
+5151 9 : middle donkey brown with no person
+20483 1 : people left of donkey
+8137 5 : man on donkey
+*** juice Synset: juice.n.01
+12558 6 : glass of juice
+14247 5 : orange juice middle one
+14187 7 : orange juice
+4880 7 : the sidewalk to the right of the juice on the left
+705 17 : the glass of juice between the two kids bottom left
+*** shrubs Synset: shrub.n.01
+35572 8 : rockline just left of shrubs on right side
+7938 6 : right area past shrubs ground before the right tree and grass
+37602 3 : green shrubs on right 
+6305 5 : green shrubs
+2148 5 : patch of flowering shrubs on left
+*** mountain Synset: mountain.n.01
+21324 3 : white fog in middle of mountain
+13215 4 : water below mountains
+8565 2 : clouds right above mountains
+23822 7 : the mountain tops or maybe thoseare clouds
+18106 6 : sky right above mountain very left
+*** koala Synset: koala.n.01
+40124 1 : giant koala rock figure
+18276 4 : it's a koala! anywhere on the animals
+30777 1 : the koala
+40193 2 : lower koala
+40193 2 : painting top right koala on ground
+*** snow Synset: ???
+2283 7 : patch of snow to the middle left below second animal
+8852 2 : white snow
+34143 7 : buildings left of snowboarder
+11252 4 : green snowboard the lady in middle is holding
+3803 8 : black rock area in snow
+*** couch Synset: sofa.n.01
+24420 2 : pillow in middle couch right one
+11515 10 : any person on couch
+19970 21 : checkered couch on the far right facing us
+9841 21 : ground on the right by couch
+4458 4 : blanket on couch
+*** doors Synset: door.n.01
+3005 11 : brown doors behind white car
+21422 1 : the closed double doors on back
+11352 2 : anywhere on the building except doors/windows
+1411 5 : window above the doors green
+25607 2 : sidewalk in front of the doors
+*** poster Synset: poster.n.01
+9948 1 : green poster
+25206 3 : wall below poster thing on left side
+16313 4 : green poster background right
+11527 18 : the poster right under the picture on the blackboard
+22261 2 : yellow poster left
+*** rider Synset: ???
+10594 1 : the grassy hill above/behind the riders
+37816 5 : triangle of green under toe of rider
+30164 5 : bushes ot the right of rider
+37879 2 : bike rider
+37547 1 : boulder above rider
+*** surf Synset: ???
+8516 13 : red surf board on the right
+34143 1 : the snow beneath the surfboarder
+31260 1 : the surfboard
+8516 11 : yellow surfborad
+9683 7 : middle surf board
+*** object Synset: object.n.01
+11425 4 : towel looking object to left of him below green looking thing
+11706 10 : standing object to rear right of table
+22132 3 : the purple/brown object on the counter near bottom right
+37979 4 : dark objects on the right
+8820 14 : some dark object right to the right of the man in the far back on the right
+*** mouth Synset: mouth.n.01
+9173 3 : child to the far right with hand in mouth
+905 5 : his right hand near his mouth
+16462 1 : okay so any of the sky   i bet that girl in white has spiders in her mouth
+27115 7 : the guy on the right with both hands on his mouth
+19812 2 : the pan flute in guys mouth
+*** knee Synset: ???
+8019 2 : bottom left person thats kneeling
+19189 5 : green trees beneath guy's knee
+22027 3 : btotom left kneeling
+15679 16 : fence above kneeling red girl
+15026 7 : man kneeling whit shirt
+*** cloth Synset: ???
+5159 9 : hanging clothes on the right
+19883 8 : last piece  green or gray clothes center and up a little
+37777 4 : gravel area just under right of clothes
+23082 11 : left chair at table with red cloth
+856 3 : white cloth left
+*** windows Synset: window.n.01
+1947 5 : the door looking thing to the right of all the windows
+6466 3 : building windows
+39695 1 : the windows of the building on the very left
+26641 6 : four green windows middle of pic
+34165 9 : bottom window at entrance below the two windows above it
+*** clock Synset: clock.n.01
+4946 3 : the bush right under the clock
+8403 8 : trees under the clock tower
+15565 17 : the clock to the right of the white building
+38250 2 : grass area next to clock 
+38243 2 : sky above clock
+*** cover Synset: ???
+37311 4 : snow covered roof on far left of picture
+26032 4 : okay so the lamp on the right that's near the bed covered in spiders
+3786 1 : mountain (not anything covered by smoke)
+19284 8 : the nightstand next to striped cover
+4002 6 : tree cover top right corner
+*** dog Synset: dog.n.01
+21833 4 : hedge above dog's rear
+9040 8 : sand above dog
+9363 4 : the dog
+17963 1 : grass bottom under dog
+27064 3 : a boy and a dog
+*** face Synset: face.n.01
+13511 1 : persons face with rainbow scarf thing
+20180 2 : the womans face in the center
+12271 2 : baby face
+15252 7 : person on far right's face
+8483 3 : just to left of his face
+*** camo Synset: camouflage.n.02
+30251 3 : yellow guy in back with camo pant
+22981 1 : in camo
+7747 8 : plant all the way to the right camo'd hardcore
+*** painting Synset: painting.n.01
+7505 3 : cow painting on wall
+11554 6 : woman child painting
+10017 5 : white wall above green fruit painting
+5104 8 : row of 4 paintings to rt of lamp
+31653 3 : wall above guy and painting
+*** dot Synset: point.n.09
+20756 1 : the woman in the blue polka dots
+10606 2 : the blue umbrella the man is holding next to the dotted one
+16279 12 : light dots directly to the left of the largest palm tree
+7680 5 : woman in bloe polka dots
+19182 9 : blue thing with white polka dots on it on the right
+*** gold Synset: amber.n.01
+7742 34 : highest gold balloon almost off the pic
+37342 1 : bright gold middle left
+18843 6 : wall ornament gold
+18813 3 : the gold wall
+16212 2 : left upper corner gold
+*** stove Synset: stove.n.01
+19283 9 : spice rack to the right of stove under cubboard
+19283 9 : spice rack by stove
+19283 15 : the pot on the stove
+15650 5 : middle bottom like on the stove kind of thing
+19283 3 : chair an left near stove
+*** biker Synset: ???
+37823 4 : grass in in middle - left of biker
+30095 3 : road next to the biker
+8613 17 : left most biker by edge of frame
+37785 7 : grass to right of biker
+30139 3 : road in front of biker
+*** chicken Synset: chicken.n.01
+7368 5 : air to the right of guy eating chicken wing
+*** uniform Synset: ???
+40519 2 : guy in blue uniform inside the white line
+4945 1 : tall uniform bush to the right
+3873 2 : guy in uniform with arm raised
+*** ground Synset: land.n.04
+5206 5 : the ground
+7299 2 : between guy s  legs ground
+9322 4 : sunny ground
+40193 2 : animal on ground
+8119 2 : the ground you should lay on and pray
+*** tire Synset: tire.n.01
+10897 2 : the front tire
+30916 6 : man by front tire sitting
+37598 5 : front tire
+11104 2 : under the tire
+15516 5 : bike tire in bottom right
+*** suv Synset: sport_utility.n.01
+26938 1 : toyota suv
+1732 5 : water to right of suv
+4764 8 : person standing at back of suv
+22805 4 : bottom right corner that was an suv blindy
+30020 2 : blue suv parked
+*** jar Synset: jar.n.01
+7733 6 : the left jar
+16864 4 : the jar on the left
+5186 10 : the jar behind the lantern at the nearest table
+5145 12 : row of smaller jars on the top shelf between the bigger bottles
+19288 9 : yellow jar near front with yellow label
+*** bush Synset: shrub.n.01
+16988 2 : tree leaves or bush leaves on the left
+23017 5 : purple flower bush
+9324 9 : left roundy bush
+38205 3 : the bushes on the left
+13491 3 : or bush  bushy grass
+*** wood Synset: wood.n.01
+4779 4 : at bottom of steps to the right is some "planks" of wood3 of them
+19279 8 : left side the wood
+9076 5 : the wooden thing in the top right corner
+17479 4 : left wood wall 
+7890 3 : left long wooden limb extending into water
+*** circle Synset: circle.n.03
+16279 2 : green grass within bottom circle
+1089 4 : dark tree above the circle garden
+23355 9 : ground in the center of the circle of people
+1841 5 : grass area to right of circle
+11257 4 : brown pot on rt side circle
+*** rice Synset: rice.n.01
+11671 10 : red bag rice
+38692 6 : bowl of rice () in the front rice has black sprinkled on it
+11522 1 : middle rice fields
+17800 1 : plate on the right with rice and brown stuff
+*** plate Synset: plate.n.04
+12953 13 : middle bottom plate of food
+6349 1 : empty plate bottom left
+26793 8 : lower left plate yellow food
+12901 7 : partial plate at front of table infront of guy on left
+23139 23 : middle plate by blue bottle
+*** handle Synset: ???
+4712 5 : the handlebar
+4880 13 : bamboo on bike handle bar
+7409 2 : oh wow you're a smart one! how about the building anywhere on the right think you can handle that
+30079 3 : piece of dirt directly over handlebars
+15832 4 : screwdriver (not handle)
+*** watch Synset: ???
+16000 5 : her watch
+9076 4 : mans watch
+5148 4 : the woman's hand with watch on wrist
+23173 9 : the watch on the guy to the right
+32079 1 : womans head (blonde) watching
+*** stripes Synset: band.n.04
+39129 1 : guy in stripes
+742 4 : woman in stripes
+32272 5 : red/white stripes
+15521 6 : guy in blue with stripes
+8705 2 : blue hat on right "person"  stripes
+*** trees Synset: tree.n.01
+12248 8 : fence above the trees bottom right
+16643 4 : strip of land below the trees on the right but above the red hat
+15547 3 : palm trees
+2868 5 : brown right above trees on left in water
+38131 5 : the top of the right trees
+*** batter Synset: batter.n.01
+32439 1 : field to right of batter
+*** lighter Synset: light.a.01
+31225 3 : rock patch just above the lighter colored rocks on lower middle
+11488 1 : slightly lighter wall on left
+9835 5 : bottom right lighter area
+4001 15 : top left second leaf from the left under the set of four lighter colored ones
+26718 7 : bottom right lighter sidewalk
+*** bat Synset: ???
+6733 2 : girl in blue bathing suit closest to us
+10573 1 :     2nd person from left orange bathing suit
+9594 1 : lady in black bathing suit
+12801 12 : towels in bathroom
+40376 1 : black sky for batman
+*** bar Synset: ???
+37773 5 : right barricade
+1119 2 : thing with bars in the middle there
+1960 8 : plant barrel rightside
+11788 6 : boat to right of blue barge
+27097 11 : bottles on bar on right
+*** sleeve Synset: sleeve.n.01
+18986 7 : plaid shirt sleeve left
+22315 3 : blue sleeved guy
+7291 3 : person with red sleeves
+22656 6 : lady with blue sleeves
+16006 6 : person to far left  bluish sleeve
+*** patch Synset: plot.n.02
+19648 5 : small patch of grass lower right
+19197 4 : left patch of green
+22816 7 : dark patch of grass bottom right corner not the path
+1799 12 : tiny patch grass bottom left
+37628 3 : left patch of grass
+*** bag Synset: bag.n.01
+19259 5 : person holding bag
+8180 2 : green bag
+23333 8 : man in green shorts holding bag in front of him
+18422 10 : bottom right brownish bag not the checkered
+7133 7 : pile of bags in front
+*** stuff Synset: stuff.n.02
+7349 5 : black stuff beside guy in red
+12399 9 : misc stuff in shelf on very top
+27686 2 : all the green stuff
+27433 1 : the stuff in the sack
+2386 1 : gold stuff
+*** river Synset: river.n.01
+1809 2 : group of animals left of river
+35802 2 : trees on a river
+14114 6 : low grassy area down there by the river
+10048 4 : trees above river bank
+15852 1 : the calm river
+*** ruins Synset: ruin.n.02
+11522 1 : what looks like ruins
+21809 2 : the ruins not person
+2039 3 : bottom left ruins
+18523 2 : city ruins
+13430 2 : the ruins to the left of the people
+*** view Synset: view.n.02
+4623 6 : green trees parially blocking view of house on right side
+15906 4 : paper slightly in view written by blue pen girl
+37836 3 : tree right above rear view mirror
+19973 7 : yellow blurred view
+37246 4 : person walking to the right of picture we see his sdie view
+*** set Synset: set.n.01
+4303 4 : dinning set behind man
+37389 5 : snow on the left between the two sets of people
+18420 15 : right side 2nd set of lights from top
+15710 5 : left set of hanging pictures
+23558 5 : top set of windows closest to us
+*** frame Synset: frame.n.10
+9571 6 : part of table im bottom of frame
+7299 7 : bottom framed picture right side
+8613 17 : left most biker by edge of frame
+1005 6 : dirt right frame
+39395 2 : palm tree inside frame
+*** seat Synset: seat.n.01
+7189 2 : bottom left seat
+2512 2 : left red curtain above seats on bottom
+9727 14 : the seat right behnd guy in fronts shoulder left guy
+7190 3 : the part of the seat behind the girl on left with glasses
+4880 11 : concrete just left of the seat part of blue chair
+*** computer Synset: computer.n.01
+22132 9 : directly above computer screen
+18866 10 : top right computer looking thing above guy
+1421 6 : the black old computer monitor thing
+12115 4 : left most computer screen
+1957 14 : hat on computer
+*** sea Synset: ???
+7604 4 : anywhere in the picture except for the seals
+40103 2 : water below the seal
+6447 3 : rocks above seal'
+37454 3 : water right of seal
+19912 3 : patch of dirt touching the sea
+*** seal Synset: ???
+7604 4 : anywhere in the picture except for the seals
+40103 2 : water below the seal
+6447 3 : rocks above seal'
+37454 3 : water right of seal
+27053 14 : the group of seals in the background 
+*** arm Synset: arm.n.01
+22020 3 : i mean his right arm
+4743 5 : canisters on table in background below arm of person in red
+2298 11 : child in middle raised arm
+8912 9 : plate under left guys arm
+27628 6 : portion of hammock just under right arm
+*** closet Synset: ???
+9730 7 : the guy closet to us but what he is sitting on
+9846 5 : the bottle closet to us
+7164 6 : the first pilar closet to the man
+4166 6 : blue wall in closet right side
+23387 5 : brown closet next to bed
+*** label Synset: label.n.04
+16846 9 : the bottle in the bottom middle yellow label
+7906 8 : the beer bottle with the gray label in front of the blue shirt girl
+7906 10 : wine glass near the bottole on left with blue label
+9356 7 : the bottle with a white label on the left under the lady's wineglass
+9126 8 : bottle with orange label
+*** mug Synset: mug.n.04
+18378 4 : black mug bottom center
+19858 5 : white mug front
+22191 3 : shorts black jacket holding mug center right 
+10574 4 : upside down blue mug
+17700 3 : coffee mug on the right hand side
+*** pants Synset: trouser.n.01
+24727 1 : girl in red pants standing
+674 3 : blue pants girl to center-right
+22704 3 : tall guy on rt in green pants
+37528 5 : guy in pants in car
+9093 4 : blue vest pants
+*** screen Synset: screen.n.03
+2278 4 : middle of screen left topish
+1892 1 : trees closest at bottom of screen
+9505 5 : ground behidn people middle of screen left side
+11071 6 : middle left of screen green
+22132 9 : directly above computer screen
+*** outfit Synset: outfit.n.02
+16001 5 : left persons outfit
+21517 3 : person or his outfit
+9171 13 : tiny people closest to you all white outfit
+37878 2 : the guy in the bike outfit
+9866 8 : the white pill above that lady with the blue outfit
+*** guitar Synset: guitar.n.01
+15888 2 : below guitar
+8669 3 : this game is a mind f*ck) guy playing guitar
+12851 2 : the guitar
+8669 20 : picture above guy with guitar
+22403 9 : bedspread below guitar
+*** police Synset: police.n.01
+17699 1 : weird couple one looks like the police academy dude
+8770 6 : snow patrol police officer
+13519 1 : the group of police
+*** lap Synset: ???
+15691 8 : whatever is in the woman's lap
+4258 5 : sassy boy on her lap
+9209 7 : guy on laptop
+9878 5 : backpack on guys lap
+11125 5 : notes on lap
+*** mans Synset: ???
+11116 5 : left mans right hand
+13342 1 : a mans face
+7688 2 : stone below mans back
+35608 9 : space between mans legs left
+4887 4 : grass right of mans waist
+*** cow Synset: cow.n.01
+3075 4 : tree behind cows on the left
+10317 2 : middle man in white shirt holding cowboy hat
+3075 2 : any cow
+6238 3 : patch of grass between the two cows and up slightly
+13147 2 : okay so any of the tiles under the kids cowering from the spiders wusses
+*** womans Synset: ???
+20180 2 : the womans face in the center
+16080 11 : the table full of this womans sad hobby
+17932 2 : window above white shirt womans head
+11393 8 : that far left womans fuckin hat
+18954 11 : right most bag on womans back
+*** doorway Synset: doorway.n.01
+11548 6 : second doorway center left
+27425 9 : bottom window on right not doorway
+18815 5 : green doorway behind woman's head
+8311 3 : trees in the doorway
+23082 12 : chair in theother room closest to doorway
+*** jersey Synset: jersey.n.03
+18651 10 : the lump of white whatever under the dude in the 51 jersey on the bottom right
+12512 2 : man with 3 on jersey
+12267 10 : the light wood thing under the little girl in yellow jersey on the left
+30193 7 : yellow jersey
+32326 1 : middle guys face (in the jersey thing)
+*** wall Synset: wall.n.01
+37574 1 : far right wall
+12399 10 : paper on the wall to right of people
+7505 3 : cow painting on wall
+36031 3 : low wall on left
+21685 4 : blank blue wall upper left
+*** pot Synset: ???
+8651 3 : the pot of the plant right in the middle but not the plant
+17147 5 : terra cotta pot with skinny tree in front of center column
+7002 7 : red potatoes left bunch
+2959 7 : first pot on bottom from left
+9517 15 : the silver tea pot on the table dead center
+*** jeans Synset: jean.n.01
+40081 3 : click on the lady in the black shirt and blue jeans
+3731 9 : dork in black shirt and jeans
+2834 12 : boy in white shirt center blue jeans
+10021 3 : lower right corner floor next to man in jeans and blue shirt
+8199 4 : girl / right black top jeans
+*** dudes Synset: ???
+15776 3 : space under dudes crotch in blue
+19564 3 : space behind the dudes back
+9119 8 : tree trunk above dudes head
+7353 4 : snow under mans arm by dudes head small head
+7543 6 : okay so like anywhere directly to the left of the dudes head or like anything on the right side
+*** walk Synset: ???
+7770 3 : middle patheway to left of man walkn
+8711 8 : the bottom walkway
+22327 9 : whiote walkway
+4327 4 : narrow walkway
+3334 5 : person walking
+*** pole Synset: pole.n.01
+8651 10 : left pole
+18179 8 : electric pole with trandformer
+18161 1 : light pole
+18225 7 : the first bulb pole
+9325 3 : guy to left of pole
+*** church Synset: church.n.02
+2998 5 : dark patch left of church
+1944 13 : clouds right of church
+20505 3 : to the left of church
+11077 10 : sky above church not clouds
+35747 1 : main church-y building
+*** table Synset: table.n.02
+11623 6 : light colored area on the left side next to pool table
+9571 6 : part of table im bottom of frame
+4743 14 : 2nd yellow dish on right of table
+13807 3 : front left table
+7401 3 : drink on table lower left corner
+*** blonde Synset: ???
+32299 2 : the blonde thats standing up
+40606 1 : back of blonde guys head
+9347 10 : plant above left blonde woman's head
+26054 7 : space right of blonde head
+8674 9 : mug which blonde on right is holding
+*** boat Synset: boat.n.01
+12518 8 : the right window next to the door of the second level of the boat
+6357 4 : small white boat middle
+2741 5 : any yellow boat
+2099 6 : oh lord to the right banana shaped boat in front of building 
+11788 5 : blue boat white letters
+*** teddy Synset: teddy.n.01
+20571 1 : weird teddy bear
+9993 8 : green thing on wall straight above teddy bear
+*** polka Synset: ???
+20756 1 : the woman in the blue polka dots
+7680 5 : woman in bloe polka dots
+19182 9 : blue thing with white polka dots on it on the right
+20756 1 : woman with polka dots up front
+20756 1 : middle lady polkadots
+*** beer Synset: beer.n.01
+9404 9 : the beer bottle in front of woman in black
+8784 10 : the closest beer bottle
+19582 6 : the rightmost beer bottle
+9896 14 : second beer bottle from the bottom
+8784 10 : bottle of beer closest to you with paper on tip
+*** curtain Synset: curtain.n.01
+4498 4 : a curtain
+1087 6 : right curtain
+9841 4 : right curtain
+22360 4 : green curtain
+15512 5 : blue curtain on very far left
+*** brick Synset: brick.n.01
+19691 4 : above the bricks on the left of the picture
+3734 3 : the brick thingy
+8535 8 : first brick building side on the right
+8030 9 : patch of brick between man number 2 (from left) and man number 3
+7960 11 : door in the back next to brick wall
+*** cop Synset: ???
+22340 14 : the copper looking pot near the woman in white (far right)
+22474 8 : fruit in the farthest rt copper hanging thing
+6865 1 : i said the copy in the back street
+19175 7 : top right coprner
+*** fire Synset: ???
+32794 3 : water below fireworks
+12808 9 : top right fire extinguisher
+12451 1 : the fire
+18860 2 : pot on left above fire
+18860 1 : sorry fire
+*** sleeves Synset: sleeve.n.01
+7291 3 : person with red sleeves
+22656 6 : lady with blue sleeves
+15274 6 : blue sleeves
+7491 2 : boy in jeans and yellow shirt with red sleeves
+11407 5 : back of chair that man with the gray shirt with red sleeves is on
+*** child Synset: child.n.01
+704 4 : second child on right
+668 9 : girl and boy behind other children
+6400 3 : face left child not making eye contact
+11554 6 : woman child painting
+15612 5 : stack of papers to right of main child
+*** plants Synset: plant.n.02
+1741 4 : sand with small plants on middle right
+19941 12 : patch of grass or plants right of guy in yellow
+9550 3 : trees not the plants
+7369 4 : any plants
+8889 10 : most right yellow thing above the plants
+*** soccer Synset: soccer.n.01
+31608 3 : 3 soccer player on right
+12549 2 : those were soccer balls dude left
+63 9 : tiny white van to left of soccer pillar
+39441 1 : green field near soccer ball
+*** tank Synset: ???
+19015 5 : guy with white tank top
+7610 8 : shoes infront of the man in the blue tanktop
+7536 3 : white under tank
+9834 6 : big metal tank
+22340 4 : woman in white tank top 
+*** plain Synset: ???
+26868 1 : air plain
+1754 2 : gray-green plants on left just below center plains
+10232 8 : left misty mountain above brown plains
+9666 5 : okay so any of spider plains under neath the man
+9760 3 : top middle plain white wall
+*** bikini Synset: bikini.n.02
+14186 2 : lady in purple bikini
+9409 12 : got it agin! girl in the bikini top
+16220 5 : woman in the bikini
+20444 2 : woman in black bikini
+17155 3 : person blue bikini
+*** pack Synset: ???
+22564 4 : back pack
+9067 3 : bag pack of the guy on the far right
+23326 6 : guy on left with fanny pack
+22290 7 : back pack
+9819 5 : people in the midde pack
+*** vest Synset: vest.n.01
+9335 5 : above head of person on the left with blue life vest  
+16406 5 : guy on the right in blue vest
+9093 4 : blue vest pants
+9598 3 : man red vest
+9905 5 : person on bottom with safety vest
+*** purse Synset: bag.n.04
+15619 8 : yellow purse
+7807 5 : black purse in middle left
+32840 2 : woman on the left w/the red purse
+11092 8 : rock under purse on right
+20259 4 : woman with purse in middle
+*** player Synset: player.n.01
+40550 3 : leftmost player of row in black
+32152 3 : standing players
+31821 2 : tennis player in white
+31642 1 : grass between standing players
+31796 1 : tennis player in yellow
+*** nightstand Synset: ???
+19284 8 : the nightstand next to striped cover
+4304 4 : left nightstand
+16046 3 : lamp on right nightstand
+1331 3 : the floor in front of the nightstand
+27014 9 : lamp on nightstand
+*** bags Synset: bag.n.01
+7133 7 : pile of bags in front
+8433 7 : middle car top rack bags
+11558 21 : very right bags
+32455 3 : grass on left hand side behind bags
+11707 11 : black thing between the black bags and sandwich
+*** thingy Synset: ???
+9426 8 : black thingy right under lady rightside
+3734 3 : the brick thingy
+18782 6 : blue tarp thingy lower right
+27112 9 : weird thingy on wall left
+11468 3 : the float thingy
+*** bottles Synset: bottle.n.01
+7948 9 : red bottles at middle top
+19313 11 : bottom bottles on right next to woman's hair
+22288 12 : wall of bottles behind guy in red
+8948 8 : the dark area to the rt of her shoulder below the squeeze bottles
+8037 8 : desk with two bottles on it
+*** shirt Synset: shirt.n.01
+40081 3 : click on the lady in the black shirt and blue jeans
+11011 3 : man in red shirt's left hand
+3274 7 : guy left white shirt
+7451 1 : blue shirt on left
+9623 2 : pink shirt on wall
+*** things Synset: things.n.01
+39051 1 : click on the brush grass things in the middle of pic
+11785 6 : the colored box things
+20203 1 : center opening above people but below the mountain things
+23168 8 : the things on top of the table
+16020 1 : left green things
+*** balloon Synset: balloon.n.01
+9898 10 : small yellow balloon right side of bunch in far back
+7742 34 : highest gold balloon almost off the pic
+7742 39 : rleft most hanging balloons
+26129 6 : the balloon on the far bottom right next to boy's leg
+11390 6 : blue balloon behind cake
+*** bowl Synset: bowl.n.01
+7736 5 : green bowl 
+12364 11 : white bowl to right of water bottle
+9251 6 : the yellow bowl on the right the second from the bottom
+8714 4 : white bowls
+27636 3 : the bowl of almonds on the right
+*** cross Synset: ???
+22759 1 : the crosslegged girl
+2430 13 : green stuff at right edge by cross
+8217 5 : sweater guy arms crossed front
+26197 10 : the cross
+8727 3 : bricks undr cross
+*** cream Synset: ???
+8569 12 : whipped cream on the furthest back plate on the left 
+27223 6 : ppl touching one sitting by ice  cream cart to right 
+10033 7 : area in the lower right hand corner net to the cream colored bush
+26445 7 : the cream wall on the far left
+37861 2 : guy on right cream shirt
+*** wheel Synset: wheel.n.01
+8769 6 : bike wheels on right
+37706 5 : such cycle many wheels very pedal
+37827 5 : front wheel bike
+21523 1 : bike wheel
+9286 6 : bicycle wheels on the left
+*** ball Synset: ???
+9898 10 : small yellow balloon right side of bunch in far back
+7742 34 : highest gold balloon almost off the pic
+7742 39 : rleft most hanging balloons
+26129 6 : the balloon on the far bottom right next to boy's leg
+8705 2 : the item on top of pink ball
+*** bald Synset: ???
+32302 4 : left side balding his head
+8758 12 : front left plate in fron of man balding
+15658 9 : concrete holding the tree above the bald man's head bottom left
+9388 5 : the bald man
+9493 7 : ceiling above bald man
+*** hand Synset: hand.n.01
+11011 3 : man in red shirt's left hand
+27238 9 : boy in green hat in middle's hand on the right
+20826 5 : right hand guy purple
+11116 5 : left mans right hand
+12007 7 : rightside of hand
+*** persons Synset: ???
+15019 1 : pavement below persons shoe
+7091 7 : first persons face left
+7869 5 : grey step to the right of persons foot
+18854 10 : globe just right of left persons head
+7554 3 : above persons head
+*** fruit Synset: fruit.n.01
+8632 5 : person in between fruits center
+4883 2 : top-most fruit
+13175 1 : orange fruit in front of women
+11878 3 : yellow fruit
+3238 4 : brown fruit on column
+*** stripe Synset: stripe.n.05
+16421 2 : person in black and red stripe 
+8603 2 : hat of man with black shirt blue stripe
+7742 4 : champagne bottle woman in front striped shirt
+27423 9 : the truck with the blue stripe
+19284 8 : the nightstand next to striped cover
+*** statue Synset: statue.n.01
+5101 4 : blue building near right of statue
+10817 1 : !the whole statue 
+2403 3 : patch of grass in front of the statue on the left
+12242 6 : man statue with teacup
+4663 13 : very lower lefthand corner next to the statue
+*** kid Synset: child.n.01
+7684 6 : weird looking kid
+9455 10 : child peeking over third kid from left
+15907 5 : strip of grass in front of kids
+20920 1 : lol   kids
+838 4 : wall behind kid
+*** reflection Synset: reflection.n.02
+3681 5 : monkey reflection in mirror
+3375 3 : land above reflection not mountain
+7546 3 : the water with the reflection
+9400 2 : bottom left water not the boat reflection
+8794 3 : mountain reflection in water
+*** ocean Synset: ocean.n.01
+3607 4 : rocky outcrop in the ocean on the right
+22753 11 : the ocean right above the lamp on top left
+30761 9 : right patch of ocean to right of the tree
+15131 2 : the bit of ocean on the left
+31137 3 : front ocean rock
+*** person Synset: person.n.01
+31573 5 : wall to the right of the person
+15019 1 : pavement below persons shoe
+11108 3 : any person
+7927 1 : ground rt of person
+11463 5 : cloud in the middle next to the right most person
+*** edge Synset: edge.n.01
+1333 3 : brown door left edge
+31986 1 : outer edges of field
+4303 3 : right edge
+8776 7 : white pillard to the right edge
+23869 9 : sky right edge but below cloud
+*** bottle Synset: bottle.n.01
+16846 9 : the bottle in the bottom middle yellow label
+18662 13 : coca cola bottle in center
+22288 12 : left bottle rack
+10152 4 : tallest bottle
+9208 3 : wine bottle
+*** mother Synset: ???
+30844 1 : that shark looking motherfucker
+7425 1 : both them motherfuckers
+22491 2 : the mother holding the baby click on face
+39291 3 : the motherfucking mountain on the righjt
+39958 3 : any of the motherfucking building
+*** bananas Synset: banana.n.02
+40241 5 : tomatoes or whatever behind bananas
+40241 5 : tangerines() right above bananas
+3050 5 : click bananas under second canopy from right
+40241 5 : food right behind the bananas
+3664 1 : yellow bananas
+*** laptop Synset: laptop.n.01
+9209 7 : guy on laptop
+30127 2 : the laptop
+*** hands Synset: hand.n.01
+18662 12 : left plate of food in front of the front hands
+8429 5 : red thing in hands
+19332 4 : stairs under their hands
+32228 2 : the man with hands folded behind his back white sweater
+4719 6 : 2nd guy from left with hands behind his back
+*** doughnut Synset: doughnut.n.02
+18378 6 : the middle between the doughnuts
+*** hills Synset: ???
+19136 2 : left hills beyond water
+15763 5 : green hills
+23744 4 : top hills
+26976 8 : green hillside
+23863 2 : snowy hills
+*** cup Synset: cup.n.01
+7980 3 : clear of cup
+7062 9 : white cup on right infront of woman
+11547 7 : edge of cup right below sunglass man's left shoulder
+26272 11 : green cup by girl
+7325 4 : the white thing in front of the girl not the plate or cup
+*** sky Synset: sky.n.01
+11713 10 : brown thing just under the sky
+24685 3 : upper part of sky
+9603 1 : top left sky
+8874 1 : the sky up above
+37355 3 : buildings just below sky horizon
+*** lake Synset: lake.n.01
+32611 1 : the lake
+8848 3 : the lake
+10278 1 : bottom lake
+2222 5 : blue part of lake
+3087 5 : water above big lake
+*** bench Synset: bench.n.01
+9315 10 : brown bench near rear of van (brown)
+26197 12 : area right of bench
+22666 8 : left bench™
+26725 4 : wall on left between bench and showcase
+11570 9 : that was left anyway group of people above bench on right
+*** bricks Synset: brick.n.01
+19691 4 : above the bricks on the left of the picture
+1270 12 : left window on second floor in bricks
+2522 3 : red bricks right of man
+4953 2 : grass in front of bricks to the left
+8457 5 : medium size bricks in the sand
+*** pile Synset: pile.n.01
+11205 1 : corn pile
+6404 4 : ground to the left between the rock pile and dark hills
+9155 4 : wood pile
+35612 5 : left most pile of rocks
+20021 3 : the sand pile on the right of the curve of the path
+*** board Synset: board.n.02
+39559 1 : person on board
+2688 2 : white board
+8516 14 : rightmost board
+23446 8 : fence board left of lady
+1970 2 : wall to the right of board
+*** hat Synset: hat.n.01
+12654 6 : tablestand hatstand thing on bottom left
+8211 3 : black hat
+27238 9 : boy in green hat in middle's hand on the right
+9764 8 : the blue hat
+16643 4 : strip of land below the trees on the right but above the red hat
+*** couple Synset: couple.n.02
+12167 10 : bus behind couples heads
+32827 6 : rock wall to the left of couple
+8709 4 : grey area bewteen couples waist
+3729 4 : right black shirts couple
+8806 2 : right couple
+*** looks Synset: look.v.01
+11522 1 : what looks like ruins
+2408 5 : okay so like what looks like it might be the darker part of the triangle but totally not the door but like anyother part
+7866 11 : open bag of chips looks black-ish to the right of the cooler
+8968 3 : big picture on wall looks like maybe someone in a dress
+20257 5 : boat that looks like its about to tip over
+*** fridge Synset: electric_refrigerator.n.01
+1069 1 : okay so the red thing in the bottom left of the picture -  i bet there's spiders in the fridge though
+26588 13 : the sign on the blue fridge()
+11078 5 : white fridge
+1369 4 : statue thing ontop of the fridge
+30341 3 : appliance to right of fridge
+*** dark Synset: dark.n.01
+19868 13 : far right dark basket
+37329 1 : the dark area in the middle
+12759 7 : small darker green patch just above the head of a statue on the left of the pond
+35722 6 : sliver of dark mountains in the back
+19401 2 : man in dark color shirt
+*** game Synset: game.n.01
+37615 3 : bike and why is this game so long
+2232 1 : no problem it's a game! sky
+5104 6 : i fuckin suck at this game  farthest painting on right
+19697 5 : i think the game ends after a certain number and it auto submits flowers on top of table
+8669 3 : this game is a mind f*ck) guy playing guitar
+*** mom Synset: ma.n.01
+26813 2 : the sexy mom--my bad bro
+*** desk Synset: desk.n.01
+16078 4 : right paper on desk
+10894 4 : middle desk with girl in black shirt
+4536 6 : service desk front right corner
+678 8 : boys desk
+2298 7 : middle desk
+*** bit Synset: spot.n.10
+17592 4 : grass above people a bit
+8490 4 : top left small bit of sky
+7031 8 : the bit of ground under the wall on the right and behind the guy in black
+36003 3 : gold shiny bit
+1092 1 : top sky just a bit to the left of the center
+*** lady Synset: lady.n.01
+40081 3 : click on the lady in the black shirt and blue jeans
+27305 4 : red fabic the blond lady is holding
+11395 11 : the lady in the white shirts  hat
+19787 8 : mountains left of lady's head
+8064 14 : old lady in orange
+*** rear Synset: rear.n.02
+9315 10 : brown bench near rear of van (brown)
+5048 4 : mountain range to right rear
+11706 10 : standing object to rear right of table
+21833 4 : hedge above dog's rear
+37836 3 : tree right above rear view mirror
+*** rocky Synset: rocky.s.01
+27671 3 : grass above rocky path
+26708 2 : sand dunes just above rocky area but not at top
+35604 2 : greener on the mountain but not the rocky part
+3562 4 : center rocky path
+2898 5 : top of the hill rocky
+*** shoulder Synset: shoulder.n.01
+7299 7 : picture over the right shoulder lower
+11547 7 : edge of cup right below sunglass man's left shoulder
+9107 14 : space of ground between shoulders of lady on far left and man in blue shirt
+16359 2 : animal on shoulder
+15676 8 : guy in black and white left of ladies shoulder
+*** towel Synset: towel.n.01
+35649 14 : guy in pink neat woman with towel
+8945 8 : blue towel under girl in purple shirt
+10305 1 : sand right of towels
+27022 7 : the brown towel closest to the center of image
+8990 14 : the towel on the of the counter to the right of the man's head
+*** sofa Synset: sofa.n.01
+22407 4 : the red pillow on the sofa
+1952 11 : grass near sofa on left
+11613 2 : white sofa on left
+17383 4 : right side sofa
+19285 3 : the empty portion of the sofa in the back
+*** pillar Synset: column.n.04
+8651 10 : farthest left pillar
+16420 9 : white pillar thing protruding from roof on top
+8651 15 : i don't even know what that islong stems between the pillars
+9051 8 : second pillar from left on first floor
+8776 7 : white pillard to the right edge
+*** piece Synset: piece.n.01
+1961 11 : bottom piece of paper on the side of the shelf
+33421 4 : the piece iwth no shadows
+19883 8 : last piece  green or gray clothes center and up a little
+9689 8 : the piece of floor behind the green shirt fag
+31242 1 : thick piece at the bottom
+*** pavement Synset: pavement.n.01
+38040 6 : sexy pavement right of sexy heart
+8632 8 : empty pavement bottom right corner
+37439 7 : bottom pavement
+20128 2 : the pavement in the bottom of the picture before the pppl
+11668 2 : bottom pavement
+*** steps Synset: stairs.n.01
+27363 3 : grey steps
+23977 3 : any steps in back
+15662 4 : ground on the right before steps
+4779 4 : at bottom of steps to the right is some "planks" of wood3 of them
+8934 4 : anywhere on steps avoid theppl
+*** nose Synset: nose.n.01
+11142 5 : man on left his nose
+4831 7 : the rock to the right of his nose sticking out of ground
+22849 2 : horse nose
+923 5 : the nose
+16530 7 : grass by horse's nose
+*** night Synset: ???
+19284 8 : the nightstand next to striped cover
+4507 9 : right night table
+11632 6 : portion of night sky left of bright lamp
+4304 4 : left nightstand
+9841 2 : black night
+*** chick Synset: dame.n.01
+9193 1 : the chick
+23277 10 : guy in white to the left of the chick in green 
+8592 5 : right chick in black coat
+12662 4 : that fine ass chick
+3243 6 : bracelets center chick
+*** tower Synset: tower.n.01
+21149 4 : water to the left of the tower but above wire
+2074 4 : church tower to left
+8403 8 : trees under the clock tower
+1934 2 : tall tower of doom in center
+56 5 : right tower
+*** crowd Synset: crowd.n.01
+32807 4 : left crowd
+16895 1 : the crowd
+21307 2 : ground area in front of the crowd
+37446 3 : the crowd in top left or top right
+9169 6 : atop the crowd
+*** people Synset: people.n.01
+12399 10 : paper on the wall to right of people
+9817 7 : two people on left
+18393 5 : tri rock near people
+15651 6 : group of people nearest bottom right
+9023 17 : mid to rt low people
+*** dead Synset: ???
+10760 3 : sky above dead guy head
+15679 9 : standing person dead center
+9517 15 : the silver tea pot on the table dead center
+7818 3 : omg! very bottom just left of dead center
+26628 4 : picture dead center
+*** palm Synset: palm.n.03
+26033 8 : area just to right of palm tree
+3252 4 : longest palm tree
+9023 3 : middle palm tree
+15477 14 : to the right of the big palma few people
+12289 3 : the palm tree leaves
+*** mirror Synset: mirror.n.01
+4337 1 : wood around mirror
+8603 18 : bottles of liquor on shelf  left of mirror
+4311 4 : black square to the right of mirror
+3681 5 : monkey reflection in mirror
+3681 1 : monkey on left on top of mirror
+*** candle Synset: candle.n.01
+7960 22 : bottle just left of the candle in the front
+8717 15 : yellow candle
+8841 6 : the lit candle in the middle of the table
+9991 9 : middle candlestick
+6349 2 : person to left of candles (sorry bout the rock one)
+*** slice Synset: ???
+30596 3 : blue sky slice
+8961 10 : bowl to the left of slice of pizza
+35755 2 : very small slice of sky click very top middle
+9313 7 : anywhere on the table but the creepy sliced limes
+*** leaf Synset: leaf.n.01
+5037 3 : sky under leaf
+6351 2 : large leaf bottom right
+12723 3 : green leaf at bottom under flower
+11088 8 : 2nd from left above guys head leaf
+40244 2 : top center leaf
+*** shrub Synset: shrub.n.01
+35572 8 : rockline just left of shrubs on right side
+8555 2 : the shrub between the llama
+22567 6 : green shrub bottom right
+9293 11 : little shrub in bottom right above pink hat small
+7938 6 : right area past shrubs ground before the right tree and grass
+*** purple Synset: purple.n.01
+20826 5 : right hand guy purple
+11558 24 : light purple backpack thingie in center
+11864 4 : women in front purple shirt
+4495 4 : the purple flowers
+22132 3 : the purple/brown object on the counter near bottom right
+*** shirtless Synset: ???
+25969 3 : a shirtless man wearing blue jeans stands at the right of the scene looking to the left
+10923 4 : uh you clicked right anyway shirtless fool in the middle front
+30916 6 : man shirtless sittind down o
+11525 7 : okay so the bag full of spiders next to shirtless man
+10614 5 : person on the right sitting up shirtless
+*** microwave Synset: microwave.n.02
+19283 16 : radio under microwave
+*** skateboarder Synset: skateboarder.n.01
+32853 1 : ground below the skateboarder
+*** knife Synset: knife.n.01
+15232 4 : the hand holding the knife
+19596 11 : fork and knife sign
+10143 3 : the woman with the knife
+19596 11 : the sign of knife and fork to the top right
+7595 1 : table top by knife
+*** khaki Synset: ???
+6629 5 : middle figure older man in khakis and a brown jacket 
+11317 10 : guy standing to right in stripped shirt and khakis
+23137 12 : bike of guy with khaki shirt over white tee third from left
+3695 11 : back wheel of bike that khaki shorts is on
+19190 5 : man'sface in khaki
+*** shadow Synset: shadow.n.01
+11740 3 : bottom shadow
+33421 4 : the piece iwth no shadows
+11065 7 : dirt between the shadows bottom middle
+8803 2 : bottom of sky maybe mountain shadow
+26138 2 : the girls shadow
+*** post Synset: ???
+8168 9 : sky right above light post
+1967 16 : white area on bottom between the two posts in front
+33483 4 : grass just to the right of first three posts
+15907 7 : standing on the left in front of the post looking out at the kids
+9948 1 : green poster
+*** stone Synset: rock.n.01
+7732 5 : wall of stones next to the people
+9781 3 : the larger stone to the left of the big stone
+18140 3 : bottom right corner the stone
+24474 2 : the stone gate
+35606 8 : stepping stone at the bottom 
+*** anything Synset: ???
+3786 1 : mountain (not anything covered by smoke)
+35981 2 : middle swan ride anything but the head
+8602 10 : the wall but not the pictures or anything else
+39124 1 : literally anything the entire picture is in the red box
+7543 6 : okay so like anywhere directly to the left of the dudes head or like anything on the right side
+*** column Synset: column.n.07
+17147 5 : terra cotta pot with skinny tree in front of center column
+19052 12 : the column second right
+3238 4 : brown fruit on column
+37062 5 : building columns in center
+12879 7 : white column with red sign above people
+*** island Synset: island.n.01
+26211 4 : rock or island on left above cacti
+39509 3 : the big humpy island
+39410 2 : left island
+35726 7 : bridge on right of island
+3650 5 : rock island beneath feet
+*** range Synset: range.n.04
+5048 4 : mountain range to right rear
+13261 4 : mountain range
+27109 2 : mountain range left of woman
+11584 12 : mountain range to the right
+8998 2 : mountain range back
+*** beige Synset: beige.s.01
+35747 3 : the buildin on the far right beige
+32607 5 : the beige-ish rectangle near the bottom not the very bottom
+24270 4 : rt woman in beige next to edge of frame
+23186 7 : the chair the guy in the grayish beige shirt is sitting on
+15541 5 : middle tree beside beige building
+*** road Synset: road.n.01
+22931 3 : hills on the side of road
+1792 5 : behind road and grass before mountains middle
+30566 2 : dirt road
+30104 1 : bottom right road
+9894 3 : the dessert any ground but road
+*** image Synset: picture.n.01
+9984 2 : top of the image
+14637 1 : grass on bottom of image
+22981 4 : the bottom of the image
+40206 2 : the clouds in the middle of the image
+1866 1 : moutain image in water
+*** ppl Synset: ???
+8889 7 : the brown table with no ppl in the back
+15329 3 : just behind ppl
+6944 4 : under ppl
+3657 6 : cluster of ppl in front of middle train car
+32377 1 : sky to right of ppl
+*** brush Synset: brush.n.01
+39051 1 : click on the brush grass things in the middle of pic
+21624 3 : darker green brush notin front
+1216 5 : the brush in the background on the right
+25319 5 : scrub brush lower left
+19799 6 : dried brush
+*** strip Synset: ???
+16421 2 : person in black and red stripe 
+8603 2 : hat of man with black shirt blue stripe
+1792 3 : lightest strip of ground
+8303 9 : poster on wall next to man strip shirt
+9295 1 : green strips in the middle of pic
+*** sunglasses Synset: sunglasses.n.01
+5201 9 : girl with sunglasses on head
+32078 1 : woman with sunglasses on head
+21761 3 : guy white shirt with sunglasses
+15488 11 : face to the right of man in sunglasses (third from left)
+4020 8 : face on right with sunglasses
+*** van Synset: van.n.05
+2884 12 : white building over white van
+9315 10 : brown bench near rear of van (brown)
+38043 5 : trees above grey van
+37358 3 : blue van on the right
+30653 4 : sweet van
+*** log Synset: ???
+35731 1 : starbucks coffee logo
+3191 1 : the log acros screan
+3191 6 : plan mural thing from the left after the log
+8368 2 : woman standing on the logs
+17194 5 : the near log
+*** area Synset: area.n.05
+2179 3 : cloud area just above mtn on far right
+11623 6 : light colored area on the left side next to pool table
+11049 2 : the area beyond the village the top
+19807 3 : trail area at bottom of picture
+18995 12 : light blue area right
+*** tennis Synset: tennis.n.01
+40562 1 : empty area of tennis court
+32091 2 : bottom right tennis player
+32093 1 : the half of the tennis court on our side
+32073 1 : the tennis field
+31734 2 : bottom of tennis court
+*** pool Synset: ???
+11623 6 : light colored area on the left side next to pool table
+17728 5 : path on left above pool
+10581 1 : sidewalk on left side of pool
+7011 9 : guy sitting in pool by woman
+30510 3 : right pool
+*** way Synset: way.n.09
+8235 1 : person all the way left
+15387 10 : pile of junk on the left side half way up
+23105 4 : white shirt all the way left
+23366 23 : what that was right! the paper in hand all the way to left
+31276 6 : person all the way to right
+*** suit Synset: ???
+6733 2 : girl in blue bathing suit closest to us
+11312 10 : far right man in suit
+15711 5 : red suitcase
+18462 8 : the pink/red jacket on top of the suitcase that is right by the crotch of the woman standing in the middle of the picture
+15404 3 : guy in blue n yellow suit
+*** cliff Synset: cliff.n.01
+1799 9 : right cliff
+10063 2 : middle of cliff at bottom
+18251 3 : stone cliff 
+33511 6 : light part of cliffs right side
+31151 3 : front cliff face
+*** fork Synset: ???
+8912 9 : the plate with the fork he's hovering over
+35706 2 : the forklift
+19596 11 : the sign of knife and fork to the top right
+9953 8 : red table directly under fork
+23055 5 : guy standing up eating with fork
+*** mountains Synset: mountain.n.01
+13215 4 : water below mountains
+8565 2 : clouds right above mountains
+39642 2 : top of the mountains
+17595 1 : sky above mountains
+8284 2 : layer below mountains
+*** head Synset: head.n.01
+9237 5 : over women on the left heads
+20136 6 : tall grass above her head
+10760 3 : sky above dead guy head
+18032 3 : area on the right just above the peoples heads
+20055 4 : sky just right of his head
+*** bus Synset: ???
+16988 2 : tree leaves or bush leaves on the left
+19964 7 : road under bus
+23017 5 : purple flower bush
+9324 9 : left roundy bush
+38205 3 : the bushes on the left
+*** coke Synset: coca_cola.n.01
+4277 4 : the sign above coke sign
+14728 2 : red coke cup
+18259 9 : ! water bottle back right after coke
+7363 13 : far left cup next to coke bottle
+9825 5 : man pouring coke
+*** boys Synset: ???
+27291 5 : the fence to the left above the boys
+23589 3 : sand to the left of boys hand
+24688 1 : the boys face he looks like a spider bite
+904 2 : the rocks behind the boys head
+931 2 : the boys face
+*** bun Synset: ???
+4313 2 : top bunk
+9898 10 : small yellow balloon right side of bunch in far back
+7002 7 : red potatoes left bunch
+19410 4 : blanket stack on left top bunk
+3215 5 : lower row of trees second bunch of branches
+*** cycle Synset: bicycle.n.01
+35682 9 : ground under cycles 
+37706 5 : such cycle many wheels very pedal
+31284 6 : second cycle from right
+23330 10 : right guy on cycle
+37540 1 : road to right of cycler
+*** walkway Synset: walk.n.05
+8711 8 : the bottom walkway
+22327 9 : whiote walkway
+4327 4 : narrow walkway
+26496 2 : ropes on walkway
+4504 6 : concrete walkway
+*** stand Synset: stand.v.01
+24727 1 : girl in red pants standing
+16413 2 : bottle standing up by foot on the right
+27097 8 : beers to the top left of the guy standing with blue sweatshirt on
+16775 1 : man standing
+10097 3 : sand that they're standing on
+*** penguin Synset: penguin.n.01
+17609 1 : green grass around penguin
+3552 5 : the pair of penguins in the bottom right corner
+9451 2 : right penguin
+9773 3 : any penguin
+25574 5 : bottom right penguin
+*** mtn Synset: ???
+2179 3 : cloud area just above mtn on far right
+8701 3 : shorter mtn on left
+24163 5 : sky above dark mtn on right
+26264 3 : ground below mtns
+1839 9 : small patch of green on left below mtn just left of those rocks
+*** suitcase Synset: bag.n.06
+15711 5 : red suitcase
+18462 8 : the pink/red jacket on top of the suitcase that is right by the crotch of the woman standing in the middle of the picture
+8484 8 : backpack on gray suitcase thingy left
+8484 7 : large suitcase left
+9161 7 : blue jacket next to black suitcase
+*** cake Synset: cake.n.03
+14402 1 : person with cake
+7289 6 : blue cake thing on right
+11390 6 : blue balloon behind cake
+11113 2 : person cutting the nasty cake
+8816 10 : party hat of guy holding cake
+*** grass Synset: grass.n.01
+39051 1 : click on the brush grass things in the middle of pic
+20136 6 : tall grass above her head
+32142 2 : green grass above sand
+19648 5 : small patch of grass lower right
+2223 3 : bottom grass
+*** darker Synset: dark.a.02
+12759 7 : small darker green patch just above the head of a statue on the left of the pond
+22910 5 : left middle darker area
+2408 5 : okay so like what looks like it might be the darker part of the triangle but totally not the door but like anyother part
+6992 5 : seal left darker one
+27207 7 : the darker horse facing us
+*** toilet Synset: toilet.n.02
+19647 12 : floor by toilet
+26256 7 : wall behind toilet
+12758 6 : brown door next to toilet
+19647 11 : white wall above toilet
+12758 19 : small red box seen in closet next to toilet
+*** metal Synset: metallic.a.01
+19504 3 : red metal wall
+9834 6 : big metal tank
+7529 12 : small metal cup in center of table
+12765 8 : left side of metal gate
+4766 10 : far left shadow by metal container
+*** pic Synset: photograph.n.01
+39051 1 : click on the brush grass things in the middle of pic
+14506 1 : dirt in front of picture
+19807 3 : trail area at bottom of picture
+21328 3 : ground in very front of picture
+7604 4 : anywhere in the picture except for the seals
+*** pie Synset: ???
+1961 11 : bottom piece of paper on the side of the shelf
+33421 4 : the piece iwth no shadows
+19883 8 : last piece  green or gray clothes center and up a little
+7489 4 : guy pie in face
+9689 8 : the piece of floor behind the green shirt fag
+*** tshirt Synset: ???
+3941 13 : gray tshirt guy
+32805 3 : dude on right with white tshirt
+15652 6 : person in white tshirt in center
+23455 5 : back person in brown tshirt
+8875 8 : bluish thing guy in middle is holding next to two guys in white tshirts
+*** ship Synset: ship.n.01
+30893 3 : sand left right below ship
+22284 3 : greenery to the right of ship
+35999 3 : body of ship far left
+6357 3 : the big ship
+3526 6 : center ship/boat
+*** sweatshirt Synset: sweatshirt.n.01
+27097 8 : beers to the top left of the guy standing with blue sweatshirt on
+4121 8 : boy on right grey sweatshirt
+16406 7 : person in a white hat and a blue sweatshirt tied around their waist
+24662 2 : pants but girls sweatshirt
+11887 20 : glass behing hed by guy in yellow/creme sweatshirt
+*** ice Synset: ice.n.01
+3589 2 : big ice chunks
+20292 1 : center ice
+4749 2 : ice ice baby ice
+3803 6 : center ice in the horizon
+9958 4 : left ice
+*** rainbow Synset: rainbow.n.01
+13511 1 : persons face with rainbow scarf thing
+21065 3 : left of rainbow in sky
+3051 5 : the rainbow umbrellas top left
+2517 2 : the colorful rainbow thing
+7782 1 : bottom of rainbow
+*** lemon Synset: lemon.n.01
+8757 4 : drink with lemon
+7665 14 : yellow cup on the table by the lemon in her hand 
+1703 8 : small lemon between 2 large melons
+3238 13 : yellow lemons bottom right by watermelons
+4935 7 : not as sexy as this one click the lemon
+*** floor Synset: ???
+37290 2 : snow on floor
+9415 17 : bushes on the left on ground floor
+16372 6 : bottom right floor
+6322 5 : middle door on the top floor
+9023 18 : spot right behind the big rectangular light on the lower floor
+*** field Synset: field.n.01
+31698 1 : middle of the field
+31986 1 : outer edges of field
+37606 2 : grass field
+31498 2 : top right corner of field
+32120 1 : center of field
+*** book Synset: book.n.02
+2058 5 : white paper or book on table
+8156 1 : page of book
+26025 9 : full row of books 2nd row up from bottom first full row
+10192 4 : woman's book
+8576 10 : open book
+*** branch Synset: branch.n.02
+9008 2 : tree branches up there
+9976 2 : sand below branches
+8923 11 : the tree branch on the left-center of the picture
+3067 5 : most lefthand side thick tree branch
+3215 5 : lower row of trees second bunch of branches
+*** tie Synset: ???
+18074 5 : girl with tied red shirt
+4242 13 : right to the man's tie
+23137 9 : the front ties of the bikes behind the man in the red shirt
+16406 7 : person in a white hat and a blue sweatshirt tied around their waist
+11547 9 : glass on left second tier
+*** ponytail Synset: ponytail.n.01
+32282 4 : the sand to the right of woman wearing white shirt and ponytail
+16032 6 : head girl right said with ponytail
+19310 6 : woman on right with hair in ponytail
+37823 5 : grassy hillside to right of ponytailed persons rear
+40605 1 : blond hair w/ ponytail
+*** picture Synset: picture.n.01
+14506 1 : dirt in front of picture
+19807 3 : trail area at bottom of picture
+21328 3 : ground in very front of picture
+7604 4 : anywhere in the picture except for the seals
+19043 3 : bottom of picture
+*** pillows Synset: pillow.n.01
+17454 1 : bed with 2 pillows
+17385 7 : wall above pillows
+19282 5 : the pillows
+27038 9 : tiles under fence and between column and floral pillows
+1229 5 : the wall above the pillows
+*** guy's Synset: ???
+3842 4 : thing on left next to guy's shoe
+12952 7 : part of mountain left of guy's head
+25255 5 : next to the guy's elbow on the right
+15711 12 : directly right of guy's elbow in tan shirt
+10609 1 : closest guy's head
+*** sandwhich Synset: ???
+10045 4 : plate w/ sandwhich in front of man in blue shirt
+*** structure Synset: structure.n.01
+7851 8 : center of retangular structure in front of building
+15587 6 : water directly left of structure on right
+35659 2 : the hill of grass not including structure
+7934 6 : the rock structure by itself in the back on the left
+5179 5 : man on the left under the structure
+*** building Synset: building.n.01
+2884 12 : white building over white van
+21825 4 : center building
+39718 1 : right front building
+31009 7 : right building
+13387 3 : yellow building
+*** land Synset: land.n.02
+16643 4 : strip of land below the trees on the right but above the red hat
+2040 3 : little land area that stands out in the bottom middle
+33378 3 : brownish land right
+10425 4 : the land of the left
+26446 5 : bottom right land
+*** balcony Synset: balcony.n.02
+2512 15 : second light from the left second balcony
+4596 4 : the people in the top balcony
+31888 2 : the middle of the ski jump slope in front of balcony
+4596 4 : people on balcony
+27490 4 : 3 people together on balcony
+*** phone Synset: telephone.n.01
+39021 3 : cell phone on dash
+18201 5 : two women far left one looks like is on phone
+39021 3 : cell phone on dash
+1137 6 : nightstand with phone on it
+19639 3 : white phone
+*** jacket Synset: jacket.n.01
+27111 2 : man in black jacket
+17698 5 : red jacket
+6629 5 : middle figure older man in khakis and a brown jacket 
+8239 3 : leftmost man blue jacket red boot
+12957 2 : red jacket guy
+*** portion Synset: part.n.01
+6376 4 : top right portion of sky
+35970 1 : any portion of the city in the upper right
+17359 3 : top portion of shack
+27514 7 : small portion of grass between vehicles
+40333 2 : top portion of buildings on left
+*** stick Synset: ???
+4875 5 : brown stick just right of flower
+9270 3 : thing sticking up out of the ground center
+26238 5 : statute ooking thing sticking up from center of picture
+9274 14 : thing sticking up just above the 2 people in the middle
+27458 4 : the stick thing that is overlapping the water
