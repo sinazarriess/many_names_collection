@@ -46,7 +46,7 @@ def add_dep_parses_from_json(json_fpath, out_fpath=None):
     dep_parses.rename({"sentences": "depparse_stnf"}, axis=1, inplace=True)
     parse_df = indices.join(dep_parses, how='left')
     if out_fpath:
-        refdf.to_json(out_fpath, compression='gzip', orient='split')
+        parse_df.to_json(out_fpath, compression='gzip', orient='split')
     return parse_df
     
 
@@ -97,7 +97,7 @@ if __name__=="__main__":
     #refdf = add_synsets(refdf)
     #refdf = add_attrs_names(refdf, json_foutpath)
     #refdf = add_dep_parses(refdf)
-    refdf = add_dep_parses_from_json(json_fpath)
+    refdf = add_dep_parses_from_json(json_fpath,json_foutpath)
     
     
     

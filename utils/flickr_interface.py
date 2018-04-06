@@ -84,14 +84,14 @@ def extract_bboxFromAnnotations(e):
                 ymin = int(bbox.find('ymin').text)
                 xmax = int(bbox.find('xmax').text)
                 ymax = int(bbox.find('ymax').text)
-                yield [xmin, ymin, xmax, ymax], region_id
+                yield [xmin, ymin, xmax-xmin, ymax-ymin], int(region_id)
 
       
 def get_image_annos(fname):
     image_id = re.sub("([0-9]+)\.(txt|xml)$", r"\1", os.path.basename(fname))
     return {"i_corpus": 1, 
             "r_corpus": "flickr",
-            "image_id": image_id}
+            "image_id": int(image_id)}
 
 def add_region_annos(reg_annos, all_annos):
     for d_spec in data_spec:
