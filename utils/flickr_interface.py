@@ -73,7 +73,6 @@ def extract_refExpFromSentences(inf):
     sent_id += 1
 
 
-# TODO: double-check order of points (format of bbox specs)
 def extract_bboxFromAnnotations(e):
     for obj in e.findall('object'):
         for region_id_el in obj.findall('name'):
@@ -98,17 +97,45 @@ def add_region_annos(reg_annos, all_annos):
         if d_spec in reg_annos:
             all_annos.setdefault(d_spec, []).append(reg_annos[d_spec])
 
-if __name__=="__main__":
-    fpath = "/media/%s/Carina_2017/UdS/data/Flickr30kEntities/Sentences/" % (USRNAME)
-    if len(sys.argv) > 1:
-        fpath = sys.argv[1]
-        if len(sys.argv) > 2:
-            json_foutpath = sys.argv[2]
+def join_parsed_exps(fbasename="/media/%s/Carina_2017/UPF/github/object_naming/names_in_context/data/flickr30k_refexp_p%d.txt.json", 
+                     parts=[0], 
+                     json_foutpath=None):
+    import df_annotation
+    #parses = pd.read_json(json_fpath, compression='gzip', orient='columns')
+    #indices_fpath = "{0}.idx".format(
+    #    re.sub("(.+?)(\.txt)?(\.json)?(\.gz)?", r"\1", json_fpath))
+    #indices = pd.read_csv(indices_fpath, sep=",", header=None, index_col=0)
+    #indices.rename({0: "rex_id", 1: "image_id", 2: "region_id"}, axis=1, inplace=True)
+    parse_parts = []
+    for part in parts:
+        json_fpath = fbasename % (part) 
+        print("Loading ...", json_fpath)
+        part_parse_df = df_annotation.add_dep_parses_from_json(json_fpath)
+        part_parse_df.set_index("rex_id", inplace=True)
+        parse_parts.append(part_parse_df)
+    parse_df = pandas.concat(parse_parts)
+    if json_foutpath != None:
+        parse_df.to_json(json_foutpath, compression='gzip', orient='split')
+    return parse_df
     
-    if "Sentences" in fpath:
-        json_foutpath = "../data/flickr30k_refdf.json.gz"
-        flickr2dataframe(fpath, out_fpath=json_foutpath)
-    elif "Annotations" in fpath:
-        json_foutpath = "../data/flickr30k_bbdf.json.gz"
-        flickr2dataframe_bboxes(fpath, out_fpath=json_foutpath)
+
+if __name__=="__main__":
+    data_path = "/media/%s/Carina_2017/UPF/github/object_naming/names_in_context/data/" % USRNAME
+    parse_df = join_parsed_exps(os.path.join(data_path, "flickr30k_refexp_p%d.txt.json"), 
+                               parts=range(1,13),
+                               json_foutpath=os.path.join(data_path, "flickr30k_refexp.txt.json.gz"))
+    
+    if False:
+        fpath = "/media/%s/Carina_2017/UdS/data/Flickr30kEntities/Sentences/" % (USRNAME)
+        if len(sys.argv) > 1:
+            fpath = sys.argv[1]
+            if len(sys.argv) > 2:
+                json_foutpath = sys.argv[2]
+        
+        if "Sentences" in fpath:
+            json_foutpath = "../data/flickr30k_refdf.json.gz"
+            flickr2dataframe(fpath, out_fpath=json_foutpath)
+        elif "Annotations" in fpath:
+            json_foutpath = "../data/flickr30k_bbdf.json.gz"
+            flickr2dataframe_bboxes(fpath, out_fpath=json_foutpath)
     
