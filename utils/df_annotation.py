@@ -48,6 +48,22 @@ def add_dep_parses_from_json(json_fpath, out_fpath=None):
     if out_fpath:
         refdf.to_json(out_fpath, compression='gzip', orient='split')
     return parse_df
+
+def add_root_from_dep_parse(json_fpath, out_fpath=None):
+    # TODO: probably this can be done much better, still new to pandas ...
+    parses = pd.read_json(json_fpath, compression='gzip', orient='columns')
+    indices_fpath = "{0}.idx".format(
+        re.sub("(.+?)(\.txt)?(\.json)?(\.gz)?", r"\1", json_fpath))
+    indices = pd.read_csv(indices_fpath, sep=",", header=None, index_col=0)
+    indices.rename({0: "rex_id", 1: "image_id", 2: "region_id"}, axis=1, inplace=True)
+
+    sents = pd.DataFrame(parses["sentences"], index=parses.index)
+    dep_roots = pd.DataFrame(sents.applymap(lambda x: x["basicDependencies"][0]), index=parses.index)
+    dep_roots.rename({"sentences": "deproot"}, axis=1, inplace=True)
+    parse_df = indices.join(dep_parses, how='left')
+    if out_fpath:
+        refdf.to_json(out_fpath, compression='gzip', orient='split')
+    return parse_df
     
 
 # Attributes and Names
