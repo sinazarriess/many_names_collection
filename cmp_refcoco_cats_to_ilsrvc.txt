@@ -1,0 +1,71 @@
+No. synsets in image data:  78
+No. synsets in ilsvrc data:  1000
+No. common synsets:  15
+No. synsets connected to ilsvrc through path:  63
+No. synsets which are hypernyms of ilsvrc ss:  30
+No. ilsvrc ss which are hypernyms of img-data ss:  1
+No. synsets with path sim >= 0.5:  26
+Remainig synsets in image data:  0
+
+img-data Synset('horse.n.01') is hypernym of ilsvrc Synset('sorrel.n.05')  path sim: 0.50000
+
+img-data Synset('keyboard.n.01') is hypernym of ilsvrc Synset('computer_keyboard.n.01')  path sim: 0.50000
+
+img-data Synset('glass.n.02') is hypernym of ilsvrc Synset('beer_glass.n.01')  path sim: 0.50000
+
+img-data Synset('knife.n.01') is hypernym of ilsvrc Synset('cleaver.n.01')  path sim: 0.50000
+
+img-data Synset('bus.n.01') is hypernym of ilsvrc Synset('trolleybus.n.01')  path sim: 0.50000
+
+img-data Synset('clock.n.01') is hypernym of ilsvrc Synset('analog_clock.n.01')  path sim: 0.50000
+
+img-data Synset('oven.n.01') is hypernym of ilsvrc Synset('dutch_oven.n.01')  path sim: 0.50000
+
+img-data Synset('boat.n.01') is hypernym of ilsvrc Synset('fireboat.n.01')  path sim: 0.50000
+
+img-data Synset('spoon.n.01') is hypernym of ilsvrc Synset('wooden_spoon.n.02')  path sim: 0.50000
+
+img-data Synset('train.n.01') is hypernym of ilsvrc Synset('bullet_train.n.01')  path sim: 0.33333
+
+img-data Synset('dog.n.01') is hypernym of ilsvrc Synset('great_dane.n.01')  path sim: 0.33333
+
+img-data Synset('dog.n.01') is hypernym of ilsvrc Synset('dalmatian.n.02')  path sim: 0.50000
+
+img-data Synset('bench.n.01') is hypernym of ilsvrc Synset('park_bench.n.01')  path sim: 0.50000
+
+img-data Synset('car.n.01') is hypernym of ilsvrc Synset('ambulance.n.01')  path sim: 0.50000
+
+img-data Synset('truck.n.01') is hypernym of ilsvrc Synset('fire_engine.n.01')  path sim: 0.50000
+
+img-data Synset('bird.n.01') is hypernym of ilsvrc Synset('cock.n.05')  path sim: 0.50000
+
+img-data Synset('airplane.n.01') is hypernym of ilsvrc Synset('airliner.n.01')  path sim: 0.50000
+
+img-data Synset('bottle.n.01') is hypernym of ilsvrc Synset('beer_bottle.n.01')  path sim: 0.50000
+
+img-data Synset('ball.n.01') is hypernym of ilsvrc Synset('soccer_ball.n.01')  path sim: 0.50000
+
+img-data Synset('elephant.n.01') is hypernym of ilsvrc Synset('african_elephant.n.01')  path sim: 0.50000
+
+img-data Synset('sandwich.n.01') is hypernym of ilsvrc Synset('hotdog.n.02')  path sim: 0.50000
+
+img-data Synset('bed.n.01') is hypernym of ilsvrc Synset('four-poster.n.01')  path sim: 0.50000
+
+img-data Synset('bicycle.n.01') is hypernym of ilsvrc Synset('bicycle-built-for-two.n.01')  path sim: 0.50000
+
+img-data Synset('apple.n.01') is hypernym of ilsvrc Synset('granny_smith.n.01')  path sim: 0.33333
+
+img-data Synset('bear.n.01') is hypernym of ilsvrc Synset('ice_bear.n.01')  path sim: 0.50000
+
+img-data Synset('necktie.n.01') is hypernym of ilsvrc Synset('bow_tie.n.01')  path sim: 0.50000
+
+img-data Synset('chair.n.01') is hypernym of ilsvrc Synset('barber_chair.n.01')  path sim: 0.50000
+
+ilsvrc Synset('racket.n.04') is hypernym of Synset('tennis_racket.n.01')  path sim: 0.50000
+
+img-data Synset('cat.n.01') is hypernym of ilsvrc Synset('egyptian_cat.n.01')  path sim: 0.33333
+
+img-data Synset('sofa.n.01') is hypernym of ilsvrc Synset('studio_couch.n.01')  path sim: 0.33333
+
+img-data Synset('sheep.n.01') is hypernym of ilsvrc Synset('ram.n.05')  path sim: 0.50000
+
