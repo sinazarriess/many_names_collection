@@ -1,0 +1,87 @@
+\begin{table*}[t]
+	\begin{tabular}{|l|l|llll|}
+		\hline
+		Resource & Purpose & \multicolumn{4}{c|}{Useful For}\\
+				& 			& Basic-level Names & Specificity & Bla & Bli \\
+		\hline \hline
+		RefCOCO & XXX & 
+	\end{tabular}
+	\caption{\label{tab:summary_resources} Intended to provide an overview of resources, their purpose/use and shortcomings wrt object naming}
+\end{table*}
+
+\subsection{Computer Vision Resources}
+\paragraph{Methods: Object Detectors, Image Classifiers}
+
+\paragraph{ImageNet and ILSVRC}
+\paragraph{MSCOCO} \cite{mscoco}
+
+\subsection{V\ \&\ L Resources}
+\paragraph{VisualGenome}
+\paragraph{(ReferIt) RefCOCO and alike}
+Based on MSCOCO; Other MSCOCO-based resources: Captions; Visual Genome in parts\\
+
+We analyze the RefCOCO and RefCOCO+ datasets which contain referring expressions to objects in MSCOCO \cite{mscoco} images.
+These data collections were performed via crowdsourcing with the ReferIt Game \cite{Kazemzadeh2014}  where two players were paired and a director needed to refer to a predetermined object to a matcher, who then selected it.
+RefCOCO and RefCOCO+ contain 3 referring expressions on average per object, and overall 150K expressions for 50K objects. 
+The two datasets have been collected for an (almost) identical set of objects, but in RefCOCO+, players were asked not to use location words (\textit{on the left}, etc.).
+See \cite{Yu2016} for more details. 
+
+\paragraph{Flickr30k Entities}
+
+\subsection{\cs{Language Resources? (WordNet)}}
+
+
+\subsection{Analysis of Data wrt Our Requirements(?)}
+
+\subsubsection{Pre-processing}
+We parse referring expressions and captions with the Stanford Dependency Parser.
+We extract heads/object names as follows: TODO.
+
+\subsubsection{Level of Specificity} 
+Variability of reference level in existing data sets for language \& vision?
+Are resources appropriate for defining reference level?
+\paragraph{WordNet?}
+
+We hypothesize that the distance of a name's synset to the root node (entity) relates to its specificity.
+We estimate this distance as the minimal path length of all synsets of a word  to the root node.
+
+Table \ref{tab:specnames} shows the estimated levels of specificity for object names in the RefCoco data set.
+We observe distances to the root between 2 and 17, meaning that there is a much more fine-grained distinction of levels than the three-way classification.
+
+Unfortunately, the levels of specificity predicted by WordNet do not seem to reflect linguistic intuitions, here are some problematic examples from Table \ref{tab:specnames}:
+
+\begin{itemize}
+\item elephant (10) is more specific than panda (14)? horse is less specific than elephant (10)?
+\end{itemize}
+
+
+\begin{table}
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rrl}
+\toprule
+ specificity &  rel.freq. &                          top 5 names \\
+\midrule
+          -1 &   0.071697 &      NONE,brocolli,zeb,broc,girafe \\
+           2 &   0.003898 &                         thing,things \\
+           3 &   0.001182 &   object,group,set,substance,objects \\
+           4 &   0.140633 &           man,person,piece,head,part \\
+           5 &   0.100739 &       player,glass,baby,front,corner \\
+           6 &   0.208590 &              woman,girl,kid,boy,bowl \\
+           7 &   0.238708 &            guy,right,chair,lady,bear \\
+           8 &   0.110613 &           horse,bus,cow,pizza,batter \\
+           9 &   0.097390 &         shirt,car,bike,donut,catcher \\
+          10 &   0.048368 &   elephant,couch,truck,vase,suitcase \\
+          11 &   0.008828 &    motorcycle,clock,mom,dad,scissors \\
+          12 &   0.002822 &  oven,airplane,suv,taxi,refrigerator \\
+          13 &   0.005253 &   laptop,fridge,canoe,orioles,pigeon \\
+          14 &   0.000414 &  panda,freezer,penguin,rooster,rhino \\
+          15 &   0.030870 &   zebra,giraffe,zebras,giraffes,deer \\
+          16 &   0.000083 &       bison,mooses,orang,elks,sambar \\
+          17 &   0.000143 &           ox,cattle,gnu,mustang,orca \\
+\bottomrule
+\end{tabular}\caption{Levels of specificity for naming choices in RefCOCO: for each level, relative frequency and 5 most frequent names are shown}
+\label{tab:specnames}
+\end{table}
+
+\paragraph{No. of images in ImageNet?}
