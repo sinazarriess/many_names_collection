@@ -15,7 +15,7 @@ from annotation_utils import get_synset_first, tag2pos, get_lch, get_path_simila
 import annotation_utils as anno_utils
 
 
-dataset = "flickr30k"
+dataset = "refcoco" #"flickr30k"
 data_dir = "../data/"
 
 anno_infname = "%s_anno-dep-pos-wn-attr.json.gz" % (dataset)
@@ -23,7 +23,6 @@ anno_infname = "%s_anno-dep-pos-wn-attr.json.gz" % (dataset)
 annodf = pd.read_json(os.path.join(data_dir, anno_infname), compression='gzip', orient='split')
 
 outfname_regiondf = "%s_regions_distractors.json.gz" % (dataset)
-
 
 if os.path.exists(os.path.join(data_dir, outfname_regiondf)):
     regiondf = pd.read_json(os.path.join(data_dir, outfname_regiondf), compression='gzip', orient='split')
@@ -85,8 +84,9 @@ else:
 regiondf['ndistractors'] = regiondf.distractor_cats.apply(lambda x: len(x))
 #regiondf['ndistrs_unique'] = regiondf.distractor_cats.apply(lambda x: len(set(x)))
 
-#namings_distr_target = ["distractor_cats", "region_cat"]
 namings_distr_target = ["distractor_names", "names"]
+if dataset == "refcoco":
+    namings_distr_target = ["distractor_cats", "region_cat"]
 
 distances = []
 lch_distances = []
@@ -146,9 +146,9 @@ sorted_lch_counts = sorted(counts_lch.items(), key=lambda x: x[1], reverse=True)
 
 fout = open(os.path.join(data_dir, "lch_counts"+anno_infname.replace(".json", "").replace(".gz", "")+".txt"), "w")
 for lch, count in sorted_lch_counts:
-    fout.write("{0}\t{1:d}\t{2}\n".format(lch, count, " ".join(lch_objNames[lch])))
-    
+    fout.write("{0}\t{1:d}\t{2}\n".format(lch, count, " ".join([ss.name() for ss in lch_objNames[lch]])))
 fout.close()
+
 print("\nlch and counts written to ", os.path.join(data_dir, "lch_counts"+anno_infname.replace(".json", "").replace(".gz", "")+".txt"))
 
 

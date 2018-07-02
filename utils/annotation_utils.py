@@ -73,7 +73,8 @@ def load_dep_parser():
     return StanfordNeuralDependencyParser(
         model_path=parser_modelpath,
         path_to_jar=parser_jarpath, path_to_models_jar=parser_modeljar, 
-        java_options='-Xmx4g')
+        java_options='-Xmx4g --add-modules java.se.ee',
+        corenlp_options='')
 
 def parse_refEpx(refExps, dep_parser=None):
     if not dep_parser:
@@ -131,9 +132,36 @@ def get_refanno(tagged_words):
     return ann_words
 
 def tag2pos(tag):
-    tag_map = {"JJ": "a", "JJS": "a", "NN": "n", "NNS": "n"} # TODO
+    tag_map = {"JJ": "a", "JJS": "a", "NN": "n", "NNS": "n", "None": None} # TODO
     return tag_map.get(tag, None)
 
+def _apply(ssid1, ssid2, func):
+    ss1 = ssid1
+    ss2 = ssid2
+    if isinstance(ssid1, str):
+        ss1 = get_synset(ssid1)
+    if isinstance(ssid2, str):
+        ss2 = get_synset(ssid2)
+    return func(ss1, ss2)
+
+def get_synset(ssid):
+    """
+    >>> get_synset('girl.n.01')
+    Synset('girl.n.01')
+    """
+    return wn.synset(ssid)
+
+def get_ss_from_offset(offset):
+    """
+    >>> get_synset_from_offset('02084071-n')
+    Synset('dog.n.01')
+    >>> get_synset_from_offset('n02084071')
+    Synset('dog.n.01')
+    """
+    if not offset[0].isdigit():
+        offset = offset[1:] + "-" + offset[0]
+    return wn.of2ss(offset)
+    
 def get_synset_first(word, pos=None):
     all_synsets = wn.synsets(word, pos)
     #if not all_synsets and pos != None:
@@ -141,6 +169,11 @@ def get_synset_first(word, pos=None):
     if all_synsets:
         return all_synsets[0]
     return None
+
+def get_ss_first_name_and_lexfile(word, pos=None):
+    synset = get_synset_first(word, pos=pos)
+    lexfile_info = get_ss_lexfile_info(synset)
+    return (get_synset_name(synset), lexfile_info)
 
 def get_synset_name(ss):
     if not ss:
@@ -157,6 +190,23 @@ def get_ss_lexfile_info(ss):
         return None
     return ss.lexname()
 
+def get_lch(ssid1, ssid2):
+    """
+    Returns lowest common hypernyms of synsets ssid1 and ssid2.
+    >>> get_lch('girl.n.01', 'granddaughter.n.01')
+    [Synset('person.n.01')]
+    """
+    ss1 = ssid1
+    ss2 = ssid2
+    if isinstance(ssid1, str):
+        ss1 = get_synset(ssid1)
+    if isinstance(ssid2, str):
+        ss2 = get_synset(ssid2)
+    return ss1.lowest_common_hypernyms(ss2)        
+
+def get_path_similarity(ssid1, ssid2):
+    return _apply(ssid1, ssid2, wn.path_similarity)
+
 ## some WN methods which may be useful at some point
 def get_subtree(synset):
     """
@@ -164,6 +214,12 @@ def get_subtree(synset):
     :param synset: WN synset
     """
     return synset.tree(lambda s:s.hypernyms())
+
+def get_all_hypernyms(synset):
+    return synset.hypernym_paths()
+
+def get_max_path_length(synsets):
+    return max([len(p) for p in ss.hypernym_paths() for ss in synsets])
 
 def get_base_form(form, pos=None):
     """
@@ -173,6 +229,7 @@ def get_base_form(form, pos=None):
     
 if __name__=="__main__":
     parses = parse_refEpx(["the surfer", "a big wave"])
+    print(parses)
     
     
     
