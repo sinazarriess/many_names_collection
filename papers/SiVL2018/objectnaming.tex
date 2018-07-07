@@ -25,3 +25,34 @@ Contextual factors also affect object naming. Scenarios where multiple objects a
 
 \section{Requirements: What Do We Need? \cs{[Subsection of \ref{sec:object_naming}?]}}
 For large-scale studies of object naming, we need to be able to automatically define the level of specificity of a name, given an ontology. 
+
+\paragraph{Requirements regarding the factors}
+%Given an image which depicts an object~$o^t$, the target object of the naming task, along with $k$~distractor objects~\mbox{$d^i, i\in{1,...,k}$} (the perceptual context of~$o_t$, understood as the real-world situation in which a unique name for~$o_t$ is to be produced).
+\cs{Note: I am aware of the inconsistency caused by "leaf category". Needs to be replaced later.}
+
+\begin{itemize}
+	\item[---] Visual-Linguistic Factors
+	\begin{itemize}
+		\item[R1] Contextual informativeness\\
+		To reason about the contextual informativeness, the  repertory of categories of which an object can be an instance is required. \\
+		%What are the lexical alternatives of a target object which \textit{uniquely} refer to it?\\
+		%For each pair of target object and distractor, we need to know whether they are from the same most specific category. (I.e.,~are they of the same sub, basic or super-level?)\\
+		%Example pizza: is there another calzone? Is there another pizza? Is there another kind of food?)\\
+		$\Rightarrow$ The repertory of categories for an object can be queried from an existing taxonomy, such as WordNet \cite{fellbaum1998wordnet}, by its most specific name (the \textsl{leaf category} in the taxonomy). 
+		Hence, for \textit{each} object in the image, its leaf category is required.
+		\item[R2] The preferred name of an object\\
+		The entry-level/basic-level name.\\
+		$\Rightarrow$ ?
+	\end{itemize}
+	\item[---] Linguistic (lexical) Factors
+	\begin{itemize}
+		\item[R3] Lexical cost\\
+		$\Rightarrow$ Can be estimated, e.g.,~by the length of an expression. Needs to be estimated for all lexical alternatives, i.e.,~requires R1.
+	\end{itemize}
+	\item[---] Perceptual Factors
+	\begin{itemize}
+		\item[R4] Perceptual salience\\
+		This can be estimated geometrically on the basis of the relative position and size of an object in the image.\\
+		$\Rightarrow$ The coordinates (e.g.,~bounding box) of the image region which shows object~$o$. 
+	\end{itemize}
+\end{itemize}
