@@ -1,24 +1,200 @@
 \begin{table*}[t]
-	\begin{tabular}{|l|l|llll|}
+	\begin{tabular}{|l||l|c|c|c|c|}
 		\hline
-		Resource & Purpose & \multicolumn{4}{c|}{Useful For}\\
-				& 			& Basic-level Names & Specificity & Bla & Bli \\
+		Resource
+		& Purpose 	& \#Cat 	
+		& \multicolumn{2}{c|}{Constraints on} 
+		& WordNet  \\
+			&			
+		& 			
+		& language 	& images 
+		& IDs?\\
 		\hline \hline
-		RefCOCO & XXX & 
+		\refcoco 	& REG,REC& 80 		& -				
+					& $\geq$2 objects of same cat 
+					& \xmark \\
+		\refcocop 	& REG,REC
+					& 80		& + 			
+					& $\geq$2 objects of same cat 
+					& \xmark \\	
+		\flickr 	& Phrase localization
+					& ?				& -- 
+					& & \xmark \\
+					& Caption generation
+					& & & &  \\
+		\vgenome 	& Scene understanding 
+					& 80k 
+					& & & \cmark\\
+					& Phrase localization
+					& & & &  \\
+		\hline
 	\end{tabular}
-	\caption{\label{tab:summary_resources} Intended to provide an overview of resources, their purpose/use and shortcomings wrt object naming}
+	\caption{\label{tab:summary_resources} Intended to provide an overview of resources, their purpose/use and shortcomings wrt object naming. Cat: Categories; REG and REC: Referring expression generation and comprehension, respectively.}
 \end{table*}
 
-\subsection{Computer Vision Resources}
-\paragraph{Methods: Object Detectors, Image Classifiers}
+\begin{table*}[t]
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Resource & \multicolumn{3}{c|}{Provides (more or less directly)}\\
+		 		 & R1: Root-level & R2: Entry-level & R4: Coordinates  \\
+		\hline \hline
+		\refcoco 	& \xmark & \xmark & \cmark \\
+		\refcocop 	& \xmark & \xmark & \cmark \\
+		\flickr 	& \xmark & (\cmark) & \cmark \\
+		\vgenome 	& \xmark & \cmark 	& \cmark \\
+		\hline 		
+	\end{tabular}
+	\caption{\label{tab:summary_resources} BLABLA overview of resources and their shortcomings wrt object naming. REG and REC: Referring expression generation and comprehension, respectively.}
+	\end{center}
+\end{table*}
+
+\subsection{Linguistic Resources, Computer Vision Resources}
+\paragraph{WordNet}
+WordNet \cite{fellbaum1998wordnet} blabla. 
+
+\paragraph{Methods: Object Detectors, Image Classifiers} \cs{Do we need that? I would say no.}
 
 \paragraph{ImageNet and ILSVRC}
-\paragraph{MSCOCO} \cite{mscoco}
 
+
+\paragraph{MS COCO} \cite{mscoco}
+MS COCO is an object recognition dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
+Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
+The latter provides five captions for each of  $300k$~images, spanning $80$~of the COCO categories.  
+However, the COCO region-level (object) annotations are not linked to the captions.
 \subsection{V\ \&\ L Resources}
-\paragraph{VisualGenome}
-\paragraph{(ReferIt) RefCOCO and alike}
-Based on MSCOCO; Other MSCOCO-based resources: Captions; Visual Genome in parts\\
+
+\paragraph{\refcoco and \refcocop}~\\\cs{REF} 
+Both datasets are extensions of \referit\cite{Kazemzadeh2014}, a large-scale collection of referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO image collection \cite{mscoco}. 
+
+The REs were collected via crowdsourcing in a two-player game, which was designed to obtain REs uniquely referring to the target objects in an image. 
+Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
+The matcher must click on the object he thinks the RE refers to. 
+If the matcher's prediction is correct, the RE is considered valid. 
+For more details on the datasets see \cite{Yu2016}.
+
+Finally, \referit is based on the SAIAPR image collection \cite{Grubinger2006} (20k images;99.5k image regions;120K REs), and captures not only REs for objects ("things") but also for scene categories (e.g.,{\refexp{grass, road}) (see also \cite{hu2015,mao2016generation}). 
+The task of scene detection is beyond the focus of our study regarding object naming, we therefore will not discuss this dataset further.
+
+\paragraph{Flickr30k Entities}~\\
+The \flickr dataset \cite{plummer2015flickr30kentities}\footnote{Available at  \url{web.engr.illinois.edu/~bplumme2/Flickr30kEntities}}  augments Flickr30k, a dataset of 30k~images and five sentence-level captions for each of the images, with region-level annotations. 
+Specifically, mentions of the same entities across the five captions of an image are linked to the bounding boxes of the objects they refer to. 
+The dataset was designed to advance image description generation and phrase localization in particular (e.g.,~\cite{rohrbach2016grounding,plummer2017phrase,yeh2018unsupervised}). 
+% 276k~manually annotated bounding boxes (i.e.,~entities are grounded in the image).
+%
+%
+% augments the 158k captions from Flickr30k with 244k coreference chains, linking mentions of the same entities across different captions for the same image, and associating them with 276k manually annotated bounding boxes. Such annotations are essential for continued progress in automatic image description and grounded language understanding. They enable us to define a new benchmark for localization of textual entity mentions in an image.
+
+\paragraph{VisualGenome}~\\
+VisualGenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
+It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
+
+\iffalse 
+5.4 Million Region Descriptions
+1.7 Million Visual Question Answers
+3.8 Million Object Instances
+2.8 Million Attributes
+2.3 Million Relationships
+Everything Mapped to Wordnet Synsets
+\fi
+
+\subsection{Discussion of Shortcomings}
+We discuss the shortcomings of the presented V\&L datasets with respect to their use for computational linguistic studies of reference in general, and in particular in how far they satisfy the requirements for the study of object naming which we put forward in  Section~\ref{sec:requirements}. 
+
+\paragraph{\refcoco and \refcocop}
+The REs for both, \refcoco and \refcocop, were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to the appearance of objects. \cs{Maybe people tended more to use REs expressing the function of the object?}
+%
+While these constraints ensured that the datasets are interesting from the computer vision perspective, they fall short in containing phenomena that are intriguing from the view of language research: 
+%
+The range of linguistic phenomena under study (see, e.g.,~Section~\ref{sec:object_naming} for phenomena in object naming) need to be observable in the experimental data in order to study the interaction of their underlying factors. 
+This is not given in \refcoco(+) with respect to the study of reference. 
+First, how the choice of a RE for an object interacts with the categories of its distractors can only partially be observed in the data\footnote{For example, the preference of the entry-level category over a sufficiently unique more generic category can only be observed in images in which the target and the distractor objects are of different more generic categories.} due to~(i). 
+And second, the study of how people \textit{naturally} refer to objects requires that speakers are not constraint in their choice of REs, which (ii)~does not fulfill.
+
+Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
+
+%(i) violates (R0: The data contains only examples of case11, and excludes examples of case22, case23, case33 (case33:) do humans choose a basic-level category (e.g.,~\refexp{dog}) even though the super-level (e.g.,~\refexp{animal}) would suffice to uniquely refer to the object?). 
+
+% the cost of a name and the contextual ambiguity it creates (see Section~\ref{sec:object_naming}), 
+% entry-level category 
+
+With respect to the problem of object naming, \refcoco(+) does not fulfill requirement~R1. 
+As explained in Section~\ref{sec:requirements}, we can retrieve less specific categories from a taxonomy, but the most specific category of \textit{each} object depicted in an image needs to be provided by the data. 
+This is not the case due to property~(iii), as well as due to the fact that the $80$~COCO categories tend to be entry-level categories. \cs{TODO: EX / ANALYSIS}
+%
+%However, the leaf category cannot be retrieved, disallowing us to determine whether target and distractors are of the same most specific category. 
+
+The dataset also falls short in fully meeting requirement~R2 due to property~(iii)---it only covers 80~object categories---and constraint~(i) to some extent---we may not be able to reliably infer the basic-level from the data \cs{TODO: Example or remove last part}. 
+
+\paragraph{Solution to R2: Captions?}
+Additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
+Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
+%
+In contrast to \flickr, though, the data does not contain region-phrase associations,  % (i.e.,~object mentions are not linked to the corresponding image regions). 
+such that natural language phrases first needed to be aligned with the image regions they refer to. 
+This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
+% We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
+
+\paragraph{Solution to R1: Object detectors?}
+An alternative would be to apply object detectors trained to predict the most specific category of the full inventory of objects which the dataset covers. 
+However, pre-trained object detectors only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
+For the training of detectors using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of sub-level categories covered by the data need to be provided or collected from humans. 
+
+\paragraph{\flickr}
+By design, \flickr can be used to study the way people refer to individual entities in an image in dependence on the situation the speakers describe. 
+In contrast to \refcoco(+), the production of entity mentions did not underlie any constraints. 
+We can therefore gather naturally produced object names from the data and may be able to infer their entry-level categories. 
+This is only the case for objects which are mentioned in the captions though, which is why \flickr does not fully satisfy requirement~R2. 
+
+\flickr does not meet requirement R1 for similar reasons as \refcoco(+). 
+Object categories tend to be even less specific than those of COCO, they include, e.g.,~\cs{TODO; people...}.
+
+Note that \flickr is less suited for referring expression generation and interpretation\cs{use the term grounding, interpretation or understanding to refer to the process of linking language to an image region?}, though, in that the mentions in isolation of their linguistic context may not uniquely identify the referred object. 
+
+
+\paragraph{Visual Genome}
+From a linguistic perspective, object categories (e.g.,~\cat{fawn}, \cat{industrial park}, \cat{opened bag}, \cat{carpet oriental}) are defined pragmatically, and the annotations are rather unstructured. 
+For example, as illustrated in Figure~\ref{fig:ex_visualgenome}, the categorization of expressions into one of the three annotation types (region, attributes and relationships), is based on the verbs (\word{is} denotes attributes) and prepositions (\word{at} or \word{in} denotes relationships) \cs{double-check w/ paper}
+Note also the spelling mistakes (e.g.,~\word{dalmation}, \word{wating}). 
+Furthermore, regions and their annotations are highly redundant in that expressions referring to the same object may still be linked to different bounding boxes\cs{We would need to, e.g., merge boxes through IoU $\geq$ some threshold}. 
+
+
+As far as object naming is concerned, requirement R1 is not met.    
+The annotators were free in their choice of a name for the objects, hence, the latter is usually the entry-level in many annotations. 
+For the same reason, on the other hand, and because of the dense image labeling and its exhaustive annotations, Visual Genome satisfies R2---we can infer the entry-level name of each object in the image. 
+For example, based on frequency estimates, the entry-level for the object on the left is \refexp{dalmatian} (Figure~\ref{fig:ex_visualgenome}), whereas the object on the right is referred to by \refexp{heeler} once, and mostly by \refexp{dog} and its appearance or location. \\
+
+
+\begin{figure}[t]
+	\begin{center}
+	\begin{minipage}{.37\textwidth}
+		\includegraphics[scale=.25]{fig/visual_genome_dogs.png}
+	\end{minipage}
+	\begin{minipage}{.6\textwidth}
+		\begin{tabular}{l|l}
+			\hline
+			Annotation	& \\	
+			types		& 	\\
+			\hline \hline
+			Regions &  dalmatian's head; dalmatian dog\\
+					& wating at a dinner table; the dog is gray\\
+			Attributes & dog is gray; dalmation is eating\\
+			Relationships & dog at table; dalmation IN chair; \\
+							& heeler eating treat \\
+							\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Example of Visual Genome. \label{fig:ex_visualgenome}}
+	\end{center}
+\end{figure}
+
+
+\noindent
+Finally, requirement~R4 is met by all discussed datasets. 
+
+\cs{XXXXX}\\\\
+\subsubsection{Analysis}
 
 We analyze the RefCOCO and RefCOCO+ datasets which contain referring expressions to objects in MSCOCO \cite{mscoco} images.
 These data collections were performed via crowdsourcing with the ReferIt Game \cite{Kazemzadeh2014}  where two players were paired and a director needed to refer to a predetermined object to a matcher, who then selected it.
@@ -26,7 +202,6 @@ RefCOCO and RefCOCO+ contain 3 referring expressions on average per object, and 
 The two datasets have been collected for an (almost) identical set of objects, but in RefCOCO+, players were asked not to use location words (\textit{on the left}, etc.).
 See \cite{Yu2016} for more details. 
 
-\paragraph{Flickr30k Entities}
 
 \subsection{\cs{Language Resources? (WordNet)}}
 
