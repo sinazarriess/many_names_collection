@@ -40,7 +40,7 @@
 \mainmatter
 \def\ECCV18SubNumber{***}  % Insert your submission number here
 
-\title{How do we get from object recognition\\ to object naming?} % Replace with your title
+\title{Do we need object naming beyond entry-level categories?} % Replace with your title
 
 \titlerunning{ECCV-18 submission ID \ECCV18SubNumber}
 
@@ -64,19 +64,28 @@ the abstract section}
 
 \section{Introduction}
 
+While traditional approaches to computer vision have often focussed on categorizing and classifying visual content according to predefined annotation schemes (for e.g.\ object categories, attributes or actions), research on language \& vision typically aims at predicting or generating natural verbal descriptions of visual objects and scenes depicted in images or videos.
+In recent years, there has been an explosion of interest in language \& vision tasks in the NLP community, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,chen2015mind,vinyals:show,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016,schlazar:acl16}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
+All of these tasks require models that capture linguistic and visual knowledge at the same time, i.e. determining which combinations of words are appropriate for a given visual scene and, potentially, in a given discourse context, cf.\ \cite{vries2017guesswhat}.
+Moroever, in contrast to rigid classification often used in computer vision, the target output in language \& vision is usually more flexible and varies in terms of a range of factors:  different speakers might have different preferences when describing an object, and the same speaker might prefer different descriptions depending on the task or context.
+%next to knowledge about visual categories, require , thecomplex verbal utterances need to be produced, and in some cases, these utterances not only need to describe visual content, but also need to be appropriate in a relatively complex .
+
+In this paper, we take a look at a straightforward task in language \& vision that so far has found surprisingly little attention in the community: object naming, i.e. determining the nominal that speakers will use to refer to an object in a visual scene. 
+With state-of-the-art computer vision systems being able to classify images into thousands of different categories \cite{googlenet}, it might even seem like this task is already solved.
+However, theoretically, the lexical choice involved in naming is a non-trivial one \cite{brown1958shall}.
 Real-world objects are members of many categories and speakers can typically choose between different, more or less specific names when referring to a particular visual entity. 
 For instance, the entity surrounded by the green box in Figure \ref{fig:example} is an instance of the categories \textit{female child, child, female, person, organism}, etc.\  and can be referred to with names such as, e.g.,\ \textit{girl, kid, cutie, daughter, person, human}.
-But even though almost every task in language \& vision involves the prediction of object names (e.g. image captioning, referring expression generation, visual dialogue), hardly any research has explicitly looked at object naming, i.e.\ determining the actual word/linguistic concept that speakers would use to refer to an object (in a particular context), but see \cite{Ordonez:2016,zarriess-schlangen:2017}.
+Most research on computer vision and object recognition has somehow worked around the fact that objects can be instances of multiple, hierarchically embedded categories. 
+State-of-the-art recognition models are mostly trained as classifiers on a flat of 1000 categories in ImageNet, reducing the ImageNet ontology to an inherently flat annotation scheme.
+
+
+%But even though almost every task in language \& vision involves the prediction of object names (e.g. image captioning, referring expression generation, visual dialogue), hardly any research has explicitly looked at object naming, i.e.\ determining the actual word or concept that speakers would use to refer to an object (in a particular context), but see \cite{Ordonez:2016,zarriess-schlangen:2017}.
 Even research in pragmatics, that traditionally deals with reference and referring expression production, has mostly focused on attributes, rather than object names.
-Recently, however, \cite{graf2016animal} have shown that object naming preferences are subject to contextual constraints and pragmatic factors: in a typical reference game set-up with images of target objects surrounded by distractor objects,\cs{of target objects, each  presented along with images of distractor objects} speakers have been found to flexibly adjust object names depending on the context. For instance, a \textit{dalmatian} would be called \textit{dalmatian} in the context of other dogs or simply \textit{dog} when none of the distractors is also a dog.
+Recently, however, \cite{graf2016animal} have shown that object naming preferences \textit{are} subject to pragmatic factors: in a typical reference game set-up with images of target objects, each  presented along with images of distractor objects, speakers have been found to flexibly adjust object names depending on the context. For instance, a \textit{dalmatian} would be called \textit{dalmatian} in the context of other dogs or simply \textit{dog} when none of the distractors is also a dog.
 This extends previous traditional work on concepts suggesting that the typicality of a referent determines its entry-level category (and consequently, its name) \cite{Rosch1978}.
 
+The goal of this paper is to provide a systematic discussion of the object naming task and to show that existing, large-scale resources do not meet the requirements for a theoretically informed model of this very basic phenomenon in language \& vision.
 
-Most research on computer vision and object recognition has somehow worked around the fact that objects can be instances of multiple, hierarchically embedded categories. 
-State-of-the-art recognition models are mostly trained as classifiers on a flat of 1000 categories in ImageNet, reducing the ImageNet ontology to an inherently flat annotation scheme and treating
-object labels as mutually exclusive.
-
-On the vision side, however, there is a huge body of research on object recognition, i.e.\ labeling visual objects according to a set of categories, cf.\ \cite{simonyan2014very,deng2014large,googlenet}.
 
 \section{Naming Objects (in Context)}
 \label{sec:object_naming}
