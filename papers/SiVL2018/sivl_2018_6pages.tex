@@ -1,0 +1,148 @@
+% last updated in April 2002 by Antje Endemann
+% Based on CVPR 07 and LNCS, with modifications by DAF, AZ and elle, 2008 and AA, 2010, and CC, 2011; TT, 2014; AAS, 2016
+
+\documentclass[runningheads]{llncs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb} % define this before the line numbering.
+\usepackage{ruler}
+\usepackage{booktabs}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage[width=122mm,left=12mm,paperwidth=146mm,height=193mm,top=12mm,paperheight=217mm]{geometry}
+
+\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+\newcommand{\cs}[1]{\textcolor{PineGreen}{\emph{//cs: #1//}}}
+\newcommand{\la}[1]{\textcolor{cyan}{\emph{//la: #1//}}}
+
+\newcommand{\vgenome}{VisualGenome }
+\newcommand{\referit}{ReferIt }
+\newcommand{\refcoco}{RefCOCO }
+\newcommand{\refcocop}{RefCOCO+ }
+\newcommand{\flickr}{Flickr30k Entities }
+
+\newcommand{\refexp}[1]{\textsl{#1}}
+\newcommand{\word}[1]{\textsl{#1}}
+\newcommand{\cat}[1]{\textsc{#1}}
+
+\newcommand{\green}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\yellow}[1]{\textcolor{yellow}{#1}}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}
+
+\begin{document}
+% \renewcommand\thelinenumber{\color[rgb]{0.2,0.5,0.8}\normalfont\sffamily\scriptsize\arabic{linenumber}\color[rgb]{0,0,0}}
+% \renewcommand\makeLineNumber {\hss\thelinenumber\ \hspace{6mm} \rlap{\hskip\textwidth\ \hspace{6.5mm}\thelinenumber}}
+% \linenumbers
+\pagestyle{headings}
+\mainmatter
+\def\ECCV18SubNumber{***}  % Insert your submission number here
+
+\title{Object naming is context dependent - A case study on testing linguistic hypotheses on real-world image corpora} % Replace with your title
+
+\titlerunning{ECCV-18 submission ID \ECCV18SubNumber}
+
+\authorrunning{ECCV-18 submission ID \ECCV18SubNumber}
+
+\author{Anonymous ECCV submission}
+\institute{Paper ID \ECCV18SubNumber}
+
+
+\maketitle
+
+\begin{abstract}
+The abstract should summarize the contents of the paper. LNCS guidelines
+indicate it should be at least 70 and at most 150 words. It should be set in 9-point
+font size and should be inset 1.0~cm from the right and left margins.
+\dots
+\keywords{We would like to encourage you to list your keywords within
+the abstract section}
+\end{abstract}
+
+
+\section{Introduction}
+
+Understanding and modeling the way humans converse about their environment using natural language has been a long-standing goal of research in various fields related to artificial intelligence and linguistics.
+With recent  developments in computer vision and a range of massive data collections in particular, there has been a veritable explosion of interest in language \& vision tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,chen2015mind,vinyals:show,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016,schlazar:acl16}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
+In principle, the underlying data collections here should not only spur computational, application-oriented research aimed at implementing systems for very specific tasks -- they should also constitute extremely valuable resources for research aimed at deriving linguistic generalizations about various phenomena related to language grounding, reference and situated interaction which, for a long time, have been investigated mostly in very controlled and small-domain experimental settings, cf. \cite{anderson1991hcrc,fernangen:sigd07,krahmer:2012,takenobu2012rex,zarriess2016pentoref} for some examples of traditional data collections related to reference and grounding.  
+In turn, these linguistic generalizations could inform computational modeling, architecture design and future data collections.
+However, so far, studies that have tested linguistic hypotheses on large-scale vision \& language resources have been relatively rare. 
+
+
+In this paper, we take a look at object naming, a core phenomenon that occurs in virtually every language \& vision task and is, at the same time, subject of ongoing research in language grounding and pragmatics. 
+Our starting point is a particular linguistic hypothesis related to object naming - namely that the choice of a name for an object is dependent on other objects in its visual context - which has been tested recently in a classical experimental setting \cite{graf2016animal}. 
+We discuss how this hypothesis could be tested based on recent data sets that pair images and object descriptions, referring expressions or captions (all containing object names) and define a set of requirements for obtaining a theoretically informed model for object naming.
+In sum, this discussion will show that specific requirements are met by particular resources, but none of the available corpora consistently satisfies all of the requirements.
+We believe that this is a perfect showcase illustrating the challenges for linguistically motivated research in language and vision, and we derive a proposal for obtaining more consistently designed and annotated data collections for object naming.
+
+
+\section{Naming Objects (in Context)}
+\label{sec:object_naming}
+
+The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \textit{dog}'', ``the white \textit{dog} to the left'').
+Since an object is simultaneously a member of multiple categories (e.g., a young beagle is at once a dog, a beagle, an animal, a puppy etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be named with more or less \textbf{specific names} \cite{brown1958shall,murphy2004big}. 
+Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \textit{bird}, \textit{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \textit{animal}, \textit{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \textit{sparrow}, \textit{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a penguin is typically called a \textit{penguin} and not a \textit{bird}) \cite{jolicoeur1984pictures}. This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
+
+While the traditional notion of entry-level categories suggests that objects tend to be named by a \textit{single} preferred concept, research on pragmatics has found that speakers are flexible with respect to the chose level of specificity.
+Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases \cite{rohde2012communicating} \cite{graf2016animal}. For example, in presence of more than one dog, the name \textit{dog} is ambiguous and a sub-level category (e.g., \textit{rottweiler}, \textit{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost (which is typically approximated by frequency) or saliency also come into play \cite{graf2016animal}  \cite{clark1983common}.
+%Note that reasoning about the informativeness of a name require categorization of all the potential referents in that context (e.g., to know that \textit{dog} is ambiguous require having recognized that there are multiple dogs in the scene). 
+%Other contextual factors affecting lexical choice include the \textbf{perceptual salience} of the object, such as its size or location \cite{clark1983common}.
+
+So far, research in computer vision, and vision \& language, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
+ State-of-the-art object recognizers are typically trained on a flat set of categories taken from ImageNet (REF!!), though see work by Deng et al. on trading off object recognition accuracy and level of specificity \cite{deng2012hedging}.
+\cite{Ordonez:2016} present one of the few explicit studies on naming in computer vision and operationalize the task as translating between leaf nodes in the ImageNet hierarchy and entry-level
+ concepts, adopting the traditional view that there is a single preferred name for a given object.
+ Thus, establishing whether object naming is context dependent in realistic, large-scale data sets would not only be of interest to theoretical work on concepts and pragmatics, it would also be of great importance for the design of models in computer vision, object recognition and vision \& language.
+
+\section{Requirements}
+\label{sec:requirements}
+
+\begin{figure}[t]
+	\begin{center}
+		\begin{minipage}{.52\textwidth}
+			\includegraphics[width=\linewidth]{fig/graffig.pdf}
+		\end{minipage}
+		\begin{minipage}{.42\textwidth}
+			\includegraphics[width=5cm]{fig/visual_genome_dogs.png}
+		\end{minipage}
+	\end{center}
+	\caption{Experimental and real-world visual scenes showing dogs (GET MORE IMAGES OF DOGS FROM VG???)}
+	\label{fig:graf_genome}
+\end{figure}
+
+In this Section we discuss requirements for scaling experimental studies on object names as in \cite{graf2016animal} to real-world images.
+The difference between these two approaches is illustrated in Figure \ref{fig:graf_genome}, showing  \cite{graf2016animal}'s carefully controlled experimental conditions with isolated objects arranged in a collage, and a real-world scene where multiple objects occur in a natural context.
+Thus, in contrast to \cite{graf2016animal} we do not aim for assembling controlled and, to some extent, artificial scenes, but we aim for studying object naming as prompted by real-world images. Therefore, we not only need access to names naturally generated by speakers, but also, we need to be able to quantify those factors whose interaction with naming we want to analyze. 
+
+Given a natural scene with multiple objects and a target object that a speaker referred to, we need to be able to answer the following questions:
+
+\begin{itemize}
+                 \item[R0] \textbf{Lexical choice}: \\
+                 Which name did the speaker use to refer to the target object?
+		\item[R1] \textbf{Lexical availability}: \\
+		Which names are available for the target objects?  For instance, if we want to check whether a convertible is more often referred to with a basic-level category (\textit{car}) or a more specific one (\textit{convertible}) we need to know that a given object is a \textit{convertible}, and that \textit{convertible} is a sub-level concept of \textit{car} (and vehicle, etc.). Additionally, in \cite{graf2016animal}, the authors manually group object names used by speakers in terms of three levels (sub-level, basic-level, super-level). Thus, ideally, names would be grouped according to their taxonomic relations.
+		\item[R2] \textbf{Contextual informativeness}: \\
+		Which names are available for the other objects in the scene (i.e. distractors)?
+		For instance, when the target is a convertible, we need to know that there are multiple convertible, cars, etc. to judge whether these concepts are ambiguous. 		
+				
+\end{itemize}
+
+\section{Resources: What Do We Have?}
+%\label{sec:resources}
+%\textbf{TODO@Carina}\\
+%\input{resources}
+
+
+\section{Proposal}
+%\label{sec:future_proposal}
+%\textbf{TODO@Sina (?)}\\
+%\input{proposal}
+
+%yes, will try ...
+
+\clearpage
+\bibliographystyle{splncs}
+\bibliography{naming}
+\end{document}
