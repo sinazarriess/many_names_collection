@@ -4,17 +4,17 @@
 		Resource
 		& Purpose 	& \#Cat & \#Ref/ & \#Refs
 		& \multicolumn{2}{c|}{Constraints on} 
-		& WordNet  \\
+		& Coordinates  \\
 		& & & object			
 		& 			
 		& language 	& images 
-		& IDs?\\
+		& \\
 		\hline \hline
 		\refcoco 	& REG,REC
 					& 80 & 3 & 50k
 					& -				
 					& $\geq$2 objs  
-					& \xmark \\
+					& \cmark \\
 					&
 					& & & 
 					& 
@@ -24,7 +24,7 @@
 					& 80 & 3 & 50k
 					& + 			
 					& $\geq$2 objs  
-					& \xmark \\	
+					& \cmark \\	
 					&
 					& & & 
 					& 
@@ -33,7 +33,7 @@
 		\flickr 	& Phrase localization
 					& ?	& & 
 					& -- 
-					& & \xmark \\
+					& & \cmark \\
 					& Caption generation
 					& & & &  \\
 		\vgenome 	& Scene understanding 
@@ -48,22 +48,24 @@
 
 \begin{table*}[t]
 	\begin{center}
-	\begin{tabular}{|l|c|c|c|c|}
+	\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
-		Resource & \multicolumn{3}{c|}{Provides (more or less directly)}\\
-		 		 & R1: Root-level & R2: Entry-level & R4: Coordinates  \\
+		Resource & \multicolumn{4}{c|}{Provides (Undirectly)}\\
+		 		 & R1: Most specific & R2: Entry-level 
+		 		 & R3: unconstraint & WordNet ID \\
 		\hline \hline
-		\refcoco 	& \xmark & \xmark & \cmark \\
-		\refcocop 	& \xmark & \xmark & \cmark \\
-		\flickr 	& \xmark & (\cmark) & \cmark \\
-		\vgenome 	& \xmark & \cmark 	& \cmark \\
+		\refcoco 	& \xmark & \xmark & \xmark & \xmark \\
+		\refcocop 	& \xmark & \xmark & \xmark & \xmark \\
+		\flickr 	& \xmark & (\cmark) & \cmark & \xmark \\
+		\vgenome 	& \xmark & \cmark 	& \cmark & \cmark \\
 		\hline 		
 	\end{tabular}
-	\caption{\label{tab:summary_resources} BLABLA overview of resources and their shortcomings wrt object naming. REG and REC: Referring expression generation and comprehension, respectively.}
+	\caption{\label{tab:resources_requirements} BLABLA overview of resources and their shortcomings wrt object naming. REG and REC: Referring expression generation and comprehension, respectively.}
 	\end{center}
 \end{table*}
 
 \subsection{Linguistic Resources, Computer Vision Resources}
+
 \paragraph{WordNet}
 WordNet \cite{fellbaum1998wordnet} blabla. 
 
@@ -73,22 +75,26 @@ WordNet \cite{fellbaum1998wordnet} blabla.
 
 
 \paragraph{MS COCO} \cite{mscoco}
-MS COCO is an object recognition dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
+MS COCO is an object recognition dataset of images of natural scenes. 
+As such it provides region-level object annotations for $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
 Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
 The latter provides five captions for each of  $300k$~images, spanning $80$~of the COCO categories.  
-However, the COCO region-level (object) annotations are not linked to the captions.
+However, the COCO object annotations are not linked to the captions.
 \subsection{V\ \&\ L Resources}
+\cs{[If Table~\ref{tab:summary_resources} is kept (?):] \\
+Table~\ref{tab:summary_resources} gives an overview of the resources we discuss.}
 
 \paragraph{\refcoco and \refcocop \cite{Yu2016}}~\\ 
 Both datasets are extensions of \referit\cite{Kazemzadeh2014}, a large-scale collection of referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO image collection \cite{mscoco}. 
 
-The REs were collected via crowdsourcing in a two-player game, which was designed to obtain REs uniquely referring to the target objects in an image. 
-Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
+The REs were collected via crowdsourcing in a two-player game that was designed to obtain REs which uniquely refer to the target objects in an image. 
+Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target in the image. 
 The matcher must click on the object he thinks the RE refers to. 
 If the matcher's prediction is correct, the RE is considered valid. 
 For more details on the datasets see \cite{Yu2016}.
 
-Finally, \referit is based on the SAIAPR image collection \cite{Grubinger2006} (20k images;99.5k image regions;120K REs), and captures not only REs for objects ("things") but also for scene categories (e.g.,{\refexp{grass, road}) (see also \cite{hu2015,mao2016generation}). 
+Finally, \referit is based on the SAIAPR image collection \cite{Grubinger2006} %(20k images;99.5k image regions;120K REs), 
+ and captures not only REs for objects ("things") but also for scene categories (e.g.,{\refexp{grass, road}) (see also \cite{hu2015,mao2016generation}). 
 The task of scene detection is beyond the focus of our study regarding object naming, we therefore will not discuss this dataset further.
 
 \paragraph{Flickr30k Entities}~\\
@@ -114,55 +120,46 @@ Everything Mapped to Wordnet Synsets
 \fi
 
 \subsection{Discussion of Shortcomings}
-We discuss the shortcomings of the presented V\&L datasets with respect to their use for computational linguistic studies of reference in general, and in particular in how far they satisfy the requirements for the study of object naming which we put forward in  Section~\ref{sec:requirements}. 
+We discuss the shortcomings of the presented V\&L datasets with respect to their use for computational linguistic studies of reference in general, and in particular in how far they satisfy the Requirements R1--R3 for the study of object naming which we put forward in Section~\ref{sec:requirements}. \\
 
-\paragraph{\refcoco and \refcocop}
-The REs for both, \refcoco and \refcocop, were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to the appearance of objects. \cs{Maybe people tended more to use REs expressing the function of the object?}
+%\paragraph{\refcoco and \refcocop}
+The REs for both, \textit{\refcocop} and \textit{\refcoco} (henceforth, \refcoco/+), were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to, e.g.,~the appearance of objects. %\cs{Maybe people tended more to use REs expressing the function of the object?}
 %
-While these constraints ensured that the datasets are interesting from the computer vision perspective, they fall short in containing phenomena that are intriguing from the view of language research: 
+While these constraints ensured that the datasets are interesting from the computer vision perspective, they fall short in containing phenomena that are intriguing from the view of language research,    
 %
-The range of linguistic phenomena under study (see, e.g.,~Section~\ref{sec:object_naming} for phenomena in object naming) need to be observable in the experimental data in order to study the interaction of their underlying factors. 
-This is not given in \refcoco(+) with respect to the study of reference. 
+% Moved to requirements 
+% research:  The range of linguistic phenomena under study (see, e.g.,~Section~\ref{sec:object_naming} for phenomena in object naming) need to be observable in the experimental data in order to study the interaction of their underlying factors. 
+%This is not given in \refcoco/+ with respect to the study of reference. 
+and are in contradiction to Requirement R3:  
 First, how the choice of a RE for an object interacts with the categories of its distractors can only partially be observed in the data\footnote{For example, the preference of the entry-level category over a sufficiently unique more generic category can only be observed in images in which the target and the distractor objects are of different more generic categories.} due to~(i). 
 And second, the study of how people \textit{naturally} refer to objects requires that speakers are not constraint in their choice of REs, which (ii)~does not fulfill.
 
-Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
-
+Furthermore, (iii), not all objects in the images were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
+For this reason and the fact that \refcoco/+ the $80$~COCO categories tend to be entry-level categories, it does thus not fulfill requirement~R1. 
+\cs{TODO: EX / ANALYSIS}
 %(i) violates (R0: The data contains only examples of case11, and excludes examples of case22, case23, case33 (case33:) do humans choose the entry-level category (e.g.,~\refexp{dog}) even though the super-level (e.g.,~\refexp{animal}) would suffice to uniquely refer to the object?). 
-
+%
 % the cost of a name and the contextual ambiguity it creates (see Section~\ref{sec:object_naming}), 
 % entry-level category 
-
-With respect to the problem of object naming, \refcoco(+) does not fulfill requirement~R1. 
-As explained in Section~\ref{sec:requirements}, we can retrieve less specific categories from a taxonomy, but the most specific category of \textit{each} object depicted in an image needs to be provided by the data. 
-This is not the case due to property~(iii), as well as due to the fact that the $80$~COCO categories tend to be entry-level categories. \cs{TODO: EX / ANALYSIS}
+%
+%With respect to the problem of object naming, \refcoco/+ does not fulfill requirement~R1. 
+%As explained in Section~\ref{sec:requirements}, we can retrieve less specific categories from a taxonomy, but the most specific category of \textit{each} object depicted in an image needs to be provided by the data. 
+%This is not the case due to property~(iii), as well as due to the fact that the $80$~COCO categories tend to be entry-level categories. \cs{TODO: EX / ANALYSIS}
 %
 %However, the leaf category cannot be retrieved, disallowing us to determine whether target and distractors are of the same most specific category. 
 
-The dataset also falls short in fully meeting requirement~R2 due to property~(iii)---it only covers 80~object categories---and constraint~(i) to some extent---we may not be able to reliably infer the entry-level from the data \cs{TODO: Example or remove last part}. 
+The dataset also falls short in fully meeting requirement~R2 due to property~(iii)---it only covers 80~object categories---and constraints~(i,ii) to some extent---we may not be able to reliably infer the entry-level from the data \cs{TODO: Example or remove last part}. 
 
-\paragraph{Solution to R2: Captions?}
-Additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
-Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
+\paragraph{}
+By design, \textit{\flickr} can be used to study the way people refer to individual entities in an image in dependence on the situation the speakers describe. 
+The annotators were not constraint by interfering external factors in their choice of entity mentions. \cs{double-check?} 
+We can therefore gather naturally produced object names from the data for objects which are mentioned in the captions and may be able to infer their entry-level categories (Requirement R2). \cs{ADD EXAMPLE IMAGE}
+
+%and may be able to infer their entry-level categories. 
 %
-In contrast to \flickr, though, the data does not contain region-phrase associations,  % (i.e.,~object mentions are not linked to the corresponding image regions). 
-such that natural language phrases first needed to be aligned with the image regions they refer to. 
-This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
-% We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
+%This is only the case for objects which are mentioned in the captions, which is why \flickr does not fully satisfy requirement~R2 \cs{ADD EXAMPLE IMAGE}. 
 
-\paragraph{Solution to R1: Object detectors?}
-An alternative would be to apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
-However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
-For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of sub-level categories covered by the data need to be provided or collected from humans. 
-
-\paragraph{\flickr}
-By design, \flickr can be used to study the way people refer to individual entities in an image in dependence on the situation the speakers describe. 
-In contrast to \refcoco(+), the production of entity mentions did not underlie any constraints. 
-We can therefore gather naturally produced object names from the data and may be able to infer their entry-level categories. 
-%
-This is only the case for objects which are mentioned in the captions, which is why \flickr does not fully satisfy requirement~R2 \cs{ADD EXAMPLE IMAGE}. 
-
-\flickr does not meet requirement R1 for similar reasons as \refcoco(+). 
+\flickr has similar issues in satisfying R1 as \refcoco/+. 
 Object categories tend to be even less specific than those of COCO (e.g.,~\cat{people, animals, bodyparts, clothing}), or are abstract (\cat{other, scene}).
 
 Note that \flickr is less suited for referring expression generation and interpretation\cs{use the term grounding, interpretation or understanding to refer to the process of linking language to an image region?}, though, in that the mentions in isolation of their linguistic context may not uniquely identify the referred object. 
@@ -203,13 +200,11 @@ For example, the two men shown in the image in Figure~\ref{fig:ex_flickr} are  r
 From a linguistic perspective, object categories (e.g.,~\cat{fawn}, \cat{industrial park}, \cat{opened bag}, \cat{carpet oriental}) are defined pragmatically, and the annotations are rather unstructured. 
 For example, as illustrated in Figure~\ref{fig:ex_visualgenome}, the categorization of expressions into one of the three annotation types (region, attributes and relationships), is based on the verbs (\word{is} denotes attributes) and prepositions (\word{at} or \word{in} denotes relationships) \cs{double-check w/ paper}
 Note also the spelling mistakes (e.g.,~\word{dalmation}, \word{wating}). 
-Furthermore, regions and their annotations are highly redundant in that expressions referring to the same object may still be linked to different bounding boxes\cs{We would need to, e.g., merge boxes through IoU $\geq$ some threshold}. 
-
+%Furthermore, regions and their annotations are highly redundant in that expressions referring to the same object may still be linked to different bounding boxes\cs{We would need to, e.g., merge boxes through IoU $\geq$ some threshold}. 
 
 As far as object naming is concerned, requirement R1 is not met.    
 The annotators were free in their choice of a name for the objects, hence, the latter is usually the entry-level in many annotations. 
-For the same reason, on the other hand, and because of the dense image labeling and its exhaustive annotations, \vgenome satisfies R2---we can infer the entry-level name of each object in the image. 
-For example, based on frequency estimates, the entry-level for the object on the left is \refexp{dalmatian} (Figure~\ref{fig:ex_visualgenome}), whereas the object on the right is referred to by \refexp{heeler} once, and mostly by \refexp{dog} and its appearance or location. \\
+For the same reason, on the other hand, and because of the dense image labeling and its exhaustive annotations, \vgenome satisfies R2---we can infer the entry-level name of each object in the image. XX (Figure~\ref{fig:ex_visualgenome})\\
 
 
 \begin{figure}[t]
@@ -237,7 +232,22 @@ For example, based on frequency estimates, the entry-level for the object on the
 
 
 \noindent
-Finally, requirement~R4 is met by all discussed datasets. 
+
+Table \ref{tab:resources_requirements} summarizes the shortcomings of the resources with respect to our requirements. 
+
+\paragraph{Solution to R1: Object detectors?}
+An alternative would be to apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
+However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
+For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
+
+\paragraph{Solution to R2: Captions?}
+Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
+Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
+%
+In contrast to \flickr, though, the data does not contain region-phrase associations,  % (i.e.,~object mentions are not linked to the corresponding image regions). 
+such that natural language phrases first needed to be aligned with the image regions they refer to. 
+This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
+% We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
 
 \cs{XXXXX}\\\\
 
