@@ -56,7 +56,7 @@
 \maketitle
 
 \begin{abstract}
-Massive data collections for applications in language \& vision are nowadays available. In principle, these could constitute valuable resources also for research in linguistics, besides task-specific modeling. However, in practice, very few studies have tested linguistic hypotheses using these large-scale datasets. In this paper, we illustrate the challenges of using this type of corpora for linguistic research, by focusing on a case study, namely the context-dependence of object naming in real-world images. Our analysis of existing resources in language \& vision reveals that none of the available datasets consistently satisfies all of the requirements for a linguistically motivated study of this phenomenon. We conclude with a proposal for a more consistent annotation of language \& vision data which can aid the study of object naming.
+Massive data collections for applications in language \& vision are nowadays available. In principle, these could constitute valuable resources also for research in computational linguistics (CL), besides task-specific modeling. However, in practice, very few studies have tested linguistic hypotheses using these large-scale datasets. In this paper, we illustrate the challenges of using this type of corpora for CL research, by focusing on a case study, namely the context-dependence of object naming in real-world images. Our analysis of existing resources in language \& vision reveals that none of the available datasets consistently satisfies all of the requirements for a linguistically motivated study of this phenomenon. We conclude with a proposal for a more consistent annotation of language \& vision data which can aid the study of object naming.
 %The abstract should summarize the contents of the paper. LNCS guidelinesindicate it should be at least 70 and at most 150 words. It should be set in 9-point font size and should be inset 1.0~cm from the right and left margins.
 \keywords{Object naming, object categorization, concepts, entry-level categories}
 \end{abstract}
@@ -72,33 +72,39 @@ Massive data collections for applications in language \& vision are nowadays ava
 
 \section{Introduction}
 
-Understanding and modeling the way humans converse about their environment using natural language has been a long-standing goal of research in various fields related to artificial intelligence and linguistics.
-With recent  developments in computer vision and a range of massive data collections in particular, there has been a veritable explosion of interest in language \& vision tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
-In principle, the underlying data collections here should not only spur computational, application-oriented research aimed at implementing systems for very specific tasks -- they should also constitute extremely valuable resources for research aimed at deriving linguistic generalizations about various phenomena related to language grounding, reference and situated interaction which, for a long time, have been investigated mostly in very controlled and small-domain experimental settings, cf. \cite{anderson1991hcrc,fernangen:sigd07,krahmer:2012,takenobu2012rex,zarriess2016pentoref} for some examples of traditional data collections related to reference and grounding.  
+Understanding and modeling the way humans converse about their environment using natural language has been a long-standing goal of research in various fields related to artificial intelligence and (computational) linguistics.
+With recent  developments in computer vision and a range of massive data collections in particular, there has been a veritable explosion of interest in language \& vision (L\&V) tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
+In principle, the underlying data collections here should not only spur computational, application-oriented research aimed at implementing systems for very specific tasks---they should also constitute extremely valuable resources for research aimed at deriving linguistic generalizations about various phenomena related to language grounding, reference and situated interaction which, for a long time, have been investigated mostly in very controlled and small-domain experimental settings, cf. \cite{anderson1991hcrc,fernangen:sigd07,krahmer:2012,takenobu2012rex,zarriess2016pentoref} for some examples of traditional data collections related to reference and grounding.  
 In turn, these linguistic generalizations could inform computational modeling, architecture design and future data collections.
-However, so far, studies that have tested linguistic hypotheses on large-scale vision \& language resources have been relatively rare. 
+However, so far, studies that have tested linguistic hypotheses on large-scale L\&V resources have been relatively rare. 
 
 
-In this paper, we take a look at object naming, a core phenomenon that occurs in virtually every language \& vision task and is, at the same time, subject of ongoing research in language grounding and pragmatics. 
-Our starting point is a particular linguistic hypothesis related to object naming - namely that the choice of a name for an object is dependent on other objects in its visual context - which has been tested recently in a classical experimental setting \cite{graf2016animal}. 
+In this paper, we take a look at object naming, a core phenomenon that occurs in virtually every L\&V task and is, at the same time, subject of ongoing research in language grounding and pragmatics. 
+Our starting point is a particular linguistic hypothesis related to object naming---namely that the choice of a name for an object is dependent on other objects in its visual context---which has been tested recently in a classical experimental setting \cite{graf2016animal}. 
 We discuss how this hypothesis could be tested based on recent data sets that pair images and object descriptions, referring expressions or captions (all containing object names) and define a set of requirements for obtaining a theoretically informed model for object naming.
-In sum, this discussion will show that specific requirements are met by particular resources, but none of the available corpora consistently satisfies all of the requirements.
-We believe that this is a perfect showcase illustrating the challenges for linguistically motivated research in language and vision, and we derive a proposal for obtaining more consistently designed and annotated data collections for object naming.
+In sum, this discussion will show that specific requirements are met by particular resources, but none of the available corpora consistently 
+satisfy 
+all of the requirements.
+We believe that this is a perfect showcase illustrating the challenges for linguistically motivated research in L\&V, and we derive a proposal for obtaining more consistently designed and annotated data collections for object naming.
 
 
 \section{Naming Objects (in Context)}
 \label{sec:object_naming}
 
-The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \textit{dog}'', ``the white \textit{dog} to the left'').
-Since an object is simultaneously a member of multiple categories (e.g., a young beagle is at once a dog, a beagle, an animal, a puppy etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be named with more or less \textbf{specific names} \cite{brown1958shall,murphy2004big}. 
-Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \textit{bird}, \textit{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \textit{animal}, \textit{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \textit{sparrow}, \textit{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a penguin is typically called a \textit{penguin} and not a \textit{bird}) \cite{jolicoeur1984pictures}. 
+The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \refexp{dog}'', ``the white \refexp{dog} to the left'').
+Since an object is simultaneously a member of multiple categories (e.g., a young \refexp{beagle} is at once a \cat{dog}, a \cat{beagle}, an \cat{animal}, a \cat{puppy} etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be named with more or less \textbf{specific names} \cite{brown1958shall,murphy2004big}. 
+Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \refexp{bird}, \refexp{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \refexp{animal}, \refexp{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \refexp{sparrow}, \refexp{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a \cat{penguin} is typically called a \refexp{penguin} and not a \refexp{bird}) \cite{jolicoeur1984pictures}. 
 %This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
-While the traditional notion of entry-level categories suggests that objects tend to be named by a \textit{single} preferred concept, research on pragmatics has found that speakers are flexible with respect to the chose level of specificity.
-Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases \cite{rohde2012communicating} \cite{graf2016animal}. For example, in presence of more than one dog, the name \textit{dog} is ambiguous and a sub-level category (e.g., \textit{rottweiler}, \textit{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost or saliency also come into play \cite{graf2016animal}  \cite{clark1983common}.
+While the traditional notion of entry-level categories suggests that objects tend to be named by a \refexp{single} preferred concept, research on pragmatics has found that speakers are flexible in  
+%with respect to the chose level of specificity. 
+their choice of the level of specificity. 
+Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases %\cite{rohde2012communicating} \cite{graf2016animal}. 
+\cite{rohde2012communicating}\cite{graf2016animal}.
+For example, in presence of more than one dog, the name \textsl{dog} is ambiguous and a sub-level category (e.g., \textsl{rottweiler}, \textsl{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost or saliency also come into play \cite{graf2016animal}\cite{clark1983common}.
 %Note that reasoning about the informativeness of a name require categorization of all the potential referents in that context (e.g., to know that \textit{dog} is ambiguous require having recognized that there are multiple dogs in the scene). 
 %Other contextual factors affecting lexical choice include the \textbf{perceptual salience} of the object, such as its size or location \cite{clark1983common}.
 
-So far, research in vision \& language, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
+So far, research in L\&V, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
  State-of-the-art object recognizers are typically trained on a flat set of categories taken from ImageNet, cf.\ \cite{googlenet}, though see work by Deng et al. on trading off object recognition accuracy and level of specificity \cite{deng2012hedging}.
 \cite{Ordonez:2016} present one of the few explicit studies on naming in computer vision and operationalize the task as translating between leaf nodes in the ImageNet hierarchy and entry-level
  concepts, adopting the traditional view that there is a single preferred name for a given object that can be determined independently of the visual context.
@@ -144,7 +150,7 @@ So far, research in vision \& language, has mostly worked around the fact that o
 \end{figure}
 
 In this Section we discuss the requirements for  being able to study the context dependence of object names in real-world images, inspired by \cite{graf2016animal}'s study.
- Figure \ref{fig:graf_genome} shows  \cite{graf2016animal}'s carefully controlled experimental conditions with isolated objects arranged in a collage, and a real-world scene where multiple objects occur in a natural context from Visual Genome \cite{krishna2016visualgenome}.
+ Figure \ref{fig:graf_genome} shows  \cite{graf2016animal}'s carefully controlled experimental conditions with isolated objects arranged in a collage, and real-world scenes where multiple objects occur in a natural context from \vgenome\cite{krishna2016visualgenome}, \refcoco\cite{Kazemzadeh2014}, and \flickr\cite{plummer2015flickr30kentities} (cf. Section~\ref{sec:resources}).
 Thus, in contrast to \cite{graf2016animal} we do not aim for assembling controlled and, to some extent, artificial scenes, meaning that we need to be able to quantify contextual factors for naming in a real-world image corpus. 
 Given a real-world scene with multiple objects and a target object that has to be named, we need access to:
 
@@ -155,7 +161,7 @@ Given a real-world scene with multiple objects and a target object that has to b
 
 \end{itemize}
 
-For instance, if we want to check whether a specific object like convertible is more often referred to with a basic-level category (e.g.,~\refexp{car}) or a more specific one (e.g.,~\refexp{convertible,limousine}), all three requirements need to be fulfilled: we need to know whether the object is a \cat{convertible} or  a \cat{limousine}, and likewise for its distractors, and we need to know wether a speaker called the object that \refexp{convertible,car, etc}.
+For instance, if we want to check whether a specific object like \cat{convertible} is more often referred to with a basic-level category (e.g.,~\refexp{car}) or a more specific one (e.g.,~\refexp{convertible, limousine}), all three requirements need to be fulfilled: we need to know whether the object is a \cat{convertible} or a \cat{limousine}, and likewise for its distractors, and we need to know wether a speaker called the object that \refexp{convertible, car, etc}.
 
 
 %\cs{Should the following be here or at the beginning of Sect. 4?}
