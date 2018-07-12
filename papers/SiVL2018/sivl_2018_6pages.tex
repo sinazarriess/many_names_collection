@@ -73,7 +73,7 @@ Massive data collections for applications in language \& vision are nowadays ava
 \section{Introduction}
 
 Understanding and modeling the way humans converse about their environment using natural language has been a long-standing goal of research in various fields related to artificial intelligence and linguistics.
-With recent  developments in computer vision and a range of massive data collections in particular, there has been a veritable explosion of interest in language \& vision tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,chen2015mind,vinyals:show,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016,schlazar:acl16}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
+With recent  developments in computer vision and a range of massive data collections in particular, there has been a veritable explosion of interest in language \& vision tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
 In principle, the underlying data collections here should not only spur computational, application-oriented research aimed at implementing systems for very specific tasks -- they should also constitute extremely valuable resources for research aimed at deriving linguistic generalizations about various phenomena related to language grounding, reference and situated interaction which, for a long time, have been investigated mostly in very controlled and small-domain experimental settings, cf. \cite{anderson1991hcrc,fernangen:sigd07,krahmer:2012,takenobu2012rex,zarriess2016pentoref} for some examples of traditional data collections related to reference and grounding.  
 In turn, these linguistic generalizations could inform computational modeling, architecture design and future data collections.
 However, so far, studies that have tested linguistic hypotheses on large-scale vision \& language resources have been relatively rare. 
@@ -135,8 +135,12 @@ So far, research in vision \& language, has mostly worked around the fact that o
 	\tiny \textsl{dog}
 \end{minipage}
 	\end{center}
-	\caption{Experimental and real-world visual scenes showing dogs (GET MORE IMAGES OF DOGS FROM VG???)}
+		\vspace{-0.8cm}
+
+	\caption{Experimental and real-world visual scenes showing dogs from Visual Genome, RefCoco, and Flickr)}
 	\label{fig:graf_genome}
+		\vspace{-0.5cm}
+
 \end{figure}
 
 In this Section we discuss the requirements for  being able to study the context dependence of object names in real-world images, inspired by \cite{graf2016animal}'s study.
@@ -147,7 +151,7 @@ Given a real-world scene with multiple objects and a target object that has to b
 \begin{itemize}   
 		\item[(1)] the \textbf{specific category} of the object that the speaker referred to 
 		\item[(2)] \textbf{exhaustive annotations} for all the other objects in the scene (i.e. distractors)
-		\item[(3)] the \textbf{natural name} chosen by a speaker for describing or referring to an object
+		\item[(3)] the \textbf{natural name} chosen by a speaker for referring to an object
 
 \end{itemize}
 
@@ -172,6 +176,8 @@ For instance, if we want to check whether a specific object like convertible is 
 \section{Resources: What Do We Have?}
 \label{sec:resources}
 
+In the following, we will discuss datasets that provide descriptions or referring expressions for objects in real-world images and could, in principle,  be suitable for studying object naming. We focus on collections  that have been used for object recognition, referring expression generation, phrase localization in previous work, but do not discuss other collections for e.g. image captioning which typically do not link mentions of objects to corresponding image regions.
+
 \subsection{ImageNet}
 
 ImageNet \cite{imagenet_cvpr09} is one of the biggest publicly available image databases and many state-of-the-art object recognizers are trained on a subsample of its categories. ImageNet follows a consistent taxonomy as its hierarchical organization is based on WordNet \cite{fellbaum1998wordnet}, such that many synsets from WordNet can be queried for visual instances.
@@ -193,7 +199,7 @@ REs in \refcoco/+ were collected under the constraints that (i) all images conta
 %Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
 
 \begin{itemize}
-     		\item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy. \cs{TODO: EX / ANALYSIS}
+     		\item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy (e.g.,~\cat{bird, person, car, bus})
 		\item[(2)] \textbf{Exhaustive annotations}: not available, as not all objects were annotated with REs and corresponding categories
 		   \item[(3)] \textbf{Natural names}: available, though it is unclear how the additional constraints in RefCoco+ impact on the naturalness of object naming
 \end{itemize}
@@ -234,7 +240,7 @@ It contains a dense region-based labeling of $108k$~images with textual expressi
 
 \section{Possible Solutions}
 
-As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent and dense annotations of object categories at a sufficient level of specificity. We now discuss tentative solutions to the shortcomings for this problem.
+As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent and dense annotations of object categories at a sufficient level of specificity. We now discuss tentative solutions.
 
 \subsection{Object detectors}
 As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent annotations of object categories at a sufficient level of specificity.
@@ -250,13 +256,6 @@ In contrast to \flickr, though, the data does not contain region-phrase associat
 such that natural language phrases first needed to be aligned with the image regions they refer to. 
 This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
 % We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
-
-\subsection{Exhaustive, automatic object labeling}
-
-One solution for obtaining objects labels at a consistent, specific level in a certain taxonomy would be to train and/or apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
-However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
-For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
-Thus, it is unclear whether it is actually feasible to exhaustively label e.g. all objects in VisualGenome images with their corresponding leaf node in ImageNet, at a decent level of quality. 
 
 
 
