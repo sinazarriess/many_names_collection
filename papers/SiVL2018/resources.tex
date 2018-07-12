@@ -128,7 +128,7 @@ And second, the study of how people \textit{naturally} refer to objects requires
 
 Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
 
-%(i) violates (R0: The data contains only examples of case11, and excludes examples of case22, case23, case33 (case33:) do humans choose a basic-level category (e.g.,~\refexp{dog}) even though the super-level (e.g.,~\refexp{animal}) would suffice to uniquely refer to the object?). 
+%(i) violates (R0: The data contains only examples of case11, and excludes examples of case22, case23, case33 (case33:) do humans choose the entry-level category (e.g.,~\refexp{dog}) even though the super-level (e.g.,~\refexp{animal}) would suffice to uniquely refer to the object?). 
 
 % the cost of a name and the contextual ambiguity it creates (see Section~\ref{sec:object_naming}), 
 % entry-level category 
@@ -139,7 +139,7 @@ This is not the case due to property~(iii), as well as due to the fact that the 
 %
 %However, the leaf category cannot be retrieved, disallowing us to determine whether target and distractors are of the same most specific category. 
 
-The dataset also falls short in fully meeting requirement~R2 due to property~(iii)---it only covers 80~object categories---and constraint~(i) to some extent---we may not be able to reliably infer the basic-level from the data \cs{TODO: Example or remove last part}. 
+The dataset also falls short in fully meeting requirement~R2 due to property~(iii)---it only covers 80~object categories---and constraint~(i) to some extent---we may not be able to reliably infer the entry-level from the data \cs{TODO: Example or remove last part}. 
 
 \paragraph{Solution to R2: Captions?}
 Additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
@@ -244,20 +244,31 @@ Finally, requirement~R4 is met by all discussed datasets.
 \subsection{Analysis of Data wrt Our Requirements(?)}
 
 \begin{table}[t]
-	\begin{tabular}{lccc}
+	\begin{tabular}{lrrrr}
 		\hline
-		Resource & \multicolumn{3}{c}{No. categories $cat$ for which $*(cat, \text{ILSVRC})$:} \\
-				& $\in$
-				& superset
-				& $\supset$\\
+			 			& \refcoco & \refcocop & \flickr & \vgenome \\
 		\hline \hline
-		\refcoco & 15 \\
-		\refcocop & \\
-		\flickr & \\
-		\vgenome & \\
+		total \#synsets	&	2580\\
+		- match			&	112 \\
+		- hyponyms		&	36 \\
+		- hypernyms 	&	204 \\
+		\hline
+		%- not found		&	74 \\	
+		%\hline
+		\# 
+				& \multicolumn{3}{c}{No. object names $obj$ for which $*(\text{synset}(obj), \text{ILSVRC})$:} \\
+				& (obj)
+				& in
+				& hypernym
+				& hyponym\\
+		\hline \hline
+		 	& 2580 & 112 & 204 & 36\\
+		 	& 15 & 30 & 1 \cs{??}\\
+		 	& \\
+		\vgenome 	& \\
 		\hline
 	\end{tabular}
-	\caption{Coverage of the categories by the $1,000$~synsets of the ILSVRC image classification challenge.  \label{tab:coverage_ilsvrc}}
+	\caption{Coverage of the object names in the datasets by WordNet and by the $1,000$~synsets of the ILSVRC image classification challenge. \#synsets(obj): number of object names for which synsets could be retrieved from WordNet;   \label{tab:coverage_ilsvrc}}
 \end{table}
 
 

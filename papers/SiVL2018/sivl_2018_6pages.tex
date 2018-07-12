@@ -8,16 +8,20 @@
 \usepackage{booktabs}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[width=122mm,left=12mm,paperwidth=146mm,height=193mm,top=12mm,paperheight=217mm]{geometry}
+\usepackage{hyperref}
+
+\usepackage{xspace}
+
 
 \newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
 \newcommand{\cs}[1]{\textcolor{PineGreen}{\emph{//cs: #1//}}}
 \newcommand{\la}[1]{\textcolor{cyan}{\emph{//la: #1//}}}
 
-\newcommand{\vgenome}{VisualGenome }
-\newcommand{\referit}{ReferIt }
-\newcommand{\refcoco}{RefCOCO }
-\newcommand{\refcocop}{RefCOCO+ }
-\newcommand{\flickr}{Flickr30k Entities }
+\newcommand{\vgenome}{VisualGenome\xspace}
+\newcommand{\referit}{ReferIt\xspace}
+\newcommand{\refcoco}{RefCOCO\xspace}
+\newcommand{\refcocop}{RefCOCO+\xspace}
+\newcommand{\flickr}{Flickr30k Entities\xspace}
 
 \newcommand{\refexp}[1]{\textsl{#1}}
 \newcommand{\word}[1]{\textsl{#1}}
@@ -61,6 +65,14 @@ font size and should be inset 1.0~cm from the right and left margins.
 the abstract section}
 \end{abstract}
 
+@Carina TODO:
+\begin{itemize}
+	\item requirements: \\ 
+	add most specific name; (possible ways to obtain information: taxonomy, object detectors) \\
+	add unconstraint object co-occurrences / unbiased as far as possible; \\
+	rename R1? (lexical alternatives? candidate names?)
+	\item title?
+\end{itemize}
 
 \section{Introduction}
 
@@ -119,20 +131,37 @@ Thus, in contrast to \cite{graf2016animal} we do not aim for assembling controll
 Given a natural scene with multiple objects and a target object that a speaker referred to, we need to be able to answer the following questions:
 
 \begin{itemize}
-                 \item[R0] \textbf{Lexical choice}: \\
-                 Which name did the speaker use to refer to the target object?
-		\item[R1] \textbf{Lexical availability}: \\
-		Which names are available for the target objects?  For instance, if we want to check whether a convertible is more often referred to with a basic-level category (\textit{car}) or a more specific one (\textit{convertible}) we need to know that a given object is a \textit{convertible}, and that \textit{convertible} is a sub-level concept of \textit{car} (and vehicle, etc.). Additionally, in \cite{graf2016animal}, the authors manually group object names used by speakers in terms of three levels (sub-level, basic-level, super-level). Thus, ideally, names would be grouped according to their taxonomic relations.
-		\item[R2] \textbf{Contextual informativeness}: \\
+        \item[(1)] \textbf{Lexical choice}: \\
+        Which name did the speaker use to refer to the target object?
+		\item[(2)] \textbf{Lexical candidates}: \cs{"candidate" does not exclude the chosen name in contrast to "alternative"}\\
+		%Which names are available for the target objects?  
+		Which names are available for the target objects? 
+		And how are they taxonomically related? 
+		For instance, if we want to check whether a convertible is more often referred to with a basic-level category (e.g.,~\refexp{car}) or a more specific one (e.g.,~\refexp{convertible}) we need to know that a given object is a \cat{convertible}, and that \cat{convertible} is a sub-level concept of \cat{car} (and \cat{vehicle}, etc.). 
+		%Additionally, in
+		In \cite{graf2016animal}, the authors manually group object names used by speakers in terms of three levels (sub-level, basic-level, super-level). 
+		Thus, ideally, %names 
+		lexical candidates 
+		would be grouped according to their taxonomic relations. 
+		\item[(3)] \textbf{Contextual informativeness}: \\
 		Which names are available for the other objects in the scene (i.e. distractors)?
-		For instance, when the target is a convertible, we need to know that there are multiple convertible, cars, etc. to judge whether these concepts are ambiguous. 		
-				
+		For instance, when the target is a \cat{convertible}, we need to know that there are multiple \cat{convertibles}, \cat{cars}, etc. to judge whether these concepts are ambiguous.
 \end{itemize}
 
+\cs{Should the following be here or at the beginning of Sect. 4?}
+\cs{We could also call below requirements "Desiderata"}
+In practical terms, the prerequisite for Requirements~(2) and~(3) is, given an image, the information on \textbf{R1: the most specific category} of \textbf{each object} which is depicted in the image. 
+A taxonomy, such as WordNet \cite{fellbaum1998wordnet}, could then be queried with these categories to retrieve their individual lexical candidates arranged by their taxonomic relations. \\
+Furthermore, the information on the \textbf{R2: entry-level category} of an object could be used as a pivot to taxonomically group its lexical candidates.  
+
+With respect to linguistic data-driven experiments, the range of linguistic phenomena under study (see, e.g.,~Section~\ref{sec:object_naming} for phenomena in object naming) need to be observable in the data in order to study the interaction of their underlying factors. 
+Hence, a further practical requirement is that the data, first, captures ideally all possible combinations of the factor values across all factors\footnote{For example, data that contains only images where target and distractor objects do not share any lexical candidates would not be appropriate}, and second, that it has been naturally produced in that speakers were not constraint in their choice of a name by external factors. 
+We summarize this requirement by the term \textbf{R3: unconstraint}. 
+Note that this requirement XXX \cs{@Sina ref to bias and paper you mentioned?}.
+
 \section{Resources: What Do We Have?}
-%\label{sec:resources}
-%\textbf{TODO@Carina}\\
-%\input{resources}
+\label{sec:resources}
+\input{resources}
 
 
 \section{Proposal}
