@@ -128,7 +128,7 @@ So far, research in L\&V, has mostly worked around the fact that objects can be 
 		\includegraphics[height=2cm,width=2.5cm]{fig/refcoco_2400_dog_boxes_crop.jpg}
 	\end{minipage}\vspace{-0cm}\\
 \begin{minipage}{.35\textwidth}
-	---
+	\tiny scene from  \cite{graf2016animal}
 \end{minipage}
 \begin{minipage}{.2\textwidth}
 	\tiny
@@ -191,6 +191,32 @@ Vice versa, given a leaf node in the ImageNet hierarchy, all its specific and mo
 Many state-of-the-art object recognizers are trained on a subsample of ImageNet.
 However, the database is not directly usable for our purposes as each image only depicts a single object (i.e. an instance of the synset) and no (or very few) distractor objects. 
 
+\begin{table}
+\centering
+\setlength{\tabcolsep}{2pt}
+\begin{tiny}
+\begin{tabular}{rrl|rrl}
+\toprule
+ spec. &  rel.freq. &                          top 5 names & spec. &  rel.freq. &                          top 5 names \\
+\midrule
+           2 &   $<$ 0.01 &       \tiny                  thing,things & 10 &   0.05 &   elephant,couch,truck,vase,suitcase \\
+           3 &   $<$ 0.01 &    object,group,set,substance,objects & 11 &   $<$ 0.01 &    motorcycle,clock,mom,dad,scissors \\
+           4 &   0.14 &           man,person,piece,head,part & 12 &   $<$ 0.01 &  oven,airplane,suv,taxi,refrigerator  \\
+           5 &   0.10 &       player,glass,baby,front,corner & 13 &   $<$ 0.01 &    laptop,fridge,canoe,orioles,pigeon \\
+           6 &   0.21 &              woman,girl,kid,boy,bowl & 14 &   $<$ 0.01 &   panda,freezer,penguin,rooster,rhino \\
+           7 &   0.25 &            guy,right,chair,lady,bear & 15 &   0.03 &    zebra,giraffe,zebras,giraffes,deer \\
+           8 &   0.11 &           horse,bus,cow,pizza,batter & 16 &  $ <$ 0.01 &       bison,mooses,orang,elks,sambar \\
+           9 &   0.09 &         shirt,car,bike,donut,catcher & 17 &   $<$ 0.01 &           ox,cattle,gnu,mustang,orca \\          
+\bottomrule
+\end{tabular}\caption{Levels of specificity for naming choices in RefCOCO: for each level (distance between name and WordNet root), relative frequency and 5 most frequent names are shown}
+\label{tab:specnames}
+\end{tiny}
+\vspace{-1cm}
+\label{tab:specnames}
+\end{table}
+\vspace{-0.6cm}
+
+
 %Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
 
 \subsection{\refcoco and \refcocop \cite{Yu2016}}
@@ -209,6 +235,14 @@ REs in \refcoco/+ were collected under the constraints that (i) all images conta
 		\item[(2)] \textbf{Exhaustive annotations}: not available, as not all objects were annotated with REs and corresponding categories
 		   \item[(3)] \textbf{Natural names}: available, though it is unclear how the additional constraints in RefCoco+ impact on the naturalness of object naming
 \end{itemize}
+
+\paragraph{Analysis} We parse REs in RefCocowith the Stanford Dependency Parser and extract the nominal heads. We map these names to their most frequent sense/synset in WordNet.
+We hypothesize that the distance of a name's synset to the root node (entity) relates to its specificity.
+We estimate this distance as the minimal path length of all synsets of a word  to the root node.
+Table \ref{tab:specnames} shows the estimated levels of specificity for object names in the RefCoco data set.
+We observe distances to the root between 2 and 17, meaning that there is a much more fine-grained distinction of levels than the three-way classification adopted in \cite{graf2016animal}.
+Unfortunately, the levels of specificity predicted by WordNet do not seem to reflect linguistic intuitions, e.g.\ \refexp{elephant} is predicted to be more specific than \refexp{panda}.
+At the same time, this overview clearly suggests that object names in RefCoco do not only comprise entry-level categories, but also very general (\refexp{thing}) and very specific names (\refexp{ox}).
 
 
 
@@ -254,16 +288,16 @@ An alternative would be to apply object detectors or image classifiers trained t
 However, pre-trained models only exist for a subset of the datasets' objects  (For example, we could find $6,139$~synsets for the unique object names of Flick30k, of which $238$~synsets (ss) are in the synset set of the ILSVRC image classification challenge ($1$K in total), and $338$ and $95$~ss are super-level and sub-level categories of ILSVRC, respectively.)
 For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
 
-\subsection{Post-annotating COCO Captions}
-Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
-Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
+%\subsection{Post-annotating COCO Captions}
+%Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
+%Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
+%%
+%In contrast to \flickr, though, the data does not contain region-phrase associations,  % (i.e.,~object mentions are not linked to the corresponding image regions). 
+%such that natural language phrases first needed to be aligned with the image regions they refer to. 
+%This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
+%% We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
 %
-In contrast to \flickr, though, the data does not contain region-phrase associations,  % (i.e.,~object mentions are not linked to the corresponding image regions). 
-such that natural language phrases first needed to be aligned with the image regions they refer to. 
-This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
-% We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
-
-
+%
 
 \subsection{Collect naming data with controlled level of specificity}
 
