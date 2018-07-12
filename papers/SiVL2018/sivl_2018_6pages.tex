@@ -230,15 +230,9 @@ It contains a dense region-based labeling of $108k$~images with textual expressi
 
 \section{Possible Solutions}
 
-We now discuss solutions to the shortcomings discussed above.
+As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent and dense annotations of object categories at a sufficient level of specificity. We now discuss tentative solutions to the shortcomings for this problem.
 
-\subsection{Object detectors}
-As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent annotations of object categories at a sufficient level of specificity.
-An alternative would be to apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
-However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
-For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
-
-\subsection{Post-annotating Captions}
+\subsection{Post-annotating CoCo Captions}
 Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
 Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
 %
@@ -247,7 +241,20 @@ such that natural language phrases first needed to be aligned with the image reg
 This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
 % We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
 
+\subsection{Exhaustive, automatic object labeling}
+
+One solution for obtaining objects labels at a consistent, specific level in a certain taxonomy would be to train and/or apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
+However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
+For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
+Thus, it is unclear whether it is actually feasible to exhaustively label e.g. all objects in VisualGenome images with their corresponding leaf node in ImageNet, at a decent level of quality. 
+
+
+
 \subsection{Collect naming data with controlled specificity}
+
+Given that the quality of exhaustive automatic object detection for arbitrary objects in our naming data is hard to estimate, further human annotation on some of the existing data sets seems to be required.
+As annotation of arbitrary objects according to the ImageNet hierarchy is probably challenging for naive subjects, we plan to collect controlled, specific object names from humans as an approximate of specific categories.
+Thus, by prompting annotators to label an object with the most specific name they can think of, we hope to gather 
 
 
 %\label{sec:future_proposal}
