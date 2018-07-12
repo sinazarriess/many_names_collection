@@ -56,10 +56,9 @@
 \maketitle
 
 \begin{abstract}
-Massive data collections that are of interest for language \& vision tasks (from image captioning to visual dialogue) are nowadays available. In principle, these could constitute valuable resources also for research in Linguistics, besides application-oriented one. However, in practice very few studies have tested linguistic hypotheses using these large-scale datasets. In this paper, we illustrate the challenges of using this type of corpora for linguistic research, by focusing on a case study, namely the context-dependence of object naming in real-world images. Our analysis of existing resources in language \& vision reveals that none of the available datasets consistently satisfies all of the requirements for a linguistically motivated study of this phenomenon. We conclude with a proposal for a more consistent annotation of language \& vision data which can aid the study of object naming.
+Massive data collections for applications in language \& vision are nowadays available. In principle, these could constitute valuable resources also for research in linguistics, besides task-specific modeling. However, in practice, very few studies have tested linguistic hypotheses using these large-scale datasets. In this paper, we illustrate the challenges of using this type of corpora for linguistic research, by focusing on a case study, namely the context-dependence of object naming in real-world images. Our analysis of existing resources in language \& vision reveals that none of the available datasets consistently satisfies all of the requirements for a linguistically motivated study of this phenomenon. We conclude with a proposal for a more consistent annotation of language \& vision data which can aid the study of object naming.
 %The abstract should summarize the contents of the paper. LNCS guidelinesindicate it should be at least 70 and at most 150 words. It should be set in 9-point font size and should be inset 1.0~cm from the right and left margins.
-\keywords{We would like to encourage you to list your keywords within
-the abstract section}
+\keywords{Object naming, object categorization, concepts, entry-level categories}
 \end{abstract}
 
 %@Carina TODO:
@@ -92,14 +91,14 @@ We believe that this is a perfect showcase illustrating the challenges for lingu
 
 The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \textit{dog}'', ``the white \textit{dog} to the left'').
 Since an object is simultaneously a member of multiple categories (e.g., a young beagle is at once a dog, a beagle, an animal, a puppy etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be named with more or less \textbf{specific names} \cite{brown1958shall,murphy2004big}. 
-Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \textit{bird}, \textit{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \textit{animal}, \textit{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \textit{sparrow}, \textit{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a penguin is typically called a \textit{penguin} and not a \textit{bird}) \cite{jolicoeur1984pictures}. This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
-
+Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \textit{bird}, \textit{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \textit{animal}, \textit{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \textit{sparrow}, \textit{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a penguin is typically called a \textit{penguin} and not a \textit{bird}) \cite{jolicoeur1984pictures}. 
+%This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
 While the traditional notion of entry-level categories suggests that objects tend to be named by a \textit{single} preferred concept, research on pragmatics has found that speakers are flexible with respect to the chose level of specificity.
-Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases \cite{rohde2012communicating} \cite{graf2016animal}. For example, in presence of more than one dog, the name \textit{dog} is ambiguous and a sub-level category (e.g., \textit{rottweiler}, \textit{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost (which is typically approximated by frequency) or saliency also come into play \cite{graf2016animal}  \cite{clark1983common}.
+Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases \cite{rohde2012communicating} \cite{graf2016animal}. For example, in presence of more than one dog, the name \textit{dog} is ambiguous and a sub-level category (e.g., \textit{rottweiler}, \textit{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost or saliency also come into play \cite{graf2016animal}  \cite{clark1983common}.
 %Note that reasoning about the informativeness of a name require categorization of all the potential referents in that context (e.g., to know that \textit{dog} is ambiguous require having recognized that there are multiple dogs in the scene). 
 %Other contextual factors affecting lexical choice include the \textbf{perceptual salience} of the object, such as its size or location \cite{clark1983common}.
 
-So far, research in computer vision, and vision \& language, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
+So far, research in vision \& language, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
  State-of-the-art object recognizers are typically trained on a flat set of categories taken from ImageNet, cf.\ \cite{googlenet}, though see work by Deng et al. on trading off object recognition accuracy and level of specificity \cite{deng2012hedging}.
 \cite{Ordonez:2016} present one of the few explicit studies on naming in computer vision and operationalize the task as translating between leaf nodes in the ImageNet hierarchy and entry-level
  concepts, adopting the traditional view that there is a single preferred name for a given object that can be determined independently of the visual context.
@@ -145,8 +144,7 @@ In this Section we discuss the requirements for  being able to study the context
 Thus, in contrast to \cite{graf2016animal} we do not aim for assembling controlled and, to some extent, artificial scenes, meaning that we need to be able to quantify contextual factors for naming in a real-world image corpus. 
 Given a real-world scene with multiple objects and a target object that has to be named, we need access to:
 
-\begin{itemize}
-    
+\begin{itemize}   
 		\item[(1)] the \textbf{specific category} of the object that the speaker referred to 
 		\item[(2)] \textbf{exhaustive annotations} for all the other objects in the scene (i.e. distractors)
 		\item[(3)] the \textbf{natural name} chosen by a speaker for describing or referring to an object
@@ -184,26 +182,20 @@ However, the database is not directly usable for our purposes as each image only
 %Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
 
 \subsection{\refcoco and \refcocop \cite{Yu2016}}
-Both datasets are extensions of \referit\cite{Kazemzadeh2014}, a large-scale collection of referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO image collection \cite{mscoco}, 
+Both datasets use the \referit\cite{Kazemzadeh2014} game for collecting referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO \cite{mscoco}, 
 %The latter provides five captions for each of  $300k$~images, spanning $80$~of the COCO categories.  
 %However, the COCO region-level (object) annotations are not linked to the captions.
 a dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
-The REs were collected via crowdsourcing in a two-player game, which was designed to obtain REs uniquely referring to the target objects in an image. 
+The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
 Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
 The matcher must click on the object he thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
-If the matcher's prediction is correct, the RE is considered valid.
-
-
-\paragraph{Shortcomings}
-REs in \refcoco and \refcocop were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to the appearance of objects. 
-Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
-Finally, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy. \cs{TODO: EX / ANALYSIS}
+REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to the appearance of objects. 
+%Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
 
 \begin{itemize}
-     		\item[(1)] \textbf{Specific categories}: are not available, as we only have access to basic-level categories and cannot retrieve the  most specific category or name for each object
-		\item[(2)] \textbf{Exhaustive annotations}: are not available, as not all objects were annotated with REs and corresponding categories
-		   \item[(3)] \textbf{Natural names}: are available, though it is unclear how the additional constraints in RefCoco+ impact on the naturalness of object naming
-
+     		\item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy. \cs{TODO: EX / ANALYSIS}
+		\item[(2)] \textbf{Exhaustive annotations}: not available, as not all objects were annotated with REs and corresponding categories
+		   \item[(3)] \textbf{Natural names}: available, though it is unclear how the additional constraints in RefCoco+ impact on the naturalness of object naming
 \end{itemize}
 
 
@@ -212,8 +204,6 @@ Finally, the $80$~COCO categories tend to be entry-level categories and are not 
 The \flickr dataset \cite{plummer2015flickr30kentities}\footnote{Available at  \url{web.engr.illinois.edu/~bplumme2/Flickr30kEntities}}  augments Flickr30k, a dataset of 30k~images and five sentence-level captions for each of the images, with region-level annotations. 
 Specifically, mentions of the same entities across the five captions of an image are linked to the bounding boxes of the objects they refer to. 
 The dataset was designed to advance image description generation and phrase localization in particular (e.g.,~\cite{rohrbach2016grounding,plummer2017phrase,yeh2018unsupervised}). 
-
-\paragraph{Shortcomings}
 
 By design, \flickr can be used to study the way people refer to individual entities in an image depending on the situation the speakers describe and,  
 in contrast to \refcoco(+), the production of entity mentions did not underlie any constraints. 
@@ -233,8 +223,6 @@ On the other hand, \flickr is less suited for referring expression generation si
 
 \vgenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
 It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
-
-\paragraph{Shortcomings}
 
 
 \begin{itemize}
