@@ -161,7 +161,41 @@ Note that this requirement XXX \cs{@Sina ref to bias and paper you mentioned?}.
 
 \section{Resources: What Do We Have?}
 \label{sec:resources}
-\input{resources}
+%\input{resources}
+
+\paragraph{ImageNet and ILSVRC}
+
+
+%Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
+
+\subsection{\refcoco and \refcocop \cite{Yu2016}}~\\ 
+Both datasets are extensions of \referit\cite{Kazemzadeh2014}, a large-scale collection of referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO image collection \cite{mscoco}, 
+%The latter provides five captions for each of  $300k$~images, spanning $80$~of the COCO categories.  
+%However, the COCO region-level (object) annotations are not linked to the captions.
+a dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
+The REs were collected via crowdsourcing in a two-player game, which was designed to obtain REs uniquely referring to the target objects in an image. 
+Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
+The matcher must click on the object he thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
+If the matcher's prediction is correct, the RE is considered valid.
+
+
+\paragraph{Shortcomings}
+REs in \refcoco and \refcocop were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which prompts the players to avoid the mere object category as RE, and (ii) in \refcocop the players must not use location words, urging them to refer to the appearance of objects. 
+Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories. 
+Finally, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy. \cs{TODO: EX / ANALYSIS}
+
+\begin{itemize}
+        \item[(R1)] \textbf{Lexical choice}: is mostly met by both data sets, though it is unclear how the additional constraints in RefCoco+ impact on the naturalness of object naming
+		\item[(2)] \textbf{Lexical candidates}: is not met, as we only have access to basic-level categories and cannot retrieve the  most specific category or name for each object
+		\item[(3)] \textbf{Contextual informativeness}: is not met, as not all objects were annotated with REs and corresponding categories
+\end{itemize}
+
+
+
+\paragraph{Flickr30k Entities}~\\
+The \flickr dataset \cite{plummer2015flickr30kentities}\footnote{Available at  \url{web.engr.illinois.edu/~bplumme2/Flickr30kEntities}}  augments Flickr30k, a dataset of 30k~images and five sentence-level captions for each of the images, with region-level annotations. 
+Specifically, mentions of the same entities across the five captions of an image are linked to the bounding boxes of the objects they refer to. 
+The dataset was designed to advance image description generation and phrase localization in particular (e.g.,~\cite{rohrbach2016grounding,plummer2017phrase,yeh2018unsupervised}). 
 
 
 \section{Proposal}
