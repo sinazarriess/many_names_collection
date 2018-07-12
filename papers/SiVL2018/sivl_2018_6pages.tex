@@ -102,9 +102,9 @@ Scenarios where multiple objects (of the same category) are present induce a pre
 %Other contextual factors affecting lexical choice include the \textbf{perceptual salience} of the object, such as its size or location \cite{clark1983common}.
 
 So far, research in computer vision, and vision \& language, has mostly worked around the fact that objects can be categorized and named at different levels of specificity.
- State-of-the-art object recognizers are typically trained on a flat set of categories taken from ImageNet (REF!!), though see work by Deng et al. on trading off object recognition accuracy and level of specificity \cite{deng2012hedging}.
+ State-of-the-art object recognizers are typically trained on a flat set of categories taken from ImageNet, cf.\ \cite{googlenet}, though see work by Deng et al. on trading off object recognition accuracy and level of specificity \cite{deng2012hedging}.
 \cite{Ordonez:2016} present one of the few explicit studies on naming in computer vision and operationalize the task as translating between leaf nodes in the ImageNet hierarchy and entry-level
- concepts, adopting the traditional view that there is a single preferred name for a given object that can be determined independentl of the visual context.
+ concepts, adopting the traditional view that there is a single preferred name for a given object that can be determined independently of the visual context.
  %Thus, establishing whether object naming is context dependent in realistic, large-scale data sets would not only be of interest to theoretical work on concepts and pragmatics, it would also be of great importance for the design of models in computer vision, object recognition and vision \& language.
 
 \section{Requirements}
@@ -113,7 +113,7 @@ So far, research in computer vision, and vision \& language, has mostly worked a
 \begin{figure}[t]
 	\begin{center}
 		\begin{minipage}{.35\textwidth}
-			\includegraphics[scale=.15]{fig/graffig.jpg}
+			\includegraphics[width=4.2cm]{fig/graffig.jpg}
 		\end{minipage}
 		\begin{minipage}{.2\textwidth}
 			\includegraphics[height=2cm,width=2.5cm]{fig/visual_genome_dogs.png}
@@ -123,9 +123,9 @@ So far, research in computer vision, and vision \& language, has mostly worked a
 	\end{minipage}
 	\begin{minipage}{.2\textwidth}
 		\includegraphics[height=2cm,width=2.5cm]{fig/refcoco_2400_dog_boxes_crop.jpg}
-	\end{minipage}\vspace{-.7cm}\\
+	\end{minipage}\vspace{-0cm}\\
 \begin{minipage}{.35\textwidth}
-	...
+	---
 \end{minipage}
 \begin{minipage}{.2\textwidth}
 	\tiny
@@ -142,7 +142,7 @@ So far, research in computer vision, and vision \& language, has mostly worked a
 	\label{fig:graf_genome}
 \end{figure}
 
-In this Section we discuss the requirements for  being able to study the context dependence of object names to real-world images, inspired by \cite{graf2016animal}'s study.
+In this Section we discuss the requirements for  being able to study the context dependence of object names in real-world images, inspired by \cite{graf2016animal}'s study.
  Figure \ref{fig:graf_genome} shows  \cite{graf2016animal}'s carefully controlled experimental conditions with isolated objects arranged in a collage, and a real-world scene where multiple objects occur in a natural context from Visual Genome \cite{krishna2016visualgenome}.
 Thus, in contrast to \cite{graf2016animal} we do not aim for assembling controlled and, to some extent, artificial scenes, meaning that we need to be able to quantify contextual factors for naming in a real-world image corpus. 
 Given a real-world scene with multiple objects and a target object that has to be named, we need access to:
@@ -178,7 +178,7 @@ For instance, if we want to check whether a specific object like convertible is 
 
 \subsection{ImageNet}
 
-ImageNet \cite{imagenet_cvpr09} is one of the biggest publicly available image databases that follows a consistent taxonomy: its hierarchical organization is based on WordNet \cite{fellbaum1998wordnet}, such that many synsets from WordNet can be queried for visual instances.
+ImageNet \cite{imagenet_cvpr09} is one of the biggest publicly available image databases and many state-of-the-art object recognizers are trained on a subsample of its categories. ImageNet follows a consistent taxonomy as its hierarchical organization is based on WordNet \cite{fellbaum1998wordnet}, such that many synsets from WordNet can be queried for visual instances.
 Vice versa, given a leaf node in the ImageNet hierarchy, all its specific and more general names can be retrieved by following the links between synsets in WordNet (as is actually done by \cite{Ordonez:2016}).
 Many state-of-the-art object recognizers are trained on a subsample of ImageNet.
 However, the database is not directly usable for our purposes as each image only depicts a single object (i.e. an instance of the synset) and no (or very few) distractor objects. 
@@ -248,7 +248,7 @@ It contains a dense region-based labeling of $108k$~images with textual expressi
 
 \section{Possible Solutions}
 
-We now discuss solutions to the shortcomings discussed above.
+As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent and dense annotations of object categories at a sufficient level of specificity. We now discuss tentative solutions to the shortcomings for this problem.
 
 \subsection{Object detectors}
 As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent annotations of object categories at a sufficient level of specificity.
@@ -256,7 +256,7 @@ An alternative would be to apply object detectors or image classifiers trained t
 However, pre-trained models only exist for a subset of the datasets' objects  (For example, we could find $6,139$~synsets for the unique object names of Flick30k, of which $238$~synsets (ss) are in the synset set of the ILSVRC image classification challenge ($1$K in total), and $338$ and $95$~ss are super-level and sub-level categories of ILSVRC, respectively.)
 For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
 
-\subsection{Post-annotating Captions}
+\subsection{Post-annotating COCO Captions}
 Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
 Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
 %
@@ -265,7 +265,20 @@ such that natural language phrases first needed to be aligned with the image reg
 This task of \textit{language grounding}, which has been an active research topic in vision \& language (e.g.,~\cite{kong2014what,karpathy2015deep,rohrbach2016grounding}), is beyond the focus of our object naming study. 
 % We could also examine the bias shift of speakers (e.g.,~sparrow vs. bird may depend on the person)
 
-\subsection{Collect naming data with controlled specificity}
+\subsection{Exhaustive, automatic object labeling}
+
+One solution for obtaining objects labels at a consistent, specific level in a certain taxonomy would be to train and/or apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
+However, pre-trained models only exist for a subset of the datasets' objects. \cs{TODO: ADD CMP WITH ILSVRC}
+For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
+Thus, it is unclear whether it is actually feasible to exhaustively label e.g. all objects in VisualGenome images with their corresponding leaf node in ImageNet, at a decent level of quality. 
+
+
+
+\subsection{Collect naming data with controlled level of specificity}
+
+Given that the quality of exhaustive automatic object detection for arbitrary objects in our naming data is hard to estimate, further human annotation on some of the existing data sets seems to be required.
+As annotation of arbitrary objects according to the ImageNet hierarchy is probably challenging for naive subjects, we plan to collect controlled, specific object names from humans as an approximate of specific categories.
+Thus, by prompting annotators to label an object with the most specific name they can think of, we hope to be able to systematically gather object names at the sub-level.
 
 
 %\label{sec:future_proposal}
@@ -274,7 +287,17 @@ This task of \textit{language grounding}, which has been an active research topi
 
 %yes, will try ...
 
+\section{Conclusion}
+
+In this paper we have discussed some existing resources in vision \& language from the perspective of linguistically motivated studies on object naming.  
+The comparison between different data sets and available annotations for them reveals that consist procedures for annotating object categories and eliciting object names are lacking to an extent that testing of  basic linguistic hypotheses (related to use of concepts) turns out to be difficult.
+
+
+
 \clearpage
 \bibliographystyle{splncs}
+\begin{footnotesize}
 \bibliography{naming}
+\end{footnotesize}
+
 \end{document}
