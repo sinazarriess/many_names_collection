@@ -69,7 +69,10 @@ But, for a long time, computational research into language grounding, reference 
 This situation has radically changed with recent developments in the language \& vision community. 
 Pushed especially by developments in computer vision, there has been an explosion of interest in language \& vision tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,chen2015mind,vinyals:show,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016,schlazar:acl16}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}.
 
-Despite this dramatic progress in the field, however, a lot of research in language \& vision still centers around systems for very specific tasks and data sets.
+Despite this dramatic progress in the field, however, a lot of research in language \& vision still centers around systems and applications for very specific tasks and data sets.
+Most of the influential papers have investigated which modeling architectures need to be adopted to re-generate human descriptions or utterances in a particular data set, whereas studies aimed at obtaining linguistic generalizations from existing data collections and models are relatively rare.
+ 
+
 
 In this paper, we take a look at a straightforward task in language \& vision that so far has found surprisingly little attention in the community: object naming, i.e. determining the nominal that speakers will use to refer to an object in a visual scene. 
 With state-of-the-art computer vision systems being able to classify images into thousands of different categories \cite{googlenet}, it might even seem like this task is already solved.
@@ -85,7 +88,7 @@ State-of-the-art recognition models are mostly trained as classifiers on a flat 
 %Recently, however, \cite{graf2016animal} have shown that object naming preferences \textit{are} subject to pragmatic factors: in a typical reference game set-up with images of target objects, each  presented along with images of distractor objects, speakers have been found to flexibly adjust object names depending on the context. For instance, a \textit{dalmatian} would be called \textit{dalmatian} in the context of other dogs or simply \textit{dog} when none of the distractors is also a dog.
 %This extends previous traditional work on concepts suggesting that the typicality of a referent determines its entry-level category (and consequently, its name) \cite{Rosch1978}.
 
-The goal of this paper is to provide a systematic discussion of the object naming task and to show that existing, large-scale resources do not meet the requirements for a theoretically informed model of this very basic phenomenon in language \& vision.
+The goal of this paper is to provide a systematic discussion of the object naming task and to show that existing, large-scale resources do not meet the requirements for a theoretically informed model of this very basic phenomenon in language \& vision. 
 
 
 \section{Naming Objects (in Context)}
