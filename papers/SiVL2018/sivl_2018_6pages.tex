@@ -12,7 +12,6 @@
 
 \usepackage{xspace}
 
-
 \newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
 \newcommand{\cs}[1]{\textcolor{PineGreen}{\emph{//cs: #1//}}}
 \newcommand{\la}[1]{\textcolor{cyan}{\emph{//la: #1//}}}
@@ -111,12 +110,31 @@ So far, research in computer vision, and vision \& language, has mostly worked a
 
 \begin{figure}[t]
 	\begin{center}
-		\begin{minipage}{.52\textwidth}
-			\includegraphics[width=\linewidth]{fig/graffig.pdf}
+		\begin{minipage}{.35\textwidth}
+			\includegraphics[width=4.2cm]{fig/graffig.jpg}
 		\end{minipage}
-		\begin{minipage}{.42\textwidth}
-			\includegraphics[width=5cm]{fig/visual_genome_dogs.png}
+		\begin{minipage}{.2\textwidth}
+			\includegraphics[height=2cm,width=2.5cm]{fig/visual_genome_dogs.png}
 		\end{minipage}
+	\begin{minipage}{.2\textwidth}
+		\includegraphics[height=2cm,width=2.5cm]{fig/flickr_1003163366_dog_boxes_crop.jpg}
+	\end{minipage}
+	\begin{minipage}{.2\textwidth}
+		\includegraphics[height=2cm,width=2.5cm]{fig/refcoco_2400_dog_boxes_crop.jpg}
+	\end{minipage}\vspace{-0cm}\\
+\begin{minipage}{.35\textwidth}
+	---
+\end{minipage}
+\begin{minipage}{.2\textwidth}
+	\tiny
+	{\textsl{dalmatian, dog, heeler}}
+\end{minipage}
+\begin{minipage}{.2\textwidth}
+	\textsl{\tiny dog}
+\end{minipage}
+\begin{minipage}{.2\textwidth}
+	\tiny \textsl{dog}
+\end{minipage}
 	\end{center}
 	\caption{Experimental and real-world visual scenes showing dogs (GET MORE IMAGES OF DOGS FROM VG???)}
 	\label{fig:graf_genome}
@@ -156,15 +174,16 @@ For instance, if we want to check whether a specific object like convertible is 
 \section{Resources: What Do We Have?}
 \label{sec:resources}
 
-\subsection{ImageNet and ILSVRC}
+\subsection{ImageNet}
 
 ImageNet \cite{imagenet_cvpr09} is one of the biggest publicly available image databases and many state-of-the-art object recognizers are trained on a subsample of its categories. ImageNet follows a consistent taxonomy as its hierarchical organization is based on WordNet \cite{fellbaum1998wordnet}, such that many synsets from WordNet can be queried for visual instances.
 Vice versa, given a leaf node in the ImageNet hierarchy, all its specific and more general names can be retrieved by following the links between synsets in WordNet (as is actually done by \cite{Ordonez:2016}).
-However, the database is not directly usable for our purposes as each image only depicts a single object (i.e. an instance of the synset) without any (or very few) distractors objects in context. 
+Many state-of-the-art object recognizers are trained on a subsample of ImageNet.
+However, the database is not directly usable for our purposes as each image only depicts a single object (i.e. an instance of the synset) and no (or very few) distractor objects. 
 
 %Multiple datasets for vision \& language tasks have been built on top of COCO, such as the referring expressions datasets \refcoco and \refcocop which we will discuss below, and \textsl{COCO Captions} \cite{chen2015cococaptions}.  
 
-\subsection{\refcoco and \refcocop \cite{Yu2016}}~\\ 
+\subsection{\refcoco and \refcocop \cite{Yu2016}}
 Both datasets are extensions of \referit\cite{Kazemzadeh2014}, a large-scale collection of referring expressions (RE) for natural objects in real-world images, and are built on top of the MS COCO image collection \cite{mscoco}, 
 %The latter provides five captions for each of  $300k$~images, spanning $80$~of the COCO categories.  
 %However, the COCO region-level (object) annotations are not linked to the captions.
@@ -229,7 +248,13 @@ It contains a dense region-based labeling of $108k$~images with textual expressi
 
 As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent and dense annotations of object categories at a sufficient level of specificity. We now discuss tentative solutions to the shortcomings for this problem.
 
-\subsection{Post-annotating CoCo Captions}
+\subsection{Object detectors}
+As discussed in Section \ref{sec:resources}, none of the corpora that contain natural naming data for objects in context provide consistent annotations of object categories at a sufficient level of specificity.
+An alternative would be to apply object detectors or image classifiers trained to predict the most specific category of the full inventory of objects which the dataset covers. 
+However, pre-trained models only exist for a subset of the datasets' objects  (For example, we could find $6,139$~synsets for the unique object names of Flick30k, of which $238$~synsets (ss) are in the synset set of the ILSVRC image classification challenge ($1$K in total), and $338$ and $95$~ss are super-level and sub-level categories of ILSVRC, respectively.)
+For the training of a model using, e.g., ImageNet \cite{imagenet_cvpr09}, on the other hand, the  set of most-specific categories covered by the data needs to be provided or collected from humans. 
+
+\subsection{Post-annotating COCO Captions}
 Regarding \refcoco/+, additional REs could be collected from the COCO Captions dataset. %, which provides 5 natural language descriptions for each image in MS COCO. 
 Since annotators could naturally refer to depicted objects in their descriptions (i.e.,~choose the entry-level as the most preferred reference whenever possible), we may infer the entry-level of the objects from them through maximum likelihood estimation. 
 %
