@@ -161,6 +161,8 @@ if __name__=="__main__":
     parses_avail = False
     levels_str = ""
 
+    sys.exit()
+
     if "load_dependency" in levels:
         refdf = load_dep_parses_from_json(refdf)
         parses_avail = True
