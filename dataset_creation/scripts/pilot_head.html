@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Test Input</TITLE>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+function notEmpty(document, numItems){
+    elem = document.getElementById('annotator_name')
+    if(elem.value.length == 0){
+        alert('Please enter your name');
+        elem.focus();
+        return false;
+    }
+    for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
+        Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
+        if (Objectname.length > 2) { 
+            continue; 
+        } else {
+            if (document.getElementById('optout_qual-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_exh-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_bbox-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_other-' + ItemNo.toString()).checked)
+            {
+                if(document.getElementById('other_reasons-' + ItemNo.toString()).value.length <= 4)
+                {
+                    document.getElementById('other_reasons-' + ItemNo.toString()).focus();
+                    alert("Please specify the reasons for opting out (object " + (ItemNo+1).toString() + ").");
+                    return false;
+                }
+                continue;
+            }
+            document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+            alert ("Missing: object name (object " + (ItemNo+1).toString() + "). If you opt put please give the reason for it.");
+            return false;
+        }
+    }
+    return true;
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+

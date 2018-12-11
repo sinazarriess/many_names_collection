@@ -1,0 +1,52 @@
+<concepts category="person", wn="n00007846">
+worker,n02207449
+<subcategory name="contestant", wn="n09613191">
+athlete,n09820263
+<subcategory name="creator", wn="n09614315">
+artist,n09812338
+<subcategory name="adult", wn="n09605289">
+woman,n10787470
+man,n10287213
+professional,n10480253
+<subcategory name="juvenile", wn="n09622049">
+child,n09917593
+<subcategory name="male, male person", wn="n09624168">
+male_child,n10285313
+<subcategory name="female, female person", wn="n09619168">
+female_child,n10084295
+
+<concepts category="mammal", wn="n01861778">
+dog,n02084071
+
+<concepts category="structure, construction", wn="n04341686">
+housing,n03546340
+shelter,n04191595
+<subcategory name="dwelling", wn="n03259505">
+house,n03544360
+<subcategory name="building", wn="n02913152">
+restaurant,n04081281
+outbuilding,n03859280
+theater,n04417809
+place of worship,n03953416
+hotel,n03542333
+
+<concepts category="food, nutrient", wn="n00021265">
+foodstuff,n07566340
+beverage,n07881800
+<subcategory name="produce", wn="n07705711">
+edible fruit,n07705931
+vegetable,n07707451
+<subcategory name="nutriment, nourishment, nutrition, sustenance, aliment, alimentation, victuals", wn="n07570720">
+dish,n07557434
+<concepts category="food, solid food", wn="n07555863">
+baked goods,n07622061
+
+<concepts category="tool", wn="n04451818">
+tool,n04451818
+hand tool,n03489162
+
+<concepts category="tableware", wn="n04381994">
+dishware,n03133538
+
+
+
