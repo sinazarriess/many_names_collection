@@ -397,7 +397,7 @@ def write_html_table(sampled_data_df, image_df, html_fname="pilot_testgeneration
         #image_path = _image_path(image_df, image_id)
         image_path = _image_path_bbox(image_id, row[1]["object_id"], row[1]["sample_type"], imagedir_path=img_basedir)
         data_info.append("{0}\t{1[image_id]}\t{1[object_id]}\t{1[category]}\t{1[synset]}\t{1[sample_type]}".format("item-" + str(row_num), row[1]))
-        print(row)
+
         obj_names = _pretty_obj_names(row[1]["obj_names"])
         if "taboo_lists" in sampled_data_df.columns: # do not create form for annotation, but illustrate collected data
             html_row = _fill_html_table_row_analysis(obj_names, _pretty_obj_names(row[1]["taboo_lists"]), image_path, row_num)
