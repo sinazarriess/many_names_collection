@@ -11,7 +11,20 @@ function notEmpty(document, numItems){
     }
     for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
         Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
-        if (Objectname.length > 2) { 
+        if (Objectname.length > 2) {
+            Objectname = Objectname.toLowerCase()
+            // Verify that word is not on taboo list
+            var taboolist = document.getElementById('taboolist-' + ItemNo.toString()).getElementsByTagName('li');
+            var i = taboolist.length;
+            var tabooword;
+            while(i --) {
+                tabooword = taboolist[i].innerHTML.toLowerCase();
+                if(0 == tabooword.indexOf(Objectname)) {
+                    document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+                    alert('Please enter a name that is not on the taboo list (object ' + (ItemNo+1).toString() + ').');
+                    return false;
+                }
+            }
             continue; 
         } else {
             if (document.getElementById('optout_qual-' + ItemNo.toString()).checked)
