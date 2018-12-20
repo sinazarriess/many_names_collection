@@ -32,7 +32,7 @@
 
 
 %\title{What do you need to know about a word when you\\ want to use it for naming objects?}
-\title{An object deserves more than a single name}
+\title{How many times must an object be named (before we know what it is)?}
 
 
 \author{Sina Zarrie{\ss}  \and David Schlangen\\
@@ -54,31 +54,38 @@
 
 \section{Introduction}
 
-The real-world objects that we interact with in our every-day life can be categorized into many thousands and maybe millions of different categories. And even a single object can be member of many categories, i.e.\ at different taxonomical levels or in different parts of a taxonomy. For instance, the object in Figure \ref{fig:cake} is at once a \cat{cake}, \cat{cheesecake}, \cat{dessert}, \cat{sweet}, \cat{pastry}, \cat{food} etc.
+The real-world objects that we interact with in our every-day life can be categorized into many thousands and maybe millions of categories. And even a single object can be member of many categories, i.e.\ at different taxonomical levels or in different parts of a taxonomy. For instance, both objects in Figure \ref{fig:cake} are at once instances of \cat{cake}, \cat{cheesecake}, \cat{dessert}, \cat{sweet}, \cat{pastry}, \cat{food} etc.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[height=2cm,width=2.5cm]{Figures/cheescake.png}
-\caption{A real-world object in VisualGenome}
+\includegraphics[height=3cm]{Figures/cheescake.png}
+\includegraphics[height=3cm]{Figures/cheesecak2.pdf}
+\caption{Two objects of the same type of cake, with different names in VisualGenome}
 \label{fig:cake}
 \end{center}
 \end{figure}
 
 
-Given the abundance of concepts available in language, the act of \textit{naming} a visual object is less trivial than it might seem intuitively: in order to describe or refer to an object, a name has to be selected from a complex network of concepts and from many competing lexical alternatives.
+Given the abundance of concepts available in language, the act of \textit{naming} a visual object is not just a labeling of visible properties, it amounts to selecting a name from a complex network of concepts and competing lexical alternatives.
 Hence, research on cognition and language production has relied on object naming as a basic paradigm for investigating the processes that underly formation and organization of concepts in the human mind  \cite{rosch1976basic} \sz{cite more here}, though mostly using idealized, graphical objects from specific domains (plants, animals) as visual stimuli.
 Complementary to that, research in computer vision has (successfully) focused on automatically recognizing \textit{real-world} objects in images or videos, but using simplified categorization schemes where each object is assigned a single correct label or name, cf.\ \cite{googlenet}. %Here, powerful models have been developed recently that classify visual objects in real-world images into thousands of different (mutually exclusive) categories \newcite{googlenet}.
 
 In NLP, to date, research on object naming is relatively scarce despite the fact that
- there has been a recent explosion of interest in various, and even complex, language \& vision tasks ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic} to e.g.\ visual dialogue \cite{das2017visual,vries2017guesswhat}.
-In this paper, we argue that a lot of research in this area would benefit from a deeper and more systematic understanding of the semantic and taxonomic processes in object naming, which is a core phenomenon in virtually every vision \& language task.
-At the same time, we argue that existing resources in L\&V constitute an excellent, large-scale test bed for assessing traditional claims and theories such as, e.g.\ the existence of so-called entry-level categories  \cite{rosch1976basic}.
+ there has been a recent explosion of interest in various, and even complex, language \& vision tasks ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic} to e.g.\ visual dialogue \cite{das2017visual,vries2017guesswhat}. Massive data collections for applications in language \& vision (L\&V) are nowadays available and, in principle, these should also constitute an excellent, large-scale test beds for assessing  theories such as, e.g.\ , the claim that objects have a preferred entry-level when being named  \cite{rosch1976basic}.
+%In this paper, we argue that a lot of research in this area would benefit from a deeper and more systematic understanding of the semantic and taxonomic processes in object naming, which is a core phenomenon in virtually every vision \& language task.
+%At the same time, we argue that existing resources in L\&V constitute an excellent, large-scale test bed for assessing traditional claims and theories such as, e.g.\ the existence of so-called entry-level categories  \cite{rosch1976basic}.
 
-The goal of this paper is to extend some existing, large-scale resources available for language \& vision research in a way that they can serve as a solid and broad empirical basis for investigations into object naming. 
-Thus, while large amounts images from different domains paired with verbal descriptions are generally available, none of the existing corpora records more than a few annotations per object.
-Even VisualGenome \cite{krishna2016visualgenome}, one of the most exhaustively annotated resources to date, only provides a single, manually annotated object description (including a single name) per object. 
-Moreover, existing resources in L\&V hardly provide any consistent taxonomic information on objects and their categories, e.g. object labels are typically quite general as in Flickr30k \cite{plummer2015flickr30kentities} (e.g.,~\cat{people, animals, bodyparts, clothing}) or taxonomically heterogeneous as in MS COCO \cite{mscoco} (e.g.,~\cat{people, baseball glove, bird}).
-These two shortcomings - few names per object and inconsistent labeling of categories - make it difficult to assess (i) how representative nmaing choices are, (ii) how they related to the taxonomic properties of the object  ... get reliable and stable predictions as to how speakers will likely name a given object.\sz{need to make this point more clear}
+The goal of this paper is to extend Visual Genome  \cite{krishna2016visualgenome}, a well-known, large-scale resource in language \& vision research, in a way that it can serve as a broad empirical basis for systematic and linguistically motivated investigations into object naming. 
+We argue that object naming is an interesting, core phenomenon in itself as it occurs in virtually every L\&V task, but our approach can also support more systematic analysis of broader tasks, such as e.g.\ modeling referring expressions.
+
+Even though VisualGenome is one of the most exhaustively annotated resources to date, providing dense object annotations and descriptions in real-world images, it suffers from two important shortcomings if one is interested in linguistic analysis of object naming:  
+First, it only provides a single, manually annotated object description (including a single name) per object which makes it impossible to assess how representative the annotated naming choices are, e.g.\ whether speakers tend to generally prefer \refexp{cheesecake} for the highlighted object in Figure \ref{fig:cake}.
+Second, it does not provide consistent taxonomic information on objects and their categories, as names have been automatically linked to WordNet synsets. 
+This makes it difficult to assess how naming depends on the taxonomic properties of the object, e.g.\  that both objects in Figure \ref{fig:cake} are instances of \cat{cheesecake}, but one is named \refexp{cheesecake} and the other one is named \refexp{desert}. It is important to note here that this shortcomings exist for basically all large-scale resources currently used in L \&V research (see Section 2 below).
+
+In this work, we address these two shortcomings and present a crowdsourcing-based and light-weight experimental set-up for eliciting representative and taxonomically consistent (\sz{more complete?}) naming data. We compare our collected data against names annotated in Visual Genome, and calculate various measures assessing agreement, naming preferences etc.
+
+The main idea is to elicit names in (i) in a standard naming task (phase 0) where participants simply give the most straightforward name to an object they can immediately think of, and then in (ii) a taboo-like naming task where frequent names collected initially are blocked and participants have to provide alternative names. We show that this cheap, two-stage approach gives us taxonomically rich data that allows us to study object naming empirically, without adopting costly annotation procedures involving complex hierarchical object annotation schemes.
 
 
 \section{Related Work}
@@ -107,7 +114,9 @@ Nevertheless, the way the treat object recognition is conceptually very simple (
  \newcite{zarriess-schlangen:2017} learn a model of object naming on a corpus of referring expressions paired with objects in real-world images, but focus on combining visual and distributional information and on zero-shot learning.
  Thus, object naming is an important task for referring expression generation, though most research in this area has focussed on content and attribute selection \cite{Kazemzadeh2014,gkatzia:2015,zarrieschlang:easy-pre,Maoetal:cocorefexp}.
 
-\paragraph{Existing resources and their shortcomings} summarize SIVL paper here
+\paragraph{Existing resources and their shortcomings}
+Moreover, existing resources in L\&V hardly provide any consistent taxonomic information on objects and their categories, e.g. object labels are typically quite general as in Flickr30k \cite{plummer2015flickr30kentities} (e.g.,~\cat{people, animals, bodyparts, clothing}) or taxonomically heterogeneous as in MS COCO \cite{mscoco} (e.g.,~\cat{people, baseball glove, bird}).
+
 
 
 
@@ -135,6 +144,7 @@ analyse data mainly from Phase 0
 \item is the level of agreement the same for all categories?
 \item how specific are the most familiar names? link names to WordNet, show that WordNet might not be ideal to assess specificity
 \item how does agreement evolve in the later rounds of the game? (when people have to avoid taboo names), does agreement increase as the set of names becomes more narrow, or  does agreement decrease as people do creative, clever, unexpected things?
+\item assess how representative name annotations in Visual Genome are, when compared to our names
 \end{itemize}
 
 \subsection{Cases of disagreement}
