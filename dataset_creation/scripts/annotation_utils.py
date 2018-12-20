@@ -7,7 +7,7 @@ from nltk.parse.stanford import StanfordNeuralDependencyParser
 
 from itertools import chain
 
-USRNAME ='u148188' # 'carina'
+USRNAME = "carina"
 
 stanford_dir = '/home/%s/models/' % (USRNAME)
 '/home/carina/models/stanford-postagger-full-2018-02-27/'

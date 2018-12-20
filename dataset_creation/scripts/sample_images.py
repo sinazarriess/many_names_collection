@@ -6,7 +6,7 @@ import random
 import re
 import sys
 
-from collections import Counter
+from collections import Counter, defaultdict
 
 folders = os.path.abspath(".").split("/")
 USRNAME = folders[folders.index("media")+1] #"u148188"
@@ -48,6 +48,10 @@ def _ss2offset_map(ss_list):
 
 def _ssids2offsets(ssid_set):
     return [annotation_utils.get_synset(ssid).offset() for ssid in ssid_set]
+
+def _is_singular(word, pos_tagger=None):
+    words_tags = annotation_utils.tag_refExp(word, pos_tagger)[0]
+    return len(list(filter(lambda wt: wt[1]=="NN" or wt[1]=="NNP", words_tags))) > 0
 
 ##
 # DATASET UTILS
@@ -111,14 +115,21 @@ def _image_path_bbox(image_id, object_id, sample_type,
     imgfile_out = "%s_%s_%s.png" % (image_id, object_id, sample_type)
     return os.path.join(imagedir_path, imgfile_out)
 
-def _collect_random_objects(data_dir=None, start_index=0, end_index=-1, objSize=[0.0, 1.0],  single_word=True):
+def _collect_random_objects(data_dir=None, start_index=0, end_index=-1, objSize=[0.0, 1.0],  single_word=True, only_singulars=False):
     img_to_cat_coll = dict()
     obj_synset_map = dict()
     super_cat = "OBJECT"
     
+    if only_singulars:
+        pos_tagger = annotation_utils.load_pos_tagger()
+    
     for idx, image_id, url, obj_names, synsets, obj in object_iter(start_index=start_index, 
                 end_index=end_index, 
-                data_dir=data_dir, objSize=objSize, single_word=single_word):        
+                data_dir=data_dir, objSize=objSize, single_word=single_word):  
+        if only_singulars and not _is_singular(obj_names, pos_tagger):
+            print("not noun in singular: ", obj_names)
+            continue
+        
         cat_coll = img_to_cat_coll.setdefault(image_id, {})
         # is object member of supercategory (e.g., person)?
         for ssid in synsets:
@@ -148,8 +159,9 @@ def _collect_relevant_objects(only_cats, cat_map, data_dir=None, start_index=0, 
     
     if only_cats:
         min_match = 1
-
-    img_to_cat_coll = dict()
+    
+    #img_to_cat_coll = dict()
+    img_to_cat_coll = defaultdict(dict)
     obj_synset_map = dict()
     prev_img_id = None
     for idx, image_id, url, obj_names, synsets, obj in object_iter(start_index=start_index, 
@@ -160,7 +172,7 @@ def _collect_relevant_objects(only_cats, cat_map, data_dir=None, start_index=0, 
             
         prev_img_id = image_id
         
-        cat_coll = img_to_cat_coll.setdefault(image_id, {})
+        #cat_coll = img_to_cat_coll.setdefault(image_id, {})
         # is object member of supercategory (e.g., person)?
         for ssid in synsets:
             target_synset = annotation_utils.get_synset(ssid)
@@ -176,7 +188,8 @@ def _collect_relevant_objects(only_cats, cat_map, data_dir=None, start_index=0, 
                         found_cat = set(offsets).intersection(ssoffsets_path.keys())
                         if len(found_cat) >= min_match:
                             # augment {category --> {coll_synset --> [obj_id, ...] ...}, ...}
-                            coll_synsets = cat_coll.setdefault(super_cat, dict())
+                            #coll_synsets = cat_coll.setdefault(super_cat, dict())
+                            coll_synsets = img_to_cat_coll[image_id].setdefault(super_cat, dict())
                             
                             # found_cat: offset of coll_synset (?) (e.g., 10287213 (man.n.01))
                             catmatch_offset = found_cat.pop()
@@ -195,14 +208,14 @@ def _collect_relevant_objects(only_cats, cat_map, data_dir=None, start_index=0, 
                             continue
     return img_to_cat_coll, obj_synset_map
 
-def sample_objects(relevant_images_objs, collected_objs):
+def sample_objects(relevant_images_objs, collected_objs, obj_synset_map, unique_names=True):
     image_ids = [img_id for (img_id, objs) in relevant_images_objs.items() if len(objs) > 0]
     random.shuffle(image_ids)
     
     # sample objects meeting the criteria
     added_images = ignore_imageids
     added_names = set()
-    while len(image_ids) > 0:
+    while len(image_ids) > 0:        
         img_id = image_ids.pop()
         if img_id in added_images:
             continue
@@ -210,6 +223,7 @@ def sample_objects(relevant_images_objs, collected_objs):
         objs = relevant_images_objs.get(img_id)
         #print("\n", objs)
         num_objs = sum([len(val2) for val in objs.values() for val2 in val.values()])
+        objName_cand = None
         
         if num_objs < criteria["min_num_objs"]:
             print("sample object singleton (no other objs)", )
@@ -218,12 +232,16 @@ def sample_objects(relevant_images_objs, collected_objs):
             if imgs_to_collect[rel_cat]["singleton_obj"] > 0:
                 # object with that name already sampled?
                 objID_candidate = list(objs[rel_cat].values())[0][0]
-                objName_cand = obj_synset_map[objID_candidate][2]["names"][0]
-                if objName_cand in added_names:
+                if objID_candidate not in obj_synset_map: # object was filtered out (e.g., because it is not in singular form)
+                    continue
+                objName_cand = "/".join(obj_synset_map[objID_candidate][2]["names"]) #[0]
+                if unique_names and objName_cand in added_names:
                     continue
                 
-                collected_objs[rel_cat]["singleton_obj"].append((img_id, objID_candidate))
-                imgs_to_collect[rel_cat]["singleton_obj"] = imgs_to_collect[rel_cat]["singleton_obj"] - 1
+                collected_objs[rel_cat]["singleton_obj"].setdefault(objName_cand, []).append((img_id, objID_candidate))
+                if objName_cand not in added_names:
+                    # only count found object if its name is unseen
+                    imgs_to_collect[rel_cat]["singleton_obj"] -= 1
                 added_images.add(img_id)
                 added_names.add(objName_cand)
             continue
@@ -239,57 +257,87 @@ def sample_objects(relevant_images_objs, collected_objs):
                 print("sample object of singleton category: ", objs_same_cat[rel_cat])
                 if imgs_to_collect[rel_cat]["max_num_distractors"] > 0:
                     objID_candidate = objs_same_cat[rel_cat][0]
-                    objName_cand = obj_synset_map[objID_candidate][2]["names"][0]
-                    if objName_cand in added_names:
+                    if objID_candidate not in obj_synset_map: # object was filtered out (e.g., because it is not in singular form)
+                        continue
+                    objName_cand = "/".join(obj_synset_map[objID_candidate][2]["names"]) #[0]
+                    if unique_names and objName_cand in added_names:
                         continue
                     
                     descr = criteria_descr["max_num_distractors"][criteria["max_num_distractors"]]
-                    collected_objs[rel_cat][descr].append((img_id, objID_candidate))
-                    imgs_to_collect[rel_cat]["max_num_distractors"] = imgs_to_collect[rel_cat]["max_num_distractors"] - 1
+                    collected_objs[rel_cat][descr].setdefault(objName_cand, []).append((img_id, objID_candidate))
+                    if objName_cand not in added_names:
+                        # only count found object if its name is unseen
+                        imgs_to_collect[rel_cat]["max_num_distractors"] -= 1
                     added_images.add(img_id)
                     added_names.add(objName_cand)
                     continue
             
             # at least one other object with same synset
-            # e.g., [(Synset('man.n.01'), [2305827, 3570920])]
+            # e.g., 2359252: {..., 'person': {Synset('woman.n.01'): [3172624, 1891661]}}
             objs_same_synset = {synset: synsets for (synset, synsets) in objs[rel_cat].items() if len(synsets) > criteria["min_objs_same_synset"]}
-            if len(objs_same_synset) > 0:
+            if len(objs_same_synset) > 0 and imgs_to_collect[rel_cat]["min_objs_same_synset"] > 0:
                 print("sample object with distractor(same synset): ", objs_same_synset)
-                if imgs_to_collect[rel_cat]["min_objs_same_synset"] > 0:
-                    obj_list =  [obj for objects in objs_same_synset.values() for obj in objects]
+                obj_list =  [objID for objects in objs_same_synset.values() for objID in objects if objID in obj_synset_map]
+                if unique_names:
                     # exclude objects whose name was already added for another image's object
-                    obj_list = [objID for objID in obj_list if obj_synset_map[objID][2]["names"][0] not in added_names]
+                    obj_list = [objID for objID in obj_list if "/".join(obj_synset_map[objID][2]["names"]) not in added_names]
+                if len(obj_list) == 0:
+                    continue
+                
+                random.shuffle(obj_list)
+                descr = criteria_descr["min_objs_same_synset"][criteria["min_objs_same_synset"]]
+                
+                objName_cand = "/".join(obj_synset_map[obj_list[0]][2]["names"])
+                collected_objs[rel_cat][descr].setdefault(objName_cand, []).append((img_id, obj_list[0]))
+                if objName_cand not in added_names:
+                    # only count found object if its name is unseen
+                    imgs_to_collect[rel_cat]["min_objs_same_synset"] -= 1
+                added_images.add(img_id)
+                added_names.add(objName_cand)
+                continue
+            
+            # no other object with same synset, but same category
+            # e.g., 2358790: {..., 'person': {Synset('man.n.01'): [3542299], Synset('woman.n.01'): [2053195]}}
+            if len(objs[rel_cat]) > criteria["min_objs_same_cat"]:
+                objs_singleton_synset = {synset: synsets for (synset, synsets) in objs[rel_cat].items() if len(synsets) == 1}
+                if len(objs_singleton_synset) > 0 and imgs_to_collect[rel_cat]["min_objs_same_cat"] > 0:
+                    print("sample object synset singleton (no other objs of synset): ", objs_singleton_synset)
+                    obj_list =  [objID for objects in objs_singleton_synset.values() for objID in objects if objID in obj_synset_map]
+                    if unique_names:
+                        # exclude objects whose name was already added for another image's object
+                        obj_list = [objID for objID in obj_list if "/".join(obj_synset_map[objID][2]["names"]) not in added_names]
                     if len(obj_list) == 0:
                         continue
                     
                     random.shuffle(obj_list)
-                    descr = criteria_descr["min_objs_same_synset"][criteria["min_objs_same_synset"]]
-                    collected_objs[rel_cat][descr].append((img_id, obj_list[0]))
-                    imgs_to_collect[rel_cat]["min_objs_same_synset"] = imgs_to_collect[rel_cat]["min_objs_same_synset"] - 1
+                    descr = criteria_descr["min_objs_same_cat"][criteria["min_objs_same_cat"]]
+                    objName_cand = "/".join(obj_synset_map[obj_list[0]][2]["names"])
+                    collected_objs[rel_cat][descr].setdefault(objName_cand, []).append((img_id, obj_list[0]))
+                    if objName_cand not in added_names:
+                        # only count found object if its name is unseen
+                        imgs_to_collect[rel_cat]["min_objs_same_cat"] -= 1
                     added_images.add(img_id)
-                    added_names.add(obj_synset_map[obj_list[0]][2]["names"][0])
-                    continue
-            
-            # no other object with same synset, but same category
-            # e.g., {Synset('woman.n.01'): [2438901]}
-            if len(objs[rel_cat]) > criteria["min_objs_same_cat"]:
-                objs_singleton_synset = {synset: synsets for (synset, synsets) in objs[rel_cat].items() if len(synsets) == 1}
-                if len(objs_singleton_synset) > 0:
-                    print("sample object singleton: ", objs_singleton_synset)
-                    if imgs_to_collect[rel_cat]["min_objs_same_cat"] > 0:
-                        obj_list =  [obj for objects in objs_singleton_synset.values() for obj in objects]
-                        # exclude objects whose name was already added for another image's object
-                        obj_list = [objID for objID in obj_list if obj_synset_map[objID][2]["names"][0] not in added_names]
-                        if len(obj_list) == 0:
-                            continue
-                        
-                        random.shuffle(obj_list)
-                        descr = criteria_descr["min_objs_same_cat"][criteria["min_objs_same_cat"]]
-                        collected_objs[rel_cat][descr].append((img_id, obj_list[0]))
-                        imgs_to_collect[rel_cat]["min_objs_same_cat"] = imgs_to_collect[rel_cat]["min_objs_same_cat"] - 1
-                        added_images.add(img_id)
-                        added_names.add(obj_synset_map[obj_list[0]][2]["names"][0])
+                    added_names.add(objName_cand)
     return collected_objs
+
+def _filter_objects(obj_synset_map, only_singulars=True):
+    if only_singulars:
+        pos_tagger = annotation_utils.load_pos_tagger()
+        
+    all_names = list()
+    all_objIDs = list()
+    all_objects = list(obj_synset_map.items())
+    for obj_id, info in all_objects:
+        all_objIDs.append(obj_id)
+        all_names.append(info[2]["names"])
+        
+    words_tags = annotation_utils.tag_refExp(all_names, pos_tagger)
+    is_singular_noun = [[wt[1]=="NN" or wt[1]=="NNP"] for wts in words_tags for wt in wts]
+    #[all_names[i] for i in range(len(is_singular_noun)) if False in is_singular_noun[i]]
+    
+    return dict([all_objects[i] for i in range(len(is_singular_noun)) if not (False in is_singular_noun[i])])
+        
+    
 
 def samples_to_dataframe(collected_objs):
     cols = ["image_id", "object_id", "sample_type", "category", "synset", "obj_names", "bbox_xywh"]
@@ -300,26 +348,29 @@ def samples_to_dataframe(collected_objs):
             #print(category, sample_type)
             df_row["category"] = category
             df_row["sample_type"] = sample_type
-            for (image_id, object_id) in samples[sample_type]:
-                obj = obj_synset_map[object_id]
-                new_df_item = {"category": category,
-                            "sample_type": sample_type,
-                            "image_id": image_id,
-                            "object_id": object_id,
-                            "synset": obj[0].name(),
-                            "obj_names": list(set(obj[2]["names"])),
-                            "bbox_xywh": [obj[2]["x"], obj[2]["y"], obj[2]["w"], obj[2]["h"]]
-                }
-                sampled_data_df = sampled_data_df.append(new_df_item, ignore_index=True)
+            for (obj_names, objects) in samples[sample_type].items():
+                for (image_id, object_id) in objects:
+                    obj = obj_synset_map[object_id]
+                    new_df_item = {"category": category,
+                                "sample_type": sample_type,
+                                "image_id": image_id,
+                                "object_id": object_id,
+                                "synset": obj[0].name(),
+                                "obj_names": list(set(obj[2]["names"])),
+                                "bbox_xywh": [obj[2]["x"], obj[2]["y"], obj[2]["w"], obj[2]["h"]]
+                    }
+                    sampled_data_df = sampled_data_df.append(new_df_item, ignore_index=True)
     return sampled_data_df
 
 def _fill_html_table_row(taboo_words, image_url, item_id, amt_exp=False):
     if amt_exp:
         col_img_src = '<img src="${{img_{0}_url}}" alt="{1}" style="width:350px;height:350px;">'.format(item_id, image_url.split("/")[-1])
-        col_taboo_words = '<font color="grey"><b>Taboo Words</b><br><br>${{taboolist_{0}}}</font>'.format(item_id)
+        col_taboo_words = '<font color="grey"><b>Taboo Words</b>\n\
+        \t<ul id="taboolist-{0}">\n\t\t   ${{taboolist_{0}}}\n\t\t</ul>\n\t  </font>'.format(item_id)
     else:
         col_img_src = '<img src={0} alt="{1}" style="width:350px;height:350px;">'.format(image_url, image_url.split("/")[-1])
-        col_taboo_words = '<font color="grey"><b>Taboo Words</b><br><br>{0}</font>'.format(taboo_words)
+        col_taboo_words = '<font color="grey"><b>Taboo Words</b>\n\
+        \t<ul id="taboolist-{0}">\n\t\t   {1}\n\t\t</ul>\n\t  </font>'.format(item_id, taboo_words)
         
 
     col_text_box = '<b>Object Name</b>:  \n\
@@ -381,6 +432,13 @@ def _pretty_obj_names(obj_names):
         obj_names = "/".join([str(l) for l in eval(obj_names)])
     return obj_names.replace("/", "<br>")
 
+def _to_html_list(obj_names):
+    if isinstance(eval(obj_names), list):
+        names = eval(obj_names)
+        obj_names = "<li>" + "</li>\n\t\t\t<li>".join([str(l) for l in names]) + "</li>" if "<li>" not in names[0] else names
+        
+    return obj_names
+
 def write_html_table(sampled_data_df, image_df, html_fname="pilot_testgeneration.html", amt_exp=False, img_basedir=None):
     pilot_basedir = os.path.dirname(html_fname)
     if img_basedir == None:
@@ -397,12 +455,13 @@ def write_html_table(sampled_data_df, image_df, html_fname="pilot_testgeneration
         #image_path = _image_path(image_df, image_id)
         image_path = _image_path_bbox(image_id, row[1]["object_id"], row[1]["sample_type"], imagedir_path=img_basedir)
         data_info.append("{0}\t{1[image_id]}\t{1[object_id]}\t{1[category]}\t{1[synset]}\t{1[sample_type]}".format("item-" + str(row_num), row[1]))
-        print(row)
-        obj_names = _pretty_obj_names(row[1]["obj_names"])
+
         if "taboo_lists" in sampled_data_df.columns: # do not create form for annotation, but illustrate collected data
+            obj_names = _pretty_obj_names(row[1]["obj_names"])
             html_row = _fill_html_table_row_analysis(obj_names, _pretty_obj_names(row[1]["taboo_lists"]), image_path, row_num)
         else:
-            html_row = _fill_html_table_row(obj_names, image_path, row_num, amt_exp)
+            taboo_list = _to_html_list(row[1]["obj_names"])
+            html_row = _fill_html_table_row(taboo_list, image_path, row_num, amt_exp)
         table += '\t%s\n' % html_row 
         row_num += 1
         
@@ -416,7 +475,7 @@ def write_html_table(sampled_data_df, image_df, html_fname="pilot_testgeneration
         f.write(table)
     
 
-if __name__=="__main__":
+if __name__=="__main__":    
     start_index = 0
     end_index = -1
     shuffle_items = True # shuffle the order of items to be presented in the html
@@ -426,8 +485,9 @@ if __name__=="__main__":
 
 
     ## CONSTRAINTS
-    min_max_rel_box_size = [0.2, 0.8]
+    min_max_rel_box_size = [0.1, 0.8]
     random_categories = False
+    only_singulars = True
 
     ##
     if len(sys.argv) <= 1 or sys.argv[1] not in ["sample_objects", "check_images", "render_objects", "website", "amt"]:
@@ -442,9 +502,8 @@ if __name__=="__main__":
         df_sampleddata_outfname = "collected_images/sampled_data-v%d.csv" % (version)
 
     #relevant_categories = "food_categories.csv"
-    #relevant_categories = "pilot_categories.csv"
-    relevant_categories = "pilot_example_categories.csv"
-
+    relevant_categories = "pilot_categories.csv"
+    #relevant_categories = "pilot_example_categories.csv"
 
     ## START ##
     study_basedir = os.path.dirname(df_sampleddata_outfname)
@@ -464,6 +523,7 @@ if __name__=="__main__":
         
         fine_match = True # supercategory (e.g., person) does not suffice as match
         only_cats = (True and fine_match)
+        only_unique_names = True
         
         if not random_categories:
             cat_map, conc_subcat_map = mcrae.load(os.path.join(PATH_MCRAE, relevant_categories), only_subcats=False, only_cats=only_cats)
@@ -489,20 +549,20 @@ if __name__=="__main__":
                         "min_objs_same_cat": {1: "ambiguous_category"} # same category, but other synset
                         } 
 
-        factor = 10
+        factor = 1
         imgs_to_collect = {cat: {"singleton_obj": 1 * factor,
                                 "max_num_distractors": 3 * factor, 
                                 "min_objs_same_synset": 3 * factor, 
                                 "min_objs_same_cat": 3 * factor} for cat in cat_map}
 
-        collected_objs = {cat: {"singleton_obj": [],
-                                "singleton_category": [], 
-                                "ambiguous_synset": [], 
-                                "ambiguous_category": []} for cat in cat_map}
-
-        # sample objects meeting the criteria
-        collected_objs = sample_objects(relevant_images_objs, collected_objs)
+        collected_objs = {cat: {"singleton_obj": {},
+                                "singleton_category": {}, 
+                                "ambiguous_synset": {}, 
+                                "ambiguous_category": {}} for cat in cat_map}
         
+        obj_synset_map = _filter_objects(obj_synset_map, only_singulars=only_singulars)
+        # sample objects meeting the criteria
+        collected_objs = sample_objects(relevant_images_objs, collected_objs, obj_synset_map, unique_names=only_unique_names)
         # WRITE csv
         sampled_data_df = samples_to_dataframe(collected_objs)
         sampled_data_df.to_csv(df_sampleddata_outfname, columns=sampled_data_df.columns, sep="\t", index=False)
@@ -542,7 +602,8 @@ if __name__=="__main__":
                 continue
                 
             bb = eval(row[1]["bbox_xywh"])
-            obj_names = row[1]["obj_names"]
+            obj_names = eval(row[1]["obj_names"])
+            obj_names = "/".join(obj_names) if isinstance(obj_names, list) else obj_names
             
             plt.cla()
             plt.imshow(image)
@@ -565,7 +626,7 @@ if __name__=="__main__":
             #plt.show()
 
     if creation_type.lower() == "website":        
-        items_per_page = len(sampled_data_df)
+        items_per_page = 5#len(sampled_data_df)
         shuffle_items = False
         
         # Write annotation form
@@ -573,13 +634,13 @@ if __name__=="__main__":
             html_outfname = sys.argv[3]
         else:
             html_outfname = df_sampleddata_outfname.replace(".csv", "") + ".html"
+        img_web_dir = "http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/"
         rendered_imgs_dir = os.path.join(os.path.dirname(html_outfname), "images/")
 
         if items_per_page == len(sampled_data_df):
             if shuffle_items:
                 sampled_data_df = sampled_data_df.sample(frac=1)
-            for page_no in range(0, len(sampled_data_df), items_per_page):
-                write_html_table(sampled_data_df.iloc[page_no:page_no+items_per_page], image_df, html_fname=html_outfname.replace(".html", "-"+str(page_no)+".html"), amt_exp=amt_exp, img_basedir=rendered_imgs_dir)
+            write_html_table(sampled_data_df, image_df, html_fname=html_outfname, amt_exp=amt_exp, img_basedir=rendered_imgs_dir)
             print("html files written to " + html_outfname.replace(".html", "-<hit_no>.html"))
         else:
             categories = {}
@@ -605,7 +666,9 @@ if __name__=="__main__":
                         page_no += 1
                         
                         
-                write_html_table(pandas.concat(page_items).sample(frac=1), image_df, html_fname=html_outfname.replace(".html", "-"+str(seen_items)+".html"), amt_exp=amt_exp, img_basedir=RENDERED_IMGS_DIR)
+                write_html_table(pandas.concat(page_items).sample(frac=1), image_df, html_fname=html_outfname.replace(".html", "-"+str(seen_items)+".html"), amt_exp=amt_exp, img_basedir=img_web_dir)
+                if seen_items >= 5:
+                    break
             print("html files written to " + html_outfname.replace(".html", "-<hit_no>.html"))
             
     if creation_type.lower() == "amt":
