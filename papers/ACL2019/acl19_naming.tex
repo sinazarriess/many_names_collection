@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+%\usepackage[hyperref]{acl2017}
+\usepackage[nohyperref]{acl2017}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}  %%% for including graphics
+\usepackage{rotating}
+\usepackage{color}
+
+
+%\aclfinalcopy % Uncomment this line for the final submission
+\def\aclpaperid{489} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand\BibTeX{B{\sc ib}\TeX}
+
+\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+\newcommand{\das}[1]{\textcolor{red}{\emph{//das: #1//}}}
+\newcommand{\refexp}[1]{\textsl{#1}}
+\newcommand{\word}[1]{\textsl{#1}}
+\newcommand{\cat}[1]{\textsc{#1}}
+
+
+
+%\title{What do you need to know about a word when you\\ want to use it for naming objects?}
+\title{An object deserves more than a single name}
+
+
+\author{Sina Zarrie{\ss}  \and David Schlangen\\
+  Dialogue Systems Group // CITEC // Faculty of Linguistics and Literary Studies \\
+ Bielefeld University, Germany \\
+  {\tt \{sina.zarriess,david.schlangen\}@uni-bielefeld.de} \\}
+
+\date{}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+
+\section{Introduction}
+
+Categorizing and naming real-world objects is a fundamental ability of human cognition and communication. In NLP, object naming is a core phenomenon which is part of virtually every Language \& Vision task.
+Since objects are often simultaneously a member of multiple categories (e.g., a young \refexp{beagle} is at once a \cat{dog}, a \cat{beagle}, an \cat{animal}, a \cat{puppy} etc.), the act of naming an object amounts to that of selecting a lexical concept  for it among the various potential alternatives. 
+
+Research on categorization and language production has used object naming as a basic paradigm for investigating the processes that underly formation, organization and retrieval of concepts in the human mind  \cite{rosch1976basic} \sz{cite more here}.
+Research in computer vision has focused on automatic object recognition where, recently, powerful models have been developed that classify visual objects in real-world images into thousands of different categories \newcite{googlenet}.
+In NLP (L\&V), however, research on object naming is relatively scarce.
+While there has been an explosion of interest in various, sometimes complex, L\&V tasks, ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expression resolution and generation \cite{Kazemzadeh2014,mao15,Yu2016}, to multi-modal summarization or visual dialogue \cite{das2017visual,vries2017guesswhat}, there has hardly been any work looking at linguistic questions involved in object naming.
+As the starting point of this work, we argue that existing resources in L\&V constitute an excellent basis for empirical, large-scale investigations into object naming.
+At the same time, we show that we need to systematically extend them and collect naming data in a more ??? way, so as to arrive at a solid empirical approach.
+
+
+Shortcomings of existing resources:
+
+\begin{itemize}
+\item most corpora record a single label or a small set of descriptions for each object
+\item no systematic inventory of object labels
+\item existing taxonomies (WordNet) are not really useful
+\end{itemize}
+
+
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Cognition: Concepts and categorization}
+
+ Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \refexp{bird}, \refexp{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \refexp{animal}, \refexp{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \refexp{sparrow}, \refexp{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a \cat{penguin} is typically called a \refexp{penguin} and not a \refexp{bird}) \cite{jolicoeur1984pictures}. 
+%This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
+While the traditional notion of entry-level categories suggests that objects tend to be named by a \refexp{single} preferred concept, research on pragmatics has found that speakers are flexible in  
+%with respect to the chose level of specificity. 
+their choice of the level of specificity. 
+Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases %\cite{rohde2012communicating} \cite{graf2016animal}. 
+\cite{rohde2012communicating}\cite{graf2016animal}.
+
+\paragraph{Vision: Object Recognition}
+
+State-of-the-art computer vision systems are able to classify images into thousands of different categories (e.g.\  \newcite{googlenet}). These object recognition systems are now widely used in vision \& language research.
+Nevertheless, the way the treat object recognition is conceptually very simple (if not to say, naive):  standard object classification schemes are inherently ``flat'', and treat object labels as mutually exclusive \cite{deng2014large}, ignoring all kinds of linguistic relations between these labels and ignoring the fact that an object can easily be an instance of several categories.
+
+
+\paragraph{Vision \& language: Naming and Referring}
+
+\newcite{Ordonez:2016} have studied the problem of deriving appropriate object names, or so-called entry-level
+ categories, from the output of an object recognizer. Their approach focusses on linking abstract object categories in ImageNet to actual words via translation procedures that e.g. involve corpus frequencies. 
+ \newcite{zarriess-schlangen:2017} learn a model of object naming on a corpus of referring expressions paired with objects in real-world images, but focus on combining visual and distributional information and on zero-shot learning.
+ Thus, object naming is an important task for referring expression generation, though most research in this area has focussed on content and attribute selection \cite{Kazemzadeh2014,gkatzia:2015,zarrieschlang:easy-pre,Maoetal:cocorefexp}.
+
+
+
+
+
+\section{Data Collection}
+\label{sec:task}
+
+describe the YouNameIt task here
+
+\subsection{Materials} describe sampling of images, category selection
+
+\subsection{Procedure} describe the crowdsourcing set-up and the task
+
+\subsection{Data} give an overview of the collected data
+
+
+\section{Analysis}
+
+\subsection{Agreement, basic-level and entry-level names}
+
+analyse data mainly from Phase 0
+
+\begin{itemize}
+\item  to what extent do people agree when their task is to give the most straightforward name they can think of to a visual object?
+\item is the level of agreement the same for all categories?
+\item how specific are the most familiar names? link names to WordNet, show that WordNet might not be ideal to assess specificity
+\item how does agreement evolve in the later rounds of the game? (when people have to avoid taboo names), does agreement increase as the set of names becomes more narrow, or  does agreement decrease as people do creative, clever, unexpected things?
+\end{itemize}
+
+\subsection{Cases of disagreement}
+
+when and why do people give different names to the same object? this will probably happen in phase 0, and even more so in the later round \sz{this is what I expect}
+
+\begin{itemize}
+\item  analyse naming disagreement using WordNet, how do names for the same object relate to each other according to WordNet?
+\item can we identify instances of cross-classification? so objects that are systematically part of several classes (e.g. cake/dessert)
+\item we might need to do some manual annotation here and try to carefully describe the phenomena
+\end{itemize}
+
+\subsection{Taxonomic relations}
+
+can we elicit natural sub-ordinate, super-ordinate concepts?
+
+\section{Model}
+
+\subsection{Model 1}
+Train a simple naming model (classifiers) on original VisualGenome names. Test it on our data. How well does the model predict the most familiar name and the set of available names?
+
+\subsection{Model 2}
+Train a simple naming model (classifiers) on our data, maybe combined with VisualGenome data. How well does it work?
+
+\subsection{Model 3}
+
+can we model taxonomic/conceptual knowledge more directly? induce a taxonomy? or a multi-modal space for objects + names?
+
+\section{Conclusion}
+
+We have presented a systematic, large-scale study on object naming with real-world images and crowdsourced data.
+
+\bibliography{ontowac}
+\bibliographystyle{acl_natbib}
+
+
+
+
+
+\end{document}
+
