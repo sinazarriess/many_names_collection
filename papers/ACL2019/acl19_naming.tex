@@ -8,7 +8,7 @@
 \usepackage{multirow}
 \usepackage{graphicx}  %%% for including graphics
 \usepackage{rotating}
-\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
 
 
 %\aclfinalcopy % Uncomment this line for the final submission
@@ -23,7 +23,7 @@
 \newcommand\BibTeX{B{\sc ib}\TeX}
 
 \newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
-\newcommand{\das}[1]{\textcolor{red}{\emph{//das: #1//}}}
+\newcommand{\cs}[1]{\textcolor{Fuchsia}{\emph{//cs: #1//}}}
 \newcommand{\refexp}[1]{\textsl{#1}}
 \newcommand{\word}[1]{\textsl{#1}}
 \newcommand{\cat}[1]{\textsc{#1}}
@@ -71,7 +71,7 @@ Hence, research on cognition and language production has relied on object naming
 Complementary to that, research in computer vision has (successfully) focused on automatically recognizing \textit{real-world} objects in images or videos, but using simplified categorization schemes where each object is assigned a single correct label or name, cf.\ \cite{googlenet}. %Here, powerful models have been developed recently that classify visual objects in real-world images into thousands of different (mutually exclusive) categories \newcite{googlenet}.
 
 In NLP, to date, research on object naming is relatively scarce despite the fact that
- there has been a recent explosion of interest in various, and even complex, language \& vision tasks ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic} to e.g.\ visual dialogue \cite{das2017visual,vries2017guesswhat}. Massive data collections for applications in language \& vision (L\&V) are nowadays available and, in principle, these should also constitute an excellent, large-scale test beds for assessing  theories such as, e.g.\ , the claim that objects have a preferred entry-level when being named  \cite{rosch1976basic}.
+ there has been a recent explosion of interest in various, and even complex, language \& vision tasks ranging from image captioning \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic} to e.g.\ visual dialogue \cite{das2017visual,vries2017guesswhat}. Massive data collections for applications in language \& vision (L\&V) are nowadays available and, in principle, these should also constitute an excellent, large-scale test bed for assessing  theories such as, e.g.\ , the claim that objects have a preferred entry-level when being named  \cite{rosch1976basic}.
 %In this paper, we argue that a lot of research in this area would benefit from a deeper and more systematic understanding of the semantic and taxonomic processes in object naming, which is a core phenomenon in virtually every vision \& language task.
 %At the same time, we argue that existing resources in L\&V constitute an excellent, large-scale test bed for assessing traditional claims and theories such as, e.g.\ the existence of so-called entry-level categories  \cite{rosch1976basic}.
 
@@ -81,11 +81,11 @@ We argue that object naming is an interesting, core phenomenon in itself as it o
 Even though VisualGenome is one of the most exhaustively annotated resources to date, providing dense object annotations and descriptions in real-world images, it suffers from two important shortcomings if one is interested in linguistic analysis of object naming:  
 First, it only provides a single, manually annotated object description (including a single name) per object which makes it impossible to assess how representative the annotated naming choices are, e.g.\ whether speakers tend to generally prefer \refexp{cheesecake} for the highlighted object in Figure \ref{fig:cake}.
 Second, it does not provide consistent taxonomic information on objects and their categories, as names have been automatically linked to WordNet synsets. 
-This makes it difficult to assess how naming depends on the taxonomic properties of the object, e.g.\  that both objects in Figure \ref{fig:cake} are instances of \cat{cheesecake}, but one is named \refexp{cheesecake} and the other one is named \refexp{desert}. It is important to note here that this shortcomings exist for basically all large-scale resources currently used in L \&V research (see Section 2 below).
+This makes it difficult to assess how naming depends on the taxonomic properties of the object, e.g.\  that both objects in Figure \ref{fig:cake} are instances of \cat{cheesecake}, but one is named \refexp{cheesecake} and the other one is named \refexp{desert}. It is important to note here that these shortcomings exist for basically all large-scale resources currently used in L \&V research (see Section 2 below).
 
 In this work, we address these two shortcomings and present a crowdsourcing-based and light-weight experimental set-up for eliciting representative and taxonomically consistent (\sz{more complete?}) naming data. We compare our collected data against names annotated in Visual Genome, and calculate various measures assessing agreement, naming preferences etc.
 
-The main idea is to elicit names in (i) in a standard naming task (phase 0) where participants simply give the most straightforward name to an object they can immediately think of, and then in (ii) a taboo-like naming task where frequent names collected initially are blocked and participants have to provide alternative names. We show that this cheap, two-stage approach gives us taxonomically rich data that allows us to study object naming empirically, without adopting costly annotation procedures involving complex hierarchical object annotation schemes.
+The main idea is to elicit names in (i) in a standard naming task (phase 0) where participants simply give the most straightforward name to an object they can immediately think of, and then in (ii) a taboo-like naming task where frequent names collected initially are blocked and participants have to provide alternative names. We show that this simple, two-stage approach gives us taxonomically rich data that allows us to study object naming empirically, without adopting costly annotation procedures involving complex hierarchical object annotation schemes.
 
 
 \section{Related Work}
@@ -99,12 +99,12 @@ While the traditional notion of entry-level categories suggests that objects ten
 %with respect to the chose level of specificity. 
 their choice of the level of specificity. 
 Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases %\cite{rohde2012communicating} \cite{graf2016animal}. 
-\cite{rohde2012communicating}\cite{graf2016animal}.
+\cite{rohde2012communicating,graf2016animal}.
 
 \paragraph{Vision: Object Recognition}
 
 State-of-the-art computer vision systems are able to classify images into thousands of different categories (e.g.\  \newcite{googlenet}). These object recognition systems are now widely used in vision \& language research.
-Nevertheless, the way the treat object recognition is conceptually very simple (if not to say, naive):  standard object classification schemes are inherently ``flat'', and treat object labels as mutually exclusive \cite{deng2014large}, ignoring all kinds of linguistic relations between these labels and ignoring the fact that an object can easily be an instance of several categories.
+Nevertheless, the way the treat object recognition is conceptually very simple (if not to say, naive):  standard object classification schemes are inherently ``flat'', and treat object labels as mutually exclusive \cite{deng2014large}, ignoring all kinds of linguistic relations between these labels and ignoring the fact that an object can easily be an instance of several categories.\cs{I would make this statement stronger and argue that \textbf{object recognition is merely a labeling of objects  with human interpretable symbols}, and that a system would probably fail if it had to decide whether an object labeled as, e.g.\ \refexp{fig} may also be labeled as \refexp{food}.}
 
 
 \paragraph{Vision \& language: Naming and Referring}
@@ -115,7 +115,7 @@ Nevertheless, the way the treat object recognition is conceptually very simple (
  Thus, object naming is an important task for referring expression generation, though most research in this area has focussed on content and attribute selection \cite{Kazemzadeh2014,gkatzia:2015,zarrieschlang:easy-pre,Maoetal:cocorefexp}.
 
 \paragraph{Existing resources and their shortcomings}
-Moreover, existing resources in L\&V hardly provide any consistent taxonomic information on objects and their categories, e.g. object labels are typically quite general as in Flickr30k \cite{plummer2015flickr30kentities} (e.g.,~\cat{people, animals, bodyparts, clothing}) or taxonomically heterogeneous as in MS COCO \cite{mscoco} (e.g.,~\cat{people, baseball glove, bird}).
+Moreover, existing resources in L\&V hardly provide any consistent taxonomic information on objects and their categories, e.g. object labels are typically quite general as in Flickr30k \cite[e.g.,~\cat{people, animals, bodyparts, clothing}]{plummer2015flickr30kentities} or taxonomically heterogeneous as in MS COCO \cite[e.g.,~\cat{people, baseball glove, bird}]{mscoco}.
 
 
 
@@ -154,6 +154,7 @@ when and why do people give different names to the same object? this will probab
 \begin{itemize}
 \item  analyse naming disagreement using WordNet, how do names for the same object relate to each other according to WordNet?
 \item can we identify instances of cross-classification? so objects that are systematically part of several classes (e.g. cake/dessert)
+\item \cs{Wrt points 1+2: Show that WordNet, again, is not ideal for retrieving all possible names of an object from a single synset.}
 \item we might need to do some manual annotation here and try to carefully describe the phenomena
 \end{itemize}
 
