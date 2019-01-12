@@ -1,0 +1,28 @@
+- dog (animal) contains hot dog!!!
+- mouse (animal) probably computer mouse
+- hose (clothing) probably thing that blows water
+- stocking (clothing) probably xmas stocking
+- people say footwear when it's atypical
+- wrap (clothing) probably wrap food
+- turtleneck includes turtles and ninja turtles
+- potato includes many plurals and mashed potato etc.
+- let's remove buttocks (instrument)...
+- booth (furniture) most likely phone booth
+- there seems to be a weird mistake in the VG annotation, in the anchoring of child to child.n.01 -- contains loots of french fries! (Also "old woman", ...)
+- stud weird
+- scooter (water_scooter) probably motorbike?
+- barge.n.01 contains lots of lighters that are not vehicles I think
+
+QUESTIONS:
+
+1) I found it weird that there were not the following items:
+
+- "mug" (there's coffee_mug and beer_mug)
+- "knife" (there's fork and spoon)
+- "trousers" / "pants"
+- "sunglasses"
+
+add toys?
+
+how about "sunglasses"?
+
