@@ -1,0 +1,41 @@
+item_id	image_id	object_id	obj_names	category	synset	sample_type
+item-0	884	1637760	['cereal']	food, nutrient	foodstuff.n.02	singleton_category
+item-1	3947	1070734	['carport']	structure, construction	outbuilding.n.01	ambiguous_category
+item-2	2397003	1193594	['soup']	food, nutrient	dish.n.02	ambiguous_category
+item-3	2346351	2280590	['poodle']	mammal	dog.n.01	singleton_category
+item-4	2363996	3339443	['cheesecake']	food, solid food	baked_goods.n.01	ambiguous_synset
+item-5	2357137	814606	['retriever']	mammal	dog.n.01	ambiguous_synset
+item-6	2374569	586596	['cookie']	food, solid food	baked_goods.n.01	singleton_category
+item-7	2414319	296869	['lady']	person	woman.n.01	ambiguous_synset
+item-8	2338246	3491340	['pro']	person	athlete.n.01	ambiguous_category
+item-9	2355516	1850502	['tool']	tool	tool.n.01	ambiguous_synset
+item-0	2410391	1863266	['skier']	person	athlete.n.01	ambiguous_category
+item-1	2371407	597855	['catcher']	person	athlete.n.01	ambiguous_category
+item-2	2393207	3218440	['donut']	food, solid food	baked_goods.n.01	ambiguous_synset
+item-3	2390339	1251334	['canine']	mammal	dog.n.01	singleton_obj
+item-4	2381209	706387	['puppy']	mammal	dog.n.01	singleton_category
+item-5	2397900	1185290	['potato']	food, nutrient	vegetable.n.01	ambiguous_category
+item-6	2353604	2768859	['knife']	tool	tool.n.01	singleton_obj
+item-7	2385544	1295610	['cake']	food, solid food	baked_goods.n.01	singleton_obj
+item-8	2339579	2625157	['hut']	structure, construction	shelter.n.01	ambiguous_category
+item-9	2347736	3165295	['wine']	food, nutrient	beverage.n.01	singleton_category
+item-0	2384848	1304092	['rice']	food, nutrient	foodstuff.n.02	ambiguous_category
+item-1	2415689	3313513	['pancake']	food, solid food	baked_goods.n.01	ambiguous_synset
+item-2	2361816	2220050	['rhubarb']	food, nutrient	vegetable.n.01	ambiguous_synset
+item-3	2359393	793716	['blt']	food, nutrient	dish.n.02	singleton_category
+item-4	2372994	1749119	['cottage']	structure, construction	house.n.01	ambiguous_synset
+item-5	2350930	1830045	['pitcher']	person	athlete.n.01	singleton_category
+item-6	2365178	2438664	['shovel']	tool	tool.n.01	singleton_category
+item-7	2367391	622824	['pug']	mammal	dog.n.01	singleton_category
+item-8	2384637	1306887	['building']	structure, construction	house.n.01	singleton_category
+item-9	2347092	3613245	['artist']	person	artist.n.01	singleton_category
+item-0	2365354	757200	['apple']	food, nutrient	edible_fruit.n.01	ambiguous_synset
+item-1	2410265	221991	['cafe']	structure, construction	restaurant.n.01	singleton_category
+item-2	2403942	1120049	['girl']	person	woman.n.01	ambiguous_synset
+item-3	2338898	2232134	['man']	person	man.n.01	singleton_obj
+item-4	2391841	1236887	['salad']	food, nutrient	dish.n.02	ambiguous_synset
+item-5	2365661	3883093	['gentleman']	person	man.n.01	ambiguous_synset
+item-6	2325122	3456054	['garage']	structure, construction	outbuilding.n.01	ambiguous_category
+item-7	2338246	3491340	['pro']	person	athlete.n.01	ambiguous_category
+item-8	2363996	3339443	['cheesecake']	food, solid food	baked_goods.n.01	ambiguous_synset
+item-9	2353604	2768859	['knife']	tool	tool.n.01	singleton_obj
