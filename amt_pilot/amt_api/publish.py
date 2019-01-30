@@ -51,7 +51,55 @@ def make_new_hit(n_images,imgdf,img_index):
 
     return param_list,out_img_dict,img_index
 
-def publish_new_hit(mturk,config,hit_params):
+def get_qualifications(config):
+
+    if 'sandbox' in config['endpoint']['url']:
+        print("this is sandbox mode, no qualifications needed")
+        return [] ## no qualifications required in sandbox mode
+
+
+    qlist = [
+        {
+        'QualificationTypeId': '00000000000000000040',
+        'Comparator': 'GreaterThanOrEqualTo',
+        'IntegerValues': [
+            int(config['qualification']['approvedhits']),
+        ],
+        'ActionsGuarded':'PreviewAndAccept'
+        },
+        {
+        'QualificationTypeId': '000000000000000000L0',
+        'Comparator': 'GreaterThanOrEqualTo',
+        'IntegerValues': [
+            int(config['qualification']['approvalrate']),
+        ],
+        'ActionsGuarded':'PreviewAndAccept'
+        },
+        {
+                'QualificationTypeId' : '00000000000000000071',
+                'Comparator' : 'In',
+                'LocaleValues' : [
+                    {'Country':'GB'}, {'Country':'US'},
+                    {'Country':'AU'}, {'Country':'CA'},
+                    {'Country':'IE'}, {'Country':'NZ'} 
+                    ],
+                'ActionsGuarded': 'PreviewAndAccept'
+        },
+        {
+                'QualificationTypeId' : '00000000000000000071',
+                'Comparator' : 'In',
+                'LocaleValues' : [
+                    {'Country':'GB'}, {'Country':'US'},
+                    {'Country':'AU'}, {'Country':'CA'},
+                    {'Country':'IE'}, {'Country':'NZ'} 
+                    ],
+                'ActionsGuarded': 'PreviewAndAccept'
+        }
+    ]
+
+    return qlist
+
+def publish_new_hit(mturk,config,hit_params,hit_quals):
 
     new_hit = mturk.create_hit(
     HITLayoutId    = config['layout']['id'],
@@ -62,16 +110,7 @@ def publish_new_hit(mturk,config,hit_params):
     LifetimeInSeconds = int(config['hit']['lifetime']),
     AssignmentDurationInSeconds = int(config['hit']['assignmentduration']),
     MaxAssignments = int(config['hit']['maxassignments']),
-    QualificationRequirements=[
-        {
-        'QualificationTypeId': '00000000000000000040',
-        'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [
-            int(config['qualification']['approvedhits']),
-        ],
-        'ActionsGuarded':'PreviewAndAccept'
-        }
-    ]
+    QualificationRequirements=hit_quals
     )
 
     print("A new HIT has been created. You can preview it here:")
@@ -105,6 +144,13 @@ if __name__ == '__main__':
 
     MTURK = connect_mturk(CONFIG)
 
+    QUALS = get_qualifications(CONFIG)
+
+    logging.info("Qualifications:")
+    logging.info(QUALS)
+
+    logging.info("max assignments")
+    logging.info(CONFIG['hit']['maxassignments'])
 
     RESULTS = []
     LINKS = []
@@ -127,7 +173,7 @@ if __name__ == '__main__':
             logging.info("current img index: "+str(img_index))
 
             hitparam,hitimages,img_index = make_new_hit(int(CONFIG['hit']['nimages']),imgdf,img_index)
-            hitdict = publish_new_hit(MTURK,CONFIG,hitparam)
+            hitdict = publish_new_hit(MTURK,CONFIG,hitparam,QUALS)
             hitdict['Images'] = hitimages
 
             logging.info("New hit: "+str(hitdict['HIT']['HITId']))

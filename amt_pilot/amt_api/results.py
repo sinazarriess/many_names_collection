@@ -20,6 +20,31 @@ def connect_mturk(config):
     print("Connected")
     return mturk
 
+def get_assignments(mturk,hitid):
+
+    aresponse = mturk.list_assignments_for_hit(
+                    HITId=hitid,
+                    AssignmentStatuses=['Approved'])
+    anext = aresponse['NextToken']
+    assignments = aresponse['Assignments']
+
+    print("get Hit",hitid)
+
+    while anext:
+        nresponse = mturk.list_assignments_for_hit(
+                    HITId=hitid,NextToken=anext,AssignmentStatuses=['Approved'])
+        #print(nresponse.keys())
+        nextassign = nresponse['Assignments']
+        assignments += nextassign
+
+        if 'NextToken' in nresponse:
+            anext = nresponse['NextToken']
+        else:
+            anext = None
+            
+
+    return assignments
+
 
 def get_results(mturk,path_published,path_results):
     '''ask AMT for results'''
@@ -34,11 +59,8 @@ def get_results(mturk,path_published,path_results):
         for item in parsed:
             #print(item)
 
-            assignments_list = mturk.list_assignments_for_hit(
-                HITId=item['HIT']['HITId'],
-                AssignmentStatuses=['Approved']
-            )
-            assignments = assignments_list['Assignments']
+            assignments = get_assignments(mturk,item['HIT']['HITId'])
+
             print("HIT/Assignments",item['HIT']['HITId'],len(assignments))
 
             if len(assignments) > 0:
