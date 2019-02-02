@@ -1,0 +1,63 @@
+
+\section{Analysis}
+
+\gbt{Note: the structure below is not supposed to be the one in the paper; it was the easiest way for me to plan the analysis a bit}
+
+\subsection{Agreement, basic-level and entry-level names}
+
+analyse data from Phase 0
+
+Items:
+
+\begin{itemize}
+\item  to what extent do people agree when their task is to give the most straightforward name they can think of to a visual object? (see \ref{sec:snowgrad})
+\item is the level of agreement the same for all categories? (see \ref{sec:snowgrad})
+\item how specific are the most familiar names? link names to WordNet, show that WordNet might not be ideal to assess specificity
+\item assess how representative name annotations in Visual Genome are, when compared to our names (see \ref{sec:vg})
+% \item FOR LATER how does agreement evolve in the later rounds of the game? (when people have to avoid taboo names), does agreement increase as the set of names becomes more narrow, or  does agreement decrease as people do creative, clever, unexpected things?
+\end{itemize}
+
+\subsubsection{Agreement: Snowgrad's measure}
+\label{sec:snowgrad}
+
+Note: I (Gemma) will use three levels of analysis: ALL (all data lumped together), DOMAIN (Gemma's reorganization of Carina's ``supercategories''; see doc 0\_object\_naming\_taboo), COLLECTION NODE (Carina's ``synset / collection node'').
+ 
+Plans for analysis (then we see what to put in the paper):
+
+\begin{enumerate}
+\item compute snowgrad measure and do a:
+  \begin{itemize}
+  \item histogram ALL
+  \item boxplot by DOMAIN
+  \item dataframe with mean and sd by COLLECTION NODE 
+  \item[\ra] This will tell us how much agreement there is among subjects about how to name objects in general and within each domain/''subcategory''.
+  \end{itemize}
+\item can we find generalizations about tendencies in agreement? (open: how to go about it)
+\end{enumerate}
+
+\subsubsection{How representative are VG names?}
+\label{sec:vg}
+
+Compute the most frequent name for each image and see how often that name coincides with the one given by the VG annotator.
+
+\subsection{Cases of disagreement}
+
+when and why do people give different names to the same object? this will probably happen in phase 0, and even more so in the later round \sz{this is what I expect}
+
+\gbt{Maybe we can fuse this analysis with the one in the next subsection (taxonomic relations). The way I would put it is, instead of disagreement and taxonomy, ``sources of variation''}
+
+\begin{itemize}
+\item analyse naming disagreement using WordNet, how do names for the same object relate to each other according to WordNet?Overarching question: 
+\item can we identify instances of cross-classification? so objects that are systematically part of several classes (e.g. cake/dessert)
+\item \cs{Wrt points 1+2: Show that WordNet, again, is not ideal for retrieving all possible names of an object from a single synset.}
+\item we might need to do some manual annotation here and try to carefully describe the phenomena
+\end{itemize}
+
+\subsection{Taxonomic relations}
+
+can we elicit natural sub-ordinate, super-ordinate concepts?
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "acl19_naming"
+%%% End:
