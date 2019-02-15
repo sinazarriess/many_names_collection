@@ -1,4 +1,5 @@
 
+**Qualifications**
 How to add the data protection thingy as qualification to our HITs:
  * edit text in question form overview (now says "bla bla"), make sure that it is valid xml
  * run:
