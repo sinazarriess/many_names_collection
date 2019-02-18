@@ -2,41 +2,75 @@
 <HEAD>
 <TITLE>Test Input</TITLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+  function uncheck_radios(ItemNo) {
+    //document.getElementById('optout_qual-' + ItemNo.toString()).checked = false;
+	var tabooElement = document.getElementById('taboolist-' + ItemNo.toString());
+    if (typeof(tabooElement) != 'undefined') {
+		document.getElementById('optout_exh-' + ItemNo.toString()).checked = false;
+	}
+	document.getElementById('optout_occl-' + ItemNo.toString()).checked = false;
+    document.getElementById('optout_bbox-' + ItemNo.toString()).checked = false;
+    document.getElementById('optout_other-' + ItemNo.toString()).checked = false;
+    document.getElementById('other_reasons-' + ItemNo.toString()).value = "";
+  }
+  function check_radio(ItemNo) {
+    document.getElementById('optout_other-' + ItemNo.toString()).checked = true;
+    clear_textbox(ItemNo);
+  }
+  function clear_textbox(ItemNo) {
+    document.getElementById('inputbox_objname-' + ItemNo.toString()).value = "";
+  }
 function notEmpty(document, numItems){
-    elem = document.getElementById('annotator_name')
-    if(elem.value.length == 0){
-        alert('Please enter your name');
-        elem.focus();
-        return false;
-    }
+    //elem = document.getElementById('annotator_name')
+    //if(elem.value.length == 0){
+    //    alert('Please enter your name');
+    //    elem.focus();
+    //    return false;
+    //}
+    var num_optOuts = 0;
+    var max_optOuts = (numItems / 2);
     for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
         Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
+		var tabooElement = document.getElementById('taboolist-' + ItemNo.toString());
         if (Objectname.length > 2) {
             Objectname = Objectname.toLowerCase()
             // Verify that word is not on taboo list
-            var taboolist = document.getElementById('taboolist-' + ItemNo.toString()).getElementsByTagName('li');
-            var i = taboolist.length;
-            var tabooword;
-            while(i --) {
-                tabooword = taboolist[i].innerHTML.toLowerCase();
-                if(0 == tabooword.indexOf(Objectname)) {
-                    document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
-                    alert('Please enter a name that is not on the taboo list (object ' + (ItemNo+1).toString() + ').');
-                    return false;
+            if (typeof(tabooElement) != 'undefined' && tabooElement != null) {
+                var taboolist = tabooElement.getElementsByTagName('li')
+                var i = taboolist.length;
+                var tabooword;
+                while(i --) {
+                    tabooword = taboolist[i].innerHTML.toLowerCase();
+                    if(0 == tabooword.indexOf(Objectname)) {
+                        document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+                        alert('Please enter a name that is not on the taboo list (object ' + (ItemNo+1).toString() + ').');
+                        return false;
+                    }
                 }
             }
             continue; 
         } else {
+			/*
             if (document.getElementById('optout_qual-' + ItemNo.toString()).checked)
             {
+                num_optOuts++;
                 continue;
-            }
-            if (document.getElementById('optout_exh-' + ItemNo.toString()).checked)
+            }*/
+			if (typeof(tabooElement) != 'undefined') {
+				if (document.getElementById('optout_exh-' + ItemNo.toString()).checked)
+				{
+					num_optOuts++;
+					continue;
+				}
+			}
+			if (document.getElementById('optout_occl-' + ItemNo.toString()).checked)
             {
+                num_optOuts++;
                 continue;
             }
             if (document.getElementById('optout_bbox-' + ItemNo.toString()).checked)
             {
+                num_optOuts++;
                 continue;
             }
             if (document.getElementById('optout_other-' + ItemNo.toString()).checked)
@@ -44,18 +78,23 @@ function notEmpty(document, numItems){
                 if(document.getElementById('other_reasons-' + ItemNo.toString()).value.length <= 4)
                 {
                     document.getElementById('other_reasons-' + ItemNo.toString()).focus();
-                    alert("Please specify the reasons for opting out (object " + (ItemNo+1).toString() + ").");
+                    alert('Please specify the reasons (at least 5 letters) for opting out (object ' + (ItemNo+1).toString() + ').');
                     return false;
                 }
+                num_optOuts++;
                 continue;
             }
             document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
-            alert ("Missing: object name (object " + (ItemNo+1).toString() + "). If you opt put please give the reason for it.");
+            alert ('Missing: object name (object ' + (ItemNo+1).toString() + '). If you opt put please give the reason for it.');
             return false;
         }
     }
+    if (num_optOuts > max_optOuts) {
+        alert("Too many opt-outs.");
+        return false;
+    }
     return true;
-}
+  }
 </SCRIPT>
 </HEAD>
 <BODY>

@@ -1,3 +1,4 @@
+import os
 import re
 
 from nltk.corpus import wordnet as wn
@@ -7,7 +8,11 @@ from nltk.parse.stanford import StanfordNeuralDependencyParser
 
 from itertools import chain
 
-USRNAME = "carina"
+folders = os.path.abspath(".").split(os.sep)
+if "\\" in os.sep:
+    USRNAME = "C:\\Users\\Carina Silberer\\"
+elif "/" in os.sep:
+    USRNAME = folders[folders.index("media")+1] #"u148188"
 
 stanford_dir = '/home/%s/models/' % (USRNAME)
 '/home/carina/models/stanford-postagger-full-2018-02-27/'
