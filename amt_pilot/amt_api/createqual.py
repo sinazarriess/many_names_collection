@@ -4,12 +4,13 @@ import time
 import json
 import configparser
 import logging
+import os
 import sys
 #from boto3.mturk.question import ExternalQuestion, QuestionContent, Question, QuestionForm
 #from boto3.mturk.question import Overview,AnswerSpecification,SelectionAnswer,FormattedContent
 #from boto3.mturk.qualification import Qualifications, Requirement
     
-
+SCRIPTDIR = os.path.abspath(os.path.dirname(sys.argv[0]))
 def connect_mturk(config):
 
     mturk = boto3.client('mturk',
@@ -22,10 +23,9 @@ def connect_mturk(config):
     return mturk
 
 def make_qualification(mturk):
-    
-    with open('questionqual.xml', 'r') as myfile:
+    with open(os.path.join(SCRIPTDIR, '../questionqual.xml'), 'r') as myfile:
         question=myfile.read()
-    with open('answerqual.xml', 'r') as myfile:
+    with open(os.path.join(SCRIPTDIR, '../answerqual.xml'), 'r') as myfile:
         answer=myfile.read()
         
     print(question)
@@ -34,7 +34,7 @@ def make_qualification(mturk):
     response = mturk.create_qualification_type(
         Name='DataProtectionv0.3',
         Keywords='data protection',
-        Description='please just read our data protection policy and accept it',
+        Description='Please read our data protection policy and accept it',
         QualificationTypeStatus='Active',
         RetryDelayInSeconds=123,
         Test=question,
