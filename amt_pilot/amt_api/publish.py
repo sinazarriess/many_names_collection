@@ -52,13 +52,28 @@ def make_new_hit(n_images,imgdf,img_index):
     return param_list,out_img_dict,img_index
 
 def get_qualifications(config):
+    
+    qlist = []
+    
+    if 'protectionid' in config['qualification']:
+        
+        print("create hit with data protection qualification")
+        
+        qlist.append({'QualificationTypeId': config['qualification']['protectionid'],\
+        'Comparator': 'GreaterThanOrEqualTo',\
+        'IntegerValues': [ 100 ],\
+        'ActionsGuarded':'Accept'})
+    
 
+    
     if 'sandbox' in config['endpoint']['url']:
         print("this is sandbox mode, no qualifications needed")
-        return [] ## no qualifications required in sandbox mode
+        
+        
+        return qlist
 
 
-    qlist = [
+    qlist.append(
         {
         'QualificationTypeId': '00000000000000000040',
         'Comparator': 'GreaterThanOrEqualTo',
@@ -84,8 +99,8 @@ def get_qualifications(config):
                     {'Country':'IE'}, {'Country':'NZ'} 
                     ],
                 'ActionsGuarded': 'PreviewAndAccept'
-        },
-        {
+        })
+    qlist.append({
                 'QualificationTypeId' : '00000000000000000071',
                 'Comparator' : 'In',
                 'LocaleValues' : [
@@ -94,8 +109,7 @@ def get_qualifications(config):
                     {'Country':'IE'}, {'Country':'NZ'} 
                     ],
                 'ActionsGuarded': 'PreviewAndAccept'
-        }
-    ]
+        })
 
     return qlist
 

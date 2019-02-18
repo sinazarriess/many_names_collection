@@ -1,0 +1,39 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2017-11-06/QuestionForm.xsd">
+  <Overview>
+    <Title>
+INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
+ </Title>
+
+<Text>
+bla bla
+</Text>
+
+
+  </Overview>
+  <Question>
+    <QuestionIdentifier>q1</QuestionIdentifier>
+    <DisplayName>accept</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+     <Text>
+    I HAVE READ, UNDERSTOOD AND ACCEPTED ALL OF THE ABOVE, I ACCEPT TO TAKE PART IN THE SURVEY
+    </Text>
+    </QuestionContent>
+      
+<AnswerSpecification>
+    <SelectionAnswer>
+  <StyleSuggestion>radiobutton</StyleSuggestion>
+  <Selections>
+    <Selection>
+      <SelectionIdentifier>C1</SelectionIdentifier>
+      <Text>YES</Text>
+    </Selection>
+    <Selection>
+      <SelectionIdentifier>C2</SelectionIdentifier>
+      <Text>NO</Text>
+    </Selection>
+    </Selections>
+    </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+</QuestionForm>
