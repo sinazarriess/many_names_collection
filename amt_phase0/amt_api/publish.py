@@ -146,7 +146,6 @@ if __name__ == '__main__':
     MTURK = connect_mturk(CONFIG)
 
     QUALS = get_qualifications(CONFIG)
-    sys.exit()
     logging.info("Qualifications:")
     logging.info(QUALS)
 
