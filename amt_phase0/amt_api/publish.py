@@ -67,7 +67,7 @@ def get_qualifications(config):
     
     if 'sandbox' in config['endpoint']['url']:
         print("this is sandbox mode, no qualifications needed")
-        #return qlist
+        return qlist
 
     qlist.extend([
         {'QualificationTypeId': '00000000000000000040',

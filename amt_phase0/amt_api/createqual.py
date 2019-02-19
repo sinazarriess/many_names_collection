@@ -32,7 +32,7 @@ def make_qualification(mturk):
     print(answer)
         
     response = mturk.create_qualification_type(
-        Name='DataProtectionv0.3',
+        Name='DataProtectionv0.1',
         Keywords='data protection',
         Description='Please read our data protection policy and accept it',
         QualificationTypeStatus='Active',
