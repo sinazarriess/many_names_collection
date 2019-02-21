@@ -1,5 +1,4 @@
 import boto3
-import pandas as pd
 import glob
 import os
 import json
@@ -49,7 +48,6 @@ def get_assignments(mturk,hitid):
         else:
             anext = None
             
-
     return assignments
 
 def is_suspicious(answer_words):
@@ -75,8 +73,6 @@ def review_results(mturk,path_published):
         appr_file = open(outapproved_name,'w')
         susp_file = open(outsuspicious_name,'w')
 
-        hit_results = []
-
         for item in parsed:
             #print(item)
 
@@ -87,10 +83,6 @@ def review_results(mturk,path_published):
             if len(assignments) > 0:
                 
                 for assignment in assignments:
-                    
-
-                    #print("assignment",assignment.keys())
-                    worker_id = assignment['WorkerId']
                     answer_dict = xmltodict.parse(assignment['Answer'])
                     #print(answer_dict['QuestionFormAnswers']['Answer'])
                     #print("Worker,",worker_id)
@@ -133,9 +125,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
-
-    max_steps = 10
-    n_steps = 0
     
     data_path = os.path.dirname(sys.argv[1])
     

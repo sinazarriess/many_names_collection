@@ -148,7 +148,6 @@ if __name__ == '__main__':
     QUALS = get_qualifications(CONFIG)
     logging.info("Qualifications:")
     logging.info(QUALS)
-
     logging.info("max assignments")
     logging.info(CONFIG['hit']['maxassignments'])
 

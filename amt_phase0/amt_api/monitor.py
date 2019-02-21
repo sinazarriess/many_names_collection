@@ -1,9 +1,7 @@
 import boto3
-import pandas as pd
 import glob
 import os
 import json
-import xmltodict
 import sys
 import time
 import configparser
@@ -54,13 +52,12 @@ def get_assignments(mturk,hitid):
 def monitor_submission(mturk,path_published):
     '''ask AMT for results'''
     known_hits = []
-    for filename in glob.glob(os.path.join(path_published, '*.json')):
+    for filename in glob.glob(os.path.join(path_published, '*_final.json')):
         print(filename)
         with open(filename, 'r') as handle:
             parsed = json.load(handle)
 
         hit_results = []
-
         for item in parsed:
 
             if item['HIT']['HITId'] not in known_hits:
@@ -78,7 +75,7 @@ if __name__ == "__main__":
         print("Please give a me a config file as argument")
         sys.exit()
 
-    max_steps = 10
+    max_steps = 9
     n_steps = 0
 
     CONFIG = configparser.ConfigParser()
