@@ -7,7 +7,7 @@ import logging
 import os
 import sys
 
-    
+BASE_IMG_URL = "http://object-naming-amore.upf.edu/"    
 
 def connect_mturk(config):
 
@@ -35,8 +35,9 @@ def make_new_hit(n_images,imgdf,img_index):
             img_index = 0
             logging.warning("Reset image index to 0!")
 
-        img_url = 'http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/%d_%d_%s.png' % \
-        (imgdf.iloc[img_index]['image_id'],\
+        img_url = '%s/%d_%d_%s.png' % \
+        (BASE_IMG_URL,
+         imgdf.iloc[img_index]['image_id'],\
             imgdf.iloc[img_index]['object_id'],
             imgdf.iloc[img_index]['sample_type'])
         param_dict['Value'] = img_url

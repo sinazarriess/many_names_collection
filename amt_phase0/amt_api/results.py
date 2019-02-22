@@ -82,8 +82,6 @@ def get_results(mturk,path_published,path_results):
                     assignment_out_dict['WorkerId'] = assignment['WorkerId']
                     assignment_out_dict['AssignmentId'] = assignment['AssignmentId']
 
-
-
                     answer_out_dict = {}
 
                     #print("assignment",assignment.keys())

@@ -95,7 +95,7 @@ def review_results(mturk,path_published):
                         if not 'objname-ex' in param:
                             if 'objname' in param:
                                 if a['FreeText']:
-                                    answers.append(a['FreeText'])
+                                    answers.append(a['FreeText'].lower())
 
 
                     
