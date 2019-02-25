@@ -9,7 +9,7 @@ import numpy as np
 #from spellchecker import SpellChecker
 #from nltk.stem.wordnet import WordNetLemmatizer
 
-def process_answers(resultfile,hit2images):
+def process_answers(resultfile, hit2images, with_opt_outs=False):
     
     with open(resultfile, 'r') as handle:
         resultlist = json.load(handle)
@@ -22,6 +22,7 @@ def process_answers(resultfile,hit2images):
         print(hitid)
         for a in assignm['Assignments']:
             #print(a)
+            workerId = a['WorkerId']
             answers = a['Answers']
             for ix in range(10):
                 object_id = hit2images[hitid][str(ix)][1]
@@ -33,6 +34,11 @@ def process_answers(resultfile,hit2images):
                 if name:
                     name = name.lower()
                     obj2answers[object_id][name] += 1
+                elif with_opt_outs:
+                    opt_out = "#"+answers[str(ix)]['optout-'+str(ix)]
+                    if answers[str(ix)]['other_reasons-'+str(ix)]:
+                        opt_out += "_" + answers[str(ix)]['other_reasons-'+str(ix)]
+                    obj2answers[object_id][opt_out] += 1
                     
                     
     ## optional: spell checking
