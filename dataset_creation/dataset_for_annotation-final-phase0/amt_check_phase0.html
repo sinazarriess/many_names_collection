@@ -1,0 +1,50 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <!-- The crowd-classifier element will create a tool for the Worker to select the
+           correct answer to your question.
+
+           Your image file URLs will be substituted for the ${image_url} variable in the
+           src attribute below when you publish a batch with a CSV input file containing
+           multiple image file URLs -->
+    <p>
+     &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; A calls it: <strong>${nameA}</strong>.
+    </p>
+    <p>
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; B calls it: <strong>${nameB}</strong>.
+    </p>
+
+
+    <crowd-image-classifier
+        src="${image_url}"
+        categories="['yes','no, B means a different object', 'no, A and B mean different parts of the same object', 'no, B seems to be confused']"
+        header="Do A and B mean the same thing?"
+        name="relation">
+
+       <!-- Use the short-instructions section for quick instructions that the Worker
+              will see while working on the task. Including some basic examples of
+              good and bad answers here can help get good results. You can include
+              any HTML here. -->
+        <short-instructions>
+            <p>Imagine the following situation:</p>
+            <p>Person A and B separately annotate a bounding box in the same image. They write down different names for the box.<p>
+            <p>Your task: say whether both names mean the same thing, or whether A and B describe different objects or parts of the box.</p>
+        </short-instructions>
+
+        <!-- Use the full-instructions section for more detailed instructions that the
+              Worker can open while working on the task. Including more detailed
+              instructions and additional examples of good and bad answers here can
+              help get good results. You can include any HTML here. -->
+        <full-instructions header="Classification Instructions">
+            <p>Read the task carefully and inspect the image.</p>
+            <p>Choose the appropriate answer.</p>
+        </full-instructions>
+
+    </crowd-image-classifier>
+</crowd-form>
