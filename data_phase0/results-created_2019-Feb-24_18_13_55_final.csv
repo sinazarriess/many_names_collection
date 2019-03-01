@@ -1,0 +1,601 @@
+vg_img_id	vg_object_id	cat	synset	url	responses	sample_type	obj_name
+2407892	1095531	person	male_child.n.01	http://object-naming-amore.upf.edu//2407892_1095531_singleton_obj.png	Counter({'snowboarder': 2, 'skier': 2, 'person': 1, 'goggles': 1, 'man': 1, 'boy': 1, 'kid': 1})	singleton_obj	boy
+2328275	3325725	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2328275_3325725_singleton_obj.png	Counter({'desk': 8, 'table': 1})	singleton_obj	desk
+2378127	1902170	vehicle	car.n.01	http://object-naming-amore.upf.edu//2378127_1902170_singleton_obj.png	Counter({'train': 8, 'traincar': 1})	singleton_obj	car
+570	1064029	animal	fish.n.01	http://object-naming-amore.upf.edu//570_1064029_supercat_unique.png	Counter({'fish': 3, 'food': 3, '#occlusion': 1, 'meat': 1, '#other_multiple objects': 1})	supercat_unique	fish
+2365979	2252855	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2365979_2252855_seed_ambiguous.png	Counter({'sandwich': 5, '#bbox': 3, 'hamburger': 1})	seed_ambiguous	hamburger
+2325596	2924415	person	man.n.01	http://object-naming-amore.upf.edu//2325596_2924415_seed_ambiguous.png	Counter({'man': 5, 'tie': 1, 'person': 1, 'friend': 1, 'guy': 1})	seed_ambiguous	man
+2356404	3009767	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2356404_3009767_singleton_obj.png	Counter({'shirt': 9})	singleton_obj	shirt
+2365899	3881946	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2365899_3881946_seed_ambiguous.png	Counter({'dresser': 2, '#occlusion': 2, 'desk': 2, 'cabinet': 1, 'counter': 1, 'shelf': 1})	seed_ambiguous	dresser
+2391199	1242877	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2391199_1242877_singleton_obj.png	Counter({'plane': 4, 'airplane': 3, 'jet': 2})	singleton_obj	plane
+2343130	927034	structure, construction	shelter.n.01	http://object-naming-amore.upf.edu//2343130_927034_supercat_unique.png	Counter({'dugout': 3, 'fence': 3, 'railing': 1, 'dugout fence': 1, 'fencing': 1})	supercat_unique	dugout
+2341357	3655768	person	male_child.n.01	http://object-naming-amore.upf.edu//2341357_3655768_singleton_obj.png	Counter({'surfer': 4, 'person': 2, 'man': 2, 'surfboard': 1})	singleton_obj	boy
+2359454	793200	structure, construction	shelter.n.01	http://object-naming-amore.upf.edu//2359454_793200_seed_ambiguous.png	Counter({'tent': 4, 'canopy': 3, '#bbox': 1, 'gazebo': 1})	seed_ambiguous	tent
+2362734	771682	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2362734_771682_supercat_unique.png	Counter({'shirt': 6, '#bbox': 3})	supercat_unique	shirt
+2368412	746554	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2368412_746554_singleton_obj.png	Counter({'clock': 5, 'train engine': 1, '#occlusion': 1, 'dresser': 1, 'cabinet': 1})	singleton_obj	cabinet
+2373340	733035	animal	dog.n.01	http://object-naming-amore.upf.edu//2373340_733035_supercat_unique.png	Counter({'dog': 9})	supercat_unique	dog
+2316407	3359797	person	child.n.01	http://object-naming-amore.upf.edu//2316407_3359797_singleton_obj.png	Counter({'girl': 4, 'child': 2, 'dress': 1, 'organizer': 1, '#bbox': 1})	singleton_obj	child
+2390130	1253580	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2390130_1253580_singleton_obj.png	Counter({'plane': 5, 'airplane': 2, 'jet': 2})	singleton_obj	airplane
+2367132	2769069	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2367132_2769069_supercat_unique.png	Counter({'couch': 6, 'controller': 1, '#bbox': 1, 'sofa': 1})	supercat_unique	couch
+2372045	594485	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2372045_594485_singleton_obj.png	Counter({'plane': 5, 'airplane': 3, 'jet': 1})	singleton_obj	plane
+2406062	370638	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2406062_370638_supercat_unique.png	Counter({'sandwich': 5, 'sandwhich': 1, '#bbox': 1, 'bun': 1, 'burger': 1})	supercat_unique	hamburger
+2366130	1680114	ware	cutlery.n.02	http://object-naming-amore.upf.edu//2366130_1680114_singleton_obj.png	Counter({'spoon': 8, 'candles': 1})	singleton_obj	spoon
+2344966	3268698	person	woman.n.01	http://object-naming-amore.upf.edu//2344966_3268698_supercat_unique.png	Counter({'#bbox': 3, 'person': 2, 'shirt': 2, 'woman': 1, 'arm': 1})	supercat_unique	woman
+2332696	968862	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2332696_968862_supercat_ambiguous.png	Counter({'vest': 6, 'tie': 1, 'cardigan': 1, 'suit': 1})	supercat_ambiguous	jacket
+2410242	222591	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2410242_222591_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2328799	3603516	person	woman.n.01	http://object-naming-amore.upf.edu//2328799_3603516_seed_ambiguous.png	Counter({'woman': 6, 'smile': 1, 'lady': 1, 'reader': 1})	seed_ambiguous	lady
+2391492	488616	animal	horse.n.01	http://object-naming-amore.upf.edu//2391492_488616_singleton_obj.png	Counter({'horse': 9})	singleton_obj	horse
+2392521	1229019	animal	dog.n.01	http://object-naming-amore.upf.edu//2392521_1229019_singleton_obj.png	Counter({'dog': 7, 'pug': 1, 'pug dog': 1})	singleton_obj	dog
+2362485	773904	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2362485_773904_supercat_ambiguous.png	Counter({'pizza': 9})	supercat_ambiguous	cheese
+2412667	2956620	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2412667_2956620_seed_ambiguous.png	Counter({'boat': 6, '#bbox': 1, 'canopy': 1, 'yacht': 1})	seed_ambiguous	boat
+2409845	232132	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2409845_232132_singleton_obj.png	Counter({'desk': 6, 'books': 3})	singleton_obj	desk
+2337660	956818	animal	rodent.n.01	http://object-naming-amore.upf.edu//2337660_956818_singleton_obj.png	Counter({'mouse': 9})	singleton_obj	mouse
+2363656	2169406	person	man.n.01	http://object-naming-amore.upf.edu//2363656_2169406_seed_ambiguous.png	Counter({'man': 6, '#occlusion': 1, 'feeder': 1, 'guy': 1})	seed_ambiguous	man's
+2343465	923356	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2343465_923356_singleton_obj.png	Counter({'plane': 4, 'airplane': 3, 'jet': 2})	singleton_obj	plane
+2325594	3380365	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2325594_3380365_singleton_obj.png	"Counter({'bench': 7, 'bridge': 1, ""#other_image won't load"": 1})"	singleton_obj	bench
+2372994	2216968	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2372994_2216968_seed_ambiguous.png	Counter({'building': 5, 'house': 4})	seed_ambiguous	cottage
+2396863	439845	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2396863_439845_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2354427	1913829	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2354427_1913829_seed_ambiguous.png	Counter({'sandwich': 7, 'sandwhich': 1, 'bread': 1})	seed_ambiguous	sandwich
+2392780	1226022	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2392780_1226022_seed_ambiguous.png	Counter({'#bbox': 3, 'carpet': 3, 'floor': 1, 'diningroom': 1, 'table': 1})	seed_ambiguous	carpet
+2319036	1005188	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2319036_1005188_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	dress
+2334133	3342568	person	woman.n.01	http://object-naming-amore.upf.edu//2334133_3342568_singleton_obj.png	Counter({'woman': 4, 'person': 2, 'vest': 1, 'lady': 1, 'clothing': 1})	singleton_obj	woman
+1592491	1609936	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//1592491_1609936_singleton_obj.png	Counter({'airplane': 4, 'plane': 4, 'jet': 1})	singleton_obj	plane
+2372772	2192061	person	male_child.n.01	http://object-naming-amore.upf.edu//2372772_2192061_supercat_ambiguous.png	Counter({'skater': 3, 'skateboarder': 2, 'male': 1, 'boy': 1, 'headphones': 1, 'person': 1})	supercat_ambiguous	boy
+2407951	270789	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2407951_270789_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2326137	2855524	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2326137_2855524_supercat_unique.png	Counter({'bowl': 6, 'broccoli': 2, 'greens': 1})	supercat_unique	bowl
+2395260	456451	person	woman.n.01	http://object-naming-amore.upf.edu//2395260_456451_singleton_obj.png	Counter({'girl': 4, 'female': 2, 'eater': 1, 'glasses': 1, 'woman': 1})	singleton_obj	girl
+2332598	3079521	article of clothing	neckwear.n.01	http://object-naming-amore.upf.edu//2332598_3079521_singleton_obj.png	Counter({'tie': 5, '#bbox': 2, 'scarf': 2})	singleton_obj	tie
+2343795	920042	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2343795_920042_supercat_unique.png	Counter({'pizza': 6, 'pizza pie': 1, '#occlusion': 1, 'food': 1})	supercat_unique	pizza
+2351102	2406866	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2351102_2406866_seed_ambiguous.png	Counter({'airplane': 4, 'plane': 3, 'jet': 2})	seed_ambiguous	airplane
+2330086	3723137	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2330086_3723137_singleton_obj.png	Counter({'sink': 2, '#bbox': 2, 'counter': 2, 'vanity': 2, 'bathroom counter': 1})	singleton_obj	counter
+2403521	381050	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2403521_381050_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2410577	214373	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2410577_214373_supercat_unique.png	Counter({'sandwich': 7, 'sandwitch': 1, 'hoagie': 1})	supercat_unique	bread
+2360983	3757652	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2360983_3757652_singleton_obj.png	Counter({'bed': 8, '#bbox': 1})	singleton_obj	bed
+2360745	2081531	vehicle	train.n.01	http://object-naming-amore.upf.edu//2360745_2081531_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2353786	1947316	person	woman.n.01	http://object-naming-amore.upf.edu//2353786_1947316_singleton_obj.png	Counter({'snowboarder': 3, 'skier': 3, 'woman': 2, 'jacket': 1})	singleton_obj	woman
+2384322	527386	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2384322_527386_supercat_ambiguous.png	Counter({'dog': 3, '#bbox': 2, 'toy': 2, 'stufffed animal': 1, 'doll': 1})	supercat_ambiguous	reindeer
+2327353	3206827	tool	tool.n.01	http://object-naming-amore.upf.edu//2327353_3206827_singleton_obj.png	Counter({'knife': 9})	singleton_obj	knife
+2392115	483036	person	woman.n.01	http://object-naming-amore.upf.edu//2392115_483036_singleton_obj.png	Counter({'woman': 3, 'girl': 3, 'female': 1, 'runner': 1, 'shirt': 1})	singleton_obj	girl
+2329880	3252355	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2329880_3252355_singleton_obj.png	Counter({'boat': 9})	singleton_obj	boat
+2351378	2324409	person	man.n.01	http://object-naming-amore.upf.edu//2351378_2324409_seed_ambiguous.png	Counter({'man': 3, 'santa': 2, 'person': 2, 'male': 1, 'beard': 1})	seed_ambiguous	guy
+2386661	3701255	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2386661_3701255_supercat_unique.png	Counter({'shirt': 7, 'bibs': 1, 'clothes': 1})	supercat_unique	shirt
+2318246	1012709	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2318246_1012709_singleton_obj.png	Counter({'plane': 6, 'airplane': 2, 'bi-plane': 1})	singleton_obj	plane
+2386447	2673600	person	man.n.01	http://object-naming-amore.upf.edu//2386447_2673600_supercat_unique.png	Counter({'man': 6, 'human': 1, 'shirt': 1, 'guy': 1})	supercat_unique	guy
+2384692	525027	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2384692_525027_singleton_obj.png	Counter({'hood': 3, '#occlusion': 3, '#bbox': 1, 'grate': 1, 'grill': 1})	singleton_obj	hood
+2325415	3460019	vehicle	car.n.01	http://object-naming-amore.upf.edu//2325415_3460019_seed_ambiguous.png	Counter({'car': 6, 'automobile': 2, '#bbox': 1})	seed_ambiguous	car
+2346332	1731782	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2346332_1731782_seed_ambiguous.png	Counter({'#bbox': 4, '#occlusion': 3, 'child': 1, 'table': 1})	seed_ambiguous	furniture
+2022	1645890	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2022_1645890_seed_ambiguous.png	Counter({'bed': 8, 'bed and frame': 1})	seed_ambiguous	bed
+2398076	3820587	ware	cutlery.n.02	http://object-naming-amore.upf.edu//2398076_3820587_supercat_unique.png	Counter({'fork': 4, 'utensil': 3, '#bbox': 1, 'spoon': 1})	supercat_unique	fork
+2390037	1254618	animal	rodent.n.01	http://object-naming-amore.upf.edu//2390037_1254618_singleton_obj.png	Counter({'squirrel': 6, 'squirel': 1, 'squrriel': 1, 'squirell': 1})	singleton_obj	squirrel
+2360911	2956978	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2360911_2956978_singleton_obj.png	Counter({'cushion': 3, '#bbox': 2, 'pillow': 2, 'headrest': 1, '#occlusion': 1})	singleton_obj	couch
+2367939	3871479	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2367939_3871479_supercat_unique.png	Counter({'bun': 2, 'hot dog': 2, 'food': 1, 'hotdog': 1, 'pickles': 1, 'roll': 1, 'bread': 1})	supercat_unique	bun
+2362627	772636	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2362627_772636_singleton_obj.png	Counter({'sandwich': 7, 'sandwhich': 1, 'sandwitch': 1})	singleton_obj	sandwich
+2383179	534549	vehicle	train.n.01	http://object-naming-amore.upf.edu//2383179_534549_singleton_obj.png	Counter({'train': 7, 'tracks': 1, 'trains': 1})	singleton_obj	train
+2410754	321491	person	woman.n.01	http://object-naming-amore.upf.edu//2410754_321491_singleton_obj.png	Counter({'woman': 6, 'kite': 1, 'lady': 1, 'flier': 1})	singleton_obj	woman
+2346474	2225834	person	man.n.01	http://object-naming-amore.upf.edu//2346474_2225834_seed_ambiguous.png	Counter({'#bbox': 4, 'diningroom': 1, 'group of people': 1, 'friends': 1, 'family': 1, 'dinner party': 1})	seed_ambiguous	man
+2407384	280549	structure, construction	shelter.n.01	http://object-naming-amore.upf.edu//2407384_280549_singleton_obj.png	Counter({'tent': 8, '#occlusion': 1})	singleton_obj	tent
+2351459	1904911	person	man.n.01	http://object-naming-amore.upf.edu//2351459_1904911_seed_ambiguous.png	"Counter({'jacket': 3, 'person': 2, 'man': 2, ""#other_don't know what you want in this picture"": 1, 'suit': 1})"	seed_ambiguous	man
+2410309	220831	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2410309_220831_supercat_unique.png	Counter({'dress': 5, 'laptop': 2, 'shirt': 1, 'clothes': 1})	supercat_unique	dress
+2346351	2280590	animal	dog.n.01	http://object-naming-amore.upf.edu//2346351_2280590_supercat_unique.png	Counter({'dog': 9})	supercat_unique	poodle
+2404418	342903	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2404418_342903_singleton_obj.png	Counter({'sheep': 8, 'animal': 1})	singleton_obj	sheep
+2362438	2289319	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2362438_2289319_singleton_obj.png	Counter({'#bbox': 2, 'cabinet': 2, 'vanity': 1, 'cabinets': 1, 'sink counter': 1, 'sink': 1, 'counter': 1})	singleton_obj	cabinet
+2396312	445737	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2396312_445737_singleton_obj.png	Counter({'truck': 9})	singleton_obj	truck
+2375145	583990	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2375145_583990_supercat_unique.png	Counter({'sweatshirt': 4, 'hoodie': 2, 'sweat-shirt': 1, 'shirt': 1, 'jacket': 1})	supercat_unique	jacket
+2334158	3167399	animal	horse.n.01	http://object-naming-amore.upf.edu//2334158_3167399_singleton_obj.png	Counter({'horse': 8, 'jacket': 1})	singleton_obj	horse
+2412874	299288	person	woman.n.01	http://object-naming-amore.upf.edu//2412874_299288_singleton_obj.png	Counter({'#bbox': 4, 'girl': 2, 'glove': 1, 'shirt': 1, 'player': 1})	singleton_obj	girl
+2361243	1724342	animal	feline.n.01	http://object-naming-amore.upf.edu//2361243_1724342_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2344297	2031311	person	man.n.01	http://object-naming-amore.upf.edu//2344297_2031311_supercat_ambiguous.png	Counter({'man': 7, 'hat': 1, 'trainer': 1})	supercat_ambiguous	man
+2373384	1794482	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2373384_1794482_singleton_obj.png	Counter({'building': 8, 'house': 1})	singleton_obj	house
+2346023	1696151	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2346023_1696151_supercat_unique.png	Counter({'guacamole': 5, 'food': 2, 'dip': 1, 'salad': 1})	supercat_unique	guacamole
+2330862	3718403	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2330862_3718403_singleton_obj.png	Counter({'bed': 5, 'cat': 3, '#bbox': 1})	singleton_obj	bed
+2410303	220956	vehicle	car.n.01	http://object-naming-amore.upf.edu//2410303_220956_singleton_obj.png	Counter({'car': 5, 'automobile': 2, '#occlusion': 1, '#bbox': 1})	singleton_obj	car
+2356365	821161	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2356365_821161_supercat_unique.png	Counter({'table': 6, 'counter': 2, 'countertop': 1})	supercat_unique	counter
+2341397	2474435	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2341397_2474435_supercat_ambiguous.png	Counter({'bottle': 7, 'water bottle': 1, 'vase': 1})	supercat_ambiguous	bottle
+2342196	936195	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2342196_936195_singleton_obj.png	Counter({'wing': 2, 'airplane wing': 2, 'airplane': 2, 'mountain': 1, 'plane': 1, '#occlusion': 1})	singleton_obj	plane
+2404929	1111737	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2404929_1111737_singleton_obj.png	Counter({'cow': 9})	singleton_obj	cow
+2389809	1256945	person	man.n.01	http://object-naming-amore.upf.edu//2389809_1256945_singleton_obj.png	Counter({'man': 5, 'person': 2, 'shirt': 1, 'friend': 1})	singleton_obj	man
+2338319	3029530	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2338319_3029530_singleton_obj.png	Counter({'boat': 9})	singleton_obj	boat
+2348613	3604199	person	child.n.01	http://object-naming-amore.upf.edu//2348613_3604199_supercat_ambiguous.png	Counter({'skater': 3, 'person': 2, 'skaterboarder': 1, 'helmet': 1, 'boy': 1, 'woman': 1})	supercat_ambiguous	kid
+713406	3700907	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//713406_3700907_supercat_ambiguous.png	Counter({'jacket': 9})	supercat_ambiguous	jacket
+2379517	1356870	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2379517_1356870_singleton_obj.png	Counter({'cake': 9})	singleton_obj	cake
+2352107	855993	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2352107_855993_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2322844	3185707	person	woman.n.01	http://object-naming-amore.upf.edu//2322844_3185707_singleton_obj.png	Counter({'woman': 6, 'hotdog': 1, 'eater': 1, 'girl': 1})	singleton_obj	woman
+2407222	283563	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2407222_283563_singleton_obj.png	Counter({'cake': 7, 'train cake': 1, 'cake train': 1})	singleton_obj	cake
+2351490	860420	vehicle	train.n.01	http://object-naming-amore.upf.edu//2351490_860420_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2325693	3170083	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2325693_3170083_singleton_obj.png	Counter({'shirt': 8, 'jacket': 1})	singleton_obj	shirt
+2329753	973929	instrumentality, instrumentation	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2329753_973929_supercat_unique.png	Counter({'#occlusion': 2, 'pan': 2, 'pizza': 2, 'baking sheet': 1, 'cookie sheet': 1, 'food tray': 1})	supercat_unique	pan
+2408771	255445	person	male_child.n.01	http://object-naming-amore.upf.edu//2408771_255445_singleton_obj.png	Counter({'boy': 4, 'child': 2, 'shirt': 1, 'player': 1, 'kid': 1})	singleton_obj	boy
+2350903	864521	animal	feline.n.01	http://object-naming-amore.upf.edu//2350903_864521_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2414471	294885	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2414471_294885_singleton_obj.png	Counter({'couch': 5, 'sofa': 2, 'loveseat': 2})	singleton_obj	couch
+2343994	2521254	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2343994_2521254_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2348112	3405074	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2348112_3405074_supercat_unique.png	Counter({'desk': 5, 'keyboard': 2, 'table': 1, 'counter': 1})	supercat_unique	desk
+2393852	1216178	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2393852_1216178_singleton_obj.png	Counter({'plane': 5, 'airplane': 4})	singleton_obj	airplane
+2341437	2314321	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2341437_2314321_singleton_obj.png	Counter({'cow': 9})	singleton_obj	cow
+2361685	2309803	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2361685_2309803_singleton_obj.png	Counter({'couch': 5, 'sofa': 3, 'loveseat': 1})	singleton_obj	couch
+2363341	3746326	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2363341_3746326_singleton_obj.png	Counter({'#bbox': 4, 'table': 3, 'pizza': 1, 'pizzas': 1})	singleton_obj	table
+2325808	984839	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2325808_984839_singleton_obj.png	Counter({'cow': 9})	singleton_obj	cow
+2404028	378932	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2404028_378932_singleton_obj.png	Counter({'jacket': 7, 'suit jacket': 1, 'suit': 1})	singleton_obj	jacket
+2358805	3542174	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2358805_3542174_supercat_unique.png	Counter({'chair': 7, 'cape': 1, 'bench': 1})	supercat_unique	chair
+2348574	881264	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2348574_881264_supercat_unique.png	Counter({'bread': 4, 'sandwich': 3, 'toast': 1, 'top slice of sandwich': 1})	supercat_unique	bread
+2360591	787164	person	male_child.n.01	http://object-naming-amore.upf.edu//2360591_787164_singleton_obj.png	Counter({'player': 3, 'soccer player': 2, 'boy': 2, 'uniform': 1, 'man': 1})	singleton_obj	boy
+2417250	3398249	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2417250_3398249_singleton_obj.png	Counter({'#bbox': 3, 'bridge': 2, 'underpass': 1, 'overpass': 1, 'overhang': 1, 'gas station': 1})	singleton_obj	bridge
+2321457	2773512	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2321457_2773512_singleton_obj.png	Counter({'curtain': 4, 'shower curtain': 3, 'shower-curtain': 1, 'shower curtain and rod': 1})	singleton_obj	curtain
+2370859	601271	animal	feline.n.01	http://object-naming-amore.upf.edu//2370859_601271_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2331099	3059519	person	male_child.n.01	http://object-naming-amore.upf.edu//2331099_3059519_seed_ambiguous.png	Counter({'#bbox': 2, 'friends': 2, 'people': 1, 'person': 1, 'boy': 1, 'man': 1, 'brothers': 1})	seed_ambiguous	boy
+2407332	281503	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2407332_281503_supercat_unique.png	Counter({'hat': 9})	supercat_unique	hat
+2354305	1733759	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2354305_1733759_singleton_obj.png	Counter({'dog': 2, 'chair': 2, 'bed frame': 1, '#occlusion': 1, '#bbox': 1, 'post': 1, 'bunk bed': 1})	singleton_obj	chair
+2409209	3808138	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2409209_3808138_seed_ambiguous.png	Counter({'donut': 7, 'doughnut': 1, 'bagel': 1})	seed_ambiguous	donut
+2394395	464448	person	man.n.01	http://object-naming-amore.upf.edu//2394395_464448_supercat_ambiguous.png	Counter({'man': 4, 'male': 1, 'hotdog': 1, 'person': 1, 'guy': 1, '#bbox': 1})	supercat_ambiguous	guy
+2385974	684689	structure, construction	outbuilding.n.01	http://object-naming-amore.upf.edu//2385974_684689_singleton_obj.png	Counter({'building': 9})	singleton_obj	garage
+2374812	2049706	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2374812_2049706_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2349889	871566	animal	horse.n.01	http://object-naming-amore.upf.edu//2349889_871566_singleton_obj.png	Counter({'horse': 9})	singleton_obj	horse
+2333947	2757280	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2333947_2757280_supercat_unique.png	Counter({'sandwich': 4, 'bread': 3, 'sandwich bun top': 1, 'toast': 1})	supercat_unique	bread
+2357900	1666960	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2357900_1666960_supercat_unique.png	Counter({'table': 9})	supercat_unique	desk
+2392573	479001	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2392573_479001_supercat_unique.png	Counter({'cat': 7, 'cats': 1, '#bbox': 1})	supercat_unique	coat
+2348860	879241	animal	bird.n.01	http://object-naming-amore.upf.edu//2348860_879241_singleton_obj.png	Counter({'bird': 4, 'parrot': 4, 'birds': 1})	singleton_obj	bird
+2384695	1306243	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2384695_1306243_singleton_obj.png	Counter({'bus': 7, 'food truck': 1, 'truck': 1})	singleton_obj	truck
+2402872	3816226	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2402872_3816226_seed_ambiguous.png	Counter({'plane': 5, 'airplane': 4})	seed_ambiguous	airplane
+2376871	3839313	person	woman.n.01	http://object-naming-amore.upf.edu//2376871_3839313_supercat_unique.png	Counter({'woman': 7, 'shirt': 1, 'organizer': 1})	supercat_unique	woman
+2343655	921276	person	man.n.01	http://object-naming-amore.upf.edu//2343655_921276_supercat_ambiguous.png	Counter({'man': 6, 'face': 1, 'husband': 1, 'guy': 1})	supercat_ambiguous	man
+2377325	566317	animal	feline.n.01	http://object-naming-amore.upf.edu//2377325_566317_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2345454	2688064	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2345454_2688064_singleton_obj.png	Counter({'statue': 3, 'sculpture': 1, 'statue vase': 1, 'scupture': 1, 'urn': 1, 'decoration': 1, 'pot': 1})	singleton_obj	vase
+2326800	2872694	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2326800_2872694_singleton_obj.png	Counter({'boat': 8, 'pontoon boat': 1})	singleton_obj	boat
+2363884	3742987	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2363884_3742987_singleton_obj.png	Counter({'soup': 6, 'food': 2, 'salad': 1})	singleton_obj	broth
+2317486	3634791	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2317486_3634791_singleton_obj.png	Counter({'#bbox': 8, 'knife': 1})	singleton_obj	table
+2327795	2977870	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2327795_2977870_supercat_unique.png	Counter({'coat': 8, 'jacket': 1})	supercat_unique	coat
+2406260	369862	animal	bird.n.01	http://object-naming-amore.upf.edu//2406260_369862_singleton_obj.png	Counter({'bird': 8, 'turkey': 1})	singleton_obj	bird
+2360503	2443612	animal	feline.n.01	http://object-naming-amore.upf.edu//2360503_2443612_supercat_unique.png	Counter({'cat': 9})	supercat_unique	cat
+2351095	3898706	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2351095_3898706_singleton_obj.png	Counter({'desk': 3, 'stand': 2, 'tv stand': 1, 'entertainment center': 1, 'cabinet': 1, 'laptop': 1})	singleton_obj	table
+2328735	3415207	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2328735_3415207_supercat_unique.png	Counter({'house': 4, 'building': 2, '#bbox': 1, 'garage': 1, 'hat': 1})	supercat_unique	house
+2365764	2654433	person	woman.n.01	http://object-naming-amore.upf.edu//2365764_2654433_singleton_obj.png	Counter({'woman': 5, 'female': 1, 'person': 1, 'shirt': 1, 'player': 1})	singleton_obj	lady
+2413388	174555	person	woman.n.01	http://object-naming-amore.upf.edu//2413388_174555_singleton_obj.png	Counter({'woman': 6, 'female': 1, 'vest': 1, 'mother': 1})	singleton_obj	woman
+2327290	2984067	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2327290_2984067_supercat_unique.png	Counter({'pizza': 9})	supercat_unique	pizza
+2357831	1912040	vehicle	car.n.01	http://object-naming-amore.upf.edu//2357831_1912040_supercat_ambiguous.png	Counter({'truck': 9})	supercat_ambiguous	jeep
+2365962	3072758	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2365962_3072758_supercat_unique.png	Counter({'bed': 4, '#bbox': 2, '#occlusion': 2, 'pillow': 1})	supercat_unique	bed
+2417151	3468016	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2417151_3468016_singleton_obj.png	Counter({'couch': 3, 'sofa': 2, 'chair': 2, 'furniture': 1, '#bbox': 1})	singleton_obj	chair
+2375135	2080199	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2375135_2080199_supercat_ambiguous.png	Counter({'hat': 8, '#bbox': 1})	supercat_ambiguous	hat
+2371022	600321	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2371022_600321_singleton_obj.png	Counter({'truck': 8, '#bbox': 1})	singleton_obj	truck
+2390581	495901	person	woman.n.01	http://object-naming-amore.upf.edu//2390581_495901_singleton_obj.png	Counter({'girl': 3, 'soccer player': 2, 'uniform': 1, 'goalie': 1, 'woman': 1, 'player': 1})	singleton_obj	girl
+2379577	1356290	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2379577_1356290_singleton_obj.png	Counter({'bowl': 7, 'soup': 1, 'soup bowel': 1})	singleton_obj	bowl
+2318364	1011434	animal	dog.n.01	http://object-naming-amore.upf.edu//2318364_1011434_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2322480	3960820	person	woman.n.01	http://object-naming-amore.upf.edu//2322480_3960820_seed_ambiguous.png	Counter({'girl': 2, 'soccer player': 2, 'player': 2, 'woman': 2, 'uniform': 1})	seed_ambiguous	girl
+2351847	2713405	person	woman.n.01	http://object-naming-amore.upf.edu//2351847_2713405_singleton_obj.png	Counter({'woman': 7, 'scarf': 1, 'traveler': 1})	singleton_obj	lady
+2367251	752248	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2367251_752248_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2404931	1111695	animal	horse.n.01	http://object-naming-amore.upf.edu//2404931_1111695_seed_ambiguous.png	Counter({'horse': 9})	seed_ambiguous	horse
+2349249	1834213	vehicle	car.n.01	http://object-naming-amore.upf.edu//2349249_1834213_singleton_obj.png	Counter({'truck': 7, 'automobile': 2})	singleton_obj	car
+2340075	3928328	article of clothing	neckwear.n.01	http://object-naming-amore.upf.edu//2340075_3928328_supercat_ambiguous.png	Counter({'tie': 8, 'man': 1})	supercat_ambiguous	tie
+2398331	426314	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2398331_426314_singleton_obj.png	Counter({'cookie': 4, 'ice cream sandwich': 2, 'dessert': 1, 'pastry': 1, 'sandwich': 1})	singleton_obj	cookie
+2379571	3834858	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2379571_3834858_singleton_obj.png	Counter({'#occlusion': 3, 'floor': 3, '#bbox': 2, 'coffee table': 1})	singleton_obj	rug
+2333738	3683093	person	woman.n.01	http://object-naming-amore.upf.edu//2333738_3683093_singleton_obj.png	Counter({'woman': 5, 'tennis player': 2, 'shirt': 1, 'player': 1})	singleton_obj	girl
+286039	1571368	structure, construction	house.n.01	http://object-naming-amore.upf.edu//286039_1571368_singleton_obj.png	Counter({'house': 7, 'building': 2})	singleton_obj	house
+2371689	2303669	person	athlete.n.01	http://object-naming-amore.upf.edu//2371689_2303669_supercat_ambiguous.png	Counter({'skater': 3, 'boy': 2, 'skateboarder': 2, 'skateboard': 1, 'man': 1})	supercat_ambiguous	skateboarder
+2318074	1014405	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2318074_1014405_singleton_obj.png	Counter({'vanity': 3, 'bathroom vanity': 1, 'countertop': 1, 'sink counter': 1, 'counter top': 1, 'counter': 1, 'bathroom sink': 1})	singleton_obj	counter
+2334449	3233961	vehicle	train.n.01	http://object-naming-amore.upf.edu//2334449_3233961_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2411258	314361	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2411258_314361_supercat_unique.png	Counter({'salad': 8, 'food': 1})	supercat_unique	salad
+2338498	954002	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2338498_954002_supercat_unique.png	Counter({'building': 4, 'house': 3, '#bbox': 2})	supercat_unique	house
+2322136	3203780	person	woman.n.01	http://object-naming-amore.upf.edu//2322136_3203780_seed_ambiguous.png	Counter({'woman': 6, 'person': 1, 'friend': 1, 'dress': 1})	seed_ambiguous	woman
+2353478	845570	animal	horse.n.01	http://object-naming-amore.upf.edu//2353478_845570_seed_ambiguous.png	Counter({'horse': 9})	seed_ambiguous	horse
+2417409	2869653	person	athlete.n.01	http://object-naming-amore.upf.edu//2417409_2869653_seed_ambiguous.png	Counter({'catcher': 6, 'person': 1, 'glove': 1, 'man': 1})	seed_ambiguous	catcher
+2357082	2140307	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2357082_2140307_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2382874	1325463	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2382874_1325463_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2346029	1832822	person	athlete.n.01	http://object-naming-amore.upf.edu//2346029_1832822_singleton_obj.png	Counter({'child': 3, 'batter': 3, 'boy': 1, 'tee ball player': 1, 'shirt': 1})	singleton_obj	batter
+2386622	1284233	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2386622_1284233_singleton_obj.png	Counter({'shirt': 7, 'chin': 1, 'man': 1})	singleton_obj	shirt
+2403835	348976	person	woman.n.01	http://object-naming-amore.upf.edu//2403835_348976_singleton_obj.png	Counter({'child': 5, 'toddler': 2, 'shirt': 1, 'girl': 1})	singleton_obj	girl
+2366880	2923267	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2366880_2923267_seed_ambiguous.png	Counter({'desk': 9})	seed_ambiguous	desk
+2385680	686392	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2385680_686392_seed_ambiguous.png	Counter({'cow': 8, 'cows': 1})	seed_ambiguous	cow
+2339578	3419640	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2339578_3419640_singleton_obj.png	Counter({'#bbox': 3, 'tractor': 1, '#occlusion': 1, 'equipment': 1, 'tire': 1, 'construction equipment': 1, 'jack': 1})	singleton_obj	truck
+2339393	2426746	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2339393_2426746_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2410199	2091188	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2410199_2091188_singleton_obj.png	Counter({'vanity': 3, 'cabinet': 2, 'counter': 2, 'sink': 1, 'cupboard': 1})	singleton_obj	cabinet
+2392404	1230513	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2392404_1230513_singleton_obj.png	Counter({'house': 6, 'sign': 2, 'building': 1})	singleton_obj	house
+2406895	288564	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2406895_288564_singleton_obj.png	Counter({'cupcake': 5, 'cake': 4})	singleton_obj	cupcake
+2417031	2958441	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2417031_2958441_singleton_obj.png	Counter({'shower curtain': 4, 'curtain': 4, 'shower-curtain': 1})	singleton_obj	curtain
+2362289	1734213	person	athlete.n.01	http://object-naming-amore.upf.edu//2362289_1734213_seed_ambiguous.png	Counter({'person': 2, 'baseball player': 2, 'batter': 2, 'uniform': 1, 'player': 1, 'man': 1})	seed_ambiguous	batter
+2411070	317040	animal	rodent.n.01	http://object-naming-amore.upf.edu//2411070_317040_supercat_unique.png	Counter({'mouse': 9})	supercat_unique	mouse
+2400843	1154442	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2400843_1154442_supercat_unique.png	Counter({'meat': 3, 'bread': 3, 'steak': 2, '#occlusion': 1})	supercat_unique	bun
+2414858	150516	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2414858_150516_supercat_unique.png	Counter({'jacket': 4, 'shirt': 2, 'woman': 1, 'coat': 1, 'lady': 1})	supercat_unique	jacket
+2409898	230791	animal	feline.n.01	http://object-naming-amore.upf.edu//2409898_230791_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2352284	2018523	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2352284_2018523_singleton_obj.png	Counter({'desk': 6, 'table': 2, 'laptops': 1})	singleton_obj	desk
+1606	1642303	tableware	crockery.n.01	http://object-naming-amore.upf.edu//1606_1642303_singleton_obj.png	Counter({'plate': 9})	singleton_obj	dish
+2335877	2095978	person	athlete.n.01	http://object-naming-amore.upf.edu//2335877_2095978_supercat_unique.png	Counter({'pitcher': 8, 'water filter': 1})	supercat_unique	pitcher
+2375409	582514	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2375409_582514_singleton_obj.png	Counter({'airplane': 5, 'plane': 3, 'jetliner': 1})	singleton_obj	plane
+2359743	791486	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2359743_791486_singleton_obj.png	Counter({'bench': 7, '#occlusion': 1, 'table': 1})	singleton_obj	bench
+2345052	911036	animal	horse.n.01	http://object-naming-amore.upf.edu//2345052_911036_singleton_obj.png	Counter({'horse': 9})	singleton_obj	horse
+2375522	721984	person	woman.n.01	http://object-naming-amore.upf.edu//2375522_721984_supercat_ambiguous.png	Counter({'woman': 7, 'dress': 1, 'wife': 1})	supercat_ambiguous	lady
+2331974	2924134	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2331974_2924134_seed_ambiguous.png	Counter({'chair': 9})	seed_ambiguous	armchair
+2345837	904470	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2345837_904470_singleton_obj.png	Counter({'building': 3, '#occlusion': 3, '#bbox': 2, 'bridge': 1})	singleton_obj	bridge
+473	3633569	person	man.n.01	http://object-naming-amore.upf.edu//473_3633569_supercat_unique.png	Counter({'man': 6, 'shirt': 1, 'male': 1, 'person': 1})	supercat_unique	man
+2378407	3836471	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2378407_3836471_seed_ambiguous.png	Counter({'airplane': 5, 'plane': 3, 'jet': 1})	seed_ambiguous	airplane
+2360437	1935693	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2360437_1935693_singleton_obj.png	Counter({'cake': 9})	singleton_obj	cake
+2389310	1262174	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2389310_1262174_supercat_unique.png	Counter({'table': 6, '#bbox': 2, 'tray': 1})	supercat_unique	table
+2388695	671467	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2388695_671467_supercat_unique.png	"Counter({'#bbox': 3, 'shirt': 2, 'chef': 2, ""chef's coat"": 1, 'jacket': 1})"	supercat_unique	coat
+2362165	3424977	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2362165_3424977_seed_ambiguous.png	Counter({'couch': 7, '#bbox': 1, 'sofa': 1})	seed_ambiguous	couch
+2373170	733991	animal	dog.n.01	http://object-naming-amore.upf.edu//2373170_733991_singleton_obj.png	Counter({'dog': 8, 'person': 1})	singleton_obj	dog
+2382273	1329788	person	man.n.01	http://object-naming-amore.upf.edu//2382273_1329788_singleton_obj.png	Counter({'skateboarder': 3, 'skater': 3, 'man': 2, 'skate boarder': 1})	singleton_obj	man
+2318752	2905144	instrumentality, instrumentation	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2318752_2905144_supercat_unique.png	Counter({'pizza tray': 2, 'pan': 2, 'tray': 2, 'pizza': 2, 'pizza pan': 1})	supercat_unique	pan
+2365802	1912350	vehicle	train.n.01	http://object-naming-amore.upf.edu//2365802_1912350_singleton_obj.png	Counter({'#bbox': 5, 'train': 3, 'train engine': 1})	singleton_obj	train
+2368958	614839	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2368958_614839_supercat_unique.png	Counter({'shirt': 7, 't-shirt': 1, 'frisbee': 1})	supercat_unique	t-shirt
+2367302	623410	person	male_child.n.01	http://object-naming-amore.upf.edu//2367302_623410_singleton_obj.png	Counter({'child': 7, 'boy': 2})	singleton_obj	boy
+2378693	558146	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2378693_558146_supercat_unique.png	Counter({'cake': 8, '#bbox': 1})	supercat_unique	cake
+2365502	633793	person	woman.n.01	http://object-naming-amore.upf.edu//2365502_633793_singleton_obj.png	Counter({'child': 5, 'girl': 4})	singleton_obj	girl
+2340965	2288033	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2340965_2288033_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2323210	3105198	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2323210_3105198_singleton_obj.png	Counter({'bench': 9})	singleton_obj	bench
+2368164	1899309	animal	feline.n.01	http://object-naming-amore.upf.edu//2368164_1899309_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2352297	1945066	animal	bird.n.01	http://object-naming-amore.upf.edu//2352297_1945066_singleton_obj.png	Counter({'bird': 9})	singleton_obj	bird
+2361320	2344190	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2361320_2344190_singleton_obj.png	Counter({'bed': 8, 'bed and frame': 1})	singleton_obj	bed
+2344289	2028823	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2344289_2028823_supercat_unique.png	Counter({'jacket': 7, '#bbox': 1, 'vest': 1})	supercat_unique	jacket
+2376521	572065	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2376521_572065_singleton_obj.png	Counter({'motorcycle': 7, 'mototcycle': 1, 'bikes': 1})	singleton_obj	motorcycle
+2368052	2598766	plant, flora, plant life	flower.n.01	http://object-naming-amore.upf.edu//2368052_2598766_singleton_obj.png	Counter({'flowers': 8, 'bouquet': 1})	singleton_obj	flower
+2366312	629205	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2366312_629205_singleton_obj.png	Counter({'sandwich': 8, 'sandwhich': 1})	singleton_obj	sandwich
+2332982	3185893	person	man.n.01	http://object-naming-amore.upf.edu//2332982_3185893_singleton_obj.png	Counter({'man': 3, 'skier': 3, 'person': 2, 'skiier': 1})	singleton_obj	man
+2361394	1896623	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2361394_1896623_supercat_unique.png	Counter({'vegetables': 3, 'bowl': 2, 'food': 2, 'salad': 1, '#bbox': 1})	supercat_unique	bowl
+2383514	532207	person	athlete.n.01	http://object-naming-amore.upf.edu//2383514_532207_singleton_obj.png	Counter({'baseball player': 4, 'batter': 2, 'man': 2, 'player': 1})	singleton_obj	batter
+2396333	445610	person	male_child.n.01	http://object-naming-amore.upf.edu//2396333_445610_singleton_obj.png	Counter({'boy': 5, 'child': 1, 'player': 1, '#bbox': 1, 'uniform': 1})	singleton_obj	boy
+2322135	2757305	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2322135_2757305_supercat_unique.png	Counter({'house': 3, 'building': 1, 'boy': 1, 'skater': 1, '#occlusion': 1, 'kid': 1, 'vest': 1})	supercat_unique	house
+2403865	1120764	person	man.n.01	http://object-naming-amore.upf.edu//2403865_1120764_singleton_obj.png	Counter({'man': 5, 'player': 2, 'person': 1, 'uniform': 1})	singleton_obj	guy
+2359068	2578433	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2359068_2578433_seed_ambiguous.png	Counter({'carpet': 2, '#bbox': 2, 'floor': 1, 'child': 1, '#occlusion': 1, 'girl': 1, 'jacket': 1})	seed_ambiguous	carpet
+2368491	617576	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2368491_617576_seed_ambiguous.png	Counter({'bread': 6, 'bottom bun': 1, '#occlusion': 1, 'roll': 1})	seed_ambiguous	bread
+2366896	625475	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2366896_625475_singleton_obj.png	Counter({'table': 2, 'countertop': 2, 'counter': 2, 'bananas': 2, '#occlusion': 1})	singleton_obj	table
+2416820	3076854	person	man.n.01	http://object-naming-amore.upf.edu//2416820_3076854_seed_ambiguous.png	Counter({'face': 3, '#bbox': 2, 'man': 2, 'head': 1, 'glasses': 1})	seed_ambiguous	man
+2350411	2333033	article of clothing	neckwear.n.01	http://object-naming-amore.upf.edu//2350411_2333033_supercat_unique.png	Counter({'tie': 7, 'necktie': 2})	supercat_unique	necktie
+2375786	579352	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2375786_579352_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2386297	3844713	vehicle	car.n.01	http://object-naming-amore.upf.edu//2386297_3844713_supercat_ambiguous.png	Counter({'train': 5, '#bbox': 3, 'subway': 1})	supercat_ambiguous	car
+2407160	284643	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2407160_284643_singleton_obj.png	Counter({'scooter': 4, 'motorcycle': 2, 'seat': 1, '#bbox': 1, '#occlusion': 1})	singleton_obj	scooter
+2402467	389375	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2402467_389375_singleton_obj.png	Counter({'bowl': 7, 'potatoes': 1, 'cup': 1})	singleton_obj	bowl
+2404749	338447	person	woman.n.01	http://object-naming-amore.upf.edu//2404749_338447_singleton_obj.png	Counter({'woman': 4, 'tennis player': 3, 'visor': 1, 'player': 1})	singleton_obj	girl
+2404593	655876	person	woman.n.01	http://object-naming-amore.upf.edu//2404593_655876_supercat_unique.png	Counter({'woman': 6, 'shirt': 2, 'female': 1})	supercat_unique	lady
+2336986	2053805	animal	feline.n.01	http://object-naming-amore.upf.edu//2336986_2053805_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2388637	1267600	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2388637_1267600_singleton_obj.png	Counter({'desk': 7, 'table': 2})	singleton_obj	desk
+2378681	558287	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2378681_558287_singleton_obj.png	Counter({'plane': 5, 'jet': 2, 'airplane': 2})	singleton_obj	plane
+2345057	910990	animal	feline.n.01	http://object-naming-amore.upf.edu//2345057_910990_singleton_obj.png	Counter({'cat': 8, '#bbox': 1})	singleton_obj	cat
+2392167	1233254	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2392167_1233254_singleton_obj.png	Counter({'sandwich': 9})	singleton_obj	sandwich
+2384374	1310304	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2384374_1310304_supercat_unique.png	Counter({'suit': 5, 'jacket': 3, 'suit jacket': 1})	supercat_unique	jacket
+2359210	3513357	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2359210_3513357_singleton_obj.png	Counter({'giraffe': 8, 'zoo': 1})	singleton_obj	giraffe
+2354091	2167195	animal	dog.n.01	http://object-naming-amore.upf.edu//2354091_2167195_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2354073	1980487	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2354073_1980487_seed_ambiguous.png	Counter({'curtain': 4, '#bbox': 2, '#occlusion': 2, 'blinds': 1})	seed_ambiguous	curtain
+2355826	826148	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2355826_826148_supercat_unique.png	Counter({'jacket': 5, 'coat': 3, 'scarf': 1})	supercat_unique	coat
+2373023	589604	person	man.n.01	http://object-naming-amore.upf.edu//2373023_589604_seed_ambiguous.png	Counter({'tennis player': 2, 'person': 2, 'man': 2, 'jacket': 1, 'player': 1, 'boy': 1})	seed_ambiguous	man
+2381681	1334749	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2381681_1334749_singleton_obj.png	Counter({'cow': 9})	singleton_obj	cow
+2352687	2522689	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2352687_2522689_singleton_obj.png	Counter({'#occlusion': 3, 'bridge': 3, 'boat': 1, 'dock': 1, 'pier': 1})	singleton_obj	bridge
+2353061	849762	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2353061_849762_singleton_obj.png	Counter({'pizza': 6, 'food': 2, '#occlusion': 1})	singleton_obj	pizza
+2352494	2201025	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2352494_2201025_supercat_ambiguous.png	Counter({'boat': 5, 'plane': 2, 'crash': 1, '#occlusion': 1})	supercat_ambiguous	boat
+2369561	1996247	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2369561_1996247_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2357723	809361	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2357723_809361_singleton_obj.png	Counter({'cake': 5, '#bbox': 2, '#occlusion': 2})	singleton_obj	cake
+2363205	767178	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2363205_767178_supercat_unique.png	Counter({'couch': 5, 'sofa': 3, 'pants': 1})	supercat_unique	couch
+2348052	885249	person	man.n.01	http://object-naming-amore.upf.edu//2348052_885249_seed_ambiguous.png	Counter({'man': 5, 'person': 1, 'shorts': 1, 'frisbee player': 1, 'player': 1})	seed_ambiguous	man
+2370696	2109357	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2370696_2109357_singleton_obj.png	Counter({'shirt': 7, 'smile': 1, 'mouth': 1})	singleton_obj	shirt
+2393419	1220121	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2393419_1220121_supercat_unique.png	Counter({'house': 7, 'stairs': 1, 'porch': 1})	supercat_unique	house
+2400163	3818570	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2400163_3818570_singleton_obj.png	Counter({'bed': 5, '#occlusion': 1, 'cot': 1, '#bbox': 1, 'child': 1})	singleton_obj	bed
+2358997	2062124	animal	dog.n.01	http://object-naming-amore.upf.edu//2358997_2062124_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2402422	1136422	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2402422_1136422_singleton_obj.png	Counter({'airplane': 4, 'plane': 3, 'jet': 2})	singleton_obj	plane
+2351692	1793423	vehicle	train.n.01	http://object-naming-amore.upf.edu//2351692_1793423_singleton_obj.png	Counter({'train': 5, 'bus': 3, 'tram': 1})	singleton_obj	train
+2413715	167745	person	man.n.01	http://object-naming-amore.upf.edu//2413715_167745_supercat_ambiguous.png	Counter({'man': 7, 'shirt': 1, 'grandpa': 1})	supercat_ambiguous	man
+2361795	779373	person	male_child.n.01	http://object-naming-amore.upf.edu//2361795_779373_supercat_ambiguous.png	Counter({'man': 5, 'person': 1, 'kid': 1, 'shirt': 1, 'player': 1})	supercat_ambiguous	boy
+2352268	1799666	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2352268_1799666_singleton_obj.png	Counter({'cake': 5, 'dessert': 2, 'food': 1, 'coconut': 1})	singleton_obj	cake
+561	1636006	animal	dog.n.01	http://object-naming-amore.upf.edu//561_1636006_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2413681	168519	instrumentality, instrumentation	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2413681_168519_supercat_ambiguous.png	Counter({'blender': 9})	supercat_ambiguous	blender
+2379567	551973	animal	horse.n.01	http://object-naming-amore.upf.edu//2379567_551973_singleton_obj.png	Counter({'horse': 8, '#occlusion': 1})	singleton_obj	horse
+2343774	920241	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2343774_920241_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2385575	1295243	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2385575_1295243_seed_ambiguous.png	Counter({'#bbox': 5, 'buffet': 2, 'table': 1, 'buffett': 1})	seed_ambiguous	buffet
+2375831	579032	vehicle	train.n.01	http://object-naming-amore.upf.edu//2375831_579032_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2413255	298420	person	woman.n.01	http://object-naming-amore.upf.edu//2413255_298420_singleton_obj.png	Counter({'tennis player': 2, 'woman': 2, 'player': 2, 'person in wheelchair': 1, 'person': 1, 'wheelchair': 1})	singleton_obj	woman
+2360476	2607601	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2360476_2607601_seed_ambiguous.png	Counter({'table': 4, 'remote': 2, 'desk': 1, 'controller': 1, '#bbox': 1})	seed_ambiguous	table
+2372541	3733173	person	woman.n.01	http://object-naming-amore.upf.edu//2372541_3733173_singleton_obj.png	Counter({'tennis player': 4, 'woman': 3, 'player': 1, 'visor': 1})	singleton_obj	lady
+2346523	898674	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2346523_898674_singleton_obj.png	Counter({'sheep': 9})	singleton_obj	sheep
+2403857	348617	article of clothing	neckwear.n.01	http://object-naming-amore.upf.edu//2403857_348617_supercat_ambiguous.png	Counter({'tie': 7, 'necktie': 2})	supercat_ambiguous	tie
+2378626	1994567	vehicle	car.n.01	http://object-naming-amore.upf.edu//2378626_1994567_singleton_obj.png	Counter({'car': 7, 'aut': 1, 'automobile': 1})	singleton_obj	car
+2362206	2275493	structure, construction	place_of_worship.n.01	http://object-naming-amore.upf.edu//2362206_2275493_singleton_obj.png	Counter({'building': 4, 'tower': 2, 'automobile': 1, 'church': 1, 'clock-tower': 1})	singleton_obj	cathedral
+2364187	2412709	person	woman.n.01	http://object-naming-amore.upf.edu//2364187_2412709_supercat_unique.png	Counter({'girl': 4, 'child': 4, 'shirt': 1})	supercat_unique	girl
+2344932	2564228	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2344932_2564228_singleton_obj.png	Counter({'giraffe': 8, 'zebra': 1})	singleton_obj	giraffe
+2368901	3866337	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2368901_3866337_supercat_ambiguous.png	Counter({'#bbox': 5, 'toppings': 2, 'pizza toppings': 1, 'pizza': 1})	supercat_ambiguous	cheese
+2332044	970647	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2332044_970647_supercat_unique.png	Counter({'counter': 5, 'countertop': 3, 'counter-top': 1})	supercat_unique	counter
+2364542	640565	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2364542_640565_supercat_unique.png	Counter({'#bbox': 4, 'carpet': 3, 'floor': 1, 'remote-controls': 1})	supercat_unique	carpet
+2408040	3809773	instrumentality, instrumentation	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2408040_3809773_supercat_unique.png	Counter({'bowl': 3, 'pan': 1, 'food': 1, 'pot': 1, 'bowl of food': 1, 'vegetables': 1, 'soup': 1})	supercat_unique	pot
+2374807	3848502	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2374807_3848502_singleton_obj.png	Counter({'jacket': 6, 'suit': 1, 'blazer': 1, 'tie': 1})	singleton_obj	blazer
+2412591	191047	person	man.n.01	http://object-naming-amore.upf.edu//2412591_191047_supercat_unique.png	Counter({'person': 3, 'blanket': 2, 'man': 2, '#occlusion': 1, 'bed': 1})	supercat_unique	guy
+2366253	2011764	person	woman.n.01	http://object-naming-amore.upf.edu//2366253_2011764_singleton_obj.png	Counter({'woman': 7, 'lady': 1, 'shirt': 1})	singleton_obj	lady
+2347159	2013117	vehicle	train.n.01	http://object-naming-amore.upf.edu//2347159_2013117_singleton_obj.png	Counter({'train': 8, 'model train': 1})	singleton_obj	train
+2383820	693559	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2383820_693559_seed_ambiguous.png	Counter({'zebra': 9})	seed_ambiguous	zebra
+2408495	260592	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2408495_260592_singleton_obj.png	Counter({'giraffe': 8, 'girrafe': 1})	singleton_obj	giraffe
+2333475	967323	person	child.n.01	http://object-naming-amore.upf.edu//2333475_967323_supercat_ambiguous.png	Counter({'man': 3, 'skater': 3, 'skateboarder': 1, 'boy': 1, 'jeans': 1})	supercat_ambiguous	kid
+2330894	3239759	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2330894_3239759_seed_ambiguous.png	Counter({'chair': 6, 'lounge chair': 1, '`chair': 1, 'lounger': 1})	seed_ambiguous	chair
+2401428	1147913	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2401428_1147913_singleton_obj.png	Counter({'pizza': 9})	singleton_obj	pizza
+2403769	349577	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2403769_349577_supercat_unique.png	Counter({'food': 4, '#bbox': 2, 'dinner': 1, 'gravy': 1, '#occlusion': 1})	supercat_unique	gravy
+2317513	3158481	vehicle	car.n.01	http://object-naming-amore.upf.edu//2317513_3158481_singleton_obj.png	Counter({'truck': 7, 'car': 1, 'automobile': 1})	singleton_obj	car
+2407497	278515	animal	dog.n.01	http://object-naming-amore.upf.edu//2407497_278515_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2409078	249460	structure, construction	shelter.n.01	http://object-naming-amore.upf.edu//2409078_249460_singleton_obj.png	Counter({'house': 6, 'building': 3})	singleton_obj	pavilion
+2343793	920070	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2343793_920070_seed_ambiguous.png	Counter({'chair': 8, 'office chair': 1})	seed_ambiguous	chair
+2375447	2024025	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2375447_2024025_singleton_obj.png	Counter({'bench': 6, 'fence': 2, 'benches': 1})	singleton_obj	bench
+2392961	1224225	person	child.n.01	http://object-naming-amore.upf.edu//2392961_1224225_singleton_obj.png	Counter({'child': 5, 'boy': 2, 'toothbrush': 1, 'kid': 1})	singleton_obj	boy
+2343614	921640	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2343614_921640_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2392514	1229177	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2392514_1229177_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2354976	2010976	person	male_child.n.01	http://object-naming-amore.upf.edu//2354976_2010976_singleton_obj.png	Counter({'man': 5, 'person': 1, 'tie': 1, 'groom': 1, 'guy': 1})	singleton_obj	boy
+2385287	688831	animal	horse.n.01	http://object-naming-amore.upf.edu//2385287_688831_singleton_obj.png	Counter({'horse': 9})	singleton_obj	horse
+2414995	2782824	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2414995_2782824_seed_ambiguous.png	Counter({'zebra': 9})	seed_ambiguous	zebra
+2388487	1268551	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2388487_1268551_supercat_unique.png	Counter({'cat': 2, 'sweater': 2, 'cat sweater': 1, 'clothes': 1, '#bbox': 1, 'coat': 1, 'pet sweater': 1})	supercat_unique	dress
+2362373	1812749	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2362373_1812749_supercat_unique.png	Counter({'cake': 5, 'bread': 3, 'food': 1})	supercat_unique	bread
+2413458	173194	person	male_child.n.01	http://object-naming-amore.upf.edu//2413458_173194_singleton_obj.png	Counter({'boy': 3, 'catcher': 3, 'baseball player': 2, 'glove': 1})	singleton_obj	boy
+2384772	1305096	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2384772_1305096_seed_ambiguous.png	Counter({'boat': 5, 'canoe': 3, 'umbrella': 1})	seed_ambiguous	boat
+2367075	1970472	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2367075_1970472_singleton_obj.png	Counter({'bowl': 7, 'tangerine': 1, 'oranges': 1})	singleton_obj	bowl
+1904	1628951	vehicle	boat.n.01	http://object-naming-amore.upf.edu//1904_1628951_singleton_obj.png	Counter({'boat': 9})	singleton_obj	boat
+2342903	2346728	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2342903_2346728_singleton_obj.png	Counter({'bed': 6, 'cot': 3})	singleton_obj	bed
+2369255	2058275	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2369255_2058275_supercat_unique.png	Counter({'bench': 7, 'coat': 2})	supercat_unique	bench
+1160105	1601656	vehicle	train.n.01	http://object-naming-amore.upf.edu//1160105_1601656_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2412917	184152	person	man.n.01	http://object-naming-amore.upf.edu//2412917_184152_supercat_unique.png	Counter({'man': 4, 'person': 1, '#bbox': 1, 'shirt': 1, 'mover': 1, 'worker': 1})	supercat_unique	man
+2379827	550036	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2379827_550036_supercat_unique.png	Counter({'shirt': 7, 'cupcake': 2})	supercat_unique	shirt
+2360100	2677890	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2360100_2677890_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2400862	1154234	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2400862_1154234_supercat_ambiguous.png	Counter({'pizza': 6, '#bbox': 2, 'pizza toppings': 1})	supercat_ambiguous	cheese
+2365800	755833	person	woman.n.01	http://object-naming-amore.upf.edu//2365800_755833_singleton_obj.png	Counter({'girl': 4, 'child': 3, 'uniform': 1, 'player': 1})	singleton_obj	girl
+2400993	403456	animal	dog.n.01	http://object-naming-amore.upf.edu//2400993_403456_singleton_obj.png	Counter({'dog': 8, 'bench': 1})	singleton_obj	dog
+2413252	298447	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2413252_298447_singleton_obj.png	Counter({'cow': 5, 'oxen': 2, 'animal': 1, 'anteloupe': 1})	singleton_obj	cow
+2379390	1358044	structure, construction	shelter.n.01	http://object-naming-amore.upf.edu//2379390_1358044_supercat_unique.png	Counter({'dugout': 7, 'ca[': 1, 'players': 1})	supercat_unique	dugout
+2384062	1313858	person	woman.n.01	http://object-naming-amore.upf.edu//2384062_1313858_singleton_obj.png	Counter({'woman': 3, 'skier': 2, 'skiiers': 1, 'person': 1, 'jacket': 1, '#bbox': 1})	singleton_obj	woman
+2352036	2448850	person	woman.n.01	http://object-naming-amore.upf.edu//2352036_2448850_singleton_obj.png	Counter({'girl': 4, 'soccer player': 2, 'player': 1, 'uniform': 1, 'kid': 1})	singleton_obj	girl
+2392161	1233307	article of clothing	neckwear.n.01	http://object-naming-amore.upf.edu//2392161_1233307_supercat_ambiguous.png	Counter({'tie': 6, 'necktie': 1, 'shirt': 1, '#bbox': 1})	supercat_ambiguous	tie
+2404950	336271	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2404950_336271_singleton_obj.png	Counter({'motorcycle': 8, '#bbox': 1})	singleton_obj	motorcycle
+2324906	3506440	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2324906_3506440_supercat_unique.png	Counter({'bridge': 9})	supercat_unique	bridge
+2394622	462492	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2394622_462492_seed_ambiguous.png	Counter({'zebra': 9})	seed_ambiguous	zebra
+2356819	817044	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2356819_817044_singleton_obj.png	Counter({'couch': 5, '#bbox': 1, 'teddy bear': 1, '#occlusion': 1, 'toys': 1})	singleton_obj	sofa
+2358619	800789	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2358619_800789_seed_ambiguous.png	Counter({'sink': 4, 'counter': 1, 'bathroom sink': 1, 'vanity': 1, 'sink counter': 1, 'countertop': 1})	seed_ambiguous	counter
+2329363	3484272	vehicle	car.n.01	http://object-naming-amore.upf.edu//2329363_3484272_singleton_obj.png	Counter({'car': 7, 'automobile': 2})	singleton_obj	suv
+2328174	978565	person	woman.n.01	http://object-naming-amore.upf.edu//2328174_978565_singleton_obj.png	Counter({'girl': 4, 'child': 3, 'shirt': 1, 'kid': 1})	singleton_obj	girl
+2372285	2074728	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2372285_2074728_supercat_unique.png	Counter({'pizza': 3, 'food': 3, 'kebab': 1, '#occlusion': 1, 'food bowl': 1})	supercat_unique	flatbread
+2319193	1003898	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2319193_1003898_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2334172	1045728	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2334172_1045728_supercat_unique.png	Counter({'bridge': 4, '#bbox': 1, 'boardwalk': 1, 'walkway': 1, 'ramp': 1, 'surfboard': 1})	supercat_unique	bridge
+1700	1033171	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//1700_1033171_singleton_obj.png	Counter({'bookshelf': 6, 'bookcase': 2, 'book shelf': 1})	singleton_obj	bookcase
+1525	1641780	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//1525_1641780_singleton_obj.png	Counter({'desk': 8, 'table': 1})	singleton_obj	desk
+2322717	990857	person	woman.n.01	http://object-naming-amore.upf.edu//2322717_990857_singleton_obj.png	Counter({'woman': 5, 'tennis player': 1, 'shirt': 1, 'lady': 1, 'player': 1})	singleton_obj	girl
+1592917	1759738	vehicle	train.n.01	http://object-naming-amore.upf.edu//1592917_1759738_singleton_obj.png	Counter({'train': 8, 'trains': 1})	singleton_obj	train
+2335467	3385570	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2335467_3385570_supercat_unique.png	Counter({'shirt': 6, '#bbox': 2, 'child': 1})	supercat_unique	shirt
+2380771	709276	animal	feline.n.01	http://object-naming-amore.upf.edu//2380771_709276_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2344997	2437276	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2344997_2437276_supercat_unique.png	Counter({'sandwich': 4, 'hot dog': 2, 'bun': 1, 'hotdog': 1, 'food': 1})	supercat_unique	bun
+2382352	539715	person	man.n.01	http://object-naming-amore.upf.edu//2382352_539715_singleton_obj.png	Counter({'person': 4, 'man': 2, 'child': 1, 'pants': 1, 'flier': 1})	singleton_obj	man
+2343745	2510615	food, nutrient	edible_fruit.n.01	http://object-naming-amore.upf.edu//2343745_2510615_seed_ambiguous.png	Counter({'apples': 6, 'basket': 1, 'green apples': 1, 'apple': 1})	seed_ambiguous	apple
+2358385	2295021	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2358385_2295021_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2399921	1164776	tool	tool.n.01	http://object-naming-amore.upf.edu//2399921_1164776_singleton_obj.png	Counter({'knife': 9})	singleton_obj	knife
+2415913	2921115	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2415913_2921115_singleton_obj.png	Counter({'window': 4, 'curtains': 3, 'drapes': 1, 'curtain': 1})	singleton_obj	curtain
+2362824	770768	animal	horse.n.01	http://object-naming-amore.upf.edu//2362824_770768_seed_ambiguous.png	Counter({'horse': 9})	seed_ambiguous	horse
+2326706	3190275	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2326706_3190275_singleton_obj.png	Counter({'desk': 5, 'table': 3, '#bbox': 1})	singleton_obj	desk
+2376715	570294	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2376715_570294_supercat_unique.png	Counter({'shirt': 8, 'tie': 1})	supercat_unique	shirt
+2395634	452582	person	male_child.n.01	http://object-naming-amore.upf.edu//2395634_452582_singleton_obj.png	Counter({'man': 3, 'boy': 3, 'shirt': 1, 'frisbee player': 1, 'player': 1})	singleton_obj	boy
+2390673	1248236	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2390673_1248236_singleton_obj.png	Counter({'table': 5, '#bbox': 3, 'meal': 1})	singleton_obj	table
+2376614	571279	vehicle	car.n.01	http://object-naming-amore.upf.edu//2376614_571279_singleton_obj.png	Counter({'car': 7, 'automobile': 2})	singleton_obj	car
+2386264	682912	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2386264_682912_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2409522	1088374	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2409522_1088374_supercat_unique.png	Counter({'salad': 4, 'lettuce': 1, 'greens': 1, 'lettace': 1, 'vegetables': 1, 'brocolli': 1})	supercat_unique	salad
+2358593	3543979	animal	bird.n.01	http://object-naming-amore.upf.edu//2358593_3543979_singleton_obj.png	Counter({'bird': 9})	singleton_obj	bird
+2353823	1774830	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2353823_1774830_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2375582	721742	person	man.n.01	http://object-naming-amore.upf.edu//2375582_721742_singleton_obj.png	Counter({'man': 4, 'tennis player': 3, 'shirt': 1, 'player': 1})	singleton_obj	man
+2372430	591992	person	male_child.n.01	http://object-naming-amore.upf.edu//2372430_591992_singleton_obj.png	Counter({'boy': 4, 'kid': 1, 'racket': 1, 'tennis player': 1, 'child': 1, 'player': 1})	singleton_obj	boy
+2369150	2458565	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2369150_2458565_singleton_obj.png	Counter({'bridge': 8, '#bbox': 1})	singleton_obj	bridge
+2402861	385670	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2402861_385670_supercat_unique.png	Counter({'motorcycle': 5, 'scooter': 4})	supercat_unique	scooter
+2328185	3290505	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2328185_3290505_singleton_obj.png	Counter({'boat': 9})	singleton_obj	boat
+2334613	3208513	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2334613_3208513_supercat_unique.png	Counter({'bench': 9})	supercat_unique	bench
+2339650	2495558	vehicle	car.n.01	http://object-naming-amore.upf.edu//2339650_2495558_singleton_obj.png	Counter({'truck': 3, 'car': 2, 'food cart': 1, 'drink cart': 1, 'automobile': 1, 'foodcart': 1})	singleton_obj	car
+2390883	493307	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2390883_493307_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2375997	2514490	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2375997_2514490_singleton_obj.png	Counter({'pizza': 9})	singleton_obj	pizza
+2330318	2779833	animal	feline.n.01	http://object-naming-amore.upf.edu//2330318_2779833_supercat_unique.png	Counter({'cat': 9})	supercat_unique	cat
+2319263	1003479	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2319263_1003479_seed_ambiguous.png	Counter({'sheep': 8, 'lamb': 1})	seed_ambiguous	sheep
+2367578	2188330	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2367578_2188330_supercat_unique.png	Counter({'cake': 5, 'food': 2, 'dessert': 1, '#occlusion': 1})	supercat_unique	beef
+2356933	1678371	tableware	crockery.n.01	http://object-naming-amore.upf.edu//2356933_1678371_supercat_unique.png	Counter({'plate': 4, 'sandwich': 2, 'food': 1, 'dish': 1, 'table': 1})	supercat_unique	dish
+2406730	291017	person	woman.n.01	http://object-naming-amore.upf.edu//2406730_291017_supercat_ambiguous.png	Counter({'woman': 5, 'person': 1, 'gamer': 1, 'controller': 1, 'lady': 1})	supercat_ambiguous	woman
+2392876	1225078	article of clothing	robe.n.01	http://object-naming-amore.upf.edu//2392876_1225078_singleton_obj.png	Counter({'kimono': 6, 'shirt': 2, 'dress': 1})	singleton_obj	kimono
+2317138	1023375	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2317138_1023375_supercat_unique.png	Counter({'cat': 6, '#bbox': 3})	supercat_unique	couch
+2359911	3146968	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2359911_3146968_singleton_obj.png	Counter({'truck': 9})	singleton_obj	truck
+2358304	2153789	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2358304_2153789_singleton_obj.png	Counter({'bowl': 8, 'fruit': 1})	singleton_obj	bowl
+2410771	362389	animal	feline.n.01	http://object-naming-amore.upf.edu//2410771_362389_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2334719	2486162	person	man.n.01	http://object-naming-amore.upf.edu//2334719_2486162_singleton_obj.png	Counter({'man': 5, 'jacket': 2, 'spectator': 1, 'guy': 1})	singleton_obj	man
+2375686	2637230	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2375686_2637230_seed_ambiguous.png	Counter({'desk': 7, 'table': 1, '#bbox': 1})	seed_ambiguous	desk
+2375328	722812	animal	dog.n.01	http://object-naming-amore.upf.edu//2375328_722812_supercat_unique.png	Counter({'dog': 8, 'dogs': 1})	supercat_unique	dog
+2318321	3501844	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2318321_3501844_singleton_obj.png	Counter({'sandwich': 9})	singleton_obj	bread
+2359396	3538757	person	man.n.01	http://object-naming-amore.upf.edu//2359396_3538757_seed_ambiguous.png	Counter({'man': 4, 'surfer': 3, 'wetsuit': 1, 'guy': 1})	seed_ambiguous	guy
+2395197	457043	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2395197_457043_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2380245	1348966	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2380245_1348966_supercat_unique.png	Counter({'shirt': 6, 'scarf': 1, 'sweater': 1, 'jacket': 1})	supercat_unique	shirt
+2368732	2521500	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2368732_2521500_seed_ambiguous.png	Counter({'desk': 5, 'table': 2, 'tv stand': 1, 'desktop': 1})	seed_ambiguous	counter
+2390209	499550	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2390209_499550_singleton_obj.png	Counter({'donut': 6, 'doughnut': 3})	singleton_obj	donut
+2343485	3445703	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2343485_3445703_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2391380	1241095	person	woman.n.01	http://object-naming-amore.upf.edu//2391380_1241095_supercat_unique.png	Counter({'woman': 6, 'shirt': 1, 'female': 1, 'lady': 1})	supercat_unique	woman
+2336681	3456683	person	woman.n.01	http://object-naming-amore.upf.edu//2336681_3456683_singleton_obj.png	Counter({'woman': 6, 'cap': 1, 'player': 1, 'girl': 1})	singleton_obj	woman
+2344605	2172977	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2344605_2172977_singleton_obj.png	Counter({'#bbox': 3, 'table': 3, 'picnic-table': 1, 'picnic table': 1, 'bench': 1})	singleton_obj	table
+2377520	565148	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2377520_565148_singleton_obj.png	Counter({'bridge': 8, '#bbox': 1})	singleton_obj	bridge
+2342818	930480	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2342818_930480_singleton_obj.png	Counter({'shirt': 9})	singleton_obj	dress
+2404740	1113554	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2404740_1113554_singleton_obj.png	Counter({'plane': 4, 'airplane': 3, 'jet': 2})	singleton_obj	plane
+2325214	986652	person	man.n.01	http://object-naming-amore.upf.edu//2325214_986652_singleton_obj.png	Counter({'tennis player': 4, 'man': 2, 'shirt': 1, 'player': 1, 'guy': 1})	singleton_obj	guy
+2403808	1121211	person	man.n.01	http://object-naming-amore.upf.edu//2403808_1121211_singleton_obj.png	Counter({'man': 4, 'person': 1, 'skier': 1, 'skiier': 1, 'helmet': 1, 'dad': 1})	singleton_obj	man
+2405722	329774	animal	bird.n.01	http://object-naming-amore.upf.edu//2405722_329774_singleton_obj.png	Counter({'bird': 6, 'cockatoo': 2, 'parrot': 1})	singleton_obj	parrot
+2322600	3483245	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2322600_3483245_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2366116	3410721	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2366116_3410721_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2360814	1836082	food, nutrient	vegetable.n.01	http://object-naming-amore.upf.edu//2360814_1836082_singleton_obj.png	Counter({'broccoli': 4, 'vegetables': 4, '#bbox': 1})	singleton_obj	vegetable
+2354587	2332621	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2354587_2332621_singleton_obj.png	Counter({'truck': 9})	singleton_obj	pickup
+2327955	979117	instrumentality, instrumentation	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2327955_979117_supercat_ambiguous.png	Counter({'teapot': 7, 'container': 1, 'tea pot': 1})	supercat_ambiguous	teapot
+2397470	433872	person	child.n.01	http://object-naming-amore.upf.edu//2397470_433872_supercat_unique.png	Counter({'child': 4, 'shirt': 3, 'boy': 1, 'clothes': 1})	supercat_unique	child
+2348088	1887108	vehicle	train.n.01	http://object-naming-amore.upf.edu//2348088_1887108_singleton_obj.png	Counter({'train': 8, 'caboose': 1})	singleton_obj	train
+2316134	2901503	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2316134_2901503_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2345731	2516068	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2345731_2516068_supercat_unique.png	Counter({'cloud': 2, 'powerline': 2, 'cable': 1, '#occlusion': 1, 'clouds': 1, 'sky': 1, 'line': 1})	supercat_unique	helmet
+2372487	2405553	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2372487_2405553_supercat_ambiguous.png	Counter({'truck': 8, 'automobile': 1})	supercat_ambiguous	truck
+2382982	535946	animal	dog.n.01	http://object-naming-amore.upf.edu//2382982_535946_supercat_unique.png	Counter({'dog': 7, '#occlusion': 2})	supercat_unique	dog
+2360258	3534622	person	male_child.n.01	http://object-naming-amore.upf.edu//2360258_3534622_singleton_obj.png	Counter({'skater': 6, 'skateboarder': 1, 'boy': 1, 'skateboard': 1})	singleton_obj	boy
+2352274	2451964	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2352274_2451964_singleton_obj.png	Counter({'vase': 9})	singleton_obj	vase
+2341286	2315124	animal	feline.n.01	http://object-naming-amore.upf.edu//2341286_2315124_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2318488	1010256	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2318488_1010256_singleton_obj.png	Counter({'sandwich': 8, 'bread': 1})	singleton_obj	sandwich
+2382748	537455	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2382748_537455_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorbike
+1159382	1592361	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//1159382_1592361_seed_ambiguous.png	Counter({'#bbox': 3, 'table': 2, 'counter': 1, '#occlusion': 1, 'dinner': 1, 'shirt': 1})	seed_ambiguous	counter
+2375671	580564	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2375671_580564_seed_ambiguous.png	Counter({'#bbox': 6, 'couch': 2, 'sofa': 1})	seed_ambiguous	couch
+2339979	3691229	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2339979_3691229_supercat_unique.png	Counter({'cake': 9})	supercat_unique	cake
+2397438	3821073	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2397438_3821073_seed_ambiguous.png	Counter({'zebra': 6, '#bbox': 1, 'zebra head': 1, 'head': 1})	seed_ambiguous	zebra
+2336182	1045203	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2336182_1045203_supercat_unique.png	Counter({'hat': 7, 'dog': 1, 'dog hat': 1})	supercat_unique	hat
+1159833	3705345	person	man.n.01	http://object-naming-amore.upf.edu//1159833_3705345_supercat_ambiguous.png	Counter({'man': 5, 'skier': 2, 'person': 1, 'suit': 1})	supercat_ambiguous	man
+2343264	3368354	person	man.n.01	http://object-naming-amore.upf.edu//2343264_3368354_singleton_obj.png	Counter({'skater': 3, 'man': 3, 'skateboarder': 1, 'teen': 1, 'jeans': 1})	singleton_obj	guy
+1159736	3036965	person	male_child.n.01	http://object-naming-amore.upf.edu//1159736_3036965_singleton_obj.png	Counter({'man': 3, 'person': 3, 'kid': 1, 'sweatshirt': 1, 'hoodie': 1})	singleton_obj	boy
+2322857	3313417	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2322857_3313417_supercat_ambiguous.png	Counter({'bottle': 7, 'wine': 2})	supercat_ambiguous	bottle
+2414937	149115	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2414937_149115_supercat_unique.png	Counter({'couch': 4, 'sofa': 2, 'chair': 1, 'shirt': 1, '#bbox': 1})	supercat_unique	couch
+2407240	1098329	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2407240_1098329_singleton_obj.png	Counter({'plane': 3, 'airplane': 3, 'jet': 3})	singleton_obj	plane
+2370023	607020	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2370023_607020_singleton_obj.png	Counter({'desk': 6, '#bbox': 3})	singleton_obj	desk
+1591822	1604005	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//1591822_1604005_supercat_unique.png	Counter({'shirt': 9})	supercat_unique	shirt
+2384389	1310023	vehicle	car.n.01	http://object-naming-amore.upf.edu//2384389_1310023_supercat_ambiguous.png	Counter({'train': 4, 'train engine': 2, 'train car': 1, 'locomotive': 1, 'locomotive engine': 1})	supercat_ambiguous	car
+2338338	3702109	person	woman.n.01	http://object-naming-amore.upf.edu//2338338_3702109_seed_ambiguous.png	Counter({'woman': 7, 'lady': 1, 'jacket': 1})	seed_ambiguous	girl
+2410607	213668	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2410607_213668_singleton_obj.png	Counter({'table': 5, 'cake': 3, '#bbox': 1})	singleton_obj	table
+2330569	2723435	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2330569_2723435_singleton_obj.png	Counter({'hot dog': 4, 'hotdog': 3, 'bun': 1, 'sandwich': 1})	singleton_obj	bread
+2346258	2353710	tool	tool.n.01	http://object-naming-amore.upf.edu//2346258_2353710_supercat_unique.png	Counter({'knife': 7, 'quesadilla': 1, 'quesidilla': 1})	supercat_unique	knife
+2220	1646914	animal	bird.n.01	http://object-naming-amore.upf.edu//2220_1646914_singleton_obj.png	Counter({'bird': 5, 'egret': 2, 'heron': 1, 'pelican': 1})	singleton_obj	bird
+2356517	819735	vehicle	train.n.01	http://object-naming-amore.upf.edu//2356517_819735_singleton_obj.png	Counter({'train': 8, 'automobile': 1})	singleton_obj	train
+2405463	1107568	person	man.n.01	http://object-naming-amore.upf.edu//2405463_1107568_singleton_obj.png	Counter({'skater': 2, 'skateboarder': 2, 'man': 2, 'person': 1, 'skaters': 1, 'shirt': 1})	singleton_obj	guy
+2365471	3884124	animal	dog.n.01	http://object-naming-amore.upf.edu//2365471_3884124_singleton_obj.png	Counter({'dog': 9})	singleton_obj	dog
+2367085	624560	animal	feline.n.01	http://object-naming-amore.upf.edu//2367085_624560_singleton_obj.png	Counter({'cat': 9})	singleton_obj	cat
+2374835	724782	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2374835_724782_singleton_obj.png	Counter({'statue': 4, 'curtain': 2, 'statue clock': 1, 'sculpture': 1, '#bbox': 1})	singleton_obj	curtain
+2317549	3459605	structure, construction	bridge.n.01	http://object-naming-amore.upf.edu//2317549_3459605_singleton_obj.png	Counter({'bridge': 8, 'train': 1})	singleton_obj	bridge
+2345891	2239213	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2345891_2239213_supercat_unique.png	Counter({'shirt': 7, 'jacket': 1, 'tie': 1})	supercat_unique	coat
+2318202	3024801	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2318202_3024801_singleton_obj.png	Counter({'boat': 6, 'ship': 3})	singleton_obj	boat
+2376642	3683807	person	man.n.01	http://object-naming-amore.upf.edu//2376642_3683807_supercat_ambiguous.png	Counter({'tennis player': 2, 'man': 2, 'boy': 2, 'person': 1, 'shorts': 1, 'player': 1})	supercat_ambiguous	man
+2332372	3322220	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2332372_3322220_singleton_obj.png	Counter({'table': 9})	singleton_obj	table
+2365984	755154	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2365984_755154_supercat_unique.png	Counter({'pizza': 9})	supercat_unique	pizza
+2384364	1310390	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2384364_1310390_seed_ambiguous.png	Counter({'sofa': 5, 'couch': 4})	seed_ambiguous	sectional
+2358142	2077588	person	woman.n.01	http://object-naming-amore.upf.edu//2358142_2077588_singleton_obj.png	Counter({'woman': 6, 'person': 1, 'shirt': 1, 'rebel': 1})	singleton_obj	lady
+2355546	828708	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2355546_828708_singleton_obj.png	Counter({'bear': 9})	singleton_obj	coat
+2340723	3288808	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2340723_3288808_singleton_obj.png	Counter({'plane': 5, 'airplane': 3, 'jet': 1})	singleton_obj	plane
+2318662	1008418	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2318662_1008418_supercat_unique.png	Counter({'sandwich': 7, 'food': 1, 'sandwitch': 1})	supercat_unique	bread
+2337866	2039029	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2337866_2039029_seed_ambiguous.png	Counter({'zebra': 9})	seed_ambiguous	zebra
+2380369	1347497	person	man.n.01	http://object-naming-amore.upf.edu//2380369_1347497_seed_ambiguous.png	Counter({'man': 3, 'person': 2, 'boy': 2, 'couple': 1, 'seat': 1})	seed_ambiguous	guy
+2357304	813138	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2357304_813138_singleton_obj.png	Counter({'bowl': 8, 'cup': 1})	singleton_obj	bowl
+2316997	2832589	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2316997_2832589_singleton_obj.png	Counter({'blanket': 6, 'bed': 2, '#occlusion': 1})	singleton_obj	bed
+2348128	2545744	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2348128_2545744_singleton_obj.png	Counter({'table': 5, 'bed': 2, 'counter': 1, 'bench': 1})	singleton_obj	table
+2414822	151271	person	male_child.n.01	http://object-naming-amore.upf.edu//2414822_151271_singleton_obj.png	Counter({'boy': 7, 'player': 1, 'baseball player': 1})	singleton_obj	boy
+2370175	3002349	animal	bird.n.01	http://object-naming-amore.upf.edu//2370175_3002349_singleton_obj.png	Counter({'bird': 7, 'seagull': 2})	singleton_obj	bird
+2377343	566082	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2377343_566082_singleton_obj.png	Counter({'plane': 4, 'airplane': 3, 'jet': 2})	singleton_obj	plane
+2326192	983118	person	male_child.n.01	http://object-naming-amore.upf.edu//2326192_983118_supercat_ambiguous.png	Counter({'child': 4, 'boy': 3, 'rider': 1, 'jacket': 1})	supercat_ambiguous	boy
+2317915	1016205	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2317915_1016205_supercat_unique.png	Counter({'jacket': 5, 'suit': 2, 'suit jacket': 1, 'tie': 1})	supercat_unique	jacket
+2385008	523047	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2385008_523047_supercat_unique.png	Counter({'#occlusion': 4, 'curtain': 3, '#bbox': 1, 'blinds': 1})	supercat_unique	curtain
+2374939	2405994	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2374939_2405994_singleton_obj.png	Counter({'sailboat': 5, 'boat': 3, 'sail': 1})	singleton_obj	boat
+2406307	325168	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2406307_325168_supercat_unique.png	Counter({'sandwich': 7, 'food': 1, 'hoagie': 1})	supercat_unique	sandwich
+2369684	2270385	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2369684_2270385_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2369868	2480999	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2369868_2480999_seed_ambiguous.png	Counter({'vase': 8, 'urn': 1})	seed_ambiguous	jar
+2371900	1970775	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2371900_1970775_seed_ambiguous.png	Counter({'cabinet': 2, 'shelf': 1, 'ceiling': 1, 'light': 1, 'cabinets': 1, 'lighting': 1, '#occlusion': 1, 'cabinet overhead': 1})	seed_ambiguous	cabinet
+2379642	551464	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2379642_551464_supercat_unique.png	Counter({'sheep': 7, '#occlusion': 2})	supercat_unique	sheep
+2397599	432488	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2397599_432488_supercat_unique.png	Counter({'table': 3, 'cushion': 1, 'tools': 1, '#occlusion': 1, 'desk': 1, 'arm': 1})	supercat_unique	bench
+2331851	3057449	person	male_child.n.01	http://object-naming-amore.upf.edu//2331851_3057449_singleton_obj.png	Counter({'skater': 4, 'skateboarder': 1, 'handstand': 1, 'man': 1, 'guy': 1})	singleton_obj	boy
+2354644	836860	animal	feline.n.01	http://object-naming-amore.upf.edu//2354644_836860_singleton_obj.png	Counter({'cat': 8})	singleton_obj	cat
+2343543	922542	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2343543_922542_singleton_obj.png	Counter({'donut': 3, 'food': 3, 'bite': 1, '#occlusion': 1})	singleton_obj	donut
+2340970	2743033	article of clothing	overgarment.n.01	http://object-naming-amore.upf.edu//2340970_2743033_singleton_obj.png	Counter({'jacket': 4, 'suit': 3, 'suit jacket': 1})	singleton_obj	jacket
+2365198	635896	person	athlete.n.01	http://object-naming-amore.upf.edu//2365198_635896_singleton_obj.png	Counter({'skier': 4, 'skiier': 1, 'person': 1, 'skisuit': 1, 'man': 1})	singleton_obj	skier
+2379482	712028	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2379482_712028_supercat_unique.png	Counter({'toilet': 2, 'inside of toilet lid': 1, 'toilet bowl': 1, '#bbox': 1, 'cat': 1, '#occlusion': 1, 'hole': 1})	supercat_unique	bowl
+2407743	274304	animal	bird.n.01	http://object-naming-amore.upf.edu//2407743_274304_singleton_obj.png	Counter({'penguin': 4, 'peguin': 1, 'bird': 1, '#occlusion': 1, 'penquin': 1})	singleton_obj	penguin
+497970	1572362	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//497970_1572362_seed_ambiguous.png	Counter({'plane': 3, 'airplane': 3, 'jet': 1, 'airplanes': 1})	seed_ambiguous	airplane
+2322313	2880889	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2322313_2880889_supercat_unique.png	Counter({'#bbox': 3, 'counter': 1, 'table': 1, 'countertop': 1, 'tile': 1, '#occlusion': 1})	supercat_unique	counter
+2380361	1347633	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2380361_1347633_supercat_ambiguous.png	Counter({'shower': 5, 'shower curtain and rod': 1, 'shower stall': 1, 'bathtub': 1, '#bbox': 1})	supercat_ambiguous	shower
+2363046	768889	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2363046_768889_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2328531	3273691	person	child.n.01	http://object-naming-amore.upf.edu//2328531_3273691_seed_ambiguous.png	Counter({'basketball player': 3, 'person': 2, 'kid': 1, 'uniform': 1, 'man': 1, 'player': 1})	seed_ambiguous	kid
+2337802	956383	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2337802_956383_singleton_obj.png	Counter({'cake': 9})	singleton_obj	cake
+2318797	3421678	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2318797_3421678_seed_ambiguous.png	Counter({'bed': 4, '#bbox': 4, 'toys': 1})	seed_ambiguous	couch
+2381370	1337129	person	woman.n.01	http://object-naming-amore.upf.edu//2381370_1337129_singleton_obj.png	Counter({'woman': 3, 'tennis player': 3, 'player': 2, 'skirt': 1})	singleton_obj	girl
+2339490	3096428	person	man.n.01	http://object-naming-amore.upf.edu//2339490_3096428_singleton_obj.png	Counter({'man': 5, 'person': 1, 'jacket': 1, 'worker': 1, '#bbox': 1})	singleton_obj	man
+2414097	159963	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2414097_159963_singleton_obj.png	Counter({'cow': 8, '#bbox': 1})	singleton_obj	cow
+2392091	1234183	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2392091_1234183_supercat_unique.png	"Counter({'shirt': 8, ""chef's coat"": 1})"	supercat_unique	shirt
+2371057	2504280	vehicle	car.n.01	http://object-naming-amore.upf.edu//2371057_2504280_supercat_ambiguous.png	Counter({'train': 8, '#bbox': 1})	supercat_ambiguous	car
+2337522	2569456	person	man.n.01	http://object-naming-amore.upf.edu//2337522_2569456_supercat_unique.png	Counter({'man': 4, 'person': 2, 'gamer': 1, 'shirt': 1, 'boy': 1})	supercat_unique	guy
+2358708	799875	animal	horse.n.01	http://object-naming-amore.upf.edu//2358708_799875_supercat_unique.png	Counter({'horse': 9})	supercat_unique	horse
+2322738	2924735	person	woman.n.01	http://object-naming-amore.upf.edu//2322738_2924735_singleton_obj.png	Counter({'girl': 4, 'woman': 3, 'dancer': 1, 'dress': 1})	singleton_obj	girl
+2351460	2080382	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2351460_2080382_singleton_obj.png	Counter({'plane': 4, 'airplane': 3, 'jet': 2})	singleton_obj	airplane
+2347594	2175957	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2347594_2175957_supercat_ambiguous.png	Counter({'bowls': 3, 'table': 2, '#bbox': 2, 'paint': 1, '#occlusion': 1})	supercat_ambiguous	bowl
+2412601	2945194	person	professional.n.01	http://object-naming-amore.upf.edu//2412601_2945194_supercat_ambiguous.png	Counter({'woman': 5, 'family': 1, 'woman and boy': 1, '#bbox': 1, 'shirt': 1})	supercat_ambiguous	caregiver
+2319180	3049727	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2319180_3049727_supercat_unique.png	Counter({'shirt': 7, 'sweater': 1, 'coat': 1})	supercat_unique	shirt
+2388236	674630	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2388236_674630_singleton_obj.png	Counter({'cake': 6, 'stool': 1, 'cupcake': 1, '#occlusion': 1})	singleton_obj	cake
+2360292	788714	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2360292_788714_singleton_obj.png	Counter({'plate': 5, 'table': 2, '#bbox': 2})	singleton_obj	table
+2339225	2678884	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2339225_2678884_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2318259	3315645	person	child.n.01	http://object-naming-amore.upf.edu//2318259_3315645_singleton_obj.png	Counter({'girl': 6, 'skirt': 1, 'child': 1, 'spectator': 1})	singleton_obj	child
+2410753	321543	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2410753_321543_singleton_obj.png	Counter({'desk': 7, 'table': 2})	singleton_obj	desk
+2368462	2007598	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2368462_2007598_supercat_unique.png	Counter({'bench': 5, 'swing': 2, 'bench-swing': 1, '#occlusion': 1})	supercat_unique	bench
+2414172	158533	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2414172_158533_supercat_unique.png	Counter({'shirt': 4, 'vest': 3, '#bbox': 1, '#occlusion': 1})	supercat_unique	shirt
+2359433	1782867	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2359433_1782867_supercat_unique.png	Counter({'pizza': 8, 'pizza sandwich': 1})	supercat_unique	pizza
+2407007	651658	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2407007_651658_singleton_obj.png	Counter({'building': 5, 'house': 3, 'doorway': 1})	singleton_obj	house
+1145	1066372	vehicle	car.n.01	http://object-naming-amore.upf.edu//1145_1066372_singleton_obj.png	Counter({'car': 5, 'automobile': 2, 'truck': 1, '#occlusion': 1})	singleton_obj	vehicle
+2414314	296945	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2414314_296945_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2343043	927857	person	male_child.n.01	http://object-naming-amore.upf.edu//2343043_927857_singleton_obj.png	Counter({'boy': 3, 'child': 3, 'kid': 1, 'cap': 1, 'toddler': 1})	singleton_obj	boy
+2333913	2745001	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2333913_2745001_singleton_obj.png	Counter({'couch': 3, 'chair': 3, 'sofa': 2, 'seating': 1})	singleton_obj	sofa
+2416408	3392399	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2416408_3392399_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2385830	3845639	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2385830_3845639_singleton_obj.png	Counter({'bench': 9})	singleton_obj	bench
+2361662	3531179	person	male_child.n.01	http://object-naming-amore.upf.edu//2361662_3531179_singleton_obj.png	Counter({'boy': 4, 'batter': 2, 'baseball player': 1, 'shirt': 1, 'kid': 1})	singleton_obj	boy
+2390605	495644	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2390605_495644_supercat_unique.png	Counter({'container': 5, 'yogurt': 4})	supercat_unique	yogurt
+2375359	2385765	person	athlete.n.01	http://object-naming-amore.upf.edu//2375359_2385765_singleton_obj.png	Counter({'sign': 9})	singleton_obj	skateboarder
+2347684	888533	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2347684_888533_singleton_obj.png	Counter({'shirt': 9})	singleton_obj	shirt
+2336227	2260889	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2336227_2260889_singleton_obj.png	Counter({'house': 8, '#bbox': 1})	singleton_obj	house
+2391940	1235850	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2391940_1235850_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2335807	3274449	vehicle	train.n.01	http://object-naming-amore.upf.edu//2335807_3274449_singleton_obj.png	Counter({'train': 8, 'bridge': 1})	singleton_obj	train
+2361975	3752447	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2361975_3752447_supercat_unique.png	Counter({'table': 6, '#bbox': 1, '#occlusion': 1, 'dinner': 1})	supercat_unique	table
+2383856	1316158	food, solid food	baked_goods.n.01	http://object-naming-amore.upf.edu//2383856_1316158_seed_ambiguous.png	Counter({'donut': 8, 'sandwich bun': 1})	seed_ambiguous	donut
+2405534	654184	person	male_child.n.01	http://object-naming-amore.upf.edu//2405534_654184_singleton_obj.png	Counter({'#bbox': 3, 'boy': 3, 'soccer player': 2, 'uniform': 1})	singleton_obj	boy
+2411998	205154	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2411998_205154_singleton_obj.png	Counter({'#bbox': 3, 'building': 2, 'clocks': 1, 'billboards': 1, 'banners': 1, '#occlusion': 1})	singleton_obj	house
+2349685	1673646	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2349685_1673646_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2343037	927958	animal	horse.n.01	http://object-naming-amore.upf.edu//2343037_927958_singleton_obj.png	Counter({'horse': 6, '#bbox': 1, 'yawn': 1, 'mouth': 1})	singleton_obj	horse
+2404713	1113690	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2404713_1113690_supercat_unique.png	Counter({'shirt': 8, 'fork': 1})	supercat_unique	t-shirt
+2399643	414806	person	child.n.01	http://object-naming-amore.upf.edu//2399643_414806_singleton_obj.png	Counter({'child': 3, 'skater': 2, 'skateboarder': 1, 'kid': 1, 'helmet': 1, 'boy': 1})	singleton_obj	child
+2364016	760234	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2364016_760234_seed_ambiguous.png	Counter({'rug': 2, 'carpet': 2, 'floor': 2, 'sneakers': 2, 'floor mat': 1})	seed_ambiguous	rug
+2368432	2573981	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2368432_2573981_singleton_obj.png	Counter({'truck': 8, 'food truck': 1})	singleton_obj	truck
+2384739	1305660	animal	bird.n.01	http://object-naming-amore.upf.edu//2384739_1305660_singleton_obj.png	Counter({'bird': 8, 'dead': 1})	singleton_obj	bird
+2383324	533459	person	woman.n.01	http://object-naming-amore.upf.edu//2383324_533459_singleton_obj.png	Counter({'woman': 5, 'person': 1, 'mother': 1, 'pants': 1, 'man': 1})	singleton_obj	lady
+3991	1070833	structure, construction	house.n.01	http://object-naming-amore.upf.edu//3991_1070833_singleton_obj.png	Counter({'house': 6, 'home': 1, 'doorway': 1, 'building': 1})	singleton_obj	house
+2412950	183454	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2412950_183454_singleton_obj.png	Counter({'giraffe': 8, '#bbox': 1})	singleton_obj	giraffe
+150468	1038904	vehicle	truck.n.01	http://object-naming-amore.upf.edu//150468_1038904_singleton_obj.png	Counter({'truck': 7, 'automobile': 1, 'car': 1})	singleton_obj	truck
+150350	1566889	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//150350_1566889_singleton_obj.png	Counter({'table': 8, 'cake': 1})	singleton_obj	table
+2410780	1085392	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2410780_1085392_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2372198	1849230	person	athlete.n.01	http://object-naming-amore.upf.edu//2372198_1849230_singleton_obj.png	Counter({'baseball player': 3, 'man': 3, 'batter': 2, 'uniform': 1})	singleton_obj	batter
+2390460	497257	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2390460_497257_singleton_obj.png	Counter({'rice': 9})	singleton_obj	rice
+2373373	3727529	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2373373_3727529_singleton_obj.png	Counter({'bed': 9})	singleton_obj	bed
+2377961	715605	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2377961_715605_supercat_unique.png	Counter({'shirt': 7, '#bbox': 2})	supercat_unique	dress
+2340900	3713903	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2340900_3713903_singleton_obj.png	Counter({'giraffe': 9})	singleton_obj	giraffe
+2402071	1140676	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2402071_1140676_seed_ambiguous.png	Counter({'bed': 9})	seed_ambiguous	bed
+2355830	826083	person	man.n.01	http://object-naming-amore.upf.edu//2355830_826083_seed_ambiguous.png	Counter({'man': 5, 'boy': 2, 'shirt': 1, 'player': 1})	seed_ambiguous	man
+2368652	2138341	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2368652_2138341_singleton_obj.png	Counter({'food': 2, 'bread': 2, 'crust': 2, '#occlusion': 1, 'meat': 1, 'breading': 1})	singleton_obj	pastry
+2408700	256595	structure, construction	hotel.n.01	http://object-naming-amore.upf.edu//2408700_256595_singleton_obj.png	Counter({'hotel': 5, 'building': 2, '#bbox': 1, 'windows': 1})	singleton_obj	hotel
+2361275	1954941	plant, flora, plant life	flower.n.01	http://object-naming-amore.upf.edu//2361275_1954941_singleton_obj.png	Counter({'flower': 4, '#occlusion': 2, 'placemat': 1, 'flowers': 1, '#bbox': 1})	singleton_obj	flower
+2398591	423901	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2398591_423901_singleton_obj.png	Counter({'plane': 4, 'airplane': 4, 'jet': 1})	singleton_obj	plane
+2385564	1295397	article of clothing	dress.n.01	http://object-naming-amore.upf.edu//2385564_1295397_supercat_unique.png	Counter({'dress': 5, 'skirt': 1, 'outfit': 1, 'tennis outfit': 1, 'tank top': 1})	supercat_unique	dress
+2398424	425467	person	male_child.n.01	http://object-naming-amore.upf.edu//2398424_425467_supercat_unique.png	Counter({'boy': 4, 'child': 4, 'shirt': 1})	supercat_unique	boy
+2319048	1005061	person	male_child.n.01	http://object-naming-amore.upf.edu//2319048_1005061_singleton_obj.png	Counter({'boy': 4, 'child': 3, 'shirt': 2})	singleton_obj	boy
+2404023	1119519	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2404023_1119519_supercat_ambiguous.png	Counter({'hood': 5, 'hoodie': 1, 'woman': 1, '#bbox': 1, 'lady': 1})	supercat_ambiguous	hood
+2329105	3729740	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2329105_3729740_singleton_obj.png	Counter({'zebra': 9})	singleton_obj	zebra
+2341767	3418391	person	male_child.n.01	http://object-naming-amore.upf.edu//2341767_3418391_seed_ambiguous.png	Counter({'soccer player': 5, 'boy': 2, 'uniform': 1, 'child': 1})	seed_ambiguous	boy
+2365326	3884813	person	man.n.01	http://object-naming-amore.upf.edu//2365326_3884813_seed_ambiguous.png	Counter({'man': 6, 'suit': 1, 'boy': 1, 'person': 1})	seed_ambiguous	man
+2365354	757206	food, nutrient	edible_fruit.n.01	http://object-naming-amore.upf.edu//2365354_757206_seed_ambiguous.png	Counter({'apple': 9})	seed_ambiguous	apple
+2384952	1302863	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2384952_1302863_singleton_obj.png	Counter({'giraffe': 7, 'enclosure': 1, 'giraffes': 1})	singleton_obj	giraffe
+1159426	1593191	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//1159426_1593191_supercat_unique.png	Counter({'couch': 5, 'sofa': 3, 'legs': 1})	supercat_unique	couch
+2411094	1082834	instrumentality, instrumentation	vessel.n.03	http://object-naming-amore.upf.edu//2411094_1082834_singleton_obj.png	Counter({'shower': 7, '#occlusion': 1, '#bbox': 1})	singleton_obj	bathtub
+2380562	1345185	person	woman.n.01	http://object-naming-amore.upf.edu//2380562_1345185_singleton_obj.png	Counter({'person': 4, '#bbox': 3, '#occlusion': 1, 'arms': 1})	singleton_obj	girl
+2416900	3423538	vehicle	train.n.01	http://object-naming-amore.upf.edu//2416900_3423538_singleton_obj.png	Counter({'#bbox': 5, 'train': 2, 'station': 1, 'building': 1})	singleton_obj	train
+2409363	243399	person	woman.n.01	http://object-naming-amore.upf.edu//2409363_243399_singleton_obj.png	Counter({'soccer player': 3, 'woman': 3, 'player': 2, 'uniform': 1})	singleton_obj	woman
+2371101	2245956	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2371101_2245956_seed_ambiguous.png	Counter({'#bbox': 4, 'cat': 3, '#occlusion': 2})	seed_ambiguous	carpet
+2334880	2439007	food, nutrient	edible_fruit.n.01	http://object-naming-amore.upf.edu//2334880_2439007_singleton_obj.png	Counter({'apple': 9})	singleton_obj	apple
+2410528	215315	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2410528_215315_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2380323	1348021	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2380323_1348021_supercat_unique.png	Counter({'house': 7, 'building': 2})	supercat_unique	house
+2417777	2989125	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2417777_2989125_singleton_obj.png	Counter({'plane': 5, 'airplane': 2, 'jet': 2})	singleton_obj	airplane
+2409008	250734	article of clothing	robe.n.01	http://object-naming-amore.upf.edu//2409008_250734_seed_ambiguous.png	Counter({'kimono': 7, 'dress': 1, '#bbox': 1})	seed_ambiguous	kimono
+2359197	795325	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2359197_795325_seed_ambiguous.png	Counter({'curtain': 4, 'curtains': 2, '#bbox': 1, 'window': 1, '#occlusion': 1})	seed_ambiguous	curtain
+2357460	1871064	person	woman.n.01	http://object-naming-amore.upf.edu//2357460_1871064_seed_ambiguous.png	Counter({'woman': 7, 'dress': 1, 'girlfriend': 1})	seed_ambiguous	girl
+2367839	620202	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2367839_620202_singleton_obj.png	Counter({'bed': 3, 'blanket': 2, 'quilt': 1, 'bedspread': 1, 'cover': 1, 'headboard': 1})	singleton_obj	bed
+2382006	1332220	vehicle	aircraft.n.01	http://object-naming-amore.upf.edu//2382006_1332220_singleton_obj.png	Counter({'airplane': 5, 'jet': 2, 'plane': 2})	singleton_obj	plane
+2351008	863752	tableware	crockery.n.01	http://object-naming-amore.upf.edu//2351008_863752_singleton_obj.png	Counter({'plate': 6, 'bowl': 2, 'pasta': 1})	singleton_obj	dish
+2348562	2325063	article of clothing	headdress.n.01	http://object-naming-amore.upf.edu//2348562_2325063_supercat_unique.png	Counter({'hat': 6, '#bbox': 3})	supercat_unique	hat
+713402	1583103	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//713402_1583103_supercat_unique.png	Counter({'couch': 5, 'sofa': 3, 'jeans': 1})	supercat_unique	couch
+691	3788097	animal	feline.n.01	http://object-naming-amore.upf.edu//691_3788097_singleton_obj.png	Counter({'cheetah': 6, 'cheetahs': 1, 'leopard': 1, 'leaopard': 1})	singleton_obj	cheetah
+2374578	725976	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2374578_725976_seed_ambiguous.png	Counter({'couch': 5, 'sofa': 2, '#occlusion': 1, 'shirts': 1})	seed_ambiguous	couch
+2355690	1874099	person	man.n.01	http://object-naming-amore.upf.edu//2355690_1874099_singleton_obj.png	Counter({'person': 3, '#bbox': 2, 'laptop': 1, '#occlusion': 1, 'screen': 1, 'clothes': 1})	singleton_obj	guy
+2370144	2154973	person	man.n.01	http://object-naming-amore.upf.edu//2370144_2154973_singleton_obj.png	Counter({'tennis player': 4, 'man': 3, 'shirt': 1, 'player': 1})	singleton_obj	man
+2408760	364498	vehicle	truck.n.01	http://object-naming-amore.upf.edu//2408760_364498_singleton_obj.png	Counter({'truck': 8, 'tow truck': 1})	singleton_obj	truck
+2349770	872371	food, nutrient	foodstuff.n.02	http://object-naming-amore.upf.edu//2349770_872371_supercat_ambiguous.png	Counter({'pizza': 7, 'pizza slice': 2})	supercat_ambiguous	cheese
+2353328	847156	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2353328_847156_seed_ambiguous.png	Counter({'giraffe': 9})	seed_ambiguous	giraffe
+2349505	1876643	person	man.n.01	http://object-naming-amore.upf.edu//2349505_1876643_singleton_obj.png	Counter({'person': 3, 'woman': 3, 'female': 1, 'pants': 1, 'traveler': 1})	singleton_obj	guy
+2318743	3395796	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2318743_3395796_singleton_obj.png	Counter({'highchair': 2, 'shirt': 2, '#bbox': 2, 'high chair': 1, 'bib': 1, 'chair': 1})	singleton_obj	chair
+2361217	1927032	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2361217_1927032_singleton_obj.png	Counter({'shirt': 7, 'jacket': 2})	singleton_obj	shirt
+2400093	1163039	ware	cutlery.n.02	http://object-naming-amore.upf.edu//2400093_1163039_supercat_unique.png	Counter({'spoon': 8, 'wooden spoon': 1})	supercat_unique	spoon
+2327737	3445947	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2327737_3445947_singleton_obj.png	Counter({'#bbox': 5, 'table': 2, 'fork': 1, 'fork tines': 1})	singleton_obj	table
+2387851	510858	animal	horse.n.01	http://object-naming-amore.upf.edu//2387851_510858_supercat_unique.png	Counter({'horse': 9})	supercat_unique	horse
+2409430	241815	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2409430_241815_singleton_obj.png	Counter({'pizza': 6, 'pizze': 1, '#occlusion': 1, 'pie': 1})	singleton_obj	pizza
+2367091	624491	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2367091_624491_singleton_obj.png	Counter({'table': 7, '#bbox': 2})	singleton_obj	table
+2417150	3731651	vehicle	boat.n.01	http://object-naming-amore.upf.edu//2417150_3731651_singleton_obj.png	Counter({'boat': 5, 'pontoon boat': 2, 'pontoon': 2})	singleton_obj	boat
+2412507	3458683	vehicle	train.n.01	http://object-naming-amore.upf.edu//2412507_3458683_singleton_obj.png	Counter({'train': 9})	singleton_obj	train
+2404509	377172	food, nutrient	dish.n.02	http://object-naming-amore.upf.edu//2404509_377172_supercat_unique.png	Counter({'sandwich': 9})	supercat_unique	sandwich
+2373420	1902985	instrumentality, instrumentation	furnishing.n.02	http://object-naming-amore.upf.edu//2373420_1902985_singleton_obj.png	Counter({'bench': 9})	singleton_obj	bench
+2390993	492370	animal	horse.n.01	http://object-naming-amore.upf.edu//2390993_492370_supercat_unique.png	Counter({'horse': 9})	supercat_unique	horse
+2387664	1273943	structure, construction	house.n.01	http://object-naming-amore.upf.edu//2387664_1273943_singleton_obj.png	Counter({'house': 4, 'roof': 2, '#other_house': 1, 'snow': 1, 'building': 1})	singleton_obj	house
+2406925	651735	vehicle	motorcycle.n.01	http://object-naming-amore.upf.edu//2406925_651735_singleton_obj.png	Counter({'motorcycle': 9})	singleton_obj	motorcycle
+2358552	2256323	person	woman.n.01	http://object-naming-amore.upf.edu//2358552_2256323_singleton_obj.png	Counter({'woman': 4, 'player': 2, 'girl': 1, 'tennis player': 1, 'shirt': 1})	singleton_obj	lady
+2377837	716225	article of clothing	shirt.n.01	http://object-naming-amore.upf.edu//2377837_716225_singleton_obj.png	Counter({'shirt': 8, 'jacket': 1})	singleton_obj	shirt
+2346081	2905057	animal	ungulate.n.01	http://object-naming-amore.upf.edu//2346081_2905057_singleton_obj.png	Counter({'giraffe': 8, 'giraffes': 1})	singleton_obj	giraffe
+2361796	1734031	animal	feline.n.01	http://object-naming-amore.upf.edu//2361796_1734031_supercat_unique.png	Counter({'cat': 9})	supercat_unique	cat
