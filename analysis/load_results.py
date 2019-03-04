@@ -1,18 +1,31 @@
-import pandas as pd
-import glob
-import os
-import json
-#import xmltodict
-import sys
 from collections import Counter
+import glob
+import json
+import os
+import re
+import sys
+
+#import xmltodict
+
 import numpy as np
+import pandas as pd
 #from spellchecker import SpellChecker
 #from nltk.stem.wordnet import WordNetLemmatizer
 
 def load_resultsdata_csv(datafile_csv):
+    if os.path.isdir(datafile_csv):
+        return load_all_results_csv(datafile_csv)
     fulldf = pd.read_csv(datafile_csv, sep="\t")
     fulldf[["responses"]] = fulldf["responses"].apply(lambda a: eval(a))
     return fulldf
+    
+def load_all_results_csv(data_dir):
+    res_patt =  re.compile("results-created.+?_final\.csv")
+    csv_files = [f for f in os.listdir(data_dir) if res_patt.match(f)]
+    all_dfs = []
+    for csv_file in csv_files:
+        all_dfs.append(load_resultsdata_csv(os.path.join(data_dir, csv_file)))
+    return pd.concat(all_dfs, ignore_index=True, sort=False)
 
 def _img2objname_map(imgdf):
     # meta file used to publish the hits
