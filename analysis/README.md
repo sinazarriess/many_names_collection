@@ -22,16 +22,14 @@
 
 ** Distribution of number of opt-outs per image, for each opt-out category (occlusion, bbox, other) and domain **
 *OCCLUSION*
-
 ![distr_occl-optouts_per_img.png](https://raw.githubusercontent.com/sinazarriess/names_in_context/master/analysis/results/distr_occl-optouts_per_img.png)
 
 *BBOX*
-
 ![distr_bbox-optouts_per_img.png](https://raw.githubusercontent.com/sinazarriess/names_in_context/master/analysis/results/distr_bbox-optouts_per_img.png)
 
 *OTHER*
-
 ![distr_other-optouts_per_img.png](https://raw.githubusercontent.com/sinazarriess/names_in_context/master/analysis/results/distr_other-optouts_per_img.png)
+
 Problem with OTHER: reason for other for animals is that annotators entered something like "other_animal", i.e., opting out when entering the hypernym / superlevel category.
 
 
