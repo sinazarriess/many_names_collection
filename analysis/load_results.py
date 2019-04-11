@@ -27,6 +27,19 @@ def load_all_results_csv(data_dir):
         all_dfs.append(load_resultsdata_csv(os.path.join(data_dir, csv_file)))
     return pd.concat(all_dfs, ignore_index=True, sort=False)
 
+def load_preprocessed_results_csv(datafile_csv):
+    """
+    cols = ['vg_img_id', 'vg_object_id', 'cat', 'synset', 
+            'vg_obj_name', 'responses', 'opt-outs', 
+            'vg_domain', 'top_resonse_domain', 'responses_domains',                
+            'url', 'sample_type']
+    """
+    df = pd.read_csv(datafile_csv, sep="\t")
+    for dict_col in ['responses', 'opt-outs', 'responses_domains']:
+        df[[dict_col]] = df[dict_col].apply(lambda a: eval(a))
+    return df
+
+
 def _img2objname_map(imgdf):
     # meta file used to publish the hits
     img2names_map = dict()
