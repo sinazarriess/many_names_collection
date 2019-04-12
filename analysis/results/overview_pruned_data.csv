@@ -1,9 +1,9 @@
-	ALL	occl-max0_AND_bbox-max2_AND_plurals-max0-OR-food	occl-max1_AND_bbox-max2_AND_plurals-max0-OR-food
-vehicles	4940	4296	4487
-buildings	1504	995	1204
-home	8552	6099	6936
-animals_plants	5435	5012	5108
-people	5664	4246	4445
-clothing	2515	2178	2311
-food	2390	2136	2310
-SUM	31000	24962	26801
+	ALL	occl-max0_AND_bbox-max2_AND_plurals-max0.17-OR-food	domain-match1_AND_occl-max0_AND_bbox-max2_AND_plurals-max0.17-OR-food	domain-match1_AND_occl-max0_AND_bbox-max2_AND_plurals-max0.17	occl-max1_AND_bbox-max2_AND_plurals-max0.17-OR-food	domain-match1_AND_occl-max1_AND_bbox-max2_AND_plurals-max0.17-OR-food	domain-match1_AND_occl-max1_AND_bbox-max2_AND_plurals-max0.17
+vehicles	4940	4606	4552	4552	4812	4751	4751
+buildings	1504	1092	967	967	1322	1167	1167
+home	8552	6812	6292	6292	7773	7170	7170
+animals_plants	5435	5164	5085	5085	5267	5176	5176
+people	5664	5136	4533	4533	5391	4772	4772
+clothing	2515	2260	2192	2192	2406	2320	2320
+food	2390	2136	2096	1975	2310	2267	2129
+SUM	31000	27206	25717	25596	29281	27623	27485
