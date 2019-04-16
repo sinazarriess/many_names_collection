@@ -1,0 +1,16 @@
+gbt, April 16
+
+Instructions:
+
+We asked Adam to draw a box around an object and name it. Then we asked other people to name the same object, but some made a mistake. From the following list, mark all the names that do not correspond to the same object as Adam's.
+
+Remember: As long as the word refers to the same object, it is fine. For instance, for the following object, that Adam named "cake", it is fine to use "glove" [use the nice cake-in-the-shape-of-a-glove example]; however, "icing" is not good, because the icing is only a part of the cake.
+
+Header:
+
+Adam called this object ${nameA}. Other people called it:
+
+[] dog
+[] puppy
+[] tail
+[] ffff
