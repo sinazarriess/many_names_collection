@@ -1,0 +1,278 @@
+<!-- HIT template: ImageTagging-v3.0 --><!-- Bootstrap v3.0.3 --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /><!-- The following snippet enables the 'responsive' behavior on smaller screens -->
+<meta content="width=device-width,initial-scale=1" name="viewport" /><!-- Instructions -->
+<section class="container" id="TaggingOfAnImage">
+<div class="row">
+<div class="col-xs-12 col-md-12">
+
+<!-- Instructions -->
+<div class="panel panel-primary">
+<!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature -->
+<a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+<strong>YouNameIt Instructions</strong> 
+<span class="collapse-text">(Click to expand)</span> </a>
+<div class="panel-body" id="instructionBody">
+<p><font size="5"><b>Task:</b></font>
+<font size="4">
+<b>Please name the object in the red box with the <span style="color:#0020C2;">first name that comes to mind</span>.</b>
+<ul>
+  <li>Make sure to identify the correct object: <span style="color:#0020C2;"><b>the single object that the box marks</b></span>. It is the one that the <span style="color:#0020C2;"><b>box fits tightly around</b></span>. </li>
+  <li>For more advice please see the FAQ below.</li>
+</ul></p><br>
+</font>
+<p><font size="4"><b>Make sure to avoid the <span style="color:#FF0000;">mistakes</span> exemplified below:</font></b></p>
+<table style="width:100%" cellpadding="1" cellspacing="1">
+<tbody>	
+        <!--Ex 2 -->
+        <tr>
+            <td width="50">
+            <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2363125_2056940_singleton_category.png" alt="ex2363125_2056940_singleton_category.png" style="width:200px;height:150px;"></td>
+	    <td align="position" valign="position" width="400">
+	    <div style="background-color:#ffff99;height:50px;width:350px;align:center;padding:12px;">
+                <font size="3">
+                <b>Object Name</b>:  
+        	<INPUT TYPE="text" ID="inputbox_objname-ex4" NAME="inputbox_objname-ex4" VALUE="man" SIZE="11" autofocus readonly="readonly">
+        	</font>
+            </div>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font><font color="black" size="4"><i>---the box is marking the jacket, not the man</i></font><br/><br/>
+                <font color="green" size="5"><b>Good options (examples):</b></font><font color="black" size="4"><br/><i>jacket, coat, shirt, clothing, ...</i></font>
+            </td>
+        </tr>
+        <tr>
+            <td width="50">
+            <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2373806_1986195_ambiguous_synset.png" alt="ex2373806_1986195_ambiguous_synset.png" style="width:200px;height:150px;"></td>
+	    <td align="position" valign="position" width="400">
+	    <div style="background-color:#ffff99;height:50px;width:350px;align:center;padding:12px;">
+                <font size="3">
+                <b>Object Name</b>:  
+        	<INPUT TYPE="text" ID="inputbox_objname-ex6" NAME="inputbox_objname-ex6" VALUE="motorcycle" SIZE="12" autofocus readonly="readonly">
+        	</font>
+            </div>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font><font color="black" size="4"><i>---the box is marking the car, not the motorcycle</i></font><br/><br/>
+                <font color="green" size="5"><b>Good options (examples):</b></font><font color="black" size="4"><br/><i>car, suv, vehicle, automobile, ...</i></font>
+            </td>
+        </tr>
+        <tr>
+            <td width="50">
+            <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2343599_921837_ambiguous_category.png" alt="ex2343599_921837_ambiguous_category.png" style="width:200px;height:150px;"></td>
+	    <td align="position" valign="position" width="400">
+	    <div style="background-color:#ffff99;height:50px;width:350px;align:center;padding:12px;">
+	        <font size="3">
+                <b>Object Name</b>:  
+        	<INPUT TYPE="text" ID="inputbox_objname-ex8" NAME="inputbox_objname-ex8" VALUE="hard hat" SIZE="12" autofocus readonly="readonly">
+            </div>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font><font color="black" size="4"><i>---this is not a name, only </i>hat<i> is.</i></font>
+            </td>
+        </tr>
+        <!-- REAL FORMAT END -->
+</tbody>
+</table><br/>
+<!-- FAQ -->
+<p><font size="5"><b>FAQ:</b></font></p>
+<table style="width:100%" cellpadding="1" cellspacing="1">
+<tbody>	
+    <tr>
+        <td bgcolor="#EEEEEE" style="align:center;padding:10px;">
+        <font color="#1100FF"><b>+</b> If there is a person riding a skateboard or riding a surfboard, would you prefer the answer to be <i>man</i> or <i>surfer</i>?</font>
+        </td>
+    </tr>
+    <tr>
+        <td style="align:center;padding:5px;">
+        There is no unique "correct" or "best" answer---we ask you to enter the first name that comes to mind for the marked object. 
+        For example, if you first think of <i>surfer</i>, then please enter this name. If, however, <i>man</i> comes to mind first, then enter <i>man</i>. 
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#EEEEEE;align:center;padding:10px;">
+        <font color="#1100FF"><b>+</b> For food, for example, a photo of a pizza would be <i>pizza</i> and not <i>food</i>? </font>
+        </td>
+    </tr>
+    <tr>
+        <td style="align:center;padding:5px;">
+        That's up to you---there is no unique "correct" or "best" answer. Instead, please enter the name which first occurred to you for the identified object. <i>Food</i> or  <i>animal</i>, for example, are in general all valid names.
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#EEEEEE;align:center;padding:10px;">
+        <font color="#1100FF"><b>+</b> I was wondering what you wanted us to do with images and boundary boxes around women, men, children that are not particularly doing anything? It looks as though you do not want us to name it <i>man</i> or <i>woman</i>...</font>
+        </td>
+    </tr>
+    <tr>
+        <td style="align:center;padding:5px;">
+        If I  understand you correctly, you are asking about what to do when the marked object is a man, woman, etc.? <i>Man</i>, <i>woman</i>, <i>child</i>, etc. are all valid names for objects, it is important though to make sure that you have identified the correct object for which we ask you to give a name. As the instructions say, it is the object that the bounding box is tightly around.
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#EEEEEE;align:center;padding:10px;">
+        <font color="#1100FF"><b>+</b> In some cases, a group of objects together could be described with a singular noun (i.e. <i>bundle</i>, <i>salad</i>, <i>sandwich</i>, etc.).</font>
+        </td>
+    </tr>
+    <tr>
+        <td style="align:center;padding:5px;">
+        If you can describe the objects with a singular noun, i.e. they together form some kind of object, such as sandwich or salad, then this is completely fine! It is important though that this "group of objects" is to be named, that is, the bounding box is tightly around them as a whole.
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#EEEEEE;align:center;padding:10px;">
+        <font color="#1100FF"><b>+</b> When there is a picture of a person and the whole person is in the red box and they are doing a sport is it better that I say <i>player</i>, <i>snowboarder</i>, <i>skier</i>, etc." instead of <i>man</i>, <i>woman</i>, <i>girl</i>, <i>boy</i>, etc?</font>
+        </td>
+    </tr>
+    <tr>
+        <td style="align:center;padding:5px;">
+        There is no "correct answer", so you are just asked to enter the first name that comes to mind for the marked object. 
+        Referring directly to your example, any of the options, i.e., <i>player</i> OR <i>snowboarder</i> OR <i>man</i> OR <i>woman</i> etc., are good!
+        </td>
+    </tr>
+</tbody>
+</table>
+<br/>If your question is not clarified by the FAQ, feel free to contact us  (Carina.Silberer"at"upf.edu). 
+</div>
+</div>
+</div>
+</div>
+<!-- End Instructions -->
+
+<!-- Object Naming Layout -->
+
+<div class="row" id="workContent">
+<table style="width:100%" cellpadding="10" cellspacing="10" frame="box">
+<tbody>	<tr>
+	<td width="50"><img src="${img_0_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-0" NAME="inputbox_objname-0" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_1_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-1" NAME="inputbox_objname-1" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_2_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-2" NAME="inputbox_objname-2" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_3_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-3" NAME="inputbox_objname-3" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_4_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-4" NAME="inputbox_objname-4" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_5_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-5" NAME="inputbox_objname-5" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_6_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-6" NAME="inputbox_objname-6" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_7_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-7" NAME="inputbox_objname-7" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_8_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-8" NAME="inputbox_objname-8" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_9_url}" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-9" NAME="inputbox_objname-9" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+</div></td>
+	
+</tbody></table>
+<br>We appreciate any comment you may have:<br>
+<TEXTAREA NAME="comments" COLS="40" ROWS="5" VALUE="">
+</TEXTAREA><br>
+<p>If you have any question or doubts, please do not hesitate to contact us (Carina.Silberer"at"upf.edu).</p>
+
+</div>
+</div>
+</div>
+</section>
+<!-- End Object naming Layout --><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+#submitButton{
+  white-space: normal;
+}
+.image{
+  margin-bottom: 15px;
+}
+.radio:first-of-type{
+  margin-top: -5px;
+}
+</style>
+<!-- Close internal style sheet --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script>
+<script>
+  window.onload = function(){
+    document.getElementById('submitButton').setAttribute('onclick', 'return notEmpty(document, 10)'); 
+    }
+  $(document).ready(
+  function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('(Click to collapse)');
+      }else{
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+  });
+  
+  function clear_textbox(ItemNo) {
+    document.getElementById('inputbox_objname-' + ItemNo.toString()).value = "";
+  }
+  function notEmpty(document, numItems){
+    for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
+        Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
+        Objectname = Objectname.toLowerCase();
+        //var tabooElement = document.getElementById('taboolist-' + ItemNo.toString());
+        // Does object name contain comma?
+        if (Objectname.indexOf(',') > -1) {
+            document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+            alert('Please enter only ONE name (object ' + (ItemNo+1).toString() + ').');
+            return false;
+        }
+        if (Objectname.length < 3) {
+            document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+            alert ('Missing: object name (object ' + (ItemNo+1).toString() + ').');
+            return false;
+        }
+    }
+    return true;
+  }
+</script>

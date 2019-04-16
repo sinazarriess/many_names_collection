@@ -1,0 +1,218 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2017-11-06/QuestionForm.xsd"  xmlns:xs="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/FormattedContentXHTMLSubset.xsd">
+  <Overview>
+    <Title>
+INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
+    </Title>
+    <FormattedContent><![CDATA[
+    <p><font size="5"><b>YouNameIt Instructions</b></font></p>
+    <p>
+        <font size="4">
+            <b>Task: Please name the object in the red box with the </b>
+        </font>
+        <font color="#0020C2" size="4">
+            <b>first name that comes to mind.</b>
+        </font>
+    </p>
+    <ul>
+        <li><font size="4">Make sure to identify the correct object:</font>
+            <font color="#0020C2" size="4"><b>the single object that the box marks</b></font>.
+            <font size="4">It is the one that the </font>
+            <font color="#0020C2" size="4"><b>box fits tightly around</b></font>.
+        </li>
+        <li>For more advice please see the FAQ below.</li>
+    </ul>
+    <p>
+        <b><font size="4">Make sure to avoid the </font>
+        <font color="#FF0000" size="4">mistakes</font> 
+        <font size="4">exemplified below:</font>
+        </b>
+    </p>
+    <table width="100%" cellpadding="1" cellspacing="1">
+    <tbody>
+        <tr>
+            <td width="50">
+                <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2363125_2056940_singleton_category.png" alt="ex2363125_2056940_singleton_category.png" width="225" height="215"></img>
+            </td>
+            <td align="center" valign="middle" width="300">
+                <img src="http://object-naming-amore.upf.edu/qual_r1_ex1.png" alt="ex1.png" width="450"></img>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font>
+                <font color="black" size="4"><i>---the box is marking the jacket, not the man</i></font>
+                <br/><br/>
+                <font color="green" size="5"><b>Good options (examples):</b></font>
+                <font color="black" size="4"><br/><i>jacket, coat, shirt, clothing, ...</i></font>
+            </td>
+        </tr>
+        <tr>
+            <td width="50">
+                <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2373806_1986195_ambiguous_synset.png" alt="ex2373806_1986195_ambiguous_synset.png" width="225" height="190"></img>
+            </td>
+            <td align="center" valign="middle" width="300">
+                <img src="http://object-naming-amore.upf.edu/qual_r1_ex2.png" alt="ex1.png" width="450"></img>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font>
+                <font color="black" size="4">
+                    <i>---the box is marking the car, not the motorcycle</i>
+                </font><br/><br/>
+                <font color="green" size="5">
+                    <b>Good options (examples):</b>
+                </font>
+                <font color="black" size="4">
+                    <br/><i>car, vehicle, suv, automobile, ...</i>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="50">
+                <img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/ex2343599_921837_ambiguous_category.png" alt="ex2343599_921837_ambiguous_category.png" width="225" height="215"></img>
+            </td>
+            <td align="center" valign="middle" width="300">
+                <img src="http://object-naming-amore.upf.edu/qual_r1_ex3.png" alt="ex4.png" width="450"></img>
+            </td>
+            <td>
+                <font color="red" size="5"><b>BAD</b></font>
+                <font color="black" size="4"><i>---this is not a name, only </i>hat<i> is.</i></font>
+            </td>
+        </tr>
+    </tbody>
+    </table><br/>
+    <p><font size="5"><b>FAQ:</b></font></p>
+    <table width="100%" cellpadding="10" cellspacing="1">
+    <tbody>	
+        <tr>
+            <td bgcolor="#EEEEEE" align="left" valign="middle">
+            <font color="#1100FF"><b>+</b> If there is a person riding a skateboard or riding a surfboard, would you prefer the answer to be <i>man</i> or <i>surfer</i>?</font>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">
+            There is no unique "correct" or "best" answer---we ask you to enter the first name that comes to mind for the marked object. 
+            For example, if you first think of <i>surfer</i>, then please enter this name. If, however, <i>man</i> comes to mind first, then enter <i>man</i>. 
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#EEEEEE" align="left" valign="middle">
+            <font color="#1100FF"><b>+</b> For food, for example, a photo of a pizza would be <i>pizza</i> and not <i>food</i>? </font>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">
+            That's up to you---there is no unique "correct" or "best" answer. Instead, please enter the name which first occurred to you for the identified object. <i>Food</i> or  <i>animal</i>, for example, are in general all valid names.
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#EEEEEE" align="left" valign="middle">
+            <font color="#1100FF"><b>+</b> I was wondering what you wanted us to do with images and boundary boxes around women, men, children that are not particularly doing anything? It looks as though you do not want us to name it <i>man</i> or <i>woman</i>...</font>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">
+            If I  understand you correctly, you are asking about what to do when the marked object is a man, woman, etc.? <i>Man</i>, <i>woman</i>, <i>child</i>, etc. are all valid names for objects, it is important though to make sure that you have identified the correct object for which we ask you to give a name. As the instructions say, it is the object that the bounding box is tightly around.
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#EEEEEE" align="left" valign="middle">
+            <font color="#1100FF"><b>+</b> In some cases, a group of objects together could be described with a singular noun (i.e. <i>bundle</i>, <i>salad</i>, <i>sandwich</i>, etc.).</font>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">
+            If you can describe the objects with a singular noun, i.e. they together form some kind of object, such as sandwich or salad, then this is completely fine! It is important though that this "group of objects" is to be named, that is, the bounding box is tightly around them as a whole.
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#EEEEEE" align="left" valign="middle">
+                <font color="#1100FF"><b>+</b> When there is a picture of a person and the whole person is in the red box and they are doing a sport is it better that I say <i>player</i>, <i>snowboarder</i>, <i>skier</i>, etc." instead of <i>man</i>, <i>woman</i>, <i>girl</i>, <i>boy</i>, etc?</font>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">
+            There is no "correct answer", so you are just asked to enter the first name that comes to mind for the marked object. 
+            Referring directly to your example, any of the options, i.e., <i>player</i> OR <i>snowboarder</i> OR <i>man</i> OR <i>woman</i> etc., are good!
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    If your question is not clarified by the FAQ, feel free to contact us  (Carina.Silberer"at"upf.edu). 
+    <br/><br/><p><font size="5"><b>INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT</b></font></p>
+    ]]></FormattedContent>
+<Text>
+RESEARCH PROJECT: AMORE: A distributional MOdel of Reference to Entities (Universitat Pompeu Fabra – Barcelona – SPAIN).
+PRINCIPAL INVESTIGATOR: Gemma Boleda.
+FINANCED BY: European Research Council (European Union).
+SURVEY CARRIED OUT WITH THE COLLABORATION OF: Amazon Mechanical Turk (AMT)
+
+PART 1. INFORMATION SHEET
+
+Purpose of the research
+    • The research aims at creating a database of linguistic expressions which name objects in images, in order to come to a better understanding of how people use language, with the possible long term goal of improving human-computer communication. 
+
+Procedure description
+    • You will see an image and a bounding box marking an object in the image, presented along with a text box. Your task is to enter a name (a noun) for the object into the text box. The name should be the first one that comes to mind when seeing the object. If you do not know how to name the object, you can skip the image by clicking on one of the options below the text box for the object name: The object may be occluded, it may be unclear which object the bounding box marks, or any other reason. In the latter case, you are asked to specify the reason briefly. The goal of the object name collection is to better understand how people use language; in particular, to understand the inventory of names humans posses for common objects. Please make sure that the object name does not contain obscene language. We reserve the right to block the participation in the project if you do not comply with this requirement; in this case, you will not be reimbursed. 
+    • You can work at your own pace. 
+    • We did our best to ensure that the images will not contain any controversial material (in particular, we did our best to exclude any depiction of violent or sexually explicit scenes). However we assume no responsibility for the content of the images presented.
+
+Privacy and data handling
+    • Your AMT WorkerID, together with the object names you produce during this experiment, will be available to the researchers of the AMORE project, who have committed to handling it in an anonymous and confidential manner. These data will be stored in UPF, Barcelona (Spain), and will be retained during the life of the project (up to 31 January 2022) and for five years afterwards for auditing purposes.  If you wish your data to be removed, such that they cannot be used for the project, please get in touch with Gemma Boleda (gemma.boleda@upf.edu), specifying your AMT WorkerID.
+    • The data we collect, in an anonymized form, will be uploaded onto the UPF repository (https://repositori.upf.edu) and on the project’s web site (https://www.upf.edu/web/amore) webpage to be consulted and used in other projects by other researchers worldwide, and shared with collaborators.
+    • Research results will be published in journal articles, conference presentations and via any other mode of scientific exchange and dissemination that will be seen as appropriate by the researchers, always protecting the participants' anonymity.
+    • By accepting to participate in this survey you hereby grant UPF an irrevocable, perpetual, non-exclusive, transferable, fully paid, worldwide license (with the right to sublicense) to reproduce, distribute, publicly perform or display and transform your task results such that they can be used in this research project and they can be made available through the project’s webpage and the e-repository, such that they can be reused worldwide. 
+
+Voluntary participation and freedom to withdraw from the research
+    • Your choice to take part in the research is entirely voluntary. You are completely free to choose not to participate, or to withdraw from the study at any moment without any consequence.
+    • This study was evaluated and approved by Parc de Salut MAR - Clinical Research Ethical Committee of UPF.
+
+Potential risk and discomfort
+    • If, at any time, you should become tired or feel other forms of discomfort, you can simply quit the survey. 
+
+Benefits
+    • For participating in this data collection experiment, you will receive a monetary compensation of 0.15$ per HIT. Furthermore, your participation will enable research on how we use language to talk about the world. 
+
+Potential reuse of the data
+    • Only the task results, in an anonymized way, will be consulted and used in other projects by other researchers.
+
+Questions? Write to us!
+    • For any further doubt or clarification request, do not hesitate to ask! You can contact the principal investigator, Gemma Boleda, by sending an email to the address gemma.boleda@upf.edu.
+
+
+PART 2. INFORMED CONSENT
+
+    • I have read and understood the above information;
+    • I have had the opportunity to have any questions about this study answered;
+    • I understand and agree that my data (AMT WorkerID and task results) will be sent to and stored in UPF, Barcelona (Spain), and will be consulted by the researchers of this project;
+    • I understand and agree that only the task results, in an anonymized form, will be shared with collaborators, uploaded onto the UPF repository (https://repositori.upf.edu) and on the project’s web site (https://www.upf.edu/web/amore) webpage to be consulted and used in other projects by other researchers worldwide;
+    • I hereby grant UPF an irrevocable, perpetual, non-exclusive, transferable, fully paid, worldwide license (with the right to sublicense) to reproduce, distribute, publicly perform or display and transform my task results such that they can be used in this research project and they can be made available through the project’s webpage and the e-repository, such that they can be reused worldwide.
+    • I confirm that I am over the age of 18. 
+</Text>
+
+
+  </Overview>
+  <Question>
+    <QuestionIdentifier>q1</QuestionIdentifier>
+    <DisplayName>accept</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+     <Text>
+    HAVING READ, UNDERSTOOD AND ACCEPTED ALL OF THE ABOVE, I DO  ACCEPT TO TAKE PART IN THE SURVEY.
+    </Text>
+    </QuestionContent>
+      
+<AnswerSpecification>
+    <SelectionAnswer>
+  <StyleSuggestion>radiobutton</StyleSuggestion>
+  <Selections>
+    <Selection>
+      <SelectionIdentifier>C1</SelectionIdentifier>
+      <Text>YES</Text>
+    </Selection>
+    <Selection>
+      <SelectionIdentifier>C2</SelectionIdentifier>
+      <Text>NO</Text>
+    </Selection>
+    </Selections>
+    </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+</QuestionForm>
