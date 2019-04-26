@@ -1,0 +1,475 @@
+vg_img_id	vg_object_id	synset	url	plurals	low_similarity	optouts
+2395290	456135	boat.n.01	http://object-naming-amore.upf.edu//2395290_456135_singleton_obj.png	[]	[]	{'#occlusion': 4}
+2403399	381904	ungulate.n.01	http://object-naming-amore.upf.edu//2403399_381904_supercat_unique.png	[]	['_notfound_calf', '_notfound_animal', '_notfound_sheep', '_notfound_llama']	{'#occlusion': 1}
+2399714	661479	furnishing.n.02	http://object-naming-amore.upf.edu//2399714_661479_supercat_unique.png	[]	['table/0.06', 'counter/0.06', 'phone/0.07']	{'#bbox': 1, '#occlusion': 1}
+2370826	1970312	furnishing.n.02	http://object-naming-amore.upf.edu//2370826_1970312_seed_ambiguous.png	[]	['bench/0.06']	{'#occlusion': 1, '#bbox': 2}
+2412968	183096	train.n.01	http://object-naming-amore.upf.edu//2412968_183096_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2396677	1196058	furnishing.n.02	http://object-naming-amore.upf.edu//2396677_1196058_singleton_obj.png	[]	['table/0.06']	{'#occlusion': 1}
+2350293	3405940	woman.n.01	http://object-naming-amore.upf.edu//2350293_3405940_seed_ambiguous.png	[]	[]	{'#bbox': 1}
+2409003	649150	house.n.01	http://object-naming-amore.upf.edu//2409003_649150_singleton_obj.png	[]	[]	{'#bbox': 5, '#occlusion': 1}
+2358282	2664326	woman.n.01	http://object-naming-amore.upf.edu//2358282_2664326_singleton_obj.png	['goggles']	['goggles/0.00', '_notfound_skiier', '_notfound_skier']	{}
+1159964	1599770	shirt.n.01	http://object-naming-amore.upf.edu//1159964_1599770_singleton_obj.png	[]	[]	{'#bbox': 4}
+2353456	845841	furnishing.n.02	http://object-naming-amore.upf.edu//2353456_845841_supercat_unique.png	[]	['girl/0.03', 'kid/-0.01']	{'#bbox': 3}
+2412665	299850	car.n.01	http://object-naming-amore.upf.edu//2412665_299850_supercat_ambiguous.png	[]	['_notfound_subway car']	{'#bbox': 1}
+2416447	2973163	ungulate.n.01	http://object-naming-amore.upf.edu//2416447_2973163_seed_ambiguous.png	[]	['_notfound_cow', '_notfound_horse']	{'#bbox': 1}
+2361982	778097	furnishing.n.02	http://object-naming-amore.upf.edu//2361982_778097_singleton_obj.png	[]	[]	{'#bbox': 1}
+2373300	733269	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2373300_733269_singleton_obj.png	[]	['_notfound_cake pan', '_notfound_bowl', '_notfound_pie', '_notfound_pan', '_notfound_cake', '_notfound_springform', '_notfound_pot']	{'#occlusion': 1, '#bbox': 1}
+2355596	3567463	man.n.01	http://object-naming-amore.upf.edu//2355596_3567463_singleton_obj.png	[]	['cabinet/0.08']	{'#bbox': 1}
+2355129	2414534	ungulate.n.01	http://object-naming-amore.upf.edu//2355129_2414534_singleton_obj.png	[]	['_notfound_building', '_notfound_window']	{'#bbox': 6, '#occlusion': 1}
+2345225	1042796	house.n.01	http://object-naming-amore.upf.edu//2345225_1042796_supercat_unique.png	[]	['man/0.20']	{'#bbox': 1}
+2316957	3442495	woman.n.01	http://object-naming-amore.upf.edu//2316957_3442495_singleton_obj.png	[]	[]	{'#bbox': 1}
+2392443	1230042	woman.n.01	http://object-naming-amore.upf.edu//2392443_1230042_supercat_unique.png	[]	['bottle/0.20']	{'#bbox': 1}
+2412804	3123002	furnishing.n.02	http://object-naming-amore.upf.edu//2412804_3123002_supercat_unique.png	[]	['cabinet/0.15', '_notfound_cabinet door']	{'#occlusion': 1, '#bbox': 1}
+2414599	155469	furnishing.n.02	http://object-naming-amore.upf.edu//2414599_155469_singleton_obj.png	[]	['floor/0.19']	{'#bbox': 1, '#occlusion': 1}
+2407857	272407	foodstuff.n.02	http://object-naming-amore.upf.edu//2407857_272407_supercat_ambiguous.png	[]	['_notfound_pizza']	{'#bbox': 1}
+2400514	1158052	boat.n.01	http://object-naming-amore.upf.edu//2400514_1158052_singleton_obj.png	[]	['_notfound_scooter', '_notfound_motorcycle']	{'#occlusion': 1}
+2343263	2305927	house.n.01	http://object-naming-amore.upf.edu//2343263_2305927_supercat_unique.png	[]	[]	{'#occlusion': 2}
+2377659	2196128	furnishing.n.02	http://object-naming-amore.upf.edu//2377659_2196128_singleton_obj.png	[]	['counter/0.06', 'table/0.06']	{'#occlusion': 1, '#bbox': 1}
+2327278	2850755	baked_goods.n.01	http://object-naming-amore.upf.edu//2327278_2850755_supercat_unique.png	[]	['_notfound_cake', '_notfound_tray']	{'#occlusion': 1}
+693	1029149	ungulate.n.01	http://object-naming-amore.upf.edu//693_1029149_singleton_obj.png	[]	['_notfound_wildabeast', '_notfound_yak', '_notfound_caribou', '_notfound_cow', '_notfound_bull', '_notfound_animal', '_notfound_bovine']	{'#other_I am unsure the name of this animal?': 1}
+2341523	942188	male_child.n.01	http://object-naming-amore.upf.edu//2341523_942188_singleton_obj.png	[]	['_notfound_boy', '_notfound_child', '_notfound_man', '_notfound_kid', '_notfound_person']	{'#bbox': 1}
+2392318	1231424	furnishing.n.02	http://object-naming-amore.upf.edu//2392318_1231424_singleton_obj.png	[]	['buffet/0.09', 'counter/0.06', '_notfound_display case', '_notfound_pizza warmer', 'table/0.06']	{'#bbox': 2}
+2353403	846308	bridge.n.01	http://object-naming-amore.upf.edu//2353403_846308_supercat_unique.png	[]	[]	{'#bbox': 2}
+2378462	1904012	flower.n.01	http://object-naming-amore.upf.edu//2378462_1904012_singleton_obj.png	['flowers']	[]	{}
+2383768	530460	shirt.n.01	http://object-naming-amore.upf.edu//2383768_530460_singleton_obj.png	[]	['girl/0.17']	{'#bbox': 1}
+2414271	297672	dish.n.02	http://object-naming-amore.upf.edu//2414271_297672_supercat_unique.png	['sausages']	[]	{'#bbox': 1}
+2315810	3151205	woman.n.01	http://object-naming-amore.upf.edu//2315810_3151205_seed_ambiguous.png	[]	['pizza/0.15']	{'#bbox': 1}
+2374565	2241622	motorcycle.n.01	http://object-naming-amore.upf.edu//2374565_2241622_supercat_unique.png	['shirts']	['_notfound_scooter', '_notfound_shirts', '_notfound_moped', '_notfound_motoecycle', '_notfound_motorcycle', '_notfound_shirt']	{'#occlusion': 2, '#bbox': 1}
+2372588	591138	house.n.01	http://object-naming-amore.upf.edu//2372588_591138_singleton_obj.png	[]	['_notfound_hydrant']	{'#bbox': 2, '#occlusion': 1}
+2364995	758218	truck.n.01	http://object-naming-amore.upf.edu//2364995_758218_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2381997	700081	man.n.01	http://object-naming-amore.upf.edu//2381997_700081_singleton_obj.png	[]	['_notfound_skateboarder', '_notfound_skater']	{'#bbox': 1}
+2365737	632287	house.n.01	http://object-naming-amore.upf.edu//2365737_632287_singleton_obj.png	[]	['clock/0.00']	{'#bbox': 2}
+2368114	748071	overgarment.n.01	http://object-naming-amore.upf.edu//2368114_748071_singleton_obj.png	[]	['_notfound_jacket', '_notfound_raincoat']	{'#occlusion': 1}
+2343001	2543515	furnishing.n.02	http://object-naming-amore.upf.edu//2343001_2543515_seed_ambiguous.png	[]	['_notfound_dirt path', '_notfound_giraffe']	{'#bbox': 6}
+2324783	2958360	furnishing.n.02	http://object-naming-amore.upf.edu//2324783_2958360_supercat_unique.png	[]	['dog/-0.00', '_notfound_office chair', 'chair/0.02']	{'#bbox': 1}
+2361892	778692	boat.n.01	http://object-naming-amore.upf.edu//2361892_778692_singleton_obj.png	[]	['_notfound_boat railing']	{'#occlusion': 2}
+2396479	664871	feline.n.01	http://object-naming-amore.upf.edu//2396479_664871_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2317421	1020950	furnishing.n.02	http://object-naming-amore.upf.edu//2317421_1020950_supercat_unique.png	[]	['bench/0.06', 'girl/0.03', 'couch/0.10', 'cushion/0.07', 'arm/-0.01']	{'#occlusion': 2, '#other_Chair? pillow?': 1}
+2412310	197494	baked_goods.n.01	http://object-naming-amore.upf.edu//2412310_197494_singleton_obj.png	[]	['_notfound_hotdog', '_notfound_hot dog', '_notfound_sandwich', '_notfound_chicken']	{'#occlusion': 1}
+2367123	2350252	furnishing.n.02	http://object-naming-amore.upf.edu//2367123_2350252_supercat_unique.png	['arms']	['boy/0.01', 'floor/0.19', 'arms/0.10']	{'#bbox': 1}
+2368753	616237	furnishing.n.02	http://object-naming-amore.upf.edu//2368753_616237_seed_ambiguous.png	[]	['chair/0.02', 'floor/0.19']	{'#bbox': 2, '#occlusion': 1}
+2377118	1849374	lamp.n.01	http://object-naming-amore.upf.edu//2377118_1849374_singleton_obj.png	[]	['_notfound_stop sign', '_notfound_traffic light', '_notfound_street light', '_notfound_stoplights']	{'#occlusion': 1, '#bbox': 1}
+2369950	1780707	foodstuff.n.02	http://object-naming-amore.upf.edu//2369950_1780707_singleton_obj.png	[]	['_notfound_pizza']	{'#bbox': 1}
+2330760	3409288	man.n.01	http://object-naming-amore.upf.edu//2330760_3409288_singleton_obj.png	['glasses']	['glasses/0.07', 'image/0.13']	{}
+2373499	2104704	boat.n.01	http://object-naming-amore.upf.edu//2373499_2104704_singleton_obj.png	[]	['_notfound_rowing team', '_notfound_crew team']	{'#occlusion': 2}
+2324522	3548420	dress.n.01	http://object-naming-amore.upf.edu//2324522_3548420_singleton_obj.png	[]	['knife/0.14', 'man/0.09']	{'#bbox': 1}
+2371822	2237956	male_child.n.01	http://object-naming-amore.upf.edu//2371822_2237956_singleton_obj.png	[]	['_notfound_child', '_notfound_toddler', '_notfound_boy', '_notfound_kid']	{'#bbox': 1}
+2364696	2852468	male_child.n.01	http://object-naming-amore.upf.edu//2364696_2852468_seed_ambiguous.png	['seats']	['_notfound_person', '_notfound_seat', '_notfound_lady', '_notfound_boy', '_notfound_book', '_notfound_seats', '_notfound_woman', '_notfound_crowd']	{}
+1159440	1593531	furnishing.n.02	http://object-naming-amore.upf.edu//1159440_1593531_singleton_obj.png	[]	['table/0.06', 'spinach/-0.01', 'plant/0.05', '_notfound_lettuce']	{'#bbox': 2, '#occlusion': 2}
+2340996	945122	furnishing.n.02	http://object-naming-amore.upf.edu//2340996_945122_seed_ambiguous.png	[]	['floor/0.19', 'rug/0.18']	{'#occlusion': 1, '#bbox': 4}
+2362483	773939	furnishing.n.02	http://object-naming-amore.upf.edu//2362483_773939_singleton_obj.png	[]	['girl/0.03', 'woman/0.06', 'blanket/0.12']	{'#bbox': 3}
+2416487	3470263	overgarment.n.01	http://object-naming-amore.upf.edu//2416487_3470263_supercat_unique.png	[]	['_notfound_man', '_notfound_jacket', '_notfound_coat']	{'#bbox': 3}
+2321332	3327761	male_child.n.01	http://object-naming-amore.upf.edu//2321332_3327761_singleton_obj.png	[]	['_notfound_skateboarder', '_notfound_boy', '_notfound_skater', '_notfound_man', '_notfound_person', '_notfound_guy']	{'#occlusion': 1}
+2368067	1825651	flower.n.01	http://object-naming-amore.upf.edu//2368067_1825651_singleton_obj.png	['flowers']	['_notfound_stamen']	{'#occlusion': 1}
+2403906	1120418	furnishing.n.02	http://object-naming-amore.upf.edu//2403906_1120418_singleton_obj.png	['cabinets']	['sink/0.02', 'cabinet/0.15', 'cupboard/0.17']	{'#bbox': 3}
+2382245	540215	furnishing.n.02	http://object-naming-amore.upf.edu//2382245_540215_seed_ambiguous.png	[]	['frame/0.12', '_notfound_bedframe']	{'#occlusion': 1, '#bbox': 4}
+2365684	2062141	shelter.n.01	http://object-naming-amore.upf.edu//2365684_2062141_singleton_obj.png	[]	['structure/0.17']	{'#occlusion': 2, '#bbox': 1}
+2341925	938722	feline.n.01	http://object-naming-amore.upf.edu//2341925_938722_singleton_obj.png	[]	[]	{'#bbox': 2, '#occlusion': 1}
+2413577	170701	furnishing.n.02	http://object-naming-amore.upf.edu//2413577_170701_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1}
+2346542	898476	furnishing.n.02	http://object-naming-amore.upf.edu//2346542_898476_singleton_obj.png	[]	['vanity/0.15', 'sink/0.02', 'counter/0.06']	{'#occlusion': 1}
+2341708	940430	baked_goods.n.01	http://object-naming-amore.upf.edu//2341708_940430_singleton_obj.png	['muffins']	['_notfound_muffins', '_notfound_broccoli', '_notfound_donut', '_notfound_muffin', '_notfound_food']	{'#bbox': 1}
+2414080	160303	train.n.01	http://object-naming-amore.upf.edu//2414080_160303_singleton_obj.png	[]	['cake/0.09']	{'#bbox': 1}
+2322190	3566588	furnishing.n.02	http://object-naming-amore.upf.edu//2322190_3566588_singleton_obj.png	['men']	['shelf/0.09', 'counter/0.06', 'table/0.06', '_notfound_countertop', 'men/0.09']	{}
+2415299	2901333	woman.n.01	http://object-naming-amore.upf.edu//2415299_2901333_seed_ambiguous.png	['women', 'people', 'girls']	[]	{}
+2358043	806603	furnishing.n.02	http://object-naming-amore.upf.edu//2358043_806603_seed_ambiguous.png	['legs']	['legs/-0.03', 'floor/0.19']	{'#bbox': 1, '#occlusion': 1}
+2388175	675116	aircraft.n.01	http://object-naming-amore.upf.edu//2388175_675116_singleton_obj.png	[]	[]	{'#bbox': 1}
+2338966	2248672	dish.n.02	http://object-naming-amore.upf.edu//2338966_2248672_singleton_obj.png	[]	['_notfound_baseball player', 'bat/0.17', 'man/0.05']	{'#bbox': 1}
+2370428	2096048	woman.n.01	http://object-naming-amore.upf.edu//2370428_2096048_seed_ambiguous.png	[]	['_notfound_teddy bear', 'bear/0.16']	{'#bbox': 1}
+2415392	3411968	furnishing.n.02	http://object-naming-amore.upf.edu//2415392_3411968_singleton_obj.png	['pasteries', 'pastries']	['_notfound_pasteries', 'cake/0.04', 'pie/0.00', '_notfound_tablecloth', 'table/0.06', 'counter/0.06', '_notfound_pastries']	{}
+2387292	678394	woman.n.01	http://object-naming-amore.upf.edu//2387292_678394_singleton_obj.png	['boots']	['boots/0.05']	{}
+2350316	1712860	bridge.n.01	http://object-naming-amore.upf.edu//2350316_1712860_singleton_obj.png	['stairs', 'mountains']	['stairs/0.17', 'mountains/0.16', '_notfound_awning']	{'#occlusion': 3, '#bbox': 1}
+2345267	909539	furnishing.n.02	http://object-naming-amore.upf.edu//2345267_909539_seed_ambiguous.png	[]	['rug/0.18']	{'#occlusion': 1}
+2359643	2396530	ungulate.n.01	http://object-naming-amore.upf.edu//2359643_2396530_singleton_obj.png	[]	['_notfound_zebra']	{'#bbox': 1}
+2397859	430006	car.n.01	http://object-naming-amore.upf.edu//2397859_430006_supercat_unique.png	[]	['tie/0.03']	{'#bbox': 3}
+2323667	989074	furnishing.n.02	http://object-naming-amore.upf.edu//2323667_989074_singleton_obj.png	[]	['outlet/0.18', '_notfound_countertop', 'counter/0.06', 'sink/0.02']	{'#occlusion': 1}
+2356121	2029415	furnishing.n.02	http://object-naming-amore.upf.edu//2356121_2029415_supercat_unique.png	['shorts']	['chair/0.02', 'man/0.03', 'shorts/-0.02', 'sneaker/0.05']	{'#bbox': 1}
+2409314	1089047	shelter.n.01	http://object-naming-amore.upf.edu//2409314_1089047_supercat_unique.png	[]	['woman/0.17', '_notfound_tarp', 'lady/0.09', '_notfound_tentcover']	{'#occlusion': 1}
+2354367	2066240	foodstuff.n.02	http://object-naming-amore.upf.edu//2354367_2066240_singleton_obj.png	[]	['_notfound_rice', '_notfound_salad', '_notfound_dinner', '_notfound_rice mix']	{'#occlusion': 1, '#bbox': 1}
+2409493	240589	overgarment.n.01	http://object-naming-amore.upf.edu//2409493_240589_supercat_unique.png	[]	['_notfound_jacket', '_notfound_hand']	{'#bbox': 1}
+2331703	3367163	furnishing.n.02	http://object-naming-amore.upf.edu//2331703_3367163_singleton_obj.png	[]	['bench/0.06', 'deck/0.12', 'chair/0.02', 'fence/0.03']	{'#occlusion': 2}
+497971	1572388	dress.n.01	http://object-naming-amore.upf.edu//497971_1572388_supercat_unique.png	[]	['table/0.07']	{'#occlusion': 1, "#other_I don't know the name of the traditional garment the woman is wearing.": 1}
+2412842	2902788	foodstuff.n.02	http://object-naming-amore.upf.edu//2412842_2902788_supercat_unique.png	[]	['_notfound_doughnut', '_notfound_donut']	{'#bbox': 3}
+2322350	3095895	furnishing.n.02	http://object-naming-amore.upf.edu//2322350_3095895_singleton_obj.png	[]	['bear/0.04', 'couch/0.10']	{'#bbox': 2}
+2369513	743354	restaurant.n.01	http://object-naming-amore.upf.edu//2369513_743354_supercat_unique.png	[]	[]	{'#bbox': 7}
+2362102	777178	furnishing.n.02	http://object-naming-amore.upf.edu//2362102_777178_supercat_unique.png	[]	['bench/0.06']	{'#occlusion': 1}
+2350111	870104	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2350111_870104_supercat_ambiguous.png	[]	['_notfound_pot', '_notfound_pan', '_notfound_plate', '_notfound_bowl']	{'#occlusion': 1}
+2377150	567537	ungulate.n.01	http://object-naming-amore.upf.edu//2377150_567537_singleton_obj.png	[]	['_notfound_cow', '_notfound_statue']	{'#occlusion': 1}
+2331504	3493825	baked_goods.n.01	http://object-naming-amore.upf.edu//2331504_3493825_supercat_unique.png	[]	['_notfound_hot dog', '_notfound_sausage', '_notfound_hotdog', '_notfound_hotdog, sausage']	{'#occlusion': 1}
+2382426	539191	furnishing.n.02	http://object-naming-amore.upf.edu//2382426_539191_supercat_unique.png	[]	['table/0.06', '_notfound_ice cream sundae', '_notfound_ice cream', '_notfound_messy, sundae,']	{'#occlusion': 1}
+2347869	886708	dog.n.01	http://object-naming-amore.upf.edu//2347869_886708_supercat_unique.png	[]	[]	{'#bbox': 2}
+2402315	1137787	furnishing.n.02	http://object-naming-amore.upf.edu//2402315_1137787_supercat_unique.png	[]	['table/0.06']	{'#occlusion': 1}
+2373827	3076474	car.n.01	http://object-naming-amore.upf.edu//2373827_3076474_seed_ambiguous.png	[]	[]	{'#bbox': 1}
+2367865	2269007	furnishing.n.02	http://object-naming-amore.upf.edu//2367865_2269007_singleton_obj.png	[]	['bear/0.04', '_notfound_mattress', '_notfound_stuffed animal', '_notfound_bed, sheets, toy']	{'#occlusion': 1}
+2411063	317118	child.n.01	http://object-naming-amore.upf.edu//2411063_317118_supercat_ambiguous.png	[]	[]	{'#bbox': 2}
+2357816	808386	motorcycle.n.01	http://object-naming-amore.upf.edu//2357816_808386_singleton_obj.png	['motorcycles']	['_notfound_bike', '_notfound_motorcycle', '_notfound_motorcycles']	{'#bbox': 2}
+2410696	211506	foodstuff.n.02	http://object-naming-amore.upf.edu//2410696_211506_singleton_obj.png	[]	['_notfound_coleslaw', '_notfound_egg', '_notfound_sauerkraut', '_notfound_hot dog', '_notfound_food', '_notfound_rueben']	{'#occlusion': 2}
+2333456	3419481	child.n.01	http://object-naming-amore.upf.edu//2333456_3419481_singleton_obj.png	[]	['shirt/0.12']	{'#bbox': 1}
+2411028	1083624	bridge.n.01	http://object-naming-amore.upf.edu//2411028_1083624_singleton_obj.png	[]	['_notfound_parking lot']	{'#occlusion': 1}
+2366815	625805	furnishing.n.02	http://object-naming-amore.upf.edu//2366815_625805_singleton_obj.png	['cabinets', 'counters']	['cabinet/0.15', 'counter/0.06', 'counters/0.15']	{'#bbox': 1}
+2411384	312703	shirt.n.01	http://object-naming-amore.upf.edu//2411384_312703_supercat_unique.png	[]	['bear/0.08', 'person/0.16']	{'#occlusion': 3}
+1664	3637492	furnishing.n.02	http://object-naming-amore.upf.edu//1664_3637492_singleton_obj.png	[]	['desk/0.08', 'table/0.06']	{'#bbox': 1, '#occlusion': 1}
+2358607	800880	house.n.01	http://object-naming-amore.upf.edu//2358607_800880_singleton_obj.png	[]	[]	{'#occlusion': 2, '#bbox': 2}
+2356449	2170091	furnishing.n.02	http://object-naming-amore.upf.edu//2356449_2170091_singleton_obj.png	[]	['umbrella/0.05']	{'#bbox': 1}
+2369616	610486	furnishing.n.02	http://object-naming-amore.upf.edu//2369616_610486_supercat_unique.png	['legs']	['bench/0.06', 'legs/-0.03']	{'#occlusion': 1}
+2317320	1021951	woman.n.01	http://object-naming-amore.upf.edu//2317320_1021951_singleton_obj.png	[]	[]	{'#bbox': 1}
+2366572	627572	shirt.n.01	http://object-naming-amore.upf.edu//2366572_627572_supercat_unique.png	['teeth']	['mouth/0.18', 'teeth/0.18']	{'#occlusion': 2, '#bbox': 2}
+2385932	684954	furnishing.n.02	http://object-naming-amore.upf.edu//2385932_684954_singleton_obj.png	[]	['slide/0.02', 'rug/0.18']	{'#bbox': 5, '#occlusion': 1}
+2407628	276367	furnishing.n.02	http://object-naming-amore.upf.edu//2407628_276367_singleton_obj.png	[]	['chair/0.02', 'floor/0.19']	{'#occlusion': 1}
+2370503	2606715	woman.n.01	http://object-naming-amore.upf.edu//2370503_2606715_supercat_unique.png	[]	['coat/0.16', 'jacket/0.19']	{'#occlusion': 1}
+2346062	902885	foodstuff.n.02	http://object-naming-amore.upf.edu//2346062_902885_singleton_obj.png	[]	['_notfound_pizza', '_notfound_mushroom', '_notfound_salad', '_notfound_food', '_notfound_sauce', '_notfound_platter']	{'#occlusion': 1, '#bbox': 1}
+2406339	324929	shelter.n.01	http://object-naming-amore.upf.edu//2406339_324929_singleton_obj.png	[]	['dugout/0.12', '_notfound_baseball hat']	{'#occlusion': 1, '#bbox': 1}
+2361054	1993882	furnishing.n.02	http://object-naming-amore.upf.edu//2361054_1993882_singleton_obj.png	[]	['desk/0.08']	{'#other_keyboard': 1, '#occlusion': 1}
+2412800	2542229	house.n.01	http://object-naming-amore.upf.edu//2412800_2542229_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2405818	1106082	house.n.01	http://object-naming-amore.upf.edu//2405818_1106082_supercat_unique.png	[]	['_notfound_train station']	{'#bbox': 1}
+2414262	297827	athlete.n.01	http://object-naming-amore.upf.edu//2414262_297827_singleton_obj.png	['legs']	['leg/0.18', '_notfound_skiier', 'legs/0.17']	{'#bbox': 2}
+2384421	1309619	furnishing.n.02	http://object-naming-amore.upf.edu//2384421_1309619_supercat_unique.png	[]	['boy/0.01', 'ball/-0.02', 'banner/0.02']	{'#bbox': 3, '#occlusion': 1, '#other_is that a curtain of sorts?': 1}
+2415852	3100861	woman.n.01	http://object-naming-amore.upf.edu//2415852_3100861_seed_ambiguous.png	[]	['_notfound_hotdog']	{'#bbox': 2}
+2347473	2652879	furnishing.n.02	http://object-naming-amore.upf.edu//2347473_2652879_supercat_unique.png	[]	['dog/-0.00', 'chair/0.02', 'seat/0.03']	{'#bbox': 1}
+2400122	661056	furnishing.n.02	http://object-naming-amore.upf.edu//2400122_661056_supercat_unique.png	[]	['_notfound_hot dog', '_notfound_hot dogs', 'food/0.19']	{'#occlusion': 1, '#bbox': 2}
+2347829	3540812	aircraft.n.01	http://object-naming-amore.upf.edu//2347829_3540812_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2365629	3883230	man.n.01	http://object-naming-amore.upf.edu//2365629_3883230_singleton_obj.png	[]	['_notfound_skateboarder']	{'#bbox': 1}
+2382985	535893	foodstuff.n.02	http://object-naming-amore.upf.edu//2382985_535893_supercat_ambiguous.png	[]	['_notfound_pizza slice', '_notfound_pizza']	{'#bbox': 2}
+2345369	3180319	flower.n.01	http://object-naming-amore.upf.edu//2345369_3180319_seed_ambiguous.png	['flowers']	[]	{}
+2356334	2515457	bridge.n.01	http://object-naming-amore.upf.edu//2356334_2515457_singleton_obj.png	[]	['_notfound_skateboard']	{'#occlusion': 1, '#bbox': 1}
+2398023	1183801	furnishing.n.02	http://object-naming-amore.upf.edu//2398023_1183801_singleton_obj.png	[]	['rug/0.18', 'floor/0.19']	{'#occlusion': 1}
+2351108	3590559	furnishing.n.02	http://object-naming-amore.upf.edu//2351108_3590559_singleton_obj.png	[]	['table/0.06', 'orange/-0.01', 'mat/0.07', '_notfound_clementine']	{'#occlusion': 1, '#bbox': 1}
+2416390	3204602	car.n.01	http://object-naming-amore.upf.edu//2416390_3204602_seed_ambiguous.png	['cars']	[]	{}
+2340505	947184	vessel.n.03	http://object-naming-amore.upf.edu//2340505_947184_singleton_obj.png	[]	['shower/0.03', 'cat/0.11', 'bathtub/0.19', 'bath/0.13']	{'#occlusion': 1}
+2361483	781585	woman.n.01	http://object-naming-amore.upf.edu//2361483_781585_singleton_obj.png	[]	['sign/0.05']	{'#bbox': 1}
+713562	1585885	furnishing.n.02	http://object-naming-amore.upf.edu//713562_1585885_seed_ambiguous.png	['children']	['children/0.10']	{}
+2324771	2851831	furnishing.n.02	http://object-naming-amore.upf.edu//2324771_2851831_supercat_unique.png	[]	['keyboard/0.01', 'couch/0.10', 'man/0.03', 'woman/0.06']	{'#bbox': 2}
+2412741	3803307	headdress.n.01	http://object-naming-amore.upf.edu//2412741_3803307_supercat_unique.png	['feet']	['feet/0.10', 'car/0.08', '_notfound_car hood']	{'#bbox': 2, '#occlusion': 2}
+2337446	957562	furnishing.n.02	http://object-naming-amore.upf.edu//2337446_957562_supercat_unique.png	['girls', 'glasses']	['girls/0.07', 'glasses/-0.01', 'girl/0.03', 'curtain/0.04']	{'#occlusion': 1}
+2409199	246852	bridge.n.01	http://object-naming-amore.upf.edu//2409199_246852_supercat_unique.png	[]	['_notfound_guard rail', '_notfound_train bridge']	{'#bbox': 2, '#occlusion': 1}
+2391982	1235250	woman.n.01	http://object-naming-amore.upf.edu//2391982_1235250_singleton_obj.png	[]	['_notfound_doughnut']	{'#bbox': 2, '#occlusion': 1}
+2315775	2900337	man.n.01	http://object-naming-amore.upf.edu//2315775_2900337_singleton_obj.png	[]	[]	{'#bbox': 2}
+2411740	3813255	foodstuff.n.02	http://object-naming-amore.upf.edu//2411740_3813255_supercat_unique.png	[]	['_notfound_sandwich', '_notfound_dougnut', '_notfound_donut', '_notfound_food', '_notfound_breakfast']	{'#occlusion': 1}
+2417770	3286271	furnishing.n.02	http://object-naming-amore.upf.edu//2417770_3286271_seed_ambiguous.png	[]	['couch/0.10']	{'#bbox': 5}
+2354940	2189286	overgarment.n.01	http://object-naming-amore.upf.edu//2354940_2189286_singleton_obj.png	[]	['_notfound_jacket', '_notfound_man']	{'#bbox': 1}
+2364148	3740837	restaurant.n.01	http://object-naming-amore.upf.edu//2364148_3740837_singleton_obj.png	[]	[]	{'#bbox': 2}
+2370738	3856985	horse.n.01	http://object-naming-amore.upf.edu//2370738_3856985_singleton_obj.png	[]	[]	{'#occlusion': 4, '#other_very dark photo': 1, '#other_too dark, might be a horse?': 1}
+2377434	717723	furnishing.n.02	http://object-naming-amore.upf.edu//2377434_717723_supercat_unique.png	[]	['rug/0.18', 'floor/0.19']	{'#occlusion': 1}
+2320620	3001672	woman.n.01	http://object-naming-amore.upf.edu//2320620_3001672_singleton_obj.png	['women']	['bag/0.17']	{'#bbox': 4}
+2326704	981811	vessel.n.03	http://object-naming-amore.upf.edu//2326704_981811_supercat_unique.png	[]	['train/0.17']	{'#bbox': 3, '#occlusion': 1}
+2375710	3841573	furnishing.n.02	http://object-naming-amore.upf.edu//2375710_3841573_singleton_obj.png	[]	['couch/0.10']	{'#occlusion': 1}
+2378682	558249	furnishing.n.02	http://object-naming-amore.upf.edu//2378682_558249_singleton_obj.png	[]	['luggage/0.11', 'suitcase/0.03']	{'#bbox': 4}
+2355257	831251	furnishing.n.02	http://object-naming-amore.upf.edu//2355257_831251_singleton_obj.png	['appetizers']	['bun/-0.06', 'table/0.06', 'counter/0.06', '_notfound_appetizers']	{'#bbox': 2}
+285853	1569979	man.n.01	http://object-naming-amore.upf.edu//285853_1569979_supercat_unique.png	['glasses']	['glasses/0.07']	{}
+2330679	3322736	furnishing.n.02	http://object-naming-amore.upf.edu//2330679_3322736_singleton_obj.png	[]	['counter/0.06', 'sink/0.02']	{'#occlusion': 1, '#bbox': 1}
+2320101	3195531	shelter.n.01	http://object-naming-amore.upf.edu//2320101_3195531_singleton_obj.png	[]	['dugout/0.12', 'bench/0.05']	{'#occlusion': 1}
+2409049	2461773	furnishing.n.02	http://object-naming-amore.upf.edu//2409049_2461773_supercat_unique.png	['shirts']	['bench/0.06', 'shirts/0.04']	{'#occlusion': 1}
+2358211	805068	ungulate.n.01	http://object-naming-amore.upf.edu//2358211_805068_seed_ambiguous.png	['cows']	['_notfound_cow', '_notfound_cows']	{}
+2410323	220444	woman.n.01	http://object-naming-amore.upf.edu//2410323_220444_supercat_unique.png	[]	['phone/0.17']	{'#bbox': 1}
+2334356	3261702	man.n.01	http://object-naming-amore.upf.edu//2334356_3261702_supercat_unique.png	[]	['_notfound_laptop']	{'#occlusion': 1}
+2372223	593147	foodstuff.n.02	http://object-naming-amore.upf.edu//2372223_593147_singleton_obj.png	[]	['_notfound_rice']	{'#occlusion': 1}
+2325480	986260	train.n.01	http://object-naming-amore.upf.edu//2325480_986260_singleton_obj.png	[]	['_notfound_biker']	{'#occlusion': 2, '#bbox': 1}
+2386611	1284354	vessel.n.03	http://object-naming-amore.upf.edu//2386611_1284354_supercat_ambiguous.png	[]	['_notfound_blender', 'appliance/0.13', '_notfound_blender pitcher', '_notfound_food processor', '_notfound_blender jar']	{'#bbox': 2}
+2412436	3093987	baked_goods.n.01	http://object-naming-amore.upf.edu//2412436_3093987_supercat_unique.png	[]	['_notfound_pizza']	{'#bbox': 4}
+2388050	1270884	furnishing.n.02	http://object-naming-amore.upf.edu//2388050_1270884_singleton_obj.png	[]	['rug/0.18']	{'#occlusion': 1}
+2398823	1175302	ungulate.n.01	http://object-naming-amore.upf.edu//2398823_1175302_singleton_obj.png	[]	['_notfound_giraffe']	{'#occlusion': 1}
+2416117	3327195	dog.n.01	http://object-naming-amore.upf.edu//2416117_3327195_singleton_obj.png	[]	[]	{'#bbox': 1}
+2411440	311882	shelter.n.01	http://object-naming-amore.upf.edu//2411440_311882_supercat_unique.png	[]	['_notfound_awning', 'umbrella/0.19']	{'#occlusion': 2}
+2369364	3684976	man.n.01	http://object-naming-amore.upf.edu//2369364_3684976_supercat_unique.png	[]	['_notfound_bike', '_notfound_motorcycle']	{'#bbox': 4}
+2317069	1050519	furnishing.n.02	http://object-naming-amore.upf.edu//2317069_1050519_singleton_obj.png	[]	['couch/0.10', 'chair/0.02']	{'#occlusion': 1}
+2321774	2970221	foodstuff.n.02	http://object-naming-amore.upf.edu//2321774_2970221_singleton_obj.png	[]	['_notfound_pie', '_notfound_pizza', '_notfound_cheese', '_notfound_macaroni', '_notfound_macaroni and cheese']	{'#bbox': 2}
+2367150	1933795	shelter.n.01	http://object-naming-amore.upf.edu//2367150_1933795_supercat_unique.png	[]	['boy/0.09', 'dugout/0.12', 'bat/0.11']	{'#bbox': 2}
+2374013	729356	furnishing.n.02	http://object-naming-amore.upf.edu//2374013_729356_supercat_unique.png	[]	['dog/-0.00', 'cabinet/0.15']	{'#occlusion': 3, '#bbox': 1}
+2349297	3600003	child.n.01	http://object-naming-amore.upf.edu//2349297_3600003_supercat_ambiguous.png	['students', 'boys']	[]	{'#occlusion': 1, '#bbox': 4}
+2380872	1341503	woman.n.01	http://object-naming-amore.upf.edu//2380872_1341503_singleton_obj.png	['shorts']	['shorts/0.02']	{}
+2390095	1253946	bridge.n.01	http://object-naming-amore.upf.edu//2390095_1253946_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2344655	914141	furnishing.n.02	http://object-naming-amore.upf.edu//2344655_914141_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2345896	1951837	furnishing.n.02	http://object-naming-amore.upf.edu//2345896_1951837_singleton_obj.png	[]	['_notfound_pew', 'chair/0.02', 'bench/0.06']	{'#occlusion': 1}
+2417646	3315700	furnishing.n.02	http://object-naming-amore.upf.edu//2417646_3315700_singleton_obj.png	['cabinets', 'counters']	['sink/0.02', 'counter/0.06', 'cabinet/0.15', 'counters/0.15']	{'#bbox': 1, '#occlusion': 1}
+2318462	1010532	furnishing.n.02	http://object-naming-amore.upf.edu//2318462_1010532_singleton_obj.png	[]	['hand/0.09', 'plate/0.06']	{'#bbox': 5, '#occlusion': 1}
+2326863	1046349	overgarment.n.01	http://object-naming-amore.upf.edu//2326863_1046349_singleton_obj.png	[]	['_notfound_sandwich wrap', '_notfound_rice paper', '_notfound_sushi', '_notfound_lettuce', '_notfound_wrap']	{'#bbox': 1, '#occlusion': 1}
+2341334	2027039	vessel.n.03	http://object-naming-amore.upf.edu//2341334_2027039_supercat_ambiguous.png	[]	['plate/0.13', 'cake/0.08', 'dish/0.14']	{'#bbox': 2}
+2381758	1334222	hotel.n.01	http://object-naming-amore.upf.edu//2381758_1334222_singleton_obj.png	[]	['sign/0.07']	{'#occlusion': 1}
+2389676	503351	furnishing.n.02	http://object-naming-amore.upf.edu//2389676_503351_seed_ambiguous.png	['cabinets']	['cabinet/0.15', 'table/0.06', 'counter/0.06']	{}
+2393444	1219848	fish.n.01	http://object-naming-amore.upf.edu//2393444_1219848_supercat_unique.png	[]	['lemon/0.19', 'toast/0.04', '_notfound_breakfast, fruit, pastry']	{'#occlusion': 2, "#other_I can't tell what the food is: fish or bread?": 1}
+2354071	841183	foodstuff.n.02	http://object-naming-amore.upf.edu//2354071_841183_supercat_ambiguous.png	['toppings']	['_notfound_olive', '_notfound_pizza', '_notfound_toppings', '_notfound_food']	{}
+2350180	869651	furnishing.n.02	http://object-naming-amore.upf.edu//2350180_869651_singleton_obj.png	['curtains', 'drapes']	['curtain/0.04', 'curtains/0.19']	{'#occlusion': 1}
+4602	1560876	house.n.01	http://object-naming-amore.upf.edu//4602_1560876_singleton_obj.png	[]	[]	{'#occlusion': 1, '#bbox': 3}
+2416608	3363935	furnishing.n.02	http://object-naming-amore.upf.edu//2416608_3363935_singleton_obj.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2376325	3686010	foodstuff.n.02	http://object-naming-amore.upf.edu//2376325_3686010_supercat_ambiguous.png	['pizza toppings', 'toppings']	['_notfound_pizza', '_notfound_pizza toppings', '_notfound_cheese']	{}
+2321679	3307777	furnishing.n.02	http://object-naming-amore.upf.edu//2321679_3307777_supercat_unique.png	[]	['chair/0.02', 'shirt/-0.01', 'seat/0.03', 'uniform/0.12']	{'#occlusion': 1, '#bbox': 2}
+2388210	509356	furnishing.n.02	http://object-naming-amore.upf.edu//2388210_509356_singleton_obj.png	[]	['sink/0.02', 'counter/0.06']	{'#occlusion': 1, '#other_There are many things in the box.': 1, '#bbox': 3}
+2373180	2333161	robe.n.01	http://object-naming-amore.upf.edu//2373180_2333161_singleton_obj.png	[]	[]	{'#bbox': 2}
+2394323	1212487	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2394323_1212487_supercat_ambiguous.png	[]	['_notfound_cake', '_notfound_pie', '_notfound_plate', '_notfound_tray']	{'#occlusion': 4, '#bbox': 1}
+2390219	3828160	furnishing.n.02	http://object-naming-amore.upf.edu//2390219_3828160_supercat_unique.png	[]	['cat/0.01']	{'#bbox': 4, '#occlusion': 2}
+2344774	2700104	furnishing.n.02	http://object-naming-amore.upf.edu//2344774_2700104_supercat_unique.png	[]	['controller/-0.04']	{'#occlusion': 1, '#bbox': 5}
+2096	1546884	furnishing.n.02	http://object-naming-amore.upf.edu//2096_1546884_singleton_obj.png	['cabinets']	['cabinet/0.15', 'washer/0.14', 'counter/0.06']	{}
+2369810	1867909	furnishing.n.02	http://object-naming-amore.upf.edu//2369810_1867909_singleton_obj.png	[]	['cake/0.04', 'table/0.06']	{'#occlusion': 1}
+2400877	1154037	child.n.01	http://object-naming-amore.upf.edu//2400877_1154037_supercat_unique.png	[]	['cake/0.09']	{'#occlusion': 1}
+2342473	933742	restaurant.n.01	http://object-naming-amore.upf.edu//2342473_933742_singleton_obj.png	[]	['chair/0.05']	{'#occlusion': 1, '#bbox': 1}
+2365264	2289677	furnishing.n.02	http://object-naming-amore.upf.edu//2365264_2289677_singleton_obj.png	['cabinets', 'cupboards']	['counter/0.06', 'vanity/0.15']	{'#occlusion': 1}
+2344107	2791892	furnishing.n.02	http://object-naming-amore.upf.edu//2344107_2791892_singleton_obj.png	[]	['stove/0.20', 'oven/0.11']	{'#bbox': 3}
+2353672	2453174	furnishing.n.02	http://object-naming-amore.upf.edu//2353672_2453174_singleton_obj.png	[]	['desk/0.08']	{'#occlusion': 1}
+2375612	721582	dog.n.01	http://object-naming-amore.upf.edu//2375612_721582_singleton_obj.png	[]	['bush/0.20']	{'#occlusion': 2}
+2357727	3037329	shelter.n.01	http://object-naming-amore.upf.edu//2357727_3037329_singleton_obj.png	[]	['boy/0.09', 'bat/0.11', 'dugout/0.12', '_notfound_dugoout']	{'#bbox': 1}
+2317744	3363914	woman.n.01	http://object-naming-amore.upf.edu//2317744_3363914_singleton_obj.png	[]	['_notfound_frisbee']	{'#occlusion': 1}
+2345205	3382179	bird.n.01	http://object-naming-amore.upf.edu//2345205_3382179_singleton_obj.png	['birds']	['_notfound_seagull']	{}
+2328709	2867960	baked_goods.n.01	http://object-naming-amore.upf.edu//2328709_2867960_seed_ambiguous.png	[]	['_notfound_hotdog', '_notfound_hot dog', '_notfound_bun']	{'#bbox': 3}
+2320401	1049995	dress.n.01	http://object-naming-amore.upf.edu//2320401_1049995_singleton_obj.png	[]	['_notfound_deass']	{'#occlusion': 1}
+2334063	2928749	furnishing.n.02	http://object-naming-amore.upf.edu//2334063_2928749_singleton_obj.png	[]	['sign/0.06', 'bench/0.06']	{'#other_Sign? Fence? Not quite sure what that is': 1}
+2334601	3715915	shelter.n.01	http://object-naming-amore.upf.edu//2334601_3715915_supercat_unique.png	[]	['bat/0.11', 'dugout/0.12']	{'#occlusion': 1, '#bbox': 1}
+2408709	256469	shirt.n.01	http://object-naming-amore.upf.edu//2408709_256469_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2344898	912191	furnishing.n.02	http://object-naming-amore.upf.edu//2344898_912191_seed_ambiguous.png	[]	['couch/0.10']	{'#bbox': 1}
+2407483	278655	foodstuff.n.02	http://object-naming-amore.upf.edu//2407483_278655_singleton_obj.png	[]	['_notfound_rice pilaf', '_notfound_broccoli', '_notfound_rice']	{'#occlusion': 1}
+2339590	3237467	overgarment.n.01	http://object-naming-amore.upf.edu//2339590_3237467_singleton_obj.png	[]	['_notfound_sweater', '_notfound_phone', '_notfound_jacket']	{'#occlusion': 1}
+713004	1577513	male_child.n.01	http://object-naming-amore.upf.edu//713004_1577513_singleton_obj.png	['shoes']	['_notfound_boy', '_notfound_shoes', '_notfound_skateboarder', '_notfound_skater', '_notfound_kid']	{}
+107962	1566209	feline.n.01	http://object-naming-amore.upf.edu//107962_1566209_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2406872	2153405	man.n.01	http://object-naming-amore.upf.edu//2406872_2153405_supercat_ambiguous.png	[]	['hat/0.12']	{'#bbox': 1}
+2317629	1018995	car.n.01	http://object-naming-amore.upf.edu//2317629_1018995_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2349635	2103145	boat.n.01	http://object-naming-amore.upf.edu//2349635_2103145_singleton_obj.png	[]	[]	{'#bbox': 6}
+2336728	3923659	furnishing.n.02	http://object-naming-amore.upf.edu//2336728_3923659_singleton_obj.png	[]	['mouse/-0.02', 'desk/0.08']	{'#occlusion': 1, '#bbox': 1}
+498132	1039351	furnishing.n.02	http://object-naming-amore.upf.edu//498132_1039351_singleton_obj.png	[]	['bench/0.06', '_notfound_bech']	{'#bbox': 3}
+2316743	3242631	house.n.01	http://object-naming-amore.upf.edu//2316743_3242631_singleton_obj.png	[]	['_notfound_clock tower']	{'#bbox': 1}
+2386116	519771	furnishing.n.02	http://object-naming-amore.upf.edu//2386116_519771_singleton_obj.png	[]	['dog/-0.00']	{'#occlusion': 1, '#bbox': 1}
+2343177	926582	train.n.01	http://object-naming-amore.upf.edu//2343177_926582_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2347919	1745727	furnishing.n.02	http://object-naming-amore.upf.edu//2347919_1745727_singleton_obj.png	['construction materials', 'materials']	['table/0.06', 'counter/0.06', '_notfound_construction materials', '_notfound_countertop']	{'#bbox': 1}
+2410052	227198	shelter.n.01	http://object-naming-amore.upf.edu//2410052_227198_supercat_unique.png	[]	['ball/0.05', 'boy/0.09', '_notfound_dug out', 'dugout/0.12', 'bench/0.05', 'fence/0.16']	{'#bbox': 1}
+2344508	1043455	furnishing.n.02	http://object-naming-amore.upf.edu//2344508_1043455_supercat_unique.png	[]	['cup/0.01', 'table/0.06', 'desk/0.08']	{'#bbox': 1}
+2388332	674052	shelter.n.01	http://object-naming-amore.upf.edu//2388332_674052_singleton_obj.png	[]	['bat/0.11', 'dugout/0.12', 'bench/0.05']	{'#bbox': 1}
+2326193	983117	car.n.01	http://object-naming-amore.upf.edu//2326193_983117_singleton_obj.png	[]	['cow/0.18']	{'#other_could be car, or cow. :)': 1}
+2359224	1720984	shirt.n.01	http://object-naming-amore.upf.edu//2359224_1720984_singleton_obj.png	['hands']	['pizza/0.19']	{}
+2354884	1890122	baked_goods.n.01	http://object-naming-amore.upf.edu//2354884_1890122_singleton_obj.png	[]	['_notfound_cake']	{'#bbox': 1}
+2390490	496795	shelter.n.01	http://object-naming-amore.upf.edu//2390490_496795_supercat_unique.png	[]	['_notfound_giraffe', '_notfound_pavillion', 'overhang/0.15']	{'#occlusion': 2}
+2343598	921868	shirt.n.01	http://object-naming-amore.upf.edu//2343598_921868_seed_ambiguous.png	[]	['_notfound_hot dog', '_notfound_t-shirt']	{'#occlusion': 1}
+2389565	1259443	furnishing.n.02	http://object-naming-amore.upf.edu//2389565_1259443_supercat_unique.png	[]	['couch/0.10']	{'#occlusion': 1}
+2406713	291381	furnishing.n.02	http://object-naming-amore.upf.edu//2406713_291381_singleton_obj.png	[]	['_notfound_mattress']	{'#bbox': 2}
+2409382	242894	furnishing.n.02	http://object-naming-amore.upf.edu//2409382_242894_singleton_obj.png	[]	['desk/0.08', 'keyboard/0.01']	{'#occlusion': 1, '#bbox': 5}
+2345899	2944677	foodstuff.n.02	http://object-naming-amore.upf.edu//2345899_2944677_singleton_obj.png	['beans']	['_notfound_food', '_notfound_beans', '_notfound_dessert']	{'#occlusion': 1, '#bbox': 1}
+2380417	1346901	shelter.n.01	http://object-naming-amore.upf.edu//2380417_1346901_supercat_unique.png	[]	['dugout/0.12', 'bench/0.05', 'uniform/0.06']	{'#occlusion': 1}
+2340994	3351358	overgarment.n.01	http://object-naming-amore.upf.edu//2340994_3351358_singleton_obj.png	[]	['_notfound_coat', '_notfound_person', '_notfound_overcoat', '_notfound_dress']	{'#occlusion': 2}
+2341534	2369343	ungulate.n.01	http://object-naming-amore.upf.edu//2341534_2369343_seed_ambiguous.png	['giraffes']	['_notfound_giraffe', '_notfound_giraffes']	{}
+2410958	1084293	furnishing.n.02	http://object-naming-amore.upf.edu//2410958_1084293_singleton_obj.png	['beds']	[]	{}
+2376356	2327915	furnishing.n.02	http://object-naming-amore.upf.edu//2376356_2327915_singleton_obj.png	[]	['book/0.07', 'bookshelf/0.15']	{'#bbox': 4, '#occlusion': 1, '#other_bounding box is generalized... maybe bookcase?': 1}
+2372837	3731034	boat.n.01	http://object-naming-amore.upf.edu//2372837_3731034_singleton_obj.png	[]	[]	{'#occlusion': 2, '#bbox': 3}
+2360806	785807	woman.n.01	http://object-naming-amore.upf.edu//2360806_785807_singleton_obj.png	['legs', 'socks']	['legs/0.16', 'socks/0.10', 'tire/0.07']	{}
+2408042	269388	house.n.01	http://object-naming-amore.upf.edu//2408042_269388_supercat_unique.png	[]	['hat/0.13', 'man/0.20', 'kid/0.12']	{'#bbox': 4}
+2358717	1717945	housing.n.01	http://object-naming-amore.upf.edu//2358717_1717945_singleton_obj.png	['stairs']	['stairs/0.09']	{}
+2345214	2582260	neckwear.n.01	http://object-naming-amore.upf.edu//2345214_2582260_supercat_ambiguous.png	[]	['_notfound_girl', '_notfound_tie']	{'#bbox': 1, '#occlusion': 1}
+2353301	847417	furnishing.n.02	http://object-naming-amore.upf.edu//2353301_847417_seed_ambiguous.png	[]	['girl/0.03', 'chair/0.02', 'floor/0.19']	{'#occlusion': 1}
+2401166	401981	furnishing.n.02	http://object-naming-amore.upf.edu//2401166_401981_supercat_unique.png	['pants']	['_notfound_wheelchair', 'man/0.03', 'pants/0.07']	{}
+2391195	1242942	furnishing.n.02	http://object-naming-amore.upf.edu//2391195_1242942_singleton_obj.png	[]	['toilet/0.16', 'floor/0.19']	{'#occlusion': 1}
+2355429	1932078	dress.n.01	http://object-naming-amore.upf.edu//2355429_1932078_supercat_ambiguous.png	[]	['_notfound_toohbrush']	{'#occlusion': 6}
+2410465	216857	furnishing.n.02	http://object-naming-amore.upf.edu//2410465_216857_supercat_unique.png	[]	['bottle/0.03', 'woman/0.06', 'shirt/-0.01']	{'#bbox': 1}
+2360623	2664149	car.n.01	http://object-naming-amore.upf.edu//2360623_2664149_singleton_obj.png	['cars']	[]	{}
+2364515	3738161	woman.n.01	http://object-naming-amore.upf.edu//2364515_3738161_supercat_ambiguous.png	[]	[]	{'#bbox': 1}
+2366527	754063	furnishing.n.02	http://object-naming-amore.upf.edu//2366527_754063_seed_ambiguous.png	['curtains', 'flowers']	['flower/0.15', 'plant/0.05', 'curtain/0.04', 'curtains/0.19', 'flowers/0.11']	{}
+2342939	2410706	man.n.01	http://object-naming-amore.upf.edu//2342939_2410706_supercat_unique.png	[]	['watch/0.05']	{'#occlusion': 1}
+2417158	1057523	furnishing.n.02	http://object-naming-amore.upf.edu//2417158_1057523_singleton_obj.png	[]	['keyboard/0.01', 'desk/0.08', '_notfound_tabletop']	{'#occlusion': 1}
+2364351	2142707	aircraft.n.01	http://object-naming-amore.upf.edu//2364351_2142707_singleton_obj.png	[]	[]	{'#bbox': 2}
+2395809	2487569	restaurant.n.01	http://object-naming-amore.upf.edu//2395809_2487569_supercat_unique.png	[]	[]	{'#bbox': 1, '#occlusion': 3}
+2356153	823003	furnishing.n.02	http://object-naming-amore.upf.edu//2356153_823003_supercat_unique.png	[]	['dog/-0.00', 'bench/0.06', '_notfound_picnic table']	{'#occlusion': 2, '#bbox': 1}
+2407564	277417	dish.n.02	http://object-naming-amore.upf.edu//2407564_277417_singleton_obj.png	[]	[]	{'#bbox': 1}
+2411746	211326	shirt.n.01	http://object-naming-amore.upf.edu//2411746_211326_supercat_unique.png	[]	[]	{'#bbox': 2}
+2317570	1019619	furnishing.n.02	http://object-naming-amore.upf.edu//2317570_1019619_supercat_unique.png	[]	['desk/0.08', 'tail/-0.11', 'table/0.06']	{'#occlusion': 1}
+2356868	2015003	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2356868_2015003_seed_ambiguous.png	['tongs']	['_notfound_tongs', '_notfound_sandwich press', '_notfound_garlic press', '_notfound_utensil']	{'#other_I have no idea what this is... mini pancake maker?': 1, '#bbox': 2}
+2377372	1797916	bird.n.01	http://object-naming-amore.upf.edu//2377372_1797916_singleton_obj.png	['spectators']	['crowd/0.09', 'stands/0.07', 'spectators/0.14']	{'#occlusion': 1, '#bbox': 3}
+2401193	1150534	furnishing.n.02	http://object-naming-amore.upf.edu//2401193_1150534_singleton_obj.png	['sheets']	['sheets/0.17', 'blanket/0.12']	{'#bbox': 2}
+2410579	214296	woman.n.01	http://object-naming-amore.upf.edu//2410579_214296_singleton_obj.png	['shoes']	['shoes/0.10', '_notfound_tennis player']	{}
+3163	1651096	truck.n.01	http://object-naming-amore.upf.edu//3163_1651096_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2333656	3445110	furnishing.n.02	http://object-naming-amore.upf.edu//2333656_3445110_singleton_obj.png	[]	['sink/0.02', 'counter/0.06', '_notfound_countertop']	{'#occlusion': 1, '#bbox': 1}
+2323312	3433647	shirt.n.01	http://object-naming-amore.upf.edu//2323312_3433647_singleton_obj.png	[]	['watch/0.12']	{'#occlusion': 1}
+2386404	682325	furnishing.n.02	http://object-naming-amore.upf.edu//2386404_682325_singleton_obj.png	[]	['bench/0.06']	{'#bbox': 2}
+2403710	350410	woman.n.01	http://object-naming-amore.upf.edu//2403710_350410_singleton_obj.png	[]	['_notfound_swimmer']	{'#bbox': 2}
+2394132	466872	boat.n.01	http://object-naming-amore.upf.edu//2394132_466872_seed_ambiguous.png	[]	['man/0.14', '_notfound_kayak', '_notfound_life jacket']	{'#bbox': 1}
+2332560	2946319	vessel.n.03	http://object-naming-amore.upf.edu//2332560_2946319_singleton_obj.png	[]	['broccoli/-0.00', 'dish/0.14', 'bowl/0.06', 'pot/0.09']	{'#occlusion': 1}
+2337324	958145	car.n.01	http://object-naming-amore.upf.edu//2337324_958145_singleton_obj.png	[]	['_notfound_dor']	{'#occlusion': 1}
+2364720	1779527	vegetable.n.01	http://object-naming-amore.upf.edu//2364720_1779527_singleton_obj.png	['potatoes', 'vegetables']	[]	{'#bbox': 2, '#bbox_multiple objects': 1}
+2320806	3123629	furnishing.n.02	http://object-naming-amore.upf.edu//2320806_3123629_singleton_obj.png	[]	['cat/0.01', 'couch/0.10', '_notfound_loveseat']	{'#occlusion': 1}
+2389979	1255193	motorcycle.n.01	http://object-naming-amore.upf.edu//2389979_1255193_singleton_obj.png	[]	['_notfound_motorcycle']	{'#occlusion': 1}
+2395473	454230	dog.n.01	http://object-naming-amore.upf.edu//2395473_454230_supercat_unique.png	[]	['_notfound_dog bed']	{'#bbox': 1}
+2400827	1154569	dish.n.02	http://object-naming-amore.upf.edu//2400827_1154569_supercat_unique.png	[]	['_notfound_baking sheet']	{'#occlusion': 1}
+2397795	1186388	furnishing.n.02	http://object-naming-amore.upf.edu//2397795_1186388_seed_ambiguous.png	[]	['cane/0.03', 'chair/0.02']	{'#occlusion': 1}
+2352165	3784415	horse.n.01	http://object-naming-amore.upf.edu//2352165_3784415_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2343861	3695579	man.n.01	http://object-naming-amore.upf.edu//2343861_3695579_seed_ambiguous.png	[]	['tie/0.09']	{'#occlusion': 1}
+2368638	2245454	furnishing.n.02	http://object-naming-amore.upf.edu//2368638_2245454_singleton_obj.png	['cabinets']	['cabinet/0.15']	{'#bbox': 1, '#occlusion': 1}
+2393634	471057	bridge.n.01	http://object-naming-amore.upf.edu//2393634_471057_supercat_unique.png	[]	[]	{'#occlusion': 2, '#other_I think it is an elevated train track but I am not sure.': 1}
+2407694	275139	furnishing.n.02	http://object-naming-amore.upf.edu//2407694_275139_supercat_unique.png	[]	['counter/0.06', '_notfound_countertop']	{'#occlusion': 1, '#bbox': 1}
+2373203	2174925	shirt.n.01	http://object-naming-amore.upf.edu//2373203_2174925_supercat_unique.png	[]	['pizza/0.19', 'woman/0.16']	{'#bbox': 2}
+4925	1564650	furnishing.n.02	http://object-naming-amore.upf.edu//4925_1564650_seed_ambiguous.png	[]	['chair/0.02', 'bench/0.06', 'counter/0.06', 'island/0.02', 'bar/0.05']	{'#bbox': 1}
+2412620	190448	shirt.n.01	http://object-naming-amore.upf.edu//2412620_190448_singleton_obj.png	['hands']	[]	{}
+2364413	2234651	lamp.n.01	http://object-naming-amore.upf.edu//2364413_2234651_supercat_ambiguous.png	[]	['_notfound_compuet', '_notfound_laptop']	{'#bbox': 3}
+2388058	1270802	shirt.n.01	http://object-naming-amore.upf.edu//2388058_1270802_supercat_unique.png	[]	['_notfound_laptop']	{'#bbox': 1}
+2321134	1048571	dish.n.02	http://object-naming-amore.upf.edu//2321134_1048571_singleton_obj.png	['carrots']	[]	{'#bbox': 3}
+2364534	2578011	furnishing.n.02	http://object-naming-amore.upf.edu//2364534_2578011_singleton_obj.png	['computers']	['desk/0.08', 'table/0.06', 'computers/0.19']	{'#occlusion': 1, '#bbox': 2}
+2408057	269105	furnishing.n.02	http://object-naming-amore.upf.edu//2408057_269105_singleton_obj.png	['donuts']	['_notfound_donut', '_notfound_dougnut', '_notfound_donuts']	{'#occlusion': 2, '#bbox': 1}
+2367243	1754600	shirt.n.01	http://object-naming-amore.upf.edu//2367243_1754600_singleton_obj.png	[]	['_notfound_doughnut', '_notfound_donut']	{'#occlusion': 1, '#bbox': 1}
+2380973	708227	creator.n.02	http://object-naming-amore.upf.edu//2380973_708227_supercat_unique.png	[]	['man/0.08', '_notfound_cameraman', 'person/0.13', 'shirt/0.13']	{'#occlusion': 1}
+2404019	346997	furnishing.n.02	http://object-naming-amore.upf.edu//2404019_346997_supercat_unique.png	['legs']	['table/0.06', 'legs/-0.03']	{'#bbox': 3, '#occlusion': 1}
+2394178	1213637	furnishing.n.02	http://object-naming-amore.upf.edu//2394178_1213637_supercat_unique.png	[]	['cushion/0.07', 'pillow/0.13', 'cat/0.01']	{'#occlusion': 1, '#bbox': 1}
+2360765	786098	furnishing.n.02	http://object-naming-amore.upf.edu//2360765_786098_seed_ambiguous.png	['legs']	['floor/0.19', 'legs/-0.03']	{'#bbox': 5, '#occlusion': 2}
+2351855	857737	horse.n.01	http://object-naming-amore.upf.edu//2351855_857737_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2407698	275089	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2407698_275089_supercat_ambiguous.png	['vegetables']	['_notfound_pot', '_notfound_bowl', '_notfound_vegetables']	{}
+2354101	2531050	vessel.n.03	http://object-naming-amore.upf.edu//2354101_2531050_supercat_ambiguous.png	[]	['plate/0.13', 'bowl/0.06', 'dish/0.14']	{'#occlusion': 1}
+2334362	3004234	furnishing.n.02	http://object-naming-amore.upf.edu//2334362_3004234_supercat_unique.png	[]	['desk/0.08', '_notfound_laptop']	{'#occlusion': 1}
+2384184	692456	ungulate.n.01	http://object-naming-amore.upf.edu//2384184_692456_singleton_obj.png	[]	['_notfound_giraffe']	{'#bbox': 2}
+2392893	1224947	furnishing.n.02	http://object-naming-amore.upf.edu//2392893_1224947_singleton_obj.png	[]	['rug/0.18', 'floor/0.19']	{'#occlusion': 1}
+2386772	1282641	furnishing.n.02	http://object-naming-amore.upf.edu//2386772_1282641_seed_ambiguous.png	['curtains']	['curtain/0.04', 'curtains/0.19', 'arch/0.07']	{'#occlusion': 1}
+2372985	2282991	furnishing.n.02	http://object-naming-amore.upf.edu//2372985_2282991_supercat_unique.png	[]	['floor/0.19', 'chair/0.02']	{'#occlusion': 1, '#bbox': 1}
+2396293	445967	motorcycle.n.01	http://object-naming-amore.upf.edu//2396293_445967_singleton_obj.png	[]	['_notfound_motorcycle']	{'#occlusion': 1}
+2351423	2456713	furnishing.n.02	http://object-naming-amore.upf.edu//2351423_2456713_singleton_obj.png	[]	['table/0.06', 'counter/0.06', 'banana/-0.04']	{'#occlusion': 3}
+2361619	2352057	furnishing.n.02	http://object-naming-amore.upf.edu//2361619_2352057_singleton_obj.png	[]	['_notfound_motorcycle', 'table/0.06']	{'#bbox': 5, '#occlusion': 2}
+2371785	2506819	kitchen_utensil.n.01	http://object-naming-amore.upf.edu//2371785_2506819_supercat_ambiguous.png	[]	['_notfound_blender', '_notfound_glass', '_notfound_personal blender']	{'#other_I have no idea what this is': 1, '#occlusion': 1}
+2335053	3672134	woman.n.01	http://object-naming-amore.upf.edu//2335053_3672134_singleton_obj.png	[]	['uniform/0.06']	{'#occlusion': 1}
+2352271	2622917	furnishing.n.02	http://object-naming-amore.upf.edu//2352271_2622917_seed_ambiguous.png	[]	['controller/-0.04', 'floor/0.19', 'rug/0.18', 'arm/-0.01']	{'#occlusion': 1}
+2341321	943874	shirt.n.01	http://object-naming-amore.upf.edu//2341321_943874_singleton_obj.png	[]	['_notfound_chef jacket']	{'#bbox': 1, '#occlusion': 1}
+2338055	3703577	furnishing.n.02	http://object-naming-amore.upf.edu//2338055_3703577_singleton_obj.png	[]	['floor/0.19', 'table/0.06']	{'#occlusion': 1, "#other_is this a table? just the floor? carpet? can't really tell": 1}
+2391713	486858	furnishing.n.02	http://object-naming-amore.upf.edu//2391713_486858_singleton_obj.png	['curtains', 'flowers']	['flower/0.15', 'curtain/0.04', 'curtains/0.19', 'flowers/0.11']	{'#occlusion': 1, '#bbox': 1}
+2400212	1161595	furnishing.n.02	http://object-naming-amore.upf.edu//2400212_1161595_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1}
+2402171	392145	vegetable.n.01	http://object-naming-amore.upf.edu//2402171_392145_singleton_obj.png	['greens']	['_notfound_lettuce', '_notfound_lettace', 'leaves/0.20']	{'#occlusion': 1}
+2414834	151015	vessel.n.03	http://object-naming-amore.upf.edu//2414834_151015_supercat_unique.png	[]	['boy/0.08', 'toilet/0.15']	{'#occlusion': 1}
+2386114	3845229	motorcycle.n.01	http://object-naming-amore.upf.edu//2386114_3845229_supercat_ambiguous.png	[]	['_notfound_motorcycle', '_notfound_motocycle']	{'#bbox': 1}
+2410848	319694	dog.n.01	http://object-naming-amore.upf.edu//2410848_319694_singleton_obj.png	[]	[]	{'#bbox': 1}
+2316693	2821243	truck.n.01	http://object-naming-amore.upf.edu//2316693_2821243_seed_ambiguous.png	[]	['_notfound_fire truck']	{'#bbox': 3}
+2380651	544287	furnishing.n.02	http://object-naming-amore.upf.edu//2380651_544287_singleton_obj.png	[]	['wheel/0.02', 'chair/0.02', '_notfound_chait']	{'#occlusion': 2}
+2414017	161460	motorcycle.n.01	http://object-naming-amore.upf.edu//2414017_161460_supercat_ambiguous.png	[]	['_notfound_cat', '_notfound_motorcycle', '_notfound_scooter']	{'#bbox': 1}
+2383866	1315970	baked_goods.n.01	http://object-naming-amore.upf.edu//2383866_1315970_supercat_unique.png	[]	['_notfound_bread', '_notfound_sandwhich', '_notfound_sandwich']	{'#bbox': 1}
+2369509	743365	train.n.01	http://object-naming-amore.upf.edu//2369509_743365_singleton_obj.png	[]	['chair/0.10', 'seat/0.15']	{'#bbox': 6}
+2409016	1092393	man.n.01	http://object-naming-amore.upf.edu//2409016_1092393_singleton_obj.png	['shorts']	['shorts/0.07', '_notfound_soccer player', '_notfound_footballer']	{}
+2356623	2144019	car.n.01	http://object-naming-amore.upf.edu//2356623_2144019_singleton_obj.png	[]	['_notfound_tram']	{'#occlusion': 1}
+2363229	766884	shelter.n.01	http://object-naming-amore.upf.edu//2363229_766884_supercat_unique.png	[]	['man/0.09', '_notfound_tent top']	{'#bbox': 2}
+2361816	2220050	vegetable.n.01	http://object-naming-amore.upf.edu//2361816_2220050_seed_ambiguous.png	['vegetables']	['_notfound_rhubarb', '_notfound_celary', 'bundle/0.04', 'stems/0.14']	{'#other_not sure what food this is': 1}
+2377991	562753	furnishing.n.02	http://object-naming-amore.upf.edu//2377991_562753_singleton_obj.png	[]	['bench/0.06']	{'#occlusion': 1}
+2375675	721357	shirt.n.01	http://object-naming-amore.upf.edu//2375675_721357_supercat_unique.png	['scissors']	[]	{'#occlusion': 1}
+2417210	3480473	furnishing.n.02	http://object-naming-amore.upf.edu//2417210_3480473_seed_ambiguous.png	[]	['counter/0.06', 'table/0.06', 'shelf/0.09', 'desk/0.08']	{'#occlusion': 3, '#bbox': 1}
+2357995	2021411	bridge.n.01	http://object-naming-amore.upf.edu//2357995_2021411_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2366500	1812869	furnishing.n.02	http://object-naming-amore.upf.edu//2366500_1812869_seed_ambiguous.png	[]	['floor/0.19']	{'#occlusion': 1, '#bbox': 1}
+2345550	907048	flower.n.01	http://object-naming-amore.upf.edu//2345550_907048_singleton_obj.png	['flowers']	['_notfound_bouqet']	{'#bbox': 1}
+2363539	3214354	bridge.n.01	http://object-naming-amore.upf.edu//2363539_3214354_supercat_unique.png	[]	['_notfound_overpass', 'overhang/0.14']	{'#occlusion': 1, '#bbox': 1}
+2339372	3345758	dish.n.02	http://object-naming-amore.upf.edu//2339372_3345758_singleton_obj.png	['vegetables']	[]	{}
+2346677	3615766	car.n.01	http://object-naming-amore.upf.edu//2346677_3615766_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2401821	1143718	vessel.n.03	http://object-naming-amore.upf.edu//2401821_1143718_singleton_obj.png	[]	['bowl/0.06', 'food/0.09', '_notfound_appetizer']	{'#bbox': 1}
+2343743	2067224	feline.n.01	http://object-naming-amore.upf.edu//2343743_2067224_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2381029	1340002	house.n.01	http://object-naming-amore.upf.edu//2381029_1340002_supercat_unique.png	[]	['train/0.13', '_notfound_train station']	{'#occlusion': 1}
+2407613	276587	furnishing.n.02	http://object-naming-amore.upf.edu//2407613_276587_singleton_obj.png	['arms']	['couch/0.10', '_notfound_futon', 'arms/0.10']	{'#occlusion': 1}
+2354378	1869003	furnishing.n.02	http://object-naming-amore.upf.edu//2354378_1869003_singleton_obj.png	['pajamas']	['kid/-0.01', 'boy/0.01', 'towel/0.03', 'pajamas/0.09']	{'#bbox': 5}
+1920	1645080	shirt.n.01	http://object-naming-amore.upf.edu//1920_1645080_singleton_obj.png	[]	['hand/0.19', 'thumb/0.15']	{'#bbox': 2, '#occlusion': 1}
+2412014	204700	lamp.n.01	http://object-naming-amore.upf.edu//2412014_204700_supercat_ambiguous.png	[]	[]	{'#occlusion': 1}
+2328920	975679	furnishing.n.02	http://object-naming-amore.upf.edu//2328920_975679_singleton_obj.png	[]	['_notfound_hospital bed']	{'#occlusion': 1}
+2393765	1217152	man.n.01	http://object-naming-amore.upf.edu//2393765_1217152_supercat_unique.png	[]	[]	{'#bbox': 1}
+2354541	2153337	furnishing.n.02	http://object-naming-amore.upf.edu//2354541_2153337_seed_ambiguous.png	['cabinets', 'counters']	['kid/-0.01', 'boy/0.01', '_notfound_kitchen counter', 'counters/0.15', 'child/0.10']	{'#bbox': 2}
+2396294	1199158	furnishing.n.02	http://object-naming-amore.upf.edu//2396294_1199158_singleton_obj.png	[]	['table/0.06']	{'#occlusion': 1}
+2355011	2427751	furnishing.n.02	http://object-naming-amore.upf.edu//2355011_2427751_singleton_obj.png	[]	['curtain/0.04', '_notfound_shower curtain']	{'#occlusion': 1}
+2409756	648547	male_child.n.01	http://object-naming-amore.upf.edu//2409756_648547_singleton_obj.png	[]	['_notfound_kid', '_notfound_boy', '_notfound_toddler']	{'#bbox': 1}
+2335043	2588110	dish.n.02	http://object-naming-amore.upf.edu//2335043_2588110_seed_ambiguous.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2374147	728552	furnishing.n.02	http://object-naming-amore.upf.edu//2374147_728552_supercat_unique.png	['boxes']	['desk/0.08', '_notfound_desktop', 'boxes/0.10']	{'#occlusion': 1}
+2353840	3576478	furnishing.n.02	http://object-naming-amore.upf.edu//2353840_3576478_seed_ambiguous.png	['clothes']	['floor/0.19', 'baby/0.10']	{'#occlusion': 1, '#bbox': 1}
+2402096	392765	truck.n.01	http://object-naming-amore.upf.edu//2402096_392765_seed_ambiguous.png	['legs']	['legs/0.12']	{'#occlusion': 2}
+2346780	2163604	bridge.n.01	http://object-naming-amore.upf.edu//2346780_2163604_supercat_unique.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2316370	3394497	aircraft.n.01	http://object-naming-amore.upf.edu//2316370_3394497_seed_ambiguous.png	[]	[]	{'#bbox': 1}
+2376004	3688190	housing.n.01	http://object-naming-amore.upf.edu//2376004_3688190_singleton_obj.png	[]	['_notfound_street sign']	{'#occlusion': 1}
+1039	1638222	furnishing.n.02	http://object-naming-amore.upf.edu//1039_1638222_singleton_obj.png	[]	['counter/0.06', '_notfound_concession stand', 'display/0.18']	{'#bbox': 1}
+2345007	2325694	crockery.n.01	http://object-naming-amore.upf.edu//2345007_2325694_singleton_obj.png	[]	['_notfound_plate', '_notfound_sandwich']	{'#bbox': 1}
+2329944	3724011	horse.n.01	http://object-naming-amore.upf.edu//2329944_3724011_seed_ambiguous.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2367828	1682868	furnishing.n.02	http://object-naming-amore.upf.edu//2367828_1682868_seed_ambiguous.png	[]	['bench/0.06']	{'#occlusion': 1, '#bbox': 2}
+2380042	1351410	furnishing.n.02	http://object-naming-amore.upf.edu//2380042_1351410_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1}
+2364066	643164	baked_goods.n.01	http://object-naming-amore.upf.edu//2364066_643164_supercat_unique.png	[]	['_notfound_hotdog', '_notfound_hot dog', '_notfound_bun', '_notfound_bread']	{'#bbox': 1}
+2392286	481442	furnishing.n.02	http://object-naming-amore.upf.edu//2392286_481442_seed_ambiguous.png	[]	['couch/0.10']	{'#occlusion': 1, '#bbox': 3}
+2385002	690265	horse.n.01	http://object-naming-amore.upf.edu//2385002_690265_supercat_unique.png	[]	['_notfound_toy horse']	{'#occlusion': 1}
+2415509	2951037	furnishing.n.02	http://object-naming-amore.upf.edu//2415509_2951037_singleton_obj.png	[]	['table/0.06']	{'#occlusion': 1}
+2408442	365157	shelter.n.01	http://object-naming-amore.upf.edu//2408442_365157_supercat_unique.png	[]	['bench/0.05', '_notfound_bus stop', '_notfound_bus shelter']	{'#occlusion': 2, '#bbox': 3}
+2355503	829034	shirt.n.01	http://object-naming-amore.upf.edu//2355503_829034_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2358784	2077226	furnishing.n.02	http://object-naming-amore.upf.edu//2358784_2077226_singleton_obj.png	[]	['display/0.18', 'counter/0.06']	{'#bbox': 4, '#occlusion': 1}
+2377235	2088112	furnishing.n.02	http://object-naming-amore.upf.edu//2377235_2088112_seed_ambiguous.png	[]	['couch/0.10', 'floor/0.19']	{'#occlusion': 1}
+2357210	2386874	woman.n.01	http://object-naming-amore.upf.edu//2357210_2386874_supercat_ambiguous.png	[]	['bag/0.17']	{'#occlusion': 1}
+2350993	1977910	truck.n.01	http://object-naming-amore.upf.edu//2350993_1977910_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2368733	2616939	footwear.n.01	http://object-naming-amore.upf.edu//2368733_2616939_supercat_unique.png	[]	['hose/0.13']	{'#occlusion': 1}
+2340819	2914843	foodstuff.n.02	http://object-naming-amore.upf.edu//2340819_2914843_supercat_ambiguous.png	['macaroni', 'vegetables']	['_notfound_macaroni', '_notfound_vegetables', '_notfound_pasta']	{'#bbox': 3}
+2375926	1913402	furnishing.n.02	http://object-naming-amore.upf.edu//2375926_1913402_singleton_obj.png	[]	['rug/0.18']	{'#occlusion': 1}
+2374044	3722902	bridge.n.01	http://object-naming-amore.upf.edu//2374044_3722902_seed_ambiguous.png	[]	['_notfound_underpass', '_notfound_overpass']	{'#occlusion': 1, '#bbox': 5}
+2376489	2468308	furnishing.n.02	http://object-naming-amore.upf.edu//2376489_2468308_supercat_unique.png	[]	['_notfound_laptop', 'table/0.06', 'computer/0.18']	{'#occlusion': 1, '#bbox': 1}
+2318452	3142160	crockery.n.01	http://object-naming-amore.upf.edu//2318452_3142160_supercat_unique.png	[]	['_notfound_plate', '_notfound_dinner']	{'#occlusion': 1}
+2324001	2705489	furnishing.n.02	http://object-naming-amore.upf.edu//2324001_2705489_supercat_unique.png	[]	['table/0.06']	{'#occlusion': 1}
+2396768	1195255	furnishing.n.02	http://object-naming-amore.upf.edu//2396768_1195255_singleton_obj.png	[]	['rug/0.18', 'computer/0.18', '_notfound_sheepskin rug', 'fur/0.04', '_notfound_laptop']	{'#bbox': 1, '#occlusion': 1}
+2392524	1228962	furnishing.n.02	http://object-naming-amore.upf.edu//2392524_1228962_singleton_obj.png	['pastries']	['cake/0.04', 'table/0.06', 'counter/0.06', '_notfound_pastries']	{'#occlusion': 1, '#bbox': 2}
+2347874	886643	man.n.01	http://object-naming-amore.upf.edu//2347874_886643_singleton_obj.png	['shorts']	['shorts/0.07']	{}
+2362823	770811	baked_goods.n.01	http://object-naming-amore.upf.edu//2362823_770811_supercat_unique.png	['apples']	['_notfound_bun', '_notfound_pastry', '_notfound_food', '_notfound_sandwich', '_notfound_apples']	{'#other_not sure what the food is': 1}
+2340694	2853967	furnishing.n.02	http://object-naming-amore.upf.edu//2340694_2853967_supercat_unique.png	[]	['table/0.06', '_notfound_tablecloth']	{'#occlusion': 1}
+2342576	3646640	dress.n.01	http://object-naming-amore.upf.edu//2342576_3646640_supercat_unique.png	[]	['_notfound_cupcake']	{'#occlusion': 1, '#bbox': 1}
+2380432	1346698	furnishing.n.02	http://object-naming-amore.upf.edu//2380432_1346698_singleton_obj.png	['cabinets']	['oven/0.11', 'cabinet/0.15', 'counter/0.06', 'bar/0.05', 'range/0.07']	{}
+2362603	1770309	tool.n.01	http://object-naming-amore.upf.edu//2362603_1770309_singleton_obj.png	[]	['knife/0.17', '_notfound_cutting board']	{'#occlusion': 1}
+2342282	2806052	ungulate.n.01	http://object-naming-amore.upf.edu//2342282_2806052_singleton_obj.png	['giraffes']	['_notfound_giraffe', '_notfound_giraffes']	{}
+2390760	1247419	vessel.n.03	http://object-naming-amore.upf.edu//2390760_1247419_supercat_ambiguous.png	[]	['_notfound_tin foil', '_notfound_cake stand', '_notfound_lazy susan', 'tray/0.14', 'pedestal/0.06', 'foil/0.05', 'bowl/0.06']	{'#occlusion': 1}
+2368142	747942	furnishing.n.02	http://object-naming-amore.upf.edu//2368142_747942_singleton_obj.png	[]	['table/0.06', '_notfound_takeout']	{'#occlusion': 1, '#bbox': 4}
+2365545	1838687	feline.n.01	http://object-naming-amore.upf.edu//2365545_1838687_singleton_obj.png	[]	[]	{'#bbox': 2}
+2390265	1252201	furnishing.n.02	http://object-naming-amore.upf.edu//2390265_1252201_seed_ambiguous.png	['counters']	['counter/0.06', 'man/0.03', 'counters/0.15', 'shirt/-0.01']	{'#occlusion': 1, '#bbox': 3}
+2355971	824871	furnishing.n.02	http://object-naming-amore.upf.edu//2355971_824871_seed_ambiguous.png	['curtains']	['curtain/0.04', '_notfound_dor', 'wall/0.12', 'curtains/0.19', 'door/0.11', '_notfound_shower curtain']	{}
+2369321	612295	bridge.n.01	http://object-naming-amore.upf.edu//2369321_612295_singleton_obj.png	[]	['_notfound_overpass']	{'#occlusion': 1, '#bbox': 2}
+2405328	333000	man.n.01	http://object-naming-amore.upf.edu//2405328_333000_seed_ambiguous.png	[]	['phone/0.08']	{'#occlusion': 1, '#bbox': 1}
+2391226	1242644	ship.n.01	http://object-naming-amore.upf.edu//2391226_1242644_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2351790	1700796	bird.n.01	http://object-naming-amore.upf.edu//2351790_1700796_supercat_unique.png	['herbs']	['bowl/0.13', 'herbs/0.20']	{'#bbox': 4, '#occlusion': 1}
+2403846	348768	overgarment.n.01	http://object-naming-amore.upf.edu//2403846_348768_singleton_obj.png	['pastries']	['_notfound_jacket', '_notfound_pastries']	{'#other_not sure what the food is': 1, '#occlusion': 5, '#bbox': 1}
+2359691	3429617	furnishing.n.02	http://object-naming-amore.upf.edu//2359691_3429617_seed_ambiguous.png	['drapes']	['table/0.06', 'curtain/0.04', '_notfound_tablecloth']	{'#occlusion': 1, '#bbox': 1}
+2406110	1103633	furnishing.n.02	http://object-naming-amore.upf.edu//2406110_1103633_seed_ambiguous.png	[]	['chair/0.02', 'man/0.03', 'couch/0.10']	{'#occlusion': 2, '#bbox': 1}
+2409077	249466	ungulate.n.01	http://object-naming-amore.upf.edu//2409077_249466_supercat_unique.png	[]	['_notfound_giraffe']	{'#occlusion': 1}
+2334921	2778288	woman.n.01	http://object-naming-amore.upf.edu//2334921_2778288_supercat_unique.png	[]	[]	{'#bbox': 4}
+2379961	1352287	woman.n.01	http://object-naming-amore.upf.edu//2379961_1352287_singleton_obj.png	['shorts']	['shorts/0.02', '_notfound_tennis player', 'player/0.20']	{}
+2399522	1169003	furnishing.n.02	http://object-naming-amore.upf.edu//2399522_1169003_singleton_obj.png	[]	['desk/0.08']	{'#bbox': 2}
+2402121	658719	furnishing.n.02	http://object-naming-amore.upf.edu//2402121_658719_supercat_unique.png	[]	['shirt/-0.01', '_notfound_woamn', 'woman/0.06', 'blouse/0.09', 'chair/0.02']	{'#occlusion': 1}
+2413036	644610	dish.n.02	http://object-naming-amore.upf.edu//2413036_644610_supercat_unique.png	[]	[]	{'#bbox': 1}
+2360168	3035169	furnishing.n.02	http://object-naming-amore.upf.edu//2360168_3035169_singleton_obj.png	[]	['rug/0.18', 'floor/0.19']	{'#bbox': 1}
+2403527	1123977	dish.n.02	http://object-naming-amore.upf.edu//2403527_1123977_singleton_obj.png	['vegetables']	[]	{}
+2319910	997649	man.n.01	http://object-naming-amore.upf.edu//2319910_997649_supercat_ambiguous.png	[]	[]	{'#occlusion': 1}
+2393895	468989	furnishing.n.02	http://object-naming-amore.upf.edu//2393895_468989_supercat_unique.png	[]	['dog/-0.00']	{'#occlusion': 1}
+2340134	2180809	crockery.n.01	http://object-naming-amore.upf.edu//2340134_2180809_singleton_obj.png	[]	['_notfound_plate', '_notfound_dinner']	{'#occlusion': 1}
+2404742	376072	furnishing.n.02	http://object-naming-amore.upf.edu//2404742_376072_singleton_obj.png	[]	['table/0.06']	{'#occlusion': 1, '#bbox': 1}
+2350664	2509270	vegetable.n.01	http://object-naming-amore.upf.edu//2350664_2509270_supercat_ambiguous.png	[]	['_notfound_donut', '_notfound_doughnut']	{'#occlusion': 2}
+2355347	2432333	restaurant.n.01	http://object-naming-amore.upf.edu//2355347_2432333_singleton_obj.png	[]	['canopy/0.12', 'pony/0.01', '_notfound_commercial building']	{'#occlusion': 1}
+2412028	204416	furnishing.n.02	http://object-naming-amore.upf.edu//2412028_204416_singleton_obj.png	[]	['vase/0.15', 'table/0.06', 'desk/0.08', 'counter/0.06']	{'#occlusion': 2}
+2391378	489513	shirt.n.01	http://object-naming-amore.upf.edu//2391378_489513_supercat_unique.png	[]	[]	{'#bbox': 1}
+2377581	564721	vessel.n.03	http://object-naming-amore.upf.edu//2377581_564721_supercat_ambiguous.png	[]	['bowl/0.06']	{'#occlusion': 1}
+2413967	162483	child.n.01	http://object-naming-amore.upf.edu//2413967_162483_supercat_unique.png	['chips', 'fries']	['chips/-0.04', '_notfound_fries']	{'#occlusion': 1, '#bbox': 3}
+2379778	1354452	overgarment.n.01	http://object-naming-amore.upf.edu//2379778_1354452_seed_ambiguous.png	[]	['_notfound_jacket', '_notfound_woman']	{'#bbox': 1}
+2333684	3202207	dish.n.02	http://object-naming-amore.upf.edu//2333684_3202207_supercat_unique.png	[]	['_notfound_mac n cheese']	{'#other_not sure what food this is': 1, '#occlusion': 2}
+2384347	1887961	furnishing.n.02	http://object-naming-amore.upf.edu//2384347_1887961_supercat_unique.png	['benches', 'knobs']	['bench/0.06', 'benches/0.11', 'knobs/0.10', 'railing/0.07']	{}
+2408518	260131	furnishing.n.02	http://object-naming-amore.upf.edu//2408518_260131_singleton_obj.png	[]	['rug/0.18']	{'#occlusion': 1}
+2371846	2567403	crockery.n.01	http://object-naming-amore.upf.edu//2371846_2567403_singleton_obj.png	[]	['_notfound_plate']	{'#occlusion': 1}
+2387075	1279637	furnishing.n.02	http://object-naming-amore.upf.edu//2387075_1279637_singleton_obj.png	['wii']	['_notfound_video game', '_notfound_wii', 'display/0.18', 'kiosk/0.15', '_notfound_game console', 'arcade/0.10']	{'#occlusion': 1}
+2391841	1236887	dish.n.02	http://object-naming-amore.upf.edu//2391841_1236887_seed_ambiguous.png	['carrots']	[]	{'#occlusion': 1, '#bbox': 1}
+2350539	2172256	car.n.01	http://object-naming-amore.upf.edu//2350539_2172256_supercat_unique.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2397166	436577	dish.n.02	http://object-naming-amore.upf.edu//2397166_436577_supercat_unique.png	['hands']	['man/0.05', '_notfound_hot dog', 'hands/0.06', '_notfound_hoagie']	{}
+2335548	3564810	house.n.01	http://object-naming-amore.upf.edu//2335548_3564810_supercat_unique.png	[]	['_notfound_laptop']	{'#bbox': 2, '#occlusion': 1}
+2324496	987643	furnishing.n.02	http://object-naming-amore.upf.edu//2324496_987643_supercat_unique.png	[]	[]	{'#occlusion': 1}
+2317942	1015967	furnishing.n.02	http://object-naming-amore.upf.edu//2317942_1015967_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1, '#bbox': 1}
+2334322	965633	professional.n.01	http://object-naming-amore.upf.edu//2334322_965633_supercat_unique.png	['scissors']	['woman/0.03', 'scissors/0.08', 'person/0.13', 'lady/0.06']	{}
+2320528	1049670	flower.n.01	http://object-naming-amore.upf.edu//2320528_1049670_singleton_obj.png	['flowers']	['_notfound_bouqet']	{}
+2416657	3146477	furnishing.n.02	http://object-naming-amore.upf.edu//2416657_3146477_singleton_obj.png	[]	['man/0.03', 'bench/0.06']	{'#bbox': 1}
+2361409	782155	house.n.01	http://object-naming-amore.upf.edu//2361409_782155_singleton_obj.png	[]	[]	{'#occlusion': 2}
+2408726	256070	foodstuff.n.02	http://object-naming-amore.upf.edu//2408726_256070_supercat_unique.png	[]	['_notfound_sausage', '_notfound_hot dog', '_notfound_hotdog', '_notfound_potato']	{'#occlusion': 1, '#bbox': 4}
+2370163	2318307	headdress.n.01	http://object-naming-amore.upf.edu//2370163_2318307_supercat_unique.png	[]	['_notfound_potty lid', 'lid/0.13']	{'#occlusion': 1}
+2401312	400695	bridge.n.01	http://object-naming-amore.upf.edu//2401312_400695_singleton_obj.png	[]	[]	{'#occlusion': 3, '#bbox': 2}
+2393935	1215564	furnishing.n.02	http://object-naming-amore.upf.edu//2393935_1215564_supercat_unique.png	['pants']	['pants/0.07', 'floor/0.19']	{'#occlusion': 4, '#bbox': 3}
+2332787	3318861	furnishing.n.02	http://object-naming-amore.upf.edu//2332787_3318861_singleton_obj.png	['scissors']	['scissors/0.07', '_notfound_car mat', 'junk/0.08', '_notfound_floormat', '_notfound_clutter', 'mat/0.07']	{'#occlusion': 1, '#bbox': 2}
+4089	1071001	furnishing.n.02	http://object-naming-amore.upf.edu//4089_1071001_seed_ambiguous.png	[]	['cabinet/0.15', 'table/0.06', '_notfound_night stand', '_notfound_nightstand', 'stand/-0.02']	{'#occlusion': 1}
+2397547	433013	overgarment.n.01	http://object-naming-amore.upf.edu//2397547_433013_supercat_unique.png	[]	['_notfound_boy', '_notfound_woman', '_notfound_jacket', '_notfound_girl']	{'#bbox': 2}
+2356764	3559794	house.n.01	http://object-naming-amore.upf.edu//2356764_3559794_singleton_obj.png	[]	['_notfound_surfboard', 'girl/0.20']	{'#occlusion': 2, '#bbox': 1}
+2390647	495150	furnishing.n.02	http://object-naming-amore.upf.edu//2390647_495150_singleton_obj.png	[]	['cake/0.04', 'counter/0.06', '_notfound_cake container']	{'#occlusion': 2, '#bbox': 1}
+2366072	630639	furnishing.n.02	http://object-naming-amore.upf.edu//2366072_630639_singleton_obj.png	[]	['counter/0.06', '_notfound_countertop']	{'#occlusion': 2}
+2356391	3384744	dish.n.02	http://object-naming-amore.upf.edu//2356391_3384744_supercat_unique.png	[]	['_notfound_pasta']	{'#other_not sure what food that is': 1}
+2317630	3452214	furnishing.n.02	http://object-naming-amore.upf.edu//2317630_3452214_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1}
+2409561	239160	shelter.n.01	http://object-naming-amore.upf.edu//2409561_239160_singleton_obj.png	[]	['dugout/0.12', 'bench/0.05']	{'#bbox': 2}
+2358904	3432344	furnishing.n.02	http://object-naming-amore.upf.edu//2358904_3432344_seed_ambiguous.png	[]	['pillow/0.13']	{'#bbox': 3}
+2319822	3020068	aircraft.n.01	http://object-naming-amore.upf.edu//2319822_3020068_singleton_obj.png	[]	[]	{'#bbox': 1}
+2322836	990522	furnishing.n.02	http://object-naming-amore.upf.edu//2322836_990522_singleton_obj.png	['cushions']	['couch/0.10', 'cushion/0.07']	{'#occlusion': 1}
+2348474	1826819	dish.n.02	http://object-naming-amore.upf.edu//2348474_1826819_singleton_obj.png	['vegetables']	[]	{'#occlusion': 1}
+2341185	2072473	bridge.n.01	http://object-naming-amore.upf.edu//2341185_2072473_singleton_obj.png	[]	[]	{'#occlusion': 1}
+2394246	3723543	furnishing.n.02	http://object-naming-amore.upf.edu//2394246_3723543_singleton_obj.png	[]	['dog/-0.00']	{'#occlusion': 1, '#bbox': 1}
+2333277	2943052	cutlery.n.02	http://object-naming-amore.upf.edu//2333277_2943052_supercat_unique.png	[]	['_notfound_spoon', '_notfound_ice cream', '_notfound_cake']	{'#occlusion': 1}
+2413939	163182	furnishing.n.02	http://object-naming-amore.upf.edu//2413939_163182_seed_ambiguous.png	['shoes']	['shoes/0.12']	{'#occlusion': 1, '#bbox': 3}
+2396143	1200235	furnishing.n.02	http://object-naming-amore.upf.edu//2396143_1200235_singleton_obj.png	[]	['table/0.06', 'hand/0.09']	{'#occlusion': 2, '#bbox': 1}
+2341846	2527856	furnishing.n.02	http://object-naming-amore.upf.edu//2341846_2527856_seed_ambiguous.png	['counters']	['pizza/0.06', 'counters/0.15']	{'#occlusion': 1, '#bbox': 4}
+2412220	200044	headdress.n.01	http://object-naming-amore.upf.edu//2412220_200044_supercat_unique.png	[]	[]	{'#occlusion': 1, '#bbox': 1}
+2349714	872738	furnishing.n.02	http://object-naming-amore.upf.edu//2349714_872738_singleton_obj.png	[]	['floor/0.19']	{'#occlusion': 1, '#bbox': 6}
+2349139	3017665	furnishing.n.02	http://object-naming-amore.upf.edu//2349139_3017665_singleton_obj.png	[]	['desk/0.08', 'computer/0.18', 'monitor/0.03']	{'#occlusion': 1, '#bbox': 2}
+2404820	375755	baked_goods.n.01	http://object-naming-amore.upf.edu//2404820_375755_supercat_unique.png	[]	['_notfound_sandwhich', '_notfound_sandwich', '_notfound_bun']	{'#bbox': 2}
+2324814	3390627	overgarment.n.01	http://object-naming-amore.upf.edu//2324814_3390627_singleton_obj.png	[]	['_notfound_tuxedo', '_notfound_man', '_notfound_jacket', '_notfound_suit jacket', '_notfound_tuxedo jacket']	{'#bbox': 1}
+2351111	3434778	vegetable.n.01	http://object-naming-amore.upf.edu//2351111_3434778_seed_ambiguous.png	['fries', 'potatoes']	['_notfound_fries', '_notfound_side dish']	{'#bbox': 1, '#other_not sure what food this is': 1}
+2343203	926312	furnishing.n.02	http://object-naming-amore.upf.edu//2343203_926312_singleton_obj.png	['flowers']	['table/0.06', 'flowers/0.11']	{}
+2409660	236853	car.n.01	http://object-naming-amore.upf.edu//2409660_236853_seed_ambiguous.png	[]	[]	{'#bbox': 4}
+2317099	3516182	aircraft.n.01	http://object-naming-amore.upf.edu//2317099_3516182_seed_ambiguous.png	[]	[]	{'#bbox': 2}
+2328736	976412	shirt.n.01	http://object-naming-amore.upf.edu//2328736_976412_supercat_unique.png	[]	['mouth/0.18']	{'#bbox': 1}
+2393135	474580	woman.n.01	http://object-naming-amore.upf.edu//2393135_474580_supercat_unique.png	[]	['_notfound_toddler']	{'#bbox': 1}
+2397980	1184308	furnishing.n.02	http://object-naming-amore.upf.edu//2397980_1184308_supercat_unique.png	['legs']	['concrete/0.14', 'bench/0.06', 'legs/-0.03', '_notfound_wall, bench']	{}
