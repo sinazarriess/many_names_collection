@@ -36,7 +36,8 @@ def load_preprocessed_results_csv(datafile_csv):
     """
     df = pd.read_csv(datafile_csv, sep="\t")
     for dict_col in ['responses', 'opt-outs', 'responses_domains']:
-        df[[dict_col]] = df[dict_col].apply(lambda a: eval(a))
+        if dict_col in df.columns:
+            df[[dict_col]] = df[dict_col].apply(lambda a: eval(a))
     return df
 
 
