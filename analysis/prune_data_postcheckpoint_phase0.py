@@ -64,7 +64,7 @@ if __name__=="__main__":
     pruned_df.to_csv("results/pruned_df_%s.csv" % (param_str),
                     sep="\t", float_format='%.2f')
     
-    ## FAVOURITE: Option 2b (apply plural filter also to food)
+    ## SELECTED: Option 2b (apply plural filter also to food)
     MAX_OCCL = 0
     MAX_BBOX = 2
     MAX_PLURALS = 0.17

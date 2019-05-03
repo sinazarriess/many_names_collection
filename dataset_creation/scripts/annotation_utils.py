@@ -172,6 +172,7 @@ def get_ss_from_offset(offset):
     >>> get_synset_from_offset('n02084071')
     Synset('dog.n.01')
     """
+    print(offset[1:], offset[0], offset)
     if not offset[0].isdigit():
         offset = offset[1:] + "-" + offset[0]
     return wn.of2ss(offset)
@@ -234,6 +235,12 @@ def get_subtree(synset):
 
 def get_all_hypernyms(synset):
     return synset.hypernym_paths()
+
+def get_hyponyms(synset):
+    return synset.hyponyms()
+
+def get_hypernyms(synset):
+    return synset.hypernyms()
 
 def get_all_hypernyms_ids(synset):
     all_hypers = synset.hypernym_paths()
