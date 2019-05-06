@@ -46,50 +46,53 @@ def make_df(filename):
 
     return resdf
 
+def make_agreement_table(resdf):
+    resdf['snodgrass'] = resdf['spellchecked'].apply(lambda x: snodgrass_agreement(x,{},True))
+    resdf['percent_agree'] = resdf['spellchecked'].apply(lambda x: percent_agreement(x))
+    nobjects = len(resdf)
+
+    tablerows = []
+    tablerows.append(('all',\
+
+                     str("%.2f"%np.mean(resdf['percent_agree'])),\
+                     str("%.2f"%np.mean(resdf['snodgrass'])),\
+                     str("%.2f"%(np.sum(resdf['vg_is_max'])/nobjects))))
+
+    for c in set(list(resdf['cat'])):
+        catdf = resdf[resdf['cat'] == c]
+        ncat = len(catdf)
+
+        synagree = Counter()
+        for s in set(list(catdf['synset'])):
+            syndf = catdf[catdf['synset'] == s]
+            synagree[s] = np.mean(syndf['percent_agree'])
+        print(c)
+        print(synagree)
+        topsyn = synagree.most_common(1)[0][0]
+        botsyn = synagree.most_common()[:-1-1:-1][0][0]
+
+        topdf = catdf[catdf['synset'] == topsyn]
+        botdf = catdf[catdf['synset'] == botsyn]
+
+        tablerows.append((c,\
+
+                         str("%.2f"%np.mean(catdf['percent_agree'])),\
+                         str("%.2f"%np.mean(catdf['snodgrass'])),\
+                         str("%.2f"%(np.sum(catdf['vg_is_max'])/ncat)),\
+                         topsyn,
+                         str("%.2f"%np.mean(topdf['percent_agree'])),\
+                         str("%.2f"%np.mean(topdf['snodgrass'])),\
+                         str("%.2f"%(np.sum(topdf['vg_is_max'])/len(topdf))),\
+                         botsyn,
+                         str("%.2f"%np.mean(botdf['percent_agree'])),\
+                         str("%.2f"%np.mean(botdf['snodgrass'])),\
+                         str("%.2f"%(np.sum(botdf['vg_is_max'])/len(botdf)))\
+                         ))
+
+    outdf = pd.DataFrame(tablerows,columns=['category','% top','SD','=VG','max synset','%','SD','=VG','min synset','%','SD','=VG' ])
+    print(outdf.sort_values(by=['% top']).to_latex(index=False))
+
+
 fn = 'all_responses_round0-3_cleaned.csv'
 resdf = make_df(fn)
-
-resdf['snodgrass'] = resdf['spellchecked'].apply(lambda x: snodgrass_agreement(x,{},True))
-resdf['percent_agree'] = resdf['spellchecked'].apply(lambda x: percent_agreement(x))
-nobjects = len(resdf)
-
-tablerows = []
-tablerows.append(('all',\
-
-                 str("%.2f"%np.mean(resdf['percent_agree'])),\
-                 str("%.2f"%np.mean(resdf['snodgrass'])),\
-                 str("%.2f"%(np.sum(resdf['vg_is_max'])/nobjects))))
-
-for c in set(list(resdf['cat'])):
-    catdf = resdf[resdf['cat'] == c]
-    ncat = len(catdf)
-
-    synagree = Counter()
-    for s in set(list(catdf['synset'])):
-        syndf = catdf[catdf['synset'] == s]
-        synagree[s] = np.mean(syndf['percent_agree'])
-    print(c)
-    print(synagree)
-    topsyn = synagree.most_common(1)[0][0]
-    botsyn = synagree.most_common()[:-1-1:-1][0][0]
-
-    topdf = catdf[catdf['synset'] == topsyn]
-    botdf = catdf[catdf['synset'] == botsyn]
-
-    tablerows.append((c,\
-
-                     str("%.2f"%np.mean(catdf['percent_agree'])),\
-                     str("%.2f"%np.mean(catdf['snodgrass'])),\
-                     str("%.2f"%(np.sum(catdf['vg_is_max'])/ncat)),\
-                     topsyn,
-                     str("%.2f"%np.mean(topdf['percent_agree'])),\
-                     str("%.2f"%np.mean(topdf['snodgrass'])),\
-                     str("%.2f"%(np.sum(topdf['vg_is_max'])/len(topdf))),\
-                     botsyn,
-                     str("%.2f"%np.mean(botdf['percent_agree'])),\
-                     str("%.2f"%np.mean(botdf['snodgrass'])),\
-                     str("%.2f"%(np.sum(botdf['vg_is_max'])/len(botdf)))\
-                     ))
-
-outdf = pd.DataFrame(tablerows,columns=['category','% top','SD','=VG','max synset','%','SD','=VG','min synset','%','SD','=VG' ])
-print(outdf.sort_values(by=['% top']).to_latex(index=False))
+make_agreement_table(resdf)
