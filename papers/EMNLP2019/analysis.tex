@@ -47,26 +47,56 @@ The naming variants can be grouped according to their lexical relation, as follo
 \begin{itemize}
 \item \textbf{synonymy}: e.g.\ aircraft vs. airplane 
 \item \textbf{hyponymy}: e.g.\ man vs. person
-\item \textbf{co-hyponymy}: e.g.\ chicken vs. dinner, swan vs. goose
+\item \textbf{co-hyponymy}: e.g.\ swan vs. goose
 \item \textbf{no relation}: e.g.\  desk vs. apple
 \end{itemize}
 
 
 \begin{table}
-\small
-\begin{tabular}{llll}
+
+\begin{tabular}{lll}
 \toprule
-        relation & \% types & \% tokens & av. depth \\
+       relation &  types & tokens \\
 \midrule
- co-hyponymy (closure, max depth=10) &  0.889 &  0.551 &       3.479 \\
-    hyponymy (closure, max depth=10) &  0.097 &  0.328 &       2.204 \\
-        synonymy &  0.015 &  0.121 &       1.000 \\
+synonymy &  0.01 &  0.09 \\
+co-hyponymy &  0.03 &  0.07 \\
+hypernymy &  0.06 &  0.35 \\
+not-covered &  0.19 &  0.04 \\
+crossclassified &  0.70 &  0.47 \\
 \bottomrule
 \end{tabular}
+% \small
+% \begin{tabular}{llll}
+% \toprule
+%         relation & \% types & \% tokens & av. depth \\
+% \midrule
+%  co-hyponymy (closure, max depth=10) &  0.889 &  0.551 &       3.479 \\
+%     hyponymy (closure, max depth=10) &  0.097 &  0.328 &       2.204 \\
+%         synonymy &  0.015 &  0.121 &       1.000 \\
+% \bottomrule
+% \end{tabular}
 \caption{Lexical relations between naming variants according to WordNet, for the set of name pairs where both words can be found in WordNet and stand in a \sz{should we produce this table for the different domains?} \gbt{yes, please. Maybe do rows domains, columns lexical relations (synymymy, hyponymy, co-hyponymy, other, not in wordnet), with subcolumns for types and tokens? And do percentages over rows -- for each domain, how many of the variants we find fall into each of the classes. This way we'll be able to see differences across domains.}}
 \label{tab:rel}
 \end{table}
 
+\begin{table*}
+\small
+\begin{tabular}{lp{13cm}}
+\toprule
+                         category &                                                                                                                                                                                                                    most frequent naming variants \\
+
+\midrule
+ people &  woman -- person (3594), man -- person (3546), boy -- child (3243), woman -- girl (2328), girl -- child (1985), woman -- tennis player (1277), man -- player (1273), man -- boy (1214), skateboarder -- skater (1194), man -- t-shirt (1143) \\
+ food &  pizza -- food (1883), sandwich -- food (1123), hotdog -- food (540), pizza -- cheese (457), pizza -- plate (430), salad -- food (402), sandwich -- burger (398), hotdog -- sandwich (351), sandwich -- bread (318), cake -- food (286) \\
+ home &  couch -- sofa (4090), desk -- table (3448), carpet -- floor (1697), bench -- chair (1401), desk -- keyboard (1380), counter -- table (1201), table -- desk (1135), counter -- countertop (1101), table -- counter (906), rug -- carpet (895) \\
+ buildings &  house -- building (1160), building -- house (511), bridge -- train (326), bridge -- overpass (235), house -- window (161), house -- home (123), tent -- canopy (120), building -- castle (101), bridge -- building (98), bridge -- pole (85) \\
+ vehicles &  airplane -- plane (11194), plane -- airplane (3829), motorcycle -- bike (2624), airplane -- jet (1319), boat -- ship (1301), truck -- car (1095), car -- vehicle (874), motorcycle -- wheel (861), truck -- vehicle (718), truck -- wheel (716) \\
+ clothing &  shirt -- t-shirt (2914), jacket -- coat (2396), jacket -- shirt (1552), jacket -- suit (1168), suit -- jacket (1029), shirt -- jacket (813), shirt -- tie (723), shirt -- man (487), shirt -- dress (462), shirt -- sweater (450) \\
+ animals\_plants &  cow -- bull (515), sheep -- goat (486), cow -- animal (445), giraffe -- animal (380), bird -- parrot (349), sheep -- animal (294), sheep -- lamb (282), horse -- animal (269), cat -- animal (237), bird -- seagull (231) \\
+\bottomrule
+\end{tabular}\caption{Most frequent naming variants for each category}
+\label{tab:exvariants}
+\end{table*}
 
 Research on object naming following the idea of entry-level categories has, essentially, exclusively looked at names that stand in a hierarchical relation (i.e.\ hyponymy/hypernymy).
 
@@ -85,27 +115,27 @@ Our data suggests that co-hierarchical variation is really important too.
 
 \subsection{Beyond synonymy and hypernymy: cross-classification}
 
-\gbt{@Sina, for this section/my analysis, I'd need csvs (or some code that builds dataframes) containing the following:}
+\gbt{@Sina, for this section/my analysis, I'd need csvs (or some code that builds dataframes) containing the following (see commented text):}
 
-  \begin{enumerate}
-  \item Dataframe for images: for each image,
-    \begin{itemize}
-    \item top -- top name
-    \item \% top
-    \item SN -- snodgrass agreement
-    \item =VG
-    \item dictionary or similar with names and counts
-    \end{itemize}
-  \item Dataframe for name variants: for each variant pair,
-    \begin{itemize}
-    \item top name
-    \item variant
-    \item frequency of the pair
-    \item domain of top
-    \item domain of variant (one of ours or ``OTHER'' if not in any of them?)
-    \item relationship in wordnet, one of: synonymy, hyponymy, co-hyponymy, other, not in wordnet (agree? the latter means ``one of the elements not in wordnet'')
-    \end{itemize}
-  \end{enumerate}
+  % \begin{enumerate}
+  % \item Dataframe for images: for each image,
+  %   \begin{itemize}
+  %   \item top -- top name
+  %   \item \% top
+  %   \item SN -- snodgrass agreement
+  %   \item =VG
+  %   \item dictionary or similar with names and counts
+  %   \end{itemize}
+  % \item Dataframe for name variants: for each variant pair,
+  %   \begin{itemize}
+  %   \item top name
+  %   \item variant
+  %   \item frequency of the pair
+  %   \item domain of top
+  %   \item domain of variant (one of ours or ``OTHER'' if not in any of them?)
+  %   \item relationship in wordnet, one of: synonymy, hyponymy, co-hyponymy, other, not in wordnet (agree? the latter means ``one of the elements not in wordnet'')
+  %   \end{itemize}
+  % \end{enumerate}
 
 Some (interesting, somewhat cherry-picked) word pairs were WordNet does not find any relation (excluded in the above analysis):
 
@@ -131,25 +161,6 @@ Some (interesting, somewhat cherry-picked) word pairs were WordNet does not find
 % \sz{an interesting example:} In our data set, there are 24 images where \textit{penguin} has been used, so we know that the object is a \textit{penguin}. For 50\% of these images, annotators still prefer \textit{bird} as the most common name. According to the theory of entry-level categories, this should not happen. People should always prefer \textit{penguin} over \textit{bird}. 
 
 % \sz{how can we analyze this quantitatively?}
-
-\begin{table*}
-\small
-\begin{tabular}{lp{13cm}}
-\toprule
-                         category &                                                                                                                                                                                                                    most frequent naming variants \\
-
-\midrule
- people &  woman -- person (3594), man -- person (3546), boy -- child (3243), woman -- girl (2328), girl -- child (1985), woman -- tennis player (1277), man -- player (1273), man -- boy (1214), skateboarder -- skater (1194), man -- t-shirt (1143) \\
- food &  pizza -- food (1883), sandwich -- food (1123), hotdog -- food (540), pizza -- cheese (457), pizza -- plate (430), salad -- food (402), sandwich -- burger (398), hotdog -- sandwich (351), sandwich -- bread (318), cake -- food (286) \\
- home &  couch -- sofa (4090), desk -- table (3448), carpet -- floor (1697), bench -- chair (1401), desk -- keyboard (1380), counter -- table (1201), table -- desk (1135), counter -- countertop (1101), table -- counter (906), rug -- carpet (895) \\
- buildings &  house -- building (1160), building -- house (511), bridge -- train (326), bridge -- overpass (235), house -- window (161), house -- home (123), tent -- canopy (120), building -- castle (101), bridge -- building (98), bridge -- pole (85) \\
- vehicles &  airplane -- plane (11194), plane -- airplane (3829), motorcycle -- bike (2624), airplane -- jet (1319), boat -- ship (1301), truck -- car (1095), car -- vehicle (874), motorcycle -- wheel (861), truck -- vehicle (718), truck -- wheel (716) \\
- clothing &  shirt -- t-shirt (2914), jacket -- coat (2396), jacket -- shirt (1552), jacket -- suit (1168), suit -- jacket (1029), shirt -- jacket (813), shirt -- tie (723), shirt -- man (487), shirt -- dress (462), shirt -- sweater (450) \\
- animals\_plants &  cow -- bull (515), sheep -- goat (486), cow -- animal (445), giraffe -- animal (380), bird -- parrot (349), sheep -- animal (294), sheep -- lamb (282), horse -- animal (269), cat -- animal (237), bird -- seagull (231) \\
-\bottomrule
-\end{tabular}\caption{Most frequent naming variants for each category}
-\label{tab:exvariants}
-\end{table*}
 
 %%% Local Variables:
 %%% mode: latex

@@ -1,36 +1,32 @@
-\section{Data Collection}
-\label{sec:task}
+We take data from \vgenome \cite{krishna2016visualgenome}, which aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
+It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}.
 
-%describe the YouNameIt task here
+% \gbt{START to be refined -- taken from sivl submission as is}
 
-describe the task here
-
-\subsection{Visual Genome data}
-
-\gbt{START to be refined -- taken from sivl submission as is}
-
-\vgenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
-It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
+% \vgenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
+% It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
 
 
-\begin{itemize}
-     		\item[(1)] \textbf{Specific categories}: are not available, as object categories and names are not consistently annotated (and even conflated)
-				\item[(2)] \textbf{Exhaustive annotations}: are available, which is a huge advantage of this data sets
-		   \item[(3)] \textbf{Natural names}: are available, though object names might not be fully discriminative (as in referring expressions)
+% \begin{itemize}
+%      		\item[(1)] \textbf{Specific categories}: are not available, as object categories and names are not consistently annotated (and even conflated)
+% 				\item[(2)] \textbf{Exhaustive annotations}: are available, which is a huge advantage of this data sets
+% 		   \item[(3)] \textbf{Natural names}: are available, though object names might not be fully discriminative (as in referring expressions)
 
-\end{itemize}
-\gbt{END to be refined -- taken from sivl submission as is}
+% \end{itemize}
+% \gbt{END to be refined -- taken from sivl submission as is}
 
-\cs{START @ GBT}
 \subsection{Sampling of Instances (Images/Objects)}
-Since our work connects research on object naming in computer vision and in psycholinguistics/cognitive science, we aimed at collecting a relatively large amount of naturalistic images (\textit{instances}) that depict objects of frequent classes/names in visual genome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
+
+We aimed at collecting a relatively large amount of naturalistic images (\textit{instances}) that depict common objects.
+ % of frequent classes/names in  \vgenome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
 %Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
-We chose the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of norming studies (REFS).
-In contrast to the latter, the McRae norms do not contain names of the \textsc{person} category, which we manually added. 
+We start from the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of object norming studies (REFS).
+We added the \textsc{person} category because it is very frequent category in \vgenome.
 
 (As appropriate: We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).)
 
 \paragraph{Collection nodes}
+% Standard taxonomies do not align well with name variability; for instance, people use more varied names for types of dogs than for types of cows, while both dogs and cows are mammals.
 We defined a set of \textit{collection nodes} which we would then use to collect our object instances from VG. 
 
 We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
@@ -42,7 +38,7 @@ From these candidates we kept those as collection nodes which had a high frequen
 Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 The collection of such instances using the nodes was then straightforward: We retrieved all VG images  depicting an object whose name matches or is subsumed by one of the collection nodes. 
 We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{(REF to tagger)}, or that were multi-word expressions/phrases (e.g.,~\textsl{pink bird}). 
-We further only considered objects whose bounding box\footnote{TODO: need to be clear from the general description of VG what is meant.} have an area of~$20-90\%$ of the whole image area.
+We further only considered objects whose bounding box\footnote{TODO: need to be clear from the general description of VG what is meant.} had an area of~$20-90\%$ of the whole image area.
 
 \paragraph{Sampling of instances}
 Finally, from this set of instances we sampled our final dataset of $31,093$~instances. 
@@ -52,6 +48,7 @@ up to~$800$ objects per seed: all instances, but at most 500, are collected; mor
 \cs{END @ GBT}
 
 Table~\ref{tab:XXX} gives an overview of the collection nodes, XXX, XXX, grouped into $7$~domains. (\textbf{Report only dataset after round0, with a note in caption/footnote referring to the checkpoint pruning.})
+\gbt{I would put only a table with the final dataset, not the intermediate one (round0). That is, include a table with the 25K imgs (the 30K imgs were just our initial pool).}
 
 \begin{table*}
 \begin{tabular}{@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l}
@@ -74,6 +71,7 @@ Table~\ref{tab:XXX} gives an overview of the collection nodes, XXX, XXX, grouped
 \end{table*}
 
 \begin{table*}
+\small
 	\begin{tabular}{@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l}
 	\toprule
 	        animals\_plants &               vehicles &                        home &                clothing &                   buildings &                    food &                 people \\
@@ -121,11 +119,11 @@ TODO: Footnote: we ran pilot experiments to design our experiment and instructio
 	\item workers could only participate in one round, such as to avoid workers annotating an instance more than once. 
 \end{itemize}
 
-Overall $XX$~participants, each annotated between $XX$ and $XX$ instances. 
+Overall $XX$~participants, each annotated between $XX$ and $XX$ instances. \gbt{Put mean or median instead of min-max}
 
-\subsection{Data} give an overview of the collected data
+\subsection{Data} 
 
-
+give an overview of the collected data
 
 %%% Local Variables:
 %%% mode: latex
