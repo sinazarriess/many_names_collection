@@ -19,7 +19,7 @@
 \usepackage{latexsym}
 \usepackage{graphicx}  %%% for including graphics
 \usepackage{booktabs}
-
+\usepackage{xspace}
 
 \usepackage{url}
 
@@ -34,8 +34,17 @@
 \newcommand\BibTeX{B{\sc ib}\TeX}
 \newcommand\confname{EMNLP-IJCNLP 2019}
 \newcommand\conforg{SIGDAT}
+\newcommand{\refexp}[1]{\textsl{#1}}
+\newcommand{\word}[1]{\textsl{#1}}
+\newcommand{\cat}[1]{\textsc{#1}}
+\newcommand{\vgenome}{VisualGenome\xspace}
+\newcommand{\ra}{$\rightarrow$}
 
-\title{Instructions for \confname{} Proceedings}
+\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
+\newcommand{\cs}[1]{\textcolor{green}{\emph{//cs: #1//}}}
+
+\title{Object naming in the wild: \gbt{add sthg make more concrete}}
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -55,17 +64,6 @@
 \begin{abstract}
 \end{abstract}
 
-
-\newcommand{\refexp}[1]{\textsl{#1}}
-\newcommand{\word}[1]{\textsl{#1}}
-\newcommand{\cat}[1]{\textsc{#1}}
-\newcommand{\vgenome}{VisualGenome\xspace}
-\newcommand{\ra}{$\rightarrow$}
-
-\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
-\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
-
-
 \section{Introduction}
 \input{intro}
 
@@ -82,6 +80,12 @@
 
 \section{Modeling}
 \label{sec:modeling}
+
+\section{Conclusions}
+\label{sec:conc}
+
+\bibliographystyle{acl_natbib}
+\bibliography{naming}
 
 \end{document}
 
