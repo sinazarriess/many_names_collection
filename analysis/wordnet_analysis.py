@@ -12,14 +12,11 @@ from collections import Counter
 import numpy as np
 
 
+pd.set_option('display.max_colwidth', -1)
 
-fn = 'all_responses_round0-3_cleaned.csv'
-resdf = make_df(fn)
+
 
 hyp = lambda s:s.hypernyms()
-
-
-
 
 def name_pairs(rdict):
 
@@ -31,27 +28,6 @@ def name_pairs(rdict):
                 np_count[(topname,oname)] = rdict[oname]
 
     return np_count
-
-
-# In[101]:
-
-
-paircount = Counter()
-for ndict in resdf['spellchecked']:
-    #print(ndict)
-    x = name_pairs(ndict)
-    paircount.update(x)
-
-
-
-
-for ((top,other),freq) in paircount.most_common(20):
-    topsyn = wn.synsets(top)
-    othersyn = wn.synsets(other)
-    print(top,topsyn)
-    print(other,othersyn)
-    print("***")
-
 
 
 def is_hyponym(w1,w2,max_depth=5):
@@ -96,175 +72,135 @@ def is_synonym(w1,w2):
                     return 1
     return 0
 
-def is_cohyponym(w1,w2,max_depth=5):
+def is_cohyponym(w1,w2,max_depth=1):
 
-    for dpt in range(1,6):
+    syns1 = wn.synsets(w1,pos="n")
+    syns2 = wn.synsets(w2,pos="n")
 
-        syns1 = wn.synsets(w1,pos="n")
-        syns2 = wn.synsets(w2,pos="n")
+    for syn2 in syns2:
 
-
-
-
-        for syn2 in syns2:
-
-            hyp_closure2 = list(syn2.closure(hyp,depth=dpt))
+        hyp_closure2 = list(syn2.closure(hyp,depth=max_depth))
 
 
-            for syn1 in syns1:
-                hyp_closure1 = list(syn1.closure(hyp,depth=dpt))
+        for syn1 in syns1:
+            hyp_closure1 = list(syn1.closure(hyp,depth=max_depth))
 
-                for h2 in hyp_closure2:
-                    for h1 in hyp_closure1:
-                        if h1 == h2:
-                            return dpt
+            for h2 in hyp_closure2:
+                for h1 in hyp_closure1:
+                    if h1 == h2:
+                        return 1
     return 0
 
 
 
+fn = 'all_responses_round0-3_cleaned.csv'
+resdf = make_df(fn)
 
-pair_depth = {}
+ordered_paircount = Counter()
+paircount = Counter()
+wordcount = Counter()
 
-for (top,other) in paircount:
-    if ' ' in top:
-        top = '_'.join(top.split(' '))
-    if ' ' in other:
-        other = '_'.join(other.split(' '))
-    if len(wn.synsets(top)) > 0 and         len(wn.synsets(other)) > 0:
-        pair_depth[(top,other)] = (is_synonym(top,other),                               is_hyponym(top,other,max_depth=10),                               is_hypernym(top,other,max_depth=10),                               is_cohyponym(top,other,max_depth=10)
-                              )
+for ndict in resdf['spellchecked']:
+    #print(ndict)
+    x = name_pairs(ndict)
+    ordered_paircount.update(x)
+    for pair in x:
+        paircount[tuple(sorted(pair))] += x[pair]
+    wordcount.update(ndict)
+
+print("N name types:",len(wordcount))
+singletons = [w for w in wordcount if wordcount[w] == 1]
+print("... singletons:",len(singletons))
+wn_wordcount = Counter()
+wn_map = {}
+
+for w in wordcount:
+    if len(wn.synsets(w)) > 0:
+        wn_wordcount[w] = wordcount[w]
+        wn_map[w] = w
+    elif len(wn.synsets('_'.join(w.split(' ')))) > 0:
+        wn_wordcount['_'.join(w.split(' '))] = wordcount[w]
+        wn_map[w] = '_'.join(w.split(' '))
+    elif len(wn.synsets(''.join(w.split(' ')))) > 0:
+        wn_wordcount[''.join(w.split(' '))] = wordcount[w]
+        wn_map[w] = ''.join(w.split(' '))
+    elif len(wn.synsets('-'.join(w.split(' ')))) > 0:
+        wn_wordcount['-'.join(w.split(' '))] = wordcount[w]
+        wn_map[w] = '-'.join(w.split(' '))
+
+wn_singletons = [w for w in wn_wordcount if wn_wordcount[w] == 1]
+print("N name types covered by WN:",len(wn_wordcount))
+print("... singletons:",len(wn_singletons))
+
+
+wn_paircount = Counter({(w1,w2):paircount[(w1,w2)] for (w1,w2) in paircount if w1 in wn_wordcount \
+                                                                               and w2 in wn_wordcount })
+wn_ordered_paircount = Counter({(w1,w2):ordered_paircount[(w1,w2)] for (w1,w2) in ordered_paircount if w1 in wn_wordcount and w2 in wn_wordcount })
+
+print("N ordered name variants:",len(ordered_paircount))
+print("N unordered name variants :",len(paircount))
+print("N ordered name variants covered by WN:",len(wn_ordered_paircount))
+singletons = [w for w in wn_ordered_paircount if wn_ordered_paircount[w] == 1]
+print("... singletons:",len(singletons))
+print("N unordered name variants covered by WN:",len(wn_paircount))
+singletons = [w for w in wn_paircount if wn_paircount[w] == 1]
+print("... singletons:",len(singletons))
+
+
+
+wn_pairrel = {}
+
+for (top,other) in wn_paircount:
+
+    if is_synonym(top,other):
+        wn_pairrel[(top,other)] = 'synonymy'
+    elif is_hypernym(top,other,max_depth=10):
+        wn_pairrel[(top,other)] = 'hypernymy.1'
+    elif is_hypernym(other,top,max_depth=10):
+        wn_pairrel[(top,other)] = 'hypernymy.2'
+    elif is_cohyponym(top,other,max_depth=1):
+        wn_pairrel[(top,other)] = 'co-hyponymy'
     else:
-        print("WORD NOUT FOUND in WN")
-        print(top,other,len(wn.synsets(top)),len(wn.synsets(other)))
-
-
-
-pair_rel = {}
-no_rel = Counter()
-have_rel = Counter()
-for p in paircount:
-    if p in pair_depth:
-        if pair_depth[p] == (0,0,0,0):
-            print(p)
-            no_rel[p] = paircount[p]
-        else:
-            pair_rel[p] = pair_depth[p]
-            have_rel[p] = paircount[p]
-    else:
-        no_rel[p] = paircount[p]
-
-
-
-unordered_counts = Counter()
-unordered_rel = {}
-unordered_depth = {}
-swapped = []
-for (p1,p2) in have_rel:
-    swapp= (p2,p1)
-    if not (p1,p2) in swapped:
-        unordered_counts[(p1,p2)] = have_rel[(p1,p2)]
-        unordered_counts[(p1,p2)] += have_rel[swapp]
-        if pair_rel[(p1,p2)][0] > 0:
-            unordered_rel[(p1,p2)] = 'synonyms'
-            unordered_depth[(p1,p2)] = pair_rel[(p1,p2)][0]
-        elif pair_rel[(p1,p2)][1] > 0:
-            unordered_rel[(p1,p2)] = 'hierarchical'
-            unordered_depth[(p1,p2)] = pair_rel[(p1,p2)][1]
-        elif pair_rel[(p1,p2)][2] > 0:
-            unordered_rel[(p1,p2)] = 'hierarchical'
-            unordered_depth[(p1,p2)] = pair_rel[(p1,p2)][2]
-        elif pair_rel[(p1,p2)][3] > 0:
-            unordered_rel[(p1,p2)] = 'crossclassified'
-            unordered_depth[(p1,p2)] = pair_rel[(p1,p2)][3]
-
-        swapped.append(swapp)
-
-
-# In[179]:
-
-
-sum(unordered_counts.values())
-
-
-# In[180]:
-
-
-sum(have_rel.values())
-
-
-# In[181]:
-
-
-len(unordered_rel)
-
-
-# In[183]:
-
-
-len(have_rel)
-
-
-# In[196]:
+        wn_pairrel[(top,other)] = 'crossclassified'
 
 
 typecounts = Counter()
 tokencounts = Counter()
-depth_av = {}
-for p in unordered_rel:
-    if unordered_rel[p] not in depth_av:
-        depth_av[unordered_rel[p]] = []
-    typecounts[unordered_rel[p]] += 1
-    tokencounts[unordered_rel[p]] += unordered_counts[p]
-    depth_av[unordered_rel[p]].append(unordered_depth[p])
-
-
-# In[197]:
-
-
-typecounts
-
-
-# In[198]:
-
-
-tokencounts
-
-
-# In[220]:
+for p in wn_pairrel:
+    rel = wn_pairrel[p]
+    if '.' in rel:
+        rel = rel[:-2]
+    typecounts[rel] += 1
+    tokencounts[rel] += wn_paircount[p]
 
 
 outdf = []
 totaltypes = sum(typecounts.values())
 totaltokens = sum(tokencounts.values())
 for p in typecounts:
-    outdf.append((p,"%.3f"%(typecounts[p]/totaltypes),"%.3f"%(tokencounts[p]/totaltokens),"%.3f"%(np.mean(depth_av[p]))))
+    outdf.append((p,"%.3f"%(typecounts[p]/totaltypes),"%.3f"%(tokencounts[p]/totaltokens)))
 
 
-# In[221]:
+outdff = pd.DataFrame(outdf,columns=['relation','types','tokens'])
+
+print(outdff.sort_values(by=['types']).to_latex(index=False))
 
 
-outdff = pd.DataFrame(outdf,columns=['relation','types','tokens','av WN depth'])
+pairdf = []
 
+for (top,other) in wn_paircount:
+    prow = (top,other,wn_pairrel[(top,other)],\
+           wn_paircount[(top,other)],\
+           wn_ordered_paircount[(top,other)],\
+           wn_ordered_paircount[(other,top)])
+    pairdf.append(prow)
 
-# In[222]:
-
-
-outdff
-
-
-# In[225]:
-
-
-print(outdff.to_latex(index=False))
-
-
-# In[ ]:
-
+pairdf = pd.DataFrame(pairdf,columns=['word1','word2','relation','freq. (unord)','freq. (w1,w2)','freq. (w2,w1)'])
+pairdf = pairdf.sort_values(by=['freq. (unord)'],ascending=False)
+pairdf.to_csv("names_pairs_relations.csv")
 
 
 
-
-# In[253]:
 
 
 cat2paircount = {}
@@ -284,260 +220,14 @@ for cat in set(list(resdf['vg_domain'])):
 examples = []
 for cat in cat2paircount:
     exstr = []
-    print(cat)
+    #print(cat)
     for ((n1,n2),freq) in cat2paircount[cat].most_common(10):
         exstr.append("%s -- %s (%d)"%(n1,n2,freq))
     examples.append((cat,", ".join(exstr)))
 
 
-
-# In[255]:
-
-
 exdf = pd.DataFrame(examples,columns=['category',"most frequent naming variants"])
-
-
-# In[256]:
-
-
-exdf
-
-
-# In[257]:
-
-
-pd.set_option('display.max_colwidth', -1)
-print(exdf.to_latex(index=False))
-
-
-# In[ ]:
-
-
-
-
-
-# In[252]:
-
-
-for (n1,n2) in unordered_rel:
-    if unordered_rel[(n1,n2)] == "hierarchical":
-        print(n1,n2, paircount[(n1,n2)],paircount[(n2,n1)])
-
-
-# In[ ]:
-
-
-
-
-
-# In[249]:
-
-
-unordered_rel
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[262]:
-
-
-lettsyn = wn.synsets('food')
-print(lettsyn)
-hyp_closure2 = list(lettsyn[2].closure(hyp,depth=5))
-print(hyp_closure2)
-
-
-# In[263]:
-
-
-lettsyn = wn.synsets('fruit')
-print(lettsyn)
-hyp_closure2 = list(lettsyn[0].closure(hyp,depth=5))
-print(hyp_closure2)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[119]:
-
-
-len(paircount)
-
-
-# In[120]:
-
-
-len(pair_depth)
-
-
-# In[ ]:
-
-
-
-
-
-# In[110]:
-
-
-paircount[('hotdog','hot dog')]
-
-
-# In[111]:
-
-
-wn.synsets('hotdog')
-
-
-# In[ ]:
-
-
-
-
-
-# In[112]:
-
-
-is_hyponym('giraffe','animal',max_depth=10)
-
-
-# In[113]:
-
-
-wn.synsets('giraffe')
-
-
-# In[114]:
-
-
-is_hyponym('flamingo','animal',max_depth=10)
-
-
-# In[126]:
-
-
-wn.synsets('hat_stand')
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[116]:
-
-
-paircount[('skier','skiier')]
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
+#print(exdf.to_latex(index=False))
 
 
 # In[ ]:
