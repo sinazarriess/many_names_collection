@@ -40,6 +40,12 @@ def load_preprocessed_results_csv(datafile_csv):
             df[[dict_col]] = df[dict_col].apply(lambda a: eval(a))
     return df
 
+def load_cleaned_results(filename, sep="\t"):
+    resdf = pd.read_csv(filename, sep=sep)
+    resdf['spellchecked'] = resdf['spellchecked'].apply(lambda x: Counter(eval(x)))
+    resdf['clean'] = resdf['clean'].apply(lambda x: Counter(eval(x)))
+    resdf['canon'] = resdf['canon'].apply(lambda x: Counter(eval(x)))
+    return resdf
 
 def _img2objname_map(imgdf):
     # meta file used to publish the hits
