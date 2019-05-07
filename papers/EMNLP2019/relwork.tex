@@ -1,0 +1,34 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Cognition: Concepts and categorization}
+
+ Seminal work on concepts by Rosch suggests that object names typically exhibit a preferred level of specificity called the \textbf{entry-level}. This typically corresponds to an intermediate level of specificity, i.e., \textbf{basic level} (e.g, \refexp{bird}, \refexp{car}) \cite{rosch1976basic}, as opposed to more generic (i.e., \textbf{super-level}; e.g., \refexp{animal}, \refexp{vehicle}) or specific categories (i.e., \textbf{sub-level}; e.g., \refexp{sparrow}, \refexp{convertible}). However, less prototypical members of basic-level categories tend to be instead identified with sub-level categories (e.g., a \cat{penguin} is typically called a \refexp{penguin} and not a \refexp{bird}) \cite{jolicoeur1984pictures}. 
+%This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
+While the traditional notion of entry-level categories suggests that objects tend to be named by a \refexp{single} preferred concept, research on pragmatics has found that speakers are flexible in  
+%with respect to the chose level of specificity. 
+their choice of the level of specificity. 
+Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases %\cite{rohde2012communicating} \cite{graf2016animal}. 
+\cite{rohde2012communicating,graf2016animal}.
+
+\paragraph{Vision: Object Recognition}
+
+State-of-the-art computer vision systems are able to classify images into thousands of different categories (e.g.\  \newcite{googlenet}). These object recognition systems are now widely used in vision \& language research.
+Nevertheless, the way the treat object recognition is conceptually very simple (if not to say, naive):  standard object classification schemes are inherently ``flat'', and treat object labels as mutually exclusive \cite{deng2014large}, ignoring all kinds of linguistic relations between these labels and ignoring the fact that an object can easily be an instance of several categories.\cs{I would make this statement stronger and argue that \textbf{object recognition is merely a labeling of objects  with human interpretable symbols}, and that a system would probably fail if it had to decide whether an object labeled as, e.g.\ \refexp{fig} may also be labeled as \refexp{food}.}
+
+
+\paragraph{Vision \& language: Naming and Referring}
+
+\newcite{Ordonez:2016} have studied the problem of deriving appropriate object names, or so-called entry-level
+ categories, from the output of an object recognizer. Their approach focusses on linking abstract object categories in ImageNet to actual words via translation procedures that e.g. involve corpus frequencies. 
+ \newcite{zarriess-schlangen:2017} learn a model of object naming on a corpus of referring expressions paired with objects in real-world images, but focus on combining visual and distributional information and on zero-shot learning.
+ Thus, object naming is an important task for referring expression generation, though most research in this area has focussed on content and attribute selection \cite{Kazemzadeh2014,gkatzia:2015,zarrieschlang:easy-pre,Maoetal:cocorefexp}.
+
+\paragraph{Existing resources and their shortcomings}
+Moreover, existing resources in L\&V hardly provide any consistent taxonomic information on objects and their categories, e.g. object labels are typically quite general as in Flickr30k \cite[e.g.,~\cat{people, animals, bodyparts, clothing}]{plummer2015flickr30kentities} or taxonomically heterogeneous as in MS COCO \cite[e.g.,~\cat{people, baseball glove, bird}]{mscoco}.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
