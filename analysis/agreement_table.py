@@ -58,8 +58,8 @@ def make_agreement_table(resdf):
                      str("%.2f"%np.mean(resdf['snodgrass'])),\
                      str("%.2f"%(np.sum(resdf['vg_is_max'])/nobjects))))
 
-    for c in set(list(resdf['cat'])):
-        catdf = resdf[resdf['cat'] == c]
+    for c in set(list(resdf['vg_domain'])):
+        catdf = resdf[resdf['vg_domain'] == c]
         ncat = len(catdf)
 
         synagree = Counter()
@@ -89,7 +89,7 @@ def make_agreement_table(resdf):
                          str("%.2f"%(np.sum(botdf['vg_is_max'])/len(botdf)))\
                          ))
 
-    outdf = pd.DataFrame(tablerows,columns=['category','% top','SD','=VG','max synset','%','SD','=VG','min synset','%','SD','=VG' ])
+    outdf = pd.DataFrame(tablerows,columns=['domain','% top','SD','=VG','max synset','%','SD','=VG','min synset','%','SD','=VG' ])
     print(outdf.sort_values(by=['% top']).to_latex(index=False))
 
 

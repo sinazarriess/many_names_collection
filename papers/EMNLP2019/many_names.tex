@@ -140,21 +140,15 @@ We compute the following agreement measures:
     & \multicolumn{3}{c|}{all synsets} & \multicolumn{4}{c|}{max synset} & \multicolumn{4}{c}{min synset} \\
                          domain & \% top &    SD &   =VG &         id &     \% top &    SD &   =VG &             id &     \% top &    SD &   =VG \\
 \midrule
-                           person &  0.52 &  2.14 &  0.50 &  professional.n.01 &  0.61 &  2.02 &  0.20 &           athlete.n.01 &  0.34 &  2.67 &  0.36 \\
-                        tableware &  0.52 &  1.92 &  0.40 &      crockery.n.01 &  0.52 &  1.92 &  0.40 &          crockery.n.01 &  0.52 &  1.92 &  0.40 \\
-              clothing &  0.64 &  1.59 &  0.70 &      neckwear.n.01 &  0.79 &  0.91 &  0.77 &          footwear.n.01 &  0.47 &  2.55 &  0.40 \\
- instruments &  0.66 &  1.52 &  0.79 &    furnishing.n.02 &  0.67 &  1.50 &  0.80 &   kitchen\_utensil.n.01 &  0.60 &  1.85 &  0.56 \\
-                solid food &  0.67 &  1.43 &  0.56 &   baked\_goods.n.01 &  0.67 &  1.43 &  0.56 &       baked\_goods.n.01 &  0.67 &  1.43 &  0.56 \\
-          structure &  0.67 &  1.55 &  0.73 &        bridge.n.01 &  0.75 &  1.21 &  0.87 &  place\_of\_worship.n.01 &  0.46 &  2.26 &  0.08 \\
-       %                       all &  0.70 &  1.35 &  0.73 &               None &  None &  None &  None &                   None &  None &  None &  None \\
-                          vehicle &  0.72 &  1.13 &  0.71 &         train.n.01 &  0.93 &  0.43 &  0.99 &          aircraft.n.01 &  0.52 &  1.50 &  0.41 \\
-                   food, nutrient &  0.72 &  1.27 &  0.68 &  edible\_fruit.n.01 &  0.80 &  0.89 &  0.79 &         vegetable.n.01 &  0.52 &  1.99 &  0.15 \\
-         plants &  0.79 &  0.86 &  0.73 &        flower.n.01 &  0.79 &  0.86 &  0.73 &            flower.n.01 &  0.79 &  0.86 &  0.73 \\
-                             ware &  0.82 &  0.96 &  0.94 &       cutlery.n.02 &  0.82 &  0.96 &  0.94 &           cutlery.n.02 &  0.82 &  0.96 &  0.94 \\
-                             tool &  0.86 &  0.73 &  0.94 &          tool.n.01 &  0.86 &  0.73 &  0.94 &              tool.n.01 &  0.86 &  0.73 &  0.94 \\
-                           animal &  0.91 &  0.43 &  0.94 &        feline.n.01 &  0.95 &  0.29 &  0.99 &              fish.n.01 &  0.39 &  2.53 &  0.55 \\
+         people &  0.52 &  2.13 &  0.50 &  professional.n.01 &  0.61 &  2.02 &  0.20 &           athlete.n.01 &  0.36 &  2.62 &  0.37 \\
+       clothing &  0.64 &  1.58 &  0.70 &      neckwear.n.01 &  0.79 &  0.91 &  0.77 &          footwear.n.01 &  0.47 &  2.55 &  0.40 \\
+           home &  0.66 &  1.50 &  0.78 &          tool.n.01 &  0.86 &  0.73 &  0.94 &          crockery.n.01 &  0.52 &  1.92 &  0.40 \\
+      buildings &  0.67 &  1.55 &  0.73 &        bridge.n.01 &  0.75 &  1.21 &  0.87 &  place\_of\_worship.n.01 &  0.46 &  2.26 &  0.08 \\
+           food &  0.71 &  1.30 &  0.63 &  edible\_fruit.n.01 &  0.80 &  0.89 &  0.79 &         vegetable.n.01 &  0.53 &  1.97 &  0.15 \\
+       vehicles &  0.72 &  1.13 &  0.71 &         train.n.01 &  0.93 &  0.42 &  0.99 &          aircraft.n.01 &  0.52 &  1.50 &  0.41 \\
+ animals,plants &  0.91 &  0.44 &  0.94 &        feline.n.01 &  0.95 &  0.29 &  0.99 &              fish.n.01 &  0.39 &  2.53 &  0.55 \\
 \bottomrule
- all &  0.70 &  1.35 &  0.73            \\
+ all &  0.70 &  1.34 &  0.73            \\
 
 \bottomrule
 \end{tabular}
@@ -247,22 +241,18 @@ Some (interesting, somewhat cherry-picked) word pairs were WordNet does not find
 
 \begin{table*}
 \small
-\begin{tabular}{lp{12cm}}
+\begin{tabular}{lp{13cm}}
 \toprule
                          category &                                                                                                                                                                                                                    most frequent naming variants \\
+
 \midrule
- food, solid food &  sandwich -- food (492), hotdog -- food (467), hotdog -- sandwich (318), cake -- food (265), bread -- sandwich (257), bread -- food (247), bread -- bun (206), donut -- food (188), hotdog -- bun (184), sandwich -- burger (163) \\
- structure, construction &  house -- building (1160), building -- house (511), bridge -- train (326), bridge -- overpass (235), house -- window (161), house -- home (123), tent -- canopy (120), building -- castle (101), bridge -- building (98), bridge -- pole (85) \\
- tool &  knife -- pizza (27), knife -- food (22), knife -- cake (17), knife -- banana (16), knife -- plate (15), knife -- apple (13), knife -- pocket knife (12), knife -- butter knife (12), knife -- table (10), knife -- carrot (8) \\
- vehicle &  airplane -- plane (11194), plane -- airplane (3829), motorcycle -- bike (2624), airplane -- jet (1319), boat -- ship (1301), truck -- car (1095), car -- vehicle (874), motorcycle -- wheel (861), truck -- vehicle (718), truck -- wheel (716) \\
- plant, flora, plant life &  flower -- flowers (29), rose -- flower (25), flower -- rose (22), flower -- vase (18), flowers -- flower (14), flower -- dandelion (14), plant -- flower (12), flower -- sunflower (11), plant -- wheat (11), flower -- flower pot (10) \\
- food, nutrient &  pizza -- food (1796), sandwich -- food (631), pizza -- cheese (447), pizza -- plate (423), salad -- food (402), sandwich -- burger (235), pizza -- toppings (217), pizza -- pizza slice (162), sandwich -- bread (156), food -- sandwich (147) \\
- tableware &  cup -- mug (146), mug -- cup (104), cup -- coffee (93), cup -- drink (73), bowl -- food (60), cup -- glass (39), bowl -- cup (36), glass -- wine glass (35), glass -- cup (34), cup -- coffee cup (31) \\
- article of clothing &  shirt -- t-shirt (2914), jacket -- coat (2396), jacket -- shirt (1552), jacket -- suit (1168), suit -- jacket (1029), shirt -- jacket (813), shirt -- tie (723), shirt -- man (487), shirt -- dress (462), shirt -- sweater (450) \\
- animal &  cow -- bull (515), sheep -- goat (486), cow -- animal (445), giraffe -- animal (380), bird -- parrot (349), sheep -- animal (294), sheep -- lamb (282), horse -- animal (269), cat -- animal (237), bird -- seagull (231) \\
- ware &  fork -- spoon (71), fork -- plate (44), spoon -- food (32), fork -- food (31), fork -- cake (21), spoon -- fork (18), spoon -- wooden spoon (15), fork -- broccoli (15), fork -- silverware (10), spoon -- vegetables (8) \\
- person &  woman -- person (3594), man -- person (3546), boy -- child (3243), woman -- girl (2328), girl -- child (1985), woman -- tennis player (1277), man -- player (1273), man -- boy (1214), skateboarder -- skater (1194), man -- t-shirt (1143) \\
- instrumentality, instrumentation &  couch -- sofa (4090), desk -- table (3435), carpet -- floor (1697), bench -- chair (1401), desk -- keyboard (1380), counter -- table (1201), table -- desk (1135), counter -- countertop (1101), table -- counter (906), rug -- carpet (895) \\
+ people &  woman -- person (3594), man -- person (3546), boy -- child (3243), woman -- girl (2328), girl -- child (1985), woman -- tennis player (1277), man -- player (1273), man -- boy (1214), skateboarder -- skater (1194), man -- t-shirt (1143) \\
+ food &  pizza -- food (1883), sandwich -- food (1123), hotdog -- food (540), pizza -- cheese (457), pizza -- plate (430), salad -- food (402), sandwich -- burger (398), hotdog -- sandwich (351), sandwich -- bread (318), cake -- food (286) \\
+ home &  couch -- sofa (4090), desk -- table (3448), carpet -- floor (1697), bench -- chair (1401), desk -- keyboard (1380), counter -- table (1201), table -- desk (1135), counter -- countertop (1101), table -- counter (906), rug -- carpet (895) \\
+ buildings &  house -- building (1160), building -- house (511), bridge -- train (326), bridge -- overpass (235), house -- window (161), house -- home (123), tent -- canopy (120), building -- castle (101), bridge -- building (98), bridge -- pole (85) \\
+ vehicles &  airplane -- plane (11194), plane -- airplane (3829), motorcycle -- bike (2624), airplane -- jet (1319), boat -- ship (1301), truck -- car (1095), car -- vehicle (874), motorcycle -- wheel (861), truck -- vehicle (718), truck -- wheel (716) \\
+ clothing &  shirt -- t-shirt (2914), jacket -- coat (2396), jacket -- shirt (1552), jacket -- suit (1168), suit -- jacket (1029), shirt -- jacket (813), shirt -- tie (723), shirt -- man (487), shirt -- dress (462), shirt -- sweater (450) \\
+ animals\_plants &  cow -- bull (515), sheep -- goat (486), cow -- animal (445), giraffe -- animal (380), bird -- parrot (349), sheep -- animal (294), sheep -- lamb (282), horse -- animal (269), cat -- animal (237), bird -- seagull (231) \\
 \bottomrule
 \end{tabular}\caption{Most frequent naming variants for each category}
 \label{tab:exvariants}
