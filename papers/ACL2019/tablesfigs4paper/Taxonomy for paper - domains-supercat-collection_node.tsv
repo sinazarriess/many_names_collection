@@ -1,0 +1,65 @@
+Table: data					
+Note:	the data that go into this table are exclusively from the 17K annotated images				
+rows:	see below				
+columns:					
+domain	obvious I hope				
+supercat	obvious I hope				
+coll_synset	collection synset; aka "collection node"				
+n_images	number of images (same as number of objects, right?)				
+mf_names_vg	five most frequent names given by VG annotators (descending order of freq)				
+n_unique_names_vg	number of unique names given by VG annotators				
+					
+domain	supercat	coll_synset	coll_synset	n_images	...
+ANIMAL/PLANT	animal	bird.n.01			
+ANIMAL/PLANT	animal	dog.n.01			
+ANIMAL/PLANT	animal	feline.n.01			
+ANIMAL/PLANT	animal	fish.n.01			
+ANIMAL/PLANT	animal	horse.n.01			
+ANIMAL/PLANT	animal	insect.n.01			
+ANIMAL/PLANT	animal	rodent.n.01			
+ANIMAL/PLANT	animal	ungulate.n.01			
+ANIMAL/PLANT	plant, flora, plant life	flower.n.01			
+BUILDING	structure, construction	bridge.n.01			
+BUILDING	structure, construction	hotel.n.01			
+BUILDING	structure, construction	house.n.01			
+BUILDING	structure, construction	housing.n.01			
+BUILDING	structure, construction	outbuilding.n.01			
+BUILDING	structure, construction	place_of_worship.n.01			
+BUILDING	structure, construction	restaurant.n.01			
+BUILDING	structure, construction	shelter.n.01			
+CLOTHING	article of clothing	dress.n.01			
+CLOTHING	article of clothing	footwear.n.01			
+CLOTHING	article of clothing	glove.n.02			
+CLOTHING	article of clothing	headdress.n.01			
+CLOTHING	article of clothing	neckwear.n.01			
+CLOTHING	article of clothing	overgarment.n.01			
+CLOTHING	article of clothing	robe.n.01			
+CLOTHING	article of clothing	shirt.n.01			
+FOOD	food, nutrient	beverage.n.01			
+FOOD	food, nutrient	dish.n.02			
+FOOD	food, nutrient	edible_fruit.n.01			
+FOOD	food, nutrient	foodstuff.n.02			
+FOOD	food, nutrient	vegetable.n.01			
+FOOD	food, solid food	baked_goods.n.01			
+HOME	instrumentality, instrumentation	furnishing.n.02			
+HOME	instrumentality, instrumentation	kitchen_utensil.n.01			
+HOME	instrumentality, instrumentation	lamp.n.01			
+HOME	instrumentality, instrumentation	vessel.n.03			
+HOME	tableware	crockery.n.01			
+HOME	tool	tool.n.01			
+HOME	ware	cutlery.n.02			
+PERSON	person	creator.n.02			
+PERSON	person	athlete.n.01			
+PERSON	person	child.n.01			
+PERSON	person	female_child.n.01			
+PERSON	person	male_child.n.01			
+PERSON	person	man.n.01			
+PERSON	person	professional.n.01			
+PERSON	person	woman.n.01			
+VEHICLE	vehicle	aircraft.n.01			
+VEHICLE	vehicle	boat.n.01			
+VEHICLE	vehicle	car.n.01			
+VEHICLE	vehicle	motorcycle.n.01			
+VEHICLE	vehicle	ship.n.01			
+VEHICLE	vehicle	train.n.01			
+VEHICLE	vehicle	truck.n.01			

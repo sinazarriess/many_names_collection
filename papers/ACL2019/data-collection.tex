@@ -7,7 +7,7 @@ describe the task here
 
 \subsection{Visual Genome data}
 
-\gbt{to be refined -- taken from sivl submission as is}
+\gbt{START to be refined -- taken from sivl submission as is}
 
 \vgenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
 It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
@@ -19,11 +19,37 @@ It contains a dense region-based labeling of $108k$~images with textual expressi
 		   \item[(3)] \textbf{Natural names}: are available, though object names might not be fully discriminative (as in referring expressions)
 
 \end{itemize}
+\gbt{END to be refined -- taken from sivl submission as is}
 
-describe sampling of images, category selection
+\cs{START @ GBT}
+\subsection{Sampling of Instances (Images/Objects)}
+Since our work connects research on object naming in computer vision and in psycholinguistics/cognitive science, we aimed at collecting a relatively large amount of naturalistic images (\textit{instances}) that depict objects of frequent classes/names in visual genome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
+%Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
+We chose the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of norming studies (REFS).
+In contrast to the latter, the McRae norms do not contain names of the \textsc{person} category, which we manually added. 
 
-Table with:
+(As appropriate: We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).)
 
+\paragraph{Collection nodes}
+We defined a set of \textit{collection nodes} which we would then use to collect our object instances from VG. 
+
+We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
+
+First, we selected a set of collection node candidates---synsets which match (e.g.,~\textsl{dog, duck, goose, gull}) or subsume (e.g.,~\textsl{mammal, bird}) the McRae synsets\footnote{Specific synset IDs, e.g.,~dog.n.01, are omitted for readability.}. 
+From these candidates we kept those as collection nodes which had a high frequency of VG object instances of different names. For example, VG instances  subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck, goose}, or \textsl{gull} did not have name variants in VG, so we kept \textsl{dog} and \textsl{bird} as collection nodes.
+
+Goal of this procedure is the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
+The collection of such instances using the nodes was then straightforward: We retrieved all VG images  depicting an object whose name matches or is subsumed by one of the collection nodes. 
+We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{(REF to tagger)}, or that were multi-word expressions/phrases (e.g.,~\textsl{pink bird}). 
+We further only considered objects whose bounding box\footnote{TODO: need to be clear from the general description of VG what is meant.} have an area of~$20-90\%$ of the whole image area.
+
+Finally, from this set of instances we sampled our final dataset of $31,093$~instances. 
+Sampling proceeded in dependence on the overall size of the individual collection seeds: 
+up to~$800$ objects per seed: all instances, but at most 500, are collected; more than~$800$ objects per seed: all instances, but at most~$1,000$, are collected.  \textbf{double-check}
+
+\cs{END @ GBT}
+
+Table~\ref{tab:XXX} gives an overview of the collection nodes, XXX, XXX, grouped into $7$~domains. (\textbf{Report only dataset after round0, with a note in caption/footnote referring to the checkpoint pruning.})
 % \begin{itemize}
 % \item rows: domains (if we go for long paper: then one row per collection node?)
 % \item columns:
@@ -37,9 +63,26 @@ Table with:
 %   \end{enumerate}
 % \end{itemize}
 
+Number of images/objects:        25,596\\
+Number of object names:  450\\
+Number of collection nodes (synsets):    52 \\
+
 \subsection{Procedure} describe the crowdsourcing set-up and the task
+TODO: Footnote: we ran pilot experiments to design our experiment and instructions.
+\paragraph{Collection Method}
+\begin{itemize}
+	\item instructions; put layout in appendix
+	\item each round: HIT of 10 instances, collect 9~annotations for each HIT
+	\item round 0 (with opt-outs) $\rightarrow$ pruning $\rightarrow$ rounds 1-3 (no opt-outs)\\
+	pruning: Based on given opt-outs: keep images with no OCCLUSION, at most BBOX is ambiguous twice, at most 17\% of names in plural form, most frequent names is of same domain as VG name (gives $25,596$, i.e., discard $5,497$ instances)
+	\item workers could only participate in one round, such as to avoid workers annotating an instance more than once. 
+\end{itemize}
+
+Overall $XX$~participants, each annotated between $XX$ and $XX$ instances. 
 
 \subsection{Data} give an overview of the collected data
+
+
 
 %%% Local Variables:
 %%% mode: latex

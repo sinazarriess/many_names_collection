@@ -1,0 +1,188 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Bernardi et~al.(2016)Bernardi, Cakici, Elliott, Erdem, Erdem,
+  Ikizler-Cinbis, Keller, Muscat, and Plank}]{Bernardietal:automatic}
+Raffaella Bernardi, Ruket Cakici, Desmond Elliott, Aykut Erdem, Erkut Erdem,
+  Nazli Ikizler-Cinbis, Frank Keller, Adrian Muscat, and Barbara Plank. 2016.
+\newblock \href{http://dl.acm.org/citation.cfm?id=3013558.3013571}{Automatic
+  description generation from images: A survey of models, datasets, and
+  evaluation measures}.
+\newblock {\em J. Artif. Int. Res.\/} 55(1):409--442.
+\newblock
+  \href{http://dl.acm.org/citation.cfm?id=3013558.3013571}{http://dl.acm.org/citation.cfm?id=3013558.3013571}.
+
+\bibitem[{Das et~al.(2017)Das, Kottur, Gupta, Singh, Yadav, Moura, Parikh, and
+  Batra}]{das2017visual}
+Abhishek Das, Satwik Kottur, Khushi Gupta, Avi Singh, Deshraj Yadav,
+  Jos{\'e}~MF Moura, Devi Parikh, and Dhruv Batra. 2017.
+\newblock Visual dialog.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition\/}. volume~2.
+
+\bibitem[{De~Vries et~al.(2017)De~Vries, Strub, Chandar, Pietquin, Larochelle,
+  and Courville}]{vries2017guesswhat}
+Harm De~Vries, Florian Strub, Sarath Chandar, Olivier Pietquin, Hugo
+  Larochelle, and Aaron Courville. 2017.
+\newblock Guesswhat?! visual object discovery through multi-modal dialogue.
+\newblock In {\em Proc. of CVPR\/}.
+
+\bibitem[{Deng et~al.(2014)Deng, Ding, Jia, Frome, Murphy, Bengio, Li, Neven,
+  and Adam}]{deng2014large}
+Jia Deng, Nan Ding, Yangqing Jia, Andrea Frome, Kevin Murphy, Samy Bengio, Yuan
+  Li, Hartmut Neven, and Hartwig Adam. 2014.
+\newblock Large-scale object classification using label relation graphs.
+\newblock In {\em European Conference on Computer Vision\/}. Springer, pages
+  48--64.
+
+\bibitem[{Devlin et~al.(2015)Devlin, Cheng, Fang, Gupta, Deng, He, Zweig, and
+  Mitchell}]{devlin:imcaqui}
+Jacob Devlin, Hao Cheng, Hao Fang, Saurabh Gupta, Li~Deng, Xiaodong He,
+  Geoffrey Zweig, and Margaret Mitchell. 2015.
+\newblock Language models for image captioning: The quirks and what works.
+\newblock In {\em Proceedings of the 53rd Annual Meeting of the Association for
+  Computational Linguistics and the 7th International Joint Conference on
+  Natural Language Processing (Volume 2: Short Papers)\/}. Association for
+  Computational Linguistics, Beijing, China, pages 100--105.
+
+\bibitem[{Fang et~al.(2015)Fang, Gupta, Iandola, Srivastava, Deng, Dollar, Gao,
+  He, Mitchell, Platt, Zitnick, and Zweig}]{fangetal:2015}
+Hao Fang, Saurabh Gupta, Forrest Iandola, Rupesh Srivastava, Li~Deng, Piotr
+  Dollar, Jianfeng Gao, Xiaodong He, Margaret Mitchell, John Platt, Lawrence
+  Zitnick, and Geoffrey Zweig. 2015.
+\newblock From captions to visual concepts and back.
+\newblock In {\em Proceedings of CVPR\/}. IEEE, Boston, MA, USA.
+
+\bibitem[{Fellbaum(1998)}]{fellbaum1998wordnet}
+Christiane Fellbaum. 1998.
+\newblock {\em WordNet\/}.
+\newblock Wiley Online Library.
+
+\bibitem[{Gkatzia et~al.(2015)Gkatzia, Rieser, Bartie, and
+  Mackaness}]{gkatzia:2015}
+Dimitra Gkatzia, Verena Rieser, Phil Bartie, and William Mackaness. 2015.
+\newblock \href{http://aclweb.org/anthology/D15-1224}{From the virtual to the
+  realworld: Referring to objects in real-world spatial scenes}.
+\newblock In {\em Proceedings of the 2015 Conference on Empirical Methods in
+  Natural Language Processing\/}. Association for Computational Linguistics,
+  Lisbon, Portugal, pages 1936--1942.
+\newblock
+  \href{http://aclweb.org/anthology/D15-1224}{http://aclweb.org/anthology/D15-1224}.
+
+\bibitem[{Graf et~al.(2016)Graf, Degen, Hawkins, and Goodman}]{graf2016animal}
+Caroline Graf, Judith Degen, Robert~XD Hawkins, and Noah~D Goodman. 2016.
+\newblock Animal, dog, or dalmatian? level of abstraction in nominal referring
+  expressions.
+\newblock In {\em Proceedings of the 38th annual conference of the Cognitive
+  Science Society\/}. Cognitive Science Society.
+
+\bibitem[{Jolicoeur(1984)}]{jolicoeur1984pictures}
+Pierre Jolicoeur. 1984.
+\newblock Pictures and names: Making the connection.
+\newblock {\em Cognitive psychology\/} 16:243--275.
+
+\bibitem[{Kazemzadeh et~al.(2014)Kazemzadeh, Ordonez, Matten, and
+  Berg}]{Kazemzadeh2014}
+Sahar Kazemzadeh, Vicente Ordonez, Mark Matten, and Tamara~L Berg. 2014.
+\newblock {ReferItGame: Referring to Objects in Photographs of Natural Scenes}.
+\newblock In {\em Proceedings of the Conference on Empirical Methods in Natural
+  Language Processing (EMNLP 2014)\/}. Doha, Qatar, pages 787--798.
+
+\bibitem[{Krishna et~al.(2016)Krishna, Zhu, Groth, Johnson, Hata, Kravitz,
+  Chen, Kalantidis, Li, Shamma, Bernstein, and
+  Fei-Fei}]{krishna2016visualgenome}
+Ranjay Krishna, Yuke Zhu, Oliver Groth, Justin Johnson, Kenji Hata, Joshua
+  Kravitz, Stephanie Chen, Yannis Kalantidis, Li-Jia Li, David~A Shamma,
+  Michael Bernstein, and Li~Fei-Fei. 2016.
+\newblock \href{https://arxiv.org/abs/1602.07332}{{Visual Genome: Connecting
+  Language and Vision Using Crowdsourced Dense Image Annotations}}.
+\newblock
+  \href{https://arxiv.org/abs/1602.07332}{https://arxiv.org/abs/1602.07332}.
+
+\bibitem[{Lin et~al.(2014)Lin, Maire, Belongie, Hays, Perona, Ramanan, Dollár,
+  and Zitnick}]{mscoco}
+Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva
+  Ramanan, Piotr Dollár, and C.Lawrence Zitnick. 2014.
+\newblock Microsoft coco: Common objects in context.
+\newblock In {\em Computer Vision – ECCV 2014\/}, Springer International
+  Publishing, volume 8693, pages 740--755.
+
+\bibitem[{Mao et~al.(2015)Mao, Huang, Toshev, Camburu, Yuille, and
+  Murphy}]{Maoetal:cocorefexp}
+Junhua Mao, Jonathan Huang, Alexander Toshev, Oana Camburu, Alan~L. Yuille, and
+  Kevin Murphy. 2015.
+\newblock \href{http://arxiv.org/abs/1511.02283}{Generation and comprehension
+  of unambiguous object descriptions}.
+\newblock {\em ArXiv / CoRR\/} abs/1511.02283.
+\newblock
+  \href{http://arxiv.org/abs/1511.02283}{http://arxiv.org/abs/1511.02283}.
+
+\bibitem[{Olson(1970)}]{olson1970language}
+David~R Olson. 1970.
+\newblock Language and thought: Aspects of a cognitive theory of semantics.
+\newblock {\em Psychological review\/} 77(4):257.
+
+\bibitem[{Ordonez et~al.(2016)Ordonez, Liu, Deng, Choi, Berg, and
+  Berg}]{Ordonez:2016}
+Vicente Ordonez, Wei Liu, Jia Deng, Yejin Choi, Alexander~C. Berg, and
+  Tamara~L. Berg. 2016.
+\newblock Learning to name objects.
+\newblock {\em Commun. ACM\/} 59(3):108--115.
+
+\bibitem[{Plummer et~al.(2015)Plummer, Wang, Cervantes, Caicedo, Hockenmaier,
+  and Lazebnik}]{plummer2015flickr30kentities}
+Bryan~A. Plummer, Liwei Wang, Chris~M. Cervantes, Juan~C. Caicedo, Julia
+  Hockenmaier, and Svetlana Lazebnik. 2015.
+\newblock \href{http://arxiv.org/abs/1505.04870}{{Flickr30k Entities:
+  Collecting Region-to-Phrase Correspondences for Richer Image-to-Sentence
+  Models}}.
+\newblock {\em CoRR\/} abs/1505.04870.
+\newblock
+  \href{http://arxiv.org/abs/1505.04870}{http://arxiv.org/abs/1505.04870}.
+
+\bibitem[{Rohde et~al.(2012)Rohde, Seyfarth, Clark, J{\"a}ger, and
+  Kaufmann}]{rohde2012communicating}
+Hannah Rohde, Scott Seyfarth, Brady Clark, Gerhard J{\"a}ger, and Stefan
+  Kaufmann. 2012.
+\newblock Communicating with cost-based implicature: A game-theoretic approach
+  to ambiguity.
+\newblock In {\em Proceedings of the 16th Workshop on the Semantics and
+  Pragmatics of Dialogue\/}. pages 107--116.
+
+\bibitem[{Rosch et~al.(1976)Rosch, Mervis, Gray, Johnson, and
+  Boyes-Braem}]{rosch1976basic}
+Eleanor Rosch, Carolyn~B Mervis, Wayne~D Gray, David~M Johnson, and Penny
+  Boyes-Braem. 1976.
+\newblock Basic objects in natural categories.
+\newblock {\em Cognitive psychology\/} 8(3):382--439.
+
+\bibitem[{Szegedy et~al.(2015)Szegedy, Liu, Jia, Sermanet, Reed, Anguelov,
+  Erhan, Vanhoucke, and Rabinovich}]{googlenet}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. 2015.
+\newblock Going deeper with convolutions.
+\newblock In {\em CVPR 2015\/}. Boston, MA, USA.
+
+\bibitem[{Zarrie{\ss} and Schlangen(2016)}]{zarrieschlang:easy-pre}
+Sina Zarrie{\ss} and David Schlangen. 2016.
+\newblock \href{http://www.aclweb.org/anthology/P16-1058}{Easy things first:
+  Installments improve referring expression generation for objects in
+  photographs}.
+\newblock In {\em Proceedings of the 54th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)\/}. Association for
+  Computational Linguistics, Berlin, Germany, pages 610--620.
+\newblock
+  \href{http://www.aclweb.org/anthology/P16-1058}{http://www.aclweb.org/anthology/P16-1058}.
+
+\bibitem[{Zarrie{\ss} and Schlangen(2017)}]{zarriess-schlangen:2017}
+Sina Zarrie{\ss} and David Schlangen. 2017.
+\newblock \href{http://aclweb.org/anthology/P17-1023}{Obtaining referential
+  word meanings from visual and distributional information: Experiments on
+  object naming}.
+\newblock In {\em Proceedings of the 55th Annual Meeting of the Association for
+  Computational Linguistics (Volume 1: Long Papers)\/}. Association for
+  Computational Linguistics, Vancouver, Canada, pages 243--254.
+\newblock
+  \href{http://aclweb.org/anthology/P17-1023}{http://aclweb.org/anthology/P17-1023}.
+
+\end{thebibliography}

@@ -1,0 +1,565 @@
+,category,synset,obj_names,no_objnms_unique_per_img,imgs_to_sample
+348,ware,cutlery.n.02,fork,72,72
+349,ware,cutlery.n.02,spoon,55,55
+533,vehicle,truck.n.01,truck,672,500
+535,vehicle,truck.n.01,van,91,91
+539,vehicle,truck.n.01,pickup,14,14
+534,vehicle,truck.n.01,car,1,1
+536,vehicle,truck.n.01,truck.,1,1
+537,vehicle,truck.n.01,ambulance,1,1
+538,vehicle,truck.n.01,vehicle,1,1
+540,vehicle,truck.n.01,minivan,1,1
+541,vehicle,truck.n.01,rear,1,1
+542,vehicle,truck.n.01,tipper,1,1
+543,vehicle,truck.n.01,rail,1,1
+516,vehicle,train.n.01,train,1962,1000
+517,vehicle,train.n.01,car,1,1
+518,vehicle,train.n.01,engine,1,1
+519,vehicle,train.n.01,train's,1,1
+520,vehicle,train.n.01,commuter,1,1
+559,vehicle,ship.n.01,ship,38,38
+560,vehicle,ship.n.01,sub,15,15
+563,vehicle,ship.n.01,tanker,4,4
+561,vehicle,ship.n.01,steamer,1,1
+562,vehicle,ship.n.01,submarine,1,1
+511,vehicle,motorcycle.n.01,motorcycle,741,500
+513,vehicle,motorcycle.n.01,motorbike,76,76
+514,vehicle,motorcycle.n.01,moped,28,28
+512,vehicle,motorcycle.n.01,bike,5,5
+515,vehicle,motorcycle.n.01,vehicle,1,1
+545,vehicle,car.n.01,car,887,887
+546,vehicle,car.n.01,suv,31,31
+548,vehicle,car.n.01,jeep,16,16
+547,vehicle,car.n.01,automobile,14,14
+550,vehicle,car.n.01,sedan,11,11
+553,vehicle,car.n.01,taxi,9,9
+549,vehicle,car.n.01,minivan,7,7
+551,vehicle,car.n.01,ambulance,5,5
+552,vehicle,car.n.01,vehicle,2,2
+555,vehicle,car.n.01,hatchback,2,2
+544,vehicle,car.n.01,truck,1,1
+554,vehicle,car.n.01,auto,1,1
+556,vehicle,car.n.01,limousine,1,1
+557,vehicle,car.n.01,dirt,1,1
+558,vehicle,car.n.01,cruiser,1,1
+521,vehicle,boat.n.01,boat,588,500
+522,vehicle,boat.n.01,scooter,42,42
+527,vehicle,boat.n.01,ferry,9,9
+523,vehicle,boat.n.01,canoe,5,5
+525,vehicle,boat.n.01,barge,4,4
+529,vehicle,boat.n.01,kayak,3,3
+524,vehicle,boat.n.01,tugboat,2,2
+531,vehicle,boat.n.01,rowboat,2,2
+526,vehicle,boat.n.01,boat.,1,1
+528,vehicle,boat.n.01,houseboat,1,1
+530,vehicle,boat.n.01,motorboat,1,1
+532,vehicle,boat.n.01,truck,1,1
+495,vehicle,aircraft.n.01,plane,793,500
+496,vehicle,aircraft.n.01,airplane,736,500
+499,vehicle,aircraft.n.01,jet,116,116
+497,vehicle,aircraft.n.01,aircraft,89,89
+503,vehicle,aircraft.n.01,helicopter,15,15
+505,vehicle,aircraft.n.01,aeroplane,13,13
+498,vehicle,aircraft.n.01,airliner,11,11
+500,vehicle,aircraft.n.01,glider,5,5
+502,vehicle,aircraft.n.01,balloon,4,4
+506,vehicle,aircraft.n.01,jetliner,3,3
+501,vehicle,aircraft.n.01,engine,1,1
+504,vehicle,aircraft.n.01,side,1,1
+507,vehicle,aircraft.n.01,lobster,1,1
+508,vehicle,aircraft.n.01,seaplane,1,1
+509,vehicle,aircraft.n.01,"airplane""",1,1
+510,vehicle,aircraft.n.01,biplane,1,1
+231,tool,tool.n.01,knife,98,98
+232,tool,tool.n.01,tool,7,7
+235,tool,tool.n.01,shovel,2,2
+233,tool,tool.n.01,spreader,1,1
+234,tool,tool.n.01,scraper,1,1
+236,tool,tool.n.01,cutlery,1,1
+237,tool,tool.n.01,handsaw,1,1
+238,tool,tool.n.01,corkscrew,1,1
+350,tableware,crockery.n.01,dish,229,229
+351,tableware,crockery.n.01,cup,108,108
+367,"structure, construction",shelter.n.01,dugout,152,152
+369,"structure, construction",shelter.n.01,tent,95,95
+368,"structure, construction",shelter.n.01,shelter,35,35
+370,"structure, construction",shelter.n.01,hut,14,14
+374,"structure, construction",shelter.n.01,hutch,5,5
+376,"structure, construction",shelter.n.01,pavilion,5,5
+372,"structure, construction",shelter.n.01,shack,3,3
+375,"structure, construction",shelter.n.01,marquee,2,2
+371,"structure, construction",shelter.n.01,dugout.,1,1
+373,"structure, construction",shelter.n.01,oasis,1,1
+377,"structure, construction",restaurant.n.01,restaurant,75,75
+378,"structure, construction",restaurant.n.01,grill,46,46
+379,"structure, construction",restaurant.n.01,cafe,12,12
+380,"structure, construction",restaurant.n.01,cafeteria,2,2
+381,"structure, construction",restaurant.n.01,parlor,1,1
+385,"structure, construction",place_of_worship.n.01,temple,5,5
+387,"structure, construction",place_of_worship.n.01,cathedral,5,5
+389,"structure, construction",place_of_worship.n.01,abbey,3,3
+386,"structure, construction",place_of_worship.n.01,chapel,1,1
+388,"structure, construction",place_of_worship.n.01,shrine,1,1
+390,"structure, construction",place_of_worship.n.01,pagoda,1,1
+391,"structure, construction",outbuilding.n.01,garage,30,30
+392,"structure, construction",outbuilding.n.01,shed,23,23
+393,"structure, construction",outbuilding.n.01,outhouse,4,4
+394,"structure, construction",outbuilding.n.01,carport,3,3
+395,"structure, construction",outbuilding.n.01,kennel,2,2
+361,"structure, construction",housing.n.01,apartment,13,13
+363,"structure, construction",housing.n.01,housing,7,7
+364,"structure, construction",housing.n.01,teepee,2,2
+362,"structure, construction",housing.n.01,harem,1,1
+365,"structure, construction",housing.n.01,dwelling,1,1
+366,"structure, construction",housing.n.01,condominium,1,1
+354,"structure, construction",house.n.01,house,503,500
+355,"structure, construction",house.n.01,castle,18,18
+356,"structure, construction",house.n.01,palace,7,7
+358,"structure, construction",house.n.01,cottage,2,2
+360,"structure, construction",house.n.01,building,2,2
+357,"structure, construction",house.n.01,background,1,1
+359,"structure, construction",house.n.01,house.,1,1
+383,"structure, construction",hotel.n.01,hotel,22,22
+382,"structure, construction",hotel.n.01,resort,11,11
+384,"structure, construction",hotel.n.01,building,1,1
+352,"structure, construction",bridge.n.01,bridge,415,415
+353,"structure, construction",bridge.n.01,overpass,39,39
+491,"plant, flora, plant life",flower.n.01,flower,91,91
+492,"plant, flora, plant life",flower.n.01,sunflower,3,3
+493,"plant, flora, plant life",flower.n.01,daisy,3,3
+494,"plant, flora, plant life",flower.n.01,vanilla,1,1
+0,person,woman.n.01,woman,3144,1000
+2,person,woman.n.01,girl,1405,1000
+3,person,woman.n.01,lady,559,500
+6,person,woman.n.01,person,5,5
+11,person,woman.n.01,child,2,2
+12,person,woman.n.01,wife,2,2
+1,person,woman.n.01,man,1,1
+4,person,woman.n.01,player,1,1
+5,person,woman.n.01,skiier,1,1
+7,person,woman.n.01,female,1,1
+8,person,woman.n.01,waved,1,1
+9,person,woman.n.01,body,1,1
+10,person,woman.n.01,tart,1,1
+13,person,woman.n.01,kitchen,1,1
+14,person,woman.n.01,cinderella,1,1
+15,person,woman.n.01,widow,1,1
+68,person,professional.n.01,teacher,3,3
+67,person,professional.n.01,instructor,2,2
+69,person,professional.n.01,nurse,2,2
+70,person,professional.n.01,doctor,2,2
+71,person,professional.n.01,caregiver,1,1
+16,person,man.n.01,man,7613,1000
+17,person,man.n.01,guy,441,441
+24,person,man.n.01,gentleman,14,14
+20,person,man.n.01,dude,12,12
+22,person,man.n.01,person,5,5
+28,person,man.n.01,man's,5,5
+29,person,man.n.01,boy,2,2
+18,person,man.n.01,skateboarder,1,1
+19,person,man.n.01,pitcher,1,1
+21,person,man.n.01,man.,1,1
+23,person,man.n.01,surfer,1,1
+25,person,man.n.01,infielder,1,1
+26,person,man.n.01,mountian,1,1
+27,person,man.n.01,teen,1,1
+30,person,man.n.01,bridegroom,1,1
+32,person,male_child.n.01,boy,1510,1000
+31,person,male_child.n.01,man,1,1
+33,person,male_child.n.01,child,1,1
+34,person,male_child.n.01,guy,1,1
+35,person,male_child.n.01,kid,1,1
+36,person,male_child.n.01,fence,1,1
+75,person,creator.n.02,barber,5,5
+73,person,creator.n.02,artist,3,3
+82,person,creator.n.02,photographer,3,3
+78,person,creator.n.02,farmer,2,2
+80,person,creator.n.02,cameraman,2,2
+72,person,creator.n.02,maker,1,1
+74,person,creator.n.02,lasso,1,1
+76,person,creator.n.02,heron,1,1
+77,person,creator.n.02,bruch,1,1
+79,person,creator.n.02,adapter,1,1
+81,person,creator.n.02,master,1,1
+83,person,creator.n.02,conductor,1,1
+60,person,child.n.01,child,345,345
+61,person,child.n.01,kid,116,116
+62,person,child.n.01,toddler,24,24
+64,person,child.n.01,girl,5,5
+65,person,child.n.01,fry,5,5
+59,person,child.n.01,boy,4,4
+63,person,child.n.01,player,1,1
+66,person,child.n.01,brat,1,1
+38,person,athlete.n.01,batter,157,157
+41,person,athlete.n.01,skateboarder,97,97
+39,person,athlete.n.01,skier,86,86
+40,person,athlete.n.01,catcher,54,54
+44,person,athlete.n.01,pitcher,40,40
+43,person,athlete.n.01,skater,38,38
+45,person,athlete.n.01,athlete,20,20
+49,person,athlete.n.01,forward,8,8
+48,person,athlete.n.01,goalie,4,4
+50,person,athlete.n.01,hitter,4,4
+53,person,athlete.n.01,backstop,4,4
+37,person,athlete.n.01,man,3,3
+52,person,athlete.n.01,ballplayer,3,3
+51,person,athlete.n.01,batter's,2,2
+55,person,athlete.n.01,goalkeeper,2,2
+42,person,athlete.n.01,instructor,1,1
+46,person,athlete.n.01,player,1,1
+47,person,athlete.n.01,competition,1,1
+54,person,athlete.n.01,skiers.,1,1
+56,person,athlete.n.01,family,1,1
+57,person,athlete.n.01,tumbler,1,1
+58,person,athlete.n.01,pro,1,1
+455,"instrumentality, instrumentation",vessel.n.03,bowl,525,500
+459,"instrumentality, instrumentation",vessel.n.03,vase,146,146
+460,"instrumentality, instrumentation",vessel.n.03,bottle,72,72
+458,"instrumentality, instrumentation",vessel.n.03,tub,71,71
+456,"instrumentality, instrumentation",vessel.n.03,bathtub,66,66
+457,"instrumentality, instrumentation",vessel.n.03,jar,28,28
+465,"instrumentality, instrumentation",vessel.n.03,bath,15,15
+464,"instrumentality, instrumentation",vessel.n.03,bucket,14,14
+461,"instrumentality, instrumentation",vessel.n.03,basin,12,12
+463,"instrumentality, instrumentation",vessel.n.03,aquarium,11,11
+462,"instrumentality, instrumentation",vessel.n.03,bowls,4,4
+467,"instrumentality, instrumentation",vessel.n.03,bidet,4,4
+472,"instrumentality, instrumentation",vessel.n.03,urn,4,4
+473,"instrumentality, instrumentation",vessel.n.03,jug,4,4
+471,"instrumentality, instrumentation",vessel.n.03,shower,2,2
+466,"instrumentality, instrumentation",vessel.n.03,dish,1,1
+468,"instrumentality, instrumentation",vessel.n.03,birdbath,1,1
+469,"instrumentality, instrumentation",vessel.n.03,boiler,1,1
+470,"instrumentality, instrumentation",vessel.n.03,pail,1,1
+474,"instrumentality, instrumentation",vessel.n.03,canister,1,1
+488,"instrumentality, instrumentation",lamp.n.01,lamp,40,40
+487,"instrumentality, instrumentation",lamp.n.01,streetlight,5,5
+489,"instrumentality, instrumentation",lamp.n.01,lantern,2,2
+490,"instrumentality, instrumentation",lamp.n.01,candle,1,1
+477,"instrumentality, instrumentation",kitchen_utensil.n.01,pan,168,168
+475,"instrumentality, instrumentation",kitchen_utensil.n.01,pot,63,63
+478,"instrumentality, instrumentation",kitchen_utensil.n.01,blender,57,57
+481,"instrumentality, instrumentation",kitchen_utensil.n.01,spatula,10,10
+482,"instrumentality, instrumentation",kitchen_utensil.n.01,skillet,9,9
+476,"instrumentality, instrumentation",kitchen_utensil.n.01,cooker,6,6
+484,"instrumentality, instrumentation",kitchen_utensil.n.01,kettle,4,4
+479,"instrumentality, instrumentation",kitchen_utensil.n.01,wok,2,2
+480,"instrumentality, instrumentation",kitchen_utensil.n.01,squeezer,2,2
+483,"instrumentality, instrumentation",kitchen_utensil.n.01,kitchenware,1,1
+485,"instrumentality, instrumentation",kitchen_utensil.n.01,saucepan,1,1
+486,"instrumentality, instrumentation",kitchen_utensil.n.01,teapot,1,1
+396,"instrumentality, instrumentation",furnishing.n.02,table,4343,1000
+399,"instrumentality, instrumentation",furnishing.n.02,bed,1559,1000
+402,"instrumentality, instrumentation",furnishing.n.02,desk,978,978
+397,"instrumentality, instrumentation",furnishing.n.02,counter,969,969
+401,"instrumentality, instrumentation",furnishing.n.02,bench,969,969
+403,"instrumentality, instrumentation",furnishing.n.02,carpet,625,500
+405,"instrumentality, instrumentation",furnishing.n.02,couch,641,500
+409,"instrumentality, instrumentation",furnishing.n.02,chair,718,500
+404,"instrumentality, instrumentation",furnishing.n.02,curtain,309,309
+406,"instrumentality, instrumentation",furnishing.n.02,cabinet,282,282
+398,"instrumentality, instrumentation",furnishing.n.02,rug,217,217
+400,"instrumentality, instrumentation",furnishing.n.02,sofa,200,200
+411,"instrumentality, instrumentation",furnishing.n.02,dresser,55,55
+412,"instrumentality, instrumentation",furnishing.n.02,furniture,55,55
+408,"instrumentality, instrumentation",furnishing.n.02,bookcase,40,40
+407,"instrumentality, instrumentation",furnishing.n.02,booth,31,31
+418,"instrumentality, instrumentation",furnishing.n.02,carpeting,31,31
+417,"instrumentality, instrumentation",furnishing.n.02,armchair,15,15
+413,"instrumentality, instrumentation",furnishing.n.02,stool,10,10
+416,"instrumentality, instrumentation",furnishing.n.02,drape,9,9
+437,"instrumentality, instrumentation",furnishing.n.02,buffet,8,8
+439,"instrumentality, instrumentation",furnishing.n.02,loveseat,7,7
+436,"instrumentality, instrumentation",furnishing.n.02,sectional,6,6
+442,"instrumentality, instrumentation",furnishing.n.02,wheelchair,6,6
+414,"instrumentality, instrumentation",furnishing.n.02,recliner,5,5
+419,"instrumentality, instrumentation",furnishing.n.02,cot,5,5
+428,"instrumentality, instrumentation",furnishing.n.02,crib,5,5
+410,"instrumentality, instrumentation",furnishing.n.02,highchair,4,4
+415,"instrumentality, instrumentation",furnishing.n.02,drapery,4,4
+444,"instrumentality, instrumentation",furnishing.n.02,bedframe,4,4
+420,"instrumentality, instrumentation",furnishing.n.02,wardrobe,3,3
+421,"instrumentality, instrumentation",furnishing.n.02,console,3,3
+425,"instrumentality, instrumentation",furnishing.n.02,desk.,3,3
+434,"instrumentality, instrumentation",furnishing.n.02,seat,3,3
+427,"instrumentality, instrumentation",furnishing.n.02,tablecloth,2,2
+429,"instrumentality, instrumentation",furnishing.n.02,bookshelf,2,2
+430,"instrumentality, instrumentation",furnishing.n.02,bedstead,2,2
+432,"instrumentality, instrumentation",furnishing.n.02,floor,2,2
+433,"instrumentality, instrumentation",furnishing.n.02,daybed,2,2
+440,"instrumentality, instrumentation",furnishing.n.02,armoire,2,2
+441,"instrumentality, instrumentation",furnishing.n.02,lounge,2,2
+443,"instrumentality, instrumentation",furnishing.n.02,chair.,2,2
+445,"instrumentality, instrumentation",furnishing.n.02,countertop,2,2
+422,"instrumentality, instrumentation",furnishing.n.02,surface,1,1
+423,"instrumentality, instrumentation",furnishing.n.02,benching,1,1
+424,"instrumentality, instrumentation",furnishing.n.02,cabinet.,1,1
+426,"instrumentality, instrumentation",furnishing.n.02,carpet.,1,1
+431,"instrumentality, instrumentation",furnishing.n.02,line,1,1
+435,"instrumentality, instrumentation",furnishing.n.02,stall,1,1
+438,"instrumentality, instrumentation",furnishing.n.02,pew,1,1
+446,"instrumentality, instrumentation",furnishing.n.02,upper,1,1
+447,"instrumentality, instrumentation",furnishing.n.02,trundle,1,1
+448,"instrumentality, instrumentation",furnishing.n.02,hassock,1,1
+449,"instrumentality, instrumentation",furnishing.n.02,table.,1,1
+450,"instrumentality, instrumentation",furnishing.n.02,chaise,1,1
+451,"instrumentality, instrumentation",furnishing.n.02,bassinet,1,1
+452,"instrumentality, instrumentation",furnishing.n.02,footstool,1,1
+453,"instrumentality, instrumentation",furnishing.n.02,stand,1,1
+454,"instrumentality, instrumentation",furnishing.n.02,square,1,1
+324,"food, solid food",baked_goods.n.01,cake,361,361
+327,"food, solid food",baked_goods.n.01,bread,341,341
+323,"food, solid food",baked_goods.n.01,bun,194,194
+326,"food, solid food",baked_goods.n.01,donut,97,97
+328,"food, solid food",baked_goods.n.01,pie,28,28
+338,"food, solid food",baked_goods.n.01,cupcake,19,19
+329,"food, solid food",baked_goods.n.01,pancake,16,16
+334,"food, solid food",baked_goods.n.01,toast,16,16
+330,"food, solid food",baked_goods.n.01,bagel,13,13
+333,"food, solid food",baked_goods.n.01,cookie,9,9
+325,"food, solid food",baked_goods.n.01,muffin,6,6
+341,"food, solid food",baked_goods.n.01,croissant,5,5
+343,"food, solid food",baked_goods.n.01,flatbread,5,5
+335,"food, solid food",baked_goods.n.01,waffle,4,4
+337,"food, solid food",baked_goods.n.01,cheesecake,4,4
+332,"food, solid food",baked_goods.n.01,biscuit,3,3
+331,"food, solid food",baked_goods.n.01,tortilla,2,2
+336,"food, solid food",baked_goods.n.01,piece,1,1
+339,"food, solid food",baked_goods.n.01,shortcake,1,1
+340,"food, solid food",baked_goods.n.01,pita,1,1
+342,"food, solid food",baked_goods.n.01,torte,1,1
+344,"food, solid food",baked_goods.n.01,part,1,1
+345,"food, solid food",baked_goods.n.01,cracker,1,1
+346,"food, solid food",baked_goods.n.01,baguette,1,1
+347,"food, solid food",baked_goods.n.01,cornbread,1,1
+295,"food, nutrient",vegetable.n.01,vegetable,72,72
+297,"food, nutrient",vegetable.n.01,cabbage,15,15
+296,"food, nutrient",vegetable.n.01,tomato,13,13
+294,"food, nutrient",vegetable.n.01,potato,8,8
+298,"food, nutrient",vegetable.n.01,veggie,4,4
+299,"food, nutrient",vegetable.n.01,bean,3,3
+300,"food, nutrient",vegetable.n.01,salad,1,1
+301,"food, nutrient",vegetable.n.01,radish,1,1
+302,"food, nutrient",vegetable.n.01,rhubarb,1,1
+303,"food, nutrient",vegetable.n.01,romaine,1,1
+269,"food, nutrient",foodstuff.n.02,cheese,222,222
+270,"food, nutrient",foodstuff.n.02,sauce,124,124
+268,"food, nutrient",foodstuff.n.02,rice,44,44
+272,"food, nutrient",foodstuff.n.02,pastry,24,24
+267,"food, nutrient",foodstuff.n.02,dough,13,13
+276,"food, nutrient",foodstuff.n.02,gravy,13,13
+277,"food, nutrient",foodstuff.n.02,ketchup,11,11
+279,"food, nutrient",foodstuff.n.02,seasoning,8,8
+283,"food, nutrient",foodstuff.n.02,cereal,8,8
+273,"food, nutrient",foodstuff.n.02,sugar,7,7
+275,"food, nutrient",foodstuff.n.02,syrup,7,7
+271,"food, nutrient",foodstuff.n.02,juice,5,5
+274,"food, nutrient",foodstuff.n.02,flour,5,5
+290,"food, nutrient",foodstuff.n.02,pickle,4,4
+278,"food, nutrient",foodstuff.n.02,salsa,3,3
+284,"food, nutrient",foodstuff.n.02,mayo,3,3
+287,"food, nutrient",foodstuff.n.02,spice,3,3
+289,"food, nutrient",foodstuff.n.02,mozzarella,3,3
+280,"food, nutrient",foodstuff.n.02,guacamole,2,2
+281,"food, nutrient",foodstuff.n.02,yogurt,2,2
+286,"food, nutrient",foodstuff.n.02,pesto,2,2
+288,"food, nutrient",foodstuff.n.02,mix,2,2
+282,"food, nutrient",foodstuff.n.02,butter,1,1
+285,"food, nutrient",foodstuff.n.02,honey,1,1
+291,"food, nutrient",foodstuff.n.02,plate,1,1
+292,"food, nutrient",foodstuff.n.02,tofu,1,1
+293,"food, nutrient",foodstuff.n.02,yolk,1,1
+304,"food, nutrient",edible_fruit.n.01,apple,46,46
+307,"food, nutrient",edible_fruit.n.01,lemon,6,6
+305,"food, nutrient",edible_fruit.n.01,blackberry,3,3
+309,"food, nutrient",edible_fruit.n.01,melon,3,3
+306,"food, nutrient",edible_fruit.n.01,berry,1,1
+308,"food, nutrient",edible_fruit.n.01,dehydrated,1,1
+310,"food, nutrient",edible_fruit.n.01,prune,1,1
+239,"food, nutrient",dish.n.02,pizza,854,854
+240,"food, nutrient",dish.n.02,sandwich,357,357
+241,"food, nutrient",dish.n.02,salad,110,110
+252,"food, nutrient",dish.n.02,soup,39,39
+243,"food, nutrient",dish.n.02,pasta,18,18
+248,"food, nutrient",dish.n.02,hamburger,11,11
+244,"food, nutrient",dish.n.02,omelette,8,8
+242,"food, nutrient",dish.n.02,broth,6,6
+245,"food, nutrient",dish.n.02,hoagie,4,4
+247,"food, nutrient",dish.n.02,burrito,4,4
+251,"food, nutrient",dish.n.02,cheeseburger,3,3
+253,"food, nutrient",dish.n.02,omelet,3,3
+257,"food, nutrient",dish.n.02,slaw,3,3
+249,"food, nutrient",dish.n.02,food,2,2
+254,"food, nutrient",dish.n.02,casserole,2,2
+264,"food, nutrient",dish.n.02,oatmeal,2,2
+246,"food, nutrient",dish.n.02,souffle,1,1
+250,"food, nutrient",dish.n.02,quesadilla,1,1
+255,"food, nutrient",dish.n.02,ramekin,1,1
+256,"food, nutrient",dish.n.02,porridge,1,1
+258,"food, nutrient",dish.n.02,blt,1,1
+259,"food, nutrient",dish.n.02,sauerkraut,1,1
+260,"food, nutrient",dish.n.02,viand,1,1
+261,"food, nutrient",dish.n.02,barbeque,1,1
+262,"food, nutrient",dish.n.02,gyro,1,1
+263,"food, nutrient",dish.n.02,frittata,1,1
+265,"food, nutrient",dish.n.02,chowder,1,1
+266,"food, nutrient",dish.n.02,coleslaw,1,1
+314,"food, nutrient",beverage.n.01,beer,13,13
+316,"food, nutrient",beverage.n.01,milk,11,11
+317,"food, nutrient",beverage.n.01,wine,10,10
+311,"food, nutrient",beverage.n.01,sidecar,7,7
+315,"food, nutrient",beverage.n.01,coffee,7,7
+318,"food, nutrient",beverage.n.01,beverage,4,4
+312,"food, nutrient",beverage.n.01,liquor,2,2
+313,"food, nutrient",beverage.n.01,vintage,1,1
+319,"food, nutrient",beverage.n.01,coke,1,1
+320,"food, nutrient",beverage.n.01,ale,1,1
+321,"food, nutrient",beverage.n.01,tea,1,1
+322,"food, nutrient",beverage.n.01,champagne,1,1
+184,article of clothing,shirt.n.01,shirt,2473,1000
+185,article of clothing,shirt.n.01,t-shirt,73,73
+186,article of clothing,shirt.n.01,top,1,1
+187,article of clothing,shirt.n.01,sweater,1,1
+216,article of clothing,robe.n.01,robe,32,32
+217,article of clothing,robe.n.01,bathrobe,6,6
+218,article of clothing,robe.n.01,kimono,3,3
+200,article of clothing,overgarment.n.01,jacket,788,500
+199,article of clothing,overgarment.n.01,coat,349,349
+202,article of clothing,overgarment.n.01,blazer,43,43
+201,article of clothing,overgarment.n.01,wrap,19,19
+205,article of clothing,overgarment.n.01,windbreaker,7,7
+207,article of clothing,overgarment.n.01,shawl,4,4
+208,article of clothing,overgarment.n.01,raincoat,4,4
+206,article of clothing,overgarment.n.01,parka,3,3
+203,article of clothing,overgarment.n.01,peacoat,2,2
+204,article of clothing,overgarment.n.01,mac,2,2
+209,article of clothing,overgarment.n.01,snowsuit,2,2
+212,article of clothing,overgarment.n.01,poncho,2,2
+210,article of clothing,overgarment.n.01,overcoat,1,1
+211,article of clothing,overgarment.n.01,blouse,1,1
+213,article of clothing,overgarment.n.01,shirt,1,1
+214,article of clothing,overgarment.n.01,woman,1,1
+215,article of clothing,overgarment.n.01,suit,1,1
+228,article of clothing,neckwear.n.01,tie,59,59
+229,article of clothing,neckwear.n.01,necktie,12,12
+230,article of clothing,neckwear.n.01,bowtie,3,3
+188,article of clothing,headdress.n.01,hat,91,91
+189,article of clothing,headdress.n.01,hood,55,55
+190,article of clothing,headdress.n.01,cap,29,29
+191,article of clothing,headdress.n.01,helmet,11,11
+193,article of clothing,headdress.n.01,beanie,4,4
+194,article of clothing,headdress.n.01,turban,2,2
+195,article of clothing,headdress.n.01,bonnet,2,2
+192,article of clothing,headdress.n.01,headdress,1,1
+226,article of clothing,glove.n.02,glove,11,11
+227,article of clothing,glove.n.02,mitten,1,1
+196,article of clothing,footwear.n.01,hose,17,17
+197,article of clothing,footwear.n.01,footwear,1,1
+198,article of clothing,footwear.n.01,sock,1,1
+219,article of clothing,dress.n.01,dress,230,230
+223,article of clothing,dress.n.01,gown,6,6
+224,article of clothing,dress.n.01,sari,2,2
+220,article of clothing,dress.n.01,pinafore,1,1
+221,article of clothing,dress.n.01,shirt,1,1
+222,article of clothing,dress.n.01,saree,1,1
+225,article of clothing,dress.n.01,caftan,1,1
+86,animal,ungulate.n.01,giraffe,1192,1000
+84,animal,ungulate.n.01,zebra,704,500
+85,animal,ungulate.n.01,cow,383,383
+87,animal,ungulate.n.01,sheep,265,265
+92,animal,ungulate.n.01,bull,58,58
+93,animal,ungulate.n.01,goat,41,41
+91,animal,ungulate.n.01,beef,20,20
+88,animal,ungulate.n.01,ox,5,5
+96,animal,ungulate.n.01,pig,5,5
+97,animal,ungulate.n.01,buffalo,5,5
+104,animal,ungulate.n.01,gazelle,3,3
+89,animal,ungulate.n.01,mule,2,2
+98,animal,ungulate.n.01,bovine,2,2
+99,animal,ungulate.n.01,elk,2,2
+101,animal,ungulate.n.01,reindeer,2,2
+107,animal,ungulate.n.01,baby,2,2
+108,animal,ungulate.n.01,moose,2,2
+90,animal,ungulate.n.01,animal,1,1
+94,animal,ungulate.n.01,carabao,1,1
+95,animal,ungulate.n.01,ungulate,1,1
+100,animal,ungulate.n.01,llama,1,1
+102,animal,ungulate.n.01,heifer,1,1
+103,animal,ungulate.n.01,hippopotamus,1,1
+105,animal,ungulate.n.01,holstein,1,1
+106,animal,ungulate.n.01,boar,1,1
+109,animal,ungulate.n.01,rhino,1,1
+110,animal,ungulate.n.01,mom,1,1
+165,animal,rodent.n.01,mouse,21,21
+166,animal,rodent.n.01,squirrel,5,5
+167,animal,rodent.n.01,gerbil,2,2
+168,animal,rodent.n.01,hamster,2,2
+169,animal,rodent.n.01,rat,1,1
+175,animal,insect.n.01,butterfly,6,6
+176,animal,insect.n.01,bug,6,6
+177,animal,insect.n.01,peacock,3,3
+178,animal,insect.n.01,grasshopper,1,1
+179,animal,insect.n.01,beetle,1,1
+180,animal,insect.n.01,queen,1,1
+181,animal,insect.n.01,ladybug,1,1
+182,animal,insect.n.01,insect,1,1
+183,animal,insect.n.01,drone,1,1
+123,animal,horse.n.01,horse,975,975
+124,animal,horse.n.01,pony,11,11
+126,animal,horse.n.01,charger,3,3
+125,animal,horse.n.01,mount,1,1
+127,animal,horse.n.01,mounts,1,1
+128,animal,horse.n.01,head,1,1
+129,animal,horse.n.01,mare,1,1
+170,animal,fish.n.01,fish,34,34
+171,animal,fish.n.01,dolphin,1,1
+172,animal,fish.n.01,stingray,1,1
+173,animal,fish.n.01,tarpon,1,1
+174,animal,fish.n.01,shark,1,1
+159,animal,feline.n.01,cat,1241,1000
+160,animal,feline.n.01,lion,7,7
+163,animal,feline.n.01,tabby,2,2
+161,animal,feline.n.01,cheetah,1,1
+162,animal,feline.n.01,bobcat,1,1
+164,animal,feline.n.01,tomcat,1,1
+111,animal,dog.n.01,dog,980,980
+112,animal,dog.n.01,puppy,22,22
+113,animal,dog.n.01,poodle,3,3
+114,animal,dog.n.01,bulldog,3,3
+115,animal,dog.n.01,pug,2,2
+116,animal,dog.n.01,retriever,2,2
+117,animal,dog.n.01,canine,1,1
+118,animal,dog.n.01,collie,1,1
+119,animal,dog.n.01,dachshund,1,1
+120,animal,dog.n.01,doggy,1,1
+121,animal,dog.n.01,husky,1,1
+122,animal,dog.n.01,terrier,1,1
+130,animal,bird.n.01,bird,371,371
+134,animal,bird.n.01,duck,25,25
+133,animal,bird.n.01,parrot,19,19
+131,animal,bird.n.01,owl,10,10
+147,animal,bird.n.01,turkey,8,8
+138,animal,bird.n.01,seagull,7,7
+145,animal,bird.n.01,goose,7,7
+135,animal,bird.n.01,swan,5,5
+144,animal,bird.n.01,eagle,5,5
+136,animal,bird.n.01,penguin,4,4
+132,animal,bird.n.01,hawk,3,3
+137,animal,bird.n.01,chick,3,3
+141,animal,bird.n.01,hummingbird,3,3
+142,animal,bird.n.01,pelican,3,3
+149,animal,bird.n.01,hen,3,3
+139,animal,bird.n.01,crow,2,2
+140,animal,bird.n.01,pheasant,2,2
+143,animal,bird.n.01,dove,2,2
+146,animal,bird.n.01,seabird,2,2
+150,animal,bird.n.01,pigeon,2,2
+152,animal,bird.n.01,flamingo,2,2
+153,animal,bird.n.01,poultry,2,2
+148,animal,bird.n.01,rooster,1,1
+151,animal,bird.n.01,vulture,1,1
+154,animal,bird.n.01,falcon,1,1
+155,animal,bird.n.01,diver,1,1
+156,animal,bird.n.01,chickadee,1,1
+157,animal,bird.n.01,sitter,1,1
+158,animal,bird.n.01,goldfinch,1,1
