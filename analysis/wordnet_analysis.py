@@ -43,13 +43,6 @@ for ndict in resdf['spellchecked']:
     paircount.update(x)
 
 
-# In[102]:
-
-
-paircount.most_common(20)
-
-
-# In[103]:
 
 
 for ((top,other),freq) in paircount.most_common(20):
@@ -58,16 +51,6 @@ for ((top,other),freq) in paircount.most_common(20):
     print(top,topsyn)
     print(other,othersyn)
     print("***")
-
-
-# In[104]:
-
-
-hyp = lambda s:s.hypernyms()
-list(sp.closure(hyp,depth=4))
-
-
-
 
 
 
@@ -138,19 +121,6 @@ def is_cohyponym(w1,w2,max_depth=5):
     return 0
 
 
-# In[106]:
-
-
-is_hyponym("person","man")
-
-
-# In[107]:
-
-
-is_hypernym("person","man")
-
-
-# In[129]:
 
 
 pair_depth = {}
@@ -168,14 +138,6 @@ for (top,other) in paircount:
         print(top,other,len(wn.synsets(top)),len(wn.synsets(other)))
 
 
-# In[130]:
-
-
-pair_depth
-
-
-# In[226]:
-
 
 pair_rel = {}
 no_rel = Counter()
@@ -191,26 +153,6 @@ for p in paircount:
     else:
         no_rel[p] = paircount[p]
 
-
-# In[168]:
-
-
-len(no_rel),len(have_rel)
-
-
-# In[169]:
-
-
-sum(no_rel.values())/sum(paircount.values())
-
-
-# In[170]:
-
-
-sum(have_rel.values())
-
-
-# In[193]:
 
 
 unordered_counts = Counter()
