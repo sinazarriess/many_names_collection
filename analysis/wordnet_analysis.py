@@ -1,17 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
-
 
 from nltk.corpus import wordnet as wn
 import pandas as pd
 from agreement_table import make_df
-
-
-# In[8]:
-
-
 import os
 import json
 import sys
@@ -19,31 +12,24 @@ from collections import Counter
 import numpy as np
 
 
-# In[98]:
-
 
 fn = 'all_responses_round0-3_cleaned.csv'
 resdf = make_df(fn)
 
-
-# In[99]:
-
-
-resdf.head()
+hyp = lambda s:s.hypernyms()
 
 
-# In[100]:
 
 
 def name_pairs(rdict):
-   
+
     np_count = Counter()
     if len(rdict.keys()) > 1:
         topname = rdict.most_common(1)[0][0]
         for oname in rdict:
             if not oname == topname:
                 np_count[(topname,oname)] = rdict[oname]
-                
+
     return np_count
 
 
@@ -81,125 +67,70 @@ hyp = lambda s:s.hypernyms()
 list(sp.closure(hyp,depth=4))
 
 
-# In[ ]:
 
 
 
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[128]:
-
-
-hyp = lambda s:s.hypernyms()
 
 def is_hyponym(w1,w2,max_depth=5):
-    
+
     for dpt in range(1,max_depth):
-        
+
         syns1 = wn.synsets(w1,pos="n")
         syns2 = wn.synsets(w2,pos="n")
-        
+
         for syn1 in syns1:
-            hyp_closure = list(syn1.closure(hyp,depth=dpt))    
-            
+            hyp_closure = list(syn1.closure(hyp,depth=dpt))
+
             for syn2 in syns2:
                 if syn2 in hyp_closure:
                     return dpt
     return 0
 
 def is_hypernym(w1,w2,max_depth=5):
-    
+
     for dpt in range(1,max_depth):
-        
+
         syns1 = wn.synsets(w1,pos="n")
         syns2 = wn.synsets(w2,pos="n")
-        
+
         for syn2 in syns2:
-            hyp_closure = list(syn2.closure(hyp,depth=dpt))    
-            
+            hyp_closure = list(syn2.closure(hyp,depth=dpt))
+
             for syn1 in syns1:
                 if syn1 in hyp_closure:
                     return dpt
     return 0
 
 def is_synonym(w1,w2):
-        
+
     syns1 = wn.synsets(w1,pos="n")
     syns2 = wn.synsets(w2,pos="n")
-        
-    for syn2 in syns2:   
-            
+
+    for syn2 in syns2:
+
         for syn1 in syns1:
                 if syn1 == syn2:
                     return 1
     return 0
 
 def is_cohyponym(w1,w2,max_depth=5):
-    
+
     for dpt in range(1,6):
-        
+
         syns1 = wn.synsets(w1,pos="n")
         syns2 = wn.synsets(w2,pos="n")
-        
-        
-        
-        
+
+
+
+
         for syn2 in syns2:
-            
+
             hyp_closure2 = list(syn2.closure(hyp,depth=dpt))
-              
-            
+
+
             for syn1 in syns1:
                 hyp_closure1 = list(syn1.closure(hyp,depth=dpt))
-                
+
                 for h2 in hyp_closure2:
                     for h1 in hyp_closure1:
                         if h1 == h2:
@@ -303,7 +234,7 @@ for (p1,p2) in have_rel:
         elif pair_rel[(p1,p2)][3] > 0:
             unordered_rel[(p1,p2)] = 'crossclassified'
             unordered_depth[(p1,p2)] = pair_rel[(p1,p2)][3]
-            
+
         swapped.append(swapp)
 
 
@@ -398,7 +329,7 @@ cat2paircount = {}
 for cat in set(list(resdf['vg_domain'])):
     cat2paircount[cat] = Counter()
     catdf = resdf[resdf['vg_domain'] == cat]
-    
+
     for ndict in catdf['spellchecked']:
     #print(ndict)
         x = name_pairs(ndict)
@@ -415,7 +346,7 @@ for cat in cat2paircount:
     for ((n1,n2),freq) in cat2paircount[cat].most_common(10):
         exstr.append("%s -- %s (%d)"%(n1,n2,freq))
     examples.append((cat,", ".join(exstr)))
-    
+
 
 
 # In[255]:
@@ -668,7 +599,3 @@ paircount[('skier','skiier')]
 
 
 # In[ ]:
-
-
-
-
