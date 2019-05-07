@@ -92,7 +92,7 @@ def make_agreement_table(resdf):
     outdf = pd.DataFrame(tablerows,columns=['domain','% top','SD','=VG','max synset','%','SD','=VG','min synset','%','SD','=VG' ])
     print(outdf.sort_values(by=['% top']).to_latex(index=False))
 
-
-fn = 'all_responses_round0-3_cleaned.csv'
-resdf = make_df(fn)
-make_agreement_table(resdf)
+if __name__ == '__main__':
+    fn = 'all_responses_round0-3_cleaned.csv'
+    resdf = make_df(fn)
+    make_agreement_table(resdf)

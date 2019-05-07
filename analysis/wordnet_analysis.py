@@ -29,6 +29,22 @@ def name_pairs(rdict):
 
     return np_count
 
+def flat_name_pairs(rdict):
+
+    np_count = Counter()
+    if len(rdict.keys()) > 1:
+        names = rdict.most_common()
+        for i,(n,fr) in enumerate(names):
+            if i < len(names):
+                alt_names = names[i+1:]
+                top_name = names[i][0]
+
+                for oname,fr in alt_names:
+                    if not oname == top_name:
+                        np_count[(top_name,oname)] = fr
+
+    return np_count
+
 def vg_name_pairs(vg_name,rdict):
 
     np_count = Counter()
@@ -106,17 +122,17 @@ def is_cohyponym(w1,w2,max_depth=1):
 fn = 'all_responses_round0-3_cleaned.csv'
 resdf = make_df(fn)
 
-#ordered_paircount = Counter()
+ordered_paircount = Counter()
 paircount = Counter()
 wordcount = Counter()
 
 for x,row in resdf.iterrows():
     #print(ndict)
-    #x = name_pairs(ndict)
-    x = vg_name_pairs(row['vg_obj_name'],row['spellchecked'])
-    paircount.update(x)
-    #for pair in x:
-    #    paircount[tuple(sorted(pair))] += x[pair]
+    x = flat_name_pairs(row['spellchecked'])
+    #x = vg_name_pairs(row['vg_obj_name'],row['spellchecked'])
+    ordered_paircount.update(x)
+    for pair in x:
+        paircount[tuple(sorted(pair))] += x[pair]
     wordcount.update(row['spellchecked'])
 
 print("N name types:",len(wordcount))
@@ -146,13 +162,13 @@ print("... singletons:",len(wn_singletons))
 
 wn_paircount = Counter({(w1,w2):paircount[(w1,w2)] for (w1,w2) in paircount if w1 in wn_wordcount \
                                                                                and w2 in wn_wordcount })
-#wn_ordered_paircount = Counter({(w1,w2):ordered_paircount[(w1,w2)] for (w1,w2) in ordered_paircount if w1 in wn_wordcount and w2 in wn_wordcount })
+wn_ordered_paircount = Counter({(w1,w2):ordered_paircount[(w1,w2)] for (w1,w2) in ordered_paircount if w1 in wn_wordcount and w2 in wn_wordcount })
 
-#print("N ordered name variants:",len(ordered_paircount))
-#print("N name variants :",len(paircount))
-#print("N ordered name variants covered by WN:",len(wn_ordered_paircount))
-#singletons = [w for w in wn_ordered_paircount if wn_ordered_paircount[w] == 1]
-#print("... singletons:",len(singletons))
+print("N ordered name variants:",len(ordered_paircount))
+print("N name variants :",len(paircount))
+print("N ordered name variants covered by WN:",len(wn_ordered_paircount))
+singletons = [w for w in wn_ordered_paircount if wn_ordered_paircount[w] == 1]
+print("... singletons:",len(singletons))
 print("N name variants covered by WN:",len(wn_paircount))
 singletons = [w for w in wn_paircount if wn_paircount[w] == 1]
 print("... singletons:",len(singletons))
@@ -186,11 +202,12 @@ print("paircount",len(paircount))
 typecounts = Counter()
 tokencounts = Counter()
 for p in pairrel:
-    rel = pairrel[p]
-    if '.' in rel:
-        rel = rel[:-2]
-    typecounts[rel] += 1
-    tokencounts[rel] += paircount[p]
+    if paircount[p] > 5:
+        rel = pairrel[p]
+        if '.' in rel:
+            rel = rel[:-2]
+        typecounts[rel] += 1
+        tokencounts[rel] += paircount[p]
 
 
 outdf = []
@@ -208,12 +225,16 @@ print(outdff.sort_values(by=['types']).to_latex(index=False))
 pairdf = []
 
 for (top,other) in paircount:
-    prow = (top,other,pairrel[(top,other)],\
-           paircount[(top,other)])
-    pairdf.append(prow)
+#    if paircount[(top,other)] > 5:
+        prow = (top,other,pairrel[(top,other)],\
+           paircount[(top,other)],\
+           ordered_paircount[(top,other)],\
+           ordered_paircount[(other,top)])
+        pairdf.append(prow)
 
-pairdf = pd.DataFrame(pairdf,columns=['word1','word2','relation','freq.'])
-pairdf = pairdf.sort_values(by=['freq.'],ascending=False)
+pairdf = pd.DataFrame(pairdf,columns=['word1','word2','relation',\
+'totalfreq','freq-w1-w2','freq-w2-w1'])
+pairdf = pairdf.sort_values(by=['totalfreq'],ascending=False)
 pairdf.to_csv("names_pairs_relations_v2.csv")
 
 
