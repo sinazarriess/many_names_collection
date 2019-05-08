@@ -52,19 +52,19 @@ The naming variants can be grouped according to their lexical relation, as follo
 \end{itemize}
 
 
-\begin{table}
+\begin{table*}
 
-\begin{tabular}{lll}
-\toprule
-       relation &  types & tokens \\
-\midrule
-synonymy &  0.01 &  0.09 \\
-co-hyponymy &  0.03 &  0.07 \\
-hypernymy &  0.06 &  0.35 \\
-not-covered &  0.19 &  0.04 \\
-crossclassified &  0.70 &  0.47 \\
-\bottomrule
-\end{tabular}
+%\begin{tabular}{lll}
+%\toprule
+%       relation &  types & tokens \\
+%\midrule
+%synonymy &  0.01 &  0.09 \\
+%co-hyponymy &  0.03 &  0.07 \\
+%hypernymy &  0.06 &  0.35 \\
+%not-covered &  0.19 &  0.04 \\
+%crossclassified &  0.70 &  0.47 \\
+%\bottomrule
+%\end{tabular}
 % \small
 % \begin{tabular}{llll}
 % \toprule
@@ -75,9 +75,28 @@ crossclassified &  0.70 &  0.47 \\
 %         synonymy &  0.015 &  0.121 &       1.000 \\
 % \bottomrule
 % \end{tabular}
+
+\begin{tabular}{l|ll|ll|ll|ll|ll}
+\toprule
+      & \multicolumn{2}{c}{crossclassified} & \multicolumn{2}{c}{co-hyponymy} & \multicolumn{2}{c}{hypernymy} & \multicolumn{2}{c}{not-covered} & \multicolumn{2}{c}{synonymy} \\
+         domain & typ & tok & typ & tok & typ & tok & typ &  tok & typ & tok \\
+\midrule
+ people &  0.725 &  0.618 &  0.019 &  0.032 &  0.051 &  0.293 &  0.200 &  0.038 &  0.005 &  0.019 \\
+ clothing &  0.709 &  0.661 &  0.020 &  0.046 &  0.045 &  0.195 &  0.219 &  0.085 &  0.008 &  0.012 \\
+ animals\_plants &  0.679 &  0.461 &  0.032 &  0.102 &  0.111 &  0.365 &  0.167 &  0.058 &  0.011 &  0.014 \\
+ food &  0.590 &  0.433 &  0.031 &  0.033 &  0.104 &  0.432 &  0.267 &  0.089 &  0.009 &  0.013 \\
+ vehicles &  0.635 &  0.329 &  0.026 &  0.083 &  0.059 &  0.239 &  0.271 &  0.089 &  0.008 &  0.260 \\
+ home &  0.672 &  0.644 &  0.026 &  0.072 &  0.040 &  0.130 &  0.254 &  0.097 &  0.009 &  0.057 \\
+ buildings &  0.780 &  0.725 &  0.026 &  0.038 &  0.045 &  0.156 &  0.138 &  0.058 &  0.011 &  0.022 \\
+ \hline
+ all &  0.731 &  0.574 &  0.033 &  0.057 &  0.076 &  0.256 &  0.147 &  0.050 &  0.013 &  0.064 \\
+\bottomrule
+\end{tabular}
+
+
 \caption{Lexical relations between naming variants according to WordNet, for the set of name pairs where both words can be found in WordNet and stand in a \sz{should we produce this table for the different domains?} \gbt{yes, please. Maybe do rows domains, columns lexical relations (synymymy, hyponymy, co-hyponymy, other, not in wordnet), with subcolumns for types and tokens? And do percentages over rows -- for each domain, how many of the variants we find fall into each of the classes. This way we'll be able to see differences across domains.}}
 \label{tab:rel}
-\end{table}
+\end{table*}
 
 \begin{table*}
 \small

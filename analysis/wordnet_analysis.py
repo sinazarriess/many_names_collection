@@ -247,17 +247,51 @@ for p in pairrel:
         typecounts[rel] += 1
         tokencounts[rel] += paircount[p]
 
+domtypecounts = {}
+domtokencounts = {}
+for (domain,top,other) in domain_paircount:
+    if (top,other) in pairrel:
+        rel = pairrel[(top,other)][0]
+    else:
+        rel = pairrel[(other,top)][0]
+    if '.' in rel:
+        rel = rel[:-2]
+    if domain not in domtypecounts:
+        domtypecounts[domain] = Counter()
+        domtokencounts[domain] = Counter()
+    domtypecounts[domain][rel] += 1
+    domtokencounts[domain][rel] += domain_paircount[(domain,top,other)]
+
+
+
 
 outdf = []
 totaltypes = sum(typecounts.values())
 totaltokens = sum(tokencounts.values())
-for p in typecounts:
-    outdf.append((p,"%.3f"%(typecounts[p]/totaltypes),"%.3f"%(tokencounts[p]/totaltokens)))
+relations = typecounts.keys()
 
+for domain in domtypecounts:
+    row = [domain]
+    for p in relations:
+        row.append("%.3f"%(domtypecounts[domain][p]/sum(domtypecounts[domain].values())))
+        row.append("%.3f"%(domtokencounts[domain][p]/sum(domtokencounts[domain].values())))
+    outdf.append(row)
 
-outdff = pd.DataFrame(outdf,columns=['relation','types','tokens'])
+row = ['all']
+for p in relations:
+    row.append("%.3f"%(typecounts[p]/totaltypes))
+    row.append("%.3f"%(tokencounts[p]/totaltokens))
+outdf.append(row)
 
-print(outdff.sort_values(by=['types']).to_latex(index=False))
+print(outdf)
+
+colnames = ['domain']
+for p in relations:
+    colnames.append(p+"_typ")
+    colnames.append(p+"_tok")
+outdff = pd.DataFrame(outdf,columns=colnames)
+
+print(outdff.to_latex(index=False))
 
 
 pairdf = []
