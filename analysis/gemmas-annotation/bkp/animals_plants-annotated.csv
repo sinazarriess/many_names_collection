@@ -83,7 +83,7 @@
 26202,animals_plants,dog,ball,crossclassified,f,adjacent,14,11,3,animals_plants,people,0,0
 21613,animals_plants,queen,woman,crossclassified,t,overlapping,14,14,0,animals_plants,people,0,0
 15061,animals_plants,cat,toy,crossclassified,t,overlapping,14,13,1,animals_plants,home,0,0
-7709,animals_plants,horse,wood,crossclassified,f,material.2,14,14,0,animals_plants,home,0,0
+7709,animals_plants,horse,wood,crossclassified,f,material,14,14,0,animals_plants,home,0,0
 12135,animals_plants,horse,wheel,crossclassified,f,adjacent,14,13,1,animals_plants,vehicles,0,0
 10023,animals_plants,dog,rope,crossclassified,f,adjacent,14,14,0,animals_plants,animals_plants,0,0
 4701,animals_plants,dog,pet,crossclassified,t,overlapping,14,13,1,animals_plants,animals_plants,0,0
@@ -97,7 +97,7 @@
 34944,animals_plants,cat,belt,crossclassified,f,adjacent,13,11,2,animals_plants,animals_plants,0,0
 7315,animals_plants,pony,donkey,crossclassified,t,conc_disagreement,13,10,3,animals_plants,animals_plants,0,0
 2968,animals_plants,cat,table,crossclassified,f,adjacent,13,13,0,animals_plants,home,0,0
-2517,animals_plants,bird,wood,crossclassified,f,material.2,13,13,0,animals_plants,home,0,0
+2517,animals_plants,bird,wood,crossclassified,f,material,13,13,0,animals_plants,home,0,0
 4776,animals_plants,bird,tree,crossclassified,f,adjacent,13,13,0,animals_plants,buildings,0,0
 14531,animals_plants,sheep,calf,crossclassified,,,12,12,0,animals_plants,animals_plants,0,0
 37649,animals_plants,cat,mirror,crossclassified,,,12,12,0,animals_plants,vehicles,0,0

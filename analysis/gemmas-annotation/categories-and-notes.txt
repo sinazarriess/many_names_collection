@@ -4,7 +4,7 @@ t/f: same object true/false
 
 f#background.1/2: w1 is background of w2 (or vic.)
 f#part.1/2: w1 is part of w2 (or vic.)
-f#supports/2.1: w1 supports w2  (or vic.)
+f#supports/2.1: w1 supports w2  (or vic.);
 f#adjacent: w1 and w2 are adjacent
 f#conc_disagreement: incompatible categories, e.g. girl-boy; interesting case: flight-plane
 
@@ -15,3 +15,6 @@ t#hypernym.1: w2 is hypernym of w1
 
 # in case we want to refine the spell-checking: "plain" for "plane" often
 
+In ``other'': spelling mistakes, material ("wood", "wooden").
+
+ metonymies annotated literally (bowl - food, bottle - wine ==> supports.1)

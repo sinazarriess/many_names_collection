@@ -1,4 +1,4 @@
-,domain,word1,word2,relation,same_object,subrelation,totalfreq,freq-w1-w2,freq-w2-w1,domain_w1,domain_w2,syn_w1,syn_w2
+,domain,word1,word2,relation,same_object,subrelation,totalfreq,freq_w1_w2,freq_w2_w1,domain_w1,domain_w2,syn_w1,syn_w2
 1217,buildings,bridge,train,crossclassified,f,supports.2,341,330,11,buildings,vehicles,0,0
 2291,buildings,house,window,crossclassified,f,part.2,204,195,9,buildings,home,0,0
 2288,buildings,building,window,crossclassified,f,part.2,202,166,36,buildings,home,0,0
