@@ -1,5 +1,5 @@
 - crossclassified: should I distinguish between "adjacent" and "co-hyponym"?
 
-- Sina: produce agreement (top %) boxplots per domain; then, within each domain, produce boxplots per synset (just for us to look at them)
+- Sina: produce agreement (e.g. top %) boxplots per domain; then, within each domain, produce boxplots per synset (just for us to look at them)
 
-- Sina: do you mind if I change this into 
+- Sina: do you mind if I change table 4 (wordnet) into percentages? (I've seen the code and know where to change it)

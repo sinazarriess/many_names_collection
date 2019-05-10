@@ -132,19 +132,22 @@ Both in terms of their types and token frequency, the naming variants that insta
 This is really interesting: most research on object naming, to date, has focussed on hyponymy/hypernymy, i.e. variation that relates to hierarchical relations between object names.
 Our data suggests that co-hierarchical variation is really important too.
 
-\subsection{Crossclassified}
+\subsection{The ``no relation'' case}
 
-Table
+We manually annotated the 100 most frequent name pairs in the ``no relation'' case. Table~\ref{tab:crossclass} shows that, in this category, one third of the pairs do refer to the same object, but the relationship is not captured in WordNet. 
+Most of these cases are arguably coverage issues of WordNet, which doesn't capture the co-hyponymy of \textit{horse}-\textit{donkey} or the fact that \textit{vehicle} is hypernym of \textit{train}.\gbt{I find this really weird... also some other cases I annotated. It sounds like I should have listened more carefully to Carina when she suggested going down and up in the wordnet hierarchy (cf.\ the example of food-fruit). :/ Maybe we'd capture quite a bit of them if we did a more sophisticated querying of WordNet. To discuss.}
+% between \textit{hat}-\textit{beanie}.
+However, a substantial group is constituted by names whose denotations overlap even if they don't belong to the same category. These are typically alternative conceptualizations of objects: as a cat or a toy, as a kind of building or its function (\textit{building}-\textit{home}), or as a portion or a kind of food (\textit{pizza-slice}).
 
 \begin{table*}
   \label{tab:crossclass}
 \small
 \begin{tabular}{lrl|lrl}
   \toprule
-    \multicolumn{3}{c}{same object (217; 31\%)} & \multicolumn{3}{c}{not same object (483; 69\%)}\\
+    \multicolumn{3}{c}{same object (215; 31\%)} & \multicolumn{3}{c}{not same object (485; 69\%)}\\
 \midrule
-co-hyponyms &          104  & horse-donkey, truck-jeep, castle-church & adjacent   &          167 & building-clock, cat-pole, bed-chair\\
-overlapping &           69  & skater-boy, cat-toy, horse-statue & supports.1 &          122 & couch-pillow, bowl-fruit, person-dress\\
+co-hyponyms &          148  & horse-donkey, truck-jeep, skier-woman & adjacent   &          167 & building-clock, cat-pole, bed-chair\\
+overlapping &           22  & cat-toy, building-home, pizza-slice & supports.1 &          122 & couch-pillow, bowl-fruit, person-dress\\
 hypernym.1  &           18  & hat-beanie, jacket-tuxedo, building-hut & part.2     &102& plane-wings, pizza-cheese\\
 hypernym.2  &           16  & donut-pastry, train-vehicle, van-automobile & supports.2 &           64 & shirt-child, donut-plate, carpet-floor\\
 other       &            8  & sandwich-meal, plane-plain, umbrella-tent & part.1     &           20 & wheel-moped, sink-counter, bread-sub\\
@@ -154,14 +157,21 @@ other       &            8  & sandwich-meal, plane-plain, umbrella-tent & part.1
 \caption{Relations between words or objects when the variants refer to the same object (left) or not (right).}
 \end{table*}
 
+Still, 69\% of the annotated pairs arguably do not denote the same object. Here we find problems HUMANS MAKE SAME ``ERRORS'' AS MACHINES -- REFERENTIAL UNCERTAINTY IN THE ABSENCE OF CONTEXT (discuss as planned with Carina).
+
+
 Interesting name pairs:
 
 \begin{itemize}
 \item storefront - store: strictly speaking it's part-whole, but how can one distinguish between the two? 
 \item field - grass: same (reverse); how to distinguish?
-\item dog - pet (different conceptualizations; classified as ``overlapping''
-\item airplane - flight, plane - flight (classified as ``adjacent'' although it's an event relation...)
+\item dog - pet (different conceptualizations; classified as ``hypernym.2'')
+\item airplane - flight, plane - flight (classified as ``other'').
 \end{itemize}
+
+
+Most of the cases are co-hyponyms with categories that are easily confused, such as \textit{horse}-\textit{donkey}, \textit{truck}-\textit{jeep}.
+In some cases, the visual cues are not enough to distinguish between the categories, but the frequency of this phenomenon suggests that co-hyponyms can be used interchangeably.
 
 
 % \subsection{Entry-level names and preference orders....}
