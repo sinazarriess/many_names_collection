@@ -8,6 +8,13 @@ import os
 #from collections import Counter
 #from utils_analysis import *
 
+
+df=pd.read_csv('pairs-annotation/annotated-crossclasssified-pairs-alldomains.csv',index_col=0)
+df.head()
+f_all=df[df.same_object=='f'].subrelation.value_counts()
+t_all=df[df.same_object=='t'].subrelation.value_counts()
+
+
 #df=pd.read_csv("../data_phase0/results-created_2019-Feb-20_13_36_05_final.csv",sep="\t")
 #print(df.head())
 #print(df.columns)
@@ -41,12 +48,12 @@ import os
 #\item can we find generalizations about tendencies in agreement? (open: how to go about it)
 #\end{enumerate}
 
-df = pd.read_csv('domains_names_pairs_relations_v2.csv',index_col=0)
+# df = pd.read_csv('domains_names_pairs_relations_v2.csv',index_col=0)
 
-df.columns
+# df.columns
 
-for i in ['home','people','clothing','vehicles','buildings','food','animals_plants']:
-    filename= i+'-to-annotate.csv'
-    d=df[(df.relation=="crossclassified") & (df.domain==i)].sort_values('totalfreq',ascending=False)
-    d=d.head(1000)
-    d.to_csv(filename)
+# for i in ['home','people','clothing','vehicles','buildings','food','animals_plants']:
+#     filename= i+'-to-annotate.csv'
+#     d=df[(df.relation=="crossclassified") & (df.domain==i)].sort_values('totalfreq',ascending=False)
+#     d=d.head(1000)
+#     d.to_csv(filename)

@@ -132,46 +132,27 @@ Both in terms of their types and token frequency, the naming variants that insta
 This is really interesting: most research on object naming, to date, has focussed on hyponymy/hypernymy, i.e. variation that relates to hierarchical relations between object names.
 Our data suggests that co-hierarchical variation is really important too.
 
-\subsection{Beyond synonymy and hypernymy: cross-classification}
+\subsection{Crossclassified}
 
-\gbt{@Sina, for this section/my analysis, I'd need csvs (or some code that builds dataframes) containing the following (see commented text):}
+Table
 
-  % \begin{enumerate}
-  % \item Dataframe for images: for each image,
-  %   \begin{itemize}
-  %   \item top -- top name
-  %   \item \% top
-  %   \item SN -- snodgrass agreement
-  %   \item =VG
-  %   \item dictionary or similar with names and counts
-  %   \end{itemize}
-  % \item Dataframe for name variants: for each variant pair,
-  %   \begin{itemize}
-  %   \item top name
-  %   \item variant
-  %   \item frequency of the pair
-  %   \item domain of top
-  %   \item domain of variant (one of ours or ``OTHER'' if not in any of them?)
-  %   \item relationship in wordnet, one of: synonymy, hyponymy, co-hyponymy, other, not in wordnet (agree? the latter means ``one of the elements not in wordnet'')
-  %   \end{itemize}
-  % \end{enumerate}
-
-Some (interesting, somewhat cherry-picked) word pairs were WordNet does not find any relation (excluded in the above analysis):
-
-\begin{itemize}
-\item lettuce -- salad
-\item fruit -- food
-\item man -- catcher
-\item bowl --chili
-\item bowl -- diner \gbt{spelling mistake? should be dinner?} 
-\item burger -- meat
-\item statue -- animal (image shows statue of an animal)
-\item bottle -- alcohol
-\item donut --desert \gbt{spelling mistake? should be dessert?} 
-\item zebra -- stripes
-\item oven -- grill
-\end{itemize}
-
+\begin{table*}
+  \label{tab:crossclass}
+\small
+\begin{tabular}{lrl|lrl}
+  \toprule
+    \multicolumn{3}{c}{same object (217; 31\%)} & \multicolumn{3}{c}{not same object (483; 69\%)}\\
+\midrule
+co-hyponyms &          104  & horse-donkey, truck-jeep, castle-church & adjacent   &          167 & building-clock, cat-pole, bed-chair\\
+overlapping &           69  & skater-boy, cat-toy, horse-statue & supports.1 &          122 & couch-pillow, bowl-fruit, person-dress\\
+hypernym.1  &           18  & hat-beanie, jacket-tuxedo, building-hut & part.2     &102& plane-wings, pizza-cheese\\
+hypernym.2  &           16  & donut-pastry, train-vehicle, van-automobile & supports.2 &           64 & shirt-child, donut-plate, carpet-floor\\
+other       &            8  & sandwich-meal, plane-plain, umbrella-tent & part.1     &           20 & wheel-moped, sink-counter, bread-sub\\
+	    & 		    & & other      &           10 & plane-flight, horse-wood\\
+\bottomrule
+\end{tabular}
+\caption{Relations between words or objects when the variants refer to the same object (left) or not (right).}
+\end{table*}
 
 Interesting name pairs:
 
@@ -188,6 +169,21 @@ Interesting name pairs:
 % \sz{an interesting example:} In our data set, there are 24 images where \textit{penguin} has been used, so we know that the object is a \textit{penguin}. For 50\% of these images, annotators still prefer \textit{bird} as the most common name. According to the theory of entry-level categories, this should not happen. People should always prefer \textit{penguin} over \textit{bird}. 
 
 % \sz{how can we analyze this quantitatively?}
+
+% \begin{itemize}
+% \item lettuce -- salad
+% \item fruit -- food
+% \item man -- catcher
+% \item bowl --chili
+% \item bowl -- diner \gbt{spelling mistake? should be dinner?} 
+% \item burger -- meat
+% \item statue -- animal (image shows statue of an animal)
+% \item bottle -- alcohol
+% \item donut --desert \gbt{spelling mistake? should be dessert?} 
+% \item zebra -- stripes
+% \item oven -- grill
+% \end{itemize}
+
 
 %%% Local Variables:
 %%% mode: latex
