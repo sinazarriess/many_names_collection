@@ -8,24 +8,61 @@ We compute the following agreement measures:
 \item \textbf{=VG}: the proportion of objects where the most frequent name coincides with the name annotated in VisualGenome
 \end{itemize}
 
+\begin{table*}
+\small
+\centering
+\begin{tabular}{llll|lll}
+\toprule
+& \multicolumn{3}{c}{non-canonicalized} & \multicolumn{3}{c}{annotated vs. non-canonicalized} \\
+         domain &  \% top &    SD &     N$_{types}$ & Max=VG & \% VG (Micro) & \% VG (Macro) \\
+\midrule
+         people &  51.88 &  2.13 &  8.60 &  49.77 &        32.25 &        32.25 \\
+       clothing &  63.93 &  1.58 &  6.44 &  70.16 &        52.58 &        52.63 \\
+           home &  66.35 &  1.50 &  6.31 &  78.48 &        58.82 &        58.92 \\
+      buildings &  66.87 &  1.55 &  6.89 &  72.60 &        55.46 &        55.59 \\
+           food &  71.27 &  1.30 &  5.49 &  62.89 &        52.11 &        52.25 \\
+       vehicles &  71.97 &  1.13 &  4.66 &  71.11 &        60.18 &        60.20 \\
+ animals\_plants &  91.26 &  0.44 &  2.68 &  93.84 &        88.01 &        88.01 \\
+ \midrule
+             all &  69.69 &  1.34 &  5.70 &  72.77 &        58.65 &        58.43 \\
+\bottomrule
+\end{tabular}
+\caption{Agreement in non-canonicalized naming data, and between annotated (original VisualGenome) and non-canonicalized names for different object domains }
+\label{tab:agree}
+\end{table*}
+
 
 \begin{table*}
 \small
-\begin{tabular}{llll|llll|llll}
+%\begin{tabular}{llll|llll|llll}
+%\toprule
+%    & \multicolumn{3}{c|}{all synsets} & \multicolumn{4}{c|}{max synset} & \multicolumn{4}{c}{min synset} \\
+%                         domain & \% top &    SN &   =VG &         id &     \% top &    SN &   =VG &             id &     \% top &    SN &   =VG \\
+%\midrule
+%         people &  0.52 &  2.13 &  0.50 &  professional.n.01 &  0.61 &  2.02 &  0.20 &           athlete.n.01 &  0.36 &  2.62 &  0.37 \\
+%       clothing &  0.64 &  1.58 &  0.70 &      neckwear.n.01 &  0.79 &  0.91 &  0.77 &          footwear.n.01 &  0.47 &  2.55 &  0.40 \\
+%           home &  0.66 &  1.50 &  0.78 &          tool.n.01 &  0.86 &  0.73 &  0.94 &          crockery.n.01 &  0.52 &  1.92 &  0.40 \\
+%      buildings &  0.67 &  1.55 &  0.73 &        bridge.n.01 &  0.75 &  1.21 &  0.87 &  place\_of\_worship.n.01 &  0.46 &  2.26 &  0.08 \\
+%           food &  0.71 &  1.30 &  0.63 &  edible\_fruit.n.01 &  0.80 &  0.89 &  0.79 &         vegetable.n.01 &  0.53 &  1.97 &  0.15 \\
+%       vehicles &  0.72 &  1.13 &  0.71 &         train.n.01 &  0.93 &  0.42 &  0.99 &          aircraft.n.01 &  0.52 &  1.50 &  0.41 \\
+% animals,plants &  0.91 &  0.44 &  0.94 &        feline.n.01 &  0.95 &  0.29 &  0.99 &              fish.n.01 &  0.39 &  2.53 &  0.55 \\
+%\bottomrule
+% all &  0.70 &  1.34 &  0.73            \\
+%
+%\bottomrule
+%\end{tabular}
+\begin{tabular}{lllllllllllllll}
 \toprule
-    & \multicolumn{3}{c|}{all synsets} & \multicolumn{4}{c|}{max synset} & \multicolumn{4}{c}{min synset} \\
-                         domain & \% top &    SN &   =VG &         id &     \% top &    SN &   =VG &             id &     \% top &    SN &   =VG \\
+         domain &  \% top &    SD & Max=VG &   \% VG &         max synset &      \% &    SD & Max=VG &   \% VG &             min synset &      \% &    SD & Max=VG &   \% VG \\
 \midrule
-         people &  0.52 &  2.13 &  0.50 &  professional.n.01 &  0.61 &  2.02 &  0.20 &           athlete.n.01 &  0.36 &  2.62 &  0.37 \\
-       clothing &  0.64 &  1.58 &  0.70 &      neckwear.n.01 &  0.79 &  0.91 &  0.77 &          footwear.n.01 &  0.47 &  2.55 &  0.40 \\
-           home &  0.66 &  1.50 &  0.78 &          tool.n.01 &  0.86 &  0.73 &  0.94 &          crockery.n.01 &  0.52 &  1.92 &  0.40 \\
-      buildings &  0.67 &  1.55 &  0.73 &        bridge.n.01 &  0.75 &  1.21 &  0.87 &  place\_of\_worship.n.01 &  0.46 &  2.26 &  0.08 \\
-           food &  0.71 &  1.30 &  0.63 &  edible\_fruit.n.01 &  0.80 &  0.89 &  0.79 &         vegetable.n.01 &  0.53 &  1.97 &  0.15 \\
-       vehicles &  0.72 &  1.13 &  0.71 &         train.n.01 &  0.93 &  0.42 &  0.99 &          aircraft.n.01 &  0.52 &  1.50 &  0.41 \\
- animals,plants &  0.91 &  0.44 &  0.94 &        feline.n.01 &  0.95 &  0.29 &  0.99 &              fish.n.01 &  0.39 &  2.53 &  0.55 \\
-\bottomrule
- all &  0.70 &  1.34 &  0.73            \\
-
+         people &  51.88 &  2.13 &  49.77 &  32.25 &  professional.n.01 &  60.67 &  2.02 &  20.00 &  11.67 &           athlete.n.01 &  35.59 &  2.62 &  36.87 &  24.76 \\
+       clothing &  63.93 &  1.58 &  70.16 &  52.58 &      neckwear.n.01 &  79.32 &  0.91 &  76.92 &  65.45 &          footwear.n.01 &  46.90 &  2.55 &  40.00 &  25.97 \\
+           home &  66.35 &  1.50 &  78.48 &  58.82 &          tool.n.01 &  86.44 &  0.73 &  94.44 &  82.34 &          crockery.n.01 &  51.69 &  1.92 &  40.22 &  29.37 \\
+      buildings &  66.87 &  1.55 &  72.60 &  55.46 &        bridge.n.01 &  75.48 &  1.21 &  86.87 &  69.58 &  place\_of\_worship.n.01 &  46.23 &  2.26 &   8.33 &   7.43 \\
+            all &  69.69 &  1.34 &  72.77 &  58.65 &               None &   None &  None &   None &   None &                   None &   None &  None &   None &   None \\
+           food &  71.27 &  1.30 &  62.89 &  52.11 &  edible\_fruit.n.01 &  79.67 &  0.89 &  78.57 &  69.78 &         vegetable.n.01 &  52.83 &  1.97 &  14.58 &  10.90 \\
+       vehicles &  71.97 &  1.13 &  71.11 &  60.18 &         train.n.01 &  92.74 &  0.42 &  99.16 &  92.14 &          aircraft.n.01 &  52.46 &  1.50 &  40.56 &  37.49 \\
+ animals\_plants &  91.26 &  0.44 &  93.84 &  88.01 &        feline.n.01 &  94.78 &  0.29 &  98.95 &  94.15 &              fish.n.01 &  38.97 &  2.53 &  54.55 &  32.50 \\
 \bottomrule
 \end{tabular}
 \caption{Agreement in object names for objects of different domains, if applicable, synsets with maximal and minimal agreement (top \%) are shown }
