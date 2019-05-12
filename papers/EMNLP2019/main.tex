@@ -44,7 +44,7 @@
 \newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
 \newcommand{\cs}[1]{\textcolor{green}{\emph{//cs: #1//}}}
 
-\title{Object naming in the wild: \gbt{add sthg make more concrete}}
+\title{Do Objects in Real-World Images Have a Canonical Name?} 
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -61,11 +61,13 @@
 
 \begin{document}
 \maketitle
+
 \begin{abstract}
+Research in language \& vision commonly acknowledges the fact that speakers can interpret and describe visual scenes in many different ways. For instance, frameworks in image captioning  typically elicit (during collection) or train and test on (during modeling) multiple valid alternatives. Individual visual objects and their names, however, are often collected and modeled in simple annotation set-ups where annotators or systems identify objects via bounding boxes and label them with a single ``correct'' name. A prime example here is VisualGenome that features complex and varied annotations on the level of scenes and regions, but provides canonicalized objects linked to a single name. In this paper, we put the assumption that objects in complex visual scenes bear a canonical name to an empirical test. Based on pre-annotated object bounding boxes in VisualGenome, we elicit multiple names from 36 subjects per object and investigate the extent to which there is variation in the names chosen by different people for the same object. Our analysis reveals that non-canonicalized object naming data shows a lot of interesting linguistic variation as speakers name objects on different levels of specificity (cow-animal) or verbalize different aspect of the same object (bowl-salad). At the same time, we find that object naming prompted via bounding boxes is subject to a certain amount of noise as speakers have problems re-identifying the object that was annotated by the original bounding box. We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
 \end{abstract}
 
 \section{Introduction}
-\input{intro}
+\input{intro2}
 
 \section{Related Work}
 \label{sec:relwork}
