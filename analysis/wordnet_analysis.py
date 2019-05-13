@@ -117,6 +117,21 @@ def is_cohyponym(w1,w2,max_depth=1):
                         return (True,h1,h2)
     return (False,0,0)
 
+def is_meronym(w1,w2,max_depth=1):
+
+    syns1 = wn.synsets(w1,pos="n")
+    syns2 = wn.synsets(w2,pos="n")
+
+    for syn2 in syns2:
+
+        for osyn in syn2.part_meronyms():
+            if osyn in syns1:
+                return (True,osyn,syn2)
+        for osyn in syn2.substance_meronyms():
+            if osyn in syns1:
+                return (True,osyn,syn2)
+    return (False,0,0)
+
 def get_word_rel(w1,w2):
 
     (has_rel,s1,s2) = is_synonym(wn_map[top],wn_map[other])
@@ -135,6 +150,13 @@ def get_word_rel(w1,w2):
     if has_rel:
         return ('co-hyponymy',s1,s2)
 
+    (has_rel,s1,s2) = is_meronym(wn_map[top],wn_map[other],max_depth=10)
+    if has_rel:
+        return ('meronymy.1',s1,s2)
+    (has_rel,s1,s2) = is_meronym(wn_map[other],wn_map[top],max_depth=10)
+    if has_rel:
+        return ('meronymy.2',s1,s2)
+
     return ('crossclassified',0,0)
 
 
@@ -151,8 +173,8 @@ domain_paircount = Counter()
 
 for x,row in resdf.iterrows():
     #print(ndict)
-    x = flat_name_pairs(row['spellchecked'])
-    #x = vg_name_pairs(row['vg_obj_name'],row['spellchecked'])
+    #x = flat_name_pairs(row['spellchecked'])
+    x = vg_name_pairs(row['vg_obj_name'],row['spellchecked'])
     ordered_paircount.update(x)
     for (x1,x2) in x:
         domain_ordered_paircount[(row['vg_domain'],x1,x2)] += x[(x1,x2)]
@@ -239,13 +261,18 @@ print("paircount",len(paircount))
 
 typecounts = Counter()
 tokencounts = Counter()
+
+typecounts_min1 = Counter()
+tokencounts_min1 = Counter()
 for p in pairrel:
-    if paircount[p] > 1:
+    if ordered_paircount[p] > 10:
         rel = pairrel[p][0]
-        if '.' in rel:
-            rel = rel[:-2]
-        typecounts[rel] += 1
-        tokencounts[rel] += paircount[p]
+        #if '.' in rel:
+        #    rel = rel[:-2]
+        typecounts_min1[rel] += 1
+        tokencounts_min1[rel] += ordered_paircount[p]
+    typecounts[rel] += 1
+    tokencounts[rel] += ordered_paircount[p]
 
 domtypecounts = {}
 domtokencounts = {}
@@ -268,30 +295,34 @@ for (domain,top,other) in domain_paircount:
 outdf = []
 totaltypes = sum(typecounts.values())
 totaltokens = sum(tokencounts.values())
+totaltypes_min1 = sum(typecounts_min1.values())
+totaltokens_min1 = sum(tokencounts_min1.values())
 relations = typecounts.keys()
 
-for domain in domtypecounts:
-    row = [domain]
-    for p in relations:
-        row.append("%.3f"%(domtypecounts[domain][p]/sum(domtypecounts[domain].values())))
-        row.append("%.3f"%(domtokencounts[domain][p]/sum(domtokencounts[domain].values())))
-    outdf.append(row)
+##for domain in domtypecounts:#
+#    row = [domain]
+#    for p in relations:
+#        row.append("%.3f"%(domtypecounts[domain][p]/sum(domtypecounts[domain].values())))
+#        row.append("%.3f"%(domtokencounts[domain][p]/sum(domtokencounts[domain].values())))
+#    outdf.append(row)
 
-row = ['all']
+
 for p in relations:
-    row.append("%.3f"%(typecounts[p]/totaltypes))
-    row.append("%.3f"%(tokencounts[p]/totaltokens))
-outdf.append(row)
+    row = [p]
+    row.append("%.1f"%((typecounts[p]/totaltypes)*100))
+    row.append("%.1f"%((tokencounts[p]/totaltokens)*100))
+    row.append("%.1f"%((typecounts_min1[p]/totaltypes_min1)*100))
+    row.append("%.1f"%((tokencounts_min1[p]/totaltokens_min1)*100))
+    outdf.append(row)
 
 print(outdf)
 
-colnames = ['domain']
-for p in relations:
-    colnames.append(p+"_typ")
-    colnames.append(p+"_tok")
-outdff = pd.DataFrame(outdf,columns=colnames)
+#colnames = ['domain']
+#for p in relations:#
+#    colnames.append(p+"_typ")
+outdff = pd.DataFrame(outdf,columns=['relation','Ftok', 'N','Ftok-min1','Nmin1'])
 
-print(outdff.to_latex(index=False))
+print(outdff.sort_values(by=['Ftok']).to_latex(index=False))
 
 
 pairdf = []

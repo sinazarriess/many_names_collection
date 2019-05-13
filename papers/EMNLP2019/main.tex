@@ -44,7 +44,7 @@
 \newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
 \newcommand{\cs}[1]{\textcolor{green}{\emph{//cs: #1//}}}
 
-\title{Object naming in the wild: \gbt{add sthg make more concrete}}
+\title{Do Objects in Real-World Images Have a Canonical Name?} 
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -61,26 +61,46 @@
 
 \begin{document}
 \maketitle
+
 \begin{abstract}
+Research in language \& vision commonly acknowledges the fact that speakers can interpret and describe visual scenes in many different ways, cf.\ work on image captioning. 
+%For instance, frameworks in image captioning  typically elicit (during collection) or train and test on (during modeling) multiple valid alternatives. 
+Individual visual objects and their names, however, are usually modeled in simple annotation tasks where objects are labelled with a single canonical name. 
+This typically rests on the assumption that linguistic variants of these canonical names that would occur in natural naming situations (e.g. when referring to an object) can be retrieved via their lexical relations in a taxonomy like WordNet.
+%A prime example here is VisualGenome that features complex and varied annotations on the level of scenes and regions, but provides canonicalized objects linked to a single name. 
+We put these assumptions 
+%that objects in complex visual scenes bear a canonical name and that its possible alternatives can be easily retrieved from existing taxonomies t
+to an empirical test and elicit multiple names (from 36 subjects) for objects annotated in VisualGenome.
+%W investigate the extent to which there is variation in the names chosen by different people for the same object. Our
+We find that our non-canonicalized object naming data shows decent agreement on the instance-level, but little agreement on the category-level, revealing a lot of variation with respect to how speakers name different objects of the same category.
+When linking to WordNet, we observe that most of the alternatives for the original name in VisualGenome cannot be retrieved via hierarchical relations, as
+more complex relations like cross-classification of objects, metonymy or variation due to visual uncertainty account for a major portion of the variation.
+%different levels of specificity (cow-animal) or verbalize different aspect of the same object (bowl-salad). At the same time, we find that object naming prompted via bounding boxes is subject to a certain amount of noise as speakers have problems re-identifying the object that was annotated by the original bounding box. 
+We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
 \end{abstract}
 
 \section{Introduction}
 \input{intro}
 
-\section{Related Work}
-\label{sec:relwork}
-\input{relwork}
+%\section{Related Work}
+%\label{sec:relwork}
+%\input{relwork}
 
 \section{Data collection}
-\label{sec:data}
-\input{data-collection}
+%\label{sec:data}
+%\input{data-collection}
 
-\section{Analysis}
+\section{Analysis: Agreement}
 \label{sec:analysis}
 \input{analysis}
 
-\section{Modeling}
-\label{sec:modeling}
+\section{Analysis: Taxonomy}
+\label{sec:taxo}
+\input{analysis2}
+
+
+%\section{Modeling}
+%\label{sec:modeling}
 
 \section{Conclusions}
 \label{sec:conc}
@@ -88,10 +108,10 @@
 \bibliographystyle{acl_natbib}
 \bibliography{naming}
 
-\appendix
-\section{Instructions for AMT Experiment}
-\label{app:instructions}
-\input{suppl_instructions}
+%\appendix
+%\section{Instructions for AMT Experiment}
+%\label{app:instructions}
+%\input{suppl_instructions}
 
 \end{document}
 
