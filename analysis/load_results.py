@@ -134,32 +134,3 @@ def process_hits(hitfile):
     for hit in hitlist:
         hit2images[hit['HIT']['HITId']] = hit['Images']
     return hit2images
-
-
-def check_spelling(answers):
-    d = answers
-    misspelled = spell.unknown(d.keys())
-    ok = {w:d[w] for w in d.keys() if not w in misspelled}
-    #print(misspelled)
-    #print(ok)
-    
-    for mis in misspelled:
-        #print("Checking:",mis)
-        cands = spell.candidates(mis)
-        #print("Cand:",cands)
-        corrected = False
-        for c in ok:
-            if c in cands:
-                #print("YAY")
-                ok[c] += d[mis]
-                corrected = True
-                break
-        if not corrected:
-            ok[mis] = d[mis]
-            
-    clean_answers = Counter()
-    for w in ok:
-        lem_w = Lem.lemmatize(w)
-        clean_answers[lem_w] += ok[w]
-        
-    return clean_answers
