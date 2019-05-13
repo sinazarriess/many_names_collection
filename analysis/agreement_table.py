@@ -146,18 +146,22 @@ def agreement_boxplot(resdf):
     #plt.xticks(range(1,len(cats)), cats)
     plt.savefig("agreebox.png")
 
-    fig, ax = plt.subplots(411)
+    fig, ax = plt.subplots()
     plotdata = []
     cats = []
+    rangec = []
 
-    for c in list(set(list(resdf['synset'])))[:10]:
+    for i,c in enumerate(list(set(list(resdf['synset'])))[:20]):
         cats.append(c)
+        rangec.append((i+1)*4)
         catdf = resdf[resdf['synset'] == c]
         plotdata.append(list(catdf['percent_agree']))
 
+    print(rangec)
     fig, ax = plt.subplots()
-    ax.boxplot(plotdata,labels=cats,vert=True)
-    #plt.xticks(range(1,len(cats)), cats)
+    ax.boxplot(plotdata)
+    plt.xticks(range(1,len(cats)+1), cats,fontsize = 6, rotation = 90)
+    plt.subplots_adjust(bottom=0.15)
     plt.savefig("agreebox_synset.png")
 
 
