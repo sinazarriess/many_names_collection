@@ -5,6 +5,8 @@ import json
 import sys
 from collections import Counter
 import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
 
 def snodgrass_agreement(rdict,vocab,singletons=False):
 
@@ -56,16 +58,18 @@ def make_df(filename):
     resdf['vg_overlap'] = vg_overlap
     resdf['n_anno'] = nanno
     resdf['n_types'] = ntypes
+    resdf['snodgrass'] = resdf['spellchecked'].apply(lambda x: snodgrass_agreement(x,{},True))
+    resdf['percent_agree'] = resdf['spellchecked'].apply(lambda x: percent_agreement(x))
 
     return resdf
 
 def make_agreement_table(resdf):
-    resdf['snodgrass'] = resdf['spellchecked'].apply(lambda x: snodgrass_agreement(x,{},True))
-    resdf['percent_agree'] = resdf['spellchecked'].apply(lambda x: percent_agreement(x))
+
     nobjects = len(resdf)
 
     tablerows = []
     tablerows2 = []
+
 
     tablerows.append(('all',\
 
@@ -75,7 +79,6 @@ def make_agreement_table(resdf):
                      str("%.2f"%((np.sum(resdf['vg_is_max'])/nobjects)*100)),\
                      str("%.2f"%((np.sum(resdf['vg_mean'])/nobjects)*100)),\
                      str("%.2f"%((np.sum(resdf['vg_overlap'])/np.sum(resdf['n_anno']))*100))
-
                      ))
 
     for c in set(list(resdf['vg_domain'])):
@@ -104,6 +107,9 @@ def make_agreement_table(resdf):
                          str("%.2f"%((np.sum(catdf['vg_overlap'])/np.sum(catdf['n_anno']))*100))
 
                     ))
+
+
+
         tablerows2.append((c,\
 
                          topsyn,
@@ -125,7 +131,38 @@ def make_agreement_table(resdf):
     outdf2 = pd.DataFrame(tablerows2,columns=['domain','max synset','% top1','SD','Max=VG','% VG','min synset','% top','SD','Max=VG','% VG' ])
     print(outdf2.sort_values(by=['% top1']).to_latex(index=False))
 
+def agreement_boxplot(resdf):
+    plotdata = []
+    cats = ['all']
+    plotdata.append(list(resdf['percent_agree']))
+
+    for c in set(list(resdf['vg_domain'])):
+        cats.append(c)
+        catdf = resdf[resdf['vg_domain'] == c]
+        plotdata.append(list(catdf['percent_agree']))
+
+    fig, ax = plt.subplots()
+    ax.boxplot(plotdata,labels=cats,widths=0.8,notch=True)
+    #plt.xticks(range(1,len(cats)), cats)
+    plt.savefig("agreebox.png")
+
+    fig, ax = plt.subplots(411)
+    plotdata = []
+    cats = []
+
+    for c in list(set(list(resdf['synset'])))[:10]:
+        cats.append(c)
+        catdf = resdf[resdf['synset'] == c]
+        plotdata.append(list(catdf['percent_agree']))
+
+    fig, ax = plt.subplots()
+    ax.boxplot(plotdata,labels=cats,vert=True)
+    #plt.xticks(range(1,len(cats)), cats)
+    plt.savefig("agreebox_synset.png")
+
+
 if __name__ == '__main__':
     fn = 'all_responses_round0-3_cleaned.csv'
     resdf = make_df(fn)
-    make_agreement_table(resdf)
+    #make_agreement_table(resdf)
+    agreement_boxplot(resdf)
