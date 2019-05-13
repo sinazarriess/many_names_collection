@@ -2,16 +2,19 @@
 t/f: same object true/false
 1/2: w1 ... of w2 (.1) or viceversa, w2 ... of w1 (.2)
 
-f#background.1/2: w1 is background of w2 (or vic.)
-f#part.1/2: w1 is part of w2 (or vic.)
-f#supports/2.1: w1 supports w2  (or vic.);
-f#adjacent: w1 and w2 are adjacent
-f#conc_disagreement: incompatible categories, e.g. girl-boy; interesting case: flight-plane
+within f:
 
-t#overlapping: denotations overlap (man-athlete)
-t#loose_synonyms: loose synonyms
-t#hypernym.1: w1 is hypernym of w2
-t#hypernym.1: w2 is hypernym of w1
+adjacent: w1 and w2 are adjacent (when no relationship can be assumed; e.g. I assume that for floor-carpet the floor supports the carpet, but for cat-pole I don't assume that the pole supports the carpet --> revert to conservative "adjacent").
+supports/2.1: w1 supports w2  (or vic.)
+part.1/2: w1 is part of w2 (or vic.)
+other: none of the above (e.g. material; object vs. event as in plane-flight)
+
+within t:
+
+co-hyponyms: if they belong to the same category, up to the level of the domain. Includes near-synonyms (cat-kitten).
+overlapping: the denotations of the names overlap, but they do not belong to the same category (cat-toy).
+hypernym.1: w1 is hypernym of w2
+hypernym.1: w2 is hypernym of w1
 
 # in case we want to refine the spell-checking: "plain" for "plane" often
 
