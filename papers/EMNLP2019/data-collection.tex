@@ -1,54 +1,44 @@
-We take data from \vgenome \cite{krishna2016visualgenome}, which aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
-It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}.
+We take data from \vgenome \cite{krishna2016visualgenome}, which
+% aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
+contains a dense region-based labeling of $108k$~images with object descriptions, attributes, and relationships, as well as question-answer pairs, all linked to WordNet synsets \cite{fellbaum1998wordnet}.
+\vgenome is suitable for our purpose of collecting names for a relatively large amount of instances of common objects in
+naturalistic images, as it has images of varying complexity, with close-ups as well as complex images with many objects.
+As common in Computer Vision, objects are identified via bounding boxes (see red boxes in Figure~\ref{fig:cake}).% 
+\footnote{We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).}
 
-% \gbt{START to be refined -- taken from sivl submission as is}
+\subsection{Sampling of Instances}
 
-% \vgenome \cite{krishna2016visualgenome} aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
-% It contains a dense region-based labeling of $108k$~images with textual expression of the attributes and references of objects, their relationships as well as question answer pairs, all linked to WordNet synsets \cite[see below]{fellbaum1998wordnet}. 
-
-
-% \begin{itemize}
-%      		\item[(1)] \textbf{Specific categories}: are not available, as object categories and names are not consistently annotated (and even conflated)
-% 				\item[(2)] \textbf{Exhaustive annotations}: are available, which is a huge advantage of this data sets
-% 		   \item[(3)] \textbf{Natural names}: are available, though object names might not be fully discriminative (as in referring expressions)
-
-% \end{itemize}
-% \gbt{END to be refined -- taken from sivl submission as is}
-
-\subsection{Sampling of Instances (Images/Objects)}
-
-We aimed at collecting a relatively large amount of naturalistic images (\textit{instances}) that depict common objects. \sz{say more clearly again that we have complex images with many objects and collect names for particular objects in these images?}
  % of frequent classes/names in  \vgenome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
 %Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
-We start from the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of object norming studies (REFS).
-We added the \textsc{person} category because it is very frequent category in \vgenome.
+We selected seven domains: six from McRae et al.'s feature norms (REF), a dataset widely used in Psycholinguistics that consists of common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}), and \textsc{person}, because it is very frequent category in \vgenome.
+% We start from the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of object norming studies (REFS).
+% We added the \textsc{person} category because it is very frequent category in \vgenome.
 
-(As appropriate: We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).)
-
-\paragraph{Collection nodes}
+Within each domain, we aimed at collecting instances at different levels in a taxonomy to cover a wide range of phenomena, but it is not straightforward to do so because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy in the first place (e.g.\ \textsc{home}).
 % Standard taxonomies do not align well with name variability; for instance, people use more varied names for types of dogs than for types of cows, while both dogs and cows are mammals.
-We defined a set of \textit{collection nodes} which we would then use to collect our object instances from VG. 
+Instead, we defined a set of synsets that we would use to collect our object instances from \vgenome, balancing variability.
+From the set of synsets that match or subsume the concepts in the McRae norms, we kept those that had a high number of \vgenome object instances of different names.
+For example, \vgenome instances subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vgenome, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
 
-We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
+We then retrieved all VG images depicting an object whose name matches or is subsumed by words in one of these synsets; we refer to these words as \textit{seeds}, and we had XXX\gbt{Carina?} of them.
+We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{(REF to tagger)}, or that were multi-word expressions (e.g.,~\textsl{pink bird}). 
+We further only considered objects whose bounding box covered an area of~$20-90\%$ of the image.
+% We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
 
-First, we selected a set of collection node candidates---synsets which match (e.g.,~\textsl{dog, duck, goose, gull}) or subsume (e.g.,~\textsl{mammal, bird}) the McRae synsets\footnote{Specific synset IDs, e.g.,~dog.n.01, are omitted for readability.}. 
-From these candidates we kept those as collection nodes which had a high frequency of VG object instances of different names. For example, VG instances  subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck, goose}, or \textsl{gull} did not have name variants in VG, so we kept \textsl{dog} and \textsl{bird} as collection nodes.
+% First, we selected a set of collection node candidates---synsets which match (e.g.,~\textsl{dog, duck, goose, gull}) or subsume (e.g.,~\textsl{mammal, bird}) the McRae synsets\footnote{Specific synset IDs, e.g.,~dog.n.01, are omitted for readability.}. 
+% From these candidates we kept those as collection nodes which had a high frequency of VG object instances of different names. For example, VG instances  subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck, goose}, or \textsl{gull} did not have name variants in VG, so we kept \textsl{dog} and \textsl{bird} as collection nodes.
 
-\paragraph{Collection of instance candidates}
-Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
-The collection of such instances using the nodes was then straightforward: We retrieved all VG images  depicting an object whose name matches or is subsumed by one of the collection nodes. 
-We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{(REF to tagger)}, or that were multi-word expressions/phrases (e.g.,~\textsl{pink bird}). 
-We further only considered objects whose bounding box\footnote{TODO: need to be clear from the general description of VG what is meant.} had an area of~$20-90\%$ of the whole image area.
+%\paragraph{Collection of instance candidates}
+% Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 
-\paragraph{Sampling of instances}
-Finally, from this set of instances we sampled our final dataset of $31,093$~instances. 
-Sampling proceeded in dependence on the overall size of the individual collection seeds: 
-up to~$800$ objects per seed: all instances, but at most 500, are collected; more than~$800$ objects per seed: all instances, but at most~$1,000$, are collected.  \textbf{double-check}
+% \paragraph{Sampling of instances}
 
-\cs{END @ GBT}
+Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to 500 instances for seeds with up to 800 objects, and up to 1000 instances for larger seeds. \textbf{double-check}
+This yielded a dataset with $31,093$~instances, which was further pruned during annotation (see next subsection).
 
-Table~\ref{tab:XXX} gives an overview of the collection nodes, XXX, XXX, grouped into $7$~domains. (\textbf{Report only dataset after round0, with a note in caption/footnote referring to the checkpoint pruning.})
-\gbt{I would put only a table with the final dataset, not the intermediate one (round0). That is, include a table with the 25K imgs (the 30K imgs were just our initial pool).}
+\gbt{Checked up to here}.
+
+Table~\ref{tab:XXX} gives an overview of the collection synsets, XXX, XXX, grouped into $7$~domains. (\textbf{Report only final dataset, with a note in caption/footnote referring to the checkpoint pruning.})
 
 \begin{table*}
 \begin{tabular}{@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l}
@@ -76,18 +66,18 @@ Table~\ref{tab:XXX} gives an overview of the collection nodes, XXX, XXX, grouped
 	\toprule
 	        animals\_plants &               vehicles &                        home &                clothing &                   buildings &                    food &                 people \\
 	\midrule
-	  ungulate.n.01 (2037) &  aircraft.n.01 (1208) &  furnishing.n.02 (5355) &  shirt.n.01 (968) &  house.n.01 (364) &  dish.n.02 (812) &  woman.n.01 (1768) \\
-	 horse.n.01 (833) &  train.n.01 (957) &  vessel.n.03 (525) &  overgarment.n.01 (786) &  bridge.n.01 (297) &  baked\_goods.n.01 (770) &  man.n.01 (1167) \\
-	  feline.n.01 (763) &  car.n.01 (727) &  kitchen\_utensil.n.01 (132) &  dress.n.01 (199) &  shelter.n.01 (169) &  foodstuff.n.02 (280) &  male\_child.n.01 (853) \\
-	 dog.n.01 (688) &  motorcycle.n.01 (564) &  crockery.n.01 (92) &  headdress.n.01 (135) &  restaurant.n.01 (58) &  vegetable.n.01 (48) &  athlete.n.01 (396) \\
-	  bird.n.01 (389) &  truck.n.01 (559) &  cutlery.n.02 (82) &  neckwear.n.01 (65) &  outbuilding.n.01 (31) &  edible\_fruit.n.01 (42) &  child.n.01 (333) \\
-	  flower.n.01 (44) &  boat.n.01 (499) &  tool.n.01 (72) &  robe.n.01 (27) &  hotel.n.01 (19) &  beverage.n.01 (23) &  creator.n.02 (11) \\
-	  rodent.n.01 (27) &  ship.n.01 (38) &  lamp.n.01 (34) &  glove.n.02 (7) &  housing.n.01 (17) &   &  professional.n.01 (5) \\
-	 insect.n.01 (12) &   &   &  footwear.n.01 (5) &  place\_of\_worship.n.01 (12) &   &   \\
-	  fish.n.01 (11) &   &   &   &   &   &   \\
+	  ungulate$_1$ (2037) &  aircraft$_1$ (1208) &  furnishing$_2$ (5355) &  shirt$_1$ (968) &  house$_1$ (364) &  dish$_2$ (812) &  woman$_1$ (1768) \\
+	 horse$_1$ (833) &  train$_1$ (957) &  vessel$_3$ (525) &  overgarment$_1$ (786) &  bridge$_1$ (297) &  baked\_goods$_1$ (770) &  man$_1$ (1167) \\
+	  feline$_1$ (763) &  car$_1$ (727) &  kitchen\_utensil$_1$ (132) &  dress$_1$ (199) &  shelter$_1$ (169) &  foodstuff$_2$ (280) &  male\_child$_1$ (853) \\
+	 dog$_1$ (688) &  motorcycle$_1$ (564) &  crockery$_1$ (92) &  headdress$_1$ (135) &  restaurant$_1$ (58) &  vegetable$_1$ (48) &  athlete$_1$ (396) \\
+	  bird$_1$ (389) &  truck$_1$ (559) &  cutlery$_2$ (82) &  neckwear$_1$ (65) &  outbuilding$_1$ (31) &  edible\_fruit$_1$ (42) &  child$_1$ (333) \\
+	  flower$_1$ (44) &  boat$_1$ (499) &  tool$_1$ (72) &  robe$_1$ (27) &  hotel$_1$ (19) &  beverage$_1$ (23) &  creator$_2$ (11) \\
+	  rodent$_1$ (27) &  ship$_1$ (38) &  lamp$_1$ (34) &  glove$_2$ (7) &  housing$_1$ (17) &   &  professional$_1$ (5) \\
+	 insect$_1$ (12) &   &   &  footwear$_1$ (5) &  place\_of\_worship$_1$ (12) &   &   \\
+	  fish$_1$ (11) &   &   &   &   &   &   \\
 	\bottomrule
 \end{tabular}
-	\caption{Overview of our dataset: Collection nodes for each domain (number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset2}}
+	\caption{Overview of our dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset2}}
 \end{table*}
 
 % \begin{itemize}
