@@ -63,26 +63,15 @@
 \maketitle
 
 \begin{abstract}
-Research in language \& vision commonly acknowledges the fact that speakers can interpret and describe visual scenes in many different ways, cf.\ work on image captioning. 
-%For instance, frameworks in image captioning  typically elicit (during collection) or train and test on (during modeling) multiple valid alternatives. 
-Individual visual objects and their names, however, are usually modeled in simple annotation tasks where objects are labeled with a single canonical name. 
-This typically rests on the assumption that linguistic variants of these canonical names that would occur in natural naming situations (e.g. when referring to an object) can be retrieved %via their lexical relations in
-from a taxonomy like WordNet.
-%A prime example here is VisualGenome that features complex and varied annotations on the level of scenes and regions, but provides canonicalized objects linked to a single name. 
-We put these assumptions 
-%that objects in complex visual scenes bear a canonical name and that its possible alternatives can be easily retrieved from existing taxonomies t
-to an empirical test and elicit (from 36 subjects) a dataset of non-canonicalized object names on top of 25k objects of the VisualGenome dataset. 
-%multiple names (from 36 subjects) for 25k objects of different categories annotated in VisualGenome.
-%W investigate the extent to which there is variation in the names chosen by different people for the same object. Our
-Our results reveal a XXX (\cs{?some/slight? opposite of decent -- whatever decent means}) variation in how speakers name an individual object, and even a high variation in names for objects of the same category.
-\cs{Is with category ANIMAL meant, or more dog --> many images of dog, high variation?}
-\cs{Should it made explicit that most instances have more than one name?}
-\cs{What does "decent" mean?}
-%We find that our non-canonicalized object naming data shows decent agreement on the instance-level, but little agreement on the category-level, revealing a lot of variation with respect to how speakers name different objects of the same category.
-%When linking to WordNet, 
-We furthermore observe that most of the alternatives for the original name in VisualGenome cannot be retrieved via hierarchical relations encoded in WordNet. %, as more complex relations like cross-classification of objects, metonymy or variation due to visual uncertainty account for a major portion of the variation.
+In research on language \& vision, it is well known that different speakers interpret and describe the same visual scene in many different ways.
+Individual visual objects, however, are usually simply annotated with a single canonical name, assuming that linguistic variants of the canonical name that would occur in natural naming situations (e.g. when referring to the object) can be retrieved from a taxonomy like WordNet.
+We put these assumptions to an empirical test and elicit (from 36 subjects) a dataset of non-canonicalized object names on top of 25k objects of the VisualGenome dataset. 
+Our results reveal a manageable amount of variation in names given to individual objects (approx. 3 different types on average), and wide variation in names for objects of the same category (around 30 different names for categories like e.g.\ dog).
+%\cs{Is with category ANIMAL meant, or more dog --> many images of dog, high variation?}
+%\cs{Should it made explicit that most instances have more than one name?}
+%\cs{What does "decent" mean?}
+We observe that most of the alternatives for the canonical VisualGenome name cannot be retrieved via hierarchical relations encoded in WordNet. 
 Instead, a major portion of the variation is accounted for by more complex relations like cross-classification of objects, metonymy or variation due to visual uncertainty.  
-%different levels of specificity (cow-animal) or verbalize different aspect of the same object (bowl-salad). At the same time, we find that object naming prompted via bounding boxes is subject to a certain amount of noise as speakers have problems re-identifying the object that was annotated by the original bounding box. 
 We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
 \end{abstract}
 
