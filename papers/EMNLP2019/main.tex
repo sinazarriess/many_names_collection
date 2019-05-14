@@ -63,13 +63,13 @@
 \maketitle
 
 \begin{abstract}
-  Our paper examines variation in object naming in natural images.
+%  Our paper examines variation in object naming in natural images.
   While research in language \& vision is well aware that there is variation in scene description, object naming has been addressed in a comparatively simplistic way: Typically, a single object label is provided for each object, and assumed to be its canonical category or name.
 % Individual objects in images, however, are usually simply annotated with a single canonical name.
 % , assuming that linguistic variants of the canonical name that would occur in natural naming situations (e.g. when referring to the object) can be retrieved from a taxonomy like WordNet.
-In Cognitive Science, object naming variation is more widely acknowledged and studied, albeit with stylized drawings instead of real images.
-
-We elicit 36 object names for each of 25K objects in the VisualGenome dataset via crowdsourcing.
+% In Cognitive Science, object naming variation is more widely acknowledged and studied, albeit with stylized drawings instead of real images.
+  Inspired by research in Cognitive Science, we study variation in object naming by eliciting dozens of object names for the same object.
+  Unlike work in that field, we do so for natural images (25K objects in the VisualGenome dataset).
 The resulting dataset, ManyNames, reveals a substantial level of agreement in how humans call individual instances, and lower agreement across instances.
 % On average, 70\% of the names for any given image coincide, and around 3 names are elicited for each image.
 % Instead, there is much less agreement across images with the same VisualGenome name: Around 30 different names are given for these.
@@ -79,11 +79,11 @@ The resulting dataset, ManyNames, reveals a substantial level of agreement in ho
 %\cs{Is with category ANIMAL meant, or more dog --> many images of dog, high variation?}
 %\cs{Should it made explicit that most instances have more than one name?}
 %\cs{What does "decent" mean?}
-Analysis shows that most of the name variants do not correspond to taxonomic, hierarchical relations (as encoded in WordNet), which have been the focus of Psycholinguistic studies on object naming.
-Instead, a major portion of the variation is accounted for by more complex relations like cross-classification of objects,
-% (\textit{cat-toy}),
-metonymy, %(\textit{bottle-wine}),
-and referential uncertainty.
+Analysis shows that most of the name variants do not correspond to taxonomic relations (as encoded in WordNet), which have been the focus of Psycholinguistic studies, and that referential uncertainty is a major source of variation.
+% Instead, we find relations like cross-classification of objects,
+% % (\textit{cat-toy}),
+% metonymy, %(\textit{bottle-wine}),
+% and referential uncertainty.
 We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
 \end{abstract}
 
