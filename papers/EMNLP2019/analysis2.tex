@@ -1,13 +1,13 @@
 
 Previous work on large-scale collections of labels or names of objects has (explicitly or implicitly) assumed that once naming data is canonical, linguistic alternatives of the canonical name can simply be retrieved from existing taxonomies like e.g.\ WordNet. 
 If this was indeed the case, it would be feasible (and probably even desirable) to canonicalize object names during dataset collection, without loosing too much information about linguistic variations in natural object naming scenarios (like e.g.\ referring expression generation).
-Hence, in this Section, we investigate to what extent the variation in object naming that we find in our MN data set (see previous Section) is covered by WordNet.
+Hence, in this section, we investigate to what extent the variation in object naming that we find in our MN data set (see previous Section) is covered by WordNet.
 
 \subsection{Lexical relations}
 
 In this section, we take a closer look at the lexical variation we observe in our data set. We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
 For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
-In Table \ref{tab:exvariants}, we show the the naming variants with the highest raw token frequency for each domain. 
+In Table \ref{tab:exvariants}, we show the naming variants with the highest raw token frequency for each domain. 
 
 The naming variants can be grouped according to their lexical relation, as follows:
 
@@ -103,7 +103,7 @@ Our data suggests that co-hierarchical variation is really important too.
 
 \subsection{The ``no relation'' case}
 
-We manually annotated the 100 most frequent name pairs in the ``no relation'' case. Table~\ref{tab:crossclass} shows that, in this category, one third of the pairs do refer to the same object, but the relationship is not captured in WordNet. 
+For each domain, we manually annotated the 100 most frequent name pairs in the ``no relation'' case. Table~\ref{tab:crossclass} shows that, in this category, one third of the pairs do refer to the same object, but the relationship is not captured in WordNet. 
 Most of these cases are arguably coverage issues of WordNet, which doesn't capture the co-hyponymy of \textit{horse}-\textit{donkey} or the fact that \textit{vehicle} is hypernym of \textit{train}.\gbt{I find this really weird... also some other cases I annotated. It sounds like I should have listened more carefully to Carina when she suggested going down and up in the wordnet hierarchy (cf.\ the example of food-fruit). :/ Maybe we'd capture quite a bit of them if we did a more sophisticated querying of WordNet. To discuss.}
 % between \textit{hat}-\textit{beanie}.
 However, a substantial group is constituted by names whose denotations overlap even if they don't belong to the same category. These are typically alternative conceptualizations of objects: as a cat or a toy, as a kind of building or its function (\textit{building}-\textit{home}), or as a portion or a kind of food (\textit{pizza-slice}).
