@@ -68,10 +68,12 @@
 % Individual objects in images, however, are usually simply annotated with a single canonical name.
 % , assuming that linguistic variants of the canonical name that would occur in natural naming situations (e.g. when referring to the object) can be retrieved from a taxonomy like WordNet.
 % In Cognitive Science, object naming variation is more widely acknowledged and studied, albeit with stylized drawings instead of real images.
-  Inspired by research in Cognitive Science, we study variation in object naming by eliciting dozens of object names for the same object.
+  Inspired by research in Psycholinguistics, we study variation in object naming by eliciting dozens of object names for the same object.
   Unlike work in that field, we do so for natural images (25K objects in the VisualGenome dataset).
-The resulting dataset, ManyNames, reveals a substantial level of agreement in how humans call individual instances, and lower agreement across instances.
-% On average, 70\% of the names for any given image coincide, and around 3 names are elicited for each image.
+  The resulting dataset, ManyNames, reveals both consistent trends in naming as well as variation.
+%  , with an average of 3 names elicited for each object in the dataset
+%  a substantial but far from perfect level of agreement in how humans call individual instances: on average, 70\% of the names for any given image coincide. Moreover, agreement varies depending on the domain (it is very high for animals, low for people).
+  % On average, 70\% of the names for any given image coincide, and around 3 names are elicited for each image.
 % Instead, there is much less agreement across images with the same VisualGenome name: Around 30 different names are given for these.
 %(the most frequent response accounts here for only 53\%)
 % This result suggests that there are individual factors beyond the category of an object that influence naming.
@@ -79,7 +81,8 @@ The resulting dataset, ManyNames, reveals a substantial level of agreement in ho
 %\cs{Is with category ANIMAL meant, or more dog --> many images of dog, high variation?}
 %\cs{Should it made explicit that most instances have more than one name?}
 %\cs{What does "decent" mean?}
-Analysis shows that most of the name variants do not correspond to taxonomic relations (as encoded in WordNet), which have been the focus of Psycholinguistic studies, and that referential uncertainty is a major source of variation.
+  Analysis shows that most of the name variants do not correspond to taxonomic relations (as encoded in WordNet), which have been the focus of Psycholinguistic studies; phenomena like cross-classification of objects (\textit{cat-toy}) and metonymy (\textit{bowl-fruit}) feature prominently, as do disagreements about what object is being referred to.
+  % Moreover, referential uncertainty is a major source of variation (\textit{man-shirt} ), which poses challenges for studying name variation on a large scale.
 % Instead, we find relations like cross-classification of objects,
 % % (\textit{cat-toy}),
 % metonymy, %(\textit{bottle-wine}),
