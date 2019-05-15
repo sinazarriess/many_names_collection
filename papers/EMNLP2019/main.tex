@@ -63,31 +63,14 @@
 \maketitle
 
 \begin{abstract}
-%  Our paper examines variation in object naming in natural images.
-  While research in language \& vision is well aware that there is variation in scene description, object naming has been addressed in a comparatively simplistic way: Typically, a single object label is provided for each object, and assumed to be its canonical category or name.
-% Individual objects in images, however, are usually simply annotated with a single canonical name.
-% , assuming that linguistic variants of the canonical name that would occur in natural naming situations (e.g. when referring to the object) can be retrieved from a taxonomy like WordNet.
-% In Cognitive Science, object naming variation is more widely acknowledged and studied, albeit with stylized drawings instead of real images.
-  Inspired by research in Psycholinguistics, we study variation in object naming by eliciting dozens of object names for the same object.
-  Unlike work in that field, we do so for natural images (25K objects in the VisualGenome dataset).
-  The resulting dataset, ManyNames, reveals both consistent trends in naming as well as variation.
-%  , with an average of 3 names elicited for each object in the dataset
-%  a substantial but far from perfect level of agreement in how humans call individual instances: on average, 70\% of the names for any given image coincide. Moreover, agreement varies depending on the domain (it is very high for animals, low for people).
-  % On average, 70\% of the names for any given image coincide, and around 3 names are elicited for each image.
-% Instead, there is much less agreement across images with the same VisualGenome name: Around 30 different names are given for these.
-%(the most frequent response accounts here for only 53\%)
-% This result suggests that there are individual factors beyond the category of an object that influence naming.
-% a manageable (/modest/moderate(?)) amount of variation in names given to individual objects (approx. 3 types on average), and wide variation in names for objects of the same category (e.g.\ dog; around 30 types on average). 
-%\cs{Is with category ANIMAL meant, or more dog --> many images of dog, high variation?}
-%\cs{Should it made explicit that most instances have more than one name?}
-%\cs{What does "decent" mean?}
-  Analysis shows that most of the name variants do not correspond to taxonomic relations (as encoded in WordNet), which have been the focus of Psycholinguistic studies; phenomena like cross-classification of objects (\textit{cat-toy}) and metonymy (\textit{bowl-fruit}) feature prominently, as do disagreements about what object is being referred to.
-  % Moreover, referential uncertainty is a major source of variation (\textit{man-shirt} ), which poses challenges for studying name variation on a large scale.
-% Instead, we find relations like cross-classification of objects,
-% % (\textit{cat-toy}),
-% metonymy, %(\textit{bottle-wine}),
-% and referential uncertainty.
-We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
+While research in language \& vision is well aware that there is variation in scene description, object naming has been addressed in a comparatively simplistic way: 
+Typically, a single label is provided for each object, and assumed to be its canonical category or name.
+Existing work on linguistic variation in natural object naming, i.e.\ reference, has used taxonomy-driven models that retrieve hierarchically related names for the canonical name from WordNet. 
+We study variation in object naming in a less constrained setting and elicit dozens of names from different speakers for the same instance in an image (25K objects in the VisualGenome dataset).
+The resulting dataset, ManyNames, reveals that instances do tend to have a preferred name, though the level of agreement varies widely across domains (e.g. animals and people).
+ We show that most object classes (synsets) annotated in VisualGenome correspond to a large set of actual names ($\sim$30 on average) and that most of these name variants do not have a hierarchical relation to the annotated synset.
+ Phenomena like cross-classification of objects (\textit{cat-toy}) and metonymy (\textit{bowl-fruit}) feature prominently, as do disagreements about what object is being referred to.
+ We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
 \end{abstract}
 
 \section{Introduction}
