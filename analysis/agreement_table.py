@@ -79,12 +79,15 @@ def make_agreement_table(resdf):
 
     tablerows.append(('all',\
 
-                     str("%.1f"%(np.mean(resdf['percent_agree'])*100)),\
+                     str("%.1f (%.1f)"%(np.mean(resdf['percent_agree'])*100,\
+                     np.std(resdf['percent_agree'])*100)),\
                      str("%.1f"%np.mean(resdf['snodgrass'])),\
                      str("%.1f"%np.mean(resdf['n_types'])),\
                      str("%.1f"%np.mean(resdf['n_types_min1'])),\
-                     str("%.1f"%((np.sum(resdf['vg_is_max'])/nobjects)*100)),\
-                     str("%.1f"%((np.sum(resdf['vg_mean'])/nobjects)*100)),\
+                     str("%.1f (%.1f)"%((np.sum(resdf['vg_is_max'])/nobjects)*100,
+                     np.std(resdf['vg_is_max'])*100)),\
+                     str("%.1f (%.1f)"%(((np.sum(resdf['vg_mean'])/nobjects)*100),
+                     np.std(resdf['vg_mean'])*100)),\
                      str(len(resdf))
                     ))
 
@@ -106,7 +109,8 @@ def make_agreement_table(resdf):
 
         tablerows.append((c,\
 
-                         str("%.1f"%(np.mean(catdf['percent_agree'])*100)),\
+                         str("%.1f (%.1f)"%(np.mean(catdf['percent_agree'])*100,
+                         np.std(catdf['percent_agree'])*100)),\
                          str("%.1f"%np.mean(catdf['snodgrass'])),\
                          str("%.1f"%np.mean(catdf['n_types'])),\
                          str("%.1f"%np.mean(catdf['n_types_min1'])),\
