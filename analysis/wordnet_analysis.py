@@ -267,12 +267,14 @@ def add_rel_to_df(syndf,wn_vocab):
             if (not mname in row['vg_obj_names']):
             #mname in wn_vocab and \
                 rel,s1,s2 = get_syn_word_rel(vg_syn,mname,wn_vocab)
+                #if rel == 'hypernym':
+                #    print(rel,mname,s1,s2)
                 rel_typ_c[rel] += 1
                 rel_tok_c[rel] += row['responses'][mname]
 
                 if rel not in rel_synsets:
                     rel_synsets[rel] = []
-                rel_synsets[rel].append(s2)
+                rel_synsets[rel].append(mname)
 
         #print(rel_tok_c)
 
@@ -282,7 +284,7 @@ def add_rel_to_df(syndf,wn_vocab):
 
     syndf['rel_tokens'] = rel_token
     syndf['rel_types'] = rel_types
-    syndf['rel_synsets'] = rel_names
+    syndf['rel_names'] = rel_names
 
     return syndf
 
@@ -290,17 +292,16 @@ def add_rel_to_df(syndf,wn_vocab):
 def make_rel_table(syndf):
 
     outdf = []
-    rel2freq_types = {}
-    rel2freq_tokens = {}
+
+    relations = ['synonym','meronym','holonym','hypernym','hyponym','rel-not-covered','word-not-covered','co-hyponym']
+    rel2freq_types = {r:[] for r in relations}
+    rel2freq_tokens = {r:[] for r in relations}
     for ix,row in syndf.iterrows():
-        for rel in row['rel_tokens']:
-            if rel not in rel2freq_types:
-                rel2freq_types[rel] = []
-                rel2freq_tokens[rel] = []
-            total = sum(row['rel_tokens'].values())
+        total = sum(row['rel_tokens'].values())
+        totalt = sum(row['rel_types'].values())
+        for rel in rel2freq_types:
             rel2freq_tokens[rel].append(row['rel_tokens'][rel]/total)
-            total = sum(row['rel_types'].values())
-            rel2freq_types[rel].append(row['rel_types'][rel]/total)
+            rel2freq_types[rel].append(row['rel_types'][rel]/totalt)
 
     for p in rel2freq_types:
         row = [p]
@@ -313,10 +314,10 @@ def make_rel_table(syndf):
     print(outdf)
 
     #outdff = pd.DataFrame(outdf,columns=['relation','Ftok', 'N','Ftok-min1','Nmin1'])
-    outdff = pd.DataFrame(outdf,columns=['relation','Av. Types', 'Av. Token'])
+    outdff = pd.DataFrame(outdf,columns=['relation','% Typ', '% Tok'])
 
 
-    print(outdff.sort_values(by=['Ftok']).to_latex(index=False))
+    print(outdff.sort_values(by=['% Typ']).to_latex(index=False))
 
 
 if __name__ == '__main__':
