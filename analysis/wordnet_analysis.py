@@ -5,6 +5,7 @@
 from nltk.corpus import wordnet as wn
 import pandas as pd
 from agreement_table import make_df
+from agreement_table import make_synset_df
 import os
 import json
 import sys
@@ -59,10 +60,10 @@ def vg_name_pairs(vg_name,rdict):
     return np_count
 
 
-def is_hyponym(w1,w2,max_depth=5):
+def is_hyponym(syns1,syns2,max_depth=5):
 
-    syns1 = wn.synsets(w1,pos="n")
-    syns2 = wn.synsets(w2,pos="n")
+    #syns1 = wn.synsets(w1,pos="n")
+    #syns2 = wn.synsets(w2,pos="n")
 
     for syn1 in syns1:
         hyp_closure = list(syn1.closure(hyp,depth=dpt))
@@ -72,11 +73,11 @@ def is_hyponym(w1,w2,max_depth=5):
                 return (True,syn1,syn2)
     return (False,0,0)
 
-def is_hypernym(w1,w2,max_depth=5):
+def is_hypernym(syns1,syns2,max_depth=5):
 
 
-    syns1 = wn.synsets(w1,pos="n")
-    syns2 = wn.synsets(w2,pos="n")
+    #syns1 = wn.synsets(w1,pos="n")
+    #syns2 = wn.synsets(w2,pos="n")
 
     for syn2 in syns2:
         hyp_closure = list(syn2.closure(hyp,depth=max_depth))
@@ -86,22 +87,23 @@ def is_hypernym(w1,w2,max_depth=5):
                 return (True,syn1,syn2)
     return (False,0,0)
 
-def is_synonym(w1,w2):
+def is_synonym(syns1,syns2):
 
-    syns1 = wn.synsets(w1,pos="n")
-    syns2 = wn.synsets(w2,pos="n")
+    #syns1 = wn.synsets(w1,pos="n")
+    #syns2 = wn.synsets(w2,pos="n")
 
     for syn2 in syns2:
 
         for syn1 in syns1:
-                if syn1 == syn2:
-                    return (True,syn1,syn2)
+            #print("synonym",syn1,syn2)
+            if syn1 == syn2:
+                return (True,syn1,syn2)
     return (False,0,0)
 
-def is_cohyponym(w1,w2,max_depth=1):
+def is_cohyponym(syns1,syns2,max_depth=1):
 
-    syns1 = wn.synsets(w1,pos="n")
-    syns2 = wn.synsets(w2,pos="n")
+    #syns1 = wn.synsets(w1,pos="n")
+    #syns2 = wn.synsets(w2,pos="n")
 
     for syn2 in syns2:
 
@@ -117,291 +119,302 @@ def is_cohyponym(w1,w2,max_depth=1):
                         return (True,h1,h2)
     return (False,0,0)
 
-def is_meronym(w1,w2,max_depth=1):
+def is_meronym(syns1,syns2,max_depth=1):
 
-    syns1 = wn.synsets(w1,pos="n")
-    syns2 = wn.synsets(w2,pos="n")
+    #syns1 = wn.synsets(w1,pos="n")
+    #syns2 = wn.synsets(w2,pos="n")
 
-    for syn2 in syns2:
+    for syn1 in syns1:
 
-        for osyn in syn2.part_meronyms():
-            if osyn in syns1:
-                return (True,osyn,syn2)
-        for osyn in syn2.substance_meronyms():
-            if osyn in syns1:
-                return (True,osyn,syn2)
+        for osyn in syn1.part_meronyms():
+            if osyn in syns2:
+                return (True,syn1,osyn)
+        for osyn in syn1.substance_meronyms():
+            if osyn in syns2:
+                return (True,syn1,osyn)
     return (False,0,0)
 
-def get_word_rel(w1,w2):
+def get_word_rel(w1,w2,wn_map):
 
-    (has_rel,s1,s2) = is_synonym(wn_map[top],wn_map[other])
+    (has_rel,s1,s2) = is_synonym(wn_map[w1],wn_map[w2])
     if has_rel:
         return ('synonymy',s1,s2)
 
-    (has_rel,s1,s2) = is_hypernym(wn_map[top],wn_map[other],max_depth=10)
+    (has_rel,s1,s2) = is_hypernym(wn_map[w1],wn_map[w2],max_depth=10)
     if has_rel:
-        return ('hypernymy.1',s1,s2)
+        return ('hypernymy',s1,s2)
 
-    (has_rel,s1,s2) = is_hypernym(wn_map[other],wn_map[top],max_depth=10)
+    (has_rel,s1,s2) = is_hypernym(wn_map[w1],wn_map[w2],max_depth=10)
     if has_rel:
-        return ('hypernymy.2',s1,s2)
+        return ('hyponymy',s1,s2)
 
-    (has_rel,s1,s2) = is_cohyponym(wn_map[top],wn_map[other],max_depth=1)
+    (has_rel,s1,s2) = is_cohyponym(wn_map[w1],wn_map[w2],max_depth=1)
     if has_rel:
         return ('co-hyponymy',s1,s2)
 
-    (has_rel,s1,s2) = is_meronym(wn_map[top],wn_map[other],max_depth=10)
+    (has_rel,s1,s2) = is_meronym(wn_map[w1],wn_map[w2],max_depth=10)
     if has_rel:
-        return ('meronymy.1',s1,s2)
-    (has_rel,s1,s2) = is_meronym(wn_map[other],wn_map[top],max_depth=10)
+        return ('meronymy',s1,s2)
+    (has_rel,s1,s2) = is_meronym(wn_map[w1],wn_map[w2],max_depth=10)
     if has_rel:
-        return ('meronymy.2',s1,s2)
+        return ('holonymy',s1,s2)
 
-    return ('crossclassified',0,0)
+    return ('rel-not-covered',0,0)
 
+def get_syn_word_rel(syn1,w2,wn_map):
 
+    if w2 not in wn_map:
+        return ('word-not-covered',0,0)
+    #else:
+#        print(w2,wn_map[w2])
 
-fn = 'all_responses_round0-3_cleaned.csv'
-resdf = make_df(fn)
+    (has_rel,s1,s2) = is_synonym([wn.synset(syn1)],wn_map[w2])
+    if has_rel:
+        return ('synonym',s1,s2)
 
-ordered_paircount = Counter()
-paircount = Counter()
-wordcount = Counter()
-word2domain = {}
-domain_ordered_paircount = Counter()
-domain_paircount = Counter()
+    (has_rel,s1,s2) = is_hypernym([wn.synset(syn1)],wn_map[w2],max_depth=10)
+    if has_rel:
+        return ('hyponym',s1,s2)
 
-for x,row in resdf.iterrows():
-    #print(ndict)
-    #x = flat_name_pairs(row['spellchecked'])
-    x = vg_name_pairs(row['vg_obj_name'],row['spellchecked'])
-    ordered_paircount.update(x)
-    for (x1,x2) in x:
-        domain_ordered_paircount[(row['vg_domain'],x1,x2)] += x[(x1,x2)]
+    (has_rel,s1,s2) = is_hypernym(wn_map[w2],[wn.synset(syn1)],max_depth=10)
+    if has_rel:
+        return ('hypernym',s1,s2)
 
+    (has_rel,s1,s2) = is_cohyponym([wn.synset(syn1)],wn_map[w2],max_depth=1)
+    if has_rel:
+        return ('co-hyponym',s1,s2)
 
-    wordcount.update(row['spellchecked'])
-    for word in row['spellchecked']:
-        if word not in word2domain:
-            word2domain[word] = Counter()
-        word2domain[word][row['vg_domain']] += row['spellchecked'][word]
+    (has_rel,s1,s2) = is_meronym([wn.synset(syn1)],wn_map[w2],max_depth=10)
+    if has_rel:
+        return ('meronym',s1,s2)
+    (has_rel,s1,s2) = is_meronym(wn_map[w2],[wn.synset(syn1)],max_depth=10)
+    if has_rel:
+        return ('holonym',s1,s2)
 
-for p in ordered_paircount:
-    swapp = (p[1],p[0])
-    if not swapp in paircount:
-        if ordered_paircount[p] > ordered_paircount[swapp]:
-            paircount[p] = ordered_paircount[p] + ordered_paircount[swapp]
-        else:
-            paircount[swapp] = ordered_paircount[p] + ordered_paircount[swapp]
-
-for p in domain_ordered_paircount:
-    swapp = (p[0],p[2],p[1])
-    if not swapp in domain_paircount:
-        if domain_ordered_paircount[p] > domain_ordered_paircount[swapp]:
-            domain_paircount[p] = domain_ordered_paircount[p] + domain_ordered_paircount[swapp]
-        else:
-            domain_paircount[swapp] = domain_ordered_paircount[p] + domain_ordered_paircount[swapp]
+    return ('rel-not-covered',0,0)
 
 
+def example_table(resdf):
 
-print("N name types:",len(wordcount))
-singletons = [w for w in wordcount if wordcount[w] == 1]
-print("... singletons:",len(singletons))
-wn_wordcount = Counter()
-wn_map = {}
+    cat2paircount = {}
+    for cat in set(list(resdf['vg_domain'])):
+        cat2paircount[cat] = Counter()
+        catdf = resdf[resdf['vg_domain'] == cat]
 
-for w in wordcount:
-    if len(wn.synsets(w)) > 0:
-        wn_wordcount[w] = wordcount[w]
-        wn_map[w] = w
-    elif len(wn.synsets('_'.join(w.split(' ')))) > 0:
-        wn_wordcount[w] = wordcount[w]
-        wn_map[w] = '_'.join(w.split(' '))
-    elif len(wn.synsets(''.join(w.split(' ')))) > 0:
-        wn_wordcount[w] = wordcount[w]
-        wn_map[w] = ''.join(w.split(' '))
-    elif len(wn.synsets('-'.join(w.split(' ')))) > 0:
-        wn_wordcount[w] = wordcount[w]
-        wn_map[w] = '-'.join(w.split(' '))
+        for ndict in catdf['spellchecked']:
+        #print(ndict)
+            x = name_pairs(ndict)
+            cat2paircount[cat].update(x)
 
-wn_singletons = [w for w in wn_wordcount if wn_wordcount[w] == 1]
-print("N name types covered by WN:",len(wn_wordcount))
-print("... singletons:",len(wn_singletons))
+    examples = []
+    for cat in cat2paircount:
+        exstr = []
+        #print(cat)
+        for ((n1,n2),freq) in cat2paircount[cat].most_common(10):
+            exstr.append("%s -- %s (%d)"%(n1,n2,freq))
+        examples.append((cat,", ".join(exstr)))
 
 
-wn_paircount = Counter({(w1,w2):paircount[(w1,w2)] for (w1,w2) in paircount if w1 in wn_wordcount \
-                                                                               and w2 in wn_wordcount })
-wn_ordered_paircount = Counter({(w1,w2):ordered_paircount[(w1,w2)] for (w1,w2) in ordered_paircount if w1 in wn_wordcount and w2 in wn_wordcount })
-
-print("N ordered name variants:",len(ordered_paircount))
-print("N name variants :",len(paircount))
-print("N ordered name variants covered by WN:",len(wn_ordered_paircount))
-singletons = [w for w in wn_ordered_paircount if wn_ordered_paircount[w] == 1]
-print("... singletons:",len(singletons))
-print("N name variants covered by WN:",len(wn_paircount))
-singletons = [w for w in wn_paircount if wn_paircount[w] == 1]
-print("... singletons:",len(singletons))
-
-
-
-pairrel = {}
-
-for (top,other) in paircount:
-
-    if (top,other) in wn_paircount:
-        pairrel[(top,other)] = get_word_rel(top,other)
-
-    else:
-        pairrel[(top,other)] = ('not-covered',0,0)
-
-
-print("pairrel",len(pairrel))
-print("paircount",len(paircount))
-
-
-typecounts = Counter()
-tokencounts = Counter()
-
-typecounts_min1 = Counter()
-tokencounts_min1 = Counter()
-for p in pairrel:
-    if ordered_paircount[p] > 10:
-        rel = pairrel[p][0]
-        #if '.' in rel:
-        #    rel = rel[:-2]
-        typecounts_min1[rel] += 1
-        tokencounts_min1[rel] += ordered_paircount[p]
-    typecounts[rel] += 1
-    tokencounts[rel] += ordered_paircount[p]
-
-domtypecounts = {}
-domtokencounts = {}
-for (domain,top,other) in domain_paircount:
-    if (top,other) in pairrel:
-        rel = pairrel[(top,other)][0]
-    else:
-        rel = pairrel[(other,top)][0]
-    if '.' in rel:
-        rel = rel[:-2]
-    if domain not in domtypecounts:
-        domtypecounts[domain] = Counter()
-        domtokencounts[domain] = Counter()
-    domtypecounts[domain][rel] += 1
-    domtokencounts[domain][rel] += domain_paircount[(domain,top,other)]
-
-
-
-
-outdf = []
-totaltypes = sum(typecounts.values())
-totaltokens = sum(tokencounts.values())
-totaltypes_min1 = sum(typecounts_min1.values())
-totaltokens_min1 = sum(tokencounts_min1.values())
-relations = typecounts.keys()
-
-##for domain in domtypecounts:#
-#    row = [domain]
-#    for p in relations:
-#        row.append("%.3f"%(domtypecounts[domain][p]/sum(domtypecounts[domain].values())))
-#        row.append("%.3f"%(domtokencounts[domain][p]/sum(domtokencounts[domain].values())))
-#    outdf.append(row)
-
-
-for p in relations:
-    row = [p]
-    row.append("%.1f"%((typecounts[p]/totaltypes)*100))
-    row.append("%.1f"%((tokencounts[p]/totaltokens)*100))
-    row.append("%.1f"%((typecounts_min1[p]/totaltypes_min1)*100))
-    row.append("%.1f"%((tokencounts_min1[p]/totaltokens_min1)*100))
-    outdf.append(row)
-
-print(outdf)
-
-#colnames = ['domain']
-#for p in relations:#
-#    colnames.append(p+"_typ")
-outdff = pd.DataFrame(outdf,columns=['relation','Ftok', 'N','Ftok-min1','Nmin1'])
-
-print(outdff.sort_values(by=['Ftok']).to_latex(index=False))
-
-
-pairdf = []
-
-for (top,other) in paircount:
-#    if paircount[(top,other)] > 5:
-        prow = (top,other,pairrel[(top,other)][0],\
-           paircount[(top,other)],\
-           ordered_paircount[(top,other)],\
-           ordered_paircount[(other,top)],\
-           word2domain[top].most_common(1)[0][0],\
-           word2domain[other].most_common(1)[0][0],
-           str(pairrel[(top,other)][1]),
-           str(pairrel[(top,other)][2]),
-           )
-        pairdf.append(prow)
-
-pairdf = pd.DataFrame(pairdf,columns=['word1','word2','relation',\
-'totalfreq','freq-w1-w2','freq-w2-w1','domain_w1','domain_w2','syn_w1','syn_w2'])
-pairdf = pairdf.sort_values(by=['totalfreq'],ascending=False)
-pairdf.to_csv("names_pairs_relations_v2.csv")
-
-domainpairdf = []
-
-for (domain,top,other) in domain_paircount:
-#    if paircount[(top,other)] > 5:
-
-        if (top,other) in pairrel:
-            rel = pairrel[(top,other)]
-        else:
-            rel = pairrel[(other,top)]
-
-        prow = (
-           domain,
-           top,other,rel[0],\
-           domain_paircount[(domain,top,other)],\
-           domain_ordered_paircount[(domain,top,other)],\
-           domain_ordered_paircount[(domain,other,top)],\
-           word2domain[top].most_common(1)[0][0],\
-           word2domain[other].most_common(1)[0][0],
-           str(rel[1]),
-           str(rel[2]),
-           )
-        domainpairdf.append(prow)
-
-domainpairdf = pd.DataFrame(domainpairdf,columns=['domain','word1','word2','relation',\
-'totalfreq','freq-w1-w2','freq-w2-w1','domain_w1','domain_w2','syn_w1','syn_w2'])
-domainpairdf = domainpairdf.sort_values(by=['domain','totalfreq'],ascending=False)
-domainpairdf.to_csv("domains_names_pairs_relations_v2.csv")
-
-
-
-
-
-cat2paircount = {}
-for cat in set(list(resdf['vg_domain'])):
-    cat2paircount[cat] = Counter()
-    catdf = resdf[resdf['vg_domain'] == cat]
-
-    for ndict in catdf['spellchecked']:
-    #print(ndict)
-        x = name_pairs(ndict)
-        cat2paircount[cat].update(x)
-
-
-# In[254]:
-
-
-examples = []
-for cat in cat2paircount:
-    exstr = []
-    #print(cat)
-    for ((n1,n2),freq) in cat2paircount[cat].most_common(10):
-        exstr.append("%s -- %s (%d)"%(n1,n2,freq))
-    examples.append((cat,", ".join(exstr)))
-
-
-exdf = pd.DataFrame(examples,columns=['category',"most frequent naming variants"])
+    exdf = pd.DataFrame(examples,columns=['category',"most frequent naming variants"])
 #print(exdf.to_latex(index=False))
+
+def get_vocab(syndf,name2synset):
+
+    wordcount = Counter()
+    word2domain = {}
+    wn_map = {}
+
+
+    for ix,row in syndf.iterrows():
+        wordcount.update(row['responses'])
+        for word in row['responses']:
+            if word not in word2domain:
+                word2domain[word] = Counter()
+                word2domain[word][row['vg_domain']] += row['responses'][word]
+
+                if word in name2synset:
+                    #print("found word",word)
+                    wn_map[word] = [wn.synset(name2synset[word])]
+                    #print(wn_map[word])
+                else:
+                    if len(wn.synsets(word,pos="n")) > 0:
+                        wn_map[word] = wn.synsets(word,pos="n")
+                    elif len(wn.synsets('_'.join(word.split(' ')),pos="n")) > 0:
+                        wn_map[word] = wn.synsets('_'.join(word.split(' ')),pos="n")
+                    elif len(wn.synsets(''.join(word.split(' ')),pos="n")) > 0:
+                        wn_map[word] = wn.synsets(''.join(word.split(' ')),pos="n")
+                    elif len(wn.synsets('-'.join(word.split(' ')),pos="n")) > 0:
+                        wn_map[word] = wn.synsets('-'.join(word.split(' ')),pos="n")
+
+
+
+    return wordcount,word2domain,wn_map
+
+def add_rel_to_df(syndf,wn_vocab):
+
+    rel_token = []
+    rel_types = []
+    rel_names = []
+
+    for ix,row in syndf.iterrows():
+        vg_syn = row['vg_obj_synset']
+
+        #print(vg_syn)
+        rel_tok_c = Counter()
+        rel_typ_c = Counter()
+        rel_synsets = {}
+        for (mname) in row['responses']:
+            if (not mname in row['vg_obj_names']):
+            #mname in wn_vocab and \
+                rel,s1,s2 = get_syn_word_rel(vg_syn,mname,wn_vocab)
+                rel_typ_c[rel] += 1
+                rel_tok_c[rel] += row['responses'][mname]
+
+                if rel not in rel_synsets:
+                    rel_synsets[rel] = []
+                rel_synsets[rel].append(s2)
+
+        #print(rel_tok_c)
+
+        rel_token.append(rel_tok_c)
+        rel_types.append(rel_typ_c)
+        rel_names.append(rel_synsets)
+
+    syndf['rel_tokens'] = rel_token
+    syndf['rel_types'] = rel_types
+    syndf['rel_synsets'] = rel_names
+
+    return syndf
+
+
+def make_rel_table(syndf):
+
+    outdf = []
+    rel2freq_types = {}
+    rel2freq_tokens = {}
+    for ix,row in syndf.iterrows():
+        for rel in row['rel_tokens']:
+            if rel not in rel2freq_types:
+                rel2freq_types[rel] = []
+                rel2freq_tokens[rel] = []
+            total = sum(row['rel_tokens'].values())
+            rel2freq_tokens[rel].append(row['rel_tokens'][rel]/total)
+            total = sum(row['rel_types'].values())
+            rel2freq_types[rel].append(row['rel_types'][rel]/total)
+
+    for p in rel2freq_types:
+        row = [p]
+        row.append("%.1f"%(np.mean(rel2freq_types[p])*100))
+        row.append("%.1f"%(np.mean(rel2freq_tokens[p])*100))
+        #row.append("%.1f"%((typecounts_min1[p]/totaltypes_min1)*100))
+        #row.append("%.1f"%((tokencounts_min1[p]/totaltokens_min1)*100))
+        outdf.append(row)
+
+    print(outdf)
+
+    #outdff = pd.DataFrame(outdf,columns=['relation','Ftok', 'N','Ftok-min1','Nmin1'])
+    outdff = pd.DataFrame(outdf,columns=['relation','Av. Types', 'Av. Token'])
+
+
+    print(outdff.sort_values(by=['Ftok']).to_latex(index=False))
+
+
+if __name__ == '__main__':
+    fn = 'all_responses_round0-3_cleaned.csv'
+    resdf = make_df(fn)
+    syndf,name2synset = make_synset_df(resdf)
+
+
+    print(syndf.head())
+    vocab,domain2vocab,wn_vocab = get_vocab(syndf,name2synset)
+    syndf = add_rel_to_df(syndf,wn_vocab)
+    make_rel_table(syndf)
+
+
+
+
+
+    #colnames = ['domain']
+    #for p in relations:#
+    #    colnames.append(p+"_typ")
+
+
+    # domtypecounts = {}
+    # domtokencounts = {}
+    # for (domain,top,other) in domain_paircount:
+    #     if (top,other) in pairrel:
+    #         rel = pairrel[(top,other)][0]
+    #     else:
+    #         rel = pairrel[(other,top)][0]
+    #     if '.' in rel:
+    #         rel = rel[:-2]
+    #     if domain not in domtypecounts:
+    #         domtypecounts[domain] = Counter()
+    #         domtokencounts[domain] = Counter()
+    #     domtypecounts[domain][rel] += 1
+    #     domtokencounts[domain][rel] += domain_paircount[(domain,top,other)]
+
+    ##for domain in domtypecounts:#
+    #    row = [domain]
+    #    for p in relations:
+    #        row.append("%.3f"%(domtypecounts[domain][p]/sum(domtypecounts[domain].values())))
+    #        row.append("%.3f"%(domtokencounts[domain][p]/sum(domtokencounts[domain].values())))
+    #    outdf.append(row)
+
+
+
+    # pairdf = []
+    #
+    # for (top,other) in paircount:
+    # #    if paircount[(top,other)] > 5:
+    #         prow = (top,other,pairrel[(top,other)][0],\
+    #            paircount[(top,other)],\
+    #            ordered_paircount[(top,other)],\
+    #            ordered_paircount[(other,top)],\
+    #            word2domain[top].most_common(1)[0][0],\
+    #            word2domain[other].most_common(1)[0][0],
+    #            str(pairrel[(top,other)][1]),
+    #            str(pairrel[(top,other)][2]),
+    #            )
+    #         pairdf.append(prow)
+    #
+    # pairdf = pd.DataFrame(pairdf,columns=['word1','word2','relation',\
+    # 'totalfreq','freq-w1-w2','freq-w2-w1','domain_w1','domain_w2','syn_w1','syn_w2'])
+    # pairdf = pairdf.sort_values(by=['totalfreq'],ascending=False)
+    # pairdf.to_csv("names_pairs_relations_v2.csv")
+    #
+    # domainpairdf = []
+    #
+    # for (domain,top,other) in domain_paircount:
+    # #    if paircount[(top,other)] > 5:
+    #
+    #         if (top,other) in pairrel:
+    #             rel = pairrel[(top,other)]
+    #         else:
+    #             rel = pairrel[(other,top)]
+    #
+    #         prow = (
+    #            domain,
+    #            top,other,rel[0],\
+    #            domain_paircount[(domain,top,other)],\
+    #            domain_ordered_paircount[(domain,top,other)],\
+    #            domain_ordered_paircount[(domain,other,top)],\
+    #            word2domain[top].most_common(1)[0][0],\
+    #            word2domain[other].most_common(1)[0][0],
+    #            str(rel[1]),
+    #            str(rel[2]),
+    #            )
+    #         domainpairdf.append(prow)
+    #
+    # domainpairdf = pd.DataFrame(domainpairdf,columns=['domain','word1','word2','relation',\
+    # 'totalfreq','freq-w1-w2','freq-w2-w1','domain_w1','domain_w2','syn_w1','syn_w2'])
+    # domainpairdf = domainpairdf.sort_values(by=['domain','totalfreq'],ascending=False)
+    # domainpairdf.to_csv("domains_names_pairs_relations_v2.csv")
+
+
+
+
+
 
 
 # In[ ]:
