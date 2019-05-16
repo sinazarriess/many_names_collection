@@ -1,0 +1,97 @@
+
+
+\subsection{Experimental Setup}
+\textbf{THIS IS VERY CRYPTIC}
+\paragraph{Model}
+We used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
+It uses Faster R-CNN in conjunction with the ResNet-101 CNN and was pretrained on object and attribute annotations from VisualGenome (after initialization with pretrained ImageNet model).
+\iffalse
+"To pretrain the bottom-up attention model, we first initialize Faster R-CNN with ResNet-101 pretrained for classification on ImageNet [35]. We then train on Visual
+Genome [21] data. To aid the learning of good feature
+representations, we add an additional training output for
+predicting attribute classes (in addition to object classes).
+To predict attributes for region i, we concatenate the mean
+pooled convolutional feature vi with a learned embedding
+of the ground-truth object class, and feed this into an additional output layer defining a softmax distribution over each
+attribute class plus a ‘no attributes’ class.
+The original Faster R-CNN multi-task loss function contains four components, defined over the classification and
+bounding box regression outputs for both the RPN and the
+final object class proposals respectively. We retain these
+components and add an additional multi-class loss component to train the attribute predictor"
+\fi
+
+\paragraph{Data}
+\begin{itemize}
+	\item We use the softmax distribution for the VG object names, and ignore the distribution over attributes. 
+	\item The authors manually cleaned the set of object names to remove those with poor detection performance.
+	\item Set of classes: 1,600 object names
+	Overlapping classes, such as \textsl{person} and \textsl{guy}, were not merged to single classes. (For those cases, we therefore would expect that evaluating the model output on our set of names per instance to yield higher detection accuracy. )
+	\item Image set and vocabulary: $XXX$~names are not in MN, i.e., our vocabulary (MN--VG) contains $XXX$~names. 
+	We filtered out those images whose VG name was not found in MN--VG, which resulted in $24,585$~instances (note that of those $22,304$~images were also part of the training data of bottom-up)
+\end{itemize} 
+
+\paragraph{Measures}
+top: the model's top prediction
+\begin{itemize}
+	\item \textbf{top=VG} The average model accuracy on the VG names
+	\item \textbf{top=MN-1} The average model accuracy on the top response in ManyNames
+	\item \textbf{top$\in$MN} The average model accuracy to predict any name of the responses in ManyNames
+	\item \textbf{KL} The average Kullback-Leibler divergence of the model's softmax output and the  distribution over ManyNames, estimated by normalizing the name counts per instance
+\end{itemize}
+
+We further compare the model on the set of instances where the VG names does not match the top response in MN.
+
+Sets of instances: all images, not training, only those with VG != MN-1.
+
+\paragraph{Results} 
+\begin{table*}
+	\small
+	\begin{tabular}{l@{~}|rrrr|rrrr|rrrr}
+				 &	\multicolumn{4}{c|}{All images ($24,585$)} 
+				 & \multicolumn{4}{c|}{Images w/ VG != MN-1 ($6,280$)}
+				 & \multicolumn{4}{c}{$\neg$Train images ($2,281$)} \\
+		domain	 &  top=VG & top=MN-1 & top$\in$MN  &  KL
+					&  top=VG & top=MN-1 & top$\in$MN  & KL
+					&  top=VG & top=MN-1 & top$\in$MN  & KL\\
+		\toprule
+		all 	& 68.7 & 76.8 & 94.8 & 
+				& 20.7 & 52.5 & 92.3 & 
+				& 63.5	& 73.1	& 92.5 &\\
+		\midrule
+		... \\
+		\bottomrule
+	\end{tabular}
+	\caption{Blabla	\label{tab:model}}
+\end{table*}
+\iffalse
+Total sum of differences after score conversion to relevant classes: 156.810 (avg=0.006378)
+Evaluation on VG (24585 instances):
+Accuracy (top VG): 0.686678869229 (t: 16882, f: 7703, not found: 0)
+Evaluation on YNI-1 (24585 instances):
+Accuracy (top1 YNI): 0.768069961359 (t: 18883, f: 5702, not found: nan)
+Evaluation on YNI-10 (24585 instances):
+Accuracy (top10 YNI): 0.947813707545 (t: 23302, f: 1283, not found: nan)
+
+Evaluation on VG -- only instances where topYNI != VG (6280):
+Accuracy (top VG): 0.207006369427 (t: 1300, f: 4980, not found: 0)
+Evaluation on YNI-1 -- only instances where topYNI != VG (6280):
+Accuracy (top1 YNI): 0.525636942675 (t: 3301, f: 2979, not found: nan)
+Evaluation on YNI-10 -- only instances where topYNI != VG (6280):
+Accuracy (top10 YNI): 0.922929936306 (t: 5796, f: 484, not found: nan)
+
+Evaluation VG on training images (22304)
+Accuracy (top VG): 0.691983500717 (t: 15434, f: 6870, not found: 0)
+Evaluation YNI-1 on training images (22304)
+Accuracy (top1 YNI): 0.771879483501 (t: 17216, f: 5088, not found: nan)
+Evaluation YNI-10 on training images (22304)
+Accuracy (top10 YNI): 0.950098637016 (t: 21191, f: 1113, not found: nan)
+
+Evaluation VG on NOT training images (2281)
+Accuracy (top VG): 0.634809294169 (t: 1448, f: 833, not found: 0)
+Evaluation YNI-1 on NOT training images (2281)
+Accuracy (top1 YNI): 0.73081981587 (t: 1667, f: 614, not found: nan)
+Evaluation YNI-10 on NOT training images (2281)
+Accuracy (top10 YNI): 0.925471284524 (t: 2111, f: 170, not found: nan)
+
+\fi
+
