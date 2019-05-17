@@ -36,7 +36,7 @@ def make_df(filename):
     resdf['clean'] = resdf['clean'].apply(lambda x: Counter(eval(x)))
     resdf['canon'] = resdf['canon'].apply(lambda x: Counter(eval(x)))
 
-    resdf['spellchecked_min3'] = resdf['spellchecked'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 2}))
+    resdf['spellchecked_min3'] = resdf['spellchecked'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 1}))
 
     vocab_counter = Counter()
     vg_is_common = []
@@ -85,16 +85,15 @@ def make_agreement_table(resdf):
 
                      #str("%.1f (%.1f)"%(np.mean(resdf['percent_agree'])*100,\
                      #np.std(resdf['percent_agree'])*100)),\
+                     str("%.1f"%np.mean(resdf['n_types_min1'])),\
                      str("%.1f (%.1f)"%(np.mean(resdf['percent_agree_min3'])*100,\
                      np.std(resdf['percent_agree_min3'])*100)),\
                      #str("%.1f"%np.mean(resdf['snodgrass'])),\
-                     str("%.1f"%np.mean(resdf['snodgrass_min3'])),\
+                     str("%.1f (%.1f)"%(np.mean(resdf['snodgrass_min3']),
+                     np.std(resdf['snodgrass_min3']))),\
                      #str("%.1f"%np.mean(resdf['n_types'])),\
-                     #str("%.1f"%np.mean(resdf['n_types_min1'])),\
-                     str("%.1f (%.1f)"%((np.sum(resdf['vg_is_max'])/nobjects)*100,
-                     np.std(resdf['vg_is_max'])*100)),\
-                     str("%.1f (%.1f)"%(((np.sum(resdf['vg_mean'])/nobjects)*100),
-                     np.std(resdf['vg_mean'])*100)),\
+                     str("%.1f"%((np.sum(resdf['vg_is_max'])/nobjects)*100)),\
+                     str("%.1f"%((np.sum(resdf['vg_mean'])/nobjects)*100)),\
                      #str(len(resdf))
                     ))
 
@@ -118,12 +117,13 @@ def make_agreement_table(resdf):
 
                          #str("%.1f (%.1f)"%(np.mean(catdf['percent_agree'])*100,
                          #np.std(catdf['percent_agree'])*100)),\
+                        str("%.1f"%np.mean(catdf['n_types_min1'])),\
                          str("%.1f (%.1f)"%(np.mean(catdf['percent_agree_min3'])*100,\
                          np.std(catdf['percent_agree_min3'])*100)),\
                          #str("%.1f"%np.mean(catdf['snodgrass'])),\
-                         str("%.1f"%np.mean(catdf['snodgrass_min3'])),\
+                         str("%.1f (%.1f)"%(np.mean(catdf['snodgrass_min3']),
+                         np.std(catdf['snodgrass_min3']))),\
                          #str("%.1f"%np.mean(catdf['n_types'])),\
-                         #str("%.1f"%np.mean(catdf['n_types_min1'])),\
                          str("%.1f"%((np.sum(catdf['vg_is_max'])/ncat)*100)),\
                          str("%.1f"%((np.sum(catdf['vg_mean'])/ncat)*100)),\
                          #str(len(catdf))
@@ -149,7 +149,7 @@ def make_agreement_table(resdf):
         #
         #                  ))
 
-    outdf = pd.DataFrame(tablerows,columns=['domain','%top','H','top=VG','%VG'])
+    outdf = pd.DataFrame(tablerows,columns=['domain','N','%top','H','top=VG','%VG'])
     print(outdf.sort_values(by=['%top']).to_latex(index=False))
     #outdf2 = pd.DataFrame(tablerows2,columns=['domain','max synset','% top1','SD','Max=VG','% VG','min synset','% top','SD','Max=VG','% VG' ])
     #print(outdf2.sort_values(by=['% top1']).to_latex(index=False))
@@ -200,7 +200,7 @@ def make_synset_df(resdf):
 
     syndf = pd.DataFrame(new_rows,columns=['vg_obj_synset','vg_obj_names','vg_domain','synset','responses','n_images'])
 
-    syndf['responses_min3'] = syndf['responses'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 2}))
+    syndf['responses_min3'] = syndf['responses'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 1}))
 
     for ix,row in syndf.iterrows():
 
