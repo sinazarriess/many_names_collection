@@ -36,6 +36,8 @@ def make_df(filename):
     resdf['clean'] = resdf['clean'].apply(lambda x: Counter(eval(x)))
     resdf['canon'] = resdf['canon'].apply(lambda x: Counter(eval(x)))
 
+    resdf['spellchecked_min3'] = resdf['spellchecked'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 2}))
+
     vocab_counter = Counter()
     vg_is_common = []
     vg_prop = []
@@ -49,7 +51,7 @@ def make_df(filename):
         vocab_counter += row['spellchecked']
         max_name = row['spellchecked'].most_common(1)[0][0]
         vg_is_common.append(int(max_name == row['vg_obj_name']))
-        vg_weight = row['spellchecked'][row['vg_obj_name']]/sum(row['spellchecked'].values())
+        vg_weight = row['spellchecked_min3'][row['vg_obj_name']]/sum(row['spellchecked_min3'].values())
         vg_prop.append(vg_weight)
         vg_overlap.append(row['spellchecked'][row['vg_obj_name']])
         nanno.append(sum(row['spellchecked'].values()))
@@ -65,7 +67,9 @@ def make_df(filename):
     resdf['n_types'] = ntypes
     resdf['n_types_min1'] = ntypesmin1
     resdf['snodgrass'] = resdf['spellchecked'].apply(lambda x: snodgrass_agreement(x,{},True))
+    resdf['snodgrass_min3'] = resdf['spellchecked_min3'].apply(lambda x: snodgrass_agreement(x,{},True))
     resdf['percent_agree'] = resdf['spellchecked'].apply(lambda x: percent_agreement(x))
+    resdf['percent_agree_min3'] = resdf['spellchecked_min3'].apply(lambda x: percent_agreement(x))
 
     return resdf
 
@@ -79,16 +83,19 @@ def make_agreement_table(resdf):
 
     tablerows.append(('all',\
 
-                     str("%.1f (%.1f)"%(np.mean(resdf['percent_agree'])*100,\
-                     np.std(resdf['percent_agree'])*100)),\
-                     str("%.1f"%np.mean(resdf['snodgrass'])),\
-                     str("%.1f"%np.mean(resdf['n_types'])),\
-                     str("%.1f"%np.mean(resdf['n_types_min1'])),\
+                     #str("%.1f (%.1f)"%(np.mean(resdf['percent_agree'])*100,\
+                     #np.std(resdf['percent_agree'])*100)),\
+                     str("%.1f (%.1f)"%(np.mean(resdf['percent_agree_min3'])*100,\
+                     np.std(resdf['percent_agree_min3'])*100)),\
+                     #str("%.1f"%np.mean(resdf['snodgrass'])),\
+                     str("%.1f"%np.mean(resdf['snodgrass_min3'])),\
+                     #str("%.1f"%np.mean(resdf['n_types'])),\
+                     #str("%.1f"%np.mean(resdf['n_types_min1'])),\
                      str("%.1f (%.1f)"%((np.sum(resdf['vg_is_max'])/nobjects)*100,
                      np.std(resdf['vg_is_max'])*100)),\
                      str("%.1f (%.1f)"%(((np.sum(resdf['vg_mean'])/nobjects)*100),
                      np.std(resdf['vg_mean'])*100)),\
-                     str(len(resdf))
+                     #str(len(resdf))
                     ))
 
     for c in set(list(resdf['vg_domain'])):
@@ -109,38 +116,41 @@ def make_agreement_table(resdf):
 
         tablerows.append((c,\
 
-                         str("%.1f (%.1f)"%(np.mean(catdf['percent_agree'])*100,
-                         np.std(catdf['percent_agree'])*100)),\
-                         str("%.1f"%np.mean(catdf['snodgrass'])),\
-                         str("%.1f"%np.mean(catdf['n_types'])),\
-                         str("%.1f"%np.mean(catdf['n_types_min1'])),\
+                         #str("%.1f (%.1f)"%(np.mean(catdf['percent_agree'])*100,
+                         #np.std(catdf['percent_agree'])*100)),\
+                         str("%.1f (%.1f)"%(np.mean(catdf['percent_agree_min3'])*100,\
+                         np.std(catdf['percent_agree_min3'])*100)),\
+                         #str("%.1f"%np.mean(catdf['snodgrass'])),\
+                         str("%.1f"%np.mean(catdf['snodgrass_min3'])),\
+                         #str("%.1f"%np.mean(catdf['n_types'])),\
+                         #str("%.1f"%np.mean(catdf['n_types_min1'])),\
                          str("%.1f"%((np.sum(catdf['vg_is_max'])/ncat)*100)),\
                          str("%.1f"%((np.sum(catdf['vg_mean'])/ncat)*100)),\
-                         str(len(catdf))
+                         #str(len(catdf))
                          #str("%.2f"%((np.sum(catdf['vg_overlap'])/np.sum(catdf['n_anno']))*100))
 
                     ))
 
 
 
-        tablerows2.append((c,\
+        # tablerows2.append((c,\
+        #
+        #                  topsyn,
+        #                  str("%.2f"%((np.mean(topdf['percent_agree'])*100))),\
+        #                  str("%.2f"%(np.mean(topdf['snodgrass']))),\
+        #                  str("%.2f"%((np.sum(topdf['vg_is_max'])/len(topdf))*100)),\
+        #                  str("%.2f"%((np.sum(topdf['vg_mean'])/len(topdf))*100)),\
+        #
+        #                  botsyn,
+        #                  str("%.2f"%((np.mean(botdf['percent_agree'])*100))),\
+        #                  str("%.2f"%(np.mean(botdf['snodgrass']))),\
+        #                  str("%.2f"%((np.sum(botdf['vg_is_max'])/len(botdf))*100)),\
+        #                  str("%.2f"%((np.sum(botdf['vg_mean'])/len(botdf))*100))
+        #
+        #                  ))
 
-                         topsyn,
-                         str("%.2f"%((np.mean(topdf['percent_agree'])*100))),\
-                         str("%.2f"%(np.mean(topdf['snodgrass']))),\
-                         str("%.2f"%((np.sum(topdf['vg_is_max'])/len(topdf))*100)),\
-                         str("%.2f"%((np.sum(topdf['vg_mean'])/len(topdf))*100)),\
-
-                         botsyn,
-                         str("%.2f"%((np.mean(botdf['percent_agree'])*100))),\
-                         str("%.2f"%(np.mean(botdf['snodgrass']))),\
-                         str("%.2f"%((np.sum(botdf['vg_is_max'])/len(botdf))*100)),\
-                         str("%.2f"%((np.sum(botdf['vg_mean'])/len(botdf))*100))
-
-                         ))
-
-    outdf = pd.DataFrame(tablerows,columns=['domain','% top','H','N','Nmin1','top=VG','% VG','#'])
-    print(outdf.sort_values(by=['% top']).to_latex(index=False))
+    outdf = pd.DataFrame(tablerows,columns=['domain','%top','H','top=VG','%VG'])
+    print(outdf.sort_values(by=['%top']).to_latex(index=False))
     #outdf2 = pd.DataFrame(tablerows2,columns=['domain','max synset','% top1','SD','Max=VG','% VG','min synset','% top','SD','Max=VG','% VG' ])
     #print(outdf2.sort_values(by=['% top1']).to_latex(index=False))
     return outdf
@@ -154,6 +164,8 @@ def make_synset_df(resdf):
     objdf['name'] = objdf['names'].apply(lambda x: x[0])
     name2synset = dict(list(zip(objdf['name'],objdf['synset'])))
     #name2lemmas = {n:[l._name for l in wn.synset(n).lemmas()] for n in name2synset}
+
+
 
     syn2resp = {}
     syn2synset = {}
@@ -188,13 +200,15 @@ def make_synset_df(resdf):
 
     syndf = pd.DataFrame(new_rows,columns=['vg_obj_synset','vg_obj_names','vg_domain','synset','responses','n_images'])
 
+    syndf['responses_min3'] = syndf['responses'].apply(lambda x: Counter({k:x[k] for k in x if x[k] > 2}))
+
     for ix,row in syndf.iterrows():
 
         max_name = row['responses'].most_common(1)[0][0]
         #is_top = max_name in name2lemmas[row['vg_obj_name']]
         #vg_is_common.append(int(max_name == row['vg_obj_name']))
         vg_is_common.append(int(max_name in row['vg_obj_names']))
-        vg_weight = sum([row['responses'][n] for n in row['vg_obj_names']])/sum(row['responses'].values())
+        vg_weight = sum([row['responses_min3'][n] for n in row['vg_obj_names']])/sum(row['responses'].values())
         vg_prop.append(vg_weight)
         vg_overlap.append(sum([row['responses'][n] for n in row['vg_obj_names']]))
         nanno.append(sum(row['responses'].values()))
@@ -209,8 +223,8 @@ def make_synset_df(resdf):
     syndf['n_anno'] = nanno
     syndf['n_types'] = ntypes
     syndf['n_types_min1'] = ntypesmin1
-    syndf['snodgrass'] = syndf['responses'].apply(lambda x: snodgrass_agreement(x,{},True))
-    syndf['percent_agree'] = syndf['responses'].apply(lambda x: percent_agreement(x))
+    syndf['snodgrass_min3'] = syndf['responses_min3'].apply(lambda x: snodgrass_agreement(x,{},True))
+    syndf['percent_agree_min3'] = syndf['responses_min3'].apply(lambda x: percent_agreement(x))
     #syndf['vg_name_synset'] = syndf['vg_obj_name'].apply(lambda x: name2synset[x])
 
     return syndf,name2synset
