@@ -1,7 +1,23 @@
 
+Our findings in Sections~\ref{sec:analysis} and~\ref{sec:taxo} are cause to question the appropriateness of the standard evaluation procedure of object naming or  detection methods, in which models are compared against a single symbol. 
+%
+%Let us assume that we can define, for each instance, it's canonical name as the most frequently produced one. 
+Specifically, the assumption that there exists a canonical name for individual objects (instances), cannot be made in general.
+This was shown by the high standard deviation in terms of the relative frequency of an instance's top response (column \%top in Table~\ref{tab:agree}), as well as an average mismatch of $27\%$~between the instances' top response and their VG name (\mbox{top=VG}). 
+Further, as discussed in Section~\ref{sec:taxo}, many name alternatives are not hierarchically related to the VG name. 
+Hence, to distinguish automatically whether a predicted name is a true error (e.g.,\ XX) or actually a valid alternative to the given "ground truth" (e.g.,\ XX), simple methods, such as querying a taxonomic hierarchy, do not suffice. 
+\cs{also distributional similarity? Remember that we looked into this for the checkpoint and did not find a clear similarity threshold/pattern} 
 
+\cs{TODO: Say something about type disagreements on class-level, after having written the results discussion.}
+
+\cs{Ah, we still should have a comparison model with above argumentation :/.}
+
+\textbf{TBC, after results discussion done}
 \subsection{Experimental Setup}
 \textbf{THIS IS VERY CRYPTIC}
+
+
+
 \paragraph{Model}
 We used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
 It uses Faster R-CNN in conjunction with the ResNet-101 CNN and was pretrained on object and attribute annotations from VisualGenome (after initialization with pretrained ImageNet model).
