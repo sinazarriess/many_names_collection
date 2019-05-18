@@ -1,23 +1,43 @@
 
-Our findings in Sections~\ref{sec:analysis} and~\ref{sec:taxo} are cause to question the appropriateness of the standard evaluation procedure of object naming or  detection methods, in which models are compared against a single symbol. 
-%
-%Let us assume that we can define, for each instance, it's canonical name as the most frequently produced one. 
-Specifically, the assumption that there exists a canonical name for individual objects (instances), cannot be made in general.
+% mismatch between the visual awareness of the target object (man) and that of the competitor object (shirt)
+Our findings in Sections~\ref{sec:analysis} and~\ref{sec:taxo} are reason to question the appropriateness of the standard, single-label approach in visual object naming and categorization methods. 
+Even the assumption that there at least exists a canonical name, i.e., a  name on which the majority of people would agree, for individual visual objects (/or image regions(?)) (instances) is disputable. 
 This was shown by the high standard deviation in terms of the relative frequency of an instance's top response (column \%top in Table~\ref{tab:agree}), as well as an average mismatch of $27\%$~between the instances' top response and their VG name (\mbox{top=VG}). 
-Further, as discussed in Section~\ref{sec:taxo}, many name alternatives are not hierarchically related to the VG name. 
-Hence, to distinguish automatically whether a predicted name is a true error (e.g.,\ XX) or actually a valid alternative to the given "ground truth" (e.g.,\ XX), simple methods, such as querying a taxonomic hierarchy, do not suffice. 
+%
+The ability to distinguish incorrect object names from name alternatives is essential for visual object understanding, though. 
+It would be desirable to explicitly assess model towards their ability to account for naming variants of an instance/how different people would name the same object/image regions (e.g.,~in how far are the top N predicted names valid alternatives, such as, dog, animal, pet vs. dog, animal, hat?). 
+%
+
+The criticism on the use of single "ground truth" labels is not new, but %to our knowledge 
+previous work has focused on the determination of canonical names (e.g.,~\newcite{Ordonez:2016}), or on "granularity-aware" models, where naming variants are hierachically related (e.g.,~\newcite{wang2014poodle, peterson2018learning}, and the references therein). 
+
+% \textit{training} of classifiers with multiple labels to improve image classification model depicting multiple objects (e.g.,~Wang et al., 2016 REF)
+% Wang et al.: ". The hypothesis is that by modeling the variation in granularity levels for different concepts, we can gain a more informative insight as to how the output of image annotation systems can relate to how a person describes what he or she perceives in an image, and consequently produce image annotation systems that are more human-centric."
+[For example, \newcite{peterson2018learning} train CNN classifiers on objects with multiple labels which stand in a hierarchical relation (e.g., dog, animal) in order to learn better visual representations which capture the hierarchical structure of a taxonomy. \cs{remove or move to related work? also sentence to Ordonez}]
+\footnote{Other work used training data with multiple labels per image to improve image classification performance on images with multiple objects (e.g.,~Wang et al., 2016 REF). \cs{maybe remove, since it is not that relevant?}}
+%
+% peterson2018learning: discuss the bias introduced into learned representations by training on data of  single label annotations ("labels cut arbitrarily across natural psychological taxonomies, e.g., dogs are separated into breeds but never categorized as dogs"). 
+%
+However, as discussed in Section~\ref{sec:taxo}, we found that many name alternatives are not hierarchically related to the VG name. 
+Hence, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically whether a predicted name is a true error (e.g.,\ XX) or actually a valid alternative to the given "ground truth" (e.g.,\ XX). 
 \cs{also distributional similarity? Remember that we looked into this for the checkpoint and did not find a clear similarity threshold/pattern} 
-
+%
 \cs{TODO: Say something about type disagreements on class-level, after having written the results discussion.}
-
+%
 \cs{Ah, we still should have a comparison model with above argumentation :/.}
+%
+Here, we will use ManyNames (MN) as evaluation data, and assess whether a SOTA model can account for the naming variants of individual objects in MN. 
+In contrast to above work where the models were trained on multiple labels, we use a classification model that was trained on single names--VG's object names (and attributes). %, i.e., it did not see multiple names for individual objects during training.  
+By this means, we examine whether classification models are able to implicitly learn representations of the relations between object names despite of not being trained towards this. 
+And due to the nature of our collected data, the relations may not stand in a hierarchical relation. 
 
-\textbf{TBC, after results discussion done}
+%We hypothesize that this is the case, see finding regarding the influence of visual cues. 
+%Get an intuition in how far models are able to identify an object by one of it's possible names (gt=dog, is system still able to identify the object if the name is puppy?).
+\cs{And with this argumentation, we ideally we compare to a model fine-tuned on our data...}
+
+
 \subsection{Experimental Setup}
 \textbf{THIS IS VERY CRYPTIC}
-
-
-
 \paragraph{Model}
 We used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
 It uses Faster R-CNN in conjunction with the ResNet-101 CNN and was pretrained on object and attribute annotations from VisualGenome (after initialization with pretrained ImageNet model).
@@ -59,6 +79,7 @@ components and add an additional multi-class loss component to train the attribu
 \paragraph{Results} 
 We compare the model against a random baseline for the KL divergence, and against a most-frequent name baseline. 
 We further compare the model on the set of instances where the VG names does not match the top response in MN (block \mbox{VG$\neq$MN-1} in Table~\ref{tab:model}), and to those which were not part of the set of images used for training bottom-up ($\neg$Training).
+Note that the latter two sets are disjoint. 
 %
 \begin{table*}
 	\centering
@@ -71,6 +92,12 @@ We further compare the model on the set of instances where the VG names does not
 		& \multicolumn{4}{c}{VG$\neq$MN-1 ($6,280$)}
 		& \multicolumn{4}{c}{$\neg$Training ($2,281$)} \\
 	\midrule
+			 &  \multicolumn{2}{c}{single-label}
+			 &  \multicolumn{2}{c}{multi-label}
+			 &  \multicolumn{2}{c}{single-label}
+			 &  \multicolumn{2}{c}{multi-label}
+			 &  \multicolumn{2}{c}{single-label}
+			 &  \multicolumn{2}{c}{multi-label} \\
 		Domain	 &  =VG & =MN-1 & $\in$MN  &  KL
 		&  =VG & =MN-1 & $\in$MN  & KL
 		&  =VG & =MN-1 & $\in$MN  & KL\\
@@ -90,4 +117,9 @@ Baseline       &                3.9 &                  4.6 &                    
 \caption{Baseline: The most frequent name. Random baseline (KL with random distributions) for each image set: 6.9 (all), 6.5 (VG$\neq$MN-1) and 6.9 ($\neg$Training)	\label{tab:model}}
 \end{table*}
 
-
+\begin{itemize}
+	\item VG worse than MN; considering that model was trained on VG - is it because MN has easier labels? Does this mean that generalisation ability is better evaluated on MN?
+	\item VG!=MN-1 much worse than All $\Rightarrow$ Former has more difficult/ambiguous images (for both? classifier and human?)
+	\item for those more difficult images (VG!=MN-1), the difference for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
+	\item accuracy drops for notTrain (except for vehicles MN-1), but is still much better than VG!=MN-1  
+\end{itemize}
