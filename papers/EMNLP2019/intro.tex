@@ -13,9 +13,12 @@ We investigate the extent to which there is variation in the names chosen by dif
 \end{figure}
 
 Our paper puts together two strands of research that have mostly been pursued independently to date.
-On the one hand, state-of-the-art computer vision systems are able to accurately classify images into thousands of different categories (e.g.\  \newcite{googlenet}), where the task is often to predict the name for a given object. \gbt{Is this true? Imagenet task asks for synsets, which can be taken to be categories\dots To refine}
-However, they mostly adopt very simple assumptions with respect to the underlying lexicon, which is implemented as a simple, flat labeling scheme: A standard object recognition system would be trained to classify the left object in Figure~\ref{fig:cake} as \emph{cheesecake}, the right one as \emph{dessert}, and using \emph{dessert} for the left picture would be considered incorrect.
-On the other hand, research on object naming in Cognitive Science has shown that people choose different names depending on the circumstances, with factors such as context or the prototypicality of the object with respect to the category playing a role~\cite{add-refs}.
+On the one hand, state-of-the-art computer vision systems are able to accurately classify images into thousands of different categories (e.g.\  \newcite{googlenet}), where the task is often to predict the class for a given object. 
+%name for a given object. \gbt{Is this true? Imagenet task asks for synsets, which can be taken to be categories\dots To refine}
+However, they mostly adopt very simple assumptions with respect to the underlying lexicon, which is implemented by using single "ground truth" labels: 
+%as a simple, flat labeling scheme:
+ A standard object recognition system would be trained to classify the left object in Figure~\ref{fig:cake} as \emph{cheesecake}, the right one as \emph{dessert}, and using \emph{dessert} for the left picture would be considered incorrect. 
+On the other hand, research on object naming in Cognitive Science has shown that people choose different names depending on the circumstances, with factors such as context or the prototypicality of the object with respect to the category playing a role~\cite{add-refs}. 
 \gbt{This research also argues that there is high agreement in how people name objects; to do: make coherent.}
 However, this research typically uses stylized drawings are used, and is focused on taxonomic relations (\textit{sparrow}-\textit{bird}).
 \sz{It is thus unclear how findings from these stylized settings generalize to tasks in language \& vision like referring expression generation, where naming is a core aspect. Therefore, in contrast to traditional naming norm studies in Cognitive Science we study object naming in realistic scenes where objects are situated in a natural context! (This comes with additional challenges, like potential object occlusion, background/foreground confusion etc.)}
@@ -34,7 +37,7 @@ However, this research typically uses stylized drawings are used, and is focused
 In our study, we collect large-scale object naming data via crowdsourcing.
 Like object naming studies in Cognitive Science, we collect multiple names per object (concretely, 36); like most work on language \& vision, we use natural images of common objects in context 
 %\sz{(showing objects in complex visual contexts, surrounded by other objects, not ImageNet-like images)} 
-on a large scale, annotating objects in 25K images from the VisualGenome dataset.
+on a large scale, annotating objects in 25K images from the VisualGenome \cite{krishna2016visualgenome} dataset.
 We analyze the agreement in object naming across subjects, and the sources of variation. We find that: \gbt{To be put in paragraph form}
 
 \begin{itemize}
