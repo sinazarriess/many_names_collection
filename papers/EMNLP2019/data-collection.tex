@@ -2,7 +2,6 @@
 % Number of object names:  450\\
 % Number of collection nodes (synsets):    52 \\
 
-
 We take data from \vgenome \cite[\vg henceforth]{krishna2016visualgenome}, which
 % aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
 contains a dense region-based labeling of $108k$~images with, inter alia, objects, attributes and relationships,  %object descriptions, attributes, and relationships, as well as question-answer pairs, 
@@ -15,7 +14,7 @@ As common in Computer Vision, objects are localized as
 \footnote{We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).}
 
 \subsection{Sampling of Instances}
-
+\label{ssec:sampling}
  % of frequent classes/names in  \vgenome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
 %Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
 We selected images from seven domains: six based on \newcite{mcrae2005semantic}'s \citeyear{mcrae2005semantic} feature norms, a dataset widely used in Psycholinguistics that consists of common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}), and \textsc{person}, because it is a very frequent category in \vg.
@@ -43,6 +42,7 @@ This yielded a dataset with $31,093$~instances, which was further pruned during 
 Table~\ref{tab:overview_dataset1} shows the $7$\ domains together with the top $10$\ \vg names.
 
 \begin{table*}
+	\small
 \begin{tabular}{@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l@{~}l}
 	\toprule
 	          vehicles &            food & animals\_plants &           home &        buildings &             people &      clothing \\
@@ -59,7 +59,7 @@ Table~\ref{tab:overview_dataset1} shows the $7$\ domains together with the top $
 	  van (76) &  apple (33) &  flower (40) &  curtain (182) &  castle (14) &  skateboarder (80) &  cap (20) \\
 	\bottomrule
 \end{tabular}
-	\caption{Overview of our dataset: Top-10 VG names for each domain (number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset1}}
+	\caption{Overview of our ManyNames dataset: Top-10 VG names for each domain (number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset1}}
 \end{table*}
 
 % \begin{itemize}
@@ -89,7 +89,7 @@ We obtained a total of 36 names per image (i.e.,\ objects).
 As will become clear in the analysis, while object identification remains an issue despite these precautions, most mismatches between \vg annotations  and our data cannot be considered mistakes, and the annotation results have significant implications for the study of object naming in language \& vision (see discussion in Sections~\ref{sec:analysis,??}).
 \gbt{TO DO: revise that this matches the narrative in the rest of the paper.}
 Overall $XX$ turkers took part in the data elicitation, each naming a median of XXX instances. \gbt{@Carina pls fill in.}
-
+\cs{Maybe say something about the rejections, if space permits it.}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"

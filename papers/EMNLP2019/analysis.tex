@@ -6,9 +6,9 @@
 %\item Implications for lang\&vision: 1) synset classification won't do (if the goal is to predict/label an object); 2) name classification won't do either; 3) ``mistakes'' done by models are also done by humans -- role of referential uncertainty.
 %\end{itemize}
 
-In this section, we investigate to what extent names in VisualGenome and ManyNames can be considered canonical, i.e., to what extent speakers agree in their naming choices.
-Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, are mostly interested in the agreement on concept or category-level, we carry out an analysis on two different levels: First, we will look at instances and see to what extent names overlap for the same object. 
-Second, we will use the existing annotation of names in VisualGenome to analyze agreement on the level of classes.
+We investigate to what extent names in \vg (\vg) and ManyNames can be considered canonical, i.e., to what extent speakers agree in their naming choices.
+Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, are mostly interested in the agreement on the concept or category-level, we carry out an analysis on two different levels: First, we will look at instances and examine to what extent names overlap for the same object. 
+Second, we will use the existing annotation of names in \vg to analyze agreement on the level of classes.
 \begin{figure}[t]
 	\centering
 	\includegraphics[scale=.5]{figures/snodgrass_vanderwart_cake_042.png}
@@ -18,19 +18,26 @@ Second, we will use the existing annotation of names in VisualGenome to analyze 
 \subsection{Names, instances, classes}
 \label{subsec:counts}
 
-Our analysis is based on the following annotations associated with each object: (i) the original name, annotated in VisualGenome, (ii) the object class or synset, annotated in VisualGenome and obtained via a semi-automatic linking of the object name to WordNet, (iii) the ManyNames response set, i.e. a set of name types with annotation frequencies (max. 36 annotations per object). See Figure \ref{fig:ex-high-low-agreement} for examples of object annotations. Based on the VisualGenome synsets, we aggregate the annotations for instances of the same class and obtain a class-level response set that contains all names and their frequencies annotated for all objects of a class. 
+Our analysis is based on the following annotations associated with each object: (i) the original name, annotated in \vg, (ii) the object class or synset, annotated in \vg and obtained via a semi-automatic linking of the object name to WordNet\footnote{Recall that we used these VG synsets for collecting our images (Section~\ref{ssec:sampling})}, (iii) the ManyNames response set, i.e. a set of name types with annotation frequencies (max. 36 annotations per object). See Figure \ref{fig:ex-high-low-agreement} for examples of object annotations \cs{(top rows below the respective images give the responses) [if model preds are kept]}. Based on the \vg synsets, we aggregate the annotations for instances of the same class and obtain a class-level response set that contains all names and their frequencies annotated for all objects of a class. 
  
 % As a first simple measure of variation in object naming, we simply count how many different names (i.e.\ types) are given to instances and to classes.
 %Since a certain amount of noise in the crowd-sourced ManyNames data can be expected, we explore different frequency thresholds (from 1 to 6) to filter the response sets.
-Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e. how many objects or classes have at least $n$ names, with different minimum frequency thresholds to account for possible noise in the crowdsourced data.
-Without any frequency thresholding, the proportion of instances and classes that have a single name annotated is very small, below 10\% in both cases. 
+Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects (left) or classes (right) have at least $n$\ names, with different frequency thresholds~$n$ to account for possible noise in the crowdsourced data.
+Without any frequency thresholding~\mbox{($n$=1)}, the proportion of instances and classes that have a single name annotated is very small, below 10\%\ in both cases. 
 
-The histogram for instances in Figure \ref{fig:ntypes} suggests that there is a certain amount of low-frequency responses in the ManyNames data which, again, is expected in an annotation task where subjects are free to choose any response. When filtering names with frequencies below 2, 3 or 4, the response sets for instances get more consistent such that the majority contains maximally 5 names.
-Nevertheless, the proportion of objects that really only have a single name annotated is still below 50\%, even when applying a strict frequency filter of 4.
-This indicates that there is non-negligible variation when different speakers name the same object, and the variation seems to be restricted to a manageable set of up to 5 names per object.
+The histogram for instances in Figure\ \ref{fig:ntypes} suggests that there is a certain amount of low-frequency responses in the ManyNames data, as is expected in an annotation task where subjects are free to choose any response. 
+When discarding names with frequencies below\ \mbox{2, 3 or 4}, the %response sets for instances get more consistent such that the majority contains at most 5\ names.
+majority of the response sets for instances become more consistent with at most 5\ names per set, 
+%Nevertheless, the proportion of objects that really only have a single name annotated is still below 50\%. %, even when applying a strict frequency filter of 4.
+but the sets with a single name still make up only $<$50\%\ of all sets. 
+In sum, this indicates that there is non-negligible variation when different speakers name the same object, and the variation seems to be restricted to a manageable set of up to 5\ names per object.
 
 However, the number of types increases substantially when aggregating responses over classes, as shown in the cumulative histogram for type counts of synsets in Figure \ref{fig:ntypes} (right).
-Here, we observe that the rise of the curve is much less steep than for instances and, generally, there are many synsets with more than 10 or even 20 different name types, even after applying the frequency thresholds. This clearly indicates that different instances annotated with the same name and synset in VisualGenome trigger different naming variants. Examples illustrating this can be found in Figure \ref{fig:ex-high-low-agreement}. 
+%Here, we observe that the 
+The rise of the curve is much less steep than for instances and, generally, there are many synsets with more than 10\ or even 20\ different name types, even after applying the frequency thresholds. This clearly indicates that different instances annotated with the same 
+%name and 
+\cs{(removed "name and") The synsets could have different names -- maybe say "or even same name"?}
+synset in \vg trigger different naming variants. Examples illustrating this can be found in Figure \ref{fig:ex-high-low-agreement}. 
 Implications of this finding will be discussed below in Section \ref{subsec:discuss}.
 
 \begin{figure*}
@@ -42,6 +49,7 @@ Implications of this finding will be discussed below in Section \ref{subsec:disc
 \end{minipage}
  \caption{\label{fig:ntypes} Cumulative histograms for number of types found for instances and classes, based on different frequency tresholds (applied on the level of instances and classes respectively)}
 \end{figure*}
+\cs{Change yticks to 0-100, with label \%. Make font larger in Fig. with plots?}
 
 \begin{table*}
 \footnotesize
@@ -97,15 +105,15 @@ We compute the following measures to check agreement on the object names:
 % \end{equation}
 
 \item \textbf{N}: the average number of types in the response set of ManyNames
-\item \textbf{top=VG}: the proportion of items where the top response in ManyNames corresponds to the VisualGenome name
-\item \textbf{\% VG}: the average relative frequency of the VisualGenome name in the response set
+\item \textbf{top=VG}: the proportion of items where the top response in ManyNames corresponds to the \vg name
+\item \textbf{\% VG}: the average relative frequency of the \vg name in the response set
 
 \end{itemize}
 
 Again, we measure instance-level and class-level agreement on response sets for objects and synset classes, respectively.
 To account for potential noise, we filter out names with a frequency of 1 from the response sets.
 As shown in Table \ref{tab:agree}, generally, the agreement measures follow a similar pattern as the type counts discussed in the previous section:
-On the instance level, our annotators achieve a fair amount of overlap in their object naming choices, with the most frequent name accounting for 75\% of the responses on average, and the original VisualGenome name having an average frequency of 62\% in the ManyNames responses. On the class level, however, the agreement is much lower: The average frequency of the top name drops to 56.4\% and the frequency of the \vgenome name even more, to 23.4\%. The $H$ measures indicates a fair amount of agreement for instances, a bit lower than the agreement found in picture norming studies on artificial images (e.g.\ \cite{snodgrass} report an average $H$ of 0.55). On the class-level, again, an average $H$ value of 2 points to a much more even distribution of name frequencies.
+On the instance level, our annotators achieve a fair amount of overlap in their object naming choices, with the most frequent name accounting for 75\% of the responses on average, and the original \vg name having an average frequency of 62\% in the ManyNames responses. On the class level, however, the agreement is much lower: The average frequency of the top name drops to 56.4\% and the frequency of the \vgenome name even more, to 23.4\%. The $H$ measures indicates a fair amount of agreement for instances, a bit lower than the agreement found in picture norming studies on artificial images (e.g.\ \cite{snodgrass} report an average $H$ of 0.55). On the class-level, again, an average $H$ value of 2 points to a much more even distribution of name frequencies.
 
 %Generally, this seems to suggest that indeed many objects in our data set have a canonical name. 
 %\sz{For NLP people, this looks like a good agreement (given that people were free to type what they wanted). For vision people who might think of it as an object labeling task, this would be pretty low/bad agreement.}
@@ -123,7 +131,7 @@ The following Section will examine other potential sources of variation in objec
 
 Previous work on object naming has mostly adopted taxonomy-driven models aimed at capturing objects names of different levels of specificity~\cite{+++}.
 This section shows that naming variation in ManyNames cannot be explained by this parameter.
-Given that the VisualGenome names are already linked to WordNet, we compute the same linking for the additional ManyNames names, and check whether they stand in a taxonomic relation to the object synset given by VisualGenome.
+Given that the \vg names are already linked to WordNet, we compute the same linking for the additional ManyNames names, and check whether they stand in a taxonomic relation to the object synset given by \vg.
 %%In this section, we take a closer look at the lexical variation we observe in our data set. 
 %We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
 %For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
