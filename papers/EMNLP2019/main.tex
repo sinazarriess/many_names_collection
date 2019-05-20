@@ -22,7 +22,7 @@
 \usepackage{xspace}
 \usepackage{multirow}
 \usepackage{url}
-
+%\usepackage{microtype}
 %\aclfinalcopy % Uncomment this line for the final submission
 
 %\setlength\titlebox{5cm}
@@ -61,53 +61,53 @@
 \date{}
 
 \begin{document}
-\maketitle
-
-\begin{abstract}
-While research in language \& vision is well aware that there is variation in scene description, object naming has been addressed in a comparatively simplistic way: 
-Typically, a single label is provided for each object, and assumed to be its canonical category or name.
-Existing work on linguistic variation in natural object naming, i.e.\ reference, has used taxonomy-driven models that retrieve hierarchically related names for the canonical name from WordNet. 
-We study variation in object naming in a less constrained setting and elicit dozens of names from different speakers for the same instance in an image (25K objects in the VisualGenome dataset).
-The resulting dataset, ManyNames, reveals that instances do tend to have a preferred name, though the level of agreement varies widely across domains (e.g. animals and people).
- We also show that most object classes (synsets) annotated in VisualGenome correspond to a large set of actual names ($\sim$30 on average) and that most of these name variants do not have a hierarchical relation to the annotated synset.
- Phenomena like cross-classification of objects (\textit{cat-toy}) and metonymy (\textit{bowl-fruit}) feature prominently, as do disagreements about what object is being referred to.
- We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
-\end{abstract}
-
-\section{Introduction}
-\input{intro}
-
-\section{Related Work}
-\label{sec:relwork}
-\input{relwork}
-
-\section{Data collection}
-\label{sec:data}
-\input{data-collection}
-
-\section{Analysis}
-\label{sec:analysis}
-\input{analysis}
-
-% \section{Analysis: Taxonomy}
-% \label{sec:taxo}
-% \input{analysis2}
-
-\section{Modeling}
-\label{sec:modeling}
-\input{modeling}
-
-\section{Conclusions}
-\label{sec:conc}
-
-\bibliographystyle{acl_natbib}
-\bibliography{naming}
-
-% Note GBT: as per EMNLP instructions, I put the supp. material in a separate file.
-% For the final version we will need to put it here I assume.
-% \appendix
-% \input{suppl_material}
-
+	\maketitle
+	
+	\begin{abstract}
+		While research in language \& vision is well aware that there is variation in scene description, object naming has been addressed in a comparatively simplistic way: 
+		Typically, a single label is provided for each object, and assumed to be its canonical category or name.
+		Existing work on linguistic variation in natural object naming, i.e.\ reference, has used taxonomy-driven models that retrieve hierarchically related names for the canonical name from WordNet. 
+		We study variation in object naming in a less constrained setting and elicit dozens of names from different speakers for the same instance in an image (25K objects in the VisualGenome dataset).
+		The resulting dataset, ManyNames, reveals that instances do tend to have a preferred name, though the level of agreement varies widely across domains (e.g. animals and people).
+		We also show that most object classes (synsets) annotated in VisualGenome correspond to a large set of actual names ($\sim$30 on average) and that most of these name variants do not have a hierarchical relation to the annotated synset.
+		Phenomena like cross-classification of objects (\textit{cat-toy}) and metonymy (\textit{bowl-fruit}) feature prominently, as do disagreements about what object is being referred to.
+		We investigate whether a state-of-the-art model of object labeling implicitly encodes similar variation in object naming and discuss implications for research in language \& vision.
+	\end{abstract}
+	
+	\section{Introduction}
+	\input{intro}
+	
+	\section{Related Work}
+	\label{sec:relwork}
+	\input{relwork}
+	
+	\section{Data collection}
+	\label{sec:data}
+	\input{data-collection}
+	
+	\section{Analysis}
+	\label{sec:analysis}
+	\input{analysis}
+	
+	% \section{Analysis: Taxonomy}
+	% \label{sec:taxo}
+	% \input{analysis2}
+	
+	\section{Experiment: Evaluation of Multi-Label Object Classification}
+	\label{sec:modeling}
+	\input{modeling}
+	
+	\section{Conclusions}
+	\label{sec:conc}
+	
+	\bibliographystyle{acl_natbib}
+	\bibliography{naming}
+	
+	% Note GBT: as per EMNLP instructions, I put the supp. material in a separate file.
+	% For the final version we will need to put it here I assume.
+	% \appendix
+	% \input{suppl_material}
+	
 \end{document}
 
 
