@@ -1,48 +1,16 @@
-\begin{table*}
-	\centering
-	\small
-	\begin{tabular}{l@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr}
-		\toprule
-		%{} &  All images-top=VG &  All images-top=MN &  All images-top\$\textbackslash in\$MN &  All images-KL &  VGnotMN-top=VG &  VGnotMN-top=MN &  VGnotMN-top\$\textbackslash in\$MN &  VGnotMN-KL &  notTrain-top=VG &  notTrain-top=MN &  notTrain-top\$\textbackslash in\$MN &  notTrain-KL \\
-		& \multicolumn{12}{c}{Image subset} \\
-		&	\multicolumn{4}{c}{All ($24,585$)} 
-		& \multicolumn{4}{c}{VG$\neq$MN ($6,280$)}
-		& \multicolumn{4}{c}{$\neg$Training ($2,281$)} \\
-		\midrule
-		&  \multicolumn{2}{c}{single-label}
-		&  \multicolumn{2}{c}{multi-label}
-		&  \multicolumn{2}{c}{single-label}
-		&  \multicolumn{2}{c}{multi-label}
-		&  \multicolumn{2}{c}{single-label}
-		&  \multicolumn{2}{c}{multi-label} \\
-		Domain	 &  =VG & =MN & $\in$MN  &  KL
-		&  =VG & =MN & $\in$MN  & KL
-		&  =VG & =MN & $\in$MN  & KL\\ 
-		\midrule \vspace{.6ex}
-		all            &               68.7 &                 76.8 &                   94.8 &            0.9 &            20.7 &              52.6 &                92.4 &         1.2 &             63.5 &               73.1 &                 92.5 &          1.0 \\ 
-		home           &               70.0 &                 74.7 &                   93.4 &            1.1 &            24.3 &              47.5 &                91.4 &         1.4 &             67.2 &               70.5 &                 92.5 &          1.2 \\
-		food           &               60.0 &                 71.9 &                   87.7 &            1.0 &            14.2 &              48.9 &                76.6 &         1.5 &             46.6 &               62.1 &                 80.1 &          1.3 \\
-		buildings      &               57.5 &                 70.7 &                   92.1 &            1.3 &             7.9 &              63.4 &                89.8 &         1.5 &             44.3 &               60.2 &                 88.6 &          1.4 \\
-		vehicles       &               69.8 &                 72.8 &                   97.6 &            0.6 &            35.3 &              46.1 &                97.4 &         0.7 &             67.2 &               73.5 &                 96.4 &          0.7 \\
-		animals/plants &               92.7 &                 94.8 &                   97.7 &            0.4 &            20.3 &              65.0 &                94.0 &         0.9 &             91.3 &               92.6 &                 96.2 &          0.5 \\
-		clothing       &               63.3 &                 70.9 &                   92.6 &            1.0 &            19.9 &              48.5 &                90.3 &         1.2 &             50.8 &               60.2 &                 87.4 &          1.3 \\
-		people         &               48.5 &                 70.7 &                   95.5 &            1.2 &            13.8 &              58.9 &                95.3 &         1.3 &             42.2 &               68.2 &                 92.8 &          1.2 \\
-		\bottomrule
-		%Baseline      &                3.3 &                  5.2 &                   12.0 &            -- &             1.7 &               9.3 &                21.8 &         -- &              3.0 &                5.0 &                 11.9 &          -- \\
-		Baseline       &                3.9 &                  4.6 &                    5.6 &            -- &             0.1 &               3.0 &                 3.8 &         -- &              3.8 &                4.6 &                  5.8 &          -- \\
-	\end{tabular}
-	\caption{Baseline: The most frequent name. Random baseline (KL with random distributions) for each image set: 6.9 (all), 6.5 (VG$\neq$MN) and 6.9 ($\neg$Training). The numbers in parentheses give the \# instances in each set.	\label{tab:model}}
-\end{table*}
 %
 % mismatch between the visual awareness of the target object (man) and that of the competitor object (shirt)
 
 %
-We use ManyNames\ (MN) as evaluation data, and assess whether an object recognition model can account for MN's naming variants provided for individual objects.
-In contrast to existing works on multi-label classification, which also train their models towards multi-label predictions 
+We use ManyNames\ (MN) to evaluate whether an object recognition model can account for naming variants for objects in MN.
+In contrast to existing works on training and predicting multiple labels
+% classification, which also train their models towards multi-label predictions 
 % multi-label data also during training 
-(cf.\ Section\ \ref{sec:relwork}\cs{check that this is said there}), we use a model that was trained on single names---VG's object names. %, i.e., it did not see multiple names for individual objects during training.  
-Through this case study we examine whether classification models are able to implicitly learn representations of the relations between object names despite of not being trained towards this. 
-We argue that this is a more natural setting, since people may not hear different names when referring to the same object, but rather across different objects of the same class \cs{any REF to paper where name choice for specific object stays consistent once done?}. 
+(cf.\ Section\ \ref{sec:relwork}), we use a model that was trained on single names---VG's object names. %, i.e., it did not see multiple names for individual objects during training.  
+%Through this case study 
+We examine whether this model implicitly learns representations of the relations between object names despite of not being trained towards this. 
+We argue that this is a more natural setting, since people may not hear different names when referring to the same object, but rather across different objects of the same class \cite{frank2009using}.
+%\cs{any REF to paper where name choice for specific object stays consistent once done?}. 
 %By this means, we examine whether classification models are able to implicitly learn representations of the relations between object names despite of not being trained towards this. 
 And due to the nature of our collected data, the relations may not stand in a hierarchical relation. 
 
@@ -53,7 +21,7 @@ And due to the nature of our collected data, the relations may not stand in a hi
 %\subsection{Experimental Setup}
 \paragraph{Model and Data}
 To obtain object label predictions we used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model (\textit{Bottom-up} henceforth)\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
-It's feature vectors were used to train state-of-the-art image captioning and visual question answering models. 
+%It's feature vectors were used to train state-of-the-art image captioning and visual question answering models. 
 The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}, which the authors  initialized with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vgenome (\vg).\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
 %
 \iffalse
@@ -73,7 +41,7 @@ components and add an additional multi-class loss component to train the attribu
 
 %\paragraph{Data}
 We test on $24,585$~images from MN and $1,254$~names.
-From the original vocabulary of Bottom-up, consisting of $1,600$ object names, we removed the ones that are not found in MN, and we also filtered out the images of MN whose \vg name was not in the resulting vocabulary.
+From the original vocabulary of Bottom-up, consisting of $1,600$ object names, we removed the ones \sz{how many?} that are not found in MN, and filtered  images whose \vg name was not in the resulting vocabulary.
 Note that $22,304$~of the images were also part of Bottom-up's training data; below we report separate results for data in and out of the training set.
 %Bottom-up was trained on a set of $1,600$\ object names (the authors manually removed names with poor a detection performance from the original set). 
 Semantically similar classes, such as \textsl{person} and \textsl{guy}, were not merged to single classes which is in line with the data structure of MN.
@@ -105,8 +73,9 @@ We compare Bottom-up against a random baseline for the KL divergence, and agains
 
 %\subsection{Results \& Discussion}
 \paragraph{Results and Discussion}
+<<<<<<< HEAD
 Table~\ref{tab:model} shows the results, and Figure~\ref{fig:ex-high-low-agreement} the names with highest softmax scores for the images in the figure.
-\gbt{Proposal: in Table~\ref{tab:model} we only put the general results (not by domain), and move the by-domain part to the supp.\ material. All important points can be made at that level, and this way we gain space.}
+\gbt{Proposal: in Table~\ref{tab:model} we only put the general results (not by domain), and move the by-domain part to the supp.\ material. All important points can be made at that level, and this way we gain space.}\sz{I would not do that}
 % Apart from the evaluation on the full set of instances (column \textit{\mbox{All}} in Table~\ref{tab:model}), we further assess model effectiveness on the instances whose  \vg names do not match the top response in MN (\mbox{\textit{VG}$\neq$\textit{MN}}), and on those which were not part of the set of images used for training bottom-up (\mbox{$\neg$\textit{Training}}).
 % The latter two sets are disjoint. 
 Strikingly, the model performs worse on VG than on the top MN response, even though the model was trained on VG names and saw the majority of the instances during training: It has a general accuracy of 76.8 on MN, 68.7 on VG (see condition \textit{All}), and in the subset where the top names differ (VG$\neq$MN) the difference is even bigger, 52.6 vs.\ 20.7.
@@ -126,7 +95,7 @@ Taken together, the results suggest that our ManyNames dataset provides a more r
 The dataset furthermore allows for comparing models on weighted naming alternatives, as illustrated by measuring the KL divergence. 
 As shown in the table, the model outperforms the random baseline on all image sets. \cs{we could also (better?) use the average responses over all instances in MN -- TBD}
 \gbt{The following is interesting but I would move it to supp. material (see above).}
-It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}, which tend to contain occluded or unclear bounding boxes \cs{can we say that?}. 
+It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}, which might \sz{?} contain occluded or unclear bounding boxes.% \cs{can we say that?}. 
 %For these more difficult instances (VG$\neq$MN),for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
 
 Qualitative analysis suggests that Bottom-up presents many of the phenomena related to naming variation that we find in humans.
