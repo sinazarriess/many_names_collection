@@ -65,17 +65,20 @@
 \label{app:instructions}
 
 Figures~\ref{fig:instructions1} and~\ref{fig:instructions2} contain the instructions for our subjects in the first round and rounds 2-4, respectively.
-After the first round, based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection). This yielded $25,596$ images, discarding $5,497$.
-
+After the first round, based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection):
 \begin{itemize}
 \item they were not marked as occluded by any subject;
 \item ``Bounding box is unclear'' was marked at most twice;
 \item at most 17\% of elicited names were in plural form (to remove cases where the bounding box contains several objects);
 \item the most frequent elicited name is of the same domain as the \vgenome name.
 \end{itemize}
+This yielded $25,596$ images, discarding $5,497$.
+Table~\ref{tab:overview_dataset1} shows the $7$\ domains together with the top $10$\ VG names.
 
-Table~\ref{tab:overview_dataset2} gives an overview of the collection synsets, XXX, XXX, grouped into the $7$~domains.
+Table~\ref{tab:overview_dataset2} gives an overview of the collection synsets, grouped into the $7$~domains.
 \gbt{@Carina, the table doesn't fit, maybe put one domain x row?}
+
+
 
 \begin{table*}[htb]
 \small
@@ -94,7 +97,8 @@ Table~\ref{tab:overview_dataset2} gives an overview of the collection synsets, X
 	  fish$_1$ (11) &   &   &   &   &   &   \\
 	\bottomrule
 \end{tabular}
-	\caption{Overview of our dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset2}}
+	\caption{Overview of our dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses). %\textbf{double-check}
+		 \label{tab:overview_dataset2}}
       \end{table*}
       
 \begin{figure*}[htb]
@@ -137,7 +141,8 @@ Table~\ref{tab:overview_dataset2} gives an overview of the collection synsets, X
 	  van (76) &  apple (33) &  flower (40) &  curtain (182) &  castle (14) &  skateboarder (80) &  cap (20) \\
 	\bottomrule
 \end{tabular}
-	\caption{Overview of our ManyNames dataset: Top-10 VG names for each domain (number of instances in parentheses). \textbf{double-check} \label{tab:overview_dataset1}}
+	\caption{Overview of our ManyNames dataset: Top-10 VG names for each domain (number of instances in parentheses). %\textbf{double-check}
+		 \label{tab:overview_dataset1}}
 \end{table*}
 
 
