@@ -1,35 +1,46 @@
 \begin{figure}[tbp]
-\begin{center}
-\includegraphics[height=3cm]{figures/cheesecake.png}
-%\includegraphics[height=3cm]{figures/cheesecak2.pdf}
-%\caption{Two instances of the same type of cake, with different names in VisualGenome.}
-\caption{Example of object name from VisualGenome. Names like \refexp{cake}, \refexp{dessert}, \refexp{sweet}, or \refexp{food} would be valid, too.}
+\begin{tabular}{p{2.5cm}p{2.5cm}}
+\includegraphics[height=3cm]{figures/cheesecake.png} &
+\includegraphics[height=3cm]{figures/snodgrass_vanderwart_cake_042.png}
+\end{tabular}
+\caption{Object name from VisualGenome. Names like \refexp{cake}, \refexp{dessert}, \refexp{sweet}, or \refexp{food} would be valid, too.}
 \label{fig:cake}
-\end{center}
+\vspace{-0.5cm}
 \end{figure}
 
 Determining object names, such as \emph{cheesecake} for the marked object in Figure~\ref{fig:cake}, is a core aspect of virtually every language \& vision task, ranging from e.g.\ referring expression generation to visual dialogue \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic,das2017visual,vries2017guesswhat}.
-\gbt{I've left only one image in the figure to highlight that we study variation for the same instance.}
+%While many of these tasks are well-known to 
+%\gbt{I've left only one image in the figure to highlight that we study variation for the same instance.}
 However, so far research in NLP has had surprisingly little to say about object naming.
-Neighboring areas, specifically Computer Vision and Cognitive Science, have addressed related tasks, with simplifications that NLP is equipped to address:
+Neighboring areas
+%, specifically Computer Vision and Cognitive Science, 
+have addressed related tasks, with simplifications that NLP is equipped to address:
 In Computer Vision, naming is usually equated with object categorization, and addressed as a classification problem in which a single label is provided for each object~\cite{googlenet}.
-In a typical evaluation, alternative names for the object in Figure \ref{fig:cake} such as \refexp{cake}, \refexp{dessert}, \refexp{sweet}, or \refexp{food} would be counted as incorrect.
-In Cognitive Science, object naming has received more attention, but it has been studied with stylized drawings, such that it is unclear how findings generalize to tasks in language \& vision.
+%In a typical evaluation, alternative names for the object in Figure \ref{fig:cake} such as \refexp{cake}, \refexp{dessert}, \refexp{sweet}, or \refexp{food} would be counted as incorrect.
+In Cognitive Science, object naming has received more attention, but it has been studied with stylized drawings instead of realistic images.
+%, such that it is unclear how findings generalize to tasks in language \& vision.
 
-We take a first step at studying object naming with real-world images, with a new dataset, ManyNames, that contains 36 crowd-sourced names for each of 25K instances from VisualGenome~\cite{krishna2016visualgenome}.
-Note that VisualGenome shows objects in complex visual contexts, surrounded by other objects, unlike the ``clean'' ImageNet data~\cite{} typically used to train object classifiers.
+We take a first step at studying naming of object in real-world images and contribute a new dataset, ManyNames, that contains 36 crowd-sourced names for 25K instances from VisualGenome~\cite{krishna2016visualgenome}.
+Thus, our images show objects in complex visual contexts
+%, surrounded by other objects, 
+unlike the ``clean'' ImageNet data~\cite{imagenet_cvpr09} that has been previously used to train object or name classifiers \cite{Ordonez:2016}.
 
-We find both consistency in naming and variation: In instances, the relative frequency of the most common name is 75\% on average, which is remarkable for a task where subjects are allowed to produce whatever name they like.
-However, there are still around 3 names being produced for each instance on average.
-Moreover, we find a high level of variation within what would be considered a class in standard Computer Vision approaches (objects assigned the same synset in VisualGenome), with around 30 names per class.
-Previous work has analyzed variation along taxonomic relations (\textit{penguin}-\textit{bird}); instead, in our data most of the variation comes from alternative names that do not stand in a taxonomic relation.
-We also find a very high standard deviation in the agreement measures, which suggests that visual features (how prototypical the instance is of a given category, how clearly delimited the object is) are crucial factors determining variation.
-Our data also show that object identification via bounding boxes is not a trivial matter even for humans, with name variants ranging from clearly different objects in annotation mistakes (\textit{man}-\textit{helmet}) to cases where it is visually impossible to distinguish between the two (\textit{bed}-\textit{bedsheet} when the bed is only partially shown) to cases of near-metonymy (\textit{floor}-\textit{carpet}).
-
-Given these findings, we ask whether current models implicitly capture object naming variation of the sort provided by humans.
-We find that a model trained on VisualGenome names performs better on ManyNames than on VisualGenome: It has 77\% accuracy when taking the most frequent ManyNames name as gold standard, vs.\ only 69\% on the VisualGenome name.
-This suggests that many of the model's mistakes are actually not such.
-\gbt{Not sure what to say about variation proper}
+We find both consistency and variation in naming: In instances, the relative frequency of the most common name is 75\% on average, which is remarkable for a task where subjects are allowed to produce whatever name they like.
+However, 
+%there are still around 3 names being produced for each instance on average.
+%Moreover, 
+we find a high level of variation within what would be considered a class in visual object recognition, with around 30 names per class.
+%standard Computer Vision approaches (objects assigned the same synset in VisualGenome)
+Interestingly, most of this variation comes from alternative names that do not stand in a taxonomic relation, but range from 
+%We also find a very high standard deviation in the agreement measures, which suggests that visual features (how prototypical the instance is of a given category, how clearly delimited the object is) are crucial factors determining variation.
+%Our data also show that object identification via bounding boxes is not a trivial matter even for humans, with name variants ranging from clearly different objects in 
+cross-classifification  (\textit{cheesecake}-\textit{dessert}) to cases
+% where it is visually impossible to distinguish between the two (\textit{bed}-\textit{bedsheet} when the bed is only partially shown) to cases 
+of near-metonymy (\textit{floor}-\textit{carpet}) and issues in object idenitification due to bounding boxes (\textit{man}-\textit{helmet}).
+%Given these findings, we ask whether current models implicitly capture object naming variation of the sort provided by humans.
+When testing a model of object classification trained on VisualGenome on ManyNames, we observe  better performance performs than on VisualGenome: It has 77\% accuracy when taking the most frequent ManyNames name as gold standard, vs.\ only 69\% on the VisualGenome name.
+This suggests that object names annotated by many speakers provide a more robust ground for testing computational models, while also offering rich data for studying linguistic variation in naming.
+%\gbt{Not sure what to say about variation proper}
 
 % \item most of the variation in our dataset comes from alternative names that do not stand in a taxonomic relation, suggesting that the previous work in Cognitive Science is missing much of the empirical ground.
 % %while previous work has mostly focused on variation in the level of generality within a taxonomy (\emph{penguin} vs. \emph{bird}), 
