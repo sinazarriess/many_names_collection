@@ -1,12 +1,13 @@
 \begin{figure}[tbp]
 \scriptsize
 \begin{tabular}{p{4.5cm}p{2cm}}
-VisualGenome+ManyNames & \cite{snodgrass}\\
+%VisualGenome+ManyNames & \cite{snodgrass}\\
+\centering
 \includegraphics[scale=0.15]{figures/2390077_1254219_supercat_unique.png} &
 \includegraphics[scale=0.4]{figures/snodgrass_vanderwart_cake_042.png}\\
  cake (53),  food (19), bread (8), burger (6), dessert (6), snacks (3), muffin (3),  pastry (3) & \hspace{0.5cm} cake (83)
 \end{tabular}
-\caption{Names for a cake object in ManyNames and in \cite{snodgrass}, percentages of responses in brackets}
+\caption{Names for a cake object in ManyNames (left) and in \citet{snodgrass} (right), percentages of responses in parentheses.}
 \label{fig:cake}
 \vspace{-0.5cm}
 \end{figure}
@@ -28,11 +29,10 @@ even corpora with massive annotation like VisualGenome~\cite[\vg henceforth]{kri
 %, such that it is unclear how findings generalize to tasks in language \& vision.
 
 We take a first step at studying natural naming of objects in real-world images and contribute a new dataset, ManyNames, that contains 36 crowd-sourced names for 25K instances from \vg.
-Thus, our images show objects in complex visual contexts
-%, surrounded by other objects, 
-unlike the ``clean'' ImageNet data~\cite{imagenet_cvpr09} that has been previously used to train object classifiers \cite{ILSVRC15} and unlike stylized line drawings used in picture naming experiments in Cognitive Science (see Figure \ref{fig:cake}).
+Thus, our images show objects in complex visual contexts,
+unlike the ``clean'' ImageNet data~\cite{imagenet_cvpr09} that has been previously used to train object classifiers \cite{ILSVRC15}, and unlike stylized line drawings used in picture naming experiments in Cognitive Science (see Figure \ref{fig:cake}).
 
-As illustrated for an object of the class ``cake'' in Figure \ref{fig:cake}, our data reveals clear naming preferences (53\% of the annotators prefer the basic-level \textit{cake}) and rich variation (the remaining annotators prefer other or more general categories like \textit{food, dessert, bread}) which is not restricted to taxonomical relations studied in previous work on naming \cite{rosch1976basic,Ordonez:2016,graf2016animal}. 
+As illustrated for an object of the class ``cake'' in Figure \ref{fig:cake}, our data reveals clear naming preferences (53\% of the annotators prefer the basic-level \textit{cake}) and also rich variation (the remaining annotators prefer other options like \textit{food, dessert, bread}) which is not restricted to taxonomical relations studied in previous work on naming \cite{rosch1976basic,Ordonez:2016,graf2016animal}. 
 %We find both consistency and variation in naming: In instances, the relative frequency of the most common name is 75\% on average, which is remarkable for a task where subjects are allowed to produce whatever name they like. However, 
 %there are still around 3 names being produced for each instance on average.
 %Moreover, 
@@ -45,10 +45,9 @@ As illustrated for an object of the class ``cake'' in Figure \ref{fig:cake}, our
 % where it is visually impossible to distinguish between the two (\textit{bed}-\textit{bedsheet} when the bed is only partially shown) to cases 
 %of near-metonymy (\textit{floor}-\textit{carpet}) and issues in object idenitification due to bounding boxes (\textit{man}-\textit{helmet}).
 %Given these findings, we ask whether current models implicitly capture object naming variation of the sort provided by humans.
-Interestingly, when testing a model of object recognition, trained on \vg, on ManyNames, we observe better performance than on \vg.
+Interestingly, when testing a model of object recognition, that has been trained on \vg, on ManyNames, we observe better performance than on \vg.
 %: It has 77\% accuracy when taking the most frequent ManyNames name as gold standard, vs.\ only 69\% on the VisualGenome name.
 This suggests that object names annotated by many speakers provide a more robust ground for testing computational models, while also offering rich data for studying linguistic variation in naming.
-%\gbt{Not sure what to say about variation proper}
 
 % \item most of the variation in our dataset comes from alternative names that do not stand in a taxonomic relation, suggesting that the previous work in Cognitive Science is missing much of the empirical ground.
 % %while previous work has mostly focused on variation in the level of generality within a taxonomy (\emph{penguin} vs. \emph{bird}), 
