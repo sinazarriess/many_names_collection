@@ -3,10 +3,10 @@
 	\small
 	\begin{tabular}{l@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr}
 		\toprule
-		%{} &  All images-top=VG &  All images-top=MN-1 &  All images-top\$\textbackslash in\$MN &  All images-KL &  VGnotMN-top=VG &  VGnotMN-top=MN-1 &  VGnotMN-top\$\textbackslash in\$MN &  VGnotMN-KL &  notTrain-top=VG &  notTrain-top=MN-1 &  notTrain-top\$\textbackslash in\$MN &  notTrain-KL \\
+		%{} &  All images-top=VG &  All images-top=MN &  All images-top\$\textbackslash in\$MN &  All images-KL &  VGnotMN-top=VG &  VGnotMN-top=MN &  VGnotMN-top\$\textbackslash in\$MN &  VGnotMN-KL &  notTrain-top=VG &  notTrain-top=MN &  notTrain-top\$\textbackslash in\$MN &  notTrain-KL \\
 		& \multicolumn{12}{c}{Image subset} \\
 		&	\multicolumn{4}{c}{All ($24,585$)} 
-		& \multicolumn{4}{c}{VG$\neq$MN-1 ($6,280$)}
+		& \multicolumn{4}{c}{VG$\neq$MN ($6,280$)}
 		& \multicolumn{4}{c}{$\neg$Training ($2,281$)} \\
 		\midrule
 		&  \multicolumn{2}{c}{single-label}
@@ -15,9 +15,9 @@
 		&  \multicolumn{2}{c}{multi-label}
 		&  \multicolumn{2}{c}{single-label}
 		&  \multicolumn{2}{c}{multi-label} \\
-		Domain	 &  =VG & =MN-1 & $\in$MN  &  KL
-		&  =VG & =MN-1 & $\in$MN  & KL
-		&  =VG & =MN-1 & $\in$MN  & KL\\ 
+		Domain	 &  =VG & =MN & $\in$MN  &  KL
+		&  =VG & =MN & $\in$MN  & KL
+		&  =VG & =MN & $\in$MN  & KL\\ 
 		\midrule \vspace{.6ex}
 		all            &               68.7 &                 76.8 &                   94.8 &            0.9 &            20.7 &              52.6 &                92.4 &         1.2 &             63.5 &               73.1 &                 92.5 &          1.0 \\ 
 		home           &               70.0 &                 74.7 &                   93.4 &            1.1 &            24.3 &              47.5 &                91.4 &         1.4 &             67.2 &               70.5 &                 92.5 &          1.2 \\
@@ -31,16 +31,16 @@
 		%Baseline      &                3.3 &                  5.2 &                   12.0 &            -- &             1.7 &               9.3 &                21.8 &         -- &              3.0 &                5.0 &                 11.9 &          -- \\
 		Baseline       &                3.9 &                  4.6 &                    5.6 &            -- &             0.1 &               3.0 &                 3.8 &         -- &              3.8 &                4.6 &                  5.8 &          -- \\
 	\end{tabular}
-	\caption{Baseline: The most frequent name. Random baseline (KL with random distributions) for each image set: 6.9 (all), 6.5 (VG$\neq$MN-1) and 6.9 ($\neg$Training). The numbers in parentheses give the \# instances in each set.	\label{tab:model}}
+	\caption{Baseline: The most frequent name. Random baseline (KL with random distributions) for each image set: 6.9 (all), 6.5 (VG$\neq$MN) and 6.9 ($\neg$Training). The numbers in parentheses give the \# instances in each set.	\label{tab:model}}
 \end{table*}
 %
 % mismatch between the visual awareness of the target object (man) and that of the competitor object (shirt)
-\cs{Ah, we still should have a comparison model with above argumentation :/.}
+
 %
-We use ManyNames\ (MN) as evaluation data, and assess whether an object recognition model can account for MN's naming variants provided for individual objects. 
+We use ManyNames\ (MN) as evaluation data, and assess whether an object recognition model can account for MN's naming variants provided for individual objects.
 In contrast to existing works on multi-label classification, which also train their models towards multi-label predictions 
 % multi-label data also during training 
-(cf.\ Section\ \ref{sec:relwork}\cs{check that this is said there}), we use a model that was trained on single names---VG's object names (and attributes, though). %, i.e., it did not see multiple names for individual objects during training.  
+(cf.\ Section\ \ref{sec:relwork}\cs{check that this is said there}), we use a model that was trained on single names---VG's object names. %, i.e., it did not see multiple names for individual objects during training.  
 Through this case study we examine whether classification models are able to implicitly learn representations of the relations between object names despite of not being trained towards this. 
 We argue that this is a more natural setting, since people may not hear different names when referring to the same object, but rather across different objects of the same class \cs{any REF to paper where name choice for specific object stays consistent once done?}. 
 %By this means, we examine whether classification models are able to implicitly learn representations of the relations between object names despite of not being trained towards this. 
@@ -48,11 +48,10 @@ And due to the nature of our collected data, the relations may not stand in a hi
 
 %We hypothesize that this is the case, see finding regarding the influence of visual cues. 
 %Get an intuition in how far models are able to identify an object by one of it's possible names (gt=dog, is system still able to identify the object if the name is puppy?).
-\cs{And with this argumentation, we'd ideally compare to a model fine-tuned on our data ... and to a model trained on all our names with a response count$>$n ... so much future work}
+% \cs{And with this argumentation, we'd ideally compare to a model fine-tuned on our data ... and to a model trained on all our names with a response count$>$n ... so much future work}
 
-
-\subsection{Experimental Setup}
-\paragraph{Classification model}
+%\subsection{Experimental Setup}
+\paragraph{Model and Data}
 To obtain object label predictions we used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model (\textit{Bottom-up} henceforth)\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
 It's feature vectors were used to train state-of-the-art image captioning and visual question answering models. 
 The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}, which the authors  initialized with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vgenome (\vg).\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
@@ -72,67 +71,76 @@ final object class proposals respectively. We retain these
 components and add an additional multi-class loss component to train the attribute predictor"
 \fi
 
-\paragraph{Data}
-Bottom-up was trained on a set of $1,600$\ object names (the authors manually removed names with poor a detection performance from the original set). 
-Overlapping classes, such as \textsl{person} and \textsl{guy}, were not merged to single classes which is in line with the data structure of MN. 
+%\paragraph{Data}
+We test on $24,585$~images from MN and $1,254$~names.
+From the original vocabulary of Bottom-up, consisting of $1,600$ object names, we removed the ones that are not found in MN, and we also filtered out the images of MN whose \vg name was not in the resulting vocabulary.
+Note that $22,304$~of the images were also part of Bottom-up's training data; below we report separate results for data in and out of the training set.
+%Bottom-up was trained on a set of $1,600$\ object names (the authors manually removed names with poor a detection performance from the original set). 
+\gbt{Carina, I don't understand the following sentence}
+Overlapping classes, such as \textsl{person} and \textsl{guy}, were not merged to single classes which is in line with the data structure of MN.
 %(For those cases, we would expect that evaluating the model output on our set of names per instance to yield higher detection accuracy.)
-Despite the much larger vocabulary of MN ($XX$\ name types), $346$~types are not in MN, which we removed, resulting in a final vocabulary (\mbox{MN$\cap$VG}) of $1,254$~names. 
-Similarly, we filtered out the images of MN whose \vg name was not in \mbox{MN$\cap$VG}, which resulted in $24,585$~instances (note that of those, $22,304$~images were also part of Bottom-up's training data). 
-
+% Despite the much larger vocabulary of MN ($XX$\ name types), $346$~types are not in MN, which we removed, resulting in a final vocabulary (\mbox{MN$\cap$VG}) of 
+% Similarly, we filtered out the images of MN whose \vg name was not in \mbox{MN$\cap$VG}, which resulted in $24,585$~instances (note that of those, $22,304$~images were also part of Bottom-up's training data). 
 
 \paragraph{Evaluation Procedure}
-We apply Bottom-up to each image and extracted the distribution~$S$ over object labels from the final softmax layer output for the ground-truth bounding box of the target object. 
+We apply Bottom-up to each image and extract the distribution~$S$ over object labels from the final softmax layer output for the ground-truth bounding box of the target object. 
 
-Model effectiveness is assessed in both, the commonly used single-ground-truth setting and in a multi-label setting. 
-In the former, for each instance, we compare the model's top prediction (the object label with the highest score in\ $S$) to its VG name and to the top response in MN, respectively, and report the average accuracy across all instances (\textit{=VG} and \textit{=MN-1}, respectively).
-In the multi-label setting, we report the average accuracy of the top prediction to match any of the responses in MN. 
-To assess the model's ability to account for human naming variations of MN instances, including the likelihood of names being produced for an instance, we treat\ $S$ as a probability distribution and compare it to the probability distribution~$M$ over the MN responses (estimated by normalizing the name counts). 
-We report the average Kullback-Leibler divergence~$\mathrm{D_{KL}}(M||S)$ \cite{kullback1951information}. 
+Model effectiveness is assessed in two settings, the commonly used single-label setting and a multi-label setting. 
+In the former, for each instance, we compare the model's top prediction (the object label with the highest score in\ $S$) to its VG name and to the top response in MN, respectively, and report the average accuracy across all instances (\textit{=VG} and \textit{=MN}, respectively).
+In the multi-label setting, we report the average accuracy of the top prediction matching any of the responses in MN.
+We also test the model's ability to mimick the distribution of names provided by humans, by treating $S$ as a probability distribution and comparing it to the probability distribution~$M$ over the MN responses (estimated by normalizing the name counts; as in the analysis above, we remove names with frequency 1 to account for possible noise\gbt{@Carina, pls revise}). 
+We report the average Kullback-Leibler divergence~$\mathrm{D_{KL}}(M||S)$ \cite{kullback1951information}.
+We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline \cs{not sure whether the latter, at least in its current form, makes sense. TBD? MF name baseline: I would say it's not relevant for this paper (we mainly compare different settings).}.
+\gbt{Random baseline values missing; I'm not sure if it makes sense; we could maybe compare it to the single-label distribution: Compare $S$ to $M$, like we do, and then to a distribution to vectors with 1, 0, 0, 0... with MN top. Not sure if this is too ``cheap'' -- is it a matter of course that it will be lower? Not if the distribution doesn't reflect the actual $M$?}
 
 \iffalse
 \textsl{top}: the model's top prediction
 \begin{itemize}
 	\item \textbf{=VG} The average model accuracy of \textsl{top} on the VG names
-	\item \textbf{=MN-1} The average model accuracy of \textsl{top} on the top response in ManyNames
+	\item \textbf{=MN} The average model accuracy of \textsl{top} on the top response in ManyNames
 	\item \textbf{$\in$MN} The average model accuracy of \textsl{top} to match any name of the responses in ManyNames
 	\item \textbf{KL} The average Kullback-Leibler divergence~$\mathrm{D_{KL}}(M||S)$ of the model's softmax output~$S$ and the  probability distribution~$M$ over ManyNames, estimated by normalizing the name counts per instance
 \end{itemize}
 \fi
 
-\paragraph{Results \& Discussion} 
-We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline \cs{not sure whether the latter, at least in its current form, makes sense. TBD?}. 
-Apart from the evaluation on the full set of instances (\textit{\mbox{All}} in Table~\ref{tab:model}), we further assess model effectiveness on the instances whose  \vg names do not match the top response in MN (\mbox{\textit{VG}$\neq$\textit{MN-1}}), and on those which were not part of the set of images used for training bottom-up (\mbox{$\neg$\textit{Training}}).
-Note that the latter two sets are disjoint. 
-%
+%\subsection{Results \& Discussion}
+\paragraph{Results and Discussion}
+Table~\ref{tab:model} shows the results, and Figure~\ref{fig:ex-high-low-agreement} the names with highest softmax probabilities for the images in the figure.
+\gbt{Proposal: in Table~\ref{tab:model} we only put the general results (not by domain), and move the by-domain part to the supp.\ material. All important points can be made at that level, and this way we gain space.}
+% Apart from the evaluation on the full set of instances (column \textit{\mbox{All}} in Table~\ref{tab:model}), we further assess model effectiveness on the instances whose  \vg names do not match the top response in MN (\mbox{\textit{VG}$\neq$\textit{MN}}), and on those which were not part of the set of images used for training bottom-up (\mbox{$\neg$\textit{Training}}).
+% The latter two sets are disjoint. 
+Strikingly, the model performs worse on VG than on the top MN response, even though the model was trained on VG names and saw the majority of the instances during training: It has a general accuracy of 76.8 on MN, 68.7 on VG (see condition \textit{All}), and in the subset where the top names differ (VG$\neq$MN) the difference is even bigger, 52.6 vs.\ 20.7.
+We hypothesize two main reasons for this difference.
+First, the top MN name may be more reliable because it is collected from multiple subjects: For instance, in the rightmost example of the first row of Figure~\ref{fig:ex-high-low-agreement}, the VG annotator chose \textit{sandwich}, but \textit{hotdog} is more appropriate and accordingly it was chosen by most subjects in MN (note however that three subjects still chose \textit{sandwich}).
+Second, the model can in some cases be subject to similar kinds of visual uncertainty as humans (cf.\ Section\ \ref{ssec:variation}), like mistaking a bridge for a street in the third image in the second row of Figure~\ref{fig:ex-high-low-agreement}.
+% It achieves a higher accuracy of up to\ 55\% points on instances for which MN and the VG name differ (\textsc{buildings}, VG$\neq$MN). 
+% The reasons may be that MN is more general than VG for many cases (e.g.,\ the examples for \textsl{batter} in Fig.\ \ref{fig:ex-high-low-agreement}), or that MN is more reliable due to up to $36$~annotations per instance as well as to our elicitation procedure\footnote{Recall that we instructed the workers explicitly to produce object names, and did not obtain them by canonicalizing object descriptions as was done for VG.} (e.g.,\ (\textsl{sandwich,hotdog}), Fig.\ \ref{fig:ex-high-low-agreement}). 
 
-The model performs worse on VG than on the top MN response (MN-1), even though the model saw the majority of the instances during training. 
-It achieves a higher accuracy of up to\ 55\% points on instances for which MN-1 and the VG name differ (\textsc{buildings}, VG$\neq$MN-1). 
-The reasons may be that MN-1 is more general than VG for many cases (e.g.,\ the examples for \textsl{batter} in Fig.\ \ref{fig:ex-high-low-agreement}), or that MN-1 is more reliable due to up to $36$~annotations per instance as well as to our elicitation procedure\footnote{Recall that we instructed the workers explicitly to produce object names, and did not obtain them by canonicalizing object descriptions as was done for VG.} (e.g.,\ (\textsl{sandwich,hotdog}), Fig.\ \ref{fig:ex-high-low-agreement}). 
-Another reason could be that the model reproduces naming choices ("errors") caused by cases of visual uncertainty (cf.\ Section\ \ref{ssec:variation}; e.g.,\ (\textsl{bridge,street})). 
-
-In the multi-label setting, $\in$MN, the difference in accuracy between the objects in All and in the subset VG!=MN-1 is much lower compared to the MN-1 setting ($-2.5$\% vs.\ $-24.2$\%\ points, all domains). 
-Comparison to the results on unseen images demonstrates Bottom-up's generalization ability. 
-While the difference varies highly across the domains (All vs. \mbox{$\neg$\textit{Training}}), it is negligible on average (row \textit{all}), and the same on the \mbox{VG!=MN-1} images. 
-%Unsurprisingly, the effectiveness of Bottom-up drops on the images which it has not seen during training, and the difference in accuracy highly varies across the domains (All vs. \mbox{$\neg$\textit{Training}}). 
-Taken together, we thus believe that our ManyNames dataset provides a more robust evaluation framework than single-label datasets, since a model's effectiveness is not measured by a single naming choice. 
+Results in the multi-label setting, $\in$MN, suggest that the current single-label evaluation dominant in the field may be too stringent: In 92-95\% of the cases across conditions, the model's top choice corresponds to a name actually produced by human subjects for that object --even in the unseen images (\mbox{$\neg$\textit{Training}}).
+This is a very high result.
+% In the multi-label setting, $\in$MN, the difference in accuracy between the objects in the \textit{All} and in the subset VG$\neq$MN is much lower compared to the single-label setting ($-2.5$\% vs.\ $-24.2$\%\ points, all domains). 
+%Comparison to the results on unseen images demonstrates Bottom-up's generalization ability. 
+% While the difference varies highly across the domains (All vs. \mbox{$\neg$\textit{Training}}), it is negligible on average (row \textit{all}), and the same on the \mbox{VG$\neq$MN} images. 
+Taken together, the results suggest that our ManyNames dataset provides a more robust evaluation framework than single-label datasets, allowing researchers to better differentiate between possible alternative names and true mistakes.
 
 The dataset furthermore allows for comparing models on weighted naming alternatives, as illustrated by measuring the KL divergence. 
 As shown in the table, the model outperforms the random baseline on all image sets. \cs{we could also (better?) use the average responses over all instances in MN -- TBD}
+\gbt{The following is interesting but I would move it to supp. material (see above).}
 It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}, which tend to contain occluded or unclear bounding boxes \cs{can we say that?}. 
-%For these more difficult instances (VG!=MN-1),for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
+%For these more difficult instances (VG$\neq$MN),for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
 
-Comparing the model output to MN on individual images gives an intuition for how much Bottom-up accounts for naming choices due to different sources of variation: 
-In some cases, the model does not make clear referential mistakes made by workers (e.g.,\ \textsl{(boy,helmet)},\ Fig.\ \ref{fig:ex-high-low-agreement}), but overall tends to mirror  cases of human "referential uncertainty" 
-%(\textsc{clothing}-\textsc{person}: 
-(\textsl{(man,shirt)}, \textsl{(bed,sheet)}, but see \textsl{(book,bed})), as well as cross-classification (\textsl{(boy,batter)}, \textsl{(sandwich,food)}), and metonymy \textsl{(food,basket/plate)}. 
-It reflects perceptual mistakes caused by unclear images (\textit{sandwich,banana}), but makes also quite a few predictions which are unreasonable or inconsistent from a human perspective (and not contained in MN), such as \textsl{(bridge,sky)}, \textsl{(pants/player,dirt)}. 
+Qualitative analysis suggests that Bottom-up presents many of the phenomena related to naming variation that we find in humans.
+In some cases, the model does not make clear referential mistakes made by workers (e.g.,\ \textsl{boy-helmet},\ Fig.\ \ref{fig:ex-high-low-agreement}), but overall tends to mirror cases of human ``referential uncertainty'' 
+(\textsl{man-shirt}, \textsl{bed-sheet}).
+We also find cross-classification (\textsl{boy-batter}) and metonymy (\textsl{food-plate}). 
+It also reflects perceptual mistakes caused by unclear images (\textit{street-bridge}), but makes also quite a few predictions which are unreasonable or inconsistent from a human perspective (and not contained in MN), such as \textsl{bridge-sky}, \textsl{player-dirt}. 
 
 \iffalse
 \begin{itemize}
 	\item VG worse than MN; considering that model was trained on VG - is it because MN has easier labels? Does this mean that generalisation ability is better evaluated on MN?
-	\item VG!=MN-1 much worse than All $\Rightarrow$ Former has more difficult/ambiguous images (for both? classifier and human?)
-	\item for those more difficult images (VG!=MN-1), the difference for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
-	\item accuracy drops for notTrain (except for vehicles MN-1), but is still much better than VG!=MN-1  
+	\item VG$\neq$MN much worse than All $\Rightarrow$ Former has more difficult/ambiguous images (for both? classifier and human?)
+	\item for those more difficult images (VG$\neq$MN), the difference for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
+	\item accuracy drops for notTrain (except for vehicles MN), but is still much better than VG$\neq$MN  
 \end{itemize}
  
 \paragraph{Error Analysis}
@@ -145,3 +153,8 @@ It reflects perceptual mistakes caused by unclear images (\textit{sandwich,banan
 	\item metonymy: (food,basket/plate)
 \end{itemize}
 \fi
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End:
