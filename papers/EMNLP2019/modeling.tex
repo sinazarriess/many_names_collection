@@ -73,7 +73,7 @@ We compare Bottom-up against a random baseline for the KL divergence, and agains
 %\subsection{Results \& Discussion}
 \paragraph{Results and Discussion}
 Table~\ref{tab:model} shows the results, and Figure~\ref{fig:ex-high-low-agreement} the names with highest softmax scores for the images in the figure.
-\gbt{Proposal: in Table~\ref{tab:model} we only put the general results (not by domain), and move the by-domain part to the supp.\ material. All important points can be made at that level, and this way we gain space.}\sz{I would not do that}
+%\gbt{Proposal: in Table~\ref{tab:model} we only put the general results (not by domain), and move the by-domain part to the supp.\ material. All important points can be made at that level, and this way we gain space.}\sz{I would not do that}
 % Apart from the evaluation on the full set of instances (column \textit{\mbox{All}} in Table~\ref{tab:model}), we further assess model effectiveness on the instances whose  \vg names do not match the top response in MN (\mbox{\textit{VG}$\neq$\textit{MN}}), and on those which were not part of the set of images used for training bottom-up (\mbox{$\neg$\textit{Training}}).
 % The latter two sets are disjoint. 
 Strikingly, the model performs worse on \vg than on the top MN response, even though the model was trained on \vg names and saw the majority of the instances during training: It has a general accuracy of $76.8$\ on MN, $68.7$\ on \vg (see condition \textit{All}), and in the subset where the top names differ (VG$\neq$MN) the difference is even bigger,\ $52.6$ vs.\ $20.7$.
@@ -93,14 +93,15 @@ Taken together, the results suggest that our ManyNames dataset provides a more r
 The dataset furthermore allows for comparing models on weighted naming alternatives, as illustrated by measuring the KL divergence. 
 As shown in the table, the model outperforms the random baseline on all image sets. \cs{we could also (better?) use the average responses over all instances in MN -- TBD}
 \gbt{The following is interesting but I would move it to supp. material (see above).}
-It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}, which might \sz{?} contain occluded or unclear bounding boxes.% \cs{can we say that?}. 
+It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}.
+%, which might \sz{?} contain occluded or unclear bounding boxes.% \cs{can we say that?}. 
 %For these more difficult instances (VG$\neq$MN),for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
 
 Qualitative analysis suggests that Bottom-up presents many of the phenomena related to naming variation that we find in humans.
 In some cases, the model does not make clear referential mistakes made by workers (e.g.,\ \textsl{boy-helmet},\ Fig.\ \ref{fig:ex-high-low-agreement}), but overall tends to mirror cases of human ``referential uncertainty'' 
 (\textsl{man-shirt}, \textsl{bed-sheet}).
 We also find cross-classification (\textsl{boy-batter}) and metonymy (\textsl{food-plate}). 
-It also reflects perceptual mistakes caused by unclear images (\textit{street-bridge}), but makes also quite a few predictions which are unreasonable or inconsistent from a human perspective (and not contained in MN), such as \textsl{bridge-sky}, \textsl{player-dirt}. 
+Finally, it reflects perceptual mistakes caused by unclear images (\textsl{street-bridge}), but makes also quite a few predictions which are unreasonable or inconsistent from a human perspective (and not contained in MN), such as \textsl{bridge-sky}, \textsl{player-dirt}. 
 %
 \iffalse
 \begin{itemize}
