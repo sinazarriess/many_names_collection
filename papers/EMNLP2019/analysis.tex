@@ -6,19 +6,15 @@
 %\item Implications for lang\&vision: 1) synset classification won't do (if the goal is to predict/label an object); 2) name classification won't do either; 3) ``mistakes'' done by models are also done by humans -- role of referential uncertainty.
 %\end{itemize}
 
-We investigate to what extent names in \vg (\vg) and ManyNames can be considered canonical, i.e., to what extent speakers agree in their naming choices.
-Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, are mostly interested in the agreement on the concept or category-level, we carry out an analysis on two different levels: First, we will look at instances and examine to what extent names overlap for the same object. 
-Second, we will use the existing annotation of names in \vg to analyze agreement on the level of classes.
-\begin{figure}[t]
-	\centering
-	\includegraphics[scale=.5]{figures/snodgrass_vanderwart_cake_042.png}
-	\caption{Example of a picture of \textsl{cake} used in traditional picture naming studies \cite{snodgrass} \label{fig:picture_naming}}
-\end{figure}
+We investigate to what extent names in VisualGenome (\vg) and ManyNames can be considered canonical.%, i.e., to what extent speakers agree in their naming choices.
+Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, look at concept-level agreement, we examine to what extent names overlap (i) for the same object and (ii) for different instances of the same class, based on the canonicalized names in \vg.
 
 \subsection{Names, Instances, Classes}
 \label{subsec:counts}
 
-Our analysis is based on the following annotations associated with each object: (i) the original name, annotated in \vg, (ii) the object class or synset, annotated in \vg and obtained via a semi-automatic linking of the object name to WordNet\footnote{Recall that we used these VG synsets for collecting our images (Section~\ref{ssec:sampling})}, (iii) the ManyNames response set, i.e. a set of name types with annotation frequencies (max. 36 annotations per object). See Figure \ref{fig:ex-high-low-agreement} for examples of object annotations \cs{(top rows below the respective images give the responses) [if model preds are kept]}. Based on the \vg synsets, we aggregate the annotations for instances of the same class and obtain a class-level response set that contains all names and their frequencies annotated for all objects of a class. 
+We analyse the following annotations associated with each object: (i) the original name, annotated in \vg, (ii) the object class or synset, annotated in \vg and obtained via a semi-automatic linking of the object name to WordNet\footnote{Recall that we used these VG synsets for collecting our images (Section~\ref{ssec:sampling})}, (iii) the ManyNames response set, i.e. a set of name types with annotation frequencies (max. 36 annotations per object). See Figure \ref{fig:ex-high-low-agreement} for examples of objects and their response sets (top rows below the images).
+ %[if model preds are kept]}. 
+ Based on the \vg synsets, we aggregate the annotations for instances of the same class and obtain a class-level response set that contains all names and their frequencies annotated for all objects of a class. 
  
 % As a first simple measure of variation in object naming, we simply count how many different names (i.e.\ types) are given to instances and to classes.
 %Since a certain amount of noise in the crowd-sourced ManyNames data can be expected, we explore different frequency thresholds (from 1 to 6) to filter the response sets.
