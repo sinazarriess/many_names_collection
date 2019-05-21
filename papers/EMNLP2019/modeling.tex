@@ -39,11 +39,11 @@ components and add an additional multi-class loss component to train the attribu
 \fi
 
 %\paragraph{Data}
-Bottom-up was trained on a $1,600$\ object names, manually curated by the authors. % (the authors manually removed names with poor a detection performance from the original set). 
+Bottom-up was trained on a set of $1,600$\ object names, manually curated by the authors. % (the authors manually removed names with poor a detection performance from the original set). 
 They did not merge semantically similar classes, such as \textsl{person} and \textsl{guy}, which is in line with the data structure of MN. %\gbt{Carina, I don't understand the following sentence}
 %
 From this set, we test on $1,254$~names (we removed the $346$\ names which are not in MN), and on $24,585$~images from MN, after filtering those whose \vg name was not in the vocabulary. 
-Note that $22,304$~of the images were also part of Bottom-up's training data; below we report separate results for data in and out of the training set. 
+Note that $22,304$~of the images were also part of Bottom-up's training data; we report separate results for data in and out of the training set. 
 %
 %(For those cases, we would expect that evaluating the model output on our set of names per instance to yield higher detection accuracy.)
 % Despite the much larger vocabulary of MN ($XX$\ name types), $346$~types are not in MN, which we removed, resulting in a final vocabulary (\mbox{MN$\cap$VG}) of 
@@ -57,9 +57,9 @@ In the multi-label setting, we report the average accuracy of the top prediction
 We also test the model's ability to mimic the distribution of names provided by humans, by treating $S$ as a probability distribution and comparing it to the probability distribution~$M$ over the MN responses (estimated by normalizing the name counts). 
 %; as in the analysis above, we remove names with frequency 1 to account for possible noise\gbt{@Carina, pls revise}). 
 We report the average Kullback-Leibler divergence~$\mathrm{D_{KL}}(M||S)$ \cite{kullback1951information}.
-We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline \cs{not sure whether the latter, at least in its current form, makes sense. TBD? MF name baseline: I would say it's not relevant for this paper (we mainly compare different settings).}.
-\gbt{Random baseline values missing; I'm not sure if it makes sense; we could maybe compare it to the single-label distribution: Compare $S$ to $M$, like we do, and then to a distribution to vectors with 1, 0, 0, 0... with MN top. Not sure if this is too ``cheap'' -- is it a matter of course that it will be lower? Not if the distribution doesn't reflect the actual $M$?}
-
+We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline. 
+% \cs{not sure whether the latter, at least in its current form, makes sense. TBD? MF name baseline: I would say it's not relevant for this paper (we mainly compare different settings).}. 
+%
 \iffalse
 \textsl{top}: the model's top prediction
 \begin{itemize}
@@ -78,12 +78,12 @@ Table~\ref{tab:model} shows the results, and Figure~\ref{fig:ex-high-low-agreeme
 % The latter two sets are disjoint. 
 Strikingly, the model performs worse on \vg than on the top MN response, even though the model was trained on \vg names and saw the majority of the instances during training: It has a general accuracy of $76.8$\ on MN, $68.7$\ on \vg (see condition \textit{All}), and in the subset where the top names differ (VG$\neq$MN) the difference is even bigger,\ $52.6$ vs.\ $20.7$.
 We hypothesize two main reasons for this difference.
-First, the top MN name may be more reliable because it is collected from multiple workers: For instance, in the rightmost example of the first row of Figure~\ref{fig:ex-high-low-agreement}, the VG annotator chose \textsl{sandwich}, but \textsl{hotdog} is more appropriate and accordingly it was chosen by most subjects in MN (note however that three workers still chose \textsl{sandwich}).
+First, the top MN name may be more reliable because it is collected from multiple workers: For instance, in the fourth example of the first row of Figure~\ref{fig:ex-high-low-agreement}, the VG annotator chose \textsl{sandwich}, but \textsl{hotdog} is more appropriate and accordingly it was chosen by most subjects in MN (note however that three workers still chose \textsl{sandwich}).
 Second, the model can in some cases be subject to similar kinds of visual uncertainty as humans (cf.\ Section\ \ref{ssec:variation}), like mistaking a bridge for a street in the third image in the second row of Figure~\ref{fig:ex-high-low-agreement}.
 % It achieves a higher accuracy of up to\ 55\% points on instances for which MN and the VG name differ (\textsc{buildings}, VG$\neq$MN). 
 % The reasons may be that MN is more general than VG for many cases (e.g.,\ the examples for \textsl{batter} in Fig.\ \ref{fig:ex-high-low-agreement}), or that MN is more reliable due to up to $36$~annotations per instance as well as to our elicitation procedure\footnote{Recall that we instructed the workers explicitly to produce object names, and did not obtain them by canonicalizing object descriptions as was done for VG.} (e.g.,\ (\textsl{sandwich,hotdog}), Fig.\ \ref{fig:ex-high-low-agreement}). 
 
-Results in the multi-label setting, $\in$MN, suggest that the current single-label evaluation dominant in the field may be too stringent: In \mbox{$92-95\%$}\ of the cases across conditions, the model's top choice corresponds to a name actually produced by human subjects for that object--even in the unseen images (\mbox{$\neg$\textit{Training}}).
+Results in the multi-label setting, $\in$MN, suggest that the current single-label evaluation dominant in the field may be too stringent: In \mbox{$92-95\%$}\ of the cases across conditions, the model's top choice corresponds to a name actually produced by human subjects for that object---even in the unseen images (\mbox{$\neg$\textit{Training}}).
 This is a very high result.
 % In the multi-label setting, $\in$MN, the difference in accuracy between the objects in the \textit{All} and in the subset VG$\neq$MN is much lower compared to the single-label setting ($-2.5$\% vs.\ $-24.2$\%\ points, all domains). 
 %Comparison to the results on unseen images demonstrates Bottom-up's generalization ability. 
@@ -91,14 +91,15 @@ This is a very high result.
 Taken together, the results suggest that our ManyNames dataset provides a more robust evaluation framework than single-label datasets, allowing researchers to better differentiate between possible alternative names and true mistakes.
 
 The dataset furthermore allows for comparing models on weighted naming alternatives, as illustrated by measuring the KL divergence. 
-As shown in the table, the model outperforms the random baseline on all image sets. \cs{we could also (better?) use the average responses over all instances in MN -- TBD}
-\gbt{The following is interesting but I would move it to supp. material (see above).}
-It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Tab.\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}.
+As shown in the table, the model outperforms the random baseline on all image sets (with a KL between \mbox{$6.5$ and $6.9\%$}, see caption). 
+%\cs{we could also (better?) use the average responses over all instances in MN -- TBD} 
+%\gbt{The following is interesting but I would move it to supp. material (see above).}
+It best accounts for human naming choices on the \textsc{animals\_plants} and \textsc{vehicles} domains (for which we found workers to give more general names, have the least number of types per object, and the highest agreement\ $H$, Table\ \ref{tab:agree}), and worst on \textsc{food} and \textsc{buildings}. %, which tend to contain occluded or unclear bounding boxes. 
 %, which might \sz{?} contain occluded or unclear bounding boxes.% \cs{can we say that?}. 
 %For these more difficult instances (VG$\neq$MN),for multi-label is much lower to All (columns inMN) $\Rightarrow$ MN provides a more robust evaluation framework; highest drop in food domain
 
 Qualitative analysis suggests that Bottom-up presents many of the phenomena related to naming variation that we find in humans.
-In some cases, the model does not make clear referential mistakes made by workers (e.g.,\ \textsl{boy-helmet},\ Fig.\ \ref{fig:ex-high-low-agreement}), but overall tends to mirror cases of human ``referential uncertainty'' 
+In some cases, the model does not make clear referential mistakes made by workers (e.g.,\ \textsl{boy-helmet},\ Figure\ \ref{fig:ex-high-low-agreement}), but overall tends to mirror cases of human ``referential uncertainty'' 
 (\textsl{man-shirt}, \textsl{bed-sheet}).
 We also find cross-classification (\textsl{boy-batter}) and metonymy (\textsl{food-plate}). 
 Finally, it reflects perceptual mistakes caused by unclear images (\textsl{street-bridge}), but makes also quite a few predictions which are unreasonable or inconsistent from a human perspective (and not contained in MN), such as \textsl{bridge-sky}, \textsl{player-dirt}. 

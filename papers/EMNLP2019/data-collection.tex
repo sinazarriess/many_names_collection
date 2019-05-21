@@ -4,7 +4,7 @@
 
 We take data from \vg~\cite{krishna2016visualgenome}, which
 % aims to provide a full set of descriptions of the scenes which images depict in order to spur complete scene understanding. 
-contains a dense region-based labeling of $108k$~images with, inter alia, objects, attributes and relationships,  %object descriptions, attributes, and relationships, as well as question-answer pairs, 
+contains a dense region-based labeling of $108$K~images with, inter alia, objects, attributes and relationships,  %object descriptions, attributes, and relationships, as well as question-answer pairs, 
 all linked to WordNet synsets \cite{fellbaum1998wordnet}.
 \vg suits our purpose of collecting names for naturalistic instances of common objects, as it has images of varying complexity, with close-ups as well as images with many objects.
 %As common in Computer Vision, O
@@ -64,7 +64,7 @@ We eliminated around $5.5$K\ images based on pruning, obtaining the final datase
 (We refer to the Supplemental Material for the task instructions and more details on the pruning and the dataset.) 
 We then did 3 more collection rounds, and shuffled the set of images per task between each round. 
 Workers could only participate in one round, to avoid workers annotating an instance more than once. 
-We obtained a total of 36 names per image (i.e.,\ objects).
+We obtained a total of 36 names per image (i.e.,\ object).
 As will become clear in the analysis, while object identification remains an issue despite these precautions, most mismatches between \vg annotations  and our data cannot be considered mistakes, and the annotation results have significant implications for the study of object naming in L\&V (see discussion in Sections~\ref{sec:analysis} and \ref{sec:modeling}).
 Overall $841$\ workers took part in the data elicitation, with a median of  $261$\ instances \mbox{($\textrm{range}=[9,17K]$)} per worker.
 %\cs{Maybe say something about the rejections, if space permits it.}

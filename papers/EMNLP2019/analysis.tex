@@ -53,7 +53,7 @@ The rise of the curve is much less steep than for instances and, generally, ther
 %\cs{(removed "name and") 
 %The synsets could have different names -- maybe say "or even same name"?}
 synset in \vg trigger different naming variants (also see examples in Figure \ref{fig:ex-high-low-agreement}). 
-Implications of this will be discussed below in Section \ref{subsec:discuss}.
+Implications of this will be discussed in Section \ref{subsec:discuss}.
 
 
 %\cs{Change yticks to 0-100, with label \%. Make font larger in Fig. with plots?}
@@ -101,7 +101,8 @@ Implications of this will be discussed below in Section \ref{subsec:discuss}.
 \subsection{Agreement}
 
 %As type counts give a rather rough indication for variation in object naming, 
-Next, we look at the following agreement measures, computed with $t=1$: % to assess agreement on the object names:
+Next, we look at the following agreement measures, computed with $t>1$: 
+%$t=1$: % to assess agreement on the object names:
 \begin{itemize}
 % \setlength{\itemsep}{2pt}
 % \setlength{\parskip}{1pt}
@@ -276,10 +277,10 @@ As far as research in L\&V and Computer Vision is concerned, our findings are re
  % cf.\ the high standard deviation in terms of the relative frequency of an instance's top response (column \%top, Table~\ref{tab:agree}), and the average mismatch of $27\%$~between the instances' top response and their VG name (\mbox{top=VG})\cs{a bit redundant now}).
 %
 The ability to distinguish incorrect object names from name alternatives is essential for visual object understanding, though. 
-It would be desirable to explicitly assess models towards their ability to account for naming variants of an instance (e.g.,~in how far are the top N predicted names valid alternatives, such as, dog, animal, pet vs. dog, animal, hat). 
+It would be desirable to explicitly assess models towards their ability to account for naming variants of an instance (e.g.,~in how far are the top N predicted names valid alternatives, such as, \textsl{dog, animal, pet} vs. \textsl{dog, animal, hat}). 
 %
 The criticism on the use of single "ground truth" labels is not new, but %to our knowledge 
-as we outlined in Section\ \ref{sec:relwork}, previous work has focused on the determination of canonical names, or on "granularity-aware" models, where naming variants are hierachically related. 
+as we outlined in Section\ \ref{sec:relwork}, previous work has focused on the determination of canonical names, or on "granularity-aware" models, where naming variants are hierarchically related. 
 %\cs{check that this is in related work: previous work has focused on the determination of canonical names (e.g.,~\newcite{Ordonez:2016}; Mathews et al REF), or on "granularity-aware" models, where naming variants are hierachically related (e.g.,~\newcite{wang2014poodle, peterson2018learning}; Ristin et al., 2015 REF, and the references therein).}
 %
 % \textit{training} of classifiers with multiple labels to improve image classification model depicting multiple objects (e.g.,~Wang et al., 2016 REF)
@@ -328,7 +329,7 @@ as we outlined in Section\ \ref{sec:relwork}, previous work has focused on the d
 \end{table*}
 %
 However, given the fact that naming variants are often not recoverable by hierarchical relations, a taxonomic hierarchy is only limited in its use to distinguish automatically a truly false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
-For the same reason, even fine-grained recognition models (as those trained on ILSVRC \cite{ILSVRC15}) cannot be expected to be able to simply infer the recognition of more general classes.
+For the same reason, even fine-grained recognition models (as those trained on ILSVRC) cannot be expected to be able to simply infer the recognition of more general classes.
 %since we found that many name alternatives are not hierarchically related to the VG name, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically a "truly" false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
 %\cs{also distributional similarity? Remember that we looked into this for the checkpoint and did not find a clear similarity threshold/pattern} 
 %
