@@ -39,11 +39,12 @@ Without any frequency thresholding~\mbox{($t$=1)}, the proportion of instances a
 
 The histogram for instances in Figure\ \ref{fig:ntypes} suggests that low-frequency responses are common in ManyNames, as is expected in a free annotation task.
 % where subjects are free to choose any response. 
-When discarding names these, the %response sets for instances get more consistent such that the majority contains at most 5\ names.
+When discarding these names, the %response sets for instances get more consistent such that the majority contains at most 5\ names.
 majority of the response sets become more consistent with at most 5\ names per set, 
 %Nevertheless, the proportion of objects that really only have a single name annotated is still below 50\%. %, even when applying a strict frequency filter of 4.
 but the sets with a single name still make up only $<$50\%\ of all sets. 
-This indicates that variation in naming instances is restricted to a manageable set of up to 5\ names per object, but is still non-neglibile.
+This indicates that variation in naming instances is more or less restricted, but is still non-negligible. 
+%to a manageable set of up to 5\ names per object.
 
 The number of types increases substantially when aggregating responses over classes, as shown in the cumulative histogram for type counts of synsets in Figure\ \ref{fig:ntypes}\ (right).
 %Here, we observe that the 
@@ -102,8 +103,8 @@ Implications of this will be discussed below in Section \ref{subsec:discuss}.
 %As type counts give a rather rough indication for variation in object naming, 
 Next, we look at the following agreement measures, computed with $t=1$: % to assess agreement on the object names:
 \begin{itemize}
-\setlength{\itemsep}{1pt}
-\setlength{\parskip}{0pt}
+% \setlength{\itemsep}{2pt}
+% \setlength{\parskip}{1pt}
 \item \textbf{\% top}: the average relative frequency of the most frequent response (shown in percent).
 \item \textbf{$H$}: the $H$ agreement measure from \citet{snodgrass}, where 0 is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
 where $k$\ denotes the number of name types and $p_i$\ is the proportion of name type\ $i$ in the responses. \item \textbf{N}: the average number of types in the response set of ManyNames.
@@ -135,6 +136,7 @@ The following section will examine other potential sources of variation in objec
 Previous work on object naming has mostly adopted taxonomy-driven models aimed at capturing different levels of specificity (see Section \ref{sec:relwork}).
 %This section shows that naming variation in ManyNames cannot be explained by this parameter.
 This parameter does not explain the variation in ManyNames, as we will show in the following. 
+
 Given that the \vg names are already linked to WordNet synsets, we compute the same linking for the additional ManyNames names, and examine whether they stand in a taxonomic relation to the objects'  \vg  synsets.
 For detecting hypernyms, we use the hypernym closure of the synset with a depth of 10, the other relations are straightforward. 
 % given by \vg.

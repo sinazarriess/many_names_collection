@@ -21,7 +21,7 @@ And due to the nature of our collected data, the relations may not stand in a hi
 \paragraph{Model and Data}
 To obtain object label predictions we used \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} bottom-up attention model (\textit{Bottom-up} henceforth)\footnote{The features code and data is available at \url{https://github.com/peteanderson80/bottom-up-attention}}. 
 %It's feature vectors were used to train state-of-the-art image captioning and visual question answering models. 
-The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}, which the authors  initialized with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vgenome (\vg).\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
+The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
 %
 \iffalse
 "To pretrain the bottom-up attention model, we first initialize Faster R-CNN with ResNet-101 pretrained for classification on ImageNet [35]. We then train on Visual
