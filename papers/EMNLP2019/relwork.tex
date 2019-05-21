@@ -1,25 +1,30 @@
 
 Object naming is closely related to processes of visual object recognition investigated in Computer Vision or Cognitive Science.
-This Section will discuss how naming relates to questions addressed in these neighbouring areas and how it has been and should be studied as a linguistic phenomenon in Language \& Vision.
+This Section discusses questions relates to these areas and naming as a linguistic phenomenon in Language \& Vision.
 
 
 
 \paragraph{Work on Visual Object Recognition} studies and models object representations in the human visual system, cf.\ \cite{regan2000human,rossion2004revisiting}. 
-An important paradigm for experimental research here is picture naming, where human subjects are asked to say or write down the first name that comes to mind when looking at a given picture, typically a normed, black-and-white line drawing depicting a prototypical instance of a category on a white background \cite{snodgrass}, see Figure \ref{fig:picture_naming}.
-Subjects have been shown to reach very high agreement on this task, \cite{rossion2004revisiting}, and the resulting naming norm data is useful for studying various cognitive processes \cite{humphreys1988cascade}.
-Our annotation task is inspired by picture naming, but uses real-world images with particular objects highlighted in them.
-Recognition of instances (as opposed to prototypes or categories) in images has also been the focus of computer vision, where state-of-the-art systems are now able to classify of real-world objects into thousands of different categories, e.g.\  \newcite{googlenet}. 
-Current object recognition benchmarks use object labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically frame the task as a multi-label classification problem where taxonomic relations between labels are not considered \cite{ILSVRC15}. 
+An important experimental paradigm here is picture naming, where subjects have to say or write down the first name that comes to mind when looking at a picture of (typically) a line drawing depicting a prototypical instance of a category \cite{snodgrass}, see Figure \ref{fig:picture_naming}.
+Subjects reach very high agreement in this task, \cite{rossion2004revisiting}, and the resulting naming norms are useful for studying various cognitive processes \cite{humphreys1988cascade}.
+Our task is inspired by picture naming, but uses real-world images with objects highlighted in them.
+Recognition of instances (as opposed to categories) in images has also been the focus of computer vision, where state-of-the-art systems are now able to predict thousands of different categories, e.g.\  \newcite{googlenet}. 
+Current object recognition benchmarks use object labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically implement multi-label classifiers where relations between labels are not considered \cite{ILSVRC15}. 
 In L\&V,  deep object recognition systems are widely used for feature extraction, whereas the object labeling itself can often not be used directly. For instance, many labels in the ILSVRC15 challenge correspond to very specific breeds of animals, whereas other common categories  for e.g. people are missing.
 
 
-\paragraph{Work on Hierarchical Object Categorization} goes beyond visual representations of isolated categories but looks at the principles underlying the organization of object categories. 
-For instance, seminal work on prototypes by Rosch \cite{rosch1976basic} has emphasized the taxonomical organization of categories and found that humans tend to conceptualize objects at a basic or medium level of abstraction in this taxonomy. 
+\paragraph{Work on Hierarchical Object Categorization} 
+%goes beyond isolated object categories.
+% but looks at the principles underlying the organization of object categories. 
+
+has emphasized the taxonomic organization of categories, e.g.\ seminal work on prototypes by Rosch \cite{rosch1976basic},  and found that humans tend to conceptualize objects at a basic or medium level of abstraction.
+% in this taxonomy. 
 %This suggests that object names typically exhibit a preferred level of specificity, which \citet{jolicoeur1984pictures} called the \textbf{entry-level}, e.g, \refexp{bird}, \refexp{car}), as opposed to more generic (e.g., \refexp{animal}, \refexp{vehicle}) or specific categories (e.g., \refexp{sparrow}, \refexp{convertible}).Less prototypical members of basic-level categories have been found to be identified with sub-level categories (e.g., a \cat{penguin} is typically called a \refexp{penguin} and not a \refexp{bird}) \cite{jolicoeur1984pictures}. 
-Hierarchical or "granularity-aware" approaches to visual object recognition have aimed at exploiting the rich taxonomical structure underlying object labels \cite{Deng:2012,frome2013,deng2014large,wang2014poodle,peterson2018learning}. 
-While this work goes beyond the simplistic modeling assumption that categories are just unrelated labels, the main objective here is still to predict a single, canonical category (that does have relations to other categories). 
-This view has been criticized in more recent work on concept organization, which found that many objects that we frequently interact with in our daily lifes are part of multiple category systems at the same time \cite{ross1999food,SHAFTO20111}. A prominent example for this \textit{cross-classification} are food categories which can be taxonomy-based (e.g.\  \refexp{meat, vegetable}) or script-based (e.g.\  \refexp{breakfast, snack}).
-To the best of our knowledge, this phenomenon has not received any attention in recent corpus-based work on L\&V.
+Granularity-aware approaches to object recognition have aimed at exploiting taxonomical structure underlying object labels \cite{deng2014large,wang2014poodle,peterson2018learning},  
+%While this work goes beyond the simplistic modeling assumption that categories are just unrelated labels, 
+but still aim to predict a single canonical category.% (that does have relations to other categories). 
+This view has been criticized in more recent work on concept organization, which found that many objects of our daily lifes are part of multiple category systems at the same time \cite{ross1999food,SHAFTO20111}.  This \textit{cross-classification} occurs, for instance, with food categories which can be taxonomy-based (e.g.\  \refexp{meat, vegetable}) or script-based (e.g.\  \refexp{breakfast, snack}).
+To the best of our knowledge, this phenomenon has not received any attention in work on L\&V.
 Our results, however, suggest that cross-classification occurs very frequently when naming objects in real-world images.
  
 %Nevertheless, the way the treat object recognition is conceptually very simple (if not to say, naive):  standard object classification schemes are inherently ``flat'', and treat object labels as mutually exclusive \cite{deng2014large}, ignoring all kinds of linguistic relations between these labels and ignoring the fact that an object can easily be an instance of several categories.\cs{I would make this statement stronger and argue that \textbf{object recognition is merely a labeling of objects  with human interpretable symbols}, and that a system would probably fail if it had to decide whether an object labeled as, e.g.\ \refexp{fig} may also be labeled as \refexp{food}.} \gbt{ok}
@@ -39,15 +44,16 @@ Our results, however, suggest that cross-classification occurs very frequently w
 
 
 
-\paragraph{Work on Object Naming} that explicitly tries to model which \textit{word} (i.e. not a label or category) a speaker is going to use to name to an object is relatively scarce.
-Object names figure prominently in referring expressions that have been investigated a lot in natural language generation \cite{dale:1995,krahmer:2012}, but this area has, to date, focussed mostly on the selection of attributes rather than on determining the referent's name \cite{krahmer:2012,Kazemzadeh2014}. 
-\newcite{Ordonez:2016} frame object naming as an extension of object recognition, taking up the notion of basic-level or entry-level categories from \cite{rosch1976basic}.
-Their model first classifies objects into very fine-grained categories and then decides which level in the taxonomy (i.e.\ WordNet) is appropriate for retrieving the actual name.
-This latter decision, however, is not based on natural referring expression data, but derived from frequencies in a text corpus. 
- \newcite{zarriess-schlangen:2017} learn a model of object naming on a corpus of referring expressions for objects in real-world images, but focus on combining visual and distributional information and on zero-shot learning. 
- Recent experimental work on reference found that the specificity of an object name is dependent on the taxonomic relatedness of other objects present in the visual context
-\cite{rohde2012communicating,graf2016animal}. Our work can be seen as a first step towards studying naming in real-world, natural reference.
-But as there is virtually no existing large-scale resource that provides robust naming data elicited from multiple subjects \textit{and} for instances in real-world images, this paper focusses on naming in isolation, rather than reference where naming interacts with other decisions like attribute selection.
+\paragraph{Work on Object Naming} that models which \textit{word} (i.e.\ not label) a speaker will use to name an object is relatively scarce.
+Though names are prominent in referring expressions, investigated a lot in natural language generation \cite{dale:1995}, this area has focussed mostly on the selection of attributes% rather than on determining the referent's name 
+\cite{krahmer:2012}. 
+\newcite{Ordonez:2016} extend object recognition to naming as an extension, taking up the notion of entry-level categories \cite{rosch1976basic}.
+Their model classifies objects into fine-grained categories and then predicts a WordNet synset for retrieving the name,
+based on frequencies in a text corpus. 
+ \newcite{zarriess-schlangen:2017} learn a naming model on referring expressions and real-world images, but focus on combining visual and distributional information. 
+ Recent experimental work on reference found that the specificity of a name is dependent on the taxonomic relatedness of other objects in context
+\cite{rohde2012communicating,graf2016animal}. Our work is a first step towards studying naming in real-world, natural reference.
+But as there is virtually no existing large-scale resource that provides robust naming data elicited from multiple subjects \textit{and} for instances in real-world images, this paper focusses on naming in isolation, rather than reference where naming interacts with attribute selection.
 
 
 %Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, 
