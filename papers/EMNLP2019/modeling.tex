@@ -40,8 +40,8 @@ components and add an additional multi-class loss component to train the attribu
 
 %\paragraph{Data}
 Bottom-up was trained on a $1,600$\ object names, manually curated by the authors. % (the authors manually removed names with poor a detection performance from the original set). 
-They did not merge semantically similar classes, such as \textsl{person} and \textsl{guy}, which is in line with the data structure of MN. \gbt{Carina, I don't understand the following sentence}
-
+They did not merge semantically similar classes, such as \textsl{person} and \textsl{guy}, which is in line with the data structure of MN. %\gbt{Carina, I don't understand the following sentence}
+%
 From this set, we test on $1,254$~names (we removed the $346$\ names which are not in MN), and on $24,585$~images from MN, after filtering those whose \vg name was not in the vocabulary. 
 Note that $22,304$~of the images were also part of Bottom-up's training data; below we report separate results for data in and out of the training set. 
 %
@@ -78,7 +78,7 @@ Table~\ref{tab:model} shows the results, and Figure~\ref{fig:ex-high-low-agreeme
 % The latter two sets are disjoint. 
 Strikingly, the model performs worse on \vg than on the top MN response, even though the model was trained on \vg names and saw the majority of the instances during training: It has a general accuracy of $76.8$\ on MN, $68.7$\ on \vg (see condition \textit{All}), and in the subset where the top names differ (VG$\neq$MN) the difference is even bigger,\ $52.6$ vs.\ $20.7$.
 We hypothesize two main reasons for this difference.
-First, the top MN name may be more reliable because it is collected from multiple subjects: For instance, in the rightmost example of the first row of Figure~\ref{fig:ex-high-low-agreement}, the VG annotator chose \textit{sandwich}, but \textit{hotdog} is more appropriate and accordingly it was chosen by most subjects in MN (note however that three subjects still chose \textit{sandwich}).
+First, the top MN name may be more reliable because it is collected from multiple workers: For instance, in the rightmost example of the first row of Figure~\ref{fig:ex-high-low-agreement}, the VG annotator chose \textsl{sandwich}, but \textsl{hotdog} is more appropriate and accordingly it was chosen by most subjects in MN (note however that three workers still chose \textsl{sandwich}).
 Second, the model can in some cases be subject to similar kinds of visual uncertainty as humans (cf.\ Section\ \ref{ssec:variation}), like mistaking a bridge for a street in the third image in the second row of Figure~\ref{fig:ex-high-low-agreement}.
 % It achieves a higher accuracy of up to\ 55\% points on instances for which MN and the VG name differ (\textsc{buildings}, VG$\neq$MN). 
 % The reasons may be that MN is more general than VG for many cases (e.g.,\ the examples for \textsl{batter} in Fig.\ \ref{fig:ex-high-low-agreement}), or that MN is more reliable due to up to $36$~annotations per instance as well as to our elicitation procedure\footnote{Recall that we instructed the workers explicitly to produce object names, and did not obtain them by canonicalizing object descriptions as was done for VG.} (e.g.,\ (\textsl{sandwich,hotdog}), Fig.\ \ref{fig:ex-high-low-agreement}). 
