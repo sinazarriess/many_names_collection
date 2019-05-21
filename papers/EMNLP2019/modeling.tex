@@ -90,7 +90,7 @@ In the former, for each instance, we compare the model's top prediction (the obj
 In the multi-label setting, we report the average accuracy of the top prediction matching any of the responses in MN.
 We also test the model's ability to mimick the distribution of names provided by humans, by treating $S$ as a probability distribution and comparing it to the probability distribution~$M$ over the MN responses (estimated by normalizing the name counts; as in the analysis above, we remove names with frequency 1 to account for possible noise\gbt{@Carina, pls revise}). 
 We report the average Kullback-Leibler divergence~$\mathrm{D_{KL}}(M||S)$ \cite{kullback1951information}.
-We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline \cs{not sure whether the latter, at least in its current form, makes sense. TBD?}.
+We compare Bottom-up against a random baseline for the KL divergence, and against a most-frequent name baseline \cs{not sure whether the latter, at least in its current form, makes sense. TBD? MF name baseline: I would say it's not relevant for this paper (we mainly compare different settings).}.
 \gbt{Random baseline values missing; I'm not sure if it makes sense; we could maybe compare it to the single-label distribution: Compare $S$ to $M$, like we do, and then to a distribution to vectors with 1, 0, 0, 0... with MN top. Not sure if this is too ``cheap'' -- is it a matter of course that it will be lower? Not if the distribution doesn't reflect the actual $M$?}
 
 \iffalse
