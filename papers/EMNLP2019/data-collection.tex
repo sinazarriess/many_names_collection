@@ -17,31 +17,29 @@ As common in Computer Vision, objects are localized as
 \label{ssec:sampling}
  % of frequent classes/names in  \vgenome, which, at the same time, have been frequently/commonly studied in the psycholinguistic literature. 
 %Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
-We selected images from seven domains: six based on \newcite{mcrae2005semantic}'s \citeyear{mcrae2005semantic} feature norms, a dataset widely used in Psycholinguistics that consists of common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}), and \textsc{person}, because it is a very frequent category in \vg.
+We selected images from seven domains: six based on McRae et al.'s  (\citeyear{mcrae2005semantic}) feature norms, a dataset widely used in Psycholinguistics that comprises common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}), and \textsc{person}, because it is a very frequent category in \vg.
 % We start from the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\textsc{animals}, \textsc{furniture}) and, as such, have a high overlap with standard datasets of object norming studies (REFS).
 % We added the \textsc{person} category because it is very frequent category in \vgenome.
 
-Within each domain, we aimed at collecting instances at different levels in a taxonomy to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy %in the first place 
+Within each domain, we aimed at collecting instances at different taxonomic levels  to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy %in the first place 
 (e.g.\ \textsc{home}).
 % Standard taxonomies do not align well with name variability; for instance, people use more varied names for types of dogs than for types of cows, while both dogs and cows are mammals.
 Instead, we defined a set of synsets ($52$\ in total) that we would use to collect our object instances from \vg, balancing variability.
-From the set of synsets that match or subsume the concepts in the McRae norms, we kept those that had a high number of \vg object instances of different names.
+From the set of synsets that match or subsume the concepts in the McRae norms, we kept those with a high number of \vg object instances of different names.
 For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vg, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
 
-We then retrieved all VG images depicting an object whose name matches or is subsumed by words in one of these synsets; we refer to these words as \textit{seeds}, and we had 450 of them.
-We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{(REF to tagger)}, or that were multi-word expressions (e.g.,~\textsl{pink bird}). 
-We further only considered objects whose bounding box covered an area of~$20-90\%$ of the image.
+We then retrieved all VG images depicting an object whose name matches or is subsumed by words in one of these synsets; we refer to these words as \textit{seeds} ($450$\ in total).
+We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{We obtained tags with CoreNLP \cite{manning2014stanford}.}, or that were multi-word expressions (e.g.,~\textsl{pink bird}). 
+We further only considered objects whose bounding box covered~\mbox{$20-90\%$} of the image area.
 % We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
 % First, we selected a set of collection node candidates---synsets which match (e.g.,~\textsl{dog, duck, goose, gull}) or subsume (e.g.,~\textsl{mammal, bird}) the McRae synsets\footnote{Specific synset IDs, e.g.,~dog.n.01, are omitted for readability.}. 
 % From these candidates we kept those as collection nodes which had a high frequency of VG object instances of different names. For example, VG instances  subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck, goose}, or \textsl{gull} did not have name variants in VG, so we kept \textsl{dog} and \textsl{bird} as collection nodes.
 %\paragraph{Collection of instance candidates}
 % Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 % \paragraph{Sampling of instances}
-Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. \textbf{double-check}
-This yielded a dataset with $31,093$~instances, which was further pruned during annotation (see Section\ \ref{subsec:elicitation}). 
-Table~\ref{tab:overview_dataset1} shows the $7$\ domains together with the top $10$\ \vg names.
-
-
+Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. %\textbf{double-check}
+This yielded a dataset of\ $31,093$~instances, which was further pruned during annotation. 
+See Section\ \ref{ssec:elicitation} and the Supplemental Material for details on the pruning. 
 % \begin{itemize}
 % \item rows: domains (if we go for long paper: then one row per collection node?)
 % \item columns:
@@ -59,17 +57,18 @@ Table~\ref{tab:overview_dataset1} shows the $7$\ domains together with the top $
 \label{ssec:elicitation}
 To elicit object names, we set up a crowdsourcing task on Amazon Mechanical Turk (AMT).
 In initial pilot studies, we found object identification via bounding boxes to be problematic.
-In some cases, the bounding box was not clear; in others, AMT workers named objects that were more salient than the one signaled by the bounding box (for instance, for a box around a jacket, the man wearing it).
-We took special care of minimizing this issue, in two ways: Specifying the instructions such that workers pay close attention to what object is being indicated in the box, and pruning the set of images via an initial collection round (9 workers per task, i.e.,\ 9 names/object) in which we allowed workers to indicate whether the object was occluded or the box unclear.
-The Appendix~\ref{app:instructions} contains the task instructions and details about the pruning and data procedure.
-We eliminated around 5.5K images based on pruning, obtaining the final dataset with 25,596\ images.
+In some cases, the bounding box was not clear; in others, AMT workers named objects that were more salient than the one signaled by the box (for instance, for a box around a jacket, the man wearing it).
+We took special care of minimizing this issue in two ways: Specifying the instructions such that workers pay close attention to what object is being indicated in the box, and pruning the set of images via an initial collection round (9 workers per task, i.e.,\ 9 names/object) in which we allowed workers to indicate whether the object was occluded or the box unclear. 
+%The Appendix~\ref{app:instructions} contains the task instructions and details about the pruning and data procedure.
+We eliminated around $5.5$K\ images based on pruning, obtaining the final dataset with $25,596$\ images. 
+(We refer to the Supplemental Material for the task instructions and more details on the pruning and the dataset.) 
 We then did 3 more collection rounds, and shuffled the set of images per task between each round. 
 Workers could only participate in one round, to avoid workers annotating an instance more than once. 
 We obtained a total of 36 names per image (i.e.,\ objects).
-As will become clear in the analysis, while object identification remains an issue despite these precautions, most mismatches between \vg annotations  and our data cannot be considered mistakes, and the annotation results have significant implications for the study of object naming in language \& vision (see discussion in Sections~\ref{sec:analysis} and \ref{sec:modeling}).
+As will become clear in the analysis, while object identification remains an issue despite these precautions, most mismatches between \vg annotations  and our data cannot be considered mistakes, and the annotation results have significant implications for the study of object naming in L\&V (see discussion in Sections~\ref{sec:analysis} and \ref{sec:modeling}).
 \gbt{TO DO: revise that this matches the narrative in the rest of the paper.}
 Overall $841$\ workers took part in the data elicitation, with a median of  $261$\ instances \mbox{($\textrm{range}=[9,17K]$)} per worker.
-\cs{Maybe say something about the rejections, if space permits it.}
+%\cs{Maybe say something about the rejections, if space permits it.}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"

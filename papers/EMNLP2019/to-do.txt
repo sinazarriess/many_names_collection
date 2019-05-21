@@ -3,3 +3,10 @@
 - Sina: produce agreement (e.g. top %) boxplots per domain; then, within each domain, produce boxplots per synset (just for us to look at them)
 
 - Sina: do you mind if I change table 4 (wordnet) into percentages? (I've seen the code and know where to change it)
+
+TODOs removed from paper (for future work ;)):
+data-collection:
+\cs{@Carina ToDo: add some examples of synsets + names; maybe in suppl}
+\cs{Maybe say something about the rejections, if space permits it.}
+
+Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. \textbf{double-check}
