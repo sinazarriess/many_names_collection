@@ -283,6 +283,42 @@ as we outlined in Section\ \ref{sec:relwork}, previous work has focused on the d
 %
 % peterson2018learning: discuss the bias introduced into learned representations by training on data of  single label annotations ("labels cut arbitrarily across natural psychological taxonomies, e.g., dogs are separated into breeds but never categorized as dogs"). 
 %
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{l@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr@{~}|@{~}r@{~}r@{~}rr}
+		\toprule
+		%{} &  All images-top=VG &  All images-top=MN &  All images-top\$\textbackslash in\$MN &  All images-KL &  VGnotMN-top=VG &  VGnotMN-top=MN &  VGnotMN-top\$\textbackslash in\$MN &  VGnotMN-KL &  notTrain-top=VG &  notTrain-top=MN &  notTrain-top\$\textbackslash in\$MN &  notTrain-KL \\
+		& \multicolumn{12}{c}{Image subset} \\
+		&	\multicolumn{4}{c}{All ($24,585$)} 
+		& \multicolumn{4}{c}{VG$\neq$MN ($6,280$)}
+		& \multicolumn{4}{c}{$\neg$Training ($2,281$)} \\
+		\midrule
+		&  \multicolumn{2}{c}{single-label}
+		&  \multicolumn{2}{c}{multi-label}
+		&  \multicolumn{2}{c}{single-label}
+		&  \multicolumn{2}{c}{multi-label}
+		&  \multicolumn{2}{c}{single-label}
+		&  \multicolumn{2}{c}{multi-label} \\
+		Domain	 &  =VG & =MN & $\in$MN  &  KL
+		&  =VG & =MN & $\in$MN  & KL
+		&  =VG & =MN & $\in$MN  & KL\\ 
+		\midrule \vspace{.6ex}
+		all            &               68.7 &                 76.8 &                   94.8 &            0.9 &            20.7 &              52.6 &                92.4 &         1.2 &             63.5 &               73.1 &                 92.5 &          1.0 \\ 
+		home           &               70.0 &                 74.7 &                   93.4 &            1.1 &            24.3 &              47.5 &                91.4 &         1.4 &             67.2 &               70.5 &                 92.5 &          1.2 \\
+		food           &               60.0 &                 71.9 &                   87.7 &            1.0 &            14.2 &              48.9 &                76.6 &         1.5 &             46.6 &               62.1 &                 80.1 &          1.3 \\
+		buildings      &               57.5 &                 70.7 &                   92.1 &            1.3 &             7.9 &              63.4 &                89.8 &         1.5 &             44.3 &               60.2 &                 88.6 &          1.4 \\
+		vehicles       &               69.8 &                 72.8 &                   97.6 &            0.6 &            35.3 &              46.1 &                97.4 &         0.7 &             67.2 &               73.5 &                 96.4 &          0.7 \\
+		animals/plants &               92.7 &                 94.8 &                   97.7 &            0.4 &            20.3 &              65.0 &                94.0 &         0.9 &             91.3 &               92.6 &                 96.2 &          0.5 \\
+		clothing       &               63.3 &                 70.9 &                   92.6 &            1.0 &            19.9 &              48.5 &                90.3 &         1.2 &             50.8 &               60.2 &                 87.4 &          1.3 \\
+		people         &               48.5 &                 70.7 &                   95.5 &            1.2 &            13.8 &              58.9 &                95.3 &         1.3 &             42.2 &               68.2 &                 92.8 &          1.2 \\
+		\bottomrule
+		%Baseline      &                3.3 &                  5.2 &                   12.0 &            -- &             1.7 &               9.3 &                21.8 &         -- &              3.0 &                5.0 &                 11.9 &          -- \\
+		Baseline       &                3.9 &                  4.6 &                    5.6 &            -- &             0.1 &               3.0 &                 3.8 &         -- &              3.8 &                4.6 &                  5.8 &          -- \\
+	\end{tabular}
+	\caption{Baseline: The most frequent name. Random baseline (KL with random distributions) for each image set: 6.9 (all), 6.5 (VG$\neq$MN) and 6.9 ($\neg$Training). The numbers in parentheses give the \# instances in each set.	\label{tab:model}}
+\end{table*}
+%
 However, given the fact that naming variants are often not recoverable by hierarchical relations, a taxonomic hierarchy is only limited in its use to distinguish automatically a truly false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
 For the same reason, even fine-grained recognition models (as those trained on ILSVRC \cite{ILSVRC15}) cannot be expected to be able to simply infer the recognition of more general classes.
 %since we found that many name alternatives are not hierarchically related to the VG name, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically a "truly" false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
