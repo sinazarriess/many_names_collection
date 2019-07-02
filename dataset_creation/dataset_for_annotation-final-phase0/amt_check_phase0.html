@@ -14,17 +14,17 @@
            src attribute below when you publish a batch with a CSV input file containing
            multiple image file URLs -->
     <p>
-     &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; A calls it: <strong>${nameA}</strong>.
+     &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; A draws the box and labels it with: <strong>man</strong>.
     </p>
     <p>
-      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; B calls it: <strong>${nameB}</strong>.
+      &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; B re-labels the box with: <strong>batter</strong>.
     </p>
 
 
     <crowd-image-classifier
-        src="${image_url}"
-        categories="['yes','no, B means a different object', 'no, A and B mean different parts of the same object', 'no, B seems to be confused']"
-        header="Do A and B mean the same thing?"
+        src="http://object-naming-amore.upf.edu//2357077_815223_singleton_obj.png"
+        categories="['yes','no, B is confused with the bounding box','not sure']"
+        header='Is "batter" a correct alternative for "man" in the red box?'
         name="relation">
 
        <!-- Use the short-instructions section for quick instructions that the Worker
@@ -32,9 +32,9 @@
               good and bad answers here can help get good results. You can include
               any HTML here. -->
         <short-instructions>
-            <p>Imagine the following situation:</p>
-            <p>Person A and B separately annotate a bounding box in the same image. They write down different names for the box.<p>
-            <p>Your task: say whether both names mean the same thing, or whether A and B describe different objects or parts of the box.</p>
+            <p>Sometimes there are different names for the same thing. Imagine the following situation:</p>
+            <p>Person A annotates an image. She draws a bounding box around an object and labels it. Now, person B re-annotates the boxes drawn by A. B sometimes labels them with a different name. Why?<p>
+            <p>Your task: Decide whether B's name is correct and is simply an alternative of A's name. Or did B make a mistake and got confused with the bounding box?</p>
         </short-instructions>
 
         <!-- Use the full-instructions section for more detailed instructions that the
@@ -42,8 +42,11 @@
               instructions and additional examples of good and bad answers here can
               help get good results. You can include any HTML here. -->
         <full-instructions header="Classification Instructions">
-            <p>Read the task carefully and inspect the image.</p>
-            <p>Choose the appropriate answer.</p>
+            <p>Say exactly when something is a correct, alternative label?</p>
+            <p>animal-cat is good</p>
+            <p>kitten-cat is good</p>
+            <p>cat-milk is bad</p>
+            <p>cat-snout is also bad</p>
         </full-instructions>
 
     </crowd-image-classifier>
