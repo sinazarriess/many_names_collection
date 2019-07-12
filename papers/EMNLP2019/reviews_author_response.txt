@@ -1,0 +1,178 @@
+
+
+General Response to Reviewers:
+- Thank you so much for all the comments which will help us to revise the paper and make unclear parts, in particular with respect to the difference to referring expression tasks (/datasets) and the prediction experiment more comprehensible. 
+
+- We will make the ManyNames dataset publicly available upon acceptance of the paper. 
+[XXX probably better to not mention:] We are also planning to perform a verification phase to identify noisy labels.
+
+
+Dataset questions:
+
+- VisualGenome has been used especially in Language+Vision research (REFS). 
+
+
+Experimental questions:
+
+The experiment shows the following: 
+With our experiment in Section 5 and its results we hope to spur discussion and reconsideration of the current standard in Language & Vision research which works on modeling the human way of naming and referring to real-world objects. 
+In particular:
+- The evaluation against a single label may be ill-defined, since this label may not be the one a majority of humans would agree on for the given instance (=> we need many more annotations for a single instance to obtain a canonical name) 
+- To assess the ability to "recognize" an object (against other models), it may not be conclusive to do this based on a single label, but instead on what labels it predicts as most probable. 
+
+Regarding the experiment specifically: 
+Please recall that we only compared on the shared set of 1,254 name types which is a fraction of those in ManyNames. We hope that testing and comparing fine-tuned models on ManyNames would be useful to evaluate their ability to mimic human naming variation, and further to compare models against their ability to distinguish variants from for humans unreasonable/inconstistent mistakes. 
+
+Fine-tuning on ManyNames for the described experiment would allow for covering all name types, but disallows a direct comparison of ManyNames against VG object names in the single label setting.
+We will fine-tune models on ManyNames in the future as a means to analyse the underlying (visual) factors causing naming variation, which is beyond the scope of the present paper. 
+
+> What is the loss of training? Ground-truth targets are the actual distribution of names or top-1 names?
+We did not retrain or fine-tune Bottom-up, but used the publicly available model (see Anderson et al. 2018). 
+For evaluation we used both, and four different ground truth targets in total, see L680-691. Thank you for pointing out that this was unclear. 
+
+
+Review #3:
+---
+Thank you very much for your review. We will revise the presentation of the tables as you suggested.
+
+
+Response to Reviewer #1:
+---
+In contrast to the works you list, our dataset and its analysis is not on referring expressions for objects, but on object names---i.e., words (nouns or compound nouns) which you would naturally use to name an object ("entry-level category" or "canonical name"), irrespective of whether you would use the same name for other objects in the same image (e.g., an image showing several giraffes, chairs or boys). 
+It is a phenomenon underlying referring expressions. To understand how the choice of the name interacts with choosing attributes (modifiers, prepositional phrases), one needs to know which name variants exist and how they are related. 
+See also the last paragraph on page 791 (page 5) in the first paper you point out (Kazemzadeh et al., 2014) for the difference of referring expressions and canonical names (entry-level categories). It also that the paper adopts two standard assumptions:
+- naming variants are related hierarchically, which, as we show, is not the only relation in real-world images
+- there exists an entry-level (canonical name), we know which ones they are, and they are instance-invariant
+
+Unfortunately we found existing datasets (ReferIt, those based on MSCOCO, VisualGenome descriptions) to not provide the information necessary for linguistically studying object naming (and ultimately referring expressions): 
+* Regarding the ReferIt paper (Kazemzadeh et al., 2014) in particular: 
+- Only 10.7% of all object instances have 2 or more referring expressions, while almost 90% has only one expression. Hence, most of the instances have one name, at most 2, i.e., provide neither name variants on the instance-level, nor is recoverable whether the chosen noun is the name one would naturally use for the instance. 
+- The latter also applies to the option to use the VisualGenome object *descriptions* (as opposed to the single object *name*). 
+- Among ReferIt's most frequently objects are, e.g., corner, background, head, pic, sky, foreground. 
+
+* The situation is similar with respect to the datasets based on MSCOCO (https://arxiv.org/abs/1608.00272): 
+- On average, they also only have between 1.5 and 2.8 referring expressions per instance. 
+- They only cover the 80 MSCOCO categories, and these are of different levels of specificity (person, dog, tie, donut, ...).
+
+L237: Balancing was conducted to avoid bias: Larger seeds subsumed more different VG object classes than smaller seeds. 
+
+Object segmentations instead of bounding boxes would make object identification clearer in many cases, but not in those where there is a very high overlap of two objects (e.g., bed example Fig.3). 
+We exploited the meta-annotation for filtering after round 0. 
+
+L206 gives the reference to the dataset: McRae et al. (2005)
+
+Please find the answers on the experiment in Section 5 in the general answers. 
+
+===
+Response to Reviewer #2:
+
+We perfectly agree that reporting results on the training data (in addition to results on unseen images) is nonstandard. It was striking, though (and this is why we chose to include these results) that Bottom-up even obtains a higher accuracy on ManyNames than on its own training signals, as you noted in your review. 
+
+We refrain from judging over the label noise in VG, but leave this to the readers of the corresponding paper where they describe the undertaken measures to obtain and verify object name labels. 
+
+We were considering using directly the MSCOCO labels for the MSCOCO images (recall that Visual Genome was built on top of MSCOCO), but decided against it for the following reasons: MSCOCO only contains 80, well (easy to) separated categories of an arbitrary level of specificity (person, dog, tie, donut, ...).  This does result in little noise, but also in  images not as densely labeled as in VG. 
+In sum, linguistically analysing object naming variations across many different domains and classes, and allowing researchers to analyse the influence of the context (objects and their domain or category) would not be possible with MSCOCO annotations. 
+
+Please see the answers to your remaining questions on the experiment in Section 5 amongst the general answers to all reviewers.
+
+
+### REVIEWS ###
+
+Review #1
+What is this paper about, what contributions does it make, and what are the main strengths and weaknesses?
+This paper focuses on the variation of "how to name an object in an image", called "object naming" in the VisualGeneome dataset. While it is confirmed (e.g., by work in referring expression) that people can call/name an object by various names rather than a unique name, datasets and analysis are limited. This paper newly constructs a dataset ManyNames from the VisualGenome, which has 25K object instances and app. 36 name suggestions by different annotators per instance. It enables us to analyze the variation statistically and actually provided some findings in this paper, e.g., names of animals/plants are less varied than those of people. But, public availability of the dataset is not mentioned in the paper.
+
+Reasons to accept
+New VisualGenome-based dataset of object name variation with many annotations per instance, which has 25K objects and app. 36 names for each
+
+Statistical analysis on name variation based on seven domains
+
+Reasons to reject
+Fewer novel findings and unclear contribution while some simple analyses are performed
+
+The dataset seems not publicly available (guessed from the current version)
+
+The dataset construction could have an issue leasing low-quality noisy annotations for confused referential objects
+
+The dataset can possibly be substituted by existing datasets to some extent, while the paper misses
+
+Questions for the Author(s)
+First of all, I am wondering about novelty, especially compared with existing papers on referring expression. The paper args in Section 2's "Object Naming", but it is not convincing enough. For example, this paper ignores some large (e.g. >50K objects) datasets of referring expression on real-world images. Even the VisualGenome dataset, which is used in this work, has open-vocabulary region descriptions similarly.
+https://www.aclweb.org/anthology/D14-1086
+
+https://arxiv.org/abs/1511.02283
+
+https://arxiv.org/abs/1608.00272
+
+Especially, the top paper did similar analyses on its dataset. The core difference is that it performed only global "entry-level (class-level)" analyses while this work does local "object-level" analyses and focuses on expressions without "attribute", right? 
+Furthermore, the datasets often have more than one annotation for each object, which could indicate we can do "object-level" analyses on them. Could you refine and clarify the novelty of this paper again? And, why is the new dataset required and valuable?
+
+As mentioned in the above, through prior work, it is neither surprising nor missed that a (contextualized) object can be called by many names. Thus, the core question of this paper, "Do Objects in Real-World Images Have a Canonical Name?", will not impactful (at least, in the NLP community). I feel that people already know "no". Similarly, I feel "the common assumption ..." at L546- sounds overclaiming. Labeling a single (exclusive) label for each object does not mean it has such an assumption of canonical names. Most studies do not mix up defined "labels" and "names".
+
+The ManyNames dataset will not be publicly released? If not, the contribution will be limited.
+
+L185: what does "robust" mean specifically?
+
+L237: The description of the balancing procedure ("Because of the ... large seeds") is confusing for me. Could you rephrase it? And, did the balancing cause some bias in the dataset, which could side-effect analysis about "natural" distribution?
+
+(L441-) 
+I think referential uncertainty is just an error of dataset construction rather than a valuable nature or issue of name variation. This makes analyses and application difficult. If it used datasets with segmentation (e.g. COCO, openimages) rather than VisualGenome, this error would not happen. Otherwise, by verification, it seems preferred to remove such errors or add "ambiguous"-label to such objects. And, Fig. 1 in the appendix shows the forms of "Object occluded/not recognizable" and "Bounding box is unclear". Did the authors exploit the meta-annotation?
+
+If the ManyNames dataset will be publicly released, including information of annotators could be useful, e.g. for analyzing speaker-level variation.
+
+The target of the experience in Section 5 is unclear. What question do its results answer in summary?
+
+(L635-) The experimental setting is less organized well.
+
+Please rephrase the settings of the dataset and used labels. Currently, it's difficult to understand.
+
+What is the loss of training? Ground-truth targets are the actual distribution of names or top-1 names?
+
+L725-: These lines suggest it could improve "unreasonably hard top-1 evaluation" to "reasonably soft distributional evaluation". But, typical classification tasks (e.g. ImageNet) are based on their own exclusive class sets. How can we introduce ManyNames dataset for their evaluation?
+
+L206: "a dataset widely used in Psycholinguistics" Please add a reference to this. What is the dataset?
+
+Typos, Grammar, Style, and Presentation Improvements
+The paper often says that the ManyNames has "36" names for each object. But, it removed annotations partially and thus many objects have little less than 36 names. Please reconsider to modify expressions appropriately.
+L293-4: (i)'s "original name" and (ii)'s "object class" are the same one? If so, I feel it a little confusing due to the different expressions.
+
+L161: "To the best of ..." 
+One of the largest reasons why cross-classification is not often occurred/attended so far seems that the class set of typical datasets (e.g. ImageNet) are already well designed to eliminate such non-exclusive labels (to prevent the cross-classification phenomenon). They might consider the phenomenon behind the successful design of label sets. So, "received any attention" sounds a little overclaiming for me.
+
+
+Review #2
+What is this paper about, what contributions does it make, and what are the main strengths and weaknesses?
+PAPER SUMMARY The paper addresses the question of object naming in real-world images. The authors introduce the ManyNames dataset of object names in real-world images, collected using Mechanical Turk to elicit 36 names for ~25K object instances from Visual Genome (VG).
+The authors analyze their collected data, and compare their annotations to those in VG. They show that an object’s most common name in ManyNames is often not the same as its VG label, and moreover that an object’s most common ManyNames name and its VG label often share no nontrivial taxonomic relationship in the WordNet hierarchy.
+
+The authors also extract predictions from a vision model trained on VG (Bottom-up attention), and compare them with the VG annotations and the ManyNames annotations. Interestingly, the model’s predictions show greater agreement with ManyNames even though the model was trained on VG.
+
+STRENGTHS I agree with the authors’ central idea that real-world object naming has not been studied much to date in computer vision, and that this is an important direction for study if computer vision models are to communicate naturally with people.
+
+The ManyNames dataset is well-designed, and can be useful for future work in this direction.
+
+Overall the paper is well-written and easy to follow.
+
+WEAKNESSES My main criticism of the paper is that even if I accept the paper’s central claim that single object labels for visual objects is problematic, it’s not clear what the immediate takeaways or action items should be language+vision researchers. Since models trained on VG achieve very high absolute performance on ManyWords even without finetuning (92.5% on test images in the multi-label case), I do not think that ManyWords will be very useful for benchmarking progress on this task. Furthermore the authors do not propose any new models or techniques for predicting object names in the multi-name setting. As someone who has worked in language+vision, I feel that I didn’t learn much from this paper.
+
+Some of the more interesting results of the paper are that ManyWords object names are often different from VG, and that models trained on VG make predictions that are better-aligned with ManyWords annotations than with VG. I feel that these observations mainly reflect the high level of label noise in VG, rather than fundamental flaws with computer vision datasets more generally. For example, it would have been interesting to use the ManyWords data collection pipeline to re-annotate COCO object instances rather than VG object instances; compared to VG, COCO has very little label noise so I wonder whether the same findings would hold.
+
+I also have some concerns about the experiments in Section 5. First, I don’t like that the All and VG=/=MN splits in Table 1 contain both VG training images and VG test images; it is very nonstandard to report the results of any machine learning model on a mix of training and testing data, so I am hesitant to draw any strong conclusions from these results. It is much more standard to evaluate machine learning models only on novel test images; to the authors’ credit the \not Training split does exactly this, but I feel that this should be the main (and perhaps only?) evaluation split. Second, the authors only report results from a model trained on VG; how does the performance change if the model is further finetuned on ManyWords?
+
+
+Reasons to accept
+The ManyWords dataset can be useful for studying object naming in real-world images.
+Reasons to reject
+It’s not clear what the concrete takeaways or next steps should be for practitioners The conclusions may be too specific to VG and less relevant to vision datasets more generally
+
+Review #3
+What is this paper about, what contributions does it make, and what are the main strengths and weaknesses?
+The paper addresses the issues of discrepancy in naming objects. A new datasets was collected, with each instance (image) carefully selected from the VisualGenome dataset and labelled (named) by multiple tuckers. The name distribution represents the object better.
+Overall, the authors propose a very interesting and also important issue in the field of visual&language, that previous image recognition efforts did not cover, which is innovative and inspiring.
+
+Reasons to accept
+The proposed issue is important and visionary. The dataset is well collected and may support future research.
+Reasons to reject
+The work is rather technically simple.
+Questions for the Author(s)
+The authors should polish the tables, such as using "bold" to indicate improvement over baselines/other methods, to achieve better interpretation.
