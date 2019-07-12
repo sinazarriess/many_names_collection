@@ -42,7 +42,7 @@ In contrast to the works you list, our dataset and its analysis is not on referr
 It is a phenomenon underlying referring expressions. To understand how the choice of the name interacts with choosing attributes (modifiers, prepositional phrases), one needs to know which name variants exist and how they are related. 
 See also the last paragraph on page 791 (page 5) in the first paper you point out (Kazemzadeh et al., 2014) for the difference of referring expressions and canonical names (entry-level categories). It also that the paper adopts two standard assumptions:
 - naming variants are related hierarchically, which, as we show, is not the only relation in real-world images
-- there exists an entry-level (canonical name), we know which ones they are, and they are instance-invariant
+- there exists an entry-level (canonical name) and we know which ones they are, they are instance-invariant
 
 Unfortunately we found existing datasets (ReferIt, those based on MSCOCO, VisualGenome descriptions) to not provide the information necessary for linguistically studying object naming (and ultimately referring expressions): 
 * Regarding the ReferIt paper (Kazemzadeh et al., 2014) in particular: 
@@ -53,6 +53,9 @@ Unfortunately we found existing datasets (ReferIt, those based on MSCOCO, Visual
 * The situation is similar with respect to the datasets based on MSCOCO (https://arxiv.org/abs/1608.00272): 
 - On average, they also only have between 1.5 and 2.8 referring expressions per instance. 
 - They only cover the 80 MSCOCO categories, and these are of different levels of specificity (person, dog, tie, donut, ...).
+
+> Thus, the core question of this paper, "Do Objects in Real-World Images Have a Canonical Name?", will not impactful (at least, in the NLP community). I feel that people already know "no".
+Could you please provide the corresponding references which have analyzed and shown that real-world object instances do not have a preferred name most people would agree on, such that we can refer to this in our paper?
 
 L237: Balancing was conducted to avoid bias: Larger seeds subsumed more different VG object classes than smaller seeds. 
 
