@@ -76,6 +76,6 @@ if __name__=="__main__":
     verif_df = pd.concat(verif_annos).reset_index(drop=True)
     
     verif_df = preprocess_annos(verif_df,
-                                outfname=os.path.join(data_dir, "verif_annos_pilot.csv"))
+                                outfname=os.path.join(data_dir, "verification_pilot", "verif_annos_pilot.csv"))
 
     
