@@ -6,61 +6,27 @@ import sys
 import time
 import configparser
 
+import amt_api
 
-
-def connect_mturk(config):
-
-    mturk = boto3.client('mturk',
-       aws_access_key_id = config['credentials']['id'],
-       aws_secret_access_key = config['credentials']['key'],
-       region_name='us-east-1',
-       endpoint_url = config['endpoint']['url']
-    )
-    print("Connected")
-    return mturk
-
-def get_assignments(mturk,hitid):
-
-    aresponse = mturk.list_assignments_for_hit(
-                    HITId=hitid)
-    #print(aresponse)
-    if aresponse["NumResults"] < 1:
-        print("\nNo assignments yet for HIT %s." % (str(hitid)))
-        return []
-    
-    anext = aresponse['NextToken']
-    assignments = aresponse['Assignments']
-
-    print("\nget Hit",hitid)
-
-    while anext:
-        nresponse = mturk.list_assignments_for_hit(
-                    HITId=hitid,NextToken=anext)
-        #print(nresponse.keys())
-        nextassign = nresponse['Assignments']
-        assignments += nextassign
-
-        if 'NextToken' in nresponse:
-            anext = nresponse['NextToken']
-        else:
-            anext = None
-            
-
-    return assignments
-
-
-def monitor_submission(mturk, path_published, total_hits):
+def monitor_submission(mturk, path_published, total_hits, statuses=["Submitted"]):
     '''ask AMT for results'''
     known_hits = []
     total_assignments = 0
-    for filename in glob.glob(os.path.join(path_published, '*_final.json')):
+    
+    publication_files = glob.glob(os.path.join(path_published, '*_final.json'))
+    if len(publication_files) == 0:
+        # TODO: only take latest, since it contains all previous ones, too
+        publication_files = glob.glob(os.path.join(path_published, '*_uptobatch*.json'))
+        
+    for filename in publication_files:
         print(filename)
         with open(filename, 'r') as handle:
             parsed = json.load(handle)
-
         for item in parsed:
             if item['HIT']['HITId'] not in known_hits:
-                assignments = get_assignments(mturk,item['HIT']['HITId'])
+                assignments = amt_api.get_assignments(mturk,
+                                                      item['HIT']['HITId'],
+                                                      statuses=statuses)
                 print("HIT/Assignments",item['HIT']['HITId'], len(assignments))
                 total_assignments += len(assignments)
                 known_hits.append(item['HIT']['HITId'])
@@ -68,7 +34,6 @@ def monitor_submission(mturk, path_published, total_hits):
 
 
 if __name__ == "__main__":
-
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
@@ -82,13 +47,13 @@ if __name__ == "__main__":
     total_hits = int(CONFIG["batch"]["total"]) * int(CONFIG["batch"]["size"]) * int(CONFIG["hit"]["maxassignments"])
     data_path = os.path.dirname(sys.argv[1])
 
-    MTURK = connect_mturk(CONFIG)
+    MTURK = amt_api.connect_mturk(CONFIG)
     path_published = data_path
-
+    statuses = ["Submitted", "Approved"]
     while n_steps < max_steps:
-        monitor_submission(MTURK, path_published, total_hits)
+        monitor_submission(MTURK, path_published, total_hits, statuses=statuses)
         print("*****")
-        time.sleep(20)
+        time.sleep(200)
 
 
 

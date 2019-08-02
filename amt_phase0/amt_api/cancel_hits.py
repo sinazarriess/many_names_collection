@@ -11,6 +11,7 @@ import os
 import json
 import sys
 import configparser
+import datetime
 
 import amt_api
 
@@ -28,7 +29,7 @@ def cancel_hits(mturk, path_published):
         else:
             for item in parsed:
                 if item['HIT']['HITId'] not in known_hits:
-                    mturk.delete_hit(HITId=item['HIT']['HITId'])
+                    mturk.update_expiration_for_hit(HITId=item['HIT']['HITId'], ExpireAt=datetime.datetime(2018,1,1))
                     hits_canceled += 1
                     known_hits.append(item['HIT']['HITId'])
             print("%d hits canceled." % hits_canceled)

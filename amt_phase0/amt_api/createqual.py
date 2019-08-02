@@ -9,20 +9,13 @@ import sys
 #from boto3.mturk.question import Overview,AnswerSpecification,SelectionAnswer,FormattedContent
 #from boto3.mturk.qualification import Qualifications, Requirement
     
+import amt_api
+
 SCRIPTDIR = os.path.abspath(os.path.dirname(sys.argv[0]))
-def connect_mturk(config):
 
-    mturk = boto3.client('mturk',
-       aws_access_key_id = CONFIG['credentials']['id'],
-       aws_secret_access_key = CONFIG['credentials']['key'],
-       region_name='us-east-1',
-       endpoint_url = CONFIG['endpoint']['url']
-    )
-    print("Connected")
-    return mturk
 
-def make_qualification(mturk):
-    with open(os.path.join(SCRIPTDIR, '../questionqual.xml'), 'r') as myfile:
+def make_qualification(mturk, questionqual_xml):
+    with open(os.path.join(SCRIPTDIR, questionqual_xml), 'r') as myfile:
         question=myfile.read()
     with open(os.path.join(SCRIPTDIR, '../answerqual.xml'), 'r') as myfile:
         answer=myfile.read()
@@ -31,14 +24,14 @@ def make_qualification(mturk):
     print(answer)
         
     response = mturk.create_qualification_type(
-        Name='DataProtectionv0.1',
+        Name='TaskNotDoneBefore_DataProtv1.3',
         Keywords='data protection',
         Description='Please read our data protection policy and accept it',
         QualificationTypeStatus='Active',
         RetryDelayInSeconds=123,
         Test=question,
         AnswerKey=answer,
-        TestDurationInSeconds=30,
+        TestDurationInSeconds=300,
     )
     print(response)
     del response['QualificationType']['CreationTime']
@@ -48,8 +41,8 @@ def make_qualification(mturk):
         
     return True
 
-def update_qualification(mturk, qualtypeID):
-    with open(os.path.join(SCRIPTDIR, '../questionqual.xml'), 'r') as myfile:
+def update_qualification(mturk, qualtypeID, questionqual_xml):
+    with open(os.path.join(SCRIPTDIR, questionqual_xml), 'r') as myfile:
         question=myfile.read()
     with open(os.path.join(SCRIPTDIR, '../answerqual.xml'), 'r') as myfile:
         answer=myfile.read()
@@ -64,7 +57,7 @@ def update_qualification(mturk, qualtypeID):
         RetryDelayInSeconds=123,
         Test=question,
         AnswerKey=answer,
-        TestDurationInSeconds=30,
+        TestDurationInSeconds=300,
     )
     print(response)
     del response['QualificationType']['CreationTime']
@@ -79,22 +72,33 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
+    else:
+        configfile = sys.argv[1]
 
+    data_path = os.path.dirname(configfile)
+
+    log_dir = os.path.join(data_path, "logs")
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
     moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
-    logging.basicConfig(filename=moment+'.log',level=logging.INFO)
+    logging.basicConfig(filename=os.path.join(log_dir, moment+'.log'),level=logging.INFO)
 
 
     CONFIG = configparser.ConfigParser()
-    CONFIG.read(sys.argv[1])
-    logging.info("config file: "+sys.argv[1])
+    CONFIG.read(configfile)
+    print(CONFIG)
+    logging.info("config file: "+configfile)
+    questionqual_xml = '../questionqual_round1.xml'
 
-    MTURK = connect_mturk(CONFIG)
+    MTURK = amt_api.connect_mturk(CONFIG)
     
     if "protectionid" in CONFIG["qualification"]:
         sys.stdout.write("Config contains qualification protection (id %s). Updating qualification..." % (CONFIG["qualification"]["protectionid"]))
         logging.info("Updating qualification:")
         logging.info(CONFIG["qualification"]["protectionid"])
-        update_qualification(MTURK, CONFIG["qualification"]["protectionid"])
+        update_qualification(MTURK, CONFIG["qualification"]["protectionid"], questionqual_xml)
+        print("Qualification {0} updated.".format(CONFIG["qualification"]["protectionid"]))
     else:
-        make_qualification(MTURK)
+        make_qualification(MTURK, questionqual_xml)
+        print("Qualification created.")
     

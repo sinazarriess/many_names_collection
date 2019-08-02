@@ -2,18 +2,17 @@ import boto3
 import os
 import sys
 import configparser
-
+import datetime
 
 
 def connect_mturk(config):
-
     mturk = boto3.client('mturk',
        aws_access_key_id = config['credentials']['id'],
        aws_secret_access_key = config['credentials']['key'],
        region_name='us-east-1',
        endpoint_url = config['endpoint']['url']
     )
-    print("Connected")
+    sys.stderr.write("Connected")
     return mturk
 
 def get_all_hits(mturk):
@@ -34,6 +33,43 @@ def get_all_hits(mturk):
     
     return all_hit_ids
 
+def get_assignments(mturk, hitid, statuses):
+    aresponse = mturk.list_assignments_for_hit(
+                    HITId=hitid,
+                    AssignmentStatuses=statuses)
+    if aresponse["NumResults"] < 1:
+        print("\nNo assignments yet for HIT %s." % (str(hitid)))
+        return []
+    
+    anext = aresponse['NextToken']
+    assignments = aresponse['Assignments']
+
+    print("\nget Hit",hitid)
+
+    while anext:
+        nresponse = mturk.list_assignments_for_hit(
+                    HITId=hitid,NextToken=anext,AssignmentStatuses=statuses)
+        print(nresponse.keys())
+        nextassign = nresponse['Assignments']
+        assignments += nextassign
+
+        if 'NextToken' in nresponse:
+            anext = nresponse['NextToken']
+        else:
+            anext = None
+            
+    return assignments
+
+def parse_time(date_string):
+    """
+    >>> date_string = "2019-04-17 11:41:34+02:00"
+    >>> t = parse_time(date_string)
+    datetime(2019, 4, 17)
+    """
+    if isinstance(date_string, datetime.datetime):
+        return date_string
+    date_string = [int(a) for a in date_string.split()[0].split("-")]
+    return datetime.datetime(date_string[0], date_string[1], date_string[2])
 
 if __name__ == "__main__":
 

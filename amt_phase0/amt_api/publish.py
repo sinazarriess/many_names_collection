@@ -9,20 +9,10 @@ import sys
 
 BASE_IMG_URL = "http://object-naming-amore.upf.edu/"    
 
-def connect_mturk(config):
-
-    mturk = boto3.client('mturk',
-       aws_access_key_id = CONFIG['credentials']['id'],
-       aws_secret_access_key = CONFIG['credentials']['key'],
-       region_name='us-east-1',
-       endpoint_url = CONFIG['endpoint']['url']
-    )
-    print("Connected")
-    return mturk
+import amt_api
 
 
 def make_new_hit(n_images,imgdf,img_index):
-
     param_list = []
     out_img_dict = {}
     
@@ -45,7 +35,10 @@ def make_new_hit(n_images,imgdf,img_index):
         out_img_dict[str(him)] = (str(imgdf.iloc[img_index]['image_id']),\
             str(imgdf.iloc[img_index]['object_id']),
             imgdf.iloc[img_index]['sample_type'],
-            imgdf.iloc[img_index]['synset'], img_url)
+            imgdf.iloc[img_index]['synset'], 
+            imgdf.iloc[img_index]['obj_names'],
+            imgdf.iloc[img_index]['category'],
+            img_url)
 
 
         img_index += 1
@@ -54,7 +47,6 @@ def make_new_hit(n_images,imgdf,img_index):
     return param_list,out_img_dict,img_index
 
 def get_qualifications(config):
-    
     qlist = []
     
     if 'protectionid' in config['qualification']:
@@ -65,6 +57,13 @@ def get_qualifications(config):
         'Comparator': 'GreaterThanOrEqualTo',\
         'IntegerValues': [ 100 ],\
         'ActionsGuarded':'Accept'})
+        
+        # do not allow turkers who have a qualification of excludeprotectionid
+        for excludequali in config['qualification']['excludeprotectionid'].split(","):
+            qlist.append({'QualificationTypeId': excludequali.strip(),
+                'Comparator': 'NotIn',
+                'IntegerValues': [ -100, 100 ],
+                'ActionsGuarded':'DiscoverPreviewAndAccept'})      
     
     if 'sandbox' in config['endpoint']['url']:
         print("this is sandbox mode, no qualifications needed")
@@ -95,7 +94,6 @@ def get_qualifications(config):
     return qlist
 
 def publish_new_hit(mturk,config,hit_params,hit_quals):
-
     new_hit = mturk.create_hit(
     HITLayoutId    = config['layout']['id'],
     HITLayoutParameters = hit_params,
@@ -109,7 +107,10 @@ def publish_new_hit(mturk,config,hit_params,hit_quals):
     )
 
     print("A new HIT has been created. You can preview it here:")
-    print("https://workersandbox.mturk.com/mturk/preview?groupId=" + new_hit['HIT']['HITGroupId'])
+    if 'sandbox' in config['endpoint']['url']:
+        print("https://workersandbox.mturk.com/mturk/preview?groupId=" + new_hit['HIT']['HITGroupId'])
+    else:
+        print("https://worker.mturk.com/mturk/preview?groupId=" + new_hit['HIT']['HITGroupId'])
     print("HITID = " + new_hit['HIT']['HITId'] + " (Use to Get Results)")
     del new_hit['HIT']['Question']
     del new_hit['HIT']['CreationTime']
@@ -123,13 +124,12 @@ def publish_new_hit(mturk,config,hit_params,hit_quals):
 
 
 if __name__ == '__main__':
-
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
     else:
         configfile = sys.argv[1]
-        
+    
     data_path = os.path.dirname(configfile)
     
     log_dir = os.path.join(data_path, "logs")
@@ -141,10 +141,9 @@ if __name__ == '__main__':
 
     CONFIG = configparser.ConfigParser()
     CONFIG.read(configfile)
-
     logging.info("config file: "+configfile)
 
-    MTURK = connect_mturk(CONFIG)
+    MTURK = amt_api.connect_mturk(CONFIG)
 
     QUALS = get_qualifications(CONFIG)
     logging.info("Qualifications:")
@@ -164,8 +163,9 @@ if __name__ == '__main__':
     if img_index >= len(imgdf):
         logging.warning("Check your image index. I will exit now.")
         sys.exit()
-
-    for batch_index in range(int(CONFIG['batch']['total'])):
+    
+    start_batch_idx = int(int(CONFIG['batch']['initial_img']) / int(CONFIG['batch']['size']) / int(CONFIG['hit']['nimages']))
+    for batch_index in range(start_batch_idx, int(CONFIG['batch']['total'])):
         logging.info("Time: "+time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
         logging.info("Batch: "+str(batch_index))
 

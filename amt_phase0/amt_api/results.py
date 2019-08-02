@@ -7,24 +7,13 @@ import xmltodict
 import sys
 import configparser
 
+import amt_api
 
-
-def connect_mturk(config):
-
-    mturk = boto3.client('mturk',
-       aws_access_key_id = config['credentials']['id'],
-       aws_secret_access_key = config['credentials']['key'],
-       region_name='us-east-1',
-       endpoint_url = config['endpoint']['url']
-    )
-    print("Connected")
-    return mturk
-
-def get_assignments(mturk,hitid):
-
+# deprecated, see amt_api
+def _get_assignments(mturk,hitid,statuses=['Approved']):
     aresponse = mturk.list_assignments_for_hit(
                     HITId=hitid,
-                    AssignmentStatuses=['Approved'])
+                    AssignmentStatuses=statuses)
     if aresponse["NumResults"] < 1:
         print("\nNo assignments yet for HIT %s." % (str(hitid)))
         return []
@@ -36,7 +25,7 @@ def get_assignments(mturk,hitid):
 
     while anext:
         nresponse = mturk.list_assignments_for_hit(
-                    HITId=hitid,NextToken=anext,AssignmentStatuses=['Approved'])
+                    HITId=hitid,NextToken=anext,AssignmentStatuses=statuses)
         #print(nresponse.keys())
         nextassign = nresponse['Assignments']
         assignments += nextassign
@@ -50,27 +39,27 @@ def get_assignments(mturk,hitid):
     return assignments
 
 
-def get_results(mturk,path_published,path_results):
-    '''ask AMT for results'''
+def get_results(mturk, path_published, path_results, ass_statuses):
+    '''ask AMT for results'''    
     for filename in glob.glob(os.path.join(path_published, '*final.json')):
         print(filename)
         with open(filename, 'r') as handle:
             parsed = json.load(handle)
 
         hit_results = []
-        comments = []
+        #comments = []
+        comments_outfile = open(os.path.join(path_results, "comments.txt"), 'w')
 
         for item in parsed:
             #print(item)
 
-            assignments = get_assignments(mturk,item['HIT']['HITId'])
+            assignments = amt_api.get_assignments(mturk, 
+                                                  item['HIT']['HITId'],
+                                                  statuses=ass_statuses)
 
             print("HIT/Assignments",item['HIT']['HITId'],len(assignments))
 
             if len(assignments) > 0:
-                #print("Found assignments")
-                #print(assignments)
-                
                 hit_out_dict = {'HITId':item['HIT']['HITId'], \
                                 'Assignments':[]
                                }
@@ -103,7 +92,11 @@ def get_results(mturk,path_published,path_results):
 
                         if 'comments' in param:
                             if a['FreeText']:
-                                comments.append(worker_id + "\t" + hit_out_dict["HITId"] + "\t" + a['FreeText'])
+                                #comments.append(worker_id + "\t" + hit_out_dict["HITId"] + "\t" + a['FreeText'])
+                                try:
+                                    comments_outfile.write(worker_id + "\t" + hit_out_dict["HITId"] + "\t" + a['FreeText'] + "\n")
+                                except UnicodeEncodeError:
+                                    comments_outfile.write(worker_id + "\t" + hit_out_dict["HITId"] + "\t" + "UNKNOWN SYMBOLS" + "\n") # workers use emojis
 
                     #print(answer_out_dict)
                     assignment_out_dict['Answers'] = answer_out_dict
@@ -111,35 +104,36 @@ def get_results(mturk,path_published,path_results):
 
                 hit_results.append(hit_out_dict)
 
-        outname = os.path.join(path_results, "answers-" + os.path.basename(filename))
+        comments_outfile.close()
+        
+        infix = "" if "Submitted" not in ass_statuses else "submitted-"
+        outname = os.path.join(path_results, "answers-%s" %(infix) + os.path.basename(filename))    
         with open(outname, 'w') as outfile:
             json.dump(hit_results, outfile)
         outfile.close()
 
-        outname = os.path.join(path_results, "comments.txt")
-        with open(outname, 'w') as outfile:
-            outfile.write("\n".join(comments))
-        outfile.close()
-
 
 if __name__ == "__main__":
-
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
+    else:
+        configfile = sys.argv[1]
     
     CONFIG = configparser.ConfigParser()
-    CONFIG.read(sys.argv[1])
-    data_path = os.path.dirname(sys.argv[1])
-    MTURK = connect_mturk(CONFIG)
+    CONFIG.read(configfile)
+    data_path = os.path.dirname(configfile)
+    MTURK = amt_api.connect_mturk(CONFIG)
 
-    print("trying to create folder "+CONFIG['data']['resultdir'])
+    print("Trying to create folder "+CONFIG['data']['resultdir'])
     if os.path.isdir(CONFIG['data']['resultdir']):
         print("Result Directory  "+CONFIG['data']['resultdir']+ " exists! I won't do anything now.")
         sys.exit()
 
     os.makedirs(CONFIG['data']['resultdir'])
 
-
     path_published = data_path
-    get_results(MTURK,path_published,CONFIG['data']['resultdir'])
+    ass_status = ["Approved"] #["Submitted"]
+    get_results(MTURK, path_published, 
+                CONFIG['data']['resultdir'], 
+                ass_statuses=ass_status)
