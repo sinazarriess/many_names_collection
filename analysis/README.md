@@ -1,14 +1,12 @@
 **Data**
 
 
-
-
+* see `raw_data_phase0` for raw data collected from AMT
+* see `proc_data_phase0`for preprocessed data
+  - `proc_data_phase0/basic_preprocessing/all_results_files_preprocessed_rounds0-3.csv` is essentially the basic ManyNames dataset
+* some of the scripts in this folder might have outdated paths to data files
 
 **Scripts**
-
-Before running `analyse.py` or `amt_phase0/scripts/run_checkpoint.py`, preprocess all result csvs and create a single csv file, augmented with our domain labels:<br>
-`analysis/preprocess_results.py ../data_phase0/roundX/` <br>
-==> `data_phase0/roundX/all_results_files_preprocessed_roundX.csv` <br> 
 
 
 **Confusion matrix**<br>
