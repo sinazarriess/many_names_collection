@@ -66,6 +66,7 @@ def preprocess_annos(verif_df, outfname=None):
 
 
 if __name__=="__main__":
+    # paths to be adapted to new structure in github repo
     data_dir = sys.argv[1] if len(sys.argv) > 1 else "../data_phase0/"
     res_df = load_cleaned_results(os.path.join(data_dir, "all_responses_round0-3_cleaned.csv"))
     
