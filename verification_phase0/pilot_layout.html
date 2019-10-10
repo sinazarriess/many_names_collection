@@ -1,0 +1,112 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <!-- The crowd-classifier element will create a tool for the Worker to select the
+           correct answer to your question.
+
+          Your image file URLs will be substituted for the "image_url" variable below 
+          when you publish a batch with a CSV input file containing multiple image file URLs.
+          To preview the element with an example image, try setting the src attribute to
+          "https://s3.amazonaws.com/cv-demo-images/one-bird.jpg" -->
+    <div class="column">
+        <table>
+        <tr>
+            <td>
+                <crowd-classifier 
+                    categories="['Yes', 'Not sure', 'No']"
+                    header="Did crowdsourcers name the same real-world object as the VG annotator?"
+                    name="identification">
+                    <classification-target>
+                        <p>
+                            <strong>VG Name: </strong>
+                            ${vg_name_1}
+                        </p>
+                      	  <p>
+                              <strong>Crowdsourced Name: </strong>
+                              ${response_1_1}
+                          </p>
+                      	  <p>
+                      	     <img style="height: 50%; margin-bottom: 10px" src="${image_url_1}"/>
+                          </p>
+                    </classification-target>
+                   <!-- Use the short-instructions section for quick instructions that the Worker
+                          will see while working on the task. Including some basic examples of 
+                          good and bad answers here can help get good results. You can include 
+                          any HTML here. -->
+                    <short-instructions>
+                        <p>You know what to do.</p>
+                    </short-instructions>
+                    <!-- Use the full-instructions section for more detailed instructions that the 
+                          Worker can open while working on the task. Including more detailed 
+                          instructions and additional examples of good and bad answers here can
+                          help get good results. You can include any HTML here. -->
+                    <full-instructions header="Instructs">
+                        <p>You know what to do.</p>
+                    </full-instructions>
+                </crowd-classifier>
+            </td>
+            <td>
+                <table>
+                <tr bgcolor="#DCDDFF">
+                    <td>
+                        <p>If <b>YES</b> or <b>NOT SURE</b>:<br/>Is the name correct/reasonable?</p>
+                        <crowd-radio-group>
+                            <br/>Correct
+                            <crowd-radio-button
+                                name="correct">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="quite correct">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="correct_not_sure">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="not_really_correct">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="incorrect">
+                            </crowd-radio-button>
+                            Incorrect<br/>
+                        </crowd-radio-group>
+                    </td>
+                </tr>
+                <tr bgcolor="#FFECDC">
+                    <td>
+                        <p><br/>If <b>NO</b> or <b>NOTE SURE</b>:<br/>Is the bounding box ambiguous?</p>
+                        <crowd-radio-group>
+                            Yes
+                            <crowd-radio-button
+                                name="ambiguous_box">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="ambiguous_box_notsure">
+                            </crowd-radio-button>
+                            <crowd-radio-button
+                                name="no_ambiguous_box">
+                            </crowd-radio-button>
+                            No<br/>
+                        </crowd-radio-group>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <crowd-text-area
+                            name="comments_1"
+                            placeholder="Any comments?"
+                        >
+                        </crowd-text-area>
+                    </td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+    </div>
+</crowd-form>

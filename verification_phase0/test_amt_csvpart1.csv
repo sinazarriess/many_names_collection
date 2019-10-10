@@ -1,0 +1,351 @@
+image_url_1,vg_name_1,response_1_1
+http://object-naming-amore.upf.edu//2359286_2031767_singleton_obj.png,ambulance,van
+http://object-naming-amore.upf.edu//2348296_1816577_singleton_obj.png,scooter,bike
+http://object-naming-amore.upf.edu//2348296_1816577_singleton_obj.png,scooter,moped
+http://object-naming-amore.upf.edu//2348296_1816577_singleton_obj.png,scooter,motorcycle
+http://object-naming-amore.upf.edu//2357516_811425_singleton_obj.png,car,truck
+http://object-naming-amore.upf.edu//2357516_811425_singleton_obj.png,car,mirror
+http://object-naming-amore.upf.edu//2357516_811425_singleton_obj.png,car,vehicle
+http://object-naming-amore.upf.edu//2406532_293946_singleton_obj.png,jet,fighter jet
+http://object-naming-amore.upf.edu//2406532_293946_singleton_obj.png,jet,aircraft
+http://object-naming-amore.upf.edu//2406532_293946_singleton_obj.png,jet,airplane
+http://object-naming-amore.upf.edu//2406532_293946_singleton_obj.png,jet,plane
+http://object-naming-amore.upf.edu//2363753_2630772_singleton_obj.png,truck,bike
+http://object-naming-amore.upf.edu//2363753_2630772_singleton_obj.png,truck,vehicle
+http://object-naming-amore.upf.edu//2363753_2630772_singleton_obj.png,truck,car
+http://object-naming-amore.upf.edu//2363753_2630772_singleton_obj.png,truck,wheel
+http://object-naming-amore.upf.edu//2323738_2709711_singleton_obj.png,motorbike,vehicles
+http://object-naming-amore.upf.edu//2323738_2709711_singleton_obj.png,motorbike,wheel
+http://object-naming-amore.upf.edu//2323738_2709711_singleton_obj.png,motorbike,bike
+http://object-naming-amore.upf.edu//2323738_2709711_singleton_obj.png,motorbike,motorcycle
+http://object-naming-amore.upf.edu//2364342_2609948_seed_ambiguous.png,aircraft,plane
+http://object-naming-amore.upf.edu//2364342_2609948_seed_ambiguous.png,aircraft,jet
+http://object-naming-amore.upf.edu//2364342_2609948_seed_ambiguous.png,aircraft,airplane
+http://object-naming-amore.upf.edu//2364342_2609948_seed_ambiguous.png,aircraft,runway
+http://object-naming-amore.upf.edu//2364342_2609948_seed_ambiguous.png,aircraft,tarmac
+http://object-naming-amore.upf.edu//2347127_1974512_singleton_obj.png,motorcycle,bike
+http://object-naming-amore.upf.edu//2347127_1974512_singleton_obj.png,motorcycle,number plate
+http://object-naming-amore.upf.edu//2347127_1974512_singleton_obj.png,motorcycle,motorbike
+http://object-naming-amore.upf.edu//2347127_1974512_singleton_obj.png,motorcycle,vehicle
+http://object-naming-amore.upf.edu//2347127_1974512_singleton_obj.png,motorcycle,wheel
+http://object-naming-amore.upf.edu//2359985_3421198_singleton_obj.png,motorbike,motorcycle
+http://object-naming-amore.upf.edu//2359985_3421198_singleton_obj.png,motorbike,wheel
+http://object-naming-amore.upf.edu//2359985_3421198_singleton_obj.png,motorbike,bikes
+http://object-naming-amore.upf.edu//2359985_3421198_singleton_obj.png,motorbike,motorcycles
+http://object-naming-amore.upf.edu//2359985_3421198_singleton_obj.png,motorbike,pavement
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,ground
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,airport
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,runway
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,road
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2318524_1009820_singleton_obj.png,plane,tarmac
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,bike
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,motorcycle
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,motorbike
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,wheel
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,bicycle
+http://object-naming-amore.upf.edu//2417254_2930050_singleton_obj.png,scooter,moped
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,trailer
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,cargo
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,wagon
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,cart
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,vehicle
+http://object-naming-amore.upf.edu//2369895_3861069_singleton_obj.png,truck,wheel
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,bike
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,plane
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,truck
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,boat
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,wheel
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,airplane
+http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png,helicopter,man
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,hang glider
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,paraglider
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,vehicle
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,plane
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,airplane
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,glider
+http://object-naming-amore.upf.edu//2366670_2170602_singleton_obj.png,aircraft,sky
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,bike
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,bridge
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,window
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,gas station
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,motorcycle
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,canopy
+http://object-naming-amore.upf.edu//2409288_244965_singleton_obj.png,car,building
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,parking lot
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,road
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,runway
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,car
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,racetrack
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,asphalt
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,lot
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,pavement
+http://object-naming-amore.upf.edu//2371526_3247948_singleton_obj.png,plane,tarmac
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,road
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,grass
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,land
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,airfield
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,field
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,runway
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,landing strip
+http://object-naming-amore.upf.edu//2355185_2071636_singleton_obj.png,plane,tarmac
+http://object-naming-amore.upf.edu//2413518_172027_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2344863_912505_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2373931_1674850_singleton_obj.png,motorcycle,bike
+http://object-naming-amore.upf.edu//2390562_3827922_singleton_obj.png,airplane,plane
+http://object-naming-amore.upf.edu//1592751_2786882_singleton_obj.png,car,wheel
+http://object-naming-amore.upf.edu//2412789_3183697_supercat_ambiguous.png,truck,wheel
+http://object-naming-amore.upf.edu//2374968_724236_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2410999_3814271_singleton_obj.png,airplane,plane
+http://object-naming-amore.upf.edu//2340559_3261006_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2370015_607119_singleton_obj.png,plane,airplane
+http://object-naming-amore.upf.edu//2377664_564264_singleton_obj.png,bench,chair
+http://object-naming-amore.upf.edu//2384406_1309841_supercat_unique.png,bed,book
+http://object-naming-amore.upf.edu//2406793_290252_seed_ambiguous.png,curtain,window
+http://object-naming-amore.upf.edu//2416721_1057086_supercat_unique.png,counter,table
+http://object-naming-amore.upf.edu//2416721_1057086_supercat_unique.png,counter,kitchen counter
+http://object-naming-amore.upf.edu//2416721_1057086_supercat_unique.png,counter,countertop
+http://object-naming-amore.upf.edu//2417054_3245468_seed_ambiguous.png,cabinet,t-shirt
+http://object-naming-amore.upf.edu//2417054_3245468_seed_ambiguous.png,cabinet,cup board
+http://object-naming-amore.upf.edu//2417054_3245468_seed_ambiguous.png,cabinet,hutch
+http://object-naming-amore.upf.edu//2316022_2921754_singleton_obj.png,armchair,sofa
+http://object-naming-amore.upf.edu//2316022_2921754_singleton_obj.png,armchair,chair
+http://object-naming-amore.upf.edu//2316022_2921754_singleton_obj.png,armchair,couch
+http://object-naming-amore.upf.edu//2358962_797293_supercat_unique.png,carpet,bike
+http://object-naming-amore.upf.edu//2358962_797293_supercat_unique.png,carpet,wheel
+http://object-naming-amore.upf.edu//2358962_797293_supercat_unique.png,carpet,floor
+http://object-naming-amore.upf.edu//2358962_797293_supercat_unique.png,carpet,rug
+http://object-naming-amore.upf.edu//2333343_3140573_singleton_obj.png,counter,stove top
+http://object-naming-amore.upf.edu//2333343_3140573_singleton_obj.png,counter,gas stove
+http://object-naming-amore.upf.edu//2333343_3140573_singleton_obj.png,counter,stove
+http://object-naming-amore.upf.edu//2333343_3140573_singleton_obj.png,counter,countertop
+http://object-naming-amore.upf.edu//2351407_3897542_singleton_obj.png,desk,table
+http://object-naming-amore.upf.edu//2351407_3897542_singleton_obj.png,desk,countertop
+http://object-naming-amore.upf.edu//2351407_3897542_singleton_obj.png,desk,laptop
+http://object-naming-amore.upf.edu//2351407_3897542_singleton_obj.png,desk,counter
+http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png,pan,frying pan
+http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png,pan,food
+http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png,pan,bowl
+http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png,pan,salad
+http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png,pan,wok
+http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png,curtain,toilet
+http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png,curtain,wallpaper
+http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png,curtain,restroom
+http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png,curtain,sing
+http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png,curtain,shower curtain
+http://object-naming-amore.upf.edu//2392444_668056_singleton_obj.png,lamp,light
+http://object-naming-amore.upf.edu//2392444_668056_singleton_obj.png,lamp,tree
+http://object-naming-amore.upf.edu//2392444_668056_singleton_obj.png,lamp,street light
+http://object-naming-amore.upf.edu//2392444_668056_singleton_obj.png,lamp,streetlamp
+http://object-naming-amore.upf.edu//2392444_668056_singleton_obj.png,lamp,lamp post
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,table
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,food
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,fruit
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,fruit stand
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,apple
+http://object-naming-amore.upf.edu//1591786_1603721_seed_ambiguous.png,counter,fruits
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,shelf
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,bookshelves
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,child
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,bookshelf
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,girl
+http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png,bookcase,bag
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,stand
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,chair
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,furniture
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,entertainment center
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,table
+http://object-naming-amore.upf.edu//2334627_964696_seed_ambiguous.png,cabinet,television
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,tray
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,meal
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,food
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,bent
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,plate
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,container
+http://object-naming-amore.upf.edu//2417937_3116969_singleton_obj.png,bowl,rice
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,stand
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,furniture
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,hatstand
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,shelf
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,entertainment center
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,table
+http://object-naming-amore.upf.edu//2340044_2088324_singleton_obj.png,cabinet,console
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,seat
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,bed
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,sofa
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,chair
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,couch
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,pillow
+http://object-naming-amore.upf.edu//2347821_2230989_singleton_obj.png,furniture,bag
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,plank
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,pant
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,platform
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,board
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,wood
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,glows
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,man
+http://object-naming-amore.upf.edu//4220_1557332_singleton_obj.png,table,watch
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,stand
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,furniture
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,hatstand
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,shelf
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,rake
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,entertainment stand
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,entertainment center
+http://object-naming-amore.upf.edu//2323662_989124_singleton_obj.png,cabinet,table
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,chicken
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,pot
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,toy
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,canister
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,tea pot
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,cookie jar
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,container
+http://object-naming-amore.upf.edu//2316735_3170310_supercat_ambiguous.png,jar,bird
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,stand
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,furniture
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,hatstand
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,shelves
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,shelf
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,television stand
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,entertainment center
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,table
+http://object-naming-amore.upf.edu//2387321_1277095_singleton_obj.png,cabinet,console
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,knee
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,cloth
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,leg
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,chair
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,jeans
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,saddle
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,pants
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,blanket
+http://object-naming-amore.upf.edu//2404756_338301_singleton_obj.png,rug,shoe
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,cutting board
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,pizza board
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,spatula
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,paddle
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,pizza
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,pizza pan
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,peel
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,pizza peel
+http://object-naming-amore.upf.edu//2383412_1320944_supercat_ambiguous.png,pan,pizza paddle
+http://object-naming-amore.upf.edu//2405561_330994_singleton_obj.png,desk,table
+http://object-naming-amore.upf.edu//2405561_330994_singleton_obj.png,desk,laptop
+http://object-naming-amore.upf.edu//2397454_434022_supercat_unique.png,couch,sofa
+http://object-naming-amore.upf.edu//2397454_434022_supercat_unique.png,couch,laptop
+http://object-naming-amore.upf.edu//2317921_3471988_seed_ambiguous.png,bench,seat
+http://object-naming-amore.upf.edu//2317921_3471988_seed_ambiguous.png,bench,t-shirt
+http://object-naming-amore.upf.edu//2317212_1022693_singleton_obj.png,counter,chair
+http://object-naming-amore.upf.edu//2317212_1022693_singleton_obj.png,counter,bar
+http://object-naming-amore.upf.edu//2365794_2346707_singleton_obj.png,bed,bed sheet
+http://object-naming-amore.upf.edu//2365794_2346707_singleton_obj.png,bed,bed cover
+http://object-naming-amore.upf.edu//2044_1629170_singleton_obj.png,couch,sofa
+http://object-naming-amore.upf.edu//2044_1629170_singleton_obj.png,couch,chair
+http://object-naming-amore.upf.edu//2388024_675908_singleton_obj.png,bridge,building
+http://object-naming-amore.upf.edu//2342774_2563941_singleton_obj.png,house,building
+http://object-naming-amore.upf.edu//2385974_684689_singleton_obj.png,garage,building
+http://object-naming-amore.upf.edu//2411186_315568_singleton_obj.png,dugout,pants
+http://object-naming-amore.upf.edu//2411186_315568_singleton_obj.png,dugout,pant
+http://object-naming-amore.upf.edu//2411186_315568_singleton_obj.png,dugout,shoe
+http://object-naming-amore.upf.edu//2393419_1220121_supercat_unique.png,house,stairs
+http://object-naming-amore.upf.edu//2393419_1220121_supercat_unique.png,house,building
+http://object-naming-amore.upf.edu//2393419_1220121_supercat_unique.png,house,porch
+http://object-naming-amore.upf.edu//2354552_2038175_supercat_ambiguous.png,palace,castle
+http://object-naming-amore.upf.edu//2354552_2038175_supercat_ambiguous.png,palace,bridge
+http://object-naming-amore.upf.edu//2354552_2038175_supercat_ambiguous.png,palace,building
+http://object-naming-amore.upf.edu//2398442_425300_supercat_unique.png,bridge,arch
+http://object-naming-amore.upf.edu//2398442_425300_supercat_unique.png,bridge,tunnel
+http://object-naming-amore.upf.edu//2398442_425300_supercat_unique.png,bridge,overpass
+http://object-naming-amore.upf.edu//2398442_425300_supercat_unique.png,bridge,train
+http://object-naming-amore.upf.edu//2367473_1781262_singleton_obj.png,dugout,spectators
+http://object-naming-amore.upf.edu//2367473_1781262_singleton_obj.png,dugout,fence
+http://object-naming-amore.upf.edu//2367473_1781262_singleton_obj.png,dugout,bench
+http://object-naming-amore.upf.edu//2367473_1781262_singleton_obj.png,dugout,man
+http://object-naming-amore.upf.edu//2332753_968617_singleton_obj.png,cathedral,tower
+http://object-naming-amore.upf.edu//2332753_968617_singleton_obj.png,cathedral,church
+http://object-naming-amore.upf.edu//2332753_968617_singleton_obj.png,cathedral,clock tower
+http://object-naming-amore.upf.edu//2332753_968617_singleton_obj.png,cathedral,building
+http://object-naming-amore.upf.edu//713704_3796731_singleton_obj.png,house,living room
+http://object-naming-amore.upf.edu//713704_3796731_singleton_obj.png,house,sofa
+http://object-naming-amore.upf.edu//713704_3796731_singleton_obj.png,house,chair
+http://object-naming-amore.upf.edu//713704_3796731_singleton_obj.png,house,room
+http://object-naming-amore.upf.edu//713704_3796731_singleton_obj.png,house,window
+http://object-naming-amore.upf.edu//2396724_1195691_singleton_obj.png,restaurant,store
+http://object-naming-amore.upf.edu//2396724_1195691_singleton_obj.png,restaurant,window
+http://object-naming-amore.upf.edu//2396724_1195691_singleton_obj.png,restaurant,bar
+http://object-naming-amore.upf.edu//2396724_1195691_singleton_obj.png,restaurant,building
+http://object-naming-amore.upf.edu//2396724_1195691_singleton_obj.png,restaurant,store front
+http://object-naming-amore.upf.edu//2411688_3566937_supercat_unique.png,garage,shop
+http://object-naming-amore.upf.edu//2411688_3566937_supercat_unique.png,garage,door
+http://object-naming-amore.upf.edu//2411688_3566937_supercat_unique.png,garage,motorcycle
+http://object-naming-amore.upf.edu//2411688_3566937_supercat_unique.png,garage,building
+http://object-naming-amore.upf.edu//2411688_3566937_supercat_unique.png,garage,storefront
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,bed
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,bedroom
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,bed sheet
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,room
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,wall
+http://object-naming-amore.upf.edu//2348515_881559_supercat_unique.png,hotel,window
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,store
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,pizza hut
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,house
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,shop
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,building
+http://object-naming-amore.upf.edu//2379767_1354596_singleton_obj.png,restaurant,storefront
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,store
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,storefront
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,wheel
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,cycle
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,building
+http://object-naming-amore.upf.edu//2322040_3572674_singleton_obj.png,restaurant,store front
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,awning
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,depot
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,bridge
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,bus stop
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,bus station
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,station
+http://object-naming-amore.upf.edu//2343870_3370396_singleton_obj.png,shelter,bus
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,clock
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,window
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,bars
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,tower
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,railing
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,building
+http://object-naming-amore.upf.edu//2410526_215380_singleton_obj.png,grill,fence
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,harbor
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,port
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,dock
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,marina
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,lake
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,water
+http://object-naming-amore.upf.edu//2353515_1824828_singleton_obj.png,resort,village
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,awning
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,light
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,overhang
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,canopy
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,station
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,platform
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,roof
+http://object-naming-amore.upf.edu//2388567_672530_singleton_obj.png,pavilion,shelter
+http://object-naming-amore.upf.edu//2380323_1348021_supercat_unique.png,house,man
+http://object-naming-amore.upf.edu//2380323_1348021_supercat_unique.png,house,building
+http://object-naming-amore.upf.edu//2401100_1151631_singleton_obj.png,bridge,fence
+http://object-naming-amore.upf.edu//2401100_1151631_singleton_obj.png,bridge,tree
+http://object-naming-amore.upf.edu//2408724_256110_supercat_unique.png,house,building
+http://object-naming-amore.upf.edu//2408724_256110_supercat_unique.png,house,truck
+http://object-naming-amore.upf.edu//2348021_1679004_supercat_unique.png,dugout,cap
+http://object-naming-amore.upf.edu//2348021_1679004_supercat_unique.png,dugout,baseball players
+http://object-naming-amore.upf.edu//2351225_2226010_singleton_obj.png,bridge,road
+http://object-naming-amore.upf.edu//2351225_2226010_singleton_obj.png,bridge,street
+http://object-naming-amore.upf.edu//2360826_2041729_singleton_obj.png,house,barn
+http://object-naming-amore.upf.edu//2360826_2041729_singleton_obj.png,house,building
+http://object-naming-amore.upf.edu//2381045_542564_singleton_obj.png,bridge,track
+http://object-naming-amore.upf.edu//2381045_542564_singleton_obj.png,bridge,train
+http://object-naming-amore.upf.edu//782_1059153_singleton_obj.png,house,building
+http://object-naming-amore.upf.edu//782_1059153_singleton_obj.png,house,window
+http://object-naming-amore.upf.edu//2357727_3037329_singleton_obj.png,dugout,fence
+http://object-naming-amore.upf.edu//2357727_3037329_singleton_obj.png,dugout,bat
+http://object-naming-amore.upf.edu//2374644_586413_singleton_obj.png,house,umbrella
+http://object-naming-amore.upf.edu//2374644_586413_singleton_obj.png,house,building
+http://object-naming-amore.upf.edu//2363842_2563217_singleton_obj.png,house,window
+http://object-naming-amore.upf.edu//2363842_2563217_singleton_obj.png,house,building
