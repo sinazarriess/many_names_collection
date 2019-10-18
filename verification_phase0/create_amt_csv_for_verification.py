@@ -184,7 +184,7 @@ df_amt = pd.DataFrame(rows, columns=header)
 
 print(df_amt[:20].to_string())
 
-with open('verification_pilot_amt.csv', 'w+') as outfile:
+with open('verification_phase0/verification_pilot_amt.csv', 'w+') as outfile:
     df_amt.to_csv(outfile, index=False)
 
 
