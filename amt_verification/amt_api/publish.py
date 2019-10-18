@@ -1,4 +1,3 @@
-import boto3
 import pandas as pd
 import time
 import json
@@ -7,103 +6,67 @@ import logging
 import os
 import sys
 
-BASE_IMG_URL = "http://object-naming-amore.upf.edu/"    
-
 import amt_api
 
 
-def make_new_hit(n_images,imgdf,img_index):
-    param_list = []
-    out_img_dict = {}
-    
-    for him in range(n_images):
-
-        param_dict = {}
-        param_dict['Name'] = 'img_%d_url'%him
-
-        if img_index >= len(imgdf):
-            img_index = 0
-            logging.warning("Reset image index to 0!")
-
-        img_url = '%s/%d_%d_%s.png' % \
-        (BASE_IMG_URL,
-         imgdf.iloc[img_index]['image_id'],\
-            imgdf.iloc[img_index]['object_id'],
-            imgdf.iloc[img_index]['sample_type'])
-        param_dict['Value'] = img_url
-
-        out_img_dict[str(him)] = (str(imgdf.iloc[img_index]['image_id']),\
-            str(imgdf.iloc[img_index]['object_id']),
-            imgdf.iloc[img_index]['sample_type'],
-            imgdf.iloc[img_index]['synset'], 
-            imgdf.iloc[img_index]['obj_names'],
-            imgdf.iloc[img_index]['category'],
-            img_url)
-
-
-        img_index += 1
-        param_list.append(param_dict)
-
-    return param_list,out_img_dict,img_index
-
 def get_qualifications(config):
     qlist = []
-    
+
     if 'protectionid' in config['qualification']:
-        
         print("create hit with data protection qualification")
-        
-        qlist.append({'QualificationTypeId': config['qualification']['protectionid'],\
-        'Comparator': 'GreaterThanOrEqualTo',\
-        'IntegerValues': [ 100 ],\
-        'ActionsGuarded':'Accept'})
-        
-        # do not allow turkers who have a qualification of excludeprotectionid
-        for excludequali in config['qualification']['excludeprotectionid'].split(","):
-            qlist.append({'QualificationTypeId': excludequali.strip(),
-                'Comparator': 'NotIn',
-                'IntegerValues': [ -100, 100 ],
-                'ActionsGuarded':'DiscoverPreviewAndAccept'})      
-    
+
+        qlist.append({'QualificationTypeId': config['qualification']['protectionid'], \
+                      'Comparator': 'GreaterThanOrEqualTo', \
+                      'IntegerValues': [100], \
+                      'ActionsGuarded': 'Accept'})
+
+        # # do not allow turkers who have a qualification of excludeprotectionid
+        # for excludequali in config['qualification']['excludeprotectionid'].split(","):
+        #     qlist.append({'QualificationTypeId': excludequali.strip(),
+        #         'Comparator': 'NotIn',
+        #         'IntegerValues': [ -100, 100 ],
+        #         'ActionsGuarded':'DiscoverPreviewAndAccept'})
+
     if 'sandbox' in config['endpoint']['url']:
         print("this is sandbox mode, no qualifications needed")
         return qlist
 
-    qlist.extend([
-        {'QualificationTypeId': '00000000000000000040',
-        'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [
-            int(config['qualification']['approvedhits']),
-            ],
-        'ActionsGuarded':'PreviewAndAccept'},
-        {'QualificationTypeId': '000000000000000000L0',
-        'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [
-            int(config['qualification']['approvalrate']),
-            ],'ActionsGuarded':'PreviewAndAccept'},
-        {'QualificationTypeId' : '00000000000000000071',
-                'Comparator' : 'In',
-                'LocaleValues' : [
-                    {'Country':'GB'}, {'Country':'US'},
-                    {'Country':'AU'}, {'Country':'CA'},
-                    {'Country':'IE'}, {'Country':'NZ'} 
-                    ],
-                'ActionsGuarded': 'PreviewAndAccept'}
-        ])
+    # qlist.extend([
+    #     {'QualificationTypeId': '00000000000000000040',
+    #     'Comparator': 'GreaterThanOrEqualTo',
+    #     'IntegerValues': [
+    #         int(config['qualification']['approvedhits']),
+    #         ],
+    #     'ActionsGuarded':'PreviewAndAccept'},
+    #     {'QualificationTypeId': '000000000000000000L0',
+    #     'Comparator': 'GreaterThanOrEqualTo',
+    #     'IntegerValues': [
+    #         int(config['qualification']['approvalrate']),
+    #         ],'ActionsGuarded':'PreviewAndAccept'},
+    #     {'QualificationTypeId' : '00000000000000000071',
+    #             'Comparator' : 'In',
+    #             'LocaleValues' : [
+    #                 {'Country':'GB'}, {'Country':'US'},
+    #                 {'Country':'AU'}, {'Country':'CA'},
+    #                 {'Country':'IE'}, {'Country':'NZ'}
+    #                 ],
+    #             'ActionsGuarded': 'PreviewAndAccept'}
+    #     ])
 
     return qlist
 
-def publish_new_hit(mturk,config,hit_params,hit_quals):
+
+def create_new_hit(mturk, config, hit_params, hit_quals):
     new_hit = mturk.create_hit(
-    HITLayoutId    = config['layout']['id'],
-    HITLayoutParameters = hit_params,
-    Title = config['hit']['title'],
-    Reward = config['hit']['reward'],
-    Description = config['hit']['description'],
-    LifetimeInSeconds = int(config['hit']['lifetime']),
-    AssignmentDurationInSeconds = int(config['hit']['assignmentduration']),
-    MaxAssignments = int(config['hit']['maxassignments']),
-    QualificationRequirements=hit_quals
+        HITLayoutId=config['layout']['id'],
+        HITLayoutParameters=hit_params,
+        Title=config['hit']['title'],
+        Reward=config['hit']['reward'],
+        Description=config['hit']['description'],
+        LifetimeInSeconds=int(config['hit']['lifetime']),
+        AssignmentDurationInSeconds=int(config['hit']['assignmentduration']),
+        MaxAssignments=int(config['hit']['maxassignments']),
+        QualificationRequirements=hit_quals
     )
 
     print("A new HIT has been created. You can preview it here:")
@@ -117,86 +80,86 @@ def publish_new_hit(mturk,config,hit_params,hit_quals):
     del new_hit['HIT']['Expiration']
 
     new_hit['HIT']['params'] = hit_params
-    #new_hit['Images'] = out_img_dict
-    #print(out_img_dict)
+    # new_hit['Images'] = out_img_dict
+    # print(out_img_dict)
 
     return new_hit
 
 
 if __name__ == '__main__':
+
     if len(sys.argv) < 2:
         print("Please give a me a config file as argument")
         sys.exit()
     else:
         configfile = sys.argv[1]
-    
+
     data_path = os.path.dirname(configfile)
-    
+
     log_dir = os.path.join(data_path, "logs")
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
     moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
-    logging.basicConfig(filename=os.path.join(log_dir, moment+'.log'),level=logging.INFO)
+    logging.basicConfig(filename=os.path.join(log_dir, moment + '.log'), level=logging.INFO)
 
+    config = configparser.ConfigParser()
+    config.read(configfile)
+    config['batch']['initial_row'] = int(config['batch']['initial_row'])
+    config['batch']['size'] = int(config['batch']['size'])
 
-    CONFIG = configparser.ConfigParser()
-    CONFIG.read(configfile)
-    logging.info("config file: "+configfile)
+    logging.info("config file: " + configfile)
 
-    MTURK = amt_api.connect_mturk(CONFIG)
+    mturk = amt_api.connect_mturk(config)
 
-    QUALS = get_qualifications(CONFIG)
+    qualifications = get_qualifications(config)
+
     logging.info("Qualifications:")
-    logging.info(QUALS)
+    logging.info(qualifications)
     logging.info("max assignments")
-    logging.info(CONFIG['hit']['maxassignments'])
+    logging.info(config['hit']['maxassignments'])
 
-    RESULTS = []
-    LINKS = []
+    all_resulting_HITs = []
 
-    
-    imgdf = pd.read_csv(CONFIG['data']['csvfile'],sep="\t")
-    print(imgdf.columns.values)
+    # Load data specified by config
+    data = pd.read_csv(config['data']['csvfile'], sep=",")
+    print(data.columns.values)
 
-    img_index = int(CONFIG['batch']['initial_img'])
-
-    if img_index >= len(imgdf):
-        logging.warning("Check your image index. I will exit now.")
+    if config['batch']['initial_row'] >= len(data):
+        logging.warning("Check your initial row. I will exit now.")
         sys.exit()
-    
-    start_batch_idx = int(int(CONFIG['batch']['initial_img']) / int(CONFIG['batch']['size']) / int(CONFIG['hit']['nimages']))
-    for batch_index in range(start_batch_idx, int(CONFIG['batch']['total'])):
-        logging.info("Time: "+time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
-        logging.info("Batch: "+str(batch_index))
 
-        for hit_index in range(int(CONFIG['batch']['size'])):
-            logging.info("current img index: "+str(img_index))
+    batch_idx = int(config['batch']['initial_row'] / config['batch']['size'])
 
-            hitparam,hitimages,img_index = make_new_hit(int(CONFIG['hit']['nimages']),imgdf,img_index)
-            hitdict = publish_new_hit(MTURK,CONFIG,hitparam,QUALS)
-            hitdict['Images'] = hitimages
+    ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
+    for row_idx, row in data[config['batch']['initial_row']:].iterrows():
+        logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
-            logging.info("New hit: "+str(hitdict['HIT']['HITId']))
-            logging.info("New hit groupId: "+ hitdict['HIT']['HITGroupId'])
-            logging.info("next img index: "+str(img_index))
-            
+        param_list = [{'Name': key, 'Value': value} for key, value in row.to_dict().items()]
+        logging.info(param_list)
 
-            RESULTS.append(hitdict)
-            
+        hit_data = create_new_hit(mturk, config, param_list, qualifications)
+        all_resulting_HITs.append(hit_data)
 
-        outname = os.path.join(data_path, 'created_%s_uptobatch%d.json' % (moment,batch_index))
-        with open(outname, 'w') as outfile:
-            json.dump(RESULTS, outfile)
-        outfile.close()
-        logging.info("saved batch as: "+outname)
+        logging.info("New hit: " + str(hit_data['HIT']['HITId']))
+        logging.info("New hit groupId: " + hit_data['HIT']['HITGroupId'])
 
-        logging.info("sleeping between batches..."+time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
-        time.sleep(int(CONFIG['batch']['secondsbetween']))
-        logging.info("wakeup ..."+time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
+        # Sleepy time, now and then:.
+        if (row_idx + 1 % config['batch']['size']) == 0:
+            outname = os.path.join(data_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
+            with open(outname, 'w') as outfile:
+                json.dump(all_resulting_HITs, outfile)
+            outfile.close()
+            logging.info("saved batch as: " + outname)
+
+            logging.info("sleeping between batches..." + time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
+            time.sleep(int(config['batch']['secondsbetween']))
+
+            batch_idx += 1
+            logging.info("wakeup ..." + time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
 
     outname = os.path.join(data_path, 'created_%s_final.json' % (moment))
     with open(outname, 'w') as outfile:
-        json.dump(RESULTS, outfile)
+        json.dump(all_resulting_HITs, outfile)
     outfile.close()
     logging.info("done")
 
