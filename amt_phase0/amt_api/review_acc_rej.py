@@ -62,7 +62,8 @@ def is_suspicious_obsolete(answer_words, max_num_answers, allow_commas=False, on
 def review_results(mturk, path_published, 
                    max_num_answers, 
                    approve_all=False, 
-                   do_rejections=True, 
+                   do_rejections=True,
+                   feedback2worker="",
                    statuses=["Submitted"], 
                    only_answer_length=False):
     '''ask AMT for results'''
@@ -117,7 +118,7 @@ def review_results(mturk, path_published,
                             if do_rejections is True:
                                 mturk.reject_assignment(
                                     AssignmentId=assignment['AssignmentId'],
-                                    RequesterFeedback='HIT is rejected because (almost) no answers were given or the entered answers were often not names, but phrases (including adjectives, prepositions and conjunctions (e.g., "on", "with", "X of Y and Z") or even verbs).'
+                                    RequesterFeedback=feedback2worker
                                     )
                             else:
                                 continue
@@ -127,7 +128,7 @@ def review_results(mturk, path_published,
                             appr_file.write(";".join(marked)+" (sus_cnt: %.1f)\n" % susp_cnt)
                         except UnicodeEncodeError:
                             appr_file.write(str(marked).strip()+" (sus_cnt: %.1f)\n" % susp_cnt)
-                        #continue
+                        #continue # hard-coded, change as needed
                         mturk.approve_assignment(
                             AssignmentId=assignment['AssignmentId'],
                             RequesterFeedback='Thank you for working for us!',
@@ -155,5 +156,11 @@ if __name__ == "__main__":
     max_answers = 10
     path_published = data_path
     statuses = ["Submitted"]
-    review_results(MTURK, path_published, max_answers, approve_all=approve_all, do_rejections=True, statuses=statuses,only_answer_length=only_answer_length)
+    feedback2rejected_worker = 'HIT is rejected because (almost) no answers were given or the entered answers were often not names, but phrases (including adjectives, prepositions and conjunctions (e.g., "on", "with", "X of Y and Z") or even verbs).'
+    review_results(MTURK, path_published, max_answers, 
+                   approve_all=approve_all, 
+                   do_rejections=True, 
+                   statuses=statuses, 
+                   requester_feedback=feedback2rejected_worker,
+                   only_answer_length=only_answer_length)
     

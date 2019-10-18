@@ -5,9 +5,6 @@ import configparser
 import logging
 import os
 import sys
-#from boto3.mturk.question import ExternalQuestion, QuestionContent, Question, QuestionForm
-#from boto3.mturk.question import Overview,AnswerSpecification,SelectionAnswer,FormattedContent
-#from boto3.mturk.qualification import Qualifications, Requirement
     
 import amt_api
 
