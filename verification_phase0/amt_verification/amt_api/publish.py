@@ -64,6 +64,7 @@ def create_new_hit(mturk, config, hit_params, hit_quals):
         Reward=config['hit']['reward'],
         Description=config['hit']['description'],
         LifetimeInSeconds=int(config['hit']['lifetime']),
+        Keywords=config['hit']['keywords'],
         AssignmentDurationInSeconds=int(config['hit']['assignmentduration']),
         MaxAssignments=int(config['hit']['maxassignments']),
         QualificationRequirements=hit_quals
