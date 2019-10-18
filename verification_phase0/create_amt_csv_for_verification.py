@@ -97,7 +97,7 @@ def write_amt_csv(sample_df, csv_fname, max_num_hits=500):
     fname_imgObjIds.close()
 
 
-PILOT = True;
+PHASE = "pre-pilot"; # "pilot", "main"
 MAX_IMAGES_PER_HIT = 5;
 MAX_NAMES_PER_IMAGE = 11;
 
@@ -123,27 +123,37 @@ df = df.loc[df['n_names'] > 1]
 print(df.head().to_string())
 
 # Print some stats
-print("Number of images:", len(df))
-print("Min n_names:", df['n_names'].min())
-print("Max n_names:", df['n_names'].max())
-print("Mean n_names:", df['n_names'].mean())
+print("Total:")
+print(" Number of images:", len(df))
+print(" Min n_names:", df['n_names'].min())
+print(" Max n_names:", df['n_names'].max())
+print(" Mean n_names:", df['n_names'].mean())
+print()
 
 # For pilot, restrict to only already annotated images
-if PILOT:
+if PHASE in ["pilot", "pre-pilot"]:
     # # for initial, internal pilot by Carina:
     # sample_df = sample_objects("proc_data_phase0/spellchecking/all_responses_round0-3_cleaned.csv", 30, relevant_cols)
 
-    print("Restricting dataset for pilot.")
+    print("Restricting dataset for {}.".format(PHASE))
 
     # now, simply reuse previously annotated images:
     df_annotated = pd.read_csv('raw_data_phase0/verification_pilot/verif_annos_pilot.csv', sep="\t")
     annotated_urls = df_annotated['url'].unique()
     df = df.loc[df['url'].isin(annotated_urls)]
 
-    print("Number of images:", len(df))
-    print("Min n_names:", df['n_names'].min())
-    print("Max n_names:", df['n_names'].max())
-    print("Mean n_names:", df['n_names'].mean())
+if PHASE in ["pre-pilot"]:
+
+    df = df.sample(frac=.3)
+
+
+if PHASE in ["pilot", "pre-pilot"]:
+    print(" Number of images:", len(df))
+    print(" Min n_names:", df['n_names'].min())
+    print(" Max n_names:", df['n_names'].max())
+    print(" Mean n_names:", df['n_names'].mean())
+
+
 
 # Create roughly equal-sized HITs:
 n_bins = math.ceil(len(df)/5)
@@ -184,7 +194,7 @@ df_amt = pd.DataFrame(rows, columns=header)
 
 print(df_amt[:20].to_string())
 
-with open('verification_phase0/verification_pilot_amt.csv', 'w+') as outfile:
+with open('verification_phase0/verification_{}_amt.csv'.format(PHASE), 'w+') as outfile:
     df_amt.to_csv(outfile, index=False)
 
 
