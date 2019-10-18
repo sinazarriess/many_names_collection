@@ -1,0 +1,102 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2017-11-06/QuestionForm.xsd"  xmlns:xs="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/FormattedContentXHTMLSubset.xsd">
+  <Overview>
+    <Title>
+INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
+    </Title>
+    <FormattedContent><![CDATA[
+    <p><font size="5"><b>Different names, same object? -- Instructions</b></font></p>
+
+    <p>
+        We asked various people to <i style="color:#0020C2;">"name the real-world object that is highlighted by the bounding box"</i>, in the pictures shown.<br/>
+        But it seems that not all people were trying to name the same object.
+        Perhaps they misunderstood the task or forgot to pay attention to the bounding box, for instance.<br/>
+        <b>Please help us identify which names were intended as naming the same real-world object.</b>
+        <br/>
+        <br/>
+        For every image below you will get one <i>target name</i> and a varying number of <i>comparison names</i>.<br/>
+        <b>For each comparison name, indicate whether it was meant to name the same object as the target name.</b><br/>
+        Indicate this on a five-point scale: "definitely yes", "probably yes", "uncertain", "probably not", "certainly not".
+    <br><br>
+        This batch of HITs contains quality control items. <b>Submitting low-quality responses will lead to rejection of all your HITs in this batch.</b> We are reasonable humans though.
+    </p>
+
+    <br/><p><font size="5"><b>INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT</b></font></p>
+    ]]></FormattedContent>
+<Text>
+RESEARCH PROJECT: AMORE: A distributional MOdel of Reference to Entities (Universitat Pompeu Fabra – Barcelona – SPAIN).
+PRINCIPAL INVESTIGATOR: Gemma Boleda.
+FINANCED BY: European Research Council (European Union).
+SURVEY CARRIED OUT WITH THE COLLABORATION OF: Amazon Mechanical Turk (AMT)
+
+PART 1. INFORMATION SHEET
+
+Purpose of the research
+    • The research aims at creating a database of linguistic expressions which name objects in images, in order to come to a better understanding of how people use language, with the possible long term goal of improving human-computer communication.
+
+Procedure description
+    • You will see images and various names that were gathered from workers in an earlier round, who were asked to name the object in the bounding box in the image. You have to indicate which of these names were meant to name the same object. The goal of the object name collection is to better understand how people use language; in particular, to understand the inventory of names humans posses for common objects. Please make sure that the object name does not contain obscene language. We reserve the right to block the participation in the project if you do not comply with this requirement; in this case, you will not be reimbursed.    • You will see images and various names that were gathered from workers in an earlier round, who were asked to name the object in the bounding box in the image. You have to indicate which of these names were meant to name the same object. The goal of the object name collection is to better understand how people use language; in particular, to understand the inventory of names humans posses for common objects. Please make sure that the object name does not contain obscene language. We reserve the right to block the participation in the project if you do not comply with this requirement; in this case, you will not be reimbursed.
+    • You can work at your own pace.
+    • We did our best to ensure that the images will not contain any controversial material (in particular, we did our best to exclude any depiction of violent or sexually explicit scenes). However we assume no responsibility for the content of the images presented.
+
+Privacy and data handling
+    • Your AMT WorkerID, together with the ratings you produce during this experiment, will be available to the researchers of the AMORE project, who have committed to handling it in an anonymous and confidential manner. These data will be stored in UPF, Barcelona (Spain), and will be retained during the life of the project (up to 31 January 2022) and for five years afterwards for auditing purposes.  If you wish your data to be removed, such that they cannot be used for the project, please get in touch with Gemma Boleda (gemma.boleda@upf.edu), specifying your AMT WorkerID.
+    • The data we collect, in an anonymized form, will be uploaded onto the UPF repository (https://repositori.upf.edu) and on the project’s web site (https://www.upf.edu/web/amore) webpage to be consulted and used in other projects by other researchers worldwide, and shared with collaborators.
+    • Research results will be published in journal articles, conference presentations and via any other mode of scientific exchange and dissemination that will be seen as appropriate by the researchers, always protecting the participants' anonymity.
+    • By accepting to participate in this survey you hereby grant UPF an irrevocable, perpetual, non-exclusive, transferable, fully paid, worldwide license (with the right to sublicense) to reproduce, distribute, publicly perform or display and transform your task results such that they can be used in this research project and they can be made available through the project’s webpage and the e-repository, such that they can be reused worldwide.
+
+Voluntary participation and freedom to withdraw from the research
+    • Your choice to take part in the research is entirely voluntary. You are completely free to choose not to participate, or to withdraw from the study at any moment without any consequence.
+    • This study was evaluated and approved by Parc de Salut MAR - Clinical Research Ethical Committee of UPF.
+
+Potential risk and discomfort
+    • If, at any time, you should become tired or feel other forms of discomfort, you can simply quit the survey.
+
+Benefits
+    • For participating in this data collection experiment, you will receive a monetary compensation of 0.29$ per HIT. Furthermore, your participation will enable research on how we use language to talk about the world.
+
+Potential reuse of the data
+    • Only the task results, in an anonymized way, will be consulted and used in other projects by other researchers.
+
+Questions? Write to us!
+    • For any further doubt or clarification request, do not hesitate to ask! You can contact the principal investigator, Gemma Boleda, by sending an email to the address gemma.boleda@upf.edu.
+
+
+PART 2. INFORMED CONSENT
+
+    • I have read and understood the above information;
+    • I have had the opportunity to have any questions about this study answered;
+    • I understand and agree that my data (AMT WorkerID and task results) will be sent to and stored in UPF, Barcelona (Spain), and will be consulted by the researchers of this project;
+    • I understand and agree that only the task results, in an anonymized form, will be shared with collaborators, uploaded onto the UPF repository (https://repositori.upf.edu) and on the project’s web site (https://www.upf.edu/web/amore) webpage to be consulted and used in other projects by other researchers worldwide;
+    • I hereby grant UPF an irrevocable, perpetual, non-exclusive, transferable, fully paid, worldwide license (with the right to sublicense) to reproduce, distribute, publicly perform or display and transform my task results such that they can be used in this research project and they can be made available through the project’s webpage and the e-repository, such that they can be reused worldwide.
+    • I confirm that I am over the age of 18.
+</Text>
+
+
+  </Overview>
+  <Question>
+    <QuestionIdentifier>q1</QuestionIdentifier>
+    <DisplayName>accept</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+     <Text>
+    HAVING READ, UNDERSTOOD AND ACCEPTED ALL OF THE ABOVE, I DO  ACCEPT TO TAKE PART IN THE SURVEY.
+    </Text>
+    </QuestionContent>
+
+<AnswerSpecification>
+    <SelectionAnswer>
+  <StyleSuggestion>radiobutton</StyleSuggestion>
+  <Selections>
+    <Selection>
+      <SelectionIdentifier>C1</SelectionIdentifier>
+      <Text>YES</Text>
+    </Selection>
+    <Selection>
+      <SelectionIdentifier>C2</SelectionIdentifier>
+      <Text>NO</Text>
+    </Selection>
+    </Selections>
+    </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+</QuestionForm>
