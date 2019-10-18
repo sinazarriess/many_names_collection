@@ -57,23 +57,29 @@ if __name__ == '__main__':
     else:
         configfile = sys.argv[1]
 
-    data_path = os.path.dirname(configfile)
+    out_path = os.path.dirname(configfile)
 
-    log_dir = os.path.join(data_path, "logs")
-    if not os.path.exists(log_dir):
-        os.mkdir(log_dir)
+    config = configparser.ConfigParser()
+    config.read(configfile)
+    print(config)
+
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, 'out')
+    if not os.path.exists(out_path):
+        os.mkdir(out_path)
+
+    config['qualification']['question'] = os.path.join(basepath, config['qualification']['question'])
+    config['qualification']['answer'] = os.path.join(basepath, config['qualification']['answer'])
+    config['data']['csvfile'] = os.path.join(basepath, config['data']['csvfile'])
+
     moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
-    logging.basicConfig(filename=os.path.join(log_dir, moment+'.log'),level=logging.INFO)
+    logging.basicConfig(filename=os.path.join(out_path, moment+'.log'),level=logging.INFO)
 
-
-    CONFIG = configparser.ConfigParser()
-    CONFIG.read(configfile)
-    print(CONFIG)
     logging.info("config file: "+configfile)
 
 
-    questionqual_xml = '../{}'.format(CONFIG['qualification']['question'])
-    answerqual_xml = '../{}'.format(CONFIG['qualification']['answer'])
+    questionqual_xml = config['qualification']['question']
+    answerqual_xml = config['qualification']['answer']
     with open(questionqual_xml, 'r') as myfile:
         question = myfile.read()
     with open(answerqual_xml, 'r') as myfile:
@@ -82,14 +88,14 @@ if __name__ == '__main__':
     print(question)
     print(answer)
 
-    MTURK = amt_api.connect_mturk(CONFIG)
+    MTURK = amt_api.connect_mturk(config)
     
-    if "protectionid" in CONFIG["qualification"]:
-        sys.stdout.write("Config contains qualification protection (id %s). Updating qualification..." % (CONFIG["qualification"]["protectionid"]))
+    if "protectionid" in config["qualification"]:
+        sys.stdout.write("Config contains qualification protection (id %s). Updating qualification..." % (config["qualification"]["protectionid"]))
         logging.info("Updating qualification:")
-        logging.info(CONFIG["qualification"]["protectionid"])
-        update_qualification(MTURK, CONFIG["qualification"]["protectionid"], question, answer)
-        print("Qualification {0} updated.".format(CONFIG["qualification"]["protectionid"]))
+        logging.info(config["qualification"]["protectionid"])
+        update_qualification(MTURK, config["qualification"]["protectionid"], question, answer)
+        print("Qualification {0} updated.".format(config["qualification"]["protectionid"]))
     else:
         make_qualification(MTURK, question, answer)
         print("Qualification created.")

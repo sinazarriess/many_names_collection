@@ -95,18 +95,22 @@ if __name__ == '__main__':
     else:
         configfile = sys.argv[1]
 
-    data_path = os.path.dirname(configfile)
-
-    log_dir = os.path.join(data_path, "logs")
-    if not os.path.exists(log_dir):
-        os.mkdir(log_dir)
-    moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
-    logging.basicConfig(filename=os.path.join(log_dir, moment + '.log'), level=logging.INFO)
-
     config = configparser.ConfigParser()
     config.read(configfile)
     config['batch']['initial_row'] = int(config['batch']['initial_row'])
     config['batch']['size'] = int(config['batch']['size'])
+
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, 'out')
+    if not os.path.exists(out_path):
+        os.mkdir(out_path)
+
+    config['qualification']['question'] = os.path.join(basepath, config['qualification']['question'])
+    config['qualification']['answer'] = os.path.join(basepath, config['qualification']['answer'])
+    config['data']['csvfile'] = os.path.join(basepath, config['data']['csvfile'])
+
+    moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
+    logging.basicConfig(filename=os.path.join(out_path, moment + '.log'), level=logging.INFO)
 
     logging.info("config file: " + configfile)
 
@@ -146,7 +150,7 @@ if __name__ == '__main__':
 
         # Sleepy time, now and then:.
         if (row_idx + 1 % config['batch']['size']) == 0:
-            outname = os.path.join(data_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
+            outname = os.path.join(out_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
             with open(outname, 'w') as outfile:
                 json.dump(all_resulting_HITs, outfile)
             outfile.close()
@@ -158,7 +162,7 @@ if __name__ == '__main__':
             batch_idx += 1
             logging.info("wakeup ..." + time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
 
-    outname = os.path.join(data_path, 'created_%s_final.json' % (moment))
+    outname = os.path.join(out_path, 'created_%s_final.json' % (moment))
     with open(outname, 'w') as outfile:
         json.dump(all_resulting_HITs, outfile)
     outfile.close()
