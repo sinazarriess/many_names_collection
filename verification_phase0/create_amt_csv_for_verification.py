@@ -173,7 +173,7 @@ header = [e for l in header for e in l]
 rows = []
 for bin in bins:
     row = [[""] + ["" for _ in range(MAX_NAMES_PER_IMAGE)] for _ in range(MAX_IMAGES_PER_HIT)]
-    for i, idx in enumerate(bin):
+    for i, idx in enumerate(bin[::-1]):
         row[i][0] = df.at[idx, 'url']
         for j, name in enumerate(df.at[idx, 'names_list']):
             row[i][j+1] = name
