@@ -398,9 +398,14 @@ div.color {
     <h2>How (not) to name an object.</h2>
 
     <p class="intro">
-        We asked various workers to "name the object in the bounding box", for a number of images.
-        We need you to evaluate the names we received: Is each name adequate? If not, what's wrong? And which object, exactly, did these workers intend to name?
+        We asked various workers to <i style="color:#0020C2;">"please name the object in the bounding box"</i>, for a number of images.<br>
+        We need you to evaluate the names we got:
     </p>
+    <ul class="intro" style="margin-top:-10pt">
+        <li>Is each <b>name adequate?</b> (See definition of "adequate" below.)</li>
+        <li>If not, <b>what's wrong?</b> Did they enter a word that doesn't apply to object they intended to name? Did they name an object that doesn't fit tightly in the bounding box? Did they misinterpret the picture? Something else?</li>
+        <li>And <b>which object</b>, exactly, did the different workers intend to name?</li>
+    </ul>
 
     <p class="intro">
         When judging if a name is "adequate", you <i>must</i> use the following definition:
@@ -408,16 +413,17 @@ div.color {
         <div class="intro" style="background-color: #ddd; margin: 10pt; padding: 10pt;">
         <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name.
         <br>
-        Note: Invisible parts of the object -- for instance parts which are obscured by another object, or which fall outside the picture frame -- are allowed to fall outside the bounding box.
+        Note: Sometimes parts of the object are not visible -- for instance parts which are behind some other object, or which fall outside the picture frame. Such invisible parts are allowed to be outside the bounding box.
         </div>
 
     <p class="intro">
-        For full instructions and examples click the button underneath each picture below.
+        For full instructions and examples click the button underneath each picture below. You can also hover your mouse over a button for clarification.
     </p>
 
     <p class="intro">
         In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names.
-        This batch of HITs contains quality control items. <mark>Submitting too many low-quality responses will lead to rejection of all your HITs.</mark>
+        <br>
+        This batch of HITs contains quality control items. <b>Submitting too many low-quality responses will lead to rejection of all your HITs in this batch.</b>
     </p>
 
     <div class="row" id="IMG#-form">
@@ -490,7 +496,8 @@ div.color {
 
             <h3>&#9658; If you had to guess, which names were likely intended for naming the same <span class="hover">object<div class="tooltip">By "object" we mean a real-world object visible in the picture; so not the red bounding box, or an image region, but a depicted, real object.</div></span>?</h3>
 
-            <p>Click below to assign the <i>same color</i> to names that were likely intended for the <i>same object</i> (regardless of any mistakes you identified).
+            <p>Sometimes different workers had different objects in mind when entering a name.
+                Click below to <b>assign the same color to names that were likely intended for the same object</b> (regardless of whether the names were adequate correct or not).
                 Assign different colors to names that were likely intended for different objects.
                 Choose "?" if you are really uncertain about what object the name was intended for.</p>
 
