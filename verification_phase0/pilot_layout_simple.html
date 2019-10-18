@@ -50,10 +50,15 @@ document.addEventListener('DOMContentLoaded', function(){
     var img_form_template = document.getElementById("IMG#-form");
     img_form_template.parentNode.removeChild(img_form_template);
 
+    var num_images = 0;
+    var num_names_total = 0;
+
     for (var i = 0; i < images.length; i++) {
 
         var img = images[i].trim();
         if (img != "") {
+
+            num_images += 1;
 
             img_form = img_form_template.cloneNode(true);
             replaceEverywhere(img_form, "IMG#", "IMG"+i);
@@ -69,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 var name = names[i][n].trim();
                 if (name != "") {
 
+                    num_names_total += 1;
+
                     name_form = name_form_template.cloneNode(true);
                     replaceEverywhere(name_form, "NAME#", "NAME"+n);
                     replaceEverywhere(name_form, "NAME_PLACEHOLDER", name);
@@ -79,6 +86,9 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     }
+
+    document.getElementById("num_names").innerHTML = num_names_total;
+    document.getElementById("num_images").innerHTML = num_images;
 })
 
 function uncheck(buttons) {
@@ -101,7 +111,7 @@ span.boundingbox {
 }
 
 .intro {
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 span.defined {
@@ -201,13 +211,13 @@ div.caption {
 .required:after { content:" *"; }
 
 
-/* HIDE RADIO */
+/* HIDE RADIO
 [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
-}
+} */
 
 /* IMAGE STYLES */
 [type=radio] + img.type {
@@ -267,13 +277,43 @@ div.color {
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects" id="form_main">
 
-    <h1>Different names, same object?</h1>
+    <h2>Different names, same object?</h2>
 
     <p class="intro">
         We asked various people to "name the real-world object that is highlighted by the bounding box", in the pictures shown.
-        Still, it seems that not all people were trying to name the same real-world object.
+        Still, it seems that not all people were trying to name the same object.
+        They may have misunderstood the task or simply ignored the bounding box.
+        <b>Please help us identify which names were intended as naming the same real-world object.</b>
     </p>
 
+    <p class="intro">
+        In this HIT you will get <span id="num_images"></span> images, for a total of <span id="num_names"></span> name comparisons.
+        This batch of HITs contains quality control items. <mark>Submitting too many low-quality responses will lead to rejection of all your HITs.</mark>
+    </p>
+
+    <br>
+    <div class="intro" style="text-align: center;">Need help?  &#10233;
+
+        <crowd-instructions link-type="button">
+
+            <short-summary>
+                [summary here]
+            </short-summary>
+
+            <positive-example>
+                [positive examples here]
+            </positive-example>
+
+            <negative-example>
+                [negative examples here]
+            </negative-example>
+
+            <detailed-instructions>
+                [detailed instructions here]
+            </detailed-instructions>
+
+        </crowd-instructions>
+    </div>
 
     <div id="IMG#-form" class="row">
 
@@ -281,7 +321,7 @@ div.color {
 
         <div class="column left">
 
-            <p>Given the picture on the right, which of the names below were intended for the same real-world object as the given target name: <span style="font-size: 12pt; font-family: monospace;">NAME_TARGET_PLACEHOLDER</span></p>
+            <h3>&#9658; Given the picture on the right, which of the following comparison names were intended for the same real-world object as the target name <span style="font-size: 12pt; font-family: monospace;">NAME_TARGET_PLACEHOLDER</span>?</h3>
 
             <table class="formtable" id="IMG#-form-table">
 
@@ -300,49 +340,32 @@ div.color {
                     </td>
                     <td class="rating">
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.0" value="0"/>
-                            <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/images/em-certain.png"
-                                 title='This worker intended to name to the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/></label> &nbsp;&nbsp;
+                            <!-- <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/images/em-certain.png"
+                                 title='This worker intended to name to the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>-->
+                             Yes.</label> &nbsp;&nbsp;
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1"/>
-                            <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain-cropped.png"
-                                 title='This worker may not have intended to name the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/></label> &nbsp;&nbsp;
+                            <!-- <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain-cropped.png"
+                                 title='This worker may not have intended to name the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                                 -->
+                             Not sure.</label> &nbsp;&nbsp;
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2"/>
-                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-uncertain-cropped.png"
-                                 title='This worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/></label>
+                            <!-- <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-uncertain-cropped.png"
+                                 title='This worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                                 -->
+                            No.</label>
                     </td>
                 </tr>
             </table>
 
             <br>
 
-            <h2>[Optional] Any comments?</h2>
-            <input type="text" name="comment" style="width:50%; font-size:16pt; padding:5pt" maxlength="100"/>
+            <h3>&#9658; Any comments? [Optional]</h3>
+            <input type="text" name="IMG#-comment" style="width:50%; font-size:16pt; padding:5pt" maxlength="100"/>
 
         </div>
 
         <div class="column right">
             <img class="picture" src="http://img_url_placeholder/"/>
-
-            <br><br> <i style="font-size:18pt;">Need help?  &#10233;</i>
-
-            <crowd-instructions link-type="button">
-
-                <short-summary>
-                    [summary here]
-                </short-summary>
-
-                <positive-example>
-                    [positive examples here]
-                </positive-example>
-
-                <negative-example>
-                    [negative examples here]
-                </negative-example>
-
-                <detailed-instructions>
-                    [detailed instructions here]
-                </detailed-instructions>
-
-            </crowd-instructions>
 
         </div>
     </div>

@@ -1,11 +1,22 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
 
 <script>
 
+
+var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}"];
+
+var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${name_0_4}", "${name_0_5}", "${name_0_6}", "${name_0_7}", "${name_0_8}", "${name_0_9}", "${name_0_10}"],
+        ["${name_1_0}", "${name_1_1}", "${name_1_2}", "${name_1_3}", "${name_1_4}", "${name_1_5}", "${name_1_6}", "${name_1_7}", "${name_1_8}", "${name_1_9}", "${name_1_10}"],
+        ["${name_2_0}", "${name_2_1}", "${name_2_2}", "${name_2_3}", "${name_2_4}", "${name_2_5}", "${name_2_6}", "${name_2_7}", "${name_2_8}", "${name_2_9}", "${name_2_10}"],
+        ["${name_3_0}", "${name_3_1}", "${name_3_2}", "${name_3_3}", "${name_3_4}", "${name_3_5}", "${name_3_6}", "${name_3_7}", "${name_3_8}", "${name_3_9}", "${name_3_10}"],
+        ["${name_4_0}", "${name_4_1}", "${name_4_2}", "${name_4_3}", "${name_4_4}", "${name_4_5}", "${name_4_6}", "${name_4_7}", "${name_4_8}", "${name_4_9}", "${name_4_10}"],
+        ]
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
@@ -13,73 +24,102 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 
+function replaceEverywhere(node, search, replacement) {
+    if (node.nodeType === 3) { // Node.TEXT_NODE
+        var text = node.data.replaceAll(search, replacement);
+        if (text != node.data) // there's a Safari bug
+            node.data = text;
+    } else if (node.nodeType === 1) { // Node.ELEMENT_NODE
+        if (node.name) {
+            node.name = node.name.replaceAll(search, replacement);
+        }
+        if (node.id) {
+            node.id = node.id.replaceAll(search, replacement);
+        }
+        if (node.title) {
+            node.title = node.title.replaceAll(search, replacement);
+        }
+        if (node.src) {
+            node.src = node.src.replaceAll(search, replacement);
+        }
+        for (var i = 0; i < node.childNodes.length; i++) {
+            replaceEverywhere(node.childNodes[i], search, replacement); // run recursive on DOM
+        }
+    }
+};
+
+var num_images = 0;
+
 document.addEventListener('DOMContentLoaded', function(){
 
-    // Set additional values (captions, icons, titles)
-    var elements = document.getElementById('prototypes').children;
-    for (var i = 0; i < elements.length; i++) {
-        parts = elements[i].id.split('-');
-        name = parts[1];
-        field = parts.slice(2, parts.length).join('-');
-        value = elements[i].innerHTML;
-        var targets = document.getElementsByName(name);
-        for (var j = 0; j < targets.length; j++) {
-            if (field == "innerHTML") {
-                targets[j].innerHTML = value;
-            } else {
-                targets[j].setAttribute(field, value);
+    var img_form_template = document.getElementById("IMG#-form");
+    img_form_template.parentNode.removeChild(img_form_template);
+
+    var num_names_total = 0;
+
+    for (var i = 0; i < images.length; i++) {
+
+        var img = images[i].trim();
+        if (img != "") {
+
+            num_images += 1;
+
+            var num_names = 0;
+
+            img_form = img_form_template.cloneNode(true);
+            replaceEverywhere(img_form, "IMG#", "IMG"+i);
+            replaceEverywhere(img_form, "http://img_url_placeholder/", img);
+
+            document.getElementById("form_main").appendChild(img_form);
+
+            var name_form_template = document.getElementById("IMG"+i+"-NAME#-form");
+            name_form_template.parentNode.removeChild(name_form_template);
+
+            var name_form2_template = document.getElementById("IMG"+i+"-NAME#-form2");
+            name_form2_template.parentNode.removeChild(name_form2_template);
+
+            for (var n = 0; n < names[i].length; n++) {
+                var name = names[i][n].trim();
+                if (name != "") {
+
+                    num_names += 1;
+                    num_names_total += 1;
+
+                    name_form = name_form_template.cloneNode(true);
+                    replaceEverywhere(name_form, "NAME#", "NAME"+n);
+                    replaceEverywhere(name_form, "NAME_PLACEHOLDER", name);
+                    document.getElementById("IMG"+i+"-form-table").appendChild(name_form);
+
+                    name_form2 = name_form2_template.cloneNode(true);
+                    replaceEverywhere(name_form2, "NAME#", "NAME"+n);
+                    replaceEverywhere(name_form2, "NAME_PLACEHOLDER", name);
+                    document.getElementById("IMG"+i+"-form2-table").appendChild(name_form2);
+
+                }
+            }
+
+            // Remove superfluous color buttons
+            for (var n = 0; n < num_names; n++) {
+                for (var m = num_names; m < names[0].length - 1; m++) {
+                    console.log("Attempting to delete: " + "IMG"+i+"-"+"NAME"+n+"-label-color"+m);
+                    colorbutton = document.getElementById("IMG"+i+"-"+"NAME"+n+"-label-color"+m);
+                    colorbutton.parentNode.removeChild(colorbutton);
+                }
             }
         }
     }
 
-    // Copy templates and fill with names
-    var names = document.getElementById('names-holder').innerHTML.split(',');
-    var form_table = '';
-    var form2_table = '';
-    var form_template = document.getElementById("form-template").innerHTML.replaceAll('<tbody>','').replaceAll('</tbody>','');
-    var form2_template = document.getElementById("form2-template").innerHTML.replaceAll('<tbody>','').replaceAll('</tbody>','');
-    var num_names = 0;
-    for (var i = 0; i < names.length; i++) {
-        var name = names[i].trim()
-        if (name != "") {
-            num_names += 1;
-            form_table += form_template.replaceAll('NAME',"NAME"+i).replaceAll('PLACEHOLDER',name);
-            form2_table += form2_template.replaceAll('NAME',"NAME"+i).replaceAll('PLACEHOLDER',name);
-        }
-    }
+    document.getElementById("num_names").innerHTML = num_names_total;
+    document.getElementById("num_images").innerHTML = num_images;
 
-    // Add filled templates to form
-    document.getElementById("form-table").innerHTML += form_table
-    document.getElementById("form2-table").innerHTML += form2_table
-
-    // Remove templates themselves (avoid empty form fields)
-    var child = document.getElementById('form-template')
-    child.parentNode.removeChild(child);
-    var child = document.getElementById('form2-template')
-    child.parentNode.removeChild(child);
-
-    // Uncheck all radiobuttons
-//    for (var i = 0; i < num_names; i++ ) {
-//        uncheck(document.getElementsByName('NAME'+i+'-rating'));
-//        uncheck(document.getElementsByName('NAME'+i+'-type'));
-//        uncheck(document.getElementsByName('NAME'+i+'-color'));
-//    }
-
-    // Remove superfluous color buttons
-    for (var i = num_names; i < 10; i++) {
-        colorbuttons = document.getElementsByName("label-color"+i);
-        for (var j = 0; j < colorbuttons.length; j++) {
-            colorbuttons[j].style.display = 'none';
-            colorbuttons.disabled = true;
-        }
-    }
 
 })
 
 
 function showhide(e) {
 
-    basename = e.name.split('-')[0]
+    basename = e.name.split('-');
+    basename = basename[0] + '-' + basename[1];
 
     if (e.checked & e.value == 0) {
         document.getElementById(basename + '-subform').style.visibility = 'hidden';
@@ -88,11 +128,11 @@ function showhide(e) {
             buttons[i].disabled = true;
         }
     } else if (e.checked & e.value >= 1) {
-        document.getElementById(e.name.split('-')[0] + '-subform').style.visibility = 'visible';
+        document.getElementById(basename + '-subform').style.visibility = 'visible';
         if (e.value == 1) {
-            document.getElementById(e.name.split('-')[0] + '-subform').style.background = "#fea";
+            document.getElementById(basename + '-subform').style.background = "#fea";
         } else {
-            document.getElementById(e.name.split('-')[0] + '-subform').style.background = "#fcc";
+            document.getElementById(basename + '-subform').style.background = "#fcc";
         }
         buttons = document.getElementsByName(basename + '-type');
         for (var i = 0; i < buttons.length; i++) {
@@ -108,66 +148,19 @@ function uncheck(buttons) {
     }
 }
 
+$(window).scroll(function() {
+  for (var i = 0; i < num_images; i++) {
+      var scrollTop= $(window).scrollTop(),
+          b1= $("#IMG"+i+"-form"),
+          b2= $("#IMG"+i+"-fixedbox"),
+          min= b1.position().top + 150,
+          max= (b1.position().top + b1.outerHeight()) - b2.outerHeight() - 150;
 
-// function continue() {
-//     for var j=0; j < num_names; j++) {
-//         buttons = document.getElementsByName('NAME'+j+'-rating');
-//         check1 = false;
-//         check2 = false;
-//         for (var i=0; i<buttons.length; i++) {
-//             if (buttons[i].checked) {
-//                 check1 = true;
-//                 if (buttons[i].value >= 2)
-//             }
-//         }
-//         buttons = document.getElementsByName('NAME'+j+'-type');
-//         for (var i=0; i<buttons.length; i++) {
-//             if (buttons[i].checked) {
-//                 check = true;
-//             }
-//         }
-//     }
-//    update_followup();
-// }
-
-function update_followup() {
-
-    // Display this whole part only once all names have been assessed one way or another? As a kind of form validation check...
-    // Otherwise, need to revise the nonames message.
-
-    adequate_names = [];
-
-    document.getElementById("followup-firstname").style.display = "none";
-    document.getElementById("followup-nonames").style.display = "none";
-    document.getElementById("followup-onename").style.display = "none";
-    document.getElementById("followup-morenames").style.display = "none";
-
-    for (var i = 0; i < num_names; i++) {
-        adequate = document.getElementById("NAME"+i+"-rating.1").checked;
-        semiadequate = document.getElementById("NAME"+i+"-rating.2").checked;
-        not_boundingbox = (document.getElementById("NAME"+i+"-type.1").checked | document.getElementById("NAME"+i+"-type.3").checked | document.getElementById("NAME"+i+"-type.4").checked);
-        if (adequate | (semiadequate & not_boundingbox)) {
-            adequate_names.push(i);
-            if (adequate_names.length == 1) {
-                document.getElementById("followup-firstname").innerHTML = "NAME"+i+" + 3 emotes"
-                document.getElementById("followup-firstname").style.display = "block";
-                document.getElementById("followup-NAME"+i).style.display = "none";
-            } else {
-                document.getElementById("followup-NAME"+i).style.display = "block";
-            }
-        } else {
-            document.getElementById("followup-NAME"+i).style.display = "none";
-        }
-    }
-
-    if (adequate_names.length == 0) {
-        document.getElementById("followup-nonames").style.display = "block";
-    } else if (adequate_names.length == 1) {
-        document.getElementById("followup-onename").style.display = "block";
-    } else {
-        document.getElementById("followup-morenames").style.display = "block";
-    }
-}
+      b2.css({
+        top: Math.min(Math.max(scrollTop,min),max) - scrollTop
+      });
+  }
+});
 
 
 </script>
@@ -175,6 +168,12 @@ function update_followup() {
 
 <style>
 
+
+.box1 {
+}
+.box2 {
+    position:fixed;
+}
 
 span.boundingbox {
     border:3px;
@@ -184,39 +183,52 @@ span.boundingbox {
 }
 
 .intro {
-    font-size: 16pt;
-}
-
-span.defined {
-  border: 1px dashed #00c;
-  font-style: italic;
+    font-size: 14pt;
 }
 
 
+/* Thanks to http://jsfiddle.net/dujtbh5f/ kamil335 for the following: */
+
+.hover{
+    text-align:center;
+    width:150px;
+    position:relative;
+    border: 1px dashed #c00;
+}
+
+.tooltip{
+    display:none;
+    position:absolute;
+    background-color:white;
+    border:1px solid red;
+    border-radius: 5px;
+    padding:3px;
+    font-size: 12pt;
+    top:30px;
+    left:-250px;
+    width:500px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.hover:hover .tooltip{
+    display:block;
+}
+
+.hover:hover {
+    cursor:help;
+}
 
 
-.formcolumn {
+.column {
   float: left;
+  padding: 20pt;
+}
+.left {
   width: 65%;
 }
-.imgcolumn {
-  float: left;
+.right {
   width: 25%;
-  position:fixed;
-  z-index: 10;
-  margin-left: 70%;
-}
-
-img.picture {
-  width: 100%;
-  border: 4px solid #ccc;
-}
-
-
-
-.row {
-  padding-bottom:20pt;
-  width: 100%;
 }
 
 /* Clear floats after the columns */
@@ -226,6 +238,11 @@ img.picture {
   clear: both;
 }
 
+
+img.picture {
+  width: 100%;
+  border: 4px solid #ccc;
+}
 
 
 .formtable, .formtable2 {
@@ -265,7 +282,7 @@ td.rating, th.rating {
     text-align: left;
 }
 td.rating {
-    height: 4vw;
+    height: 3vw;
 }
 
 
@@ -273,7 +290,7 @@ td.type, th.type {
     width: 70%;
 }
 td.type {
-    height: 4vw;
+    height: 3vw;
     visibility: hidden;
     font-size: 10pt;
     text-align: center;
@@ -306,14 +323,15 @@ div.caption {
 /* IMAGE STYLES */
 [type=radio] + img.type {
   cursor: pointer;
-  width: 100%;
-  margin: 4pt;
-  margin-bottom: 10pt;
+  height: 5vw;
+  margin: 3pt;
+  margin-bottom: 5pt;
+  outline: 2pt solid #aaa;
 }
 
 /* CHECKED STYLES */
 [type=radio]:checked + img.type {
-  outline: 8pt solid #666;
+  outline: 6pt solid #666;
 }
 
 /* IMAGE STYLES */
@@ -326,6 +344,10 @@ div.caption {
 /* CHECKED STYLES */
 [type=radio]:checked + img.emote {
   outline: 6pt solid #666;
+}
+
+label {
+    cursor: pointer;
 }
 
 div.color {
@@ -359,218 +381,182 @@ div.color {
 
 
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
-<crowd-form answer-format="flatten-objects">
+<crowd-form answer-format="flatten-objects" id="form_main">
 
-    <div id='prototypes' style="display:none">
+    <h2>How (not) to name an object.</h2>
 
-        <div id='proto-emote0-src'>http://mwestera.humanities.uva.nl/images/em-certain.png</div>
-        <div id='proto-emote1-src'>http://mwestera.humanities.uva.nl/images/em-bit-uncertain.png</div>
-        <div id='proto-emote2-src'>http://mwestera.humanities.uva.nl/images/em-super-uncertain.png</div>
+    <p class="intro">
+        We asked various workers to "name the object in the bounding box", for a number of images.
+        We need you to evaluate the names we received: Is each name adequate? If not, what's wrong? And which object, exactly, did these workers intend to name?
+    </p>
 
-        <div id='proto-emote0-title'>Perfectly adequate; there's a suitable object for the name, tightly circumscribed by the red bounding box.</div>
-        <div id='proto-emote1-title'>There may be a (slight) inadequacy...</div>
-        <div id='proto-emote2-title'>Clearly inadequate; simply no suitable object(s) for the name or vice versa.</div>
+    <p class="intro">
+        When judging if a name is "adequate", you <i>must</i> use the following definition:
+    </p>
+        <div class="intro" style="background-color: #ddd; margin: 10pt; padding: 10pt;">
+        <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.
+        <br>
+        Note: Invisible parts of the object -- for instance parts which are obscured by another object, or which fall outside the picture frame -- are allowed to fall outside the bounding box.
+        </div>
 
+    <p class="intro">
+        For full instructions and examples click the button underneath each picture below.
+    </p>
 
-        <div id='proto-icon0-src'>http://mwestera.humanities.uva.nl/images/pilot-icon1.png</div>
-        <div id='proto-icon1-src'>http://mwestera.humanities.uva.nl/images/pilot-icon3.png</div>
-        <div id='proto-icon2-src'>http://mwestera.humanities.uva.nl/images/pilot-icon2.png</div>
-        <div id='proto-icon3-src'>http://mwestera.humanities.uva.nl/images/pilot-icon4.png</div>
+    <p class="intro">
+        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names.
+        This batch of HITs contains quality control items. <mark>Submitting too many low-quality responses will lead to rejection of all your HITs.</mark>
+    </p>
 
-        <div id='proto-icon0-title'>The inadequacy seems to be purely linguistic, e.g., a confusion of similar words, not (quite) the right meaning, or a typo.</div>
-        <div id='proto-icon1-title'>The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly.</div>
-        <div id='proto-icon2-title'>The worker seems to have misinterpreted the picture, mistaking the object for something it is not, e.g., the picture is a bit unclear or they may need glasses.</div>
-        <div id='proto-icon3-title'>Something else is going on, e.g., cat on keyboard, worker messing about, trolling, ...</div>
+    <div class="row" id="IMG#-form">
 
-        <div id='proto-caption0-innerHTML'>Linguistic <br> inadequacy</div>
-        <div id='proto-caption1-innerHTML'>Bounding box <br> error</div>
-        <div id='proto-caption2-innerHTML'>Picture <br> misinterpreted</div>
-        <div id='proto-caption3-innerHTML'>Some other<br> inadequacy</div>
+        <hr style="border: 0pt; border-top: 2pt solid #eee; border-bottom: 2pt solid #bbb; background-color: #ddd; height: 20px;">
 
+        <div class="column left">
 
-        <div id='proto-color0-style'>background-color: #f60</div>
-        <div id='proto-color1-style'>background-color: #00f</div>
-        <div id='proto-color2-style'>background-color: #093</div>
-        <div id='proto-color3-style'>background-color: #c0c</div>
-        <div id='proto-color4-style'>background-color: #c90</div>
-        <div id='proto-color5-style'>background-color: #069</div>
-        <div id='proto-color6-style'>background-color: #39f</div>
-        <div id='proto-color7-style'>background-color: #690</div>
-        <div id='proto-color8-style'>background-color: #c69</div>
-        <div id='proto-color9-style'>background-color: #c90</div>
-        <div id='proto-colorX-style'>background-color: #999</div>
+            <h3>&#9658; Are the following names <span class="hover">adequate<div class="tooltip">
+                <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br><br>
+                Invisible parts of the object -- for instance parts which are obscured by another object, or which fall outside the picture frame -- are allowed to fall outside the bounding box.
+                </div></span>
+                for the picture on the right? If not, what's wrong?</h3>
 
-        <div id='proto-color0-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color1-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color2-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color3-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color4-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color5-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color6-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color7-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color8-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-color9-title'>Click to choose the color; assign identical colors to names that were likely intended to name the same object.</div>
-        <div id='proto-colorX-title'>Click here if you really don't know which object this name was meant to apply to.</div>
-
-    </div>
-
-    <h1>How (not) to name an object.</h1>
-
-
-    <div class="row">
-
-        <div class="formcolumn">
-
-            <p class="intro">
-                We asked various workers to "name the object in the bounding box" in the exact picture shown.
-                We need you to evaluate the names we got.
-            </p>
-
-            <h2>Part 1. Are the names adequate? If not, what's wrong?</h2>
-
-            <p class="intro">
-                A name is <i>adequate</i> if:
-            </p>
-            <ul class="intro" style="margin-top:-12pt">
-                <li>you could reasonably call an object in the picture by that name; and also</li>
-                <li>the visual parts of the named object in the picture must be exactly, tightly circumscribed by the red bounding box (invisible parts are allowed to fall outside the bounding box).</li>
-            </ul>
-            <p class="intro">
-                For full instructions and examples click the button on the right, underneath the picture.
-            </p>
-
-            <table class="formtable" id="form-table">
+            <table class="formtable" id="IMG#-form-table">
 
                 <tr>
                     <th class="name">Name given:</th>
                     <th class="rating">Adequate?</th>
-                    <th class="type">If not, what is (or could be) inadequate about it, mainly?</th>
+                    <th class="type">If not, what is (or could be) inadequate about the name, primarily?</th>
+                </tr>
+
+
+                <tr id="IMG#-NAME#-form">
+                    <td class="name">
+                        NAME_PLACEHOLDER
+                    </td>
+                    <td class="rating">
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.0" value="0" onclick="showhide(this);" />
+                            <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/images/em-certain.png" title="Perfectly adequate; there's a suitable object for the name, tightly circumscribed by the red bounding box." /></label> <br>
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1" onclick="showhide(this);" />
+                            <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain.png" title="There may be a (slight) inadequacy..." /></label> <br>
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2" onclick="showhide(this);" />
+                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-super-uncertain.png" title="Clearly inadequate; simply no suitable object(s) for the name or vice versa." /></label>
+                    </td>
+                    <td class="type" id='IMG#-NAME#-subform'>
+                        <div class="caption">
+                            <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
+                                <img class="type" name="icon0" src="http://mwestera.humanities.uva.nl/images/pilot-icon1.png" />
+                               <br>
+                                Linguistic <br> mistake</label>
+                        </div>
+                        <div class="caption">
+                            <label title="The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
+                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3.png"/>
+                                <br>
+                                Bounding box <br> error
+                            </label>
+                        </div>
+                        <div class="caption">
+                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not, e.g., the picture is a bit unclear or they may need glasses."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
+                                <img class="type" name="icon2" src="http://mwestera.humanities.uva.nl/images/pilot-icon2.png"/>
+                                <br>
+                                Picture <br> misinterpreted
+                            </label>
+                        </div>
+                        <div class="caption">
+                            <label title="Something else is going on, e.g., cat on keyboard, worker messing about, trolling, ..."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
+                                <img class="type" name="icon3" src="http://mwestera.humanities.uva.nl/images/pilot-icon4.png"/>
+                                <br>
+                                Some other<br> inadequacy
+                            </label>
+                        </div>
+                    </td>
                 </tr>
 
             </table>
 
             <br>
 
-            <h2>Part 2. Which names were meant to name the same object?</h2>
+            <h3>&#9658; If you had to guess, which names were likely intended for naming the same <span class="hover">object<div class="tooltip">By "object" we mean a real-world object visible in the picture; so not the red bounding box, or an image region, but a depicted, real object.</div></span>?</h3>
 
-            <p class="intro">
-                If you had to guess, which object did each worker probably intend to name (i.e., regardless of any mistakes they made)?
-                Recall that all workers saw the exact same picture, with the same bounding box.
-            </p>
-            <p class="intro">
-                Click to assign the same color to names intended for the same object, and different colors otherwise.
-                If you are really uncertain, select "?".
-            </p>
+            <p>Click below to assign the <i>same color</i> to names that were likely intended for the <i>same object</i> (regardless of any mistakes you identified).
+                Assign different colors to names that were likely intended for different objects.
+                Choose "?" if you are really uncertain about what object the name was intended for.</p>
 
-            <table class="formtable2" id="form2-table">
+
+            <table class="formtable2" id="IMG#-form2-table">
                 <tr>
                     <th class="name">Names:</th>
-                    <th class="color">Same color &#8646; Names likely intended for same object</th>
+                    <th class="color">Assign the same color (only) if names were likely intended for the same object:</th>
                 </tr>
+
+                <tr id="IMG#-NAME#-form2">
+                    <td class="name">NAME_PLACEHOLDER</td>
+                    <td class="color">
+                        <label id="IMG#-NAME#-label-color0"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.0" value="0" checked/>
+                            <div class="color" name="color0" style="background-color: #f60" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color1"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.1" value="1"/>
+                            <div class="color" name="color1" style="background-color: #00f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color2"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.2" value="2"/>
+                            <div class="color" name="color2" style="background-color: #093" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color3"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.3" value="3"/>
+                            <div class="color" name="color3" style="background-color: #c0c" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color4"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.4" value="4"/>
+                            <div class="color" name="color4" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color5"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.5" value="5"/>
+                            <div class="color" name="color5" style="background-color: #069" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color6"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.6" value="6"/>
+                            <div class="color" name="color6" style="background-color: #39f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color7"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.7" value="7"/>
+                            <div class="color" name="color7" style="background-color: #690" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color8"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.8" value="8"/>
+                            <div class="color" name="color8" style="background-color: #c69" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color9"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.9" value="9"/>
+                            <div class="color" name="color9" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label id="IMG#-NAME#-label-colorX"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.X" value="X"/>
+                            <div class="color" name="colorX" style="background-color: #999" title="Click here if you really don't know which object this name was meant to apply to.">?</div></label>
+                    </td>
+                </tr>
+
             </table>
 
             <br>
 
-            <h2>Part 3. [Optional] Any comments?</h2>
-            <p class="intro">
-                &#9658; &nbsp; Difficult? Unclear? Error? Any comment welcome!
-            </p>
-            <input type="text" name="comment" style="width:50%; font-size:16pt; padding:5pt" maxlength="100"/>
+            <h3>&#9658; Any comments? [Optional]</h3>
+            <input type="text" name="IMG#-comment" style="width:50%; font-size:16pt; padding:5pt" maxlength="100"/>
 
         </div>
 
-        <div class="imgcolumn">
-            <img class="picture" src="${image_url_1}"/>
+        <div class="column right">
 
-            <br><br> <i style="font-size:18pt;">Need help?  &#10233;</i>
+            <div class="box2" id="IMG#-fixedbox">
+                <img class="picture" src="http://img_url_placeholder/"/>
 
-            <crowd-instructions link-type="button">
+                <br><br> <i style="font-size:18pt;">Need help?  &#10233;</i>
 
-                <short-summary>
-                    [summary here]
-                </short-summary>
+                <crowd-instructions link-type="button">
 
-                <positive-example>
-                    [positive examples here]
-                </positive-example>
+                    <short-summary>
+                        [summary here]
+                    </short-summary>
 
-                <negative-example>
-                    [negative examples here]
-                </negative-example>
+                    <positive-example>
+                        [positive examples here]
+                    </positive-example>
 
-                <detailed-instructions>
-                    [detailed instructions here]
-                </detailed-instructions>
+                    <negative-example>
+                        [negative examples here]
+                    </negative-example>
 
-            </crowd-instructions>
+                    <detailed-instructions>
+                        [detailed instructions here]
+                    </detailed-instructions>
+
+                </crowd-instructions>
+            </div>
 
         </div>
     </div>
 
-
-    <div id='names-holder' style="display: none">
-        ${name_0},${name_1},${name_2},${name_3},${name_4},${name_5},${name_6},${name_7},${name_8},${name_9}
-    </div>
-
-    <table id='form-template' style="display: none">
-        <tr id="NAME-form">
-            <td class="name">
-                PLACEHOLDER
-            </td>
-            <td class="rating">
-                <label><input required type="radio" name="NAME-rating" id="NAME-rating.0" value="0" onclick="showhide(this);"/>
-                    <img class="emote" name='emote0' src=""/></label> <br>
-                <label><input required type="radio" name="NAME-rating" id="NAME-rating.1" value="1" onclick="showhide(this);"/>
-                    <img class="emote" name='emote1' src=""/></label> <br>
-                <label><input required type="radio" name="NAME-rating" id="NAME-rating.2" value="2" onclick="showhide(this);"/>
-                    <img class="emote" name='emote2' src=""/></label>
-            </td>
-            <td class="type" id='NAME-subform'>
-                <div class="caption">
-                    <label><input required type="radio" name="NAME-type" id="NAME-type.0" value="0" />
-                        <img class="type" name="icon0" src=""/></label>
-                    <br><span name="caption0"></span></div>
-                <div class="caption">
-                    <label><input required type="radio" name="NAME-type" id="NAME-type.1" value="1" />
-                        <img class="type" name="icon1" src=""/></label>
-                    <br><span name="caption1"></span></div>
-                <div class="caption">
-                    <label><input required type="radio" name="NAME-type" id="NAME-type.2" value="2" />
-                        <img class="type" name="icon2" src=""/></label>
-                    <br><span name="caption2"></span></div>
-                <div class="caption">
-                    <label><input required type="radio" name="NAME-type" id="NAME-type.3" value="3" />
-                        <img class="type" name="icon3" src=""/></label>
-                    <br><span name="caption3"></span></div>
-            </td>
-        </tr>
-    </table>
-
-    <table id='form2-template' style="display: none">
-        <tr id="NAME-colorpicker">
-            <td class="name">PLACEHOLDER</td>
-            <td class="color">
-                <label name="label-color0"><input required type="radio" name="NAME-color" id="NAME-color.0" value="0" checked/>
-                    <div class="color" name="color0">&nbsp;</div></label>
-                <label name="label-color1"><input required type="radio" name="NAME-color" id="NAME-color.1" value="1"/>
-                    <div class="color" name="color1">&nbsp;</div></label>
-                <label name="label-color2"><input required type="radio" name="NAME-color" id="NAME-color.2" value="2"/>
-                    <div class="color" name="color2">&nbsp;</div></label>
-                <label name="label-color3"><input required type="radio" name="NAME-color" id="NAME-color.3" value="3"/>
-                    <div class="color" name="color3">&nbsp;</div></label>
-                <label name="label-color4"><input required type="radio" name="NAME-color" id="NAME-color.4" value="4"/>
-                    <div class="color" name="color4">&nbsp;</div></label>
-                <label name="label-color5"><input required type="radio" name="NAME-color" id="NAME-color.5" value="5"/>
-                    <div class="color" name="color5">&nbsp;</div></label>
-                <!-- <label><input required type="radio" name="NAME-color" id="NAME-color.6" value="6"/><div class="color" name="color6">&nbsp;</div></label>
-                <label><input required type="radio" name="NAME-color" id="NAME-color.7" value="7"/><div class="color" name="color7">&nbsp;</div></label>
-                <label><input required type="radio" name="NAME-color" id="NAME-color.8" value="8"/><div class="color" name="color8">&nbsp;</div></label>
-                <label><input required type="radio" name="NAME-color" id="NAME-color.9" value="9"/><div class="color" name="color9">&nbsp;</div></label> -->
-                &nbsp;&nbsp;&nbsp;
-                <label name="label-colorX"><input required type="radio" name="NAME-color" id="NAME-color.X" value="X"/>
-                <div class="color" name="colorX">?</div></label>
-            </td>
-        </tr>
-    </table>
 
 </crowd-form>
