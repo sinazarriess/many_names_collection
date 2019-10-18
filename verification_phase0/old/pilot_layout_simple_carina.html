@@ -283,7 +283,9 @@ div.color {
         We asked various people to <b><span style="color:#0020C2;">"name the real-world object that is highlighted by the red box"</span></b> in the picture.<br/>
         It seems that not all people were trying to name the same object.
         They may have misunderstood the task or misunderstood the box.<br/>
-        <b><mark>Please help us identify which names were meant to name the same object.</mark></b>
+        <b><mark>Please help us identify which names were meant to name the same object.</mark></b><br>
+        <br>
+        For each name comparison you have to indicate this on a five-point scale: "definitely yes", "probably yes", "uncertain", "probably not", "definitely not".
     </p>
 
     <p class="intro">
@@ -338,20 +340,36 @@ div.color {
                         NAME_PLACEHOLDER
                     </td>
                     <td class="rating">
-                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.0" value="0"/>
+                        <label title='Definitely yes: This worker intended to name to the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'>
+                            Definitely yes
+                            <input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1" title='Certainly yes: This worker definitely intended to name to the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
                             <!-- <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/images/em-certain.png"
                                  title='This worker intended to name to the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>-->
-                             Yes.</label> &nbsp;&nbsp;
-                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1"/>
+                             </label>
+                        <label>
+                            <input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2" title='Probably yes: This worker likely intended to name the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
                             <!-- <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain-cropped.png"
                                  title='This worker may not have intended to name the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
                                  -->
-                             Not sure.</label> &nbsp;&nbsp;
-                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2"/>
+                            </label>
+                        <label>
+                            <input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.3" value="3" title='Uncertain: this worker may or may not have intended to name the same real-world object as the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
                             <!-- <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-uncertain-cropped.png"
                                  title='This worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
                                  -->
-                            No.</label>
+                            </label>
+                        <label>
+                            <input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.4" value="4" title='Probably not: This worker likely intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                            <!-- <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-uncertain-cropped.png"
+                                 title='This worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                                 -->
+                            </label>
+                        <label title='Definitely not: this worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'>
+                            <input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.5" value="5" title='Definitely not: this worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                            <!-- <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-uncertain-cropped.png"
+                                 title='This worker clearly intended to name a different real-world object than the worker who entered "NAME_TARGET_PLACEHOLDER".'/>
+                                 -->
+                            Definitely not</label>
                     </td>
                 </tr>
             </table>
