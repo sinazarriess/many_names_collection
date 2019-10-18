@@ -1,24 +1,24 @@
 <!-- You must include this JavaScript file -->
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
+
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
 
-
-<script src="//uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="http://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+<script type="text/javascript"> // 10 per turker
 (function(){
-    var ut_id = "62d14ceeb93bf4b824c97caf0970969c";
+    var ut_id = "8581a5a164b82e986606caeec8c94300";
     if (UTWorkerLimitReached(ut_id)) {
         document.getElementById('mturk_form').style.display = 'none';
-        document.getElementsByTagName('body')[0].innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Thanks a lot, and please click 'Return HIT' to avoid any impact on your approval rating! Sorry about this!";
+        document.getElementsByTagName('body')[0].innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
     }
 })();
 </script>
 
 
-
 <script>
+
 
 var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}"];
 
@@ -315,7 +315,7 @@ label:hover {
         This batch of HITs contains quality control items. <b>Submitting low-quality responses will lead to rejection of all your HITs in this batch.</b> We are reasonable humans though.
     </p>
 
-    <br>
+    <!-- <br>
     <div class="intro" style="text-align: center;">Need help?  &#10233;
 
         <crowd-instructions link-type="button">
@@ -337,7 +337,7 @@ label:hover {
             </detailed-instructions>
 
         </crowd-instructions>
-    </div>
+    </div> -->
 
     <div id="IMG#-form" class="row">
 
