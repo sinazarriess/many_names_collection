@@ -1,0 +1,17 @@
+SANDBOX:
+
+sandbox, complex: 36WCP8WK1B8HBKJRSB4NZ7MW612URI
+sandbox, simple: 3SWGUXCEJTNHZJ4RFWFNUHCRAF0UQH
+
+
+REAL:
+
+requester, complex: 3STE4BH37SOL3ZPT67OGASS6OZZYHF
+requester, simple: 3L4W8HTQ7W5SAOO033UAXFZ7LGA8YB
+
+
+
+
+names of projects:
+ManyNames-verification-complex-pilot0
+ManyNames-verification-simple-pilot0
