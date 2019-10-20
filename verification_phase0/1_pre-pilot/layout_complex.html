@@ -202,9 +202,9 @@ span.boundingbox {
 
 .hover{
     text-align:center;
-    width:150px;
     position:relative;
     border: 1px dashed #c00;
+    display: inline-block;
 }
 
 .tooltip{
@@ -416,7 +416,7 @@ div.color {
         </div>
 
     <p class="intro">
-        If there are multiple objects that tightly fit in the bounding box, workers are free to name any one of them.
+        If there are multiple objects that tightly fit in the bounding box, workers were free to name any one of them.
     </p>
 
     <p class="intro">
@@ -435,11 +435,12 @@ div.color {
 
         <div class="column left">
 
-            <h3>&#9658; Are the following names <span class="hover">adequate<div class="tooltip">
+            <b style="font-size:14pt;">&#9658; Are the following names</b> <div class="hover" style="font-size:14pt;"><b>adequate</b><div class="tooltip">
                 <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br><br>
                 Invisible parts of the object -- for instance parts which are obscured by another object, or which fall outside the picture frame -- are allowed to fall outside the bounding box.
-                </div></span>
-                for the picture on the right? If not, what's wrong?</h3>
+                </div></div>
+                <b  style="font-size:14pt;">for the picture on the right? If not, what's wrong?</b>
+            <br><br>
 
             <table class="formtable" id="IMG#-form-table">
 
@@ -495,10 +496,11 @@ div.color {
 
             </table>
 
-            <br>
+            <br><br>
 
-            <h3>&#9658; If you had to guess, which names were likely intended for naming the same <span class="hover">object<div class="tooltip">By "object" we mean a real-world object visible in the picture; so not the red bounding box, or an image region, but a depicted, real object.</div></span>?</h3>
-            <ul style="margin-top:-8pt">
+            <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for naming the same</b>
+            <div class="hover" style="font-size:14pt;"><b>object</b><div class="tooltip">By "object" we mean a real-world object visible in the picture; so not the red bounding box, or an image region, but a depicted, real object.</div></div><b  style="font-size:14pt;">?</b>
+            <ul>
                 <li>Click the colors below to <b>assign the same color to names that were likely intended for the same object</b>;</li>
                 <li>Assign different colors to names that were likely intended for different objects.</li>
                 <li>Choose "?" if you are really uncertain about what object the name was intended for.</li>
