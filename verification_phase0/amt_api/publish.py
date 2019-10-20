@@ -97,13 +97,11 @@ if __name__ == '__main__':
 
     config = configparser.ConfigParser()
     config.read(configfile)
-    config['batch']['initial_row'] = int(config['batch']['initial_row'])
-    config['batch']['size'] = int(config['batch']['size'])
 
     basepath = os.path.dirname(configfile)
-    out_path = os.path.join(basepath, 'out')
+    out_path = os.path.join(basepath,config['data']['admindir'])
     if not os.path.exists(out_path):
-        os.mkdir(out_path)
+        os.makedirs(out_path)
 
     config['qualification']['question'] = os.path.join(basepath, config['qualification']['question'])
     config['qualification']['answer'] = os.path.join(basepath, config['qualification']['answer'])
@@ -116,6 +114,9 @@ if __name__ == '__main__':
 
     mturk = amt_api.connect_mturk(config)
 
+    initial_row = int(config['batch']['initial_row'])
+    batch_size = int(config['batch']['size'])
+
     qualifications = get_qualifications(config)
 
     logging.info("Qualifications:")
@@ -126,20 +127,19 @@ if __name__ == '__main__':
     all_resulting_HITs = []
 
     # Load data specified by config
-    data = pd.read_csv(config['data']['csvfile'], sep=",")
-    print(data.columns.values)
+    data = pd.read_csv(config['data']['csvfile'], sep=",", keep_default_na=False)
 
-    if config['batch']['initial_row'] >= len(data):
+    if initial_row >= len(data):
         logging.warning("Check your initial row. I will exit now.")
         sys.exit()
 
-    batch_idx = int(config['batch']['initial_row'] / config['batch']['size'])
+    batch_idx = initial_row / batch_size
 
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
-    for row_idx, row in data[config['batch']['initial_row']:].iterrows():
+    for row_idx, row in data[initial_row:].iterrows():
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
-        param_list = [{'Name': key, 'Value': value} for key, value in row.to_dict().items()]
+        param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
         logging.info(param_list)
 
         hit_data = create_new_hit(mturk, config, param_list, qualifications)
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         logging.info("New hit groupId: " + hit_data['HIT']['HITGroupId'])
 
         # Sleepy time, now and then:.
-        if (row_idx + 1 % config['batch']['size']) == 0:
+        if (row_idx + 1 % batch_size) == 0:
             outname = os.path.join(out_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
             with open(outname, 'w') as outfile:
                 json.dump(all_resulting_HITs, outfile)

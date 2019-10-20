@@ -40,16 +40,19 @@ if __name__ == "__main__":
         print("Please give a me a config file as argument")
         sys.exit()
 
+    configfile = sys.argv[1];
+
     max_steps = 9
     n_steps = 0
 
     CONFIG = configparser.ConfigParser()
-    CONFIG.read(sys.argv[1])
+    CONFIG.read(configfile)
 
     total_hits = int(CONFIG["batch"]["total"]) * int(CONFIG["batch"]["size"]) * int(CONFIG["hit"]["maxassignments"])
-    data_path = os.path.dirname(sys.argv[1])
+
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, CONFIG['data']['admindir'])
 
     MTURK = amt_api.connect_mturk(CONFIG)
-    path_published = data_path 
     
-    cancel_hits(MTURK, path_published)
+    cancel_hits(MTURK, out_path)
