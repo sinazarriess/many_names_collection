@@ -96,16 +96,17 @@ if __name__ == "__main__":
 
     basepath = os.path.dirname(configfile)
     out_path = os.path.join(basepath, config['data']['admindir'])
+    result_path = os.path.join(basepath, config['data']['resultdir'])
 
     mturk = amt_api.connect_mturk(config)
 
-    print("Trying to create folder " + config['data']['resultdir'])
-    if os.path.isdir(config['data']['resultdir']):
-        print("Result Directory  " + config['data']['resultdir'] + " exists! I won't do anything now.")
+    print("Trying to create folder " + result_path)
+    if os.path.isdir(result_path):
+        print("Result Directory  " + result_path + " exists! I won't do anything now.")
         sys.exit()
 
-    os.makedirs(config['data']['resultdir'])
+    os.makedirs(result_path)
 
     ass_status = ["Submitted"]
     # ass_status = ["Approved"]
-    get_results(mturk, out_path, config['data']['resultdir'], ass_statuses=ass_status)
+    get_results(mturk, out_path, result_path, ass_statuses=ass_status)
