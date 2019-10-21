@@ -9,35 +9,6 @@ import configparser
 
 import amt_api
 
-# deprecated, see amt_api
-def _get_assignments(mturk,hitid,statuses=['Approved']):
-    aresponse = mturk.list_assignments_for_hit(
-                    HITId=hitid,
-                    AssignmentStatuses=statuses)
-    if aresponse["NumResults"] < 1:
-        print("\nNo assignments yet for HIT %s." % (str(hitid)))
-        return []
-    
-    anext = aresponse['NextToken']
-    assignments = aresponse['Assignments']
-
-    print("\nget Hit",hitid)
-
-    while anext:
-        nresponse = mturk.list_assignments_for_hit(
-                    HITId=hitid,NextToken=anext,AssignmentStatuses=statuses)
-        #print(nresponse.keys())
-        nextassign = nresponse['Assignments']
-        assignments += nextassign
-
-        if 'NextToken' in nresponse:
-            anext = nresponse['NextToken']
-        else:
-            anext = None
-            
-
-    return assignments
-
 
 def get_results(mturk, path_published, path_results, ass_statuses):
     '''ask AMT for results'''    
@@ -119,21 +90,22 @@ if __name__ == "__main__":
         sys.exit()
     else:
         configfile = sys.argv[1]
-    
-    CONFIG = configparser.ConfigParser()
-    CONFIG.read(configfile)
-    data_path = os.path.dirname(configfile)
-    MTURK = amt_api.connect_mturk(CONFIG)
 
-    print("Trying to create folder "+CONFIG['data']['resultdir'])
-    if os.path.isdir(CONFIG['data']['resultdir']):
-        print("Result Directory  "+CONFIG['data']['resultdir']+ " exists! I won't do anything now.")
+    config = configparser.ConfigParser()
+    config.read(configfile)
+
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, config['data']['admindir'])
+
+    mturk = amt_api.connect_mturk(config)
+
+    print("Trying to create folder " + config['data']['resultdir'])
+    if os.path.isdir(config['data']['resultdir']):
+        print("Result Directory  " + config['data']['resultdir'] + " exists! I won't do anything now.")
         sys.exit()
 
-    os.makedirs(CONFIG['data']['resultdir'])
+    os.makedirs(config['data']['resultdir'])
 
-    path_published = data_path
-    ass_status = ["Approved"] #["Submitted"]
-    get_results(MTURK, path_published, 
-                CONFIG['data']['resultdir'], 
-                ass_statuses=ass_status)
+    ass_status = ["Submitted"]
+    # ass_status = ["Approved"]
+    get_results(mturk, out_path, config['data']['resultdir'], ass_statuses=ass_status)
