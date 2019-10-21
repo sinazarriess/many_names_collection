@@ -41,17 +41,21 @@ if __name__ == "__main__":
     max_steps = 9
     n_steps = 0
 
-    CONFIG = configparser.ConfigParser()
-    CONFIG.read(sys.argv[1])
+    configfile = sys.argv[1]
 
-    total_hits = int(CONFIG["batch"]["total"]) * int(CONFIG["batch"]["size"]) * int(CONFIG["hit"]["maxassignments"])
-    data_path = os.path.dirname(sys.argv[1])
+    config = configparser.ConfigParser()
+    config.read(configfile)
 
-    MTURK = amt_api.connect_mturk(CONFIG)
-    path_published = data_path
+    total_hits = int(config["batch"]["total"]) * int(config["batch"]["size"]) * int(config["hit"]["maxassignments"])
+
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, config['data']['admindir'])
+
+
+    MTURK = amt_api.connect_mturk(config)
     statuses = ["Submitted", "Approved"]
     while n_steps < max_steps:
-        monitor_submission(MTURK, path_published, total_hits, statuses=statuses)
+        monitor_submission(MTURK, out_path, total_hits, statuses=statuses)
         print("*****")
         time.sleep(200)
 
