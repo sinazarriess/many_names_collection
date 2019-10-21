@@ -22,7 +22,8 @@ def get_results(mturk, path_published, path_results, ass_statuses):
         comments_outfile = open(os.path.join(path_results, "comments.txt"), 'w')
 
         for item in parsed:
-            #print(item)
+
+            params = {d['Name']: d['Value'] for d in item['HIT']['params']}
 
             assignments = amt_api.get_assignments(mturk, 
                                                   item['HIT']['HITId'],
@@ -31,11 +32,10 @@ def get_results(mturk, path_published, path_results, ass_statuses):
             print("HIT/Assignments",item['HIT']['HITId'],len(assignments))
 
             if len(assignments) > 0:
-                hit_out_dict = {'HITId':item['HIT']['HITId'], \
-                                'Assignments':[]
+                hit_out_dict = {'HITId': item['HIT']['HITId'],
+                                'Assignments': [],
                                }
-                if 'Images' in item['HIT']:
-                    hit_out_dict['Images']= item['HIT']['Images']
+                hit_out_dict.update({d['Name']: d['Value'] for d in item['HIT']['params']})
 
                 for assignment in assignments:
                     assignment_out_dict = {}
