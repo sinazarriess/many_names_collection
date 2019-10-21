@@ -7,7 +7,7 @@ INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
     <p><font size="5"><b>Different names, same object? -- Instructions</b></font></p>
 
     <p>
-        We asked various people to <i style="color:#0020C2;">"name the real-world object that is highlighted by the bounding box"</i>, in the pictures shown.<br/>
+        We asked various people to <i>"name the real-world object that is highlighted by the bounding box"</i>, in the pictures shown.<br/>
         But it seems that not all people were trying to name the same object.
         Perhaps they misunderstood the task or forgot to pay attention to the bounding box, for instance.<br/>
         <b>Please help us identify which names were intended as naming the same real-world object.</b>
@@ -16,7 +16,7 @@ INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
         For every image below you will get one <i>target name</i> and a varying number of <i>comparison names</i>.<br/>
         <b>For each comparison name, indicate whether it was meant to name the same object as the target name.</b><br/>
         Indicate this on a five-point scale: "definitely yes", "probably yes", "uncertain", "probably not", "certainly not".
-    <br><br>
+    <br/><br/>
         This batch of HITs contains quality control items. <b>Submitting low-quality responses will lead to rejection of all your HITs in this batch.</b> We are reasonable humans though.
     </p>
 
