@@ -9,10 +9,10 @@ import sys
 import amt_api
 
 
-def make_qualification(mturk, question, answer):
+def make_qualification(mturk, question, answer, name, outpath):
 
     response = mturk.create_qualification_type(
-        Name='TaskNotDoneBefore_DataProtv1.3',
+        Name=name,
         Keywords='data protection',
         Description='Please read our data protection policy and accept it',
         QualificationTypeStatus='Active',
@@ -24,7 +24,7 @@ def make_qualification(mturk, question, answer):
     print(response)
     del response['QualificationType']['CreationTime']
     
-    with open("protectionqual.json", 'w') as outfile:
+    with open(os.path.join(outpath, "{}.json".format(name)), 'w') as outfile:
         json.dump(response, outfile)
         
     return True
@@ -72,13 +72,18 @@ if __name__ == '__main__':
     config['qualification']['answer'] = os.path.join(basepath, config['qualification']['answer'])
     config['data']['csvfile'] = os.path.join(basepath, config['data']['csvfile'])
 
+    basepath = os.path.dirname(configfile)
+    out_path = os.path.join(basepath, config['data']['admindir'])
+    if not os.path.exists(out_path):
+        os.makedirs(out_path)
+
     moment = time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime())
     logging.basicConfig(filename=os.path.join(out_path, moment+'.log'),level=logging.INFO)
 
     logging.info("config file: "+configfile)
 
-
     questionqual_xml = config['qualification']['question']
+    name = os.path.basename(config['qualification']['question'])[:-4]
     answerqual_xml = config['qualification']['answer']
     with open(questionqual_xml, 'r') as myfile:
         question = myfile.read()
@@ -94,9 +99,9 @@ if __name__ == '__main__':
         sys.stdout.write("Config contains qualification protection (id %s). Updating qualification..." % (config["qualification"]["protectionid"]))
         logging.info("Updating qualification:")
         logging.info(config["qualification"]["protectionid"])
-        update_qualification(MTURK, config["qualification"]["protectionid"], question, answer)
+        update_qualification(MTURK, config["qualification"]["protectionid"], question, answer, name, out_path)
         print("Qualification {0} updated.".format(config["qualification"]["protectionid"]))
     else:
-        make_qualification(MTURK, question, answer)
+        make_qualification(MTURK, question, answer, name, out_path)
         print("Qualification created.")
     
