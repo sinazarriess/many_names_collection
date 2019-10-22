@@ -98,6 +98,10 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read(configfile)
 
+    input("This will publish HITs based on {}. Press any key to continue.".format(os.path.basename(configfile)))
+    if not 'sandbox' in config['endpoint']['url']:
+        input("WARNING: This is not a drill! Will cost actual money!")
+
     basepath = os.path.dirname(configfile)
     out_path = os.path.join(basepath,config['data']['admindir'])
     if not os.path.exists(out_path):
