@@ -37,6 +37,15 @@ var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${nam
         ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
         ];
 
+if (images[0] == "${image_url_0}") {
+    quality_controls = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+    images = ["image_1", "image_2", "", "", "", "", "", "", "", "", ""];
+    names[0] = ["name_1", "name_2", "name_3", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+    names[1] = ["name_4", "name_5", "name_6", "name_7", "", "", "", "", "", "", "", "", "", "", "", ""];
+
+}
+
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
@@ -67,7 +76,13 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
+function validateForm(){
+    alert("OEJ!");
+    return false;
+}
+
 var num_images = 0;
+var num_names_per_image = [];
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -117,10 +132,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
             }
 
+            num_names_per_image[i] = num_names;
+
             // Remove superfluous color buttons
             for (var n = 0; n < num_names; n++) {
                 for (var m = num_names; m < names[0].length - 1; m++) {
-                    console.log("Attempting to delete: " + "IMG"+i+"-"+"NAME"+n+"-label-color"+m);
                     colorbutton = document.getElementById("IMG"+i+"-"+"NAME"+n+"-label-color"+m);
                     colorbutton.parentNode.removeChild(colorbutton);
                 }
@@ -545,6 +561,19 @@ div.color {
                             <div class="color" name="color8" style="background-color: #c69" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
                         <label id="IMG#-NAME#-label-color9"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.9" value="9"/>
                             <div class="color" name="color9" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color10"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.10" value="10"/>
+                            <div class="color" name="color10" style="background-color: #39f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color11"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.11" value="11"/>
+                            <div class="color" name="color11" style="background-color: #690" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color12"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.12" value="12"/>
+                            <div class="color" name="color12" style="background-color: #c69" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color13"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.13" value="13"/>
+                            <div class="color" name="color13" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color14"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.14" value="14"/>
+                            <div class="color" name="color14" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color15"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.15" value="15"/>
+                            <div class="color" name="color16" style="background-color: #c90" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+
                         &nbsp;&nbsp;&nbsp;
                         <label id="IMG#-NAME#-label-colorX"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.X" value="X"/>
                             <div class="color" name="colorX" style="background-color: #999" title="Click here if you really don't know which object this name was meant to apply to.">?</div></label>
@@ -597,3 +626,12 @@ div.color {
 
 
 </crowd-form>
+
+
+<script>
+document.querySelector('crowd-form').onsubmit = function(e ) {
+    if (!validateForm()) {
+        e.preventDefault();
+    }
+}
+</script>
