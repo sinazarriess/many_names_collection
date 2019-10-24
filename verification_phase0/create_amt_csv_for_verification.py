@@ -180,7 +180,7 @@ def main():
     print("Bins: {} (min: {}, max: {}, mean: {})".format(len(full_bins), min(bin_weights), max(bin_weights), sum(bin_weights)/len(bin_weights)))
 
     # Now turn bins into rows of the AMT csv:
-    header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAMES_PER_IMAGE)] + ["quality_control"] for i in range(MAX_IMAGES_PER_HIT)]
+    header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAMES_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGES_PER_HIT)]
     header = [e for l in header for e in l]
     rows = []
     for bin in bins:
