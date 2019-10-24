@@ -19,15 +19,23 @@
 
 <script>
 
+var quality_controls = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
 
-var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}"];
+var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
 
-var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${name_0_4}", "${name_0_5}", "${name_0_6}", "${name_0_7}", "${name_0_8}", "${name_0_9}", "${name_0_10}"],
-        ["${name_1_0}", "${name_1_1}", "${name_1_2}", "${name_1_3}", "${name_1_4}", "${name_1_5}", "${name_1_6}", "${name_1_7}", "${name_1_8}", "${name_1_9}", "${name_1_10}"],
-        ["${name_2_0}", "${name_2_1}", "${name_2_2}", "${name_2_3}", "${name_2_4}", "${name_2_5}", "${name_2_6}", "${name_2_7}", "${name_2_8}", "${name_2_9}", "${name_2_10}"],
-        ["${name_3_0}", "${name_3_1}", "${name_3_2}", "${name_3_3}", "${name_3_4}", "${name_3_5}", "${name_3_6}", "${name_3_7}", "${name_3_8}", "${name_3_9}", "${name_3_10}"],
-        ["${name_4_0}", "${name_4_1}", "${name_4_2}", "${name_4_3}", "${name_4_4}", "${name_4_5}", "${name_4_6}", "${name_4_7}", "${name_4_8}", "${name_4_9}", "${name_4_10}"],
-        ]
+var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${name_0_4}", "${name_0_5}", "${name_0_6}", "${name_0_7}", "${name_0_8}", "${name_0_9}", "${name_0_10}", "${name_0_11}", "${name_0_12}", "${name_0_13}", "${name_0_14}", "${name_0_15}"],
+            ["${name_1_0}", "${name_1_1}", "${name_1_2}", "${name_1_3}", "${name_1_4}", "${name_1_5}", "${name_1_6}", "${name_1_7}", "${name_1_8}", "${name_1_9}", "${name_1_10}", "${name_1_11}", "${name_1_12}", "${name_1_13}", "${name_1_14}", "${name_1_15}"],
+            ["${name_2_0}", "${name_2_1}", "${name_2_2}", "${name_2_3}", "${name_2_4}", "${name_2_5}", "${name_2_6}", "${name_2_7}", "${name_2_8}", "${name_2_9}", "${name_2_10}", "${name_2_11}", "${name_2_12}", "${name_2_13}", "${name_2_14}", "${name_2_15}"],
+            ["${name_3_0}", "${name_3_1}", "${name_3_2}", "${name_3_3}", "${name_3_4}", "${name_3_5}", "${name_3_6}", "${name_3_7}", "${name_3_8}", "${name_3_9}", "${name_3_10}", "${name_3_11}", "${name_3_12}", "${name_3_13}", "${name_3_14}", "${name_3_15}"],
+            ["${name_4_0}", "${name_4_1}", "${name_4_2}", "${name_4_3}", "${name_4_4}", "${name_4_5}", "${name_4_6}", "${name_4_7}", "${name_4_8}", "${name_4_9}", "${name_4_10}", "${name_4_11}", "${name_4_12}", "${name_4_13}", "${name_4_14}", "${name_4_15}"],
+            ["${name_5_0}", "${name_5_1}", "${name_5_2}", "${name_5_3}", "${name_5_4}", "${name_5_5}", "${name_5_6}", "${name_5_7}", "${name_5_8}", "${name_5_9}", "${name_5_10}", "${name_5_11}", "${name_5_12}", "${name_5_13}", "${name_5_14}", "${name_5_15}"],
+            ["${name_6_0}", "${name_6_1}", "${name_6_2}", "${name_6_3}", "${name_6_4}", "${name_6_5}", "${name_6_6}", "${name_6_7}", "${name_6_8}", "${name_6_9}", "${name_6_10}", "${name_6_11}", "${name_6_12}", "${name_6_13}", "${name_6_14}", "${name_6_15}"],
+            ["${name_7_0}", "${name_7_1}", "${name_7_2}", "${name_7_3}", "${name_7_4}", "${name_7_5}", "${name_7_6}", "${name_7_7}", "${name_7_8}", "${name_7_9}", "${name_7_10}", "${name_7_11}", "${name_7_12}", "${name_7_13}", "${name_7_14}", "${name_7_15}"],
+            ["${name_8_0}", "${name_8_1}", "${name_8_2}", "${name_8_3}", "${name_8_4}", "${name_8_5}", "${name_8_6}", "${name_8_7}", "${name_8_8}", "${name_8_9}", "${name_8_10}", "${name_8_11}", "${name_8_12}", "${name_8_13}", "${name_8_14}", "${name_8_15}"],
+            ["${name_9_0}", "${name_9_1}", "${name_9_2}", "${name_9_3}", "${name_9_4}", "${name_9_5}", "${name_9_6}", "${name_9_7}", "${name_9_8}", "${name_9_9}", "${name_9_10}", "${name_9_11}", "${name_9_12}", "${name_9_13}", "${name_9_14}", "${name_9_15}"],
+            ["${name_9_0}", "${name_9_1}", "${name_9_2}", "${name_9_3}", "${name_9_4}", "${name_9_5}", "${name_9_6}", "${name_9_7}", "${name_9_8}", "${name_9_9}", "${name_9_10}", "${name_9_11}", "${name_9_12}", "${name_9_13}", "${name_9_14}", "${name_9_15}"],
+            ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
+            ];
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
@@ -350,7 +358,7 @@ label:hover {
 
         <div class="column right">
 
-            <h3>&#9658; The target name for the picture on the right is "<span style="color:#0020C2;">NAME_TARGET_PLACEHOLDER</span>". Consider which real-world object it is likely intended to name. Then indicate if the following names were meant to name the exact same object.</h3>
+            <h3>&#9658; The target name for the picture on the left is "<span style="color:#0020C2;">NAME_TARGET_PLACEHOLDER</span>". Consider which real-world object it is likely intended to name. Then indicate if the following names were meant to name the exact same object.</h3>
 
             <table class="formtable" id="IMG#-form-table">
 
