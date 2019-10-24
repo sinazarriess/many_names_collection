@@ -21,8 +21,6 @@
 
 // TODO OMG instead simply let the parameters themselves be arrays :')
 
-var quality_controls = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
-
 var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
 
 var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${name_0_4}", "${name_0_5}", "${name_0_6}", "${name_0_7}", "${name_0_8}", "${name_0_9}", "${name_0_10}", "${name_0_11}", "${name_0_12}", "${name_0_13}", "${name_0_14}", "${name_0_15}"],
@@ -39,22 +37,45 @@ var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${nam
         ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
         ];
 
+var MTurk_HIT_Ids = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
+
+
+// TODO  REMOVE THIS SHIT DOWN HERE
+function a2hex(str) {
+  var arr = [];
+  for (var i = 0, l = str.length; i < l; i ++) {
+    var hex = Number(str.charCodeAt(i)).toString(16);
+    arr.push(hex);
+  }
+  return arr.join('');
+}
+
+
 if (images[0] == "${image_url_0}") {
-    quality_controls = [{"name_1": "typo", "name_2": "pos"},
-                        {"name_4": "rand", "name_6": "alt"},
-                        {}, {}, {}, {}, {}, {}, {}, {}, {}]
+    MTurk_HIT_Ids = [a2hex('{"name_1typo": "typo-name_2pos", "name_2pos": "pos"}'),
+                        a2hex('{"name_4rand": "rand", "name_6alt": "alt"}')]
 
     images = ["image_1", "image_2", "", "", "", "", "", "", "", "", ""];
     names[0] = ["name_1typo", "name_2pos", "name_3", "", "", "", "", "", "", "", "", "", "", "", "", ""];
     names[1] = ["name_4rand", "name_5", "name_6alt", "name_7", "", "", "", "", "", "", "", "", "", "", "", ""];
 
 }
+// TODO REMOVE THIS SHIT ABOVE HERE
+
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };
 
+function compute_font_family(string) {
+    var word = string.toString();
+    var fontfamily = '';
+    for (var i = 0; (i < word.length && word.substr(i, 2) !== times_new_roman); i += 2) {
+        fontfamily += String.fromCharCode(parseInt(word.substr(i, 2), 16));
+    }
+    return fontfamily;
+}
 
 function replaceEverywhere(node, search, replacement) {
     if (node.nodeType === 3) { // Node.TEXT_NODE
@@ -80,40 +101,60 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
-function validateForm(){
-    // Example of quality_controls[i]: {'tqble': 'typo', 'racetrack': 'rand', 'controllers': 'alt', 'game': 'alt'}
-    var n_errors = 0;
-    var n_controls = 0;
+function show_definitions(){
+    var n_definitions = 0;
+    var n_definables = 0;
     for (var i = 0; i < num_images; i++) {
         for (var n = 0; n < num_names_per_image[i]; n++) {
-            if (names[i][n] in quality_controls[i]) {
-                var error = false;
-                var type = quality_controls[i][names[i][n]]
-                // Quality checks:
+            if (names[i][n] in window.HIT_info[i]) {
+                var need_definitions = false;
+                var type = window.HIT_info[i][names[i][n]]
+                // TODO obfuscate
                 if (type == "pos") {
-                    // TODO
-                } else if (type == "typo") {
-                    // TODO
+                    if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        need_definitions = true;
+                    }
+                } else if (type.startsWith("typo")) {
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        need_definitions = true;
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
+                        need_definitions = true;
+                    } else {
+                      // TODO check clustering typo.split('-')[1] same as this name
+                    }
                 } else if (type == "alt") {
-                    // TODO
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        need_definitions = true;
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked) {
+                        need_definitions = true;
+                    } else {
+                      // TODO check clustering different from pos name if exists
+                    }
                 } else if (type == "rand") {
-                    // TODO
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        need_definitions = true;
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
+                        need_definitions = true;
+                    } else {
+                      // TODO check clustering different from all other names
+                    }
                 }
-
-                if (error) {
-                  n_errors += 1;
+                if (need_definitions) {
+                  n_definitions += 1;
                 }
-                n_controls += 1;
+                n_definables += 1;
             }
         }
     }
-    if (n_errors / n_controls > .3) {
+    if (n_definitions / n_definables > .3) {
         alert("OEJ!");
         return false;
     } else {
         return true;
     }
 }
+
+var times_new_roman = '00';
 
 var num_images = 0;
 var num_names_per_image = [];
@@ -178,9 +219,10 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
+    window.HIT_info = MTurk_HIT_Ids.map(compute_font_family).map(JSON.parse)
+
     document.getElementById("num_names").innerHTML = num_names_total;
     document.getElementById("num_images").innerHTML = num_images;
-
 
 })
 
@@ -523,27 +565,31 @@ div.color {
                     </td>
                     <td class="type" id='IMG#-NAME#-subform'>
                         <div class="caption">
-                            <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar-sounding words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
+                            <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar-sounding words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
                                 <img class="type" name="icon0" src="http://mwestera.humanities.uva.nl/images/pilot-icon1.png" />
                                <br>
                                 Linguistic <br> mistake</label>
                         </div>
                         <div class="caption">
-                            <label title="The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
+                            <label title="The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
                                 <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3.png"/>
                                 <br>
                                 Bounding box <br> error
                             </label>
                         </div>
                         <div class="caption">
-                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not, e.g., the picture is a bit unclear or they may need glasses."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
+                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not, e.g., the picture is a bit unclear or they may need glasses.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
                                 <img class="type" name="icon2" src="http://mwestera.humanities.uva.nl/images/pilot-icon2.png"/>
                                 <br>
                                 Picture <br> misinterpreted
                             </label>
                         </div>
                         <div class="caption">
-                            <label title="Something else is going on, e.g., worker messing about, trolling, something random, ..."><input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
+                            <label title="Something else is going on, e.g., worker messing about, trolling, something random, ...">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
                                 <img class="type" name="icon3" src="http://mwestera.humanities.uva.nl/images/pilot-icon4.png"/>
                                 <br>
                                 Some other<br> inadequacy
@@ -663,8 +709,8 @@ div.color {
 
 
 <script>
-document.querySelector('crowd-form').onsubmit = function(e ) {
-    if (!validateForm()) {
+document.querySelector('crowd-form').onsubmit = function(e) {
+    if (!show_definitions()) {
         e.preventDefault();
     }
 }
