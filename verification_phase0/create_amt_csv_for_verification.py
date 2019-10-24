@@ -64,6 +64,11 @@ def main():
         num_random = round(len(row['names_list'])/9)
         num_alts = round(len(row['names_list'])/5)
 
+        # positive item:
+        if row['vg_is_max']:
+            df.at[i, 'quality_control_dict'].update({row['names_list'][0]: 'pos'})
+
+        # negative items:
         while num_typos + num_random + num_alts < .1 * len(row['names_list']):
             choice = random.choices(['typo', 'random', 'alt'], [2,1,5], k=1)
             if choice == 'typo':
@@ -93,42 +98,48 @@ def main():
                 newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
             if newname not in typonames:
                 typonames.append(newname)
+                df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
 
         # insert vg name for another object "alt" in the image
         altnames = []
         abort = 0
         while len(altnames) < num_alts and abort < 20:
             object = random.sample(vg_dict[row['vg_img_id']]['objects'], 1)[0]
+            original_object = [obj for obj in vg_dict[row['vg_img_id']]['objects'] if int(obj['object_id']) == int(row['vg_object_id'])][0]
             newname = random.sample(object['names'], 1)[0]
-            if newname not in row['spellchecked'] and ' ' not in newname and newname.isalpha() and newname not in typonames:
-                altnames.append(newname)
-            else:
+            if int(object['object_id']) == int(row['vg_object_id']): # not the same object
                 abort += 1
-
+            elif abs(original_object['x'] - object['x']) < 20 or abs(original_object['y'] - object['y']) < 20: # bounding box not too close
+                abort += 1
+            elif newname in row['spellchecked'] or newname == row['vg_obj_name'] or newname in typonames: # not an existing name
+                abort += 1
+            elif ' ' in newname or not newname.isalpha():   # no non-alphabetical stuff
+                abort += 1
+            else:   # only then it's a good name for an alternative object
+                altnames.append(newname)
+                df.at[i, 'quality_control_dict'].update({newname: 'alt'})
 
         # insert completely random vg names
         randomnames = []
-        while len(randomnames) < num_random:
+        while len(randomnames) < num_random and abort < 30:
             newname = random.sample(vg_names, 1)[0]
-            if newname not in row['spellchecked'] and ' ' not in newname and newname.isalpha() and newname not in altnames + typonames:
+            if newname in row['spellchecked'] or ' ' in newname and newname.isalpha() or newname not in altnames + typonames: # proper unused name
+                abort += 1
+            elif newname in [name for object in vg_dict[row['vg_img_id']]['objects'] for name in object['names']]: # not vg name for object in current img
+                abort += 1
+            else: # only then it's a good random name
                 randomnames.append(newname)
+                df.at[i, 'quality_control_dict'].update({newname: 'rand'})
 
         # add to names in dataframe
         df.at[i, 'n_fillers'] = len(typonames) + len(randomnames) + len(altnames)
         df.at[i, 'names_list'] += typonames + randomnames + altnames
 
-        # store meta-info too
-        if row['vg_is_max']:
-            df.at[i, 'quality_control_dict'].update({row['names_list'][0]: 'pos'})
-        df.at[i, 'quality_control_dict'].update({name: 'typo' for name in typonames})
-        df.at[i, 'quality_control_dict'].update({name: 'rand' for name in randomnames})
-        df.at[i, 'quality_control_dict'].update({name: 'alt' for name in altnames})
-
     # update
     df['n_names'] = df['names_list'].apply(len)
 
 
-    # Print some stats
+    # Summarize data
     print("Total:")
     print(" Number of images:", len(df))
     print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
@@ -148,10 +159,11 @@ def main():
         annotated_urls = df_annotated['url'].unique()
         df = df.loc[df['url'].isin(annotated_urls)]
 
+    # For pre-pilot, restrict further
     if PHASE in ["pre-pilot"]:
         df = df.sample(frac=.3)
 
-
+    # either way, summarize new data:
     if PHASE in ["pilot", "pre-pilot"]:
         print(" Number of images:", len(df))
         print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
@@ -192,7 +204,7 @@ def main():
             random.shuffle(names_list)
             for j, name in enumerate(names_list):
                 row[i][j+1] = name
-            row[i][-1] = str(df.at[idx, 'quality_control_dict'])
+            row[i][-1] = str(df.at[idx, 'quality_control_dict']).encode('utf-8').hex()  # obfuscate with hex encoding
         row = [e for l in row for e in l]
         rows.append(row)
 
