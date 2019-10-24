@@ -37,6 +37,15 @@ var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${nam
             ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
             ];
 
+if (images[0] == "${image_url_0}") {
+        quality_controls = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+        images = ["image_1", "image_2", "", "", "", "", "", "", "", "", ""];
+        names[0] = ["name_1", "name_2", "name_3", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+        names[1] = ["name_4", "name_5", "name_6", "name_7", "", "", "", "", "", "", "", "", "", "", "", ""];
+
+    }
+
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
@@ -67,13 +76,18 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
+function validateForm(){
+    alert("OEJ!");
+    return false;
+}
+
+var num_images = 0;
+var num_names_total = 0;
+
 document.addEventListener('DOMContentLoaded', function(){
 
     var img_form_template = document.getElementById("IMG#-form");
     img_form_template.parentNode.removeChild(img_form_template);
-
-    var num_images = 0;
-    var num_names_total = 0;
 
     for (var i = 0; i < images.length; i++) {
 
@@ -416,3 +430,13 @@ label:hover {
     </div>
 
 </crowd-form>
+
+
+
+<script>
+document.querySelector('crowd-form').onsubmit = function(e ) {
+    if (!validateForm()) {
+        e.preventDefault();
+    }
+}
+</script>
