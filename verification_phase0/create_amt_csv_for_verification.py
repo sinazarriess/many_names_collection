@@ -17,8 +17,10 @@ import json
 
 
 PHASE = "pre-pilot" # "pilot", "main"
-MAX_IMAGES_PER_HIT = 8
-MAX_NAMES_PER_IMAGE = 15
+IMAGES_PER_HIT = 8
+
+MAX_IMAGE_PARAMS_PER_HIT = 11
+MAX_NAME_PARAMS_PER_IMAGE = 16
 
 def main():
 
@@ -172,7 +174,7 @@ def main():
 
 
     # Create roughly equal-sized HITs:
-    n_bins = math.ceil(len(df) / MAX_IMAGES_PER_HIT)
+    n_bins = math.ceil(len(df) / IMAGES_PER_HIT)
     bins = [[] for _ in range(n_bins)]
     bin_weights = [0] * n_bins
     full_bins = []
@@ -182,7 +184,7 @@ def main():
         min_idx = min(list(range(len(bin_weights))), key=lambda x: bin_weights[x])
         bins[min_idx].append(i)
         bin_weights[min_idx] += row['n_names']
-        if len(bins[min_idx]) == MAX_IMAGES_PER_HIT:
+        if len(bins[min_idx]) == IMAGES_PER_HIT:
             full_bins.append(bins.pop(min_idx))
             full_bin_weights.append(bin_weights.pop(min_idx))
 
@@ -192,11 +194,11 @@ def main():
     print("Bins: {} (min: {}, max: {}, mean: {})".format(len(full_bins), min(bin_weights), max(bin_weights), sum(bin_weights)/len(bin_weights)))
 
     # Now turn bins into rows of the AMT csv:
-    header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAMES_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGES_PER_HIT)]
+    header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGE_PARAMS_PER_HIT)]
     header = [e for l in header for e in l]
     rows = []
     for bin in bins:
-        row = [[""] + ["" for _ in range(MAX_NAMES_PER_IMAGE)] + ["{}"] for _ in range(MAX_IMAGES_PER_HIT)]
+        row = [[""] + ["" for _ in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["{}"] for _ in range(MAX_IMAGE_PARAMS_PER_HIT)]
         for i, idx in enumerate(bin[::-1]):
             row[i][0] = df.at[idx, 'url']
             # Shuffle names_list (already contains fillers)
