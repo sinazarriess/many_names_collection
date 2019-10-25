@@ -17,7 +17,7 @@ import json
 
 
 PHASE = "pre-pilot" # "pilot", "main"
-IMAGES_PER_HIT = 8
+IMAGES_PER_HIT = 6
 
 MAX_IMAGE_PARAMS_PER_HIT = 11
 MAX_NAME_PARAMS_PER_IMAGE = 16
@@ -198,7 +198,7 @@ def main():
     header = [e for l in header for e in l]
     rows = []
     for bin in bins:
-        row = [[""] + ["" for _ in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["{}"] for _ in range(MAX_IMAGE_PARAMS_PER_HIT)]
+        row = [[""] + ["" for _ in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["{}".encode('utf-8').hex()] for _ in range(MAX_IMAGE_PARAMS_PER_HIT)]
         for i, idx in enumerate(bin[::-1]):
             row[i][0] = df.at[idx, 'url']
             # Shuffle names_list (already contains fillers)
@@ -206,11 +206,11 @@ def main():
             random.shuffle(names_list)
             for j, name in enumerate(names_list):
                 row[i][j+1] = name
-            # Obfuscate with font labels:
+            # Obfuscate with font labels: TODO Move the obfuscation down; do more globally, separately.
             for key in df.at[idx, 'quality_control_dict']:
                 df.at[idx, 'quality_control_dict'][key] = df.at[idx, 'quality_control_dict'][key].replace("pos", "arial").replace("typo", "sans").replace("alt", "serif").replace("rand", "courier")
             # Obfuscate further with hex encoding
-            row[i][-1] = str(df.at[idx, 'quality_control_dict']).encode('utf-8').hex()
+            row[i][-1] = str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex()
         row = [e for l in row for e in l]
         rows.append(row)
 
