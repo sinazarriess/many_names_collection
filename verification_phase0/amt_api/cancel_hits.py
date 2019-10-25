@@ -24,8 +24,7 @@ def cancel_hits(mturk, path_published):
             parsed = json.load(handle)
         do_cancel = input("Really canceling %d HITs (Y/N)? " % (len(parsed)))
         if do_cancel.lower() != "y":
-            print("Cancelation aborted.")
-            return
+            pass
         else:
             for item in parsed:
                 if item['HIT']['HITId'] not in known_hits:
@@ -47,8 +46,6 @@ if __name__ == "__main__":
 
     CONFIG = configparser.ConfigParser()
     CONFIG.read(configfile)
-
-    total_hits = int(CONFIG["batch"]["total"]) * int(CONFIG["batch"]["size"]) * int(CONFIG["hit"]["maxassignments"])
 
     basepath = os.path.dirname(configfile)
     out_path = os.path.join(basepath, CONFIG['data']['admindir'])

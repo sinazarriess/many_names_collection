@@ -120,6 +120,7 @@ if __name__ == '__main__':
 
     initial_row = int(config['batch']['initial_row'])
     batch_size = int(config['batch']['size'])
+    total_rows = int(config['batch']['total_rows'])
 
     qualifications = get_qualifications(config)
 
@@ -133,6 +134,9 @@ if __name__ == '__main__':
     # Load data specified by config
     data = pd.read_csv(config['data']['csvfile'], sep=",", keep_default_na=False)
 
+    if total_rows == -1:
+        total_rows = len(data)
+
     if initial_row >= len(data):
         logging.warning("Check your initial row. I will exit now.")
         sys.exit()
@@ -140,7 +144,7 @@ if __name__ == '__main__':
     batch_idx = initial_row / batch_size
 
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
-    for row_idx, row in data[initial_row:].iterrows():
+    for row_idx, row in data[initial_row:total_rows].iterrows():
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
         param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
@@ -153,7 +157,7 @@ if __name__ == '__main__':
         logging.info("New hit groupId: " + hit_data['HIT']['HITGroupId'])
 
         # Sleepy time, now and then:.
-        if (row_idx + 1 % batch_size) == 0:
+        if row_idx != total_rows-1 and ((row_idx + 1) % batch_size) == 0:
             outname = os.path.join(out_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
             with open(outname, 'w') as outfile:
                 json.dump(all_resulting_HITs, outfile)
