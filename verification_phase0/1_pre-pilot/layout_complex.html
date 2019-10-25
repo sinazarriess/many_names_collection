@@ -37,9 +37,6 @@ var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${nam
         ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
         ];
 
-var MTurk_HIT_Ids = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
-
-
 
 String.prototype.replaceAll = function(search, replacement) {
     var target = this;
@@ -79,7 +76,7 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
-function names_same_color(img, n, m) {
+function verify_font_size(img, n, m) {
     for (var c = 0; c < num_names_per_image[img]; c++) {
         var checked = 0;
         if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
@@ -96,7 +93,6 @@ function names_same_color(img, n, m) {
     }
     return false;
 }
-
 
 function show_definitions(){
     var n_definitions = 0;
@@ -120,7 +116,7 @@ function show_definitions(){
                     }
                     n_definables += 1;
                     m = names[i].indexOf(font.substring(5))
-                    if (!names_same_color(i, m, n)) {
+                    if (!verify_font_size(i, m, n)) {
                         n_definitions += 1;
                     }
                 } else if (font == "serif") {
@@ -133,7 +129,7 @@ function show_definitions(){
                     for (var m = 0; m < num_names_per_image[i]; m++) {
                         if (m != n & window.HIT_info[i][names[i][m]] == "pos") {
                             n_definables += 1;
-                            if (!names_same_color(i, m, n)) {
+                            if (!verify_font_size(i, m, n)) {
                                 n_definitions += 1;
                             }
                             break;
@@ -148,7 +144,7 @@ function show_definitions(){
                     }
                     n_definables += 1;
                     for (var m = 0; m < num_names_per_image[i]; m++) {
-                        if (m != n & names_same_color(i, m, n)) {
+                        if (m != n & verify_font_size(i, m, n)) {
                             n_definitions += 1;
                             break;
                         }
@@ -158,7 +154,7 @@ function show_definitions(){
         }
     }
     if (n_definitions / n_definables > .2) {
-        return window.confirm("OOPS! It seems that some of your answers are wrong!\n\nSubmitting now may lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway (we are reasonable humans) or choose to click CANCEL and then RETURN this HIT.");
+        return window.confirm(unique_HIT_id);
     } else {
         return true;
     }
@@ -174,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var img_form_template = document.getElementById("IMG#-form");
     img_form_template.parentNode.removeChild(img_form_template);
 
+    unique_HIT_id = compute_font_family(unique_HIT_id)
     var num_names_total = 0;
 
     for (var i = 0; i < images.length; i++) {
@@ -221,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             // Remove superfluous color buttons
             for (var n = 0; n < num_names; n++) {
-                for (var m = num_names; m < names[0].length - 1; m++) {
+                for (var m = num_names; m < names[0].length; m++) {
                     colorbutton = document.getElementById("IMG"+i+"-"+"NAME"+n+"-label-color"+m);
                     colorbutton.parentNode.removeChild(colorbutton);
                 }
@@ -236,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 
+unique_HIT_id = '4f4f505321204974207365656d732074686174207175697465206120666577206f6620796f757220616e7377657273206172652077726f6e67210a0a5375626d697474696e67206e6f77206d6179206c65616420746f2072656a656374696f6e20616e6420626c6f636b2e2057652061647669736520796f7520746f20636c69636b2043414e43454c20616e6420646f75626c652d636865636b20796f757220616e73776572732e0a0a496620796f752776652067656e75696e656c7920646f6e6520796f757220626573742c20796f752063616e2065697468657220636c69636b204f4b20746f207375626d697420616e79776179202877652061726520726561736f6e61626c652068756d616e7329206f722063686f6f736520746f20636c69636b2043414e43454c20616e64207468656e2052455455524e2074686973204849542e'
 
 function showhide(e) {
 
@@ -283,6 +281,8 @@ $(window).scroll(function() {
   }
 });
 
+var MTurk_HIT_Ids = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
+
 
 </script>
 
@@ -304,7 +304,7 @@ span.boundingbox {
 }
 
 .intro {
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 
@@ -327,9 +327,10 @@ span.boundingbox {
     font-size: 12pt;
     top:30px;
     left:-250px;
-    width:500px;
+    width:50vw;
     font-weight: normal;
     text-align: left;
+    z-index: 100;
 }
 
 .hover:hover .tooltip{
@@ -507,36 +508,31 @@ div.color {
     <h2>How (not) to name an object.</h2>
 
     <p class="intro">
-        We asked various workers to <i style="color:#0020C2;">"name the object in the bounding box"</i>, for a number of images.<br>
-        We need you to evaluate the names we got:
+        We asked various workers to <i>"name the object in the bounding box"</i>, for a number of images.<br>
+        For our research, <b>we need you to evaluate the names we got:</b>
+        Is each name adequate? If not, what's wrong? Were different workers perhaps naming different objects in the image?
     </p>
-    <ul class="intro" style="margin-top:-10pt">
+
+<!--     <ul class="intro" style="margin-top:-10pt">
         <li>Is each <b>name adequate?</b> (See definition of "adequate" below.)</li>
         <li>If not, <b>what's wrong?</b> Did they enter a word that doesn't apply to object they intended to name? Did they name an object that doesn't fit tightly in the bounding box? Did they misinterpret the picture? Something else?</li>
         <li>And <b>which object</b>, exactly, did the different workers intend to name?</li>
-    </ul>
+    </ul> -->
 
     <p class="intro">
-        When judging if a name is "adequate", you <i>must</i> use the following definition:
+        When judging if a name is "adequate", you <u><i>must</i></u> use the following definition:
     </p>
-        <div class="intro" style="background-color: #ddd; margin: 10pt; padding: 10pt;">
-        <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name.
-        <br>
-        Note: Sometimes parts of the object are not visible -- for instance parts which are behind some other object, or which fall outside the picture frame. Such invisible parts are allowed to be outside the bounding box.
+        <div class="intro" style="background-color: #ddd; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
+        <b>DEFINITION:</b> A name is "adequate" if there is an object in the image, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name. <br>
+            <b>Pay attention:</b><br>
+            <b>1.</b> If there are several objects each tightly fit in the bounding box, then any one of them can be named.<br>
+            <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
         </div>
 
     <p class="intro">
-        If there are multiple objects that tightly fit in the bounding box, workers were free to name any one of them.
-    </p>
-
-    <p class="intro">
-        You can hover your mouse buttons/icons for definitions, examples and clarification.
-    </p>
-
-    <p class="intro">
-        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names.
+        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names. As the quality of your responses is crucial for our research, this HIT contains quality control items. <mark><b>Submitting low-quality responses may lead to rejection and block.</b></mark> <br>
         <br>
-        This batch of HITs contains quality control items. <b>Submitting low-quality responses will lead to rejection of all your HITs in this batch.</b> We are reasonable humans though.
+        Feel free to contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything is unclear
     </p>
 
     <div class="row" id="IMG#-form">
@@ -546,10 +542,32 @@ div.color {
         <div class="column left">
 
             <b style="font-size:14pt;">&#9658; Are the following names</b> <div class="hover" style="font-size:14pt;"><b>adequate</b><div class="tooltip">
-                <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br><br>
-                Invisible parts of the object -- for instance parts which are obscured by another object, or which fall outside the picture frame -- are allowed to fall outside the bounding box.
+                <b>Definition:</b> A name is "adequate" if there is an object in the picture, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br>
+                <br>
+                <b>Green button -- adequate names:</b><br>
+                - If multiple objects fit tightly in the bounding box -- for instance a person and their clothes (if they wear a hat) -- then both <i>"person"</i> and <i>"clothes"</i> are adequate names.<br>
+                - <i>"person"</i> is an adequate name even if only their head is showing, as long as their head tightly fits in the bounding box -- this is because invisible parts of an object are allowed to fall outside the bounding box.<br>
+                - <i>"sandwich"</i> for something you would never call a sandwich, but you know for a fact that other people sometimes do, don't be a definition warrior: mark the name as adequate.<br><br>
+                <b>Yellow button -- possible/minor inadequacy:</b><br>
+                - <i>"horsse"</i> for a horse, containing a small typo (minor inadequacy).<br>
+                - <i>"office"</i> for a room that could in principle be a living room, but the image is not clear (possible inadequacy).<br>
+                - <i>"skier"</i> for someone who is actually snowboarding, but you have to look quite closely to see this (minor inadequacy).<br>
+                - <i>"tree"</i> if there is a tree in the bounding box, but the bounding box does not fit the tree tightly (minor inadequacy).<br><br>
+                <b>Red button -- severe inadequacy:</b><br>
+                - <i>"woman"</i> for a person who is obviously, clearly a man, you don't even need to look closely.<br>
+                - <i>"shoe"</i> if there is nothing remotely resembling a shoe in the image.<br>
+                - <i>"house"</i> if the house is clearly, far outside the bounding box.
                 </div></div>
-                <b  style="font-size:14pt;">for the picture on the right? If not, what's wrong?</b>
+            <b  style="font-size:14pt;">for the picture on the right? If not, </b><div class="hover" style="font-size:14pt;"><b>what's wrong</b><div class="tooltip">
+            If you click a name is (possibly) inadequate -- yellow or red buttons -- you then have to choose the <i>type</i> of inadequacy.<br>
+            Hover your mouse over the different icons that will appear, to understand their meaning.<br><br>
+            <b>Examples:</b><br>
+            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the "abx"-icon to indicate a <b>linguistic mistake</b>.<br>
+            - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the <b>bounding box</b> type.<br>
+            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the <b>glasses icon</b> ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
+            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the <b>cat-on-keyboard</b> icon, because the error seems completely random.<br>
+            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (<b>glasses icon</b>).
+            </div></div><b>?</b> (&#8592;hover for definition/examples)
             <br><br>
 
             <table class="formtable" id="IMG#-form-table">
@@ -571,7 +589,7 @@ div.color {
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1" onclick="showhide(this);" />
                             <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain.png" title="There may be a (slight) inadequacy..." /></label> <br>
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2" onclick="showhide(this);" />
-                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-super-uncertain.png" title="Clearly inadequate; simply no suitable object(s) for the name or vice versa." /></label>
+                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-super-uncertain.png" title="Totally inadequate; simply no suitable object(s) for the name or vice versa." /></label>
                     </td>
                     <td class="type" id='IMG#-NAME#-subform'>
                         <div class="caption">
@@ -612,20 +630,22 @@ div.color {
 
             <br><br>
 
-            <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for naming the same</b>
-            <div class="hover" style="font-size:14pt;"><b>object</b><div class="tooltip">By "object" we mean a real-world object visible in the picture; so not the red bounding box, or an image region, but a depicted, real object.</div></div><b  style="font-size:14pt;">?</b>
-            <ul>
-                <li>Click the colors below to <b>assign the same color to names that were likely intended for the same object</b>;</li>
-                <li>Assign different colors to names that were likely intended for different objects.</li>
-                <li>Choose "?" if you are really uncertain about what object the name was intended for.</li>
-                <li>This is about the object a worker intended to name, regardless of any mistakes they made when choosing a name for it.</li>
-            </ul>
+            <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for </b>
+            <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip"><b>Positive examples (assign the same color):</b><br>
+                - <i>"blanket"</i> and <i>"blaknet"</i> were likely intended to name the same object, even though one has a typo.<br>
+                - <i>"donkey"</i> and <i>"horse"</i>, given an image showing a single animal, were likely intended to name that animal, even though at least one worker must have misidentified it.<br>
+                - <i>"dinner"</i> and <i>"lunch"</i>, given an image showing a meal, were likely intended to name the same object, even though the workers conceived of it differently.<br>
+                - <i>"vehicle"</i> and <i>"car"</i> were likely intended to name the same central, prominent car that's in the bounding box, even if there are other, distant vehicles in the background.<br><br>
+                <b>Negative examples (assign different colors):</b><br>
+                - <i>"house"</i> and <i>"roof"</i> are <i>not</i> intended to name the same object, because the roof is only a part of the house -- even if only the house's roof is visible in the picture.
+                - <i>"person"</i> and <i>"clothes"</i> are <i>not</i> intended to name the same object, even if they have the exact same bounding box; we don't normally confuse people with clothes.<br>
+                </div></div><b style="font-size:14pt;">?</b> (&#8592;hover for examples)
+            <br>
 
-
-            <table class="formtable2" id="IMG#-form2-table">
+            <table class="formtable2" id="IMG#-form2-table" style="margin-top:10pt;">
                 <tr>
                     <th class="name">Names:</th>
-                    <th class="color">Assign the same color (only) if names were likely intended for the same object:</th>
+                    <th class="color">Click to assign the same color (only) if names were likely intended for the same object:</th>
                 </tr>
 
                 <tr id="IMG#-NAME#-form2">
@@ -662,7 +682,7 @@ div.color {
                         <label id="IMG#-NAME#-label-color14"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.14" value="14"/>
                             <div class="color" name="color14" style="background-color: #399" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
                         <label id="IMG#-NAME#-label-color15"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.15" value="15"/>
-                            <div class="color" name="color16" style="background-color: #90f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                            <div class="color" name="color15" style="background-color: #90f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
                         &nbsp;&nbsp;&nbsp;
                         <label id="IMG#-NAME#-label-colorX"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.X" value="X"/>
                             <div class="color" name="colorX" style="background-color: #999" title="Click here if you really don't know which object this name was meant to apply to.">?</div></label>
