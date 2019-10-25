@@ -204,7 +204,11 @@ def main():
             random.shuffle(names_list)
             for j, name in enumerate(names_list):
                 row[i][j+1] = name
-            row[i][-1] = str(df.at[idx, 'quality_control_dict']).encode('utf-8').hex()  # obfuscate with hex encoding
+            # Obfuscate with font labels:
+            for key in df.at[idx, 'quality_control_dict']:
+                df.at[idx, 'quality_control_dict'][key] = df.at[idx, 'quality_control_dict'][key].replace("pos", "arial").replace("typo", "sans").replace("alt", "serif").replace("rand", "courier")
+            # Obfuscate further with hex encoding
+            row[i][-1] = str(df.at[idx, 'quality_control_dict']).encode('utf-8').hex()
         row = [e for l in row for e in l]
         rows.append(row)
 

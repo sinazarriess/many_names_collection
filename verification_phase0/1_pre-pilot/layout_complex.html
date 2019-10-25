@@ -52,8 +52,8 @@ function a2hex(str) {
 
 
 if (images[0] == "${image_url_0}") {
-    MTurk_HIT_Ids = [a2hex('{"name_1typo": "typo-name_2pos", "name_2pos": "pos"}'),
-                        a2hex('{"name_4rand": "rand", "name_6alt": "alt"}')]
+    MTurk_HIT_Ids = [a2hex('{"name_1typo": "sans-name_2pos", "name_2pos": "arial"}'),
+                        a2hex('{"name_4rand": "courier", "name_6alt": "serif"}')]
 
     images = ["image_1", "image_2", "", "", "", "", "", "", "", "", ""];
     names[0] = ["name_1typo", "name_2pos", "name_3", "", "", "", "", "", "", "", "", "", "", "", "", ""];
@@ -101,54 +101,86 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
+function names_same_color(img, n, m) {
+    for (var c = 0; c < num_names_per_image[img]; c++) {
+        var checked = 0;
+        if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (document.getElementById("IMG"+img+"-NAME"+m+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 function show_definitions(){
     var n_definitions = 0;
     var n_definables = 0;
     for (var i = 0; i < num_images; i++) {
         for (var n = 0; n < num_names_per_image[i]; n++) {
             if (names[i][n] in window.HIT_info[i]) {
-                var need_definitions = false;
-                var type = window.HIT_info[i][names[i][n]]
+                var font = window.HIT_info[i][names[i][n]]
                 // TODO obfuscate
-                if (type == "pos") {
+                if (font == "arial") {
+                    n_definables += 1;
                     if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
-                        need_definitions = true;
+                        n_definitions += 1;
                     }
-                } else if (type.startsWith("typo")) {
+                } else if (font.startsWith("sans")) {
+                    n_definables += 1;
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
-                        need_definitions = true;
+                        n_definitions += 1;
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
-                        need_definitions = true;
-                    } else {
-                      // TODO check clustering typo.split('-')[1] same as this name
+                        n_definitions += 1;
                     }
-                } else if (type == "alt") {
+                    n_definables += 1;
+                    m = names[i].indexOf(font.substring(5))
+                    if (!names_same_color(i, m, n)) {
+                        n_definitions += 1;
+                    }
+                } else if (font == "serif") {
+                    n_definables += 1;
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
-                        need_definitions = true;
+                        n_definitions += 1;
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked) {
-                        need_definitions = true;
-                    } else {
-                      // TODO check clustering different from pos name if exists
+                        n_definitions += 1;
                     }
-                } else if (type == "rand") {
+                    for (var m = 0; m < num_names_per_image[i]; m++) {
+                        if (m != n & window.HIT_info[i][names[i][m]] == "pos") {
+                            n_definables += 1;
+                            if (!names_same_color(i, m, n)) {
+                                n_definitions += 1;
+                            }
+                            break;
+                        }
+                    }
+                } else if (font == "courier") {
+                    n_definables += 1;
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
-                        need_definitions = true;
+                        n_definitions += 1;
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
-                        need_definitions = true;
-                    } else {
-                      // TODO check clustering different from all other names
+                        n_definitions += 1;
+                    }
+                    n_definables += 1;
+                    for (var m = 0; m < num_names_per_image[i]; m++) {
+                        if (m != n & names_same_color(i, m, n)) {
+                            n_definitions += 1;
+                            break;
+                        }
                     }
                 }
-                if (need_definitions) {
-                  n_definitions += 1;
-                }
-                n_definables += 1;
             }
         }
     }
-    if (n_definitions / n_definables > .3) {
-        alert("OEJ!");
-        return false;
+    if (n_definitions / n_definables > .2) {
+        return window.confirm("OOPS! It seems that some of your answers are wrong!\n\nSubmitting now may lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway (we are reasonable humans) or choose to click CANCEL and then RETURN this HIT.");
     } else {
         return true;
     }
