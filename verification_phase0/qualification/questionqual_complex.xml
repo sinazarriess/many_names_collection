@@ -8,7 +8,7 @@ INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
 
     <p>
         We asked various workers to <i>"please name the object in the bounding box"</i>, for a number of images.<br/>
-        We need you to evaluate the names we got:
+        We need you to evaluate the names we got, which is a challenging task:
     </p>
     <ul>
         <li>Is each <b>name adequate?</b> (See definition of "adequate" below.)</li>
@@ -16,21 +16,23 @@ INSTRUCTIONS, INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT
         <li>And <b>which object</b>, exactly, did the different workers intend to name?</li>
     </ul>
 
+    <p>Each HIT contains multiple images, with a varying number of names to evaluate (practically same total number of names per HIT). </p>
+
     <p>
         When judging if a name is "adequate", you <i>must</i> use the following definition:
         <br/><br/>
-        <b>Definition:</b> A name is "adequate" if there is an object in the picture, <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name.
+        <b>Definition:</b> A name is "adequate" if there is an object in the picture, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name.
         <br/>
         Note: Sometimes parts of the object are not visible -- for instance parts which are behind some other object, or which fall outside the picture frame. Such invisible parts are allowed to be outside the bounding box.
         <br/><br/>
     </p>
 
     <p>
-        In the task, you can hover your mouse buttons/icons for definitions, examples and clarification.
+        In the task, you can hover your mouse over buttons/icons for definitions, examples and clarification.
     </p>
 
     <p>
-        This batch of HITs contains quality control items. <b>Submitting low-quality responses will lead to rejection of all your HITs in this batch.</b> We are reasonable humans though.
+        Each HIT contains quality control items. <b>Submitting low-quality responses may lead to rejection and block.</b> We are reasonable humans though.
     </p>
 
     <br/><p><font size="5"><b>INFORMATION SHEET AND REQUEST FOR INFORMED CONSENT</b></font></p>
@@ -65,7 +67,7 @@ Potential risk and discomfort
     • If, at any time, you should become tired or feel other forms of discomfort, you can simply quit the survey. 
 
 Benefits
-    • For participating in this data collection experiment, you will receive a monetary compensation of 0.29$ per HIT. Furthermore, your participation will enable research on how we use language to talk about the world.
+    • For participating in this data collection experiment, you will receive a monetary compensation of 0.50$ per HIT. Furthermore, your participation will enable research on how we use language to talk about the world.
 
 Potential reuse of the data
     • Only the task results, in an anonymized way, will be consulted and used in other projects by other researchers.
