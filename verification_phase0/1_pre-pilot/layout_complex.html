@@ -5,7 +5,7 @@
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
 
-<script src="http://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+<script src="https://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
 <script type="text/javascript"> // 10 per turker
 (function(){
     var ut_id = "cf5112834fbd6bc81010395ff3a3fd7b";
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 
-unique_HIT_id = '4f4f505321204974207365656d732074686174207175697465206120666577206f6620796f757220616e7377657273206172652077726f6e67210a0a5375626d697474696e67206e6f77206d6179206c65616420746f2072656a656374696f6e20616e6420626c6f636b2e2057652061647669736520796f7520746f20636c69636b2043414e43454c20616e6420646f75626c652d636865636b20796f757220616e73776572732e0a0a496620796f752776652067656e75696e656c7920646f6e6520796f757220626573742c20796f752063616e2065697468657220636c69636b204f4b20746f207375626d697420616e79776179202877652061726520726561736f6e61626c652068756d616e7329206f722063686f6f736520746f20636c69636b2043414e43454c20616e64207468656e2052455455524e2074686973204849542e'
+unique_HIT_id = '4f4f505321204974207365656d732074686174207175697465206120666577206f6620796f757220616e7377657273206172652077726f6e67210a0a5375626d697474696e67206e6f77206d6179206c65616420746f2072656a656374696f6e20616e6420626c6f636b2e2057652061647669736520796f7520746f20636c69636b2043414e43454c20616e6420646f75626c652d636865636b20796f757220616e73776572732e0a0a496620796f752776652067656e75696e656c7920646f6e6520796f757220626573742c20796f752063616e2065697468657220636c69636b204f4b20746f207375626d697420616e79776179202877652077696c6c20646f206164646974696f6e616c207175616c69747920636f6e74726f6c29206f722063686f6f736520746f20636c69636b2043414e43454c20616e64207468656e2052455455524e2074686973204849542e'
 
 function showhide(e) {
 
@@ -396,7 +396,8 @@ td.name, th.name {
 }
 td.name {
     font-family: monospace;
-    font-size: 16pt;
+    font-size: 12pt;
+    text-align: center;
 }
 
 td.rating, th.rating {
@@ -559,14 +560,14 @@ div.color {
                 - <i>"house"</i> if the house is clearly, far outside the bounding box.
                 </div></div>
             <b  style="font-size:14pt;">for the picture on the right? If not, </b><div class="hover" style="font-size:14pt;"><b>what's wrong</b><div class="tooltip">
-            If you click a name is (possibly) inadequate -- yellow or red buttons -- you then have to choose the <i>type</i> of inadequacy.<br>
+            If you click the yellow or red button, you then have to choose the <i>type</i> of inadequacy.<br>
             Hover your mouse over the different icons that will appear, to understand their meaning.<br><br>
             <b>Examples:</b><br>
-            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the "abx"-icon to indicate a <b>linguistic mistake</b>.<br>
-            - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the <b>bounding box</b> type.<br>
-            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the <b>glasses icon</b> ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
-            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the <b>cat-on-keyboard</b> icon, because the error seems completely random.<br>
-            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (<b>glasses icon</b>).
+            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the "abx"-icon to indicate a linguistic mistake.<br>
+            - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the bounding box type.<br>
+            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the glasses icon ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
+            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the error seems completely random.<br>
+            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (glasses icon).
             </div></div><b>?</b> (&#8592;hover for definition/examples)
             <br><br>
 
@@ -651,7 +652,7 @@ div.color {
                 <tr id="IMG#-NAME#-form2">
                     <td class="name">NAME_PLACEHOLDER</td>
                     <td class="color">
-                        <label id="IMG#-NAME#-label-color0"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.0" value="0" checked/>
+                        <label id="IMG#-NAME#-label-color0"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.0" value="0"/>
                             <div class="color" name="color0" style="background-color: #f00" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
                         <label id="IMG#-NAME#-label-color1"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.1" value="1"/>
                             <div class="color" name="color1" style="background-color: #0f0" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
