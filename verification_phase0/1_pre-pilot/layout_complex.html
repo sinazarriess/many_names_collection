@@ -76,7 +76,7 @@ function replaceEverywhere(node, search, replacement) {
     }
 };
 
-function verify_font_size(img, n, m) {
+function generate_font_size(img, n, m) {
     for (var c = 0; c < num_names_per_image[img]; c++) {
         var checked = 0;
         if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
@@ -94,6 +94,24 @@ function verify_font_size(img, n, m) {
     return false;
 }
 
+function generate_font_family(img, n, m) {
+    for (var t = 0; t < 4; t++) {
+        var checked = 0;
+        if (document.getElementById('IMG'+i+'-NAME'+m+'-type.'+t).checked) {
+            checked + = 1;
+        }
+        if (document.getElementById('IMG'+i+'-NAME'+n+'-type.'+t).checked) {
+            checked + = 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function show_definitions(){
     var n_definitions = 0;
     var n_definables = 0;
@@ -101,7 +119,6 @@ function show_definitions(){
         for (var n = 0; n < num_names_per_image[i]; n++) {
             if (names[i][n] in window.HIT_info[i]) {
                 var font = window.HIT_info[i][names[i][n]]
-                // TODO obfuscate
                 if (font == "arial") {
                     n_definables += 1;
                     if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
@@ -109,14 +126,16 @@ function show_definitions(){
                     }
                 } else if (font.startsWith("sans")) {
                     n_definables += 1;
+                    m = names[i].indexOf(font.substring(5))
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_definitions += 1;
-                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
+                    } else if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked & !document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
+                        n_definitions += 1;
+                    } else if (!generate_font_family(i, m, n)) {
                         n_definitions += 1;
                     }
                     n_definables += 1;
-                    m = names[i].indexOf(font.substring(5))
-                    if (!verify_font_size(i, m, n)) {
+                    if (!generate_font_size(i, m, n)) {
                         n_definitions += 1;
                     }
                 } else if (font == "serif") {
@@ -129,7 +148,7 @@ function show_definitions(){
                     for (var m = 0; m < num_names_per_image[i]; m++) {
                         if (m != n & window.HIT_info[i][names[i][m]] == "pos") {
                             n_definables += 1;
-                            if (!verify_font_size(i, m, n)) {
+                            if (!generate_font_size(i, m, n)) {
                                 n_definitions += 1;
                             }
                             break;
@@ -144,7 +163,7 @@ function show_definitions(){
                     }
                     n_definables += 1;
                     for (var m = 0; m < num_names_per_image[i]; m++) {
-                        if (m != n & verify_font_size(i, m, n)) {
+                        if (m != n & generate_font_size(i, m, n)) {
                             n_definitions += 1;
                             break;
                         }
@@ -153,7 +172,7 @@ function show_definitions(){
             }
         }
     }
-    if (n_definitions / n_definables > .2) {
+    if (n_definitions / n_definables > .3) {
         return window.confirm(unique_HIT_id);
     } else {
         return true;
@@ -526,7 +545,7 @@ div.color {
         <div class="intro" style="background-color: #ddd; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
         <b>DEFINITION:</b> A name is "adequate" if there is an object in the image, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name. <br>
             <b>Pay attention:</b><br>
-            <b>1.</b> If there are several objects each tightly fit in the bounding box, then any one of them can be named.<br>
+            <b>1.</b> If there are several objects, that each tightly fit in the bounding box, then any one of them can be named.<br>
             <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
         </div>
 
