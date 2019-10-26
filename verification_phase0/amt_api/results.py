@@ -80,6 +80,7 @@ def get_results(mturk, path_published, path_results, ass_statuses):
         outname = os.path.join(path_results, "answers-%s" %(infix) + os.path.basename(filename))    
         with open(outname, 'w') as outfile:
             json.dump(hit_results, outfile)
+            print("HIT results dumped to", outfile.name)
         outfile.close()
 
 
