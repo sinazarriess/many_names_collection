@@ -51,7 +51,6 @@ def main():
     print(df.head().to_string())
 
     # Create quality control items
-    # TODO read original vg data for that
     with open('../dataset_creation/add_data/vgenome/objects.json') as file:
         vg_data = json.load(file)
     vg_dict = {img['image_id']: img for img in vg_data}
@@ -72,7 +71,7 @@ def main():
 
         # negative items:
         while num_typos + num_random + num_alts < .1 * len(row['names_list']):
-            choice = random.choices(['typo', 'random', 'alt'], [2,1,5], k=1)
+            choice = random.choices(['typo', 'random', 'alt'], [1,1,4], k=1)
             if choice == 'typo':
                 num_typos += 1
             elif choice == 'random':
@@ -82,25 +81,32 @@ def main():
 
         typonames = []
         # randomly generate name variants with spelling error
-        while len(typonames) < num_typos:
-            name_idx = 0 if random.random() > .1 else random.randint(1, len(row['names_list'])-1)   # 9/10 of cases it's the first name
+        abort = 0
+        while len(typonames) < num_typos and abort < 20:
+            name_idx = 0 if random.random() > .3 else random.randint(1, len(row['names_list'])-1)   # 7/10 of cases it's the first name
             name = row['names_list'][name_idx]
-            typo = random.choices(['skip', 'double', 'reverse', 'miss'], [2, 5, 4 if len(name) > 2 else 0, 1 if len(name)>4 else 0], k=1)
-            char = ' '
-            while char == ' ':
-                char_id = random.randint(1, len(name)-2 if len(name) > 2 else len(name)-1)
-                char = name[char_id]
-            if typo == 'skip':
-                newname = name[:char_id, char_id+1:]
-            elif typo == 'double':
-                newname = name[:char_id+1, char_id:]
-            elif typo == 'reverse':
-                newname = name[:char_id] + name[char_id+1] + name[char_id] + name[char_id+2:]
+            if len(name) < 6 and abort < 10:
+                abort += 1
+            elif len(name) < 4:
+                abort += 1
             else:
-                newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
-            if newname not in typonames:
-                typonames.append(newname)
-                df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
+                typo = random.choices(['skip', 'double', 'reverse', 'miss'], [2, 1, 2, 1], k=1)[0]
+                char = ' '
+                while char == ' ':
+                    char_id = random.randint(1, len(name)-2 if len(name) > 2 else len(name)-1)
+                    char = name[char_id]
+                if typo == 'skip':
+                    newname = name[:char_id] + name[char_id+1:]
+                elif typo == 'double':
+                    newname = name[:char_id+1] + name[char_id:]
+                elif typo == 'reverse':
+                    newname = name[:char_id] + name[char_id+1] + name[char_id] + name[char_id+2:]
+                else:
+                    newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
+                if newname not in typonames:
+                    typonames.append(newname)
+                    df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
+                    print(name, typo, newname)
 
         # insert vg name for another object "alt" in the image
         altnames = []
