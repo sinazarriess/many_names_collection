@@ -118,13 +118,16 @@ per_name['color'] = per_name['color'].astype(int)
 # from 'color' column, compute list of same-colored names
 per_name['same_color'] = [[] for _ in range(len(per_name))]
 for i, row in per_name.iterrows():
-    same_color = per_name.loc[(per_name['assignmentid'] == row['assignmentid']) & (per_name['image'] == row['image']) & (per_name['object'] == row['object']) & (per_name['color'] == row['color'])]
-    same_colored_names = same_color['name'].unique().tolist()
-    per_name.at[i, 'same_color'] = same_colored_names
+    if row['color'] != -1:
+        same_color = per_name.loc[(per_name['assignmentid'] == row['assignmentid']) & (per_name['image'] == row['image']) & (per_name['object'] == row['object']) & (per_name['color'] == row['color'])]
+        same_colored_names = same_color['name'].unique().tolist()
+        per_name.at[i, 'same_color'] = same_colored_names
+    else:
+        per_name.at[i, 'same_color'] = [row['name']]
 
-# Un-obfuscate quality control; create 'item_type' column storing what type of quality control it is
+# Un-obfuscate quality control; create 'control_type' column storing what type of quality control it is
 per_name['quality_control'] = per_name['quality_control'].apply(lambda x: json.loads(bytes.fromhex(x).decode('utf-8')))
-per_name['item_type'] = ""
+per_name['control_type'] = ""
 for i, row in per_name.iterrows():
     if row['name'] in row['quality_control']:
         item = row['quality_control'][row['name']].replace("sans-", "typo-")
@@ -136,34 +139,40 @@ for i, row in per_name.iterrows():
             item = "random"
     else:
         item = ""
-    per_name.at[i,'item_type'] = item
+    per_name.at[i,'control_type'] = item
 
 del per_name['quality_control']
 
 # Check if control items are correct
-per_name['correct1'] = None
-per_name['correct2'] = None
-per_name['correct1'] = per_name['correct1'].astype(bool)    # to convert the Nones to proper nans?
-per_name['correct2'] = per_name['correct2'].astype(bool)
+per_name['correct1'] = np.nan
+per_name['correct2'] = np.nan
+# per_name['correct1'] = per_name['correct1'].astype(bool)    # to convert the Nones to proper nans?
+# per_name['correct2'] = per_name['correct2'].astype(bool)
 for i, row in per_name.iterrows():
-    if row['item_type'] == 'vg_majority':
-        per_name.at[i, 'correct1'] = row['rating'] != 0
-    elif row['item_type'].startswith('typo'):
-        original = '-'.join(row['item_type'].split('-')[1:])
+    if row['control_type'] == 'vg_majority':
+        per_name.at[i, 'correct1'] = float(row['rating'] == 0)
+    elif row['control_type'].startswith('typo'):
+        original = '-'.join(row['control_type'].split('-')[1:])
         original_row = per_name.loc[per_name['assignmentid'] == row['assignmentid']].loc[(per_name['image'] == row['image']) & (per_name['object'] == row['object'])].loc[per_name['name'] == original].squeeze()
-        per_name.at[i, 'correct1'] = row['type'] == 'linguistic' or (original_row['rating'] != 0 and row['type'] == original_row['type'])
-        per_name.at[i, 'correct2'] = original in row['same_color']
-    elif row['item_type'] == 'alternative':
-        per_name.at[i, 'correct1'] = not (row['rating'] == 0 or row['type'] != 'bounding box')
-        positive = per_name.loc[(per_name['assignmentid'] == row['assignmentid']) & (per_name['image'] == row['image']) & (per_name['object'] == row['object']) & (per_name['item_type'] == 'vg_majority')]
+        per_name.at[i, 'correct1'] = float(row['type'] == 'linguistic' or (original_row['rating'] != 0 and row['type'] == original_row['type']))
+        per_name.at[i, 'correct2'] = float(original in row['same_color'])
+    elif row['control_type'] == 'alternative':
+        per_name.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] not in ['bounding box', 'other']))
+        positive = per_name.loc[(per_name['assignmentid'] == row['assignmentid']) & (per_name['image'] == row['image']) & (per_name['object'] == row['object']) & (per_name['control_type'] == 'vg_majority')]
         if len(positive) > 0:
-            per_name.at[i, 'correct2'] = positive['name'].squeeze() not in row['same_color']
-    elif row['item_type'] == 'random':
-        per_name.at[i, 'correct1'] = not (row['rating'] == 0 or row['type'] != 'other')
-        per_name.at[i, 'correct2'] = len(row['same_color']) == 1
+            per_name.at[i, 'correct2'] = float(positive['name'].squeeze() not in row['same_color'])
+    elif row['control_type'] == 'random':
+        per_name.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] != 'other'))
+        per_name.at[i, 'correct2'] = float(len(row['same_color']) == 1)
 
 
 per_name = per_name.sort_values(by=['workerid', 'hitid']).reset_index(drop=True)
+
+
+
+
+print()
+
 
 per_name['rating'] = per_name['rating'].apply(lambda x: (2-x)/2)    # mapping 2 to 0, 1 to 1/2, 0 to 1.
 
@@ -171,14 +180,22 @@ per_name['rating'] = per_name['rating'].apply(lambda x: (2-x)/2)    # mapping 2 
 for i, workerid in enumerate(per_name['workerid'].unique()):
     per_name.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
 
+# per_name['correct2'] = per_name['correct2'].astype(bool) ## TODO Meh this doesn't work.
+
+print("Per name:", len(per_name))
+print(per_name[:10].to_string())
+
+
+print()
+
+print(per_name.groupby(['workerid', 'hitid'])['rating','correct1', 'correct2'].agg(['count', 'mean']).to_string())
+
+print(per_name.loc[per_name['control_type'] == 'alternative'].to_string())
+
+
+# print(per_name.loc[per_name['control_type'].apply(lambda x: x.startswith('typo'))].to_string())
+
 with open(outdir, 'w+') as outfile:
     per_name.to_csv(outfile)
-
-print()
-print("Per name:", len(per_name))
-print(per_name[:5].to_string())
-
-print()
-
-print(per_name.groupby(['workerid'])['rating','correct1', 'correct2'].agg(['count', 'mean']))
+    print("Results written to", outfile.name)
 
