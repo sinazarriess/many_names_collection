@@ -154,7 +154,17 @@ for i, row in per_name.iterrows():
     elif row['control_type'].startswith('typo'):
         original = '-'.join(row['control_type'].split('-')[1:])
         original_row = per_name.loc[per_name['assignmentid'] == row['assignmentid']].loc[(per_name['image'] == row['image']) & (per_name['object'] == row['object'])].loc[per_name['name'] == original].squeeze()
-        per_name.at[i, 'correct1'] = float(row['type'] == 'linguistic' or (original_row['rating'] != 0 and row['type'] == original_row['type']))
+        if row['rating'] == 0:
+            per_name.at[i, 'correct1'] = float(False)
+        elif row['type'] != 'linguistic':
+            if original_row['rating'] == 0:
+                per_name.at[i, 'correct1'] = float(False)
+            elif row['type'] != original_row['type']:
+                per_name.at[i, 'correct1'] = float(False)
+            else:
+                per_name.at[i, 'correct1'] = np.nan
+        else:
+            per_name.at[i, 'correct1'] = float(True)
         per_name.at[i, 'correct2'] = float(original in row['same_color'])
     elif row['control_type'] == 'alternative':
         per_name.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] not in ['bounding box', 'other']))
