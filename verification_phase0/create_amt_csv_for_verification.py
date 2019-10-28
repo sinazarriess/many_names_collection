@@ -71,7 +71,7 @@ def main():
 
         # negative items:
         while num_typos + num_random + num_alts < .1 * len(row['names_list']):
-            choice = random.choices(['typo', 'random', 'alt'], [1,1,4], k=1)
+            choice = random.choices(['typo', 'random', 'alt'], [2,1,3], k=1)
             if choice == 'typo':
                 num_typos += 1
             elif choice == 'random':
@@ -103,10 +103,9 @@ def main():
                     newname = name[:char_id] + name[char_id+1] + name[char_id] + name[char_id+2:]
                 else:
                     newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
-                if newname not in typonames:
+                if newname not in typonames and newname not in vg_names:
                     typonames.append(newname)
                     df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
-                    print(name, typo, newname)
 
         # insert vg name for another object "alt" in the image
         altnames = []
@@ -119,6 +118,10 @@ def main():
                 abort += 1
             elif abs(original_object['x'] - object['x']) < 20 or abs(original_object['y'] - object['y']) < 20: # bounding box not too close
                 abort += 1
+            # elif object['w'] < 1.4*original_object['w'] and object['w'] > 0.6*original_object['w']: # bounding box not too wide or narrow
+            #     abort += 1
+            # elif object['h'] < 1.4*original_object['h'] and object['h'] > 0.6*original_object['h']: # bounding box not too high or low
+            #     abort += 1
             elif newname in row['spellchecked'] or newname == row['vg_obj_name'] or newname in typonames: # not an existing name
                 abort += 1
             elif ' ' in newname or not newname.isalpha():   # no non-alphabetical stuff
@@ -203,8 +206,13 @@ def main():
     header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGE_PARAMS_PER_HIT)]
     header = [e for l in header for e in l]
     rows = []
+    n_controls = []
+    n_controls_pos = []
     for bin in bins:
         row = [[""] + ["" for _ in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["{}".encode('utf-8').hex()] for _ in range(MAX_IMAGE_PARAMS_PER_HIT)]
+        controls = 0
+        controls_pos = 0
+        n_names = 0
         for i, idx in enumerate(bin[::-1]):
             row[i][0] = df.at[idx, 'url']
             # Shuffle names_list (already contains fillers)
@@ -212,15 +220,23 @@ def main():
             random.shuffle(names_list)
             for j, name in enumerate(names_list):
                 row[i][j+1] = name
+                n_names += 1
             # Obfuscate with font labels: TODO Move the obfuscation down; do more globally, separately.
             for key in df.at[idx, 'quality_control_dict']:
+                if df.at[idx, 'quality_control_dict'][key] == "pos":
+                    controls_pos += 1
+                controls += 1
                 df.at[idx, 'quality_control_dict'][key] = df.at[idx, 'quality_control_dict'][key].replace("pos", "arial").replace("typo", "sans").replace("alt", "serif").replace("rand", "courier")
             # Obfuscate further with hex encoding
             row[i][-1] = str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex()
         row = [e for l in row for e in l]
         rows.append(row)
+        n_controls.append(controls/n_names)
+        n_controls_pos.append(controls_pos/n_names)
 
     df_amt = pd.DataFrame(rows, columns=header)
+
+    print("Controls:", sum(n_controls)/len(n_controls), "of which pos:", sum(n_controls_pos)/len(n_controls_pos))
 
     print(df_amt[:20].to_string())
 
