@@ -61,94 +61,105 @@ def main():
     df['n_fillers'] = [0 for _ in range(len(df))]
 
     for i, row in tqdm(df.iterrows()):
-        num_typos = round(len(row['names_list'])/8)
-        num_random = round(len(row['names_list'])/9)
-        num_alts = round(len(row['names_list'])/5)
+
+        newnames = []
+
+        outer_abort = 0
+        while len(newnames) < .15 * len(row['names_list']) and outer_abort < 10:    # TODO improve these hideous nested while loops
+
+            choice = random.choices(['typo', 'alt', 'random'], [2,3,2], k=1)[0]
+
+            # randomly generate name variants with spelling error
+            if choice == 'typo':
+                abort = 0
+                while abort < 20:
+                    name_idx = 0 if random.random() > .3 else random.randint(1, len(row['names_list'])-1)   # 7/10 of cases it's the first name
+                    name = row['names_list'][name_idx]
+                    if len(name) < 6 and abort < 10:
+                        newname = None
+                        abort += 1
+                    elif len(name) < 4:
+                        newname = None
+                        abort += 1
+                    else:
+                        typo = random.choices(['skip', 'double', 'reverse', 'miss'], [2, 1, 2, 1], k=1)[0]
+                        char = ' '
+                        while char == ' ':
+                            char_id = random.randint(1, len(name)-2 if len(name) > 2 else len(name)-1)
+                            char = name[char_id]
+                        if typo == 'skip':
+                            newname = name[:char_id] + name[char_id+1:]
+                        elif typo == 'double':
+                            newname = name[:char_id+1] + name[char_id:]
+                        elif typo == 'reverse':
+                            newname = name[:char_id] + name[char_id+1] + name[char_id] + name[char_id+2:]
+                        else:
+                            newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
+                        if newname in vg_names or newname in newnames:
+                            newname = None
+                            abort += 1
+                        else:
+                            df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
+                            newnames.append(newname)
+                            break
+
+            # insert vg name for another object "alt" in the image
+            elif choice == 'alt':
+                abort = 0
+                while abort < 20:
+                    object = random.sample(vg_dict[row['vg_img_id']]['objects'], 1)[0]
+                    original_object = [obj for obj in vg_dict[row['vg_img_id']]['objects'] if int(obj['object_id']) == int(row['vg_object_id'])][0]
+                    newname = random.sample(object['names'], 1)[0]
+                    if int(object['object_id']) == int(row['vg_object_id']): # not the same object
+                        abort += 1
+                        newname = None
+                    elif abs(original_object['x'] - object['x']) < 20 or abs(original_object['y'] - object['y']) < 20: # bounding box not too close
+                        abort += 1
+                        newname = None
+                    # elif object['w'] < 1.4*original_object['w'] and object['w'] > 0.6*original_object['w']: # bounding box not too wide or narrow
+                    #     abort += 1
+                    # elif object['h'] < 1.4*original_object['h'] and object['h'] > 0.6*original_object['h']: # bounding box not too high or low
+                    #     abort += 1
+                    elif newname in row['spellchecked'] or newname == row['vg_obj_name'] or newname in newnames: # not an existing name
+                        abort += 1
+                        newname = None
+                    elif ' ' in newname or not newname.isalpha():   # no non-alphabetical stuff
+                        abort += 1
+                        newname = None
+                    else:   # only then it's a good name for an alternative object
+                        df.at[i, 'quality_control_dict'].update({newname: 'alt'})
+                        newnames.append(newname)
+                        break
+
+            elif choice == 'random':
+                # insert completely random vg names
+                abort = 0
+                while abort < 20:
+                    newname = random.sample(vg_names, 1)[0]
+                    if len(newname) > 7 or newname in row['spellchecked'] or ' ' in newname or not newname.isalpha() or newname in newnames: # proper unused name
+                        abort += 1
+                        newname = None
+                    elif newname in [name for object in vg_dict[row['vg_img_id']]['objects'] for name in object['names']]: # not vg name for object in current img
+                        abort += 1
+                        newname = None
+                    else: # only then it's a good random name
+                        df.at[i, 'quality_control_dict'].update({newname: 'rand'})
+                        newnames.append(newname)
+                        break
+
+            if abort == 20:
+                outer_abort += 1
+
+        # add to names in dataframe
+        df.at[i, 'n_fillers'] = len(newnames)
+        df.at[i, 'names_list'] += newnames
 
         # positive item:
         if row['vg_is_max']:
             df.at[i, 'quality_control_dict'].update({row['names_list'][0]: 'pos'})
 
-        # negative items:
-        while num_typos + num_random + num_alts < .1 * len(row['names_list']):
-            choice = random.choices(['typo', 'random', 'alt'], [2,1,3], k=1)
-            if choice == 'typo':
-                num_typos += 1
-            elif choice == 'random':
-                num_random += 1
-            else:
-                num_alts += 1
-
-        typonames = []
-        # randomly generate name variants with spelling error
-        abort = 0
-        while len(typonames) < num_typos and abort < 20:
-            name_idx = 0 if random.random() > .3 else random.randint(1, len(row['names_list'])-1)   # 7/10 of cases it's the first name
-            name = row['names_list'][name_idx]
-            if len(name) < 6 and abort < 10:
-                abort += 1
-            elif len(name) < 4:
-                abort += 1
-            else:
-                typo = random.choices(['skip', 'double', 'reverse', 'miss'], [2, 1, 2, 1], k=1)[0]
-                char = ' '
-                while char == ' ':
-                    char_id = random.randint(1, len(name)-2 if len(name) > 2 else len(name)-1)
-                    char = name[char_id]
-                if typo == 'skip':
-                    newname = name[:char_id] + name[char_id+1:]
-                elif typo == 'double':
-                    newname = name[:char_id+1] + name[char_id:]
-                elif typo == 'reverse':
-                    newname = name[:char_id] + name[char_id+1] + name[char_id] + name[char_id+2:]
-                else:
-                    newname = name[:char_id] + miss_char(name[char_id]) + name[char_id+1:]
-                if newname not in typonames and newname not in vg_names:
-                    typonames.append(newname)
-                    df.at[i, 'quality_control_dict'].update({newname: 'typo-{}'.format(name)})
-
-        # insert vg name for another object "alt" in the image
-        altnames = []
-        abort = 0
-        while len(altnames) < num_alts and abort < 20:
-            object = random.sample(vg_dict[row['vg_img_id']]['objects'], 1)[0]
-            original_object = [obj for obj in vg_dict[row['vg_img_id']]['objects'] if int(obj['object_id']) == int(row['vg_object_id'])][0]
-            newname = random.sample(object['names'], 1)[0]
-            if int(object['object_id']) == int(row['vg_object_id']): # not the same object
-                abort += 1
-            elif abs(original_object['x'] - object['x']) < 20 or abs(original_object['y'] - object['y']) < 20: # bounding box not too close
-                abort += 1
-            # elif object['w'] < 1.4*original_object['w'] and object['w'] > 0.6*original_object['w']: # bounding box not too wide or narrow
-            #     abort += 1
-            # elif object['h'] < 1.4*original_object['h'] and object['h'] > 0.6*original_object['h']: # bounding box not too high or low
-            #     abort += 1
-            elif newname in row['spellchecked'] or newname == row['vg_obj_name'] or newname in typonames: # not an existing name
-                abort += 1
-            elif ' ' in newname or not newname.isalpha():   # no non-alphabetical stuff
-                abort += 1
-            else:   # only then it's a good name for an alternative object
-                altnames.append(newname)
-                df.at[i, 'quality_control_dict'].update({newname: 'alt'})
-
-        # insert completely random vg names
-        randomnames = []
-        while len(randomnames) < num_random and abort < 30:
-            newname = random.sample(vg_names, 1)[0]
-            if newname in row['spellchecked'] or ' ' in newname and newname.isalpha() or newname not in altnames + typonames: # proper unused name
-                abort += 1
-            elif newname in [name for object in vg_dict[row['vg_img_id']]['objects'] for name in object['names']]: # not vg name for object in current img
-                abort += 1
-            else: # only then it's a good random name
-                randomnames.append(newname)
-                df.at[i, 'quality_control_dict'].update({newname: 'rand'})
-
-        # add to names in dataframe
-        df.at[i, 'n_fillers'] = len(typonames) + len(randomnames) + len(altnames)
-        df.at[i, 'names_list'] += typonames + randomnames + altnames
-
     # update
     df['n_names'] = df['names_list'].apply(len)
-
 
     # Summarize data
     print("Total:")
@@ -156,6 +167,10 @@ def main():
     print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
     print(" Max n_names: {} (of which fillers: {})".format(df['n_names'].max(), df['n_fillers'].max()))
     print(" Mean n_names: {} (of which fillers: {})".format(df['n_names'].mean(), df['n_fillers'].mean()))
+
+    quality_controls = ["typo" if x.startswith("typo") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
+    print("Pos: {}, typo: {}, alt: {}, rand: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls])))
+
     print()
 
     # For pilot, restrict to only already annotated images
@@ -180,7 +195,8 @@ def main():
         print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
         print(" Max n_names: {} (of which fillers: {})".format(df['n_names'].max(), df['n_fillers'].max()))
         print(" Mean n_names: {} (of which fillers: {})".format(df['n_names'].mean(), df['n_fillers'].mean()))
-
+        quality_controls = ["typo" if x.startswith("typo") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
+        print("Pos: {}, typo: {}, alt: {}, rand: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls])))
 
     # Create roughly equal-sized HITs:
     n_bins = math.ceil(len(df) / IMAGES_PER_HIT)
@@ -236,7 +252,7 @@ def main():
 
     df_amt = pd.DataFrame(rows, columns=header)
 
-    print("Controls:", sum(n_controls)/len(n_controls), "of which pos:", sum(n_controls_pos)/len(n_controls_pos))
+    print("Controls:", sum(n_controls)/len(n_controls), min(n_controls), max(n_controls), "of which pos:", sum(n_controls_pos)/len(n_controls_pos), min(n_controls_pos), max(n_controls_pos))
 
     print(df_amt[:20].to_string())
 
