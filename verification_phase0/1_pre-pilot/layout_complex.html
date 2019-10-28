@@ -10,7 +10,8 @@
 
 <script>
 
-var ut_id = "37aa44b3e5249e8f83b9250bc494467c";
+var ut_id = "fc373b2f7e3939390a7287c78d39afa6"; // 3
+var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you will appear later, the coming days! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
 var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
 
@@ -121,10 +122,14 @@ function show_definitions(){
                     m = names[i].indexOf(font.substring(5))
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_definitions += 1;
-                    } else if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked & !document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
-                        n_definitions += 1;
-                    } else if (!generate_font_family(i, m, n) & !document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
-                        n_definitions += 1;
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
+                        if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
+                            n_definitions += 1;
+                        } else if (!generate_font_family(i, m, n)) {
+                                n_definitions += 1;
+                        } else {
+                            n_definables -= 1;
+                        }
                     }
                     n_definables += 1;
                     if (!generate_font_size(i, m, n)) {
@@ -164,20 +169,15 @@ function show_definitions(){
             }
         }
     }
-    if (n_definitions / n_definables > .4) {
-        if (!extra_large_font) {
-            window.alert(unique_assignment_id);
-            extra_large_font = true;
-            return false;
+    // console.log(n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables));
+    if (n_definitions / n_definables > .3) {
+        if (window.confirm(unique_worker_id)) {
+            document.getElementById("store_font_size").value = n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables);
+            return true;
         } else {
-            if (window.confirm(unique_worker_id)) {
-                document.getElementById("store_font_size").value = n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables);
-                return true;
-            } else {
-                return false;
-            }
+            return false;
         }
-    } else if (n_definitions / n_definables > .2) {
+    } else if (n_definitions / n_definables > .1) {
         if(window.confirm(unique_HIT_id)) {
             document.getElementById("store_font_size").value = n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables);
             return true;
@@ -202,6 +202,8 @@ document.addEventListener('DOMContentLoaded', function(){
     img_form_template.parentNode.removeChild(img_form_template);
 
     unique_HIT_id = compute_font_family(unique_HIT_id)
+    unique_worker_id = compute_font_family(unique_worker_id)
+    unique_assignment_id = compute_font_family(unique_assignment_id)
     var num_names_total = 0;
 
     for (var i = 0; i < images.length; i++) {
@@ -264,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if (UTWorkerLimitReached(ut_id)) {
         document.getElementById('form_main').style.display = 'none';
-        document.getElementsByTagName('body')[0].innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!";
+        document.getElementsByTagName('body')[0].innerHTML = ut_message;
     }
 
 })
@@ -544,7 +546,7 @@ div.color {
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects" id="form_main">
 
-    <div style="text-align: center"><i>For now, you can do only 10 HITs of this kind (more later). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
+    <div style="text-align: center"><i>For now, you can do only 3 HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
 
     <hr>
 
