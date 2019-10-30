@@ -46,16 +46,19 @@ if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read(configfile)
 
-    total_hits = int(config["batch"]["total"]) * int(config["batch"]["size"]) * int(config["hit"]["maxassignments"])
+    # TODO This doesn't work if there are multiple json files.
+    total_hits = int(config["batch"]["total_rows"]) * int(config["hit"]["maxassignments"])
 
     basepath = os.path.dirname(configfile)
     out_path = os.path.join(basepath, config['data']['admindir'])
 
+    mturk = amt_api.connect_mturk(config)
 
-    MTURK = amt_api.connect_mturk(config)
-    statuses = ["Submitted", "Approved"]
+    # hits = amt_api.get_all_hits(MTURK)
+
+    statuses = ["Submitted", "Approved"]    # TODO Extend functionality; print statuses of HITs; annotations...
     while n_steps < max_steps:
-        monitor_submission(MTURK, out_path, total_hits, statuses=statuses)
+        monitor_submission(mturk, out_path, total_hits, statuses=statuses)
         print("*****")
         time.sleep(200)
 
