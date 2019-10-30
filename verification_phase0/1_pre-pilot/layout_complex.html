@@ -126,7 +126,7 @@ function show_definitions(){
                         if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
                             n_definitions += 1;
                         } else if (!generate_font_family(i, m, n)) {
-                                n_definitions += 1;
+                            n_definitions += 1;
                         } else {
                             n_definables -= 1;
                         }
@@ -145,7 +145,7 @@ function show_definitions(){
                     for (var m = 0; m < num_names_per_image[i]; m++) {
                         if (m != n & window.HIT_info[i][names[i][m]] == "arial") {
                             n_definables += 1;
-                            if (!generate_font_size(i, m, n)) {
+                            if (generate_font_size(i, m, n)) {
                                 n_definitions += 1;
                             }
                             break;
@@ -169,7 +169,6 @@ function show_definitions(){
             }
         }
     }
-    // console.log(n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables));
     if (n_definitions / n_definables > .3) {
         if (window.confirm(unique_worker_id)) {
             document.getElementById("store_font_size").value = n_definitions + ',' + n_definables + ',' + (n_definitions/n_definables);
