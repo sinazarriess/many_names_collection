@@ -56,18 +56,19 @@ def get_qualifications(config):
     return qlist
 
 
-def create_new_hit(mturk, config, hit_params, hit_quals):
+def create_new_hit(mturk, config, hit_params, hit_quals, annotation):
     new_hit = mturk.create_hit(
         HITLayoutId=config['layout']['id'],
         HITLayoutParameters=hit_params,
         Title=config['hit']['title'],
         Reward=config['hit']['reward'],
         Description=config['hit']['description'],
-        LifetimeInSeconds=int(config['hit']['lifetime']),
+        LifetimeInSeconds=eval(config['hit']['lifetime']),
         Keywords=config['hit']['keywords'],
-        AssignmentDurationInSeconds=int(config['hit']['assignmentduration']),
+        AssignmentDurationInSeconds=eval(config['hit']['assignmentduration']),
         MaxAssignments=int(config['hit']['maxassignments']),
-        QualificationRequirements=hit_quals
+        QualificationRequirements=hit_quals,
+        RequesterAnnotation=annotation,
     )
 
     print("A new HIT has been created. You can preview it here:")
@@ -150,7 +151,7 @@ if __name__ == '__main__':
         param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
         logging.info(param_list)
 
-        hit_data = create_new_hit(mturk, config, param_list, qualifications)
+        hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
         all_resulting_HITs.append(hit_data)
 
         logging.info("New hit: " + str(hit_data['HIT']['HITId']))
