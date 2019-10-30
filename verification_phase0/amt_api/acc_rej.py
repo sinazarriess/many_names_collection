@@ -8,7 +8,6 @@ import nltk
 import configparser
 
 import amt_api
-from review import is_suspicious
 
 import csv
 import pandas as pd
@@ -19,7 +18,11 @@ DO_ACCEPTANCE = False  # TODO
 DO_REJECTION = False
 MTURK_URL = 'https://mturk-requester.us-east-1.amazonaws.com'
 
-REJECT_FEEDBACK = 'HIT is rejected because far too many control items were answered incorrectly.'
+REJECT_FEEDBACK = 'HIT is rejected because too many control items were answered incorrectly.'
+APPROVE_FEEDBACK = 'Thank you for working for us!'
+BONUS_FEEDBACK = 'We have awarded a bonus of ${} because you did all control items perfectly.'
+
+BONUS_AMOUNT = '0.05'
 
 ###############################
 
@@ -53,40 +56,54 @@ def main():
 
     assignments = pd.read_csv(assignmentspath)
 
-    reject = assignments.loc[assignments['decision'] == 'reject']['assignmentid'].tolist()
-    accept = assignments.loc[assignments['decision'] == 'approve']['assignmentid'].tolist()
+    reject = assignments.loc[assignments['decision1'] == 'reject']['assignmentid'].tolist()
+    accept = assignments.loc[assignments['decision1'] == 'approve']['assignmentid'].tolist()
 
     print("About to approve {} assignments, reject {}.".format(len(accept), len(reject)))
     if input("Enter 'Yes!' to continue") != "Yes!":
         quit()
 
-    if not 'executed' in assignments:
-        assignments['executed'] = False
+    if not 'executed1' in assignments:
+        assignments['executed1'] = False
+    if not 'executed2' in assignments:
+        assignments['executed2'] = False
 
     # simply iterate through assignments, assign status as per 'decision', and write 'executed' to the csv.
     for i, row in assignments.iterrows():
 
-        if not row['executed']:
-            id = row['assignmentid']
-            if row['decision'] == 'approve':
-                mturk.approve_assignment(
-                    AssignmentId=id,
-                    RequesterFeedback=ACCEPT_FEEDBACK,
+        if not row['executed1']:
+            if row['decision1'] == 'approve':
+                r = mturk.approve_assignment(
+                    AssignmentId=row['assignmentid'],
+                    RequesterFeedback=APPROVE_FEEDBACK,
                 )
-                print("{} approved".format(id))
-                assignments.at[i, 'executed'] = True
-            elif row['decision'] == 'reject':
-                mturk.reject_assignment(
-                    AssignmentId=id,
+                print("{} approved; {}".format(row['assignmentid'], r))
+                assignments.at[i, 'executed1'] = True
+            elif row['decision1'] == 'reject':
+                r = mturk.reject_assignment(
+                    AssignmentId=row['assignmentid'],
                     RequesterFeedback=REJECT_FEEDBACK,
                 )
-                print("{} rejected.".format(id))
-                assignments.at[i, 'executed'] = True
+                print("{} rejected; {}".format(row['assignmentid'], r))
+                assignments.at[i, 'executed1'] = True
             else:
-                print("WARNING: No decision specified:", id)
-
+                print("WARNING: No decision specified:", row['assignmentid'])
+        if not row['executed2']:
+            if row['decision2'] == 'bonus':
+                r = mturk.send_bonus(
+                    WorkerId=row['workerid'],
+                    BonusAmount=BONUS_AMOUNT,
+                    AssignmentId=row['assignmentid'],
+                    Reason=BONUS_FEEDBACK,
+                    UniqueRequestToken=row['assignmentid'],
+                )
+                print("{} bonused; {}".format(row['assignmentid'], r))
+                assignments.at[i, 'executed2'] = True
+            elif row ['decision2'] == 'block':
+                # TODO TO BE IMPLEMENTED
+                assignments.at[i, 'executed2'] = True
     assignments.to_csv(assignmentspath, index=False)
-    print("Updated 'executed' column in from_mturk.csv")
+    print("Updated 'executed' column in", assignmentspath)
 
 
 if __name__ == "__main__":
