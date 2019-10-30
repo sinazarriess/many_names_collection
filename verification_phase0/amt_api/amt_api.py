@@ -3,12 +3,17 @@ import os
 import sys
 import configparser
 import datetime
+import csv
 
 
 def connect_mturk(config):
+
+    credentials = [l for l in csv.reader(open('credentials.csv'))][1]
+    credentials = credentials[2], credentials[3]
+
     mturk = boto3.client('mturk',
-       aws_access_key_id = config['credentials']['id'],
-       aws_secret_access_key = config['credentials']['key'],
+       aws_access_key_id = credentials[0],
+       aws_secret_access_key = credentials[1],
        region_name='us-east-1',
        endpoint_url = config['endpoint']['url']
     )
@@ -21,7 +26,7 @@ def get_all_hits(mturk):
     """
     # hit_responses' fields: NextToken NumResults HITs ResponseMetadata
     all_hit_ids = []
-    hit_responses = MTURK.list_hits()
+    hit_responses = mturk.list_hits()
     while True:
         for hit in hit_responses["HITs"]:
             print(hit["HITId"])
@@ -29,7 +34,7 @@ def get_all_hits(mturk):
         hit_next = hit_responses.get('NextToken', None)
         if hit_next is None:
             break
-        hit_responses = MTURK.list_hits(NextToken=hit_next)
+        hit_responses = mturk.list_hits(NextToken=hit_next)
     
     return all_hit_ids
 
