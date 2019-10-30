@@ -554,7 +554,7 @@ div.color {
     <p class="intro">
         We asked various workers to <i>"name the object in the bounding box"</i>, for a number of images.<br>
         For our research, <b>we need you to evaluate the names we got:</b>
-        Is each name adequate? If not, what's wrong? Were different workers perhaps naming different objects in the image?
+        Is each name adequate? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
     </p>
 
 <!--     <ul class="intro" style="margin-top:-10pt">
@@ -569,7 +569,7 @@ div.color {
         <div class="intro" style="background-color: #ddd; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
         <b>DEFINITION:</b> A name is "adequate" if there is an object in the image, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name. <br>
             <b>Pay attention:</b><br>
-            <b>1.</b> If there are several objects, that each tightly fit in the bounding box, then any one of them can be named.<br>
+            <b>1.</b> If there are several objects that tightly fit in the bounding box, then names for any of them are adequate.<br>
             <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
         </div>
 
@@ -589,9 +589,9 @@ div.color {
                 <b>Definition:</b> A name is "adequate" if there is an object in the picture, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br>
                 <br>
                 <b>Green button -- adequate names:</b><br>
-                - If multiple objects fit tightly in the bounding box -- for instance a person and their clothes (if they wear a hat) -- then both <i>"person"</i> and <i>"clothes"</i> are adequate names.<br>
-                - <i>"person"</i> is an adequate name even if only their head is showing, as long as their head tightly fits in the bounding box -- this is because invisible parts of an object are allowed to fall outside the bounding box.<br>
-                - <i>"sandwich"</i> for something you would never call a sandwich, but you know for a fact that other people sometimes do, don't be a definition warrior: mark the name as adequate.<br><br>
+                - If multiple objects fit tightly in the bounding box, then names for different objects are adequate -- for instance, for a bounding box tightly fitting a bed and a blanket over it, both <i>"bed"</i> and <i>"blanket"</i> are adequate names.<br>
+                - <i>"person"</i> can be an adequate name if the bounding box fits only their head, in the case that the rest of the person is not visible (for instance, the rest is outside the picture frame).<br>
+                - <i>"sandwich"</i> is adequate for something you would not call a sandwich, but you know that other people sometimes do. Don't be a definition warrior.<br><br>
                 <b>Yellow button -- possible/minor inadequacy:</b><br>
                 - <i>"horsse"</i> for a horse, containing a small typo (minor inadequacy).<br>
                 - <i>"office"</i> for a room that could in principle be a living room, but the image is not clear (possible inadequacy).<br>
@@ -609,7 +609,7 @@ div.color {
             - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the "abx"-icon to indicate a linguistic mistake.<br>
             - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the bounding box type.<br>
             - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the glasses icon ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
-            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the error seems completely random.<br>
+            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the name seems completely random.<br>
             - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (glasses icon).
             </div></div><b>?</b> (&#8592;hover for definition/examples)
             <br><br>
@@ -652,11 +652,11 @@ div.color {
                             </label>
                         </div>
                         <div class="caption">
-                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not, e.g., the picture is a bit unclear or they may need glasses.">
+                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (they need glasses?), or the picture is unclear.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
                                 <img class="type" name="icon2" src="http://mwestera.humanities.uva.nl/images/pilot-icon2.png"/>
                                 <br>
-                                Picture <br> misinterpreted
+                                Picture unclear or <br> misinterpreted
                             </label>
                         </div>
                         <div class="caption">
