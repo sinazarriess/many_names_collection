@@ -8,56 +8,10 @@ import nltk
 import configparser
 
 import amt_api
-from review import is_suspicious
 
 WORDS = set(nltk.corpus.words.words())
 WNWORDS = set([n for n in nltk.corpus.wordnet.all_lemma_names()])
 STOPWORDS = set(nltk.corpus.stopwords.words("english"))
-
-def is_suspicious_obsolete(answer_words, max_num_answers, allow_commas=False, only_answer_length=False):
-    marked_answers = []
-    total_answer_length = 0
-    suscount = max_num_answers-len(answer_words)
-    if allow_commas is True:
-        answer_words = [a.split(",")[0] for a in answer_words]
-        print(answer_words)
-    threshold = 3
-    
-    for (idx, a) in enumerate(answer_words):
-        total_answer_length += len(a.strip().replace(" ", ""))
-        if only_answer_length is True:
-            continue
-        
-        susfound = False
-        if a in ["t shirt", "tshirt"]:
-            a = "t-shirt"
-        sus_found = False
-        if " " in a:
-            for (j, w) in enumerate(a.split()):
-                if len(w) > 1 and w in STOPWORDS or (w.endswith("ing") and j > 0):
-                    if w in ["of"]:
-                        suscount += 1
-                    else:
-                        suscount += 2
-                    sus_found = True
-        if sus_found is True:
-            marked_answers.append("**"+a)
-            continue
-        if a not in WORDS and a not in WNWORDS:
-            if a.replace(" ", "") not in WORDS and a.replace(" ", "") not in WNWORDS:
-                #suscount += 1
-                marked_answers.append("*"+a)
-                continue
-        marked_answers.append(a) 
-        
-    if only_answer_length is True:
-        return answer_words, total_answer_length < 18, total_answer_length
-    else:
-        if total_answer_length < 18 or len(set(answer_words)) < 5:
-            return marked_answers, True, suscount-threshold
-        if suscount >= threshold:
-            return marked_answers, True, suscount-threshold
-        return marked_answers, False, suscount-threshold
 
 def review_results(mturk, path_published, 
                    max_num_answers, 
@@ -67,6 +21,7 @@ def review_results(mturk, path_published,
                    statuses=["Submitted"], 
                    only_answer_length=False):
     '''ask AMT for results'''
+    print("Reviewing")
     for filename in glob.glob(os.path.join(path_published, '*final.json')):
         print(filename)
         with open(filename, 'r') as handle:
@@ -102,9 +57,7 @@ def review_results(mturk, path_published,
                     info = "**HIT %s, Assignment %s, Worker %s**\t" % \
                     (item['HIT']['HITId'],assignment['AssignmentId'], assignment['WorkerId'])
 
-                    marked, is_susp, susp_cnt = is_suspicious(answers, 
-                                                              max_num_answers,
-                                                              only_answer_length=only_answer_length)
+                    marked, is_susp, susp_cnt = [''], False, 0
                     if is_susp:
                         susp_file.write(info)
                         susp_file.write(";".join(marked)+" (sus_cnt: %.1f)\n" % susp_cnt)
@@ -134,6 +87,7 @@ def review_results(mturk, path_published,
                             RequesterFeedback='Thank you for working for us!',
                             OverrideRejection=False
                         )
+                        print("HIT {} approved.".format(assignment['AssignmentId']))
 
 
 if __name__ == "__main__":
@@ -141,7 +95,7 @@ if __name__ == "__main__":
         print("Please give a me a config file as argument")
         sys.exit()
     
-    approve_all = False
+    approve_all = True
     only_answer_length = False
     if len(sys.argv) > 2:
         approve_all = sys.argv[2].lower()=="approve_all"
@@ -154,13 +108,15 @@ if __name__ == "__main__":
     MTURK = amt_api.connect_mturk(CONFIG)
     
     max_answers = 10
-    path_published = data_path
+    basepath = os.path.dirname(sys.argv[1])
+    out_path = os.path.join(basepath, CONFIG['data']['admindir'])
+
     statuses = ["Submitted"]
     feedback2rejected_worker = 'HIT is rejected because (almost) no answers were given or the entered answers were often not names, but phrases (including adjectives, prepositions and conjunctions (e.g., "on", "with", "X of Y and Z") or even verbs).'
-    review_results(MTURK, path_published, max_answers, 
+    review_results(MTURK, out_path, max_answers,
                    approve_all=approve_all, 
                    do_rejections=True, 
                    statuses=statuses, 
-                   requester_feedback=feedback2rejected_worker,
+                   feedback2worker=feedback2rejected_worker,
                    only_answer_length=only_answer_length)
     
