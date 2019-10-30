@@ -12,20 +12,20 @@ import amt_api
 def get_qualifications(config):
     qlist = []
 
-    if 'protectionid' in config['qualification']:
+    if 'entry_id' in config['qualification']:
         print("create hit with data protection qualification")
 
-        qlist.append({'QualificationTypeId': config['qualification']['protectionid'], \
-                      'Comparator': 'GreaterThanOrEqualTo', \
-                      'IntegerValues': [100], \
+        qlist.append({'QualificationTypeId': config['qualification']['protectionid'],
+                      'Comparator': 'GreaterThanOrEqualTo',
+                      'IntegerValues': [100],
                       'ActionsGuarded': 'Accept'})
 
-        # # do not allow turkers who have a qualification of excludeprotectionid
-        # for excludequali in config['qualification']['excludeprotectionid'].split(","):
-        #     qlist.append({'QualificationTypeId': excludequali.strip(),
-        #         'Comparator': 'NotIn',
-        #         'IntegerValues': [ -100, 100 ],
-        #         'ActionsGuarded':'DiscoverPreviewAndAccept'})
+        # do not allow turkers who have a qualification that blocks them from participating
+        if 'block_id' in config['qualification']:
+            print("WARNING: Creating block_id qualification has not been tested yet. Attempting now!")
+            qlist.append({'QualificationTypeId': config['qualification']['block_id'],
+                'Comparator': 'DoesNotExist',
+                'ActionsGuarded':'DiscoverPreviewAndAccept'})
 
     if 'sandbox' in config['endpoint']['url']:
         print("this is sandbox mode, no qualifications needed")
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read(configfile)
 
-    input("This will publish HITs based on {}. Press any key to continue.".format(os.path.basename(configfile)))
+    input("This will publish HITs based on {}. Press any key to continue.".format(os.path.basename(configfile)))    # TODO Compute how many HITs and money.
     if not 'sandbox' in config['endpoint']['url']:
         input("WARNING: This is not a drill! Will cost actual money!")
 
