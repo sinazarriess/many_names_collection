@@ -6,6 +6,7 @@ import xmltodict
 import sys
 import nltk
 import configparser
+import botocore
 
 import amt_api
 
@@ -44,8 +45,6 @@ def main():
 
     mturk = amt_api.connect_mturk(config)
 
-    amt_api.connect_mturk(config)
-
     ## One-time correction:
     # for id in ['3JC6VJ2SABJSWDTJA7TOO55XXBO5A6']: # '['30MVJZJNHMDMYTYZ73JITKDI82E9J9', '3IHR8NYAM71HNYVLLLSB98OEV9QP4D', '3R2PKQ87NW85A2XNEU2NM542VMYMIB', '3S06PH7KSR4R62VCTUIEBG0M58W1DL', '37C0GNLMHF3MDOW9Z0UV6CR3DHM6DU']:
     #      mturk.approve_assignment(AssignmentId=id,
@@ -56,10 +55,27 @@ def main():
 
     assignments = pd.read_csv(assignmentspath)
 
+    if 'block_id' in config['qualification']:
+        block_id = config['qualification']['block_id']
+    elif 'decision2' in assignments and 'block' in assignments['decision2'].tolist():
+        r = mturk.create_qualification_type(
+            Name='verification_block',  # TODO Generate more robust name
+            Keywords='block participation',
+            Description='This qualification is assigned to workers who make too many mistakes on quality control items in our HITs, and can be used to prevent further participation.',
+            QualificationTypeStatus='Active',
+        )
+        block_id = r["QualificationType"]["QualificationTypeId"]
+        r['QualificationType']['CreationTime'] = r['QualificationType']['CreationTime'].strftime('%d_%m_%y_%I_%M')
+        with open(os.path.join(adminpath, "verification_block_{}.json".format(r['QualificationType']['CreationTime'])), 'w') as outfile:
+            json.dump(r, outfile)
+        print("Qualification for blocking workers created; saved to {}; {}".format(outfile.name, r))
+        print("!!! REMINDER: Copy this into your config: block_id = {}".format(block_id))
+
+
     reject = assignments.loc[assignments['decision1'] == 'reject']['assignmentid'].tolist()
     accept = assignments.loc[assignments['decision1'] == 'approve']['assignmentid'].tolist()
 
-    print("About to approve {} assignments, reject {}.".format(len(accept), len(reject)))
+    print("About to approve {} assignments, reject {}.".format(len(accept), len(reject)))   # TODO misleading; already take 'executed1,2' into account.
     if input("Enter 'Yes!' to continue") != "Yes!":
         quit()
 
@@ -100,8 +116,17 @@ def main():
                 print("{} bonused; {}".format(row['assignmentid'], r))
                 assignments.at[i, 'executed2'] = True
             elif row ['decision2'] == 'block':
-                # TODO TO BE IMPLEMENTED
-                assignments.at[i, 'executed2'] = True
+                try:
+                    r = mturk.associate_qualification_with_worker(
+                        QualificationTypeId=block_id,
+                        WorkerId=row['workerid'],
+                        SendNotification=False,
+                    )
+                    print("{}: {} blocked; {}".format(row['assignmentid'], row['workerid'], r))
+                    assignments.at[i, 'executed2'] = True
+                except botocore.exceptions.ClientError:
+                    print("{}: {} was already blocked".format(row['assignmentid'], row['workerid']))
+                    assignments.at[i, 'executed2'] = True
     assignments.to_csv(assignmentspath, index=False)
     print("Updated 'executed' column in", assignmentspath)
 
