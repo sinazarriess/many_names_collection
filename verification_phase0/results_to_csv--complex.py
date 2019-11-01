@@ -17,6 +17,7 @@ BLOCK_THRESHOLD = .8
 # TODO Generalize; get paths from a config argument?
 resultsdir = '1_pre-pilot/results/complex'
 
+# TODO check overwrite
 
 # Read all assignments from the .json file from MTurk
 assignments_from_mturk = []
@@ -41,7 +42,7 @@ assignments_from_mturk = pd.DataFrame(assignments_from_mturk)
 assignments_from_mturk.columns = [x.lower() for x in assignments_from_mturk.columns]
 assignments_from_mturk.rename(columns={"stored_font_size": 'control_score_mturk'}, inplace=True)
 
-MAX_N_IMAGES = 11
+MAX_N_IMAGES = 11    # TODO read this from the dataframe
 MAX_N_NAMES = 16
 
 # Merge boolean radiobutton columns into integer-valued rating columns
@@ -188,6 +189,12 @@ for i, row in annotations.iterrows():
     elif row['control_type'] == 'random':
         annotations.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] != 'other'))
         annotations.at[i, 'correct2'] = float(len(row['same_color']) == 1)
+
+    elif row['control_type'].startswith('syn'):
+        synonyms = row['control_type'][4:].split(',')
+        same_rating = annotations.loc[(annotations['assignmentid'] == row['assignmentid']) & (annotations['image'] == row['image']) & (annotations['object'] == row['object']) & (annotations['rating'] == row['rating'])]['name'].unique().to_list()
+        annotations.at[i, 'correct1'] = float(not any([syn not in same_rating for syn in synonyms]))
+        annotations.at[i, 'correct2'] = float(not any([syn not in row['same_color'] for syn in synonyms]))
 
 
 annotations = annotations.sort_values(by=['workerid', 'hitid']).reset_index(drop=True)
