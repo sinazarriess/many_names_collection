@@ -54,6 +54,8 @@ if __name__ == "__main__":
 
     mturk = amt_api.connect_mturk(config)
 
+    print("I have $" + mturk.get_account_balance()['AvailableBalance'] + " in my account")
+
     # hits = amt_api.get_all_hits(MTURK)
 
     statuses = ["Submitted", "Approved"]    # TODO Extend functionality; print statuses of HITs; annotations...
