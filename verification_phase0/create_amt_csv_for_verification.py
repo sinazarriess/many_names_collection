@@ -14,13 +14,17 @@ import random
 
 import json
 
+from nltk.corpus import wordnet as wn
 
 
-PHASE = "pre-pilot" # "pilot", "main"
+PHASE = "round0" # "pre-pilot" # "pilot", "phase0", "phase1", None
 IMAGES_PER_HIT = 6
 
 MAX_IMAGE_PARAMS_PER_HIT = 11
 MAX_NAME_PARAMS_PER_IMAGE = 16
+
+REMOVE_SYNONYMS = False
+
 
 def main():
 
@@ -35,7 +39,6 @@ def main():
 
     df = preprocess_responses(many_names, relevant_cols)
 
-
     # Collect all names in a list
     df['names_list'] = df['spellchecked_min2'].apply(lambda x: [n for c,n in sorted([(x[n], n) for n in x], reverse=True)])
     # And always incude vg name:
@@ -45,10 +48,65 @@ def main():
         elif row['vg_is_max']:  # bring vg name to the front
             df.at[i, 'names_list'].insert(0, row['names_list'].pop(row['names_list'].index(row['vg_obj_name'])))
     df['n_names'] = df['names_list'].apply(len)
+
     # Restrict to multiple names:
     df = df.loc[df['n_names'] > 1]
 
-    print(df.head().to_string())
+    print(df[:5].to_string())
+
+
+    ## Identify and, if required, remove WordNet synonyms
+    if REMOVE_SYNONYMS:
+        n_images = len(df)
+        n_names = df['n_names'].sum()
+        print("Prior to synonym filter: {} images, {} names".format(n_images, n_names))
+
+    df['synonym_clusters'] = [[] for _ in range(len(df))]
+    for i, row in tqdm(df.iterrows()):
+        # organize names into synset clusters:
+        synset_to_names = {}
+        name_to_synsets = {}
+        for name in row['names_list']:
+            name_to_synsets[name] = [synset.name() for synset in wn.synsets(name)]
+            for synset in name_to_synsets[name]:
+                if not synset in synset_to_names:
+                    synset_to_names[synset] = [name]
+                elif not name in synset_to_names[synset]:
+                    synset_to_names[synset].append(name)
+
+        # choose the biggest synset for each name (greedy)
+        synsets_list = []
+        for name in row['names_list']:
+            synsets = sorted([synset for synset in name_to_synsets[name]], key=lambda x: len(synset_to_names[x]))
+            if len(synsets) == 0:
+                synsets_list.append(None)
+            else:
+                synsets_list.append(synsets[-1])
+        df.at[i, 'synonym_clusters'] = [synset_to_names[synset] for synset in synsets_list if synset is not None]
+
+        if REMOVE_SYNONYMS:
+            names_list_no_synonyms = []
+            synsets_covered = []
+            for n, name in enumerate(row['names_list']):
+                if synsets_list[n] is None or synsets_list[n] not in synsets_covered or sum([name in synset_to_names[ss] for ss in set(synsets_list) if ss is not None]) > 1:
+                    names_list_no_synonyms.append(name)
+                    synsets_covered.append(synsets_list[n])
+                else:
+                    pass
+            df.at[i, 'names_list'] = names_list_no_synonyms
+
+
+    # update
+    df['n_names'] = df['names_list'].apply(len)
+    # Restrict to multiple names:
+    df = df.loc[df['n_names'] > 1]
+
+    if REMOVE_SYNONYMS:
+        n_images_new = len(df)
+        n_names_new = df['n_names'].sum()
+        print("After synonym filter: {} images (-{}%), {} names (-{}%)".format(n_images_new, int(round(100*(n_images - n_images_new) / n_images)), n_names_new, int(round(100*(n_names - n_names_new) / n_names)),))
+
+
 
     # Create quality control items
     with open('../dataset_creation/add_data/vgenome/objects.json') as file:
@@ -158,8 +216,19 @@ def main():
         if row['vg_is_max']:
             df.at[i, 'quality_control_dict'].update({row['names_list'][0]: 'pos'})
 
+        # synonym items:
+        clusters = [cluster for cluster in row['synonym_clusters'] if len(cluster) > 1]
+        if len(clusters) > 0:
+            synonyms = random.sample(clusters, 1)[0]
+            synonyms_non_pos = [n for n in synonyms if not n in row['quality_control_dict']]
+            target = random.sample(synonyms_non_pos, 1)[0]
+            df.at[i, 'quality_control_dict'].update({target: 'syn-{}'.format(','.join([n for n in synonyms if n != target]))})
+
+            # TODO add quality control to javascript
+
     # update
     df['n_names'] = df['names_list'].apply(len)
+
 
     # Summarize data
     print("Total:")
@@ -167,36 +236,44 @@ def main():
     print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
     print(" Max n_names: {} (of which fillers: {})".format(df['n_names'].max(), df['n_fillers'].max()))
     print(" Mean n_names: {} (of which fillers: {})".format(df['n_names'].mean(), df['n_fillers'].mean()))
-
-    quality_controls = ["typo" if x.startswith("typo") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
-    print("Pos: {}, typo: {}, alt: {}, rand: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls])))
+    quality_controls = ["typo" if x.startswith("typo") else "syn" if x.startswith("syn") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
+    print("  Pos: {}, typo: {}, alt: {}, rand: {}, syn: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls]), sum([x == "syn" for x in quality_controls])))
 
     print()
 
-    # For pilot, restrict to only already annotated images
-    if PHASE in ["pilot", "pre-pilot"]:
-        # # for initial, internal pilot by Carina:
-        # sample_df = sample_objects("proc_data_phase0/spellchecking/all_responses_round0-3_cleaned.csv", 30, relevant_cols)
-
+    # Data restrictions depending on round
+    if PHASE is not None:
         print("Restricting dataset for {}.".format(PHASE))
 
-        # now, simply reuse previously annotated images:
-        df_annotated = pd.read_csv(manual_annotations, sep="\t")
-        annotated_urls = df_annotated['url'].unique()
-        df = df.loc[df['url'].isin(annotated_urls)]
+        if PHASE in ["round0", "round1"]:
+            if PHASE == "round0":
+                with open('test_imgids/bottomup.nottopMN.imgids') as imgids:
+                    imgids = [int(s.strip()) for s in imgids]
+            elif PHASE == "round1":
+                with open('test_imgids/bottomup.nottrain.imgids') as imgids:
+                    imgids = [int(s.strip()) for s in imgids]
+            df = df.loc[df['vg_img_id'].isin(imgids)]
 
-    # For pre-pilot, restrict further
-    if PHASE in ["pre-pilot"]:
-        df = df.sample(frac=.3)
+        # For pilot, restrict to only already annotated images
+        elif PHASE in ["pilot", "pre-pilot"]:
 
-    # either way, summarize new data:
-    if PHASE in ["pilot", "pre-pilot"]:
+            # now, simply reuse previously annotated images:
+            df_annotated = pd.read_csv(manual_annotations, sep="\t")
+            annotated_urls = df_annotated['url'].unique()
+            df = df.loc[df['url'].isin(annotated_urls)]
+
+            # For pre-pilot, restrict further
+            if PHASE in ["pre-pilot"]:
+                df = df.sample(frac=.3)
+
+     # either way, summarize new data:
         print(" Number of images:", len(df))
         print(" Min n_names: {} (of which fillers: {})".format(df['n_names'].min(), df['n_fillers'].min()))
         print(" Max n_names: {} (of which fillers: {})".format(df['n_names'].max(), df['n_fillers'].max()))
         print(" Mean n_names: {} (of which fillers: {})".format(df['n_names'].mean(), df['n_fillers'].mean()))
-        quality_controls = ["typo" if x.startswith("typo") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
-        print("Pos: {}, typo: {}, alt: {}, rand: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls])))
+        quality_controls = ["typo" if x.startswith("typo") else "syn" if x.startswith("syn") else x for y in df['quality_control_dict'].apply(lambda x: list(x.values())).tolist() for x in y]
+        print("  Pos: {}, typo: {}, alt: {}, rand: {}, syn: {}".format(sum([x == "pos" for x in quality_controls]), sum([x == "typo" for x in quality_controls]), sum([x == "alt" for x in quality_controls]), sum([x == "rand" for x in quality_controls]), sum([x == "syn" for x in quality_controls])))
+
 
     # Create roughly equal-sized HITs:
     n_bins = math.ceil(len(df) / IMAGES_PER_HIT)
@@ -217,6 +294,8 @@ def main():
     bin_weights = full_bin_weights + bin_weights
 
     print("Bins: {} (min: {}, max: {}, mean: {})".format(len(full_bins), min(bin_weights), max(bin_weights), sum(bin_weights)/len(bin_weights)))
+
+
 
     # Now turn bins into rows of the AMT csv:
     header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGE_PARAMS_PER_HIT)]
