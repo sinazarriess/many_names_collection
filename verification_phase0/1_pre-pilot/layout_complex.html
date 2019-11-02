@@ -104,7 +104,7 @@ function generate_font_family(img, n, m) {
     return false;
 }
 
-function show_definitions(){
+function adjust_font_sizes(){
     var n_definitions = 0;
     var n_definables = 0;
     for (var i = 0; i < num_images; i++) {
@@ -164,6 +164,26 @@ function show_definitions(){
                             n_definitions += 1;
                             break;
                         }
+                    }
+                } else if (font.startsWith("bold")) {
+                    n_definables += 2;
+                    shapes = font.substring(5).split(',');
+                    var increase_font_size1 = false;
+                    var increase_font_size2 = false;
+                    for (var s=0; s < shapes.length; s++) {
+                        m = names[i].indexOf(shapes[s]);
+                        if (!generate_font_size(i, m, n)) {
+                            increase_font_size1 = true;
+                        }
+                        if (!generate_font_family(i, m, n)) {
+                            increase_font_size2 = true;
+                        }
+                    }
+                    if (increase_font_size1 = true) {
+                        n_definitions += 1;
+                    }
+                    if (increase_font_size2 = true) {
+                        n_definitions += 1;
                     }
                 }
             }
@@ -785,7 +805,7 @@ div.color {
 
 <script>
 document.querySelector('crowd-form').onsubmit = function(e) {
-    if (!show_definitions()) {
+    if (!adjust_font_sizes()) {
         e.preventDefault();
     }
 }
