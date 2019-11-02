@@ -318,10 +318,18 @@ def main():
                 n_names += 1
             # Obfuscate with font labels: TODO Move the obfuscation down; do more globally, separately.
             for key in df.at[idx, 'quality_control_dict']:
-                if df.at[idx, 'quality_control_dict'][key] == "pos":
-                    controls_pos += 1
                 controls += 1
-                df.at[idx, 'quality_control_dict'][key] = df.at[idx, 'quality_control_dict'][key].replace("pos", "arial").replace("typo", "sans").replace("alt", "serif").replace("rand", "courier")
+                if df.at[idx, 'quality_control_dict'][key] == "pos":
+                    df.at[idx, 'quality_control_dict'][key] = "arial"
+                    controls_pos += 1
+                elif df.at[idx, 'quality_control_dict'][key].startswith("typo"):
+                    df.at[idx, 'quality_control_dict'][key] = "sans" + df.at[idx, 'quality_control_dict'][key][4:]
+                elif df.at[idx, 'quality_control_dict'][key] == "alt":
+                    df.at[idx, 'quality_control_dict'][key] = "serif"
+                elif df.at[idx, 'quality_control_dict'][key] == "rand":
+                    df.at[idx, 'quality_control_dict'][key] = "courier"
+                elif df.at[idx, 'quality_control_dict'][key].startswith("syn"):
+                    df.at[idx, 'quality_control_dict'][key] = "bold" + df.at[idx, 'quality_control_dict'][key][3:]
             # Obfuscate further with hex encoding
             row[i][-1] = str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex()
         row = [e for l in row for e in l]
