@@ -25,7 +25,7 @@ MAX_NAME_PARAMS_PER_IMAGE = 16
 
 REMOVE_SYNONYMS = False
 
-UNIQUE_TURKER_ID = "deed6e28db27a09e2acd09dcee3383a9"
+UNIQUE_TURKER_ID = False # "deed6e28db27a09e2acd09dcee3383a9" # or False, when generating from config
 
 
 def main():
@@ -301,7 +301,9 @@ def main():
 
     # Now turn bins into rows of the AMT csv:
     header = [["image_url_{}".format(i)] + ["name_{}_{}".format(i,n) for n in range(MAX_NAME_PARAMS_PER_IMAGE)] + ["quality_control_{}".format(i)] for i in range(MAX_IMAGE_PARAMS_PER_HIT)]
-    header = ["unique_turker_id"] + [e for l in header for e in l]
+    header = [e for l in header for e in l]
+    if UNIQUE_TURKER_ID:
+        header = ['unique_turker_id'] + header
     rows = []
     n_controls = []
     n_controls_pos = []
@@ -334,7 +336,9 @@ def main():
                     df.at[idx, 'quality_control_dict'][key] = "bold" + df.at[idx, 'quality_control_dict'][key][3:]
             # Obfuscate further with hex encoding
             row[i][-1] = str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex()
-        row = [UNIQUE_TURKER_ID] + [e for l in row for e in l]
+        row = [e for l in row for e in l]
+        if UNIQUE_TURKER_ID:
+            row = [UNIQUE_TURKER_ID] + row
         rows.append(row)
         n_controls.append(controls/n_names)
         n_controls_pos.append(controls_pos/n_names)

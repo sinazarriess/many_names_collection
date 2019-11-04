@@ -149,6 +149,9 @@ if __name__ == '__main__':
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
         param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
+        if "unique_turker_id" in config["qualification"]:
+            param_list = [{'Name': 'unique_turker_id', 'Value': config["qualification"]["unique_turker_id"]}] + param_list
+
         logging.info(param_list)
 
         hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
