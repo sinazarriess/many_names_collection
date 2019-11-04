@@ -12,7 +12,6 @@ import amt_api
 def make_qualification(mturk, question, answer, name, outpath):
 
     response = mturk.create_qualification_type(
-        Name=name,
         Keywords='data protection',
         Description='Please read our data protection policy and accept it',
         QualificationTypeStatus='Active',
@@ -29,7 +28,7 @@ def make_qualification(mturk, question, answer, name, outpath):
         
     return True
 
-def update_qualification(mturk, qualtypeID, question, answer):
+def update_qualification(mturk, qualtypeID, question, answer, name, outpath):
         
     response = mturk.update_qualification_type(
         QualificationTypeId=qualtypeID,
@@ -43,7 +42,7 @@ def update_qualification(mturk, qualtypeID, question, answer):
     print(response)
     del response['QualificationType']['CreationTime']
     
-    with open("protectionqual.json", 'w') as outfile:
+    with open(os.path.join(outpath, "{}.json".format(name)), 'w') as outfile:
         json.dump(response, outfile)
         
     return True
