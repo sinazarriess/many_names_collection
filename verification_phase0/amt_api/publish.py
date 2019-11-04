@@ -15,7 +15,7 @@ def get_qualifications(config):
     if 'entry_id' in config['qualification']:
         print("create hit with data protection qualification")
 
-        qlist.append({'QualificationTypeId': config['qualification']['protectionid'],
+        qlist.append({'QualificationTypeId': config['qualification']['entry_id'],
                       'Comparator': 'GreaterThanOrEqualTo',
                       'IntegerValues': [100],
                       'ActionsGuarded': 'Accept'})
