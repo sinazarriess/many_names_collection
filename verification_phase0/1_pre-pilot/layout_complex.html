@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById("num_names").innerHTML = num_names_total;
     document.getElementById("num_images").innerHTML = num_images;
 
-    if (UTWorkerLimitReached(ut_id)) {
+    if (ut_id != "" && UTWorkerLimitReached(ut_id)) {
         document.getElementById('form_main').style.display = 'none';
         document.getElementsByTagName('body')[0].innerHTML = ut_message;
     }
