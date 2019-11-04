@@ -10,7 +10,7 @@
 
 <script>
 
-var ut_id = "fc373b2f7e3939390a7287c78d39afa6"; // 3
+var ut_id = "a6c350d3bc62a6c2957cf1b4cdae7445"; // 3
 var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you will appear later, the coming days! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
 var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
@@ -67,42 +67,6 @@ function replaceEverywhere(node, search, replacement) {
         }
     }
 };
-
-function generate_font_size(img, n, m) {
-    for (var c = 0; c < num_names_per_image[img]; c++) {
-        var checked = 0;
-        if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
-            checked += 1;
-        }
-        if (document.getElementById("IMG"+img+"-NAME"+m+"-color."+c).checked) {
-            checked += 1;
-        }
-        if (checked == 1) {
-            break;
-        } else if (checked == 2) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function generate_font_family(img, n, m) {
-    for (var t = 0; t < 4; t++) {
-        var checked = 0;
-        if (document.getElementById('IMG'+img+'-NAME'+m+'-type.'+t).checked) {
-            checked += 1;
-        }
-        if (document.getElementById('IMG'+img+'-NAME'+n+'-type.'+t).checked) {
-            checked += 1;
-        }
-        if (checked == 1) {
-            break;
-        } else if (checked == 2) {
-            return true;
-        }
-    }
-    return false;
-}
 
 function adjust_font_sizes(){
     var n_definitions = 0;
@@ -172,10 +136,14 @@ function adjust_font_sizes(){
                     var increase_font_size2 = false;
                     for (var s=0; s < shapes.length; s++) {
                         m = names[i].indexOf(shapes[s]);
-                        if (!generate_font_size(i, m, n)) {
+                        if (!adjust_margins(i, m, n)) {
                             increase_font_size1 = true;
+                        } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                            if (!generate_font_family(i, m, n)) {
+                                increase_font_size1 = true;
+                            }
                         }
-                        if (!generate_font_family(i, m, n)) {
+                        if (!generate_font_size(i, m, n)) {
                             increase_font_size2 = true;
                         }
                     }
@@ -318,6 +286,61 @@ function showhide(e) {
         }
     }
 
+}
+
+
+function generate_font_size(img, n, m) {
+    for (var c = 0; c < num_names_per_image[img]; c++) {
+        var checked = 0;
+        if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (document.getElementById("IMG"+img+"-NAME"+m+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function generate_font_family(img, n, m) {
+    for (var t = 0; t < 4; t++) {
+        var checked = 0;
+        if (document.getElementById('IMG'+img+'-NAME'+m+'-type.'+t).checked) {
+            checked += 1;
+        }
+        if (document.getElementById('IMG'+img+'-NAME'+n+'-type.'+t).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function adjust_margins(img, n, m) {
+    for (var r = 0; r < 3; r++) {
+        var checked = 0;
+        if (document.getElementById('IMG'+img+'-NAME'+m+'-rating.'+r).checked) {
+            checked += 1;
+        }
+        if (document.getElementById('IMG'+img+'-NAME'+n+'-rating.'+r).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function uncheck(buttons) {
@@ -586,7 +609,7 @@ div.color {
         For our research, <b>we need you to evaluate the names we got:</b>
         Is each name <i>adequate</i> (see definition below)? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
     <br><br>
-        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names.
+        In this HIT you will get <span id="num_images"></span> images, with a total of <span id="num_names"></span> names.
         <br><br>
         The quality of your responses is crucial for our research. This HIT contains quality control items. <mark><b>Submitting low-quality responses may lead to rejection and block.</b></mark> <br>
         <br>
@@ -725,7 +748,7 @@ div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
                                 <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3b.png"/>
                                 <br>
-                                Not in <br> bounding box
+                                Bounding box <br> error
                             </label>
                         </div>
                         <div class="caption">
