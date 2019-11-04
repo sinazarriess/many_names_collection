@@ -145,13 +145,14 @@ if __name__ == '__main__':
     batch_idx = initial_row / batch_size
 
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
-    for row_idx, row in data[initial_row:total_rows].iterrows():
+    for row_idx, row in data[initial_row:initial_row+total_rows].iterrows():
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
         param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
-        if "unique_turker_id" in config["qualification"]:
-            param_list = [{'Name': 'unique_turker_id', 'Value': config["qualification"]["unique_turker_id"]}] + param_list
 
+        # Add unique turker id, or else empty string
+        unique_turker_id = config["qualification"]["unique_turker_id"] if "unique_turker_id" in config["qualification"] else ""
+        param_list = [{'Name': 'unique_turker_id', 'Value': unique_turker_id}] + param_list
         logging.info(param_list)
 
         hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
