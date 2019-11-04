@@ -326,7 +326,7 @@ function uncheck(buttons) {
     }
 }
 
-$(window).scroll(function() {
+function fiximages() {
   for (var i = 0; i < num_images; i++) {
       var scrollTop= $(window).scrollTop(),
           b1= $("#IMG"+i+"-form"),
@@ -338,7 +338,9 @@ $(window).scroll(function() {
         top: Math.min(Math.max(scrollTop,min),max) - scrollTop
       });
   }
-});
+}
+
+$(window).scroll(fiximages);
 
 var MTurk_HIT_Ids = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"];
 
@@ -482,6 +484,9 @@ td.color, th.color {
     width: 80%;
 }
 
+img.example {
+    height: 200pt;
+}
 
 div.caption {
     width: 20%;
@@ -492,7 +497,6 @@ div.caption {
 }
 
 .required:after { content:" *"; }
-
 
 /* HIDE RADIO */
 [type=radio] {
@@ -556,6 +560,12 @@ div.color {
 }
 
 
+#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+
 </style>
 
 <!-- Notes -->
@@ -574,14 +584,26 @@ div.color {
     <p class="intro">
         We asked various workers to <i>"name the object in the bounding box"</i>, for a number of images.<br>
         For our research, <b>we need you to evaluate the names we got:</b>
-        Is each name adequate? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
+        Is each name <i>adequate</i> (see definition below)? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
+    <br><br>
+        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names.
+        <br><br>
+        The quality of your responses is crucial for our research. This HIT contains quality control items. <mark><b>Submitting low-quality responses may lead to rejection and block.</b></mark> <br>
+        <br>
+        Feel free to contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything is unclear
     </p>
 
-<!--     <ul class="intro" style="margin-top:-10pt">
-        <li>Is each <b>name adequate?</b> (See definition of "adequate" below.)</li>
-        <li>If not, <b>what's wrong?</b> Did they enter a word that doesn't apply to object they intended to name? Did they name an object that doesn't fit tightly in the bounding box? Did they misinterpret the picture? Something else?</li>
-        <li>And <b>which object</b>, exactly, did the different workers intend to name?</li>
-    </ul> -->
+
+    <!-- Instructions -->
+    <div style="margin:20pt;">
+    <div class="panel panel-primary">
+    <!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature -->
+    <a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+    <span class="collapse-text" style="font-weight: bold;"></span>
+    </a>
+    <div class="panel-body" id="instructionBody" style="border: 2pt solid #428bca; border-top: 0pt;">
+
+    <h3>1. Use the definition</h3>
 
     <p class="intro">
         When judging if a name is "adequate", you <u><i>must</i></u> use the following definition:
@@ -593,11 +615,46 @@ div.color {
             <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
         </div>
 
-    <p class="intro">
-        In this HIT you will get <span id="num_images"></span> images, with a total <span id="num_names"></span> names. As the quality of your responses is crucial for our research, this HIT contains quality control items. <mark><b>Submitting low-quality responses may lead to rejection and block.</b></mark> <br>
-        <br>
-        Feel free to contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything is unclear
-    </p>
+    <h3>2. Examples</h3>
+
+    <table style="width: 60%; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
+        <tr>
+            <td style="width: 10%"><img class="example" src="http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png" /></td>
+            <td style="width: 40%"><b>Workers entered <i>"pan"</i> / <i>"food": only <i>"pan"</i> is adequate!</i></b><br><br>
+                In this case the bounding box tightly fits only around the pan, it is a little bit too big to tightly fit the food.
+                Therefore, only <i>"pan"</i> is adequate; the worker who entered <i>"food"</i> committed a 'bounding box error'.
+                <br><br>
+                <mark><b>Remember:</b> a name must be for an object that is <i>tightly</i> surrounded by the bounding box.</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2337552_957263_singleton_obj" /></td>
+            <td><b><i>"Legs"</i> / <i>"person"</i>: both are adequate names, but for different objects.</b><br><br>
+                The bounding box fits tightly around the legs, and also around all visible parts of the person (as required by the definition).
+                Note that the names are intended to name different objects: a person is not the same object as the person's legs -- one is merely a part of the other.
+                <br><br>
+                <mark><b>Remember:</b> two names can both be adequate and yet name different objects.</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2364594_2581620_singleton_obj.png" /></td>
+            <td><b><i>"Mustard"</i> / <i>"cheese"</i>: only <i>"mustard"</i> is adequate, but...</b><br><br>
+                Even though mustard is not cheese, the two workers probably intended to name the same object: the yellow thing on top of the hotdog.
+                <br><br>
+                <mark><b>Remember:</b> two different names, an adequate name and an inadequate name, can still be intended for the same object.</mark>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><i>For more instructions and examples, just hover over terms and icons in the task below.</i></td>
+        </tr>
+    </table>
+
+
+    </div>
+    </div>
+    </div>
 
     <div class="row" id="IMG#-form">
 
@@ -666,9 +723,9 @@ div.color {
                         <div class="caption">
                             <label title="The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
-                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3.png"/>
+                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3b.png"/>
                                 <br>
-                                Bounding box <br> error
+                                Not in <br> bounding box
                             </label>
                         </div>
                         <div class="caption">
@@ -809,4 +866,227 @@ document.querySelector('crowd-form').onsubmit = function(e) {
         e.preventDefault();
     }
 }
+
+$(document).ready(
+    function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    var trigger2 = $('#collapseTrigger2');
+    content.hide();
+    $('.collapse-text').text('CLICK HERE to view instructions and examples. This task can be tricky!!');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('Click to hide instructions.');
+      }else{
+        $('.collapse-text').text('CLICK HERE to view instructions and examples. This task can be tricky!!');
+      }
+      fiximages();
+    });
+    // end expand/collapse
+    });
+
 </script>
+
+
+<style>
+// Copied some relevant (and irrelevant) bits from https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css
+.panel{
+	margin-bottom:20px;
+	background-color:#fff;
+	border:1px solid transparent;
+	border-radius:4px;
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.05);
+	box-shadow:0 1px 1px rgba(0,0,0,0.05)
+}
+.panel-body{
+	padding:15px
+}
+.panel-body:before,.panel-body:after{
+	display:table;
+	content:" "
+}
+.panel-body:after{
+	clear:both
+}
+.panel-body:before,.panel-body:after{
+	display:table;
+	content:" "
+}
+.panel-body:after{
+	clear:both
+}
+.panel>.list-group{
+	margin-bottom:0
+}
+.panel>.list-group .list-group-item{
+	border-width:1px 0
+}
+.panel>.list-group .list-group-item:first-child{
+	border-top-right-radius:0;
+	border-top-left-radius:0
+}
+.panel>.list-group .list-group-item:last-child{
+	border-bottom:0
+}
+.panel-heading+.list-group .list-group-item:first-child{
+	border-top-width:0
+}
+.panel>.table,.panel>.table-responsive>.table{
+	margin-bottom:0
+}
+.panel>.panel-body+.table,.panel>.panel-body+.table-responsive{
+	border-top:1px solid #ddd
+}
+.panel>.table>tbody:first-child th,.panel>.table>tbody:first-child td{
+	border-top:0
+}
+.panel>.table-bordered,.panel>.table-responsive>.table-bordered{
+	border:0
+}
+.panel>.table-bordered>thead>tr>th:first-child,.panel>.table-responsive>.table-bordered>thead>tr>th:first-child,.panel>.table-bordered>tbody>tr>th:first-child,.panel>.table-responsive>.table-bordered>tbody>tr>th:first-child,.panel>.table-bordered>tfoot>tr>th:first-child,.panel>.table-responsive>.table-bordered>tfoot>tr>th:first-child,.panel>.table-bordered>thead>tr>td:first-child,.panel>.table-responsive>.table-bordered>thead>tr>td:first-child,.panel>.table-bordered>tbody>tr>td:first-child,.panel>.table-responsive>.table-bordered>tbody>tr>td:first-child,.panel>.table-bordered>tfoot>tr>td:first-child,.panel>.table-responsive>.table-bordered>tfoot>tr>td:first-child{
+	border-left:0
+}
+.panel>.table-bordered>thead>tr>th:last-child,.panel>.table-responsive>.table-bordered>thead>tr>th:last-child,.panel>.table-bordered>tbody>tr>th:last-child,.panel>.table-responsive>.table-bordered>tbody>tr>th:last-child,.panel>.table-bordered>tfoot>tr>th:last-child,.panel>.table-responsive>.table-bordered>tfoot>tr>th:last-child,.panel>.table-bordered>thead>tr>td:last-child,.panel>.table-responsive>.table-bordered>thead>tr>td:last-child,.panel>.table-bordered>tbody>tr>td:last-child,.panel>.table-responsive>.table-bordered>tbody>tr>td:last-child,.panel>.table-bordered>tfoot>tr>td:last-child,.panel>.table-responsive>.table-bordered>tfoot>tr>td:last-child{
+	border-right:0
+}
+.panel>.table-bordered>thead>tr:last-child>th,.panel>.table-responsive>.table-bordered>thead>tr:last-child>th,.panel>.table-bordered>tbody>tr:last-child>th,.panel>.table-responsive>.table-bordered>tbody>tr:last-child>th,.panel>.table-bordered>tfoot>tr:last-child>th,.panel>.table-responsive>.table-bordered>tfoot>tr:last-child>th,.panel>.table-bordered>thead>tr:last-child>td,.panel>.table-responsive>.table-bordered>thead>tr:last-child>td,.panel>.table-bordered>tbody>tr:last-child>td,.panel>.table-responsive>.table-bordered>tbody>tr:last-child>td,.panel>.table-bordered>tfoot>tr:last-child>td,.panel>.table-responsive>.table-bordered>tfoot>tr:last-child>td{
+	border-bottom:0
+}
+.panel>.table-responsive{
+	margin-bottom:0;
+	border:0
+}
+.panel-heading{
+	padding:10px 15px;
+	border-bottom:1px solid transparent;
+	border-top-right-radius:3px;
+	border-top-left-radius:3px
+}
+.panel-heading>.dropdown .dropdown-toggle{
+	color:inherit
+}
+.panel-title{
+	margin-top:0;
+	margin-bottom:0;
+	font-size:16px;
+	color:inherit
+}
+.panel-title>a{
+	color:inherit
+}
+.panel-footer{
+	padding:10px 15px;
+	background-color:#f5f5f5;
+	border-top:1px solid #ddd;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px
+}
+.panel-group .panel{
+	margin-bottom:0;
+	overflow:hidden;
+	border-radius:4px
+}
+.panel-group .panel+.panel{
+	margin-top:5px
+}
+.panel-group .panel-heading{
+	border-bottom:0
+}
+.panel-group .panel-heading+.panel-collapse .panel-body{
+	border-top:1px solid #ddd
+}
+.panel-group .panel-footer{
+	border-top:0
+}
+.panel-group .panel-footer+.panel-collapse .panel-body{
+	border-bottom:1px solid #ddd
+}
+.panel-default{
+	border-color:#ddd
+}
+.panel-default>.panel-heading{
+	color:#333;
+	background-color:#f5f5f5;
+	border-color:#ddd
+}
+.panel-default>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#ddd
+}
+.panel-default>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#ddd
+}
+.panel-primary{
+	border-color:#428bca
+}
+.panel-primary>.panel-heading{
+	color:#fff;
+	background-color:#428bca;
+	border-color:#428bca
+}
+.panel-primary>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#428bca
+}
+.panel-primary>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#428bca
+}
+.panel-success{
+	border-color:#d6e9c6
+}
+.panel-success>.panel-heading{
+	color:#3c763d;
+	background-color:#dff0d8;
+	border-color:#d6e9c6
+}
+.panel-success>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#d6e9c6
+}
+.panel-success>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#d6e9c6
+}
+.panel-warning{
+	border-color:#faebcc
+}
+.panel-warning>.panel-heading{
+	color:#8a6d3b;
+	background-color:#fcf8e3;
+	border-color:#faebcc
+}
+.panel-warning>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#faebcc
+}
+.panel-warning>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#faebcc
+}
+.panel-danger{
+	border-color:#ebccd1
+}
+.panel-danger>.panel-heading{
+	color:#a94442;
+	background-color:#f2dede;
+	border-color:#ebccd1
+}
+.panel-danger>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#ebccd1
+}
+.panel-danger>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#ebccd1
+}
+.panel-info{
+	border-color:#bce8f1
+}
+.panel-info>.panel-heading{
+	color:#31708f;
+	background-color:#d9edf7;
+	border-color:#bce8f1
+}
+.panel-info>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#bce8f1
+}
+.panel-info>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#bce8f1
+}
+
+</style>
