@@ -1,9 +1,7 @@
 
 
-
-A2241A4P7UR7HY   to be awarded 55 for complex prepilot 1 hit; could not find submit button
-
-
+ASTY1XNJS7RSV   get back to her if she made particular mistakes
+AZZOTPTKD7RF5   'scammers!'; get back to them if they made particular mistakes
 
 Sandbox: 3NK8QCQMTWB89F9R2GN5Z57TUQT06Y
 Real: 314E9ZG2QVYFAB6QPJKRCY2HSEEEPV
@@ -18,6 +16,16 @@ To be improved:
 
 
 =========
+
+A2241A4P7UR7HY   to be awarded 55 for complex prepilot 1 hit; could not find submit button   DONE, created HIT 5 november, auto-approve 48 hours, sent email.
+
+
+"Are you sure!? Many of your answers are incorrect!\n\nSubmitting now will almost certainly lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway, or click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
+
+"Are you sure?! It seems that quite a few of your answers are wrong!\n\nSubmitting now may lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway (we are reasonable humans) or choose to click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
+
+
+
 
 
 
