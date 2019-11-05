@@ -1,17 +1,57 @@
-SANDBOX:
-
-sandbox, complex: 36WCP8WK1B8HBKJRSB4NZ7MW612URI
-sandbox, simple: 3SWGUXCEJTNHZJ4RFWFNUHCRAF0UQH
-
-
-REAL:
-
-requester, complex: 3STE4BH37SOL3ZPT67OGASS6OZZYHF
-requester, simple: 3L4W8HTQ7W5SAOO033UAXFZ7LGA8YB
 
 
 
+A2241A4P7UR7HY   to be awarded 55 for complex prepilot 1 hit; could not find submit button
 
-names of projects:
-ManyNames-verification-complex-pilot0
-ManyNames-verification-simple-pilot0
+
+
+Sandbox: 3NK8QCQMTWB89F9R2GN5Z57TUQT06Y
+Real: 314E9ZG2QVYFAB6QPJKRCY2HSEEEPV
+
+
+
+To be improved:
+- better instructions color task (mustard and cheese; vs. completely unrelated objects; explain question mark)
+- remove 'threat'; better explain the procedure
+- explain bonus policy
+- bounding boxes always have the same (horizontal/vertical) orientation, so for objects that are tilted, a 'tight fitting' bounding box can still have quite a bit of empty space!
+
+
+=========
+
+
+
+Simple, pre-pilot 1
+sandbox: 3SWGUXCEJTNHZJ4RFWFNUHCRAF0UQH
+requester: 3L4W8HTQ7W5SAOO033UAXFZ7LGA8YB
+
+
+
+Complex pre-pilot 1 (28 october)
+
+    sandbox: 3YNXD5PU8V82RIBOM4JXBLAQ8544X6
+    requester: 3FXJTDA9W69O64T8YZD7I0YMCMQ0HM
+
+
+
+Complex pre-pilot 1 (26 october); new try; updated 28 oct?
+
+sandbox  3BCFMUPDC6LJDNCEP83I3F479AE8RK
+req 36D1RUMWDI3IUMPCD5C387Q5G734R2
+
+protectionid = 3ZSPHI510KU59YFHC72CU31XOQAJIR
+
+
+
+==============
+
+Complex, pre-pilot 1 (25 october); FAILED:
+Sandbox: 3ORTGC4B5SITDW45QQV5Z0L3SDNNLW
+Req: 3HWZWYXAOHKIPPP8BB62DEG0CPMYXC
+
+
+
+Complex, old:
+sandbox: 36WCP8WK1B8HBKJRSB4NZ7MW612URI
+requester: 3STE4BH37SOL3ZPT67OGASS6OZZYHF
+
