@@ -1,0 +1,32 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2017-11-06/QuestionForm.xsd"  xmlns:xs="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/FormattedContentXHTMLSubset.xsd">
+    <Overview>
+        <Title>
+            A single HIT for a particular worker.
+        </Title>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>q1</QuestionIdentifier>
+        <DisplayName>accept</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+                Are you the worker for whom this HIT is intended?
+            </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>YES</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>NO</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+</QuestionForm>
