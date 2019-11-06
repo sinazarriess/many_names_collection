@@ -11,7 +11,7 @@
 <script>
 
 var ut_id = "${unique_turker_id}";
-var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you will appear later, the coming days! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
+var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you will appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
 var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
 
@@ -187,9 +187,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var img_form_template = document.getElementById("IMG#-form");
     img_form_template.parentNode.removeChild(img_form_template);
 
-    unique_HIT_id = compute_font_family(unique_HIT_id)
-    unique_worker_id = compute_font_family(unique_worker_id)
-    unique_assignment_id = compute_font_family(unique_assignment_id)
+    unique_HIT_id = compute_font_family(unique_HIT_id);
+    unique_worker_id = compute_font_family(unique_worker_id);
     var num_names_total = 0;
 
     for (var i = 0; i < images.length; i++) {
@@ -257,9 +256,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 
-unique_HIT_id = '41726520796f7520737572653f21204974207365656d732074686174207175697465206120666577206f6620796f757220616e7377657273206172652077726f6e67210a0a5375626d697474696e67206e6f77206d6179206c65616420746f2072656a656374696f6e20616e6420626c6f636b2e2057652061647669736520796f7520746f20636c69636b2043414e43454c20616e6420646f75626c652d636865636b20796f757220616e73776572732e0a0a496620796f752776652067656e75696e656c7920646f6e6520796f757220626573742c20796f752063616e2065697468657220636c69636b204f4b20746f207375626d697420616e79776179202877652061726520726561736f6e61626c652068756d616e7329206f722063686f6f736520746f20636c69636b2043414e43454c20616e64207468656e2052455455524e2074686973204849542e';
-unique_assignment_id = '5741524e494e473a204d616e79206f6620796f757220616e73776572732061726520696e636f72726563742120596f752063616e20636c69636b205355424d495420616761696e20696620796f752077616e7420746f207375626d697420796f757220616e737765727320616e797761792c2062757420796f7572204849542077696c6c20616c6d6f7374206365727461696e6c792062652072656a65637465642e';
-unique_worker_id = '41726520796f752073757265213f204d616e79206f6620796f757220616e73776572732061726520696e636f7272656374210a0a5375626d697474696e67206e6f772077696c6c20616c6d6f7374206365727461696e6c79206c65616420746f2072656a656374696f6e20616e6420626c6f636b2e2057652061647669736520796f7520746f20636c69636b2043414e43454c20616e6420646f75626c652d636865636b20796f757220616e73776572732e0a0a496620796f752776652067656e75696e656c7920646f6e6520796f757220626573742c20796f752063616e2065697468657220636c69636b204f4b20746f207375626d697420616e797761792c206f7220636c69636b2043414e43454c20616e64207468656e2052455455524e2074686973204849542e';
+unique_HIT_id = '467269656e646c79207761726e696e672028646f6e277420776f727279293a20796f75207365656d20746f206861766520616e737765726564207365766572616c207175616c69747920636f6e74726f6c206974656d7320696e636f72726563746c792e0a0a496620796f7520676574207468657365207761726e696e677320726567756c61726c792c20796f75206d61792068617665206d6973756e64657273746f6f6420746865207461736b2c20736f20706c6561736520636865636b2074686520696e737472756374696f6e73206f7220636f6e746163742075732e0a0a496620796f7520676574207468657365207761726e696e6773206f6e6c79206f6e636520696e2061207768696c652c207468656e20646f6e277420776f7272792c206a75737420636c69636b204f4b20746f207375626d697420616e6420776520686f706520746f20277365652720796f7520696e20746865206e6578742048495421';
+unique_worker_id = '41726520796f7520737572653f20596f757220616e737765727320746f206d616e79206f66206f7572207175616c69747920636f6e74726f6c206974656d732061726520696e636f72726563742e0a0a57652061647669736520796f7520636c69636b2043414e43454c20746f20636865636b2074686520696e737472756374696f6e7320616e6420646f75626c652d636865636b20796f757220616e73776572732c20616e6420636f6e7461637420757320696620616e797468696e672072656d61696e7320756e636c6561722e0a0a596f752063616e20616c736f20636c69636b204f4b20616e7977617920746f207375626d69742c20616e642077652061726520726561736f6e61626c652068756d616e732c206275742070726f6365656420746f20646f206d6f72652048495473206f662074686973207479706520617420796f7572206f776e207269736b21';
 
 function showhide(e) {
 
@@ -414,6 +412,17 @@ span.boundingbox {
     font-weight: normal;
     text-align: left;
     z-index: 100;
+}
+.tooltiplike {
+    border:1px solid red;
+    border-radius: 5px;
+    padding:3px;
+    font-size: 12pt;
+    top:30px;
+    left:-250px;
+    width:50vw;
+    font-weight: normal;
+    text-align: left;
 }
 
 .hover:hover .tooltip{
@@ -597,7 +606,7 @@ div.color {
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects" id="form_main">
 
-    <div style="text-align: center"><i>For now, you can do only 3 HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
+    <div style="text-align: center"><i>For now, you can do at most 100 HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
 
     <hr>
 
@@ -608,11 +617,9 @@ div.color {
         For our research, <b>we need you to evaluate the names we got:</b>
         Is each name <i>adequate</i> (see definition below)? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
     <br><br>
-        In this HIT you will get <span id="num_images"></span> images, with a total of <span id="num_names"></span> names.
+        In this HIT you will get <span id="num_images"></span> images, with a total of <span id="num_names"></span> names. This HIT contains quality control items (see also detailed instructions below).
         <br><br>
-        The quality of your responses is crucial for our research. This HIT contains quality control items. <mark><b>Submitting low-quality responses may lead to rejection and block.</b></mark> <br>
-        <br>
-        Feel free to contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything is unclear
+        Read the instructions carefully, and hover over words and buttons in the task for additional examples. Please contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything remains unclear.
     </p>
 
 
@@ -625,7 +632,24 @@ div.color {
     </a>
     <div class="panel-body" id="instructionBody" style="border: 2pt solid #428bca; border-top: 0pt;">
 
-    <h3>1. Use the definition</h3>
+    <h3>1. Our approval/rejection/bonus policy</h3>
+    &#9658; &nbsp;&nbsp; The quality of your responses is crucial for our research! This HIT contains quality control items.
+    <br><br>
+    &#9658; &nbsp;&nbsp; Mistakes can happen, but if there are several then a <b>friendly warning</b> may appear when you click <b>SUBMIT.</b>
+    If you get this warning only once in a while, don't worry!
+    If it happens more regularly, please make sure you understood the task before doing any more HITs of this kind,
+    and/or try to work more carefully.
+    <br><br>
+        &#9658; &nbsp;&nbsp; If you make <i>many</i> mistakes then a more <b>serious warning</b> (but still friendly) will appear when you click <b>SUBMIT</b>,
+    advising you to make sure you understand the task, double-check your answers before submitting, and only proceed with HITs of this kind at your own risk.
+    <br><br>
+    &#9658; &nbsp;&nbsp; Regardless of the warning, you can still <b>SUBMIT</b> your results. Your submission is <i>not</i> automatically rejected. We do not reject workers lightly,
+    not only based on automatic quality controls, and with human consideration.
+    <br><br>
+    &#9658; &nbsp;&nbsp; We reward a <b>bonus</b> if you answered all quality controls correctly (bonus amount <i>per HIT</i> specified in title).
+
+
+    <h3>2. When is a name "adequate"? Use the definition!</h3>
 
     <p class="intro">
         When judging if a name is "adequate", you <u><i>must</i></u> use the following definition:
@@ -633,17 +657,17 @@ div.color {
         <div class="intro" style="background-color: #ddd; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
         <b>DEFINITION:</b> A name is "adequate" if there is an object in the image, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name. <br>
             <b>Pay attention:</b><br>
-            <b>1.</b> If there are several objects that tightly fit in the bounding box, then names for any of them are adequate.<br>
+            <b>1.</b> If there are several objects that tightly fit in the bounding box (as tightly as its rectangular shape and orientation allow), then names for any of them are adequate.<br>
             <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
         </div>
 
-    <h3>2. Examples</h3>
+    <h3>3. Examples</h3>
 
     <table style="width: 60%; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
         <tr>
             <td style="width: 10%"><img class="example" src="http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png" /></td>
-            <td style="width: 40%"><b>Workers entered <i>"pan"</i> / <i>"food": only <i>"pan"</i> is adequate!</i></b><br><br>
-                In this case the bounding box tightly fits only around the pan, it is a little bit too big to tightly fit the food.
+            <td style="width: 40%"><b>Workers entered <i>"pan"</i> / <i>"food": &nbsp; only <i>"pan"</i> is adequate!</i></b><br><br>
+                In this case the bounding box tightly fits only around the pan (as tightly as an upright rectangle can fit a circle); but it is a little bit too big to tightly fit the food.
                 Therefore, only <i>"pan"</i> is adequate; the worker who entered <i>"food"</i> committed a 'bounding box error'.
                 <br><br>
                 <mark><b>Remember:</b> a name must be for an object that is <i>tightly</i> surrounded by the bounding box.</mark>
@@ -651,28 +675,45 @@ div.color {
         </tr>
         <tr>
             <td><img class="example" src="http://object-naming-amore.upf.edu//2337552_957263_singleton_obj" /></td>
-            <td><b><i>"Legs"</i> / <i>"person"</i>: both are adequate names, but for different objects.</b><br><br>
-                The bounding box fits tightly around the legs, and also around all visible parts of the person (as required by the definition).
-                Note that the names are intended to name different objects: a person is not the same object as the person's legs -- one is merely a part of the other.
+            <td><b><i>"Legs"</i> / <i>"person"</i>: &nbsp; both are adequate names, but for different objects.</b><br><br>
+                The bounding box fits tightly around the legs, and also around all visible parts of the person (as required by the definition), so both names are adequate.
+                However, these names are intended to name two different objects: a person is not the same object as the person's legs -- one is merely a part of the other.
                 <br><br>
-                <mark><b>Remember:</b> two names can both be adequate and yet name different objects.</mark>
+                <mark><b>Remember 1:</b> two names can both be adequate and yet name different objects.</mark><br>
+                <mark><b>Remember 2:</b> only the <i>visible</i> parts of an object need to fit in the bounding box (as for "person").</mark>
             </td>
         </tr>
         <tr>
             <td><img class="example" src="http://object-naming-amore.upf.edu//2364594_2581620_singleton_obj.png" /></td>
-            <td><b><i>"Mustard"</i> / <i>"cheese"</i>: only <i>"mustard"</i> is adequate, but...</b><br><br>
-                Even though mustard is not cheese, the two workers probably intended to name the same object: the yellow stuff on top of the hotdog.
+            <td><b><i>"Mustard"</i> / <i>"cheese"</i>: &nbsp; only <i>"mustard"</i> is adequate, but both are intended for the same object!</b><br><br>
+                Even though mustard is not cheese, the two workers clearly intended to name the same object: the yellow stuff on top of the hotdog.
                 <br><br>
-                <mark><b>Remember:</b> two different names, an adequate name and an inadequate name, can still be intended for the same object.</mark>
+                <mark><b>Remember:</b> two different names, one adequate and the other inadequate, can still be intended for the same object.</mark>
             </td>
         </tr>
-
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2398907_2901496_singleton_obj.png" /></td>
+            <td><b>We got the name <i>"ground"</i>: &nbsp; what was this worker thinking?!</b><br><br>
+                The name may seem totally random, but the ground is in fact showing in the image -- it's just that it is outside the bounding box, so this worker committed a 'bounding box error'.
+                In general, for inadequate names, you have to look very closely if there is <i>anything</i> in the picture which the worker could have been naming.
+                <br><br>
+                <mark><b>Remember:</b> named objects can be in the background, outside the bounding box, out of focus, etc. -- so pay attention!</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png" /></td>
+            <td><b><i>"Helicopter"</i> / <i>"airplane"</i> / <i>"truck"</i> / <i>"boat"</i> / ...: &nbsp; only one name is truly adequate, but they are all intended to name the same object!</b><br><br>
+                You have to look closely, but the object seems to be a helicopter. Other workers have misinterpreted the picture, but all were at least <i>intending</i> to name the same object (after all, there are no other airplane-like or boat-like objects in the image).
+                <br><br>
+                <mark><b>Remember 1:</b> many different names, even if some are inadequate, can still all be intended for the same object.</mark> <br>
+                <mark><b>Remember 2:</b> to know for which object a name was intended, you have to look closely also at all other objects in the image -- could it be any of those?</mark>
+            </td>
+        </tr>
         <tr>
             <td></td>
             <td><i>For more instructions and examples, just hover over terms and icons in the task below.</i></td>
         </tr>
     </table>
-
 
     </div>
     </div>
@@ -711,7 +752,8 @@ div.color {
             - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the name seems completely random.<br>
             - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (glasses icon).
             </div></div><b>?</b> (&#8592;hover for definition/examples)
-            <br><br>
+            <br>
+
 
             <table class="formtable" id="IMG#-form-table">
 
@@ -743,9 +785,9 @@ div.color {
                                 Linguistic <br> mistake</label>
                         </div>
                         <div class="caption">
-                            <label title="The name seems to pertain to an object that does not fit in the bounding box, or insufficiently tightly.">
+                            <label title="The name seems to pertain to a different object, one which should have a different bounding box; the named object does not fit in the given bounding box, or insufficiently tightly.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
-                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3b.png"/>
+                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3c.png"/>
                                 <br>
                                 Bounding box <br> error
                             </label>
@@ -775,20 +817,24 @@ div.color {
 
             <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for </b>
             <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip"><b>Positive examples (assign the same color):</b><br>
-                - <i>"blanket"</i> and <i>"blaknet"</i> were likely intended to name the same object, even though one has a typo.<br>
-                - <i>"donkey"</i> and <i>"horse"</i>, given an image showing a single animal, were likely intended to name that animal, even though at least one worker must have misidentified it.<br>
-                - <i>"dinner"</i> and <i>"lunch"</i>, given an image showing a meal, were likely intended to name the same object, even though the workers conceived of it differently.<br>
+                - <i>"blanket"</i> and <i>"blaknet"</i> were likely intended to name the same object, so should get the same color, even though one has a typo.<br>
+                - <i>"donkey"</i> and <i>"horse"</i>, given an image showing a single animal, were likely intended to name that animal, even though at least one worker must have misidentified it -- so these names should get the same color.<br>
+                - <i>"dinner"</i> and <i>"lunch"</i>, given an image showing a meal, were likely intended to name the same object, even though the workers conceived of it differently -- same color!<br>
                 - <i>"vehicle"</i> and <i>"car"</i> were likely intended to name the same central, prominent car that's in the bounding box, even if there are other, distant vehicles in the background.<br><br>
                 <b>Negative examples (assign different colors):</b><br>
-                - <i>"house"</i> and <i>"roof"</i> are <i>not</i> intended to name the same object, because the roof is only a part of the house -- even if only the house's roof is visible in the picture.<br>
-                - <i>"person"</i> and <i>"clothes"</i> are <i>not</i> intended to name the same object, even if they have the exact same bounding box; we don't normally confuse people with clothes.<br>
+                - <i>"house"</i> and <i>"roof"</i> are <i>not</i> intended to name the same object, so should get different colors, because the roof is only a part of the house -- even if only the house's roof is visible in the picture.<br>
+                - <i>"person"</i> and <i>"clothes"</i> are <i>not</i> intended to name the same object, even if they have the exact same bounding box; we don't normally confuse people with clothes. So in this case the two names should get different colors.<br>
                 </div></div><b style="font-size:14pt;">?</b> (&#8592;hover for examples)
             <br>
+
+            <p class="tooltiplike" style="margin-left: 40pt;">Please remember, from the instructions:<br>
+                &#9657; &nbsp; <mark>two names can both be adequate and yet name different objects</mark> (see the <i>"legs"</i>/<i>"person"</i> example at the top, with only legs visible): in such cases assign a <i>different</i> color to each of these names.<br>
+                &#9657; &nbsp; <mark>many different names, even if some are inadequate, can still be intended for the same object</mark> (see the <i>"helicopter"</i>/<i>"boat"</i> and <i>"mustard"</i>/<i>"cheese"</i> examples at the top!): in such cases assign the <i>same</i> color to each of these names.<br></p>
 
             <table class="formtable2" id="IMG#-form2-table" style="margin-top:10pt;">
                 <tr>
                     <th class="name">Names:</th>
-                    <th class="color">Click to assign the same color (only) if names were likely intended for the same object:</th>
+                    <th class="color">Assign the same color to names (only) if they were likely intended for the same object:</th>
                 </tr>
 
                 <tr id="IMG#-NAME#-form2">
@@ -878,7 +924,6 @@ div.color {
         <input type="text" style="display:none" name="stored_font_size" id="store_font_size" />
     </div>
 
-
 </crowd-form>
 
 
@@ -896,14 +941,14 @@ $(document).ready(
     var trigger = $('#collapseTrigger');
     var trigger2 = $('#collapseTrigger2');
     content.hide();
-    $('.collapse-text').text('CLICK HERE to view instructions and examples. This task can be tricky!!');
+    $('.collapse-text').text('CLICK HERE to view detailed instructions and rejection/bonus policy. This task can be tricky!!');
     trigger.click(function(){
       content.toggle();
       var isVisible = content.is(':visible');
       if(isVisible){
         $('.collapse-text').text('Click to hide instructions.');
       }else{
-        $('.collapse-text').text('CLICK HERE to view instructions and examples. This task can be tricky!!');
+        $('.collapse-text').text('CLICK HERE to view detailed instructions and rejection/bonus policy. This task can be tricky!!');
       }
       fiximages();
     });
