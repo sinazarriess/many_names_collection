@@ -75,7 +75,6 @@ function adjust_font_sizes(){
         for (var n = 0; n < num_names_per_image[i]; n++) {
             if (names[i][n] in window.HIT_info[i]) {
                 var font = window.HIT_info[i][names[i][n]]
-                n_definitions_old = n_definitions;
                 if (font == "arial") {
                     n_definables += 1;
                     if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
@@ -147,10 +146,10 @@ function adjust_font_sizes(){
                             increase_font_size2 = true;
                         }
                     }
-                    if (!increase_font_size1) {
+                    if (increase_font_size1) {
                         n_definitions += 1;
                     }
-                    if (!increase_font_size2) {
+                    if (increase_font_size2) {
                         n_definitions += 1;
                     }
                 }
