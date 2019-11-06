@@ -6,6 +6,7 @@
 \usepackage{tabularx}
 \usepackage{soul}
 % for eps graphics
+\usepackage[usenames, dvipsnames]{color}
 
 \usepackage{epstopdf}
 \usepackage[latin1]{inputenc}
@@ -13,6 +14,10 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{xstring}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{colortbl}
+
 
 \newcommand{\secref}[1]{\StrSubstitute{\getrefnumber{#1}}{.}{ }}
 
@@ -31,7 +36,10 @@
 \newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
 \newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
 
-\title{Do resources in Language \& Vision favour the study of linguistic variation? \\ \vspace*{.5\baselineskip} A survey and a new collection of Object Naming data}
+\definecolor{lightgray}{gray}{0.85}
+
+
+\title{Naming Objects in Real-world Images: A survey and A new \sz{linguistically motivated????} collection}
 
 \name{Author1, Author2, Author3}
 
@@ -42,8 +50,8 @@
 
 
 \abstract{
-blabla \\ \newline \Keywords{keyword1, keyword2,
-keyword3} }
+Massive data collections for applications in language \& vision are nowadays available. In principle, these could constitute valuable resources also for research in computational linguistics (CL), besides task-specific modeling. However, in practice, very few studies have tested linguistic hypotheses using these large-scale datasets. In this paper, we illustrate the challenges of using this type of corpora for CL research, by focusing on a case study, namely naming of objects in real-world images. Our analysis of existing resources in language \& vision reveals that available datasets do not generally provide the right type and consistent quality of object naming data,  for being able to conduct a linguistically motivated study of this phenomenon. We contribute a new dataset on top of Visual Genome that  \sz{... continue}
+ \\ \newline \Keywords{keyword1, keyword2, keyword3} }
 
 \begin{document}
 
@@ -51,16 +59,36 @@ keyword3} }
 
 \section{Introduction}
 
-Generally, research in Language \& Vision (L\&V) is interested in modeling how speakers \textit{naturally} name, refer to or talk about visual objects and scenes, in contrast to predicting abstract object labels as e.g.\ in Computer Vision.
-This typically entails that data collections and models need to account for linguistic variation, as there can hardly ever be a single ground-truth utterance when describing or referring to visual entities. 
-An indeed, variation has been accounted for in the modeling and evaluation of certain L\&V tasks like image captioning \cite{vedantam2015cider,Bernardietal:automatic,dai2017towards}.
+Generally, research in Language \& Vision (L\&V) is interested in modeling how speakers \textit{naturally} name, refer to or talk about visual objects and scenes, in contrast to predicting abstract object labels as e.g.\ in Computer Vision. With the recent explosion of interest in this area, a number of (massive) data collections for various language \& vision (L\&V) tasks have become available: these range from image captioning data \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, and referring expressions \cite{Kazemzadeh2014,mao15,Yu2016}, to image paragraphs \sz{cite}, multi-modal summaries or visual dialogues \cite{das2017visual,vries2017guesswhat}.
+%This typically entails that data collections and models need to account for linguistic variation, as there can hardly ever be a single ground-truth utterance when describing or referring to visual entities. 
+%And indeed, variation has been accounted for in the modeling and evaluation of certain L\&V tasks like image captioning \cite{vedantam2015cider,Bernardietal:automatic,dai2017towards}.
 
 In principle, the massive data collections now available in L\&V should not only spur computational, application-oriented research aimed at implementing systems for very specific tasks---they should also constitute extremely valuable resources for research aimed at deriving linguistic generalizations about various phenomena related to language grounding, reference and situated interaction which, for a long time, have been investigated mostly in very controlled and small-domain experimental settings, cf. \cite{anderson1991hcrc,fernangen:sigd07,krahmer:2012,takenobu2012rex,zarriess2016pentoref} for some examples of traditional data collections related to reference and grounding.  
 In turn, these linguistic generalizations could inform computational modeling, architecture design and future data collections.
 However, so far, studies that have tested linguistic hypotheses on large-scale L\&V resources have been relatively rare. 
 
-In this paper, we take a look at object naming, a core phenomenon that occurs in virtually every L\&V task and is, at the same time, subject of ongoing research in language grounding and pragmatics. 
-We take stock of existing data sets that provide names for objects in real-world images. We contribute a new dataset, ManyNames, that contains 36 crowd-sourced names for 25K instances from \vg.
+In this paper, we take a look at object naming, a basic phenomenon that occurs in virtually every L\&V task and is, at the same time, subject of ongoing research in language grounding and pragmatics. \sz{explain picture naming here?} \sz{briefly say which linguistic questions/hypothesis could be investigated with respect o object naming} But despite the fact that object naming is relatively basic as a phenomenon, we observe that even corpora with massive annotation like VisualGenome~\cite[\vg henceforth]{krishna2016visualgenome} do not provide sufficient information for being able to study object names from a more linguistic perspective ... 
+
+\begin{figure}[tbp]
+\scriptsize
+\begin{tabular}{p{4.3cm}p{2cm}}
+%VisualGenome+ManyNames & \cite{snodgrass}\\
+\centering
+\includegraphics[scale=0.15]{figures/2390077_1254219_supercat_unique.png} &
+\includegraphics[scale=0.4]{figures/snodgrass_vanderwart_cake_042.png}\\
+ cake\ (53),  food\ (19), bread\ (8), burger\ (6), dessert\ (6), snacks\ (3), muffin\ (3),  pastry\ (3) & \hspace{.9cm} cake (83)
+\end{tabular}
+\caption{Names for a cake object in ManyNames (left) and in cite{snodgrass} (right), percentages of responses in parentheses.}
+\label{fig:cake}
+\end{figure}
+
+
+We take a first step at studying natural naming of objects in real-world images and contribute a new dataset, ManyNames, that contains 36 crowd-sourced names for 25K instances from \vg.
+Thus, our images show objects in complex visual contexts,
+unlike the ``clean'' ImageNet data~\cite{imagenet_cvpr09} that has been previously used to train object classifiers \cite{ILSVRC15}, and unlike stylized line drawings used in picture naming experiments in Cognitive Science (see Figure \ref{fig:cake}).
+
+As illustrated for an object of the class ``cake'' in Figure \ref{fig:cake}, our data reveals clear naming preferences (53\% of the annotators prefer the basic-level \textit{cake}) and also rich variation (the remaining annotators prefer other options like \textit{food, dessert, bread}) which is not restricted to taxonomical relations studied in previous work on naming \cite{rosch1976basic,Ordonez:2016,graf2016animal}.
+
 
 \section{Background}
 
@@ -77,8 +105,34 @@ Scenarios where multiple objects (of the same category) are present induce a pre
 \cite{rohde2012communicating}\cite{graf2016animal}.
 For example, in presence of more than one dog, the name \textsl{dog} is ambiguous and a sub-level category (e.g., \textsl{rottweiler}, \textsl{beagle}) is more informative and potentially preferred by speakers, though additional factors such as cost or saliency also come into play \cite{graf2016animal}\cite{clark1983common}.
 
-\subsection{Modeling Object Naming}
+\subsection{Visual Object Recognition}
 
+This line of research studies and models object representations in the human visual system, (cf.\ \newcite{regan2000human,rossion2004revisiting}). 
+An important experimental paradigm here is picture naming, where subjects have to say or write down the first name that comes to mind when looking at a picture of (typically) a line drawing depicting a prototypical instance of a category \cite{snodgrass}, see Figure\ \ref{fig:cake}.
+Subjects reach very high agreement in this task \cite{rossion2004revisiting}, and the resulting naming norms are useful for studying various cognitive processes \cite{humphreys1988cascade}.
+Our task is inspired by picture naming, but uses real-world images with objects highlighted in them.
+Recognition of instances (as opposed to categories) in images has also been the focus of Computer Vision, where state-of-the-art systems are now able to predict thousands of different categories, (e.g.\ \newcite{googlenet}). 
+Current recognition benchmarks use labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically implement a single ground-truth label approach. 
+%, but typically implement multi-label classifiers where relations between labels are not considered \cite{ILSVRC15}. 
+%\cs{do you mean multi-label classifiers in single ground-truth label settings?}
+In L\&V, deep object recognition systems are widely used for feature extraction, whereas the object labeling itself can often not be used directly. For instance, many labels in the ILSVRC  challenge \cite{ILSVRC15} correspond to very specific breeds of animals, whereas other common categories  for,\ e.g.,\ people are missing.
+
+\subsection{Hierarchical Object Categorization} 
+%goes beyond isolated object categories.
+% but looks at the principles underlying the organization of object categories. 
+... This line of research has emphasized the taxonomic organization of categories, e.g.\ seminal work on prototypes by \newcite{rosch1976basic},  and found that humans tend to conceptualize objects at a basic or medium level of abstraction.
+Granularity-aware object recognition methods have incorporated the taxonomic structure underlying object labels in multi-label settings \cite{deng2014large,wang2014poodle,peterson2018learning}, as an account to the criticism on the use of single-labels. 
+%While this work goes beyond the simplistic modeling assumption that categories are just unrelated labels, 
+%but still aim to predict a single canonical category. % (that does have relations to other categories). 
+The purely taxonomic view has been criticized in more recent work on concept organization, which found that many objects of our daily lifes are part of multiple category systems at the same time \cite{ross1999food,SHAFTO20111}. 
+This \textit{cross-classification} occurs, for instance, with food categories which can be taxonomy-based (e.g.\  \refexp{meat, vegetable}) or script-based (e.g.\  \refexp{breakfast, snack}).
+To the best of our knowledge, this phenomenon has not received any attention in L\&V.
+Our results, however, suggest that cross-classification occurs very frequently when naming objects in real-world images.
+
+
+\subsection{Object Naming in L\&V} 
+
+... work that models which \textit{word} (i.e.\ not label) a speaker will use to name an object is relatively scarce.
 Though names are prominent in referring expressions, investigated a lot in natural language generation \cite{dale:1995}, this area has focused mostly on the selection of attributes % rather than on determining the referent's name 
 \cite{krahmer:2012}. 
 \newcite{Ordonez:2016} takes up the notion of entry-level categories \cite{rosch1976basic} and transfers an object's predicted fine-grained label to its name using text corpus statistics.
@@ -86,30 +140,13 @@ Though names are prominent in referring expressions, investigated a lot in natur
 %Their model predicts classifies objects into fine-grained categories and then predicts a WordNet synset for retrieving the name, based on frequencies in a text corpus. 
  \newcite{zarriess-schlangen:2017} learn a naming model on referring expressions and real-world images, but focus on combining visual and distributional information. 
  Recent experimental work on reference found that the specificity of a name is dependent on the taxonomic relatedness of other objects in context
-
-\subsection{Relevant Resources}
-
-justify the following selection of resources....
-
-\begin{table*}
-\centering
-\begin{tabular}{lrrrrr}
-\toprule
-                         &   RefCoco &  Flickr30k &           VG &      VGmn &        MN \\
-\midrule
-                  \# objects & 50.000 & 243.801 & 3.781.232 & 25.223 & 25.315 \\
-                naming vocab size &  5.004 &  10.423 &   105.441 &  1.061 &  7.970 \\
-     av. annotations/object &      2.84 &       2.30 &         1.69 &      7.24 &     35.30 \\
- \% objects with n types $>$ 1 &      0.68 &       0.29 &         0.02 &      0.05 &      0.93 \\
-           av. types/object &      1.88 &       1.38 &         1.02 &      1.08 &      5.70 \\
-\bottomrule
-\end{tabular}
-\caption{Overview statistics for different data sets containing object naming data}
-\end{table*}
+\cite{rohde2012communicating,graf2016animal}. Our work is a first step towards studying naming in real-world, natural reference.
+But as there is virtually no existing large-scale resource that provides robust naming data elicited from multiple subjects \textit{and} for instances in real-world images, this paper focuses on naming in isolation, rather than reference where naming interacts with attribute selection.
 
 
 
-\section{Survey: Object Naming in L\&V resources}
+
+\section{Object Names in Existing L\&V resources}
 
 
 \subsection{Visual Genome}
@@ -217,6 +254,13 @@ On the other hand, it is less suited for referring expression generation since m
 
 \end{itemize}
 
+\section{A New Dataset: Many Names}
+	\label{sec:data}
+	\input{data-collection}
+	
+	\section{Analysis}
+	\label{sec:analysis}
+	\input{analysis}
 
 
 \section{Conclusion}
