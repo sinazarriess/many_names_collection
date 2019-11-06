@@ -9,10 +9,10 @@ import os
 
 
 ANONYMIZE = False
-CONTROL_RELIABILITY_THRESHOLD = .5
+CONTROL_RELIABILITY_THRESHOLD = .7
 APPROVAL_TRESHOLD = .7  # TODO Can be higher once I have more annotations?
 BONUS_THRESHOLD = 1.0
-BLOCK_THRESHOLD = .8
+BLOCK_THRESHOLD = .7
 
 # TODO Generalize; get paths from a config argument?
 resultsdir = '1_pre-pilot/results/complex'
@@ -144,7 +144,7 @@ annotations['quality_control'] = annotations['quality_control'].apply(lambda x: 
 annotations['control_type'] = ""
 for i, row in annotations.iterrows():
     if row['name'] in row['quality_control']:
-        item = row['quality_control'][row['name']].replace("sans-", "typo-")
+        item = row['quality_control'][row['name']].replace("sans-", "typo-").replace("bold-", "syn-")
         if item == "arial":
             item = "vg_majority"
         elif item == "serif":
@@ -192,7 +192,7 @@ for i, row in annotations.iterrows():
 
     elif row['control_type'].startswith('syn'):
         synonyms = row['control_type'][4:].split(',')
-        same_rating = annotations.loc[(annotations['assignmentid'] == row['assignmentid']) & (annotations['image'] == row['image']) & (annotations['object'] == row['object']) & (annotations['rating'] == row['rating'])]['name'].unique().to_list()
+        same_rating = annotations.loc[(annotations['assignmentid'] == row['assignmentid']) & (annotations['image'] == row['image']) & (annotations['object'] == row['object']) & (annotations['rating'] == row['rating'])]['name'].unique().tolist()
         annotations.at[i, 'correct1'] = float(not any([syn not in same_rating for syn in synonyms]))
         annotations.at[i, 'correct2'] = float(not any([syn not in row['same_color'] for syn in synonyms]))
 
