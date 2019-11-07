@@ -13,8 +13,8 @@
 var ut_id = "${unique_turker_id}";
 var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
- var items = ${items};
-//var items = [['http://object-naming-amore.upf.edu//2408724_256110_supercat_unique.png', ['logo', 'house', 'truck', 'building'], '7b226c6f676f223a20227365726966222c2022686f757365223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2402023_658899_singleton_obj.png', ['span', 'train', 'bus', 'sign'], '7b227370616e223a2022636f7572696572222c2022747261696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2347527_3052675_supercat_unique.png', ['giraffe', 'tongue', 'cow', 'hand'], '7b2268616e64223a20227365726966222c202267697261666665223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png', ['sing', 'toilet', 'shower curtain', 'wallpaper', 'curtaiin', 'restroom', 'curtain'], '7b22637572746169696e223a202273616e732d6375727461696e222c20226375727461696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png', ['girl', 'bookshelves', 'bookshelf', 'shelf', 'ponytail', 'child', 'bag', 'bookcase'], '7b22706f6e797461696c223a20227365726966222c2022626f6f6b7368656c66223a2022626f6c642d626f6f6b7368656c766573227d'], ['http://object-naming-amore.upf.edu//2389760_1257396_singleton_obj.png', ['person', 'tennis player', 'player', 'athlete', 'girl', 'woman', 'shirt', 'lines', 't-shirt', 'bat'], '7b226c696e6573223a20227365726966227d']]
+// var items = ${items};
+var items = [['http://object-naming-amore.upf.edu//2408724_256110_supercat_unique.png', ['logo', 'house', 'truck', 'building'], '7b226c6f676f223a20227365726966222c2022686f757365223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2402023_658899_singleton_obj.png', ['span', 'train', 'bus', 'sign'], '7b227370616e223a2022636f7572696572222c2022747261696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2347527_3052675_supercat_unique.png', ['giraffe', 'tongue', 'cow', 'hand'], '7b2268616e64223a20227365726966222c202267697261666665223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png', ['sing', 'toilet', 'shower curtain', 'wallpaper', 'curtaiin', 'restroom', 'curtain'], '7b22637572746169696e223a202273616e732d6375727461696e222c20226375727461696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png', ['girl', 'bookshelves', 'bookshelf', 'shelf', 'ponytail', 'child', 'bag', 'bookcase'], '7b22706f6e797461696c223a20227365726966222c2022626f6f6b7368656c66223a2022626f6c642d626f6f6b7368656c766573227d'], ['http://object-naming-amore.upf.edu//2389760_1257396_singleton_obj.png', ['person', 'tennis player', 'player', 'athlete', 'girl', 'woman', 'shirt', 'lines', 't-shirt', 'bat'], '7b226c696e6573223a20227365726966227d']]
 
 var images = [];
 
@@ -815,7 +815,14 @@ div.color {
             <br><br>
 
             <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for </b>
-            <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip"><b>Positive examples (assign the same color):</b><br>
+            <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip">
+                <b>Simple visual example:</b><br>
+                <img src="http://mwestera.humanities.uva.nl/images/truck.png" style="width:50%; float: left; margin: 10pt;" /><br>
+                <i>"House"</i> and <i>"building"</i> get the same color (in this case green; but it could also be red, blue, or purple -- doesn't matter as long as it's the same!), because they are intended to name the same object.
+                The other names get different colors.
+                Beware that the logo is a <i>different object</i> from the truck -- hence different colors -- even though the logo is <i>on</i> the truck.<br>
+                <br><br>
+                <b>Positive examples (assign the same color):</b><br>
                 - <i>"blanket"</i> and <i>"blaknet"</i> were likely intended to name the same object, so should get the same color, even though one has a typo.<br>
                 - <i>"donkey"</i> and <i>"horse"</i>, given an image showing a single animal, were likely intended to name that animal, even though at least one worker must have misidentified it -- so these names should get the same color.<br>
                 - <i>"dinner"</i> and <i>"lunch"</i>, given an image showing a meal, were likely intended to name the same object, even though the workers conceived of it differently -- same color!<br>
@@ -823,7 +830,7 @@ div.color {
                 <b>Negative examples (assign different colors):</b><br>
                 - <i>"house"</i> and <i>"roof"</i> are <i>not</i> intended to name the same object, so should get different colors, because the roof is only a part of the house -- even if only the house's roof is visible in the picture.<br>
                 - <i>"person"</i> and <i>"clothes"</i> are <i>not</i> intended to name the same object, even if they have the exact same bounding box; we don't normally confuse people with clothes. So in this case the two names should get different colors.<br>
-                </div></div><b style="font-size:14pt;">?</b> (&#8592;hover for more examples)
+                                </div></div><b style="font-size:14pt;">?</b> (&#8592; hover for more instructions/examples; can be tricky!)
             <br>
 
             <p class="tooltiplike" style="margin-left: 40pt;">Please remember, from the instructions:<br>
