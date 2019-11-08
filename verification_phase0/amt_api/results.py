@@ -33,6 +33,7 @@ def get_results(mturk, path_published, path_results, ass_statuses):
 
             if len(assignments) > 0:
                 hit_out_dict = {'HITId': item['HIT']['HITId'],
+                                'RequesterAnnotation': item['HIT']['RequesterAnnotation'],
                                 'Assignments': [],
                                 'Params': {d['Name']: d['Value'] for d in item['HIT']['params']}}
 
