@@ -168,6 +168,25 @@ function adjust_font_sizes(){
                         margins.push(i+'-'+n+'-'+font+'1');
                     }
                 }
+            } else if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.2').checked & document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked) {
+                var increase_font_size = false;
+                var increase_width = false;
+                for (var m = 0; m < num_names_per_image[i]; m++) {
+                    if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
+                        increase_width = true;
+                        if (generate_font_size(i, n, m)) {
+                            increase_font_size = true;
+                            break;
+                        }
+                    }
+                }
+                if (increase_width) {
+                    window_width += 1;
+                }
+                if (increase_font_size) {
+                    margins.push(i+'-'+n+'-'+m);
+                    n_pixels += 1;
+                }
             }
         }
     }
