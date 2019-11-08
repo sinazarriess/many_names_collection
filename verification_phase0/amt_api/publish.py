@@ -12,6 +12,10 @@ import amt_api
 def get_qualifications(config):
     qlist = []
 
+    if 'sandbox' in config['endpoint']['url']:
+        print("this is sandbox mode, no qualifications needed")
+        return qlist
+
     if 'entry_id' in config['qualification']:
         print("create hit with data protection qualification")
 
@@ -22,14 +26,9 @@ def get_qualifications(config):
 
         # do not allow turkers who have a qualification that blocks them from participating
         if 'block_id' in config['qualification']:
-            print("WARNING: Creating block_id qualification has not been tested yet. Attempting now!")
             qlist.append({'QualificationTypeId': config['qualification']['block_id'],
                 'Comparator': 'DoesNotExist',
                 'ActionsGuarded':'DiscoverPreviewAndAccept'})
-
-    if 'sandbox' in config['endpoint']['url']:
-        print("this is sandbox mode, no qualifications needed")
-        return qlist
 
     # qlist.extend([
     #     {'QualificationTypeId': '00000000000000000040',
