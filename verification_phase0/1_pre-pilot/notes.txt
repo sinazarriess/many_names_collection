@@ -1,28 +1,43 @@
+To be done after pilot:
+- ASTY1XNJS7RSV: get back to her after results; "I can't figure out which one(s) could possibly be wrong. Any insight?"
 
 
-ASTY1XNJS7RSV   get back to her if she made particular mistakes
-AZZOTPTKD7RF5   'scammers!'; get back to them if they made particular mistakes
+Sandbox: 3ZA2DBKLNM8R8QAMJA80LDW2N3N93F
+req: 3STE4BH37SOL3ZPT67OGASS6OZBHYA
 
-Sandbox: 3NK8QCQMTWB89F9R2GN5Z57TUQT06Y
-Real: 314E9ZG2QVYFAB6QPJKRCY2HSEEEPV
+UniqueTurker: d5232178c802a58f951312f91dcd572e (max 10)
+(UniqueTurker: 9ffe7409274106cdea48518a70f93218 (max 20))
+(UniqueTurker: e7ecc371cf843963c07a3856a8d7d2e0  (max 100))
 
+unique_worker_id = "Are you sure? Your answers to many of our quality control items are incorrect.\n\nWe advise you click CANCEL to check the instructions and double-check your answers, and contact us if anything remains unclear.\n\nYou can also click OK anyway to submit, and we are reasonable humans, but proceed to do more HITs of this type at your own risk!".encode('utf-8').hex()
+unique_HIT_id = "Friendly warning (don't worry): you seem to have answered several quality control items incorrectly.\n\nIf you get these warnings regularly, you may have misunderstood the task, so please check the instructions or contact us.\n\nIf you get these warnings only once in a while, then don't worry, just click OK to submit and we hope to 'see' you in the next HIT!".encode('utf-8').hex()
 
-
-To be improved:
-- better instructions color task (mustard and cheese; vs. completely unrelated objects; explain question mark)
-- remove 'threat'; better explain the procedure
-- explain bonus policy
-- bounding boxes always have the same (horizontal/vertical) orientation, so for objects that are tilted, a 'tight fitting' bounding box can still have quite a bit of empty space!
 
 
 =========
 
-A2241A4P7UR7HY   to be awarded 55 for complex prepilot 1 hit; could not find submit button   DONE, created HIT 5 november, auto-approve 48 hours, sent email.
+
+To be improved after pre-pilot2:
+[DONE] - better instructions color task, add picture
+[DONE] - explain bonus policy
+[DONE] - friendlier warnings
+[DONE] - bounding boxes always have the same (horizontal/vertical) orientation, so for objects that are tilted, a 'tight fitting' bounding box can still have quite a bit of empty space!
+[DONE] - Add more examples, mainly of bounding box errors and 'same object' errors.
 
 
-"Are you sure!? Many of your answers are incorrect!\n\nSubmitting now will almost certainly lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway, or click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
 
-"Are you sure?! It seems that quite a few of your answers are wrong!\n\nSubmitting now may lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway (we are reasonable humans) or choose to click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
+A2241A4P7UR7HY   awarded .55 for complex prepilot 1 hit; could not find submit button.
+A35X2QXIS7N1W1   awarded $.27 for feedback; wasn't able to do task due to UniqueTurker.
+A2BRZKFG6WAVER   awarded $.70 for spending 30 mins checking erros, and for feedback.
+AZZOTPTKD7RF5   awarded $.70 for wasting time (not submitting); 'scammers!'
+
+ASTY1XNJS7RSV   get back to her if she made particular mistakes  Nah it's fine  2 approves and a bonus
+
+
+
+for prepilot2:
+Sandbox: 3NK8QCQMTWB89F9R2GN5Z57TUQT06Y
+Real: 314E9ZG2QVYFAB6QPJKRCY2HSEEEPV
 
 
 
@@ -63,3 +78,37 @@ Complex, old:
 sandbox: 36WCP8WK1B8HBKJRSB4NZ7MW612URI
 requester: 3STE4BH37SOL3ZPT67OGASS6OZZYHF
 
+
+
+
+=====
+Old  messages:
+
+"Are you sure!? Many of your answers are incorrect!\n\nSubmitting now will almost certainly lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway, or click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
+
+"Are you sure?! It seems that quite a few of your answers are wrong!\n\nSubmitting now may lead to rejection and block. We advise you to click CANCEL and double-check your answers.\n\nIf you've genuinely done your best, you can either click OK to submit anyway (we are reasonable humans) or choose to click CANCEL and then RETURN this HIT.".encode('utf-8').hex()
+
+
+
+==========
+
+OLD html
+
+
+var images = ["${image_url_0}", "${image_url_1}", "${image_url_2}", "${image_url_3}", "${image_url_4}", "${image_url_5}", "${image_url_6}", "${image_url_7}", "${image_url_8}", "${image_url_9}", "${image_url_10}"];
+
+var names = [["${name_0_0}", "${name_0_1}", "${name_0_2}", "${name_0_3}", "${name_0_4}", "${name_0_5}", "${name_0_6}", "${name_0_7}", "${name_0_8}", "${name_0_9}", "${name_0_10}", "${name_0_11}", "${name_0_12}", "${name_0_13}", "${name_0_14}", "${name_0_15}"],
+        ["${name_1_0}", "${name_1_1}", "${name_1_2}", "${name_1_3}", "${name_1_4}", "${name_1_5}", "${name_1_6}", "${name_1_7}", "${name_1_8}", "${name_1_9}", "${name_1_10}", "${name_1_11}", "${name_1_12}", "${name_1_13}", "${name_1_14}", "${name_1_15}"],
+        ["${name_2_0}", "${name_2_1}", "${name_2_2}", "${name_2_3}", "${name_2_4}", "${name_2_5}", "${name_2_6}", "${name_2_7}", "${name_2_8}", "${name_2_9}", "${name_2_10}", "${name_2_11}", "${name_2_12}", "${name_2_13}", "${name_2_14}", "${name_2_15}"],
+        ["${name_3_0}", "${name_3_1}", "${name_3_2}", "${name_3_3}", "${name_3_4}", "${name_3_5}", "${name_3_6}", "${name_3_7}", "${name_3_8}", "${name_3_9}", "${name_3_10}", "${name_3_11}", "${name_3_12}", "${name_3_13}", "${name_3_14}", "${name_3_15}"],
+        ["${name_4_0}", "${name_4_1}", "${name_4_2}", "${name_4_3}", "${name_4_4}", "${name_4_5}", "${name_4_6}", "${name_4_7}", "${name_4_8}", "${name_4_9}", "${name_4_10}", "${name_4_11}", "${name_4_12}", "${name_4_13}", "${name_4_14}", "${name_4_15}"],
+        ["${name_5_0}", "${name_5_1}", "${name_5_2}", "${name_5_3}", "${name_5_4}", "${name_5_5}", "${name_5_6}", "${name_5_7}", "${name_5_8}", "${name_5_9}", "${name_5_10}", "${name_5_11}", "${name_5_12}", "${name_5_13}", "${name_5_14}", "${name_5_15}"],
+        ["${name_6_0}", "${name_6_1}", "${name_6_2}", "${name_6_3}", "${name_6_4}", "${name_6_5}", "${name_6_6}", "${name_6_7}", "${name_6_8}", "${name_6_9}", "${name_6_10}", "${name_6_11}", "${name_6_12}", "${name_6_13}", "${name_6_14}", "${name_6_15}"],
+        ["${name_7_0}", "${name_7_1}", "${name_7_2}", "${name_7_3}", "${name_7_4}", "${name_7_5}", "${name_7_6}", "${name_7_7}", "${name_7_8}", "${name_7_9}", "${name_7_10}", "${name_7_11}", "${name_7_12}", "${name_7_13}", "${name_7_14}", "${name_7_15}"],
+        ["${name_8_0}", "${name_8_1}", "${name_8_2}", "${name_8_3}", "${name_8_4}", "${name_8_5}", "${name_8_6}", "${name_8_7}", "${name_8_8}", "${name_8_9}", "${name_8_10}", "${name_8_11}", "${name_8_12}", "${name_8_13}", "${name_8_14}", "${name_8_15}"],
+        ["${name_9_0}", "${name_9_1}", "${name_9_2}", "${name_9_3}", "${name_9_4}", "${name_9_5}", "${name_9_6}", "${name_9_7}", "${name_9_8}", "${name_9_9}", "${name_9_10}", "${name_9_11}", "${name_9_12}", "${name_9_13}", "${name_9_14}", "${name_9_15}"],
+        ["${name_9_0}", "${name_9_1}", "${name_9_2}", "${name_9_3}", "${name_9_4}", "${name_9_5}", "${name_9_6}", "${name_9_7}", "${name_9_8}", "${name_9_9}", "${name_9_10}", "${name_9_11}", "${name_9_12}", "${name_9_13}", "${name_9_14}", "${name_9_15}"],
+        ["${name_10_0}", "${name_10_1}", "${name_10_2}", "${name_10_3}", "${name_10_4}", "${name_10_5}", "${name_10_6}", "${name_10_7}", "${name_10_8}", "${name_10_9}", "${name_10_10}", "${name_10_11}", "${name_10_12}", "${name_10_13}", "${name_10_14}", "${name_10_15}"],
+        ];
+
+var MTurk_HIT_Ids = ["${quality_control_0}", "${quality_control_1}", "${quality_control_2}", "${quality_control_3}", "${quality_control_4}", "${quality_control_5}", "${quality_control_6}", "${quality_control_7}", "${quality_control_8}", "${quality_control_9}", "${quality_control_10}"]
