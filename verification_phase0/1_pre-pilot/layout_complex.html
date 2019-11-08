@@ -302,7 +302,7 @@ unique_worker_id = '41726520796f7520737572653f20596f757220616e737765727320746f20
 function showhide(e) {
 
     basename = e.name.split('-');
-    basename = basename[0] + '-' + basename[1];
+    basename = basename[0] + '-' + basename[1]; // IMG#-NAME#
 
     if (e.checked & e.value == 0) {
         document.getElementById(basename + '-subform').style.visibility = 'hidden';
@@ -313,10 +313,17 @@ function showhide(e) {
         }
     } else if (e.checked & e.value >= 1) {
         document.getElementById(basename + '-subform').style.visibility = 'visible';
+        var labels = ['ling', 'box', 'vis', 'rand'];
         if (e.value == 1) {
             document.getElementById(basename + '-subform').style.background = "#fea";
+            for (var icon=0; icon < 4; icon++) {
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/images/'+labels[icon]+'-A.png';
+            }
         } else {
             document.getElementById(basename + '-subform').style.background = "#fcc";
+            for (var icon=0; icon < 4; icon++) {
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/images/'+labels[icon]+'-B.png';
+            }
         }
         buttons = document.getElementsByName(basename + '-type');
         for (var i = 0; i < buttons.length; i++) {
@@ -565,7 +572,7 @@ div.caption {
     padding: 3pt;
     display: inline-block;
     text-align: center;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 .required:after { content:" *"; }
@@ -789,7 +796,7 @@ div.color {
             <mark>If a single name has multiple errors (e.g., "horsse" for a cow), choose the error you think is most severe; typos count as minor errors.</mark>
             <br><br>
             <b>Examples:</b><br>
-            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the "abx"-icon to indicate a linguistic mistake.<br>
+            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the typo icon to indicate a linguistic mistake.<br>
             - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the bounding box type.<br>
             - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the glasses icon ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
             - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the name seems completely random.<br>
@@ -823,30 +830,30 @@ div.color {
                         <div class="caption">
                             <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar-sounding words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
-                                <img class="type" name="icon0" src="http://mwestera.humanities.uva.nl/images/pilot-icon1.png" />
+                                <img class="type" id="IMG#-NAME#-icon-0" src="http://mwestera.humanities.uva.nl/images/ling-A.png"/>
                                <br>
                                 Linguistic <br> mistake</label>
                         </div>
                         <div class="caption">
                             <label title="The name seems to pertain to a different object, one which should have a different bounding box; the named object does not fit in the given bounding box, or insufficiently tightly.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
-                                <img class="type" name="icon1" src="http://mwestera.humanities.uva.nl/images/pilot-icon3c.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/images/box-A.png"/>
                                 <br>
-                                Bounding box <br> error
+                                Named object doesn't <br> fit bounding box
                             </label>
                         </div>
                         <div class="caption">
                             <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (they need glasses?), or the picture is unclear.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
-                                <img class="type" name="icon2" src="http://mwestera.humanities.uva.nl/images/pilot-icon2.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/images/vis-A.png"/>
                                 <br>
-                                Picture unclear or <br> misinterpreted
+                                Named object mistaken <br> for something it's not
                             </label>
                         </div>
                         <div class="caption">
                             <label title="Something else is going on, e.g., worker messing about, trolling, something random, ...">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
-                                <img class="type" name="icon3" src="http://mwestera.humanities.uva.nl/images/pilot-icon4.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/images/rand-A.png"/>
                                 <br>
                                 Some other<br> inadequacy
                             </label>
