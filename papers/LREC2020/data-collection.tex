@@ -121,11 +121,43 @@ Overall $841$\ workers took part in the data elicitation, with a median of  $261
 		\label{tab:overview_dataset1}}
 \end{table*}
 
+Figures~\ref{fig:instructions1} and \ref{fig:instructions2} contain the instructions for our subjects in the first round and rounds 2-4, respectively.
+After the first round, based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection):
+\begin{itemize}
+\item they were not marked as occluded by any subject;
+\item ``Bounding box is unclear'' was marked at most twice;
+\item at most 17\% of elicited names were in plural form (to remove cases where the bounding box contains several objects);
+\item the most frequent elicited name is of the same domain as the \vgenome name.
+\end{itemize}
+This yielded $25,596$ images, discarding $5,497$.
+
+\begin{figure*}[htp]
+  \centering
+  \includegraphics[width=1.5\columnwidth]{figures/round0.png}
+  \caption{Instructions for AMT annotators for the first round.}
+  \label{fig:instructions1}
+\end{figure*}
+
+\begin{figure*}[htp]
+  \centering
+  \includegraphics[width=1.5\columnwidth]{figures/round1+_p1.png}
+  \caption{Instructions for AMT annotators for rounds~$2$ to~$4$. They were accompanied by the FAQ in Figure~\ref{fig:faq}}
+  \label{fig:instructions2}
+\end{figure*}
+%
+\begin{figure*}[htp]
+  \centering
+  \includegraphics[width=1.5\columnwidth]{figures/round1+_p2.png}
+  \caption{FAQ accompanying the instructions for AMT annotators for rounds~$2$ to~$4$.}
+  \label{fig:faq}
+\end{figure*}
 
 %\cs{Maybe say something about the rejections, if space permits it.}
+
+
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "main"
+%%% TeX-master: "lrec2020naming"
 %%% End:
 
 
