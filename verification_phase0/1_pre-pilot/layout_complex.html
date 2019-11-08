@@ -13,8 +13,15 @@
 var ut_id = "${unique_turker_id}";
 var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
-var items = ${items};
-// var items = [['http://object-naming-amore.upf.edu//2408724_256110_supercat_unique.png', ['truck', 'house', 'building', 'side'], '7b2273696465223a20227365726966222c2022686f757365223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2402023_658899_singleton_obj.png', ['number', 'train', 'bus', 'sign'], '7b226e756d626572223a20227365726966222c2022747261696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2347527_3052675_supercat_unique.png', ['giraffe', 'cow', 'girarfe', 'tongue'], '7b2267697261726665223a202273616e732d67697261666665222c202267697261666665223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2410677_211980_singleton_obj.png', ['restroom', 'sing', 'curtzin', 'toilet', 'curtain', 'wallpaper', 'shower curtain'], '7b22637572747a696e223a202273616e732d6375727461696e222c20226375727461696e223a2022617269616c227d'], ['http://object-naming-amore.upf.edu//2339772_950056_singleton_obj.png', ['shelf', 'girl', 'bag', 'bookshelves', 'bookshelf', 'bookcase', 'booishelves', 'child', 'lettering'], '7b22626f6f697368656c766573223a202273616e732d626f6f6b7368656c766573222c20226c6574746572696e67223a20227365726966222c2022626f6f6b7368656c766573223a2022626f6c642d626f6f6b7368656c66227d'], ['http://object-naming-amore.upf.edu//2389760_1257396_singleton_obj.png', ['person', 'tennis player', 'athlete', 'woman', 'shirt', 'ready', 'player', 'guiness', 'girl', 't-shirt', 'bat'], '7b226775696e657373223a2022636f7572696572222c20227265616479223a20227365726966227d']]
+// var items = ${items};
+var items = [
+ ['http://object-naming-amore.upf.edu//2385974_684689_singleton_obj.png', ['building', 'car', 'garage'], '7b22636172223a20227365726966227d'],
+// ['http://object-naming-amore.upf.edu//2317212_1022693_singleton_obj.png', ['counter', 'pot', 'chair', 'bar'], '7b22706f74223a20227365726966222c2022636f756e746572223a2022617269616c227d'],
+ //['http://object-naming-amore.upf.edu//1238_3635438_singleton_obj.png', ['t-shirt', 'shoebox', 'shirt', 'sweater'], '7b2273686f65626f78223a20227365726966222c20227368697274223a2022617269616c227d'],
+ //['http://object-naming-amore.upf.edu//2375426_2950862_singleton_obj.png', ['woman', 'person', 't-shirt', 'pant', 'guy', 'man', 'script'], '7b22736372697074223a2022636f7572696572227d'],
+ //['http://object-naming-amore.upf.edu//2403718_350333_singleton_obj.png', ['sater', 'boy', 'guy', 'man', 't-shirt', 'skateboarder', 'shoe', 'skater'], '7b227361746572223a202273616e732d736b61746572227d'],
+ //['http://object-naming-amore.upf.edu//2376206_575136_supercat_unique.png', ['plaque', 'clothes', 'clothing', 'outfit', 'jacket', 'shirt', 'jumper', 'woman', 'jumpsuit', 'bench'], '7b22706c61717565223a20227365726966222c20226a61636b6574223a2022617269616c222c2022636c6f7468696e67223a2022626f6c642d636c6f74686573227d'],
+];
 
 var images = [];
 
@@ -65,6 +72,7 @@ function replaceEverywhere(node, search, replacement) {
 function adjust_font_sizes(){
     var n_pixels = 0;
     var window_width = 0;
+    var margins = [];
     for (var i = 0; i < num_images; i++) {
         for (var n = 0; n < num_names_per_image[i]; n++) {
             if (names[i][n] in window.HIT_info[i]) {
@@ -73,17 +81,21 @@ function adjust_font_sizes(){
                     window_width += 1;
                     if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
                     }
                 } else if (font.startsWith("sans")) {
                     window_width += 1;
                     m = names[i].indexOf(font.substring(5))
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
                         if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
                             n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+font+'1');
                         } else if (!generate_font_family(i, m, n)) {
                             n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+font+'2');
                         } else {
                             window_width -= 1;
                         }
@@ -91,19 +103,23 @@ function adjust_font_sizes(){
                     window_width += 1;
                     if (!generate_font_size(i, m, n)) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'3');
                     }
                 } else if (font == "serif") {
                     window_width += 1;
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked & !document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
                     }
                     for (var m = 0; m < num_names_per_image[i]; m++) {
                         if (m != n & window.HIT_info[i][names[i][m]] == "arial") {
                             window_width += 1;
                             if (generate_font_size(i, m, n)) {
                                 n_pixels += 1;
+                                margins.push(i+'-'+n+'-'+font+'2');
                             }
                             break;
                         }
@@ -112,13 +128,16 @@ function adjust_font_sizes(){
                     window_width += 1;
                     if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
                     } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
                     }
                     window_width += 1;
                     for (var m = 0; m < num_names_per_image[i]; m++) {
                         if (m != n & generate_font_size(i, m, n)) {
                             n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+ m + '-'+ font+'2');
                             break;
                         }
                     }
@@ -142,9 +161,11 @@ function adjust_font_sizes(){
                     }
                     if (increase_font_size1) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
                     }
                     if (increase_font_size2) {
                         n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
                     }
                 }
             }
@@ -152,20 +173,20 @@ function adjust_font_sizes(){
     }
     if (n_pixels / window_width > MAX_FONT_SIZE) {
         if (window.confirm(unique_worker_id)) {
-            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width);
+            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
             return true;
         } else {
             return false;
         }
     } else if (n_pixels / window_width > MIN_FONT_SIZE) {
         if(window.confirm(unique_HIT_id)) {
-            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width);
+            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
             return true;
         } else {
             return false;
         }
     } else {
-        document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width);
+        document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
         return true;
     }
 }
@@ -269,6 +290,7 @@ function showhide(e) {
         buttons = document.getElementsByName(basename + '-type');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true;
+            buttons[i].checked = false;
         }
     } else if (e.checked & e.value >= 1) {
         document.getElementById(basename + '-subform').style.visibility = 'visible';
