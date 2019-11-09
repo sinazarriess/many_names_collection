@@ -725,7 +725,7 @@ input:checked + div.color {
             <td style="width: 10%"><img class="example" src="http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png" /></td>
             <td style="width: 40%"><b>Workers entered <i>"pan"</i> / <i>"food": &nbsp; only <i>"pan"</i> is adequate!</i></b><br><br>
                 In this case the bounding box tightly fits only around the pan (as tightly as an upright rectangle can fit a circle); but it is a little bit too big to tightly fit the food.
-                Therefore, only <i>"pan"</i> is adequate; the worker who entered <i>"food"</i> committed a 'bounding box error'.
+                Therefore, only <i>"pan"</i> is adequate; the worker who entered <i>"food"</i> was naming the wrong object.
                 <br><br>
                 <mark><b>Remember:</b> a name must be for an object that is <i>tightly</i> surrounded by the bounding box.</mark>
             </td>
@@ -751,7 +751,7 @@ input:checked + div.color {
         <tr>
             <td><img class="example" src="http://object-naming-amore.upf.edu//2398907_2901496_singleton_obj.png" /></td>
             <td><b>We got the name <i>"ground"</i>: &nbsp; what was this worker thinking?!</b><br><br>
-                The name may seem totally random, but the ground is in fact showing in the image -- it's just that it is outside the bounding box, so this worker committed a 'bounding box error'.
+                The name may seem totally random, but the ground is in fact showing in the image -- it's just that it is outside the bounding box.
                 In general, for inadequate names, you have to look very closely if there is <i>anything</i> in the picture which the worker could have been naming.
                 <br><br>
                 <mark><b>Remember:</b> named objects can be in the background, outside the bounding box, out of focus, etc. -- so pay attention!</mark>
@@ -807,9 +807,9 @@ input:checked + div.color {
             <b>Examples:</b><br>
             - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the typo icon to indicate a linguistic mistake.<br>
             - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the bounding box type.<br>
-            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy with the glasses icon ('picture misinterpreted') -- although there is also a small typo, the visual mistake is more severe.<br>
-            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the cat-on-keyboard icon, because the name seems completely random.<br>
-            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'picture misinterpreted' type (glasses icon).
+            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy of the 'named object mistaken for something it's not' type (icon with thought bubble) -- although there is also a small typo, misinterpreting the object in the image is more severe.<br>
+            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the "?!" icon, because the name seems completely random.<br>
+            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'named object mistaken for something it's not' type.
             </div></div><b>?</b> (&#8592;hover for definition &amp; additional examples)
             <br><br>
 
@@ -848,11 +848,11 @@ input:checked + div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
                                 <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/images/box-A.png"/>
                                 <br>
-                                Named object doesn't <br> fit bounding box
+                                Named object not tightly <br> in bounding box
                             </label>
                         </div>
                         <div class="caption">
-                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (they need glasses?), or the picture is unclear.">
+                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (sloppiness, or they need glasses?), or the picture is unclear.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
                                 <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/images/vis-A.png"/>
                                 <br>
@@ -864,7 +864,7 @@ input:checked + div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
                                 <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/images/rand-A.png"/>
                                 <br>
-                                Some other<br> inadequacy
+                                Something else <br>
                             </label>
                         </div>
                     </td>
