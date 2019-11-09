@@ -585,8 +585,15 @@ div.caption {
   height: 0;
 }
 
+[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 /* IMAGE STYLES */
-[type=radio] + img.type {
+input + img.type {
   cursor: pointer;
   height: 5vw;
   margin: 3pt;
@@ -595,20 +602,22 @@ div.caption {
 }
 
 /* CHECKED STYLES */
-[type=radio]:checked + img.type {
-  outline: 6pt solid #666;
+input:checked + img.type {
+  outline: 3pt solid #000;
+  background-color: #fff;
 }
 
 /* IMAGE STYLES */
-[type=radio] + img.emote {
+input + img.emote {
   cursor: pointer;
   height: 100%;
   margin: 3pt;
 }
 
 /* CHECKED STYLES */
-[type=radio]:checked + img.emote {
-  outline: 6pt solid #666;
+input:checked + img.emote {
+  outline: 3pt solid #000;
+  background-color: #fff;
 }
 
 label {
@@ -628,13 +637,13 @@ div.color {
 }
 
 /* COLOR STYLES */
-[type=radio] + div.color {
+input + div.color {
   cursor: pointer;
   opacity: .2;
 }
 
 /* CHECKED STYLES */
-[type=radio]:checked + div.color {
+input:checked + div.color {
   opacity: 1;
 }
 
