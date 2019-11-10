@@ -15,8 +15,6 @@ import pandas as pd
 
 ###############################
 
-DO_ACCEPTANCE = False  # TODO
-DO_REJECTION = False
 MTURK_URL = 'https://mturk-requester.us-east-1.amazonaws.com'
 
 REJECT_FEEDBACK = 'HIT is rejected because too many control items were answered incorrectly.'
@@ -40,7 +38,7 @@ def main():
     basepath = os.path.dirname(configfile)
     adminpath = os.path.join(basepath, config['data']['admindir'])
     resultspath = os.path.join(basepath, config['data']['resultdir'])
-    assignmentspath = os.path.join(resultspath, 'assignments.csv')
+    assignmentspath = os.path.join(resultspath, 'per_assignment.csv')
 
     mturk = amt_api.connect_mturk(config)
 
