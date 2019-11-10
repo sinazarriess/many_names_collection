@@ -10,25 +10,33 @@ from sklearn.metrics import cohen_kappa_score
 
 
 ANONYMIZE = False
+
+# Remove unreliable controls
 CONTROL_RELIABILITY_THRESHOLD = .5  # Delete control if fewer than this did it correctly
 
-WORKER_RELIABILITY_THRESHOLD = .85   # ignore worker if score (after filtering) lower than this # TODO implement this
-ASSIGNMENT_RELIABILITY_THRESHOLD = 1  # only total agreement makes an item reliable   # TODO implement this
-
+# Approve/bonus assignments/workers
 ASSIGNMENT_APPROVAL_TRESHOLD = .7   # will approve any assignment with score higher than this
 WORKER_APPROVAL_TRESHOLD = .85   # will approve all assignments even if a few assignments are crap
-
-WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
-ASSIGNMENT_BLOCK_THRESHOLD = .7   # will block worker based on single assignment below .7
-
 BONUS_THRESHOLD = 1.0
+
+# Block based on assignments/workers
+ASSIGNMENT_BLOCK_THRESHOLD = .6   # will block worker based on single assignment below .7
+WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
+
+# Some more absolute params
+NO_REJECTION = False
+COULANCE = 1
+
+# Delete annotations based on worker/assignment
+WORKER_RELIABILITY_THRESHOLD = .85   # ignore worker if control score (after filtering) lower than this # TODO implement this
+ASSIGNMENT_RELIABILITY_THRESHOLD = .75  # only total agreement makes an item reliable   # TODO implement this
+
 
 INSPECT_FAILED_CONTROLS = True
 INSPECT_REJECTED_ASSIGNMENTS = True
-NO_REJECTION = False
+
 
 RESTRICT_TO_N_WORKERS_PER_NAME = False  # TODO implement this
-COULANCE = 1 # TODO implement this
 
 if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
@@ -272,15 +280,30 @@ if INSPECT_FAILED_CONTROLS:
               control['same_color']))
     print('---------------------')
 
-# Inspect low-agreement items (lowest-agreement first)
-
-
-# Create assignments dataframe with some basic stats: # TODO Oh my this is ugly code...
 name_annotations['correct1-filtered'] = name_annotations['correct1'].copy()
 name_annotations['correct2-filtered'] = name_annotations['correct2'].copy()
 name_annotations['correct3-filtered'] = name_annotations['correct3'].copy()
 name_annotations.at[~name_annotations['reliable1'], 'correct1-filtered'] = np.nan
 name_annotations.at[~name_annotations['reliable2'], 'correct2-filtered'] = np.nan
+
+# To compute agreement, compile dataframe of one row per name
+names = name_annotations.groupby(['hitid', 'requesterannotation', 'image', 'object', 'image_url', 'name']).agg({'rating': lambda x: Counter([r for r in x]), 'type': lambda x: Counter([str(t) for t in x]), 'same_color': lambda x: x.tolist(), 'colors': lambda x: x.tolist(), 'assignmentid': 'nunique'}).rename(columns={'assignmentid': 'n_assignments'})
+for i, row in names.iterrows():
+    names.at[i, 'colors'] = {name: sum([c[name] for c in row['colors']]) / len(row['colors']) for name in row['colors'][0]}
+    # per_name.at[i,'same_color'] = Counter([y for l in row['same_color'] for y in l])
+    # per_name.at[i,'colors'] = (sum([max(x, row['n_assignments']-x) for x in per_name.at[i, 'same_color'].values()]) / len(per_name.at[i, 'n_names'])) / per_name.at[i, 'n_assignments']
+names['type-agreement'] = names['type'].apply(lambda x: len(x) == 1)
+
+# TODO Compute agreement
+# TODO Inspect low-agreement items (lowest-agreement first)
+
+print('---------------------')
+print('names:', len(names))
+print(names[:5].to_string())
+print('---------------------')
+
+
+# Create assignments dataframe with some basic stats: # TODO Oh my this is ugly code...
 assignments = name_annotations.groupby(['hitid', 'requesterannotation', 'assignmentid', 'workerid']).agg({'rating': 'mean', 'color': 'mean',
                                                                                                      'correct1': ['count', 'sum'], 'correct2': ['count', 'sum'], 'correct3': ['count', 'sum'],
                                                                                                      'correct1-filtered': ['count', 'sum'], 'correct2-filtered': ['count', 'sum'], 'correct3-filtered': ['count', 'sum'], })
@@ -301,37 +324,39 @@ assignments['decision1'] = ""
 assignments['decision2'] = ""
 assignments['executed1'] = False
 assignments['executed2'] = False
+assignments['explanation'] = ""
 
 mean_score_per_worker = assignments.groupby(['workerid']).agg({'control_score-filtered': 'mean', 'control_score': 'mean'})
-
-for i, row in assignments.iterrows():
-    if NO_REJECTION or row['control_score-filtered'] >= ASSIGNMENT_APPROVAL_TRESHOLD:
+num_coulance = {worker: 0 for worker in assignments['workerid'].unique()}
+# sort makes sure that lenience is applied to best of the worst
+for i, row in assignments.sort_values(by="control_score-filtered", ascending=False).iterrows():
+    if row['control_score-filtered'] >= ASSIGNMENT_APPROVAL_TRESHOLD:
         assignments.at[i, 'decision1'] = 'approve'
-        if row['control_score-filtered'] >= BONUS_THRESHOLD:
-            assignments.at[i, 'decision2'] = 'bonus'
+        assignments.at[i, 'explanation'] = 'good enough assignment'
     else:
         if mean_score_per_worker.at[row['workerid'], 'control_score-filtered'] >= WORKER_APPROVAL_TRESHOLD:
             assignments.at[i, 'decision1'] = 'approve'
+            assignments.at[i, 'explanation'] = 'failed assignment, but good enough average worker score'
+        elif num_coulance[row['workerid']] < COULANCE:
+            assignments.at[i, 'decision1'] = 'approve'
+            assignments.at[i, 'explanation'] = 'failed assignment, but apply lenience'
+            num_coulance[row['workerid']] += 1
+        elif NO_REJECTION:
+            assignments.at[i, 'decision1'] = 'approve'
+            assignments.at[i, 'explanation'] = 'failed assignment, but approve everything'
         else:
             assignments.at[i, 'decision1'] = 'reject'
-    if row['control_score-filtered'] < ASSIGNMENT_BLOCK_THRESHOLD and mean_score_per_worker.at[row['workerid'], 'control_score-filtered'] < WORKER_BLOCK_THRESHOLD:
+            assignments.at[i, 'explanation'] = 'failed assignment, worker not good enough on average, lenience already applied'
+
+    if row['control_score-filtered'] >= BONUS_THRESHOLD:
+        assignments.at[i, 'decision2'] = 'bonus'
+        assignments.at[i, 'explanation'] += ', bonus because very good assignment'
+    if row['control_score-filtered'] < ASSIGNMENT_BLOCK_THRESHOLD:
         assignments.at[i, 'decision2'] = 'block'
-
-
-# To compute agreement, compile dataframe of one row per name
-names = name_annotations.groupby(['hitid', 'requesterannotation', 'image', 'object', 'image_url', 'name']).agg({'rating': lambda x: Counter([r for r in x]), 'type': lambda x: Counter([str(t) for t in x]), 'same_color': lambda x: x.tolist(), 'colors': lambda x: x.tolist(), 'assignmentid': 'nunique'}).rename(columns={'assignmentid': 'n_assignments'})
-for i, row in names.iterrows():
-    names.at[i, 'colors'] = {name: sum([c[name] for c in row['colors']]) / len(row['colors']) for name in row['colors'][0]}
-    # per_name.at[i,'same_color'] = Counter([y for l in row['same_color'] for y in l])
-    # per_name.at[i,'colors'] = (sum([max(x, row['n_assignments']-x) for x in per_name.at[i, 'same_color'].values()]) / len(per_name.at[i, 'n_names'])) / per_name.at[i, 'n_assignments']
-names['type-agreement'] = names['type'].apply(lambda x: len(x) == 1)
-
-print('---------------------')
-print('names:', len(names))
-print(names[:5].to_string())
-print('---------------------')
-
-
+        assignments.at[i, 'explanation'] += ', blocked because very bad assignment'
+    if mean_score_per_worker.at[row['workerid'], 'control_score-filtered'] < WORKER_BLOCK_THRESHOLD:
+        assignments.at[i, 'decision2'] = 'block'
+        assignments.at[i, 'explanation'] += ', blocked because low average quality'
 
 # More bookkeeping: column with mistakes (URL + control_type + rating/type/samecolor)
 assignments['mistakes'] = [[] for _ in range(len(assignments))]
@@ -339,24 +364,32 @@ for i, row in assignments.iterrows():
     mistakes1 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct1'] == False)][['image_url', 'name', 'rating', 'type']].values.tolist()
     mistakes2 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct2'] == False)][['image_url', 'name', 'same_color']].values.tolist()
     mistakes3 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct3'] == False)][['image_url', 'name', 'correct3_explanation']].values.tolist()
-    mistakes1 = ["{} - {}: {}".format(m[0], m[1], m[2] if m[2] == 1 else m[3]) for m in mistakes1]
+    mistakes1 = ["{} - {}: {}".format(m[0], m[1], m[2] if m[2] == 0 else m[3]) for m in mistakes1]
     mistakes2 = ["{} - {}: {}".format(m[0], m[1], m[2]) for m in mistakes2]
-    mistakes3 = ["{} - {}: {}".format(m[0], m[1], m[2]) for m in mistakes3]
+    mistakes3 = ["{} - {} ~ {}".format(m[0], m[1], m[2]) for m in mistakes3]
     assignments.at[i, 'mistakes'] = mistakes1 + mistakes2 + mistakes3
 assignments['n_mistakes'] = assignments['mistakes'].apply(len)
 
 
-print()
-print(assignments.to_string())
+print('\n---------------')
+print(assignments[:5].to_string())
+print('---------------')
 
+print('\n---------------')
+print(assignments.groupby(['decision1', 'decision2', 'explanation']).agg({'workerid': 'nunique', 'assignmentid': 'nunique', 'hitid': 'nunique'}).to_string())
+print('---------------')
 
-print()
-print(assignments.groupby(['decision1', 'decision2']).agg({'workerid': 'nunique', 'assignmentid': 'nunique', 'hitid': 'nunique'}))
-print()
+# Are there any workers who got a bonus and a rejection?
+decisions_by_worker = assignments.groupby('workerid').agg({'decision1': lambda x: x.tolist(), 'decision2': lambda x: x.tolist()})
+bonused_and_rejected = decisions_by_worker.loc[decisions_by_worker['decision2'].apply(lambda x: 'bonus' in x) & (decisions_by_worker['decision2'].apply(lambda x: 'block' in x) | decisions_by_worker['decision1'].apply(lambda x: 'reject' in x))]
+if len(bonused_and_rejected) > 0:
+    print("WARNING: Some workers were both bonused and blocked/rejected:\n", bonused_and_rejected.to_string())
+
 
 if INSPECT_REJECTED_ASSIGNMENTS:
     for i, row in assignments.loc[assignments['decision1'] == 'reject'].iterrows():
-        print(row['assignmentid'], row['workerid'], row['control_score'], row['control_score-filtered'], mean_score_per_worker.at[row['workerid'], 'control_score-filtered'], mean_score_per_worker.at[row['workerid'], 'control_score'], '\n  ' + '\n  '.join(row['mistakes']))
+        print("{}, {}: assignment: {} ({}); worker mean: {} ({})".format(row['assignmentid'], row['workerid'], row['control_score-filtered'], row['control_score'], mean_score_per_worker.at[row['workerid'], 'control_score-filtered'], mean_score_per_worker.at[row['workerid'], 'control_score']))
+        print('  ' + '\n  '.join(row['mistakes']))
         print()
 
 
