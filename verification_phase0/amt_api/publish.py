@@ -151,7 +151,8 @@ if __name__ == '__main__':
 
         # Add unique turker id, or else empty string
         unique_turker_id = config["qualification"]["unique_turker_id"] if "unique_turker_id" in config["qualification"] else ""
-        param_list = [{'Name': 'unique_turker_id', 'Value': unique_turker_id}] + param_list
+        unique_turker_limit = config["qualification"]["unique_turker_limit"] if "unique_turker_limit" in config["qualification"] else "99999"
+        param_list = [{'Name': 'unique_turker_id', 'Value': unique_turker_id}, {'Name': 'unique_turker_limit', 'Value': unique_turker_limit}] + param_list
         logging.info(param_list)
 
         hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
