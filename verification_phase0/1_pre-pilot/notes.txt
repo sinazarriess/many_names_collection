@@ -2,8 +2,9 @@ To be done after pilot:
 - ASTY1XNJS7RSV: get back to her after results; "I can't figure out which one(s) could possibly be wrong. Any insight?"
 
 
-Sandbox: 3ZA2DBKLNM8R8QAMJA80LDW2N3N93F
-req: 3STE4BH37SOL3ZPT67OGASS6OZBHYA
+sandbox: 3XFRS2SHGFGAAEHTHZ8AREBMEOUU4D
+req: 35HEHDOSXVESTOKNJSF5BYBXVUZT7X
+
 
 UniqueTurker: d5232178c802a58f951312f91dcd572e (max 10)
 (UniqueTurker: 9ffe7409274106cdea48518a70f93218 (max 20))
@@ -13,8 +14,12 @@ unique_worker_id = "Are you sure? Your answers to many of our quality control it
 unique_HIT_id = "Friendly warning (don't worry): you seem to have answered several quality control items incorrectly.\n\nIf you get these warnings regularly, you may have misunderstood the task, so please check the instructions or contact us.\n\nIf you get these warnings only once in a while, then don't worry, just click OK to submit and we hope to 'see' you in the next HIT!".encode('utf-8').hex()
 
 
-
 =========
+
+Pilot 1:
+Sandbox: 3ZA2DBKLNM8R8QAMJA80LDW2N3N93F
+req: 3STE4BH37SOL3ZPT67OGASS6OZBHYA
+
 
 
 To be improved after pre-pilot2:
