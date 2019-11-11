@@ -19,7 +19,7 @@ MTURK_URL = 'https://mturk-requester.us-east-1.amazonaws.com'
 
 REJECT_FEEDBACK = 'HIT is rejected because too many control items were answered incorrectly.'
 APPROVE_FEEDBACK = 'Thank you for working for us!'
-BONUS_AMOUNT = '0.10'
+BONUS_AMOUNT = '0.15'
 BONUS_FEEDBACK = 'We have awarded a bonus of ${} because you did all control items perfectly.'.format(BONUS_AMOUNT)
 
 ###############################
