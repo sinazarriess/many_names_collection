@@ -11,17 +11,9 @@
 <script>
 
 var ut_id = "${unique_turker_id}";
-var ut_message = "For now, you have completed the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
+var ut_message = "For now, you have accepted the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
 
-// var items = ${items};
-var items = [
- ['http://object-naming-amore.upf.edu//2385974_684689_singleton_obj.png', ['building', 'car', 'garage'], '7b22636172223a20227365726966227d'],
-// ['http://object-naming-amore.upf.edu//2317212_1022693_singleton_obj.png', ['counter', 'pot', 'chair', 'bar'], '7b22706f74223a20227365726966222c2022636f756e746572223a2022617269616c227d'],
- //['http://object-naming-amore.upf.edu//1238_3635438_singleton_obj.png', ['t-shirt', 'shoebox', 'shirt', 'sweater'], '7b2273686f65626f78223a20227365726966222c20227368697274223a2022617269616c227d'],
- //['http://object-naming-amore.upf.edu//2375426_2950862_singleton_obj.png', ['woman', 'person', 't-shirt', 'pant', 'guy', 'man', 'script'], '7b22736372697074223a2022636f7572696572227d'],
- //['http://object-naming-amore.upf.edu//2403718_350333_singleton_obj.png', ['sater', 'boy', 'guy', 'man', 't-shirt', 'skateboarder', 'shoe', 'skater'], '7b227361746572223a202273616e732d736b61746572227d'],
- //['http://object-naming-amore.upf.edu//2376206_575136_supercat_unique.png', ['plaque', 'clothes', 'clothing', 'outfit', 'jacket', 'shirt', 'jumper', 'woman', 'jumpsuit', 'bench'], '7b22706c61717565223a20227365726966222c20226a61636b6574223a2022617269616c222c2022636c6f7468696e67223a2022626f6c642d636c6f74686573227d'],
-];
+var items = ${items};
 
 var images = [];
 
@@ -544,7 +536,7 @@ td.rating, th.rating {
     text-align: left;
 }
 td.rating {
-    height: 3vw;
+    height: 2vw;
 }
 
 
@@ -597,7 +589,7 @@ input + img.type {
   cursor: pointer;
   height: 5vw;
   margin: 3pt;
-  margin-bottom: 5pt;
+  margin-bottom: 3pt;
   outline: 2pt solid #aaa;
 }
 
@@ -610,8 +602,8 @@ input:checked + img.type {
 /* IMAGE STYLES */
 input + img.emote {
   cursor: pointer;
-  height: 100%;
-  margin: 3pt;
+  height: 110%;
+  margin: 2pt;
 }
 
 /* CHECKED STYLES */
