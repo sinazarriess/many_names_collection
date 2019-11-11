@@ -23,7 +23,7 @@ print('\n-------------------')
 print("name_annotations:", len(name_annotations))
 print(name_annotations[:5].to_string())
 
-# Turn name_annotations into name_pairs (one pair of names per row)
+# Turn name_annotations into name_pairs (one pair of names per row) # TODO Actually make this a main output format?
 name_pairs = []
 columns = ['round', 'image', 'object', 'url', 'workerid', 'name1', 'name2', 'correct_name', 'same_object']
 for i, row in name_annotations.iterrows():
@@ -35,7 +35,6 @@ name_pairs.reset_index(level=0, inplace=True)
 print('\n-------------------')
 print("name_pairs:", len(name_pairs))
 print(name_pairs[:5].to_string())
-
 
 # Load manual annotations, make representations comparable/compatible
 manual_annotations = '../raw_data_phase0/verification_pilot/verif_annos_pilot.csv'
