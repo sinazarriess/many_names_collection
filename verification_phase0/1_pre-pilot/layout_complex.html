@@ -12,6 +12,7 @@
 
 var ut_id = "${unique_turker_id}";
 var ut_message = "For now, you have accepted the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
+var ut_limit = ${unique_turker_limit};
 
 var items = ${items};
 
@@ -280,6 +281,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     document.getElementById("num_names").innerHTML = num_names_total;
     document.getElementById("num_images").innerHTML = num_images;
+    document.getElementById("ut_limit").innerHTML = ut_limit;
+
+    if (ut_id == "") {
+        document.getElementById("unique_turker_message").style.display = 'none';
+    }
 
     if (ut_id != "" && UTWorkerLimitReached(ut_id)) {
         document.getElementById('form_main').style.display = 'none';
@@ -655,7 +661,7 @@ input:checked + div.color {
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form answer-format="flatten-objects" id="form_main">
 
-    <div style="text-align: center"><i>For now, you can do at most 10 HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
+    <div style="text-align: center" id="unique_turker_message"><i>For now, you can accept at most <span id="ut_limit"></span> HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
 
     <hr>
 
@@ -833,14 +839,14 @@ input:checked + div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
                                 <img class="type" id="IMG#-NAME#-icon-0" src="http://mwestera.humanities.uva.nl/images/ling-A.png"/>
                                <br>
-                                Linguistic <br> mistake</label>
+                                Linguistic mistake</label>
                         </div>
                         <div class="caption">
                             <label title="The name seems to pertain to a different object, one which should have a different bounding box; the named object does not fit in the given bounding box, or insufficiently tightly.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
                                 <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/images/box-A.png"/>
                                 <br>
-                                Named object not tightly <br> in bounding box
+                                Named object not tightly in bounding box
                             </label>
                         </div>
                         <div class="caption">
@@ -848,7 +854,7 @@ input:checked + div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
                                 <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/images/vis-A.png"/>
                                 <br>
-                                Named object mistaken <br> for something it's not
+                                Named object mistaken for something it's not
                             </label>
                         </div>
                         <div class="caption">
@@ -856,7 +862,7 @@ input:checked + div.color {
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
                                 <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/images/rand-A.png"/>
                                 <br>
-                                Something else <br>
+                                Something else
                             </label>
                         </div>
                     </td>
