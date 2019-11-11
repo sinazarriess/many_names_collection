@@ -144,6 +144,7 @@ if __name__ == '__main__':
     batch_idx = initial_row / batch_size
 
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
+    n_hits_published = 0
     for row_idx, row in data[initial_row:initial_row+total_rows].iterrows():
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
@@ -156,13 +157,14 @@ if __name__ == '__main__':
         logging.info(param_list)
 
         hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
+        n_hits_published += 1
         all_resulting_HITs.append(hit_data)
 
         logging.info("New hit: " + str(hit_data['HIT']['HITId']))
         logging.info("New hit groupId: " + hit_data['HIT']['HITGroupId'])
 
         # Sleepy time, now and then:.
-        if row_idx != initial_row + total_rows-1 and ((row_idx + 1) % batch_size) == 0:
+        if n_hits_published != total_rows-1 and ((n_hits_published + 1) % batch_size) == 0:
             outname = os.path.join(out_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
             with open(outname, 'w') as outfile:
                 json.dump(all_resulting_HITs, outfile)
