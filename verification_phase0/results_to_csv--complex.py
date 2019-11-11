@@ -3,13 +3,15 @@ pd.options.display.max_colwidth = 100
 import json
 import glob
 
+import random
+
 import numpy as np
 from collections import Counter
 import os
 from sklearn.metrics import cohen_kappa_score
 
+from scipy.stats import pearsonr
 
-ANONYMIZE = False
 
 # Remove unreliable controls
 CONTROL_RELIABILITY_THRESHOLD = .5  # Delete control if fewer than this did it correctly
@@ -20,23 +22,16 @@ WORKER_APPROVAL_TRESHOLD = .85   # will approve all assignments even if a few as
 BONUS_THRESHOLD = 1.0
 
 # Block based on assignments/workers
-ASSIGNMENT_BLOCK_THRESHOLD = .6   # will block worker based on single assignment below .7
+ASSIGNMENT_BLOCK_THRESHOLD = .6   # will block worker based on single assignment below this
 WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
 
 # Some more absolute params
 NO_REJECTION = False
 COULANCE = 1
 
-# Delete annotations based on worker/assignment
-WORKER_RELIABILITY_THRESHOLD = .85   # ignore worker if control score (after filtering) lower than this # TODO implement this
-ASSIGNMENT_RELIABILITY_THRESHOLD = .75  # only total agreement makes an item reliable   # TODO implement this
+INSPECT_FAILED_CONTROLS = False
+INSPECT_REJECTED_ASSIGNMENTS = False
 
-
-INSPECT_FAILED_CONTROLS = True
-INSPECT_REJECTED_ASSIGNMENTS = True
-
-
-RESTRICT_TO_N_WORKERS_PER_NAME = False  # TODO implement this
 
 if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
@@ -286,22 +281,6 @@ name_annotations['correct3-filtered'] = name_annotations['correct3'].copy()
 name_annotations.at[~name_annotations['reliable1'], 'correct1-filtered'] = np.nan
 name_annotations.at[~name_annotations['reliable2'], 'correct2-filtered'] = np.nan
 
-# To compute agreement, compile dataframe of one row per name
-names = name_annotations.groupby(['hitid', 'requesterannotation', 'image', 'object', 'image_url', 'name']).agg({'rating': lambda x: Counter([r for r in x]), 'type': lambda x: Counter([str(t) for t in x]), 'same_color': lambda x: x.tolist(), 'colors': lambda x: x.tolist(), 'assignmentid': 'nunique'}).rename(columns={'assignmentid': 'n_assignments'})
-for i, row in names.iterrows():
-    names.at[i, 'colors'] = {name: sum([c[name] for c in row['colors']]) / len(row['colors']) for name in row['colors'][0]}
-    # per_name.at[i,'same_color'] = Counter([y for l in row['same_color'] for y in l])
-    # per_name.at[i,'colors'] = (sum([max(x, row['n_assignments']-x) for x in per_name.at[i, 'same_color'].values()]) / len(per_name.at[i, 'n_names'])) / per_name.at[i, 'n_assignments']
-names['type-agreement'] = names['type'].apply(lambda x: len(x) == 1)
-
-# TODO Compute agreement
-# TODO Inspect low-agreement items (lowest-agreement first)
-
-print('---------------------')
-print('names:', len(names))
-print(names[:5].to_string())
-print('---------------------')
-
 
 # Create assignments dataframe with some basic stats: # TODO Oh my this is ugly code...
 assignments = name_annotations.groupby(['hitid', 'requesterannotation', 'assignmentid', 'workerid']).agg({'rating': 'mean', 'color': 'mean',
@@ -328,6 +307,9 @@ assignments['explanation'] = ""
 
 mean_score_per_worker = assignments.groupby(['workerid']).agg({'control_score-filtered': 'mean', 'control_score': 'mean'})
 num_coulance = {worker: 0 for worker in assignments['workerid'].unique()}
+# which assignments/workers to ignore in subsequent analysis
+assignments_to_ignore = []
+workers_to_ignore = []
 # sort makes sure that lenience is applied to best of the worst
 for i, row in assignments.sort_values(by="control_score-filtered", ascending=False).iterrows():
     if row['control_score-filtered'] >= ASSIGNMENT_APPROVAL_TRESHOLD:
@@ -347,6 +329,7 @@ for i, row in assignments.sort_values(by="control_score-filtered", ascending=Fal
         else:
             assignments.at[i, 'decision1'] = 'reject'
             assignments.at[i, 'explanation'] = 'failed assignment, worker not good enough on average, lenience already applied'
+        assignments_to_ignore.append(row['assignmentid'])
 
     if row['control_score-filtered'] >= BONUS_THRESHOLD:
         assignments.at[i, 'decision2'] = 'bonus'
@@ -357,6 +340,10 @@ for i, row in assignments.sort_values(by="control_score-filtered", ascending=Fal
     if mean_score_per_worker.at[row['workerid'], 'control_score-filtered'] < WORKER_BLOCK_THRESHOLD:
         assignments.at[i, 'decision2'] = 'block'
         assignments.at[i, 'explanation'] += ', blocked because low average quality'
+        workers_to_ignore.append(row['workerid'])
+
+assignments_to_ignore = set(assignments_to_ignore)
+workers_to_ignore = set(workers_to_ignore)
 
 # More bookkeeping: column with mistakes (URL + control_type + rating/type/samecolor)
 assignments['mistakes'] = [[] for _ in range(len(assignments))]
@@ -394,30 +381,112 @@ if INSPECT_REJECTED_ASSIGNMENTS:
 
 
 
+with open(os.path.join(resultsdir, 'per_name.csv'), 'w+') as outfile:
+    scores_per_name.to_csv(outfile)
+    print("Stats per name written to", outfile.name)
+
+## Writing non-anonymous files
 with open(os.path.join(resultsdir, 'per_assignment.csv'), 'w+') as outfile:
     assignments.to_csv(outfile, index=False)
     print("\nAssignments written to", outfile.name)
-
-
-if ANONYMIZE:
-    for i, workerid in enumerate(name_annotations['workerid'].unique()):
-        name_annotations.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
-    print("Worker IDs anonymized.")
-
 
 with open(os.path.join(resultsdir, 'name_annotations.csv'), 'w+') as outfile:
     name_annotations.to_csv(outfile)
     print("Annotations per name written to", outfile.name)
 
+## Writing anonymous files
+name_annotations_anon = name_annotations.copy()
+assignments_anon = assignments.copy()
+for i, workerid in enumerate(name_annotations_anon['workerid'].unique()):
+    name_annotations_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
+    assignments_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
 
-with open(os.path.join(resultsdir, 'per_name.csv'), 'w+') as outfile:
-    scores_per_name.to_csv(outfile)
-    print("Stats per name written to", outfile.name)
+with open(os.path.join(resultsdir, 'name_annotations_ANON.csv'), 'w+') as outfile:
+    name_annotations_anon.to_csv(outfile)
+    print("Anonymized name annotations written to", outfile.name)
+
+with open(os.path.join(resultsdir, 'per_assignment_ANON.csv'), 'w+') as outfile:
+    assignments_anon.to_csv(outfile, index=False)
+    print("\nAnonymized assignments written to", outfile.name)
 
 
+
+# randomly sample 3 out of 4 assignments per HIT
+print('Name annotations:', len(name_annotations))
+if False:
+    assignmentids = assignments.groupby('hitid').agg({'assignmentid': lambda x: x.tolist()})
+    assignmentids['assignmentid'] = assignmentids['assignmentid'].apply(lambda x: random.sample(x, len(x)-1))
+    assignmentids = [a for x in assignmentids['assignmentid'] for a in x]
+    name_annotations = name_annotations.loc[name_annotations['assignmentid'].isin(assignmentids)]
+    print('Sampled down to:', len(name_annotations))
+
+# name_annotations = name_annotations.loc[~name_annotations['workerid'].isin(workers_to_ignore)]
+# print('After removing bad workers:', len(name_annotations))
+if False:
+    name_annotations = name_annotations.loc[~name_annotations['assignmentid'].isin(assignments_to_ignore)]
+    print('After removing further bad assignments:', len(name_annotations))
+
+
+# names = name_annotations.groupby(['image', 'object', 'image_url', 'name']).agg({
+#         'rating': lambda x: (2-(x.mean()))/2,
+#         # 'rating': lambda x: {rating: x.tolist().count(rating) for rating in [0, 1, 2]},
+#         # 'type': lambda x: {str(t): [str(y) for y in x.tolist()].count(t) for t in ['nan', 'linguistic', 'bounding box', 'visual', 'other']},
+#         'colors': lambda x: x.tolist(),
+#         # 'assignmentid': 'nunique'
+#     }) # .rename(columns={'assignmentid': 'n_assignments'})
+#
+# # for i, row in names.iterrows():
+# #     names.at[i, 'colors'] = {name: sum([c[name] for c in row['colors']]) for name in row['colors'][0]}
+#
+#
+# print('---------------------')
+# print('names:', len(names))
+# print(names[:10].to_string())
+# print('---------------------')
+
+
+# Turn name_annotations into name_pairs (one pair of names per row)
+name_pairs = []
+columns = ['image', 'object', 'url', 'workerid', 'name1', 'name2', 'correct_name', 'same_object']
+for i, row in name_annotations.iterrows():
+    for name in row['colors']:
+        name_pairs.append([row['image'], row['object'], row['image_url'], row['workerid'], row['name'], name, row['rating'], row['colors'][name]])
+name_pairs = pd.DataFrame(name_pairs, columns=columns).groupby(['image', 'object', 'url', 'name1', 'name2']).mean()
+
+# Load manual annotations, make representations comparable/compatible
+manual_annotations = '../raw_data_phase0/verification_pilot/verif_annos_pilot.csv'
+name_pairs_amore = pd.read_csv(manual_annotations, sep="\t")
+name_pairs_amore['image'] = name_pairs_amore['url'].apply(lambda x: x.split('//')[2].split('_')[0])
+name_pairs_amore['object'] = name_pairs_amore['url'].apply(lambda x: x.split('//')[2].split('_')[1])
+name_pairs_amore['same_object'] = name_pairs_amore['same_object'].replace({'Yes': 1, 'Not sure': .5, 'No': 0})
+name_pairs_amore['correct_name'] = (3 - name_pairs_amore['correct_name']) / 3   # scale from [3,-3] to [0,2]
+name_pairs_amore.rename(columns={'mn_obj_name': 'name1', 'vg_obj_name': 'name2'}, inplace=True)
+name_pairs_amore = name_pairs_amore.groupby(['image', 'object', 'url', 'name1', 'name2']).agg({'correct_name': 'mean', 'same_object': 'mean'})
+
+# Join amore annotations and crowdsourced annotations, and compute pearson correlations
+amore_vs_crowd = name_pairs_amore.join(name_pairs, lsuffix='_amore', rsuffix='_crowd').dropna()
+print('\n---------------')
+print('AMORE vs. crowd:', len(amore_vs_crowd))
+print(amore_vs_crowd[:5].to_string())
+print('- - - - - - - -')
+print(pearsonr(amore_vs_crowd['correct_name_amore'], amore_vs_crowd['correct_name_crowd']))
+print(pearsonr(amore_vs_crowd['same_object_amore'], amore_vs_crowd['same_object_crowd']))
+print('---------------')
 
 # # For quick inspection
 # print()
 # print(annotations.groupby(['workerid', 'hitid'])['rating', 'correct1', 'correct2'].agg(['count', 'mean']).to_string())
+
+# Explore mismaches
+amore_vs_crowd_mismaches = amore_vs_crowd.loc[abs(amore_vs_crowd['correct_name_amore'] - amore_vs_crowd['correct_name_crowd']) > 1]
+print("Mismatches correct_name:", len(amore_vs_crowd_mismaches))
+for i, row in amore_vs_crowd_mismaches.iterrows():
+    print(i, 'amore:', row['correct_name_amore'], ' - crowd:', row['correct_name_crowd'])
+    input()
+
+amore_vs_crowd_mismaches = amore_vs_crowd.loc[abs(amore_vs_crowd['same_object_amore'] - amore_vs_crowd['same_object_crowd']) > .5]
+print("Mismatches same_object:", len(amore_vs_crowd_mismaches))
+for i, row in amore_vs_crowd_mismaches.iterrows():
+    print(i, 'amore:', row['same_object_amore'], ' - crowd:', row['same_object_crowd'])
 
 
