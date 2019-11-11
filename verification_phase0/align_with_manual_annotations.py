@@ -32,6 +32,8 @@ for i, row in name_annotations.iterrows():
 name_pairs = pd.DataFrame(name_pairs, columns=columns).groupby(['round', 'image', 'object', 'url', 'name1', 'name2']).mean()
 name_pairs.reset_index(level=0, inplace=True)
 
+# TODO inter-annotator agreement; name_pairs also more convenient for this
+
 print('\n-------------------')
 print("name_pairs:", len(name_pairs))
 print(name_pairs[:5].to_string())
