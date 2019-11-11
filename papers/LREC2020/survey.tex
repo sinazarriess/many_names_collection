@@ -38,7 +38,7 @@ Multiple annotations (2.84 on average) allow for some minimal analysis of naming
 However, note that not all objects are annotated with REs and corresponding categories, so it may be difficult to analyze the data with automatic processing.
 Names elicited in \refcoco should be natural, but it is unclear how the additional constraints in \refcocop impact on the naturalness of object naming.
 Finally, the main drawback of this dataset is that the set of categories included is quite small ($80$~COCO categories).
-To sum up, we would recommend \RefCOCO to study effect of distractors on object naming in a restricted set of categories.
+To sum up, we would recommend \refcoco to study effect of distractors on object naming in a restricted set of categories.
 
 % \begin{itemize}
 % \item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy (e.g.,~\cat{bird, person, car, bus})
@@ -137,6 +137,9 @@ This means that the identity of objects cannot be established based on the annot
 \subsection{Discussion}
 
 \gbt{Do we need a discussion section wrapping up what we've said in this survey section and motivating MN?}
+
+As the discussion above showed, while some existing resources can be used to shed light on factors affecting naming choices, they do not provide enough data to assess \textbf{naming variation}, which requires having data from many subjects.
+This is the motivation for our dataset, ManyNames, an augmentation of \vg.
 
 %%% Local Variables:
 %%% mode: latex

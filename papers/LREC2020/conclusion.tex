@@ -1,0 +1,33 @@
+The question of how people choose names for objects presented visually is relevant for Computational Linguistics (especially Language \& Vision), Computer Vision, Cognitive Science, and Linguistics.
+% The object naming variation attested in the ManyNames dataset offers new challenges and perspectives, both for practical modeling approaches in Language \& Vision as well as for theoretical work in (Psycho-)linguistics.
+We have surveyed datasets that can be useful to address this question, and proposed a new dataset, ManyNames, that affords new possibilities, both for analysis and modeling, providing a means
+(i) to study how different people would name the same object (image region), and, given a specific name, estimate its degree of preference, which might vary substantially across different instances of a class, and   
+(ii) to obtain a set of possible names for individual objects, as well as available lexical alternatives for specific names, which again might vary strongly across instances and often cannot be retrieved from existing taxonomies like WordNet. 
+
+\gbt{The following needs to be made more coherent}
+For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous, which affects model performance on object categorization and naming.
+Crucially, evaluations in these task assume that object identification is possible based on the bounding box, and evaluates only the categories or names of objects assuming they are unique.
+The naming variation we have found also challenge the common assumption that there exists a single canonical name for individual visual objects (also see \cite{deng2014large,wang2014poodle,peterson2018learning}).
+At the same time, the ability to distinguish incorrect object names from good alternatives is essential for visual object understanding.
+Our data allows models to be tested wrt their ability to account for naming variants of an instance: For instance, to what extent the top N predicted are names valid alternatives (\textsl{dog, animal, pet} vs. \textsl{dog, hat, grass}). 
+\gbt{We have to be careful; without the correction round this is not strictly speaking true. How can we phrase this?}
+% Wang et al.: ". The hypothesis is that by modeling the variation in granularity levels for different concepts, we can gain a more informative insight as to how the output of image annotation systems can relate to how a person describes what he or she perceives in an image, and consequently produce image annotation systems that are more human-centric."
+% @related work
+%[For example, \newcite{peterson2018learning} train CNN classifiers on objects with multiple labels which stand in a hierarchical relation (e.g., dog, animal) in order to learn better visual representations which capture the hierarchical structure of a taxonomy. \cs{remove or move to related work? also sentence to Ordonez}]
+%\footnote{Other work used training data with multiple labels per image to improve image classification performance on images with multiple objects (e.g.,~Wang et al., 2016 REF). \cs{maybe remove, since it is not that relevant?}}
+% peterson2018learning: discuss the bias introduced into learned representations by training on data of  single label annotations ("labels cut arbitrarily across natural psychological taxonomies, e.g., dogs are separated into breeds but never categorized as dogs"). 
+
+% However, given the fact that naming variants are often not recoverable by hierarchical relations, a taxonomic hierarchy is only limited in its use to distinguish automatically a truly false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
+% For the same reason, even fine-grained recognition models (as those trained on ILSVRC) cannot be expected to be able to simply infer the recognition of more general classes.
+%since we found that many name alternatives are not hierarchically related to the VG name, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically a "truly" false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
+
+\gbt{Make the following coherent with the previous paragraph}
+Our data indeed indicates a tendency for particular instances marked by bounding boxes to elicit a preferred name across subjects, which is in line with existing theoretical research on object naming and categorization. 
+However, we show that there is also consistent variation in naming, and even high variability in agreement across instances within the same class or domain.
+The latter suggests that there are specific visual characteristics of either the object itself or the visual context in which it appears that trigger variation. With prototypical pictures (see Figure\ \ref{fig:cake}), as done in traditional studies, this observation would not be possible.
+We moreover find that much of the variation in object naming cannot be explained by adopting a traditional taxonomy-driven and hierarchical view, which has been dominant in the literature, both in theoretical and in computational approaches.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "lrec2020naming"
+%%% End:

@@ -6,10 +6,13 @@
 %\item Implications for lang\&vision: 1) synset classification won't do (if the goal is to predict/label an object); 2) name classification won't do either; 3) ``mistakes'' done by models are also done by humans -- role of referential uncertainty.
 %\end{itemize}
 
-We investigate to what extent names in our dataset can be considered canonical in terms of various agreement measures,
-%based on annotations in \vg and ManyNames, 
-and we look at sources of variation based on WordNet. %, i.e., to what extent speakers agree in their naming choices.
-%Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, look at concept-level agreement, we examine to what extent names overlap (i) for the same object and (ii) for different instances of the same class, based on the canonicalized names in \vg.
+% We investigate to what extent names in our dataset can be considered canonical in terms of various agreement measures,
+% %based on annotations in \vg and ManyNames, 
+% and we look at sources of variation based on WordNet. %, i.e., to what extent speakers agree in their naming choices.
+% %Whereas traditional picture naming studies typically use a prototypical image per category (see Figure~\ref{fig:picture_naming}) and, hence, look at concept-level agreement, we examine to what extent names overlap (i) for the same object and (ii) for different instances of the same class, based on the canonicalized names in \vg.
+
+\input{analysis_table_wModelpreds}
+%\input{analysis_table}
 
 \begin{figure*}
 \begin{minipage}[b]{0.4\linewidth}
@@ -19,22 +22,25 @@ and we look at sources of variation based on WordNet. %, i.e., to what extent sp
 \includegraphics[scale=.4]{figures/types_classes.png}
 \end{minipage}
 \vspace{-0.8cm}
- \caption{\label{fig:ntypes} Cumulative histograms for number of types found for instances and classes, with frequency thresholds}
- 
- 
+ \caption{\label{fig:ntypes} Cumulative histograms for number of types found for instances and classes, with frequency thresholds} 
 \end{figure*}
 
+Figure~\ref{fig:ex-high-low-agreement} shows some example datapoints of ManyNames.
+% with higher and lower agreement
+As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous dataset: 35.3 on average, compared to 1-3 \gbt{to revise if we keep the VGmn column.} 
+It also contains the most variability, since objects have on average 5.7 names (compared to 1-1.9).
+This makes it in principle suitable to study how much inter-subject naming variation there is, and what factors influence such variation.
+However, data analysis shows that object identification is still an issue in our data: despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. They typically named an adjacent object or one supported by the target object (e.g.\ \textit{jacket-toy} in Fig.~\ref{fig:ex-high-low-agreement}) or a part of the target object.
+While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated (\textit{pants-player} or \textit{bed-sleeping bag} in Fig.~\ref{fig:ex-high-low-agreement}). 
+Referential uncertainty of this kind is a roadblock for the use of L\&V resources to study naming variation.
+Note that pointing gestures in natural communication are as referentially uncertain as bounding boxes, if not more; however, typically those gestures are grounded in a specific discourse context, which helps reduced uncertainty.
+In future work, we plan to filter out cases.
 
-
-
-\subsection{Comparison with other datasets}
-\label{subsec:compare}
-
-See Table \ref{tabe:compare}
-
-\subsection{Names, Instances, Classes}
+\subsection{Naming variation and agreement}
 \label{subsec:counts}
 
+\gbt{I think that we will need to remove the class-based analysis, for lack of space (plus, I think that the instance-level analysis is enough to get an idea of the data). For the moment I'm not doing it because I'd like to have your ok first. If we don't, we need to give an example and also say how many classes we have. Also, maybe rename ``\vg synsets'' instead of ``class''?}
+\gbt{BEGIN PART NOT EDITED}
 We use the following annotations for each object: (i) the original name, annotated in \vg, (ii) the object class or synset, annotated in \vg\footnote{Recall that we used these VG synsets for collecting our images (Section~\ref{ssec:sampling})},
 %and obtained via a semi-automatic linking of the object name to WordNet
  (iii) the ManyNames response set, i.e. a set of name types with annotation frequencies (max. 36 annotations per object),  see Figure \ref{fig:ex-high-low-agreement} for examples.
@@ -64,7 +70,6 @@ The rise of the curve is much less steep than for instances and, generally, ther
 %The synsets could have different names -- maybe say "or even same name"?}
 synset in \vg trigger different naming variants (also see examples in Figure \ref{fig:ex-high-low-agreement}). 
 Implications of this will be discussed in Section \ref{subsec:discuss}.
-
 
 %\cs{Change yticks to 0-100, with label \%. Make font larger in Fig. with plots?}
 
@@ -108,11 +113,10 @@ Implications of this will be discussed in Section \ref{subsec:discuss}.
 \label{tab:agree}
 \end{table*}
 
-\subsection{Agreement}
+\gbt{END PART NOT EDITED}
 
-%As type counts give a rather rough indication for variation in object naming, 
-Next, we look at the following agreement measures, computed with $t>1$: 
-%$t=1$: % to assess agreement on the object names:
+To assess agreement on the object names, we check the following measures, computed with $t>1$: 
+%$t=1$: % 
 \begin{itemize}
 % \setlength{\itemsep}{2pt}
 % \setlength{\parskip}{1pt}
@@ -123,13 +127,8 @@ where $k$\ denotes the number of name types and $p_i$\ is the proportion of name
 \item \textbf{\% VG}: the average relative frequency of the \vg name in the response set.
 \end{itemize}
 
-%\cs{Maybe it would be good to give an example for the class-level, to make it easier to follow the results discussion}
-%Again, we measure instance-level and class-level agreement on response sets for objects and synset classes, respectively.
-%o account for potential noise\cs{redundant}, we filter out names with a frequency of\ 1 from the response sets.
-
 Table\ \ref{tab:agree} shows, generally, that the agreement measures follow a similar pattern as the type counts in Section\ \ref{subsec:counts}:
-On the instance level, %our annotators achieve a fair amount of overlap in their object naming choices, with 
-the most frequent name accounts for 75\%\  and the \vg name for 63\% of the responses on average. On the class level, the agreement is much lower: The average frequency of the top name drops to\ 56\% and that of the \vg name even to\ 23\%. The $H$ measures indicate a fair amount of agreement for instances, which is a bit lower than in picture norming studies on artificial images (e.g.\ \newcite{snodgrass} report an average $H$ of 0.55). On the class-level, again, an average $H$ value of 2 points to a much more even distribution of name frequencies.
+On the instance level, the most frequent name accounts for 75\%\  and the \vg name for 63\% of the responses on average. On the class level, the agreement is much lower: The average frequency of the top name drops to\ 56\% and that of the \vg name even to\ 23\%. The $H$ measures indicate a fair amount of agreement for instances, which is a bit lower than in picture norming studies on artificial images (e.g.\ \newcite{snodgrass} report an average $H$ of 0.55). On the class-level, again, an average $H$ value of 2 points to a much more even distribution of name frequencies.
 
 If we check agreement by domain, two domains stand out: the \textsc{animals,plants} domain, which is often discussed in the literature and where we find almost perfect agreement\ (\mbox{$H=0.2$}), and the \textsc{people} domain with a particularly low agreement.
 %In the other domains values are around the average for the whole dataset\cs{remove because redundant?}.
@@ -139,89 +138,11 @@ Across domains, however, we find a large standard deviation for both \%top and $
 The qualitative examples in Figure \ref{fig:ex-high-low-agreement} %further corroborate this evidence: depending on the visual instance, the agreement can be very high or very low.
 illustrate this, showing visual instances with very high or low agreement. 
 These suggest that instances which are more prototypical of a category trigger higher agreement.
-The following section will examine other potential sources of variation in object naming.
+The following section will examine other sources of variation in object naming.
 
-
-\subsection{Variation: Specificity and Other Sources}
-\label{ssec:variation}
-Previous work on object naming has mostly adopted taxonomy-driven models aimed at capturing different levels of specificity (see Section \ref{sec:relwork}).
-%This section shows that naming variation in ManyNames cannot be explained by this parameter.
-This parameter does not explain the variation in ManyNames, as we will show in the following. 
-
-Given that the \vg names are already linked to WordNet synsets, we compute the same linking for the additional ManyNames names, and examine whether they stand in a taxonomic relation to the objects'  \vg  synsets.
-For detecting hypernyms, we use the hypernym closure of the synset with a depth of 10, the other relations are straightforward. 
-% given by \vg.
-%%In this section, we take a closer look at the lexical variation we observe in our data set. 
-%We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
-%For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
-%In Table \ref{tab:exvariants}, we show the naming variants with the highest raw token frequency for each domain. 
-%The naming variants can be grouped according to their lexical relation, as follows:
-%
-%\begin{itemize}
-%\item \textbf{synonymy}: e.g.\ aircraft vs. airplane 
-%\item \textbf{hyponymy}: e.g.\ man vs. person
-%\item \textbf{co-hyponymy}: e.g.\ swan vs. goose
-%\item \textbf{no relation}: e.g.\  desk vs. apple
-%\end{itemize}
-%\cs{Shouldn't we mention that we consider only simple move-up hypernymy relations?}
-Table \ref{tab:rel} shows the distribution
-how frequently names with a certain relation to the synset occur in the ManyNames responses, in terms of their  type and token frequency. 
-%\cs{something went wrong here --- "(?)Table\ \ref{tab:rel} shows the relative frequency distribution of the relations (between the MN names %types and tokens, respectively, 
-%and the VG synsets) in the aggregated class-level response sets." // "Table \ref{tab:rel} shows the relative frequency distribution of the different relations which occur between the MN names and the VG synsets in the aggregated class-level response sets."} 
-%\gbt{what do you mean, `` aggregated class-level response set''?}
-%\cs{Considering the track we are submitting to, one or two examples per relation in an additional column in the table wouldn't hurt.}
-The coverage of WordNet for our name data is satisfactory (90\%\ of the name types, accounting for 97\%\ of the tokens).
-Among the names that do have a hierarchical relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
-However, in the vast majority of cases no hierarchical relation between the name and the synset can be retrieved from WordNet.
-Thus, strikingly, most of the naming variation in ManyNames is \textit{not} related to different preferences in levels of specificity, but to other sources.
-
-We did qualitative analysis and found the following types of variation in the data, illustrated with examples in Figure\ \ref{fig:ex-high-low-agreement}.
-\textbf{Referential uncertainty}: despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. They typically named an adjacent object or one supported by the target object (e.g.\ \textit{book-bed}) or a part of the target object (\textit{pants-player}).
-%Note that, while some of these cases are arguably annotation errors (\textit{boy-helmet}), in many cases it is not possible to distinguish which object is being indicated (\textit{bed-sleeping bag}). Pointing gestures in natural communication are as referentially uncertain as bounding boxes; however, typically those gestures are grounded in a specific discourse context, which helps reduced uncertainty.
-\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{boy-batter}, \textit{dessert-toast}).
-\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers (\textit{bed-bench}, \textit{sandwich-hotdog}).
-\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{sandwich-basket}, \textit{bed-bed sheet}). 
-\textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose  synonyms or hypernyms (\textit{robe-dress}).
-As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
-%
-\begin{table}[t]
-\small
-\centering
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{lcc|p{2.5cm}}
-\toprule
-         relation & \% types & \% token & \it ex: jacket \\
-\midrule
-% meronym &  0.1 &  0.2 \\
-% holonym &  0.1 &  0.4 \\
- word-not-covered &  10.6 &  2.6 & \it outdoor vest\\
-\midrule
- synonym &  1.1 &  1.1 & \it hoodie  \\
- hyponym &  2.2 &  3.8 & \it parka, blazer \\
- co-hyponym &  3.1 &  5.9 & \it raincoat\\
- hypernym &  10.5 &  27.7 & \it clothing, coat\\
- rel-not-covered &  72.2 &  58.3 & \it sweatshirt, man\\
-\bottomrule
-\end{tabular}
-\caption{Lexical relations of naming variants in ManyNames to annotated \vg synset, averaged over synsets.}
-\label{tab:rel}
-\vspace{-0.5cm}
-\end{table}
-
-%GBT: I changed this cause I'm afraid to be left out for formal reasons. 
-%\vspace{-0.5cm}
-% \begin{description}[style=unboxed,leftmargin=0.2cm]
-% \setlength{\itemsep}{1pt}
-% \setlength{\parskip}{0pt}
-% %\setlength{\leftmargin}{0pt}
-% \item[Referential uncertainty:] despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. They typically named an adjacent object or one supported by the target object (e.g.\ \textit{book-bed}) or a part of the target object (\textit{pants-player}).
-% %Note that, while some of these cases are arguably annotation errors (\textit{boy-helmet}), in many cases it is not possible to distinguish which object is being indicated (\textit{bed-sleeping bag}). Pointing gestures in natural communication are as referentially uncertain as bounding boxes; however, typically those gestures are grounded in a specific discourse context, which helps reduced uncertainty.
-% \item[Cross-classification:] a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{boy-batter}, \textit{dessert-toast}).
-% \item[Conceptual disagreement:] as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers (\textit{bed-bench}, \textit{sandwich-hotdog})
-% \item[Metonymy:] we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{sandwich-basket}, \textit{bed-bed sheet}). 
-% \item[Issues with WordNet:] due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose  synonyms or hypernyms (\textit{robe-dress}).
-% \end{description}
-% \vspace{-0.2cm}
+To sum up, we find both substantial consistency in naming (the most frequent name accounts for 75\% of object names, on average) and substantial naming variation (the remaining 25\%). Moreover, there is a very large standard variation in how much agreement there is for objects in images, that only partially depend on the domain.
+We next turn to the sources of variation.
+%and our results suggest that a large part of the factors are instance-dependent.
 
 %\begin{table}
 %\small
@@ -253,68 +174,70 @@ As it is non-trivial to separate these phenomena, we leave a quantitative analys
 %\caption{Examples for VisualGenome (VG) names and their most frequent corresponding responses in ManyNames (MN; percentages shown in brackets). ``Canonical'' means that the VG name is the top name in MN, and non-canonical vice versa.}
 %\label{tab:qual}
 %\end{table}
-\input{analysis_table_wModelpreds}
-%\input{analysis_table}
 
 %\gbt{The non-canon. VG names suggest that people prefer more general names (``car $>$ sedan'', ``horse $>$ pony'', ``tie $>$ necktie''). Could be due to lexical availability (more general \ra more frequent \ra more available). This could be verified (using frequency). Hypothesis: In cases where top name != VG, the VG name is less general. Could be also a more general hypothesis: see if people prefer more frequent names in general.}
 %\cs{@Table~\ref{tab:qual} (just wrt presentation) The most interesting blocks are 2 and 3 (canonical VG with min agr.; non-canonical with max agr.)}
 
-\subsection{Discussion}
-\label{subsec:discuss}
+\subsection{Sources of variation}
+\label{subsec:sources}
 
-% gbt: I moved the following sentence to the Conclusion section. To determine: what parts of this discussion stay here, what go to the conclusion.
-% The object naming variation attested in the ManyNames dataset offers new challenges and perspectives, both for practical modeling approaches in Language \& Vision as well as for theoretical work in (Psycho-)linguistics.
+Previous work on object naming has assumed that variation is mostly taxonomical (see Section \ref{sec:relwork}).
+This parameter does not explain the variation in ManyNames. 
+Table \ref{tab:rel} shows the distribution of synset relations in the ManyNames responses, in terms of their type and token frequency.
+To obtain it, we exploited the synset annotation in the \vg names, and added automatic linking for the additional ManyNames names to see if they stand in a taxonomic relation to the objects' \vg  synsets.%
+\footnote{For detecting hypernyms, we use the hypernym closure of the synset with a depth of 10; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory (90\%\ of the name types, accounting for 97\%\ of the tokens).}
+As shown in the table, in the vast majority of cases, no hierarchical relation between the name and the synset can be retrieved from WordNet.
+Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of specificity.
+Among the names that do have a hierarchical relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
+%%In this section, we take a closer look at the lexical variation we observe in our data set. 
+%We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
+%For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
+%In Table \ref{tab:exvariants}, we show the naming variants with the highest raw token frequency for each domain. 
+%The naming variants can be grouped according to their lexical relation, as follows:
+%
+%\begin{itemize}
+%\item \textbf{synonymy}: e.g.\ aircraft vs. airplane 
+%\item \textbf{hyponymy}: e.g.\ man vs. person
+%\item \textbf{co-hyponymy}: e.g.\ swan vs. goose
+%\item \textbf{no relation}: e.g.\  desk vs. apple
+%\end{itemize}
+%\cs{Shouldn't we mention that we consider only simple move-up hypernymy relations?}
 
-The answer to our question, \textit{do objects in real-world images have a canonical name?} is nuanced. 
-Our data indeed indicates a tendency for particular instances marked by bounding boxes to elicit a preferred name across subjects, which is in line with existing theoretical research on object naming and categorization. 
-However, we show that there is also consistent variation in naming, and even high variability in agreement across instances within the same class or domain. 
-The latter suggests that there are specific visual characteristics of either the object itself or the visual context in which it appears that trigger variation. With prototypical pictures (see Figure\ \ref{fig:cake}), as done in traditional studies, this observation would not be possible.
-%For theoretical research, w
-We moreover find that much of the variation in object naming cannot be explained by adopting a traditional taxonomy-driven and hierarchical view, which has been dominant in the literature.
+%and the VG synsets) in the aggregated class-level response sets." // "Table \ref{tab:rel} shows the relative frequency distribution of the different relations which occur between the MN names and the VG synsets in the aggregated class-level response sets."} 
+%\gbt{what do you mean, `` aggregated class-level response set''?}
+%\cs{Considering the track we are submitting to, one or two examples per relation in an additional column in the table wouldn't hurt.}
 
-Our ManyNames dataset provides a means 
-(i) to study how different people would name the same object (image region),  
-%\cs{"visual awareness" would fit in here}, 
-and, given a specific name, estimate its degree of preference, which might vary substantially across different instances of a class, and   
-%assess the extent to which different speakers prefer that name, which might vary substantially across different instances of a class, and to 
-(ii) to obtain a set of possible names for individual objects, as well as available lexical alternatives for specific names, which again might vary strongly across instances and often cannot be retrieved from existing taxonomies like WordNet. 
+We did qualitative analysis and found the following types of variation in the data, illustrated with examples in Figure~\ref{fig:ex-high-low-agreement}.
+\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{boy-batter}, \textit{dessert-toast}).
+\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers (\textit{bed-bench}, \textit{sandwich-hotdog}).
+\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{sandwich-basket}, \textit{bed-bed sheet}). 
+\textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\textit{robe-dress}).
+%As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
+%
+\begin{table}[t]
+\small
+\centering
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lcc|p{2.5cm}}
+\toprule
+         relation & \% types & \% token & \it ex: jacket \\
+\midrule
+% meronym &  0.1 &  0.2 \\
+% holonym &  0.1 &  0.4 \\
+ word-not-covered &  10.6 &  2.6 & \it outdoor vest\\
+\midrule
+ synonym &  1.1 &  1.1 & \it hoodie  \\
+ hyponym &  2.2 &  3.8 & \it parka, blazer \\
+ co-hyponym &  3.1 &  5.9 & \it raincoat\\
+ hypernym &  10.5 &  27.7 & \it clothing, coat\\
+ rel-not-covered &  72.2 &  58.3 & \it sweatshirt, man\\
+\bottomrule
+\end{tabular}
+\caption{Lexical relations of naming variants in ManyNames to annotated \vg synset, averaged over synsets. \gbt{TO DO (IMPORTANT): change the rel-not-covered example to something that is true naming variation. I moved referential uncertainty out of the analysis of sources of variation.}}
+\label{tab:rel}
+\vspace{-0.5cm}
+\end{table}
 
-As far as research in L\&V and Computer Vision is concerned, our findings are reason to question 
-%the appropriateness of the standard, single-label approach in visual object naming and categorization methods. 
- the common assumption that there at least exists a canonical name
-%,\ i.e.,\ a  name on which the majority of people would agree 
- for individual visual objects (localized by bounding boxes).
- % cf.\ the high standard deviation in terms of the relative frequency of an instance's top response (column \%top, Table~\ref{tab:agree}), and the average mismatch of $27\%$~between the instances' top response and their VG name (\mbox{top=VG})\cs{a bit redundant now}).
-%
-The ability to distinguish incorrect object names from name alternatives is essential for visual object understanding, though. 
-It would be desirable to explicitly assess models towards their ability to account for naming variants of an instance (e.g.,~in how far are the top N predicted names valid alternatives, such as, \textsl{dog, animal, pet} vs. \textsl{dog, animal, hat}). 
-%
-The criticism on the use of single "ground truth" labels is not new, but %to our knowledge 
-as we outlined in Section\ \ref{sec:relwork}, previous work has focused on the determination of canonical names, or on "granularity-aware" models, where naming variants are hierarchically related. 
-%\cs{check that this is in related work: previous work has focused on the determination of canonical names (e.g.,~\newcite{Ordonez:2016}; Mathews et al REF), or on "granularity-aware" models, where naming variants are hierachically related (e.g.,~\newcite{wang2014poodle, peterson2018learning}; Ristin et al., 2015 REF, and the references therein).}
-%
-% \textit{training} of classifiers with multiple labels to improve image classification model depicting multiple objects (e.g.,~Wang et al., 2016 REF)
-% Wang et al.: ". The hypothesis is that by modeling the variation in granularity levels for different concepts, we can gain a more informative insight as to how the output of image annotation systems can relate to how a person describes what he or she perceives in an image, and consequently produce image annotation systems that are more human-centric."
-% @related work
-%[For example, \newcite{peterson2018learning} train CNN classifiers on objects with multiple labels which stand in a hierarchical relation (e.g., dog, animal) in order to learn better visual representations which capture the hierarchical structure of a taxonomy. \cs{remove or move to related work? also sentence to Ordonez}]
-%\footnote{Other work used training data with multiple labels per image to improve image classification performance on images with multiple objects (e.g.,~Wang et al., 2016 REF). \cs{maybe remove, since it is not that relevant?}}
-%
-%
-% peterson2018learning: discuss the bias introduced into learned representations by training on data of  single label annotations ("labels cut arbitrarily across natural psychological taxonomies, e.g., dogs are separated into breeds but never categorized as dogs"). 
-%
-%
-However, given the fact that naming variants are often not recoverable by hierarchical relations, a taxonomic hierarchy is only limited in its use to distinguish automatically a truly false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
-For the same reason, even fine-grained recognition models (as those trained on ILSVRC) cannot be expected to be able to simply infer the recognition of more general classes.
-%since we found that many name alternatives are not hierarchically related to the VG name, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically a "truly" false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
-%\cs{also distributional similarity? Remember that we looked into this for the checkpoint and did not find a clear similarity threshold/pattern} 
-%
-
-%\cs{?: Say something about type disagreements on class-level, after having written the results discussion.}
-%
-
-%\cs{Ah, we still should have a comparison model with above argumentation :/.}
-%
-%As a use-case study, in Section\ \ref{sec:modeling}, we will treat ManyNames as evaluation data and assess whether an existing SOTA model can account for the naming variants of individual objects. 
 
 \iffalse
 *********
