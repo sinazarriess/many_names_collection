@@ -33,7 +33,7 @@ name_pairs = pd.DataFrame(name_pairs, columns=columns).groupby(['round', 'image'
 name_pairs.reset_index(level=0, inplace=True)
 
 print('\n-------------------')
-print("name_pairs:", len(name_pairs), name_pairs.index)
+print("name_pairs:", len(name_pairs))
 print(name_pairs[:5].to_string())
 
 
@@ -48,7 +48,7 @@ name_pairs_amore.rename(columns={'mn_obj_name': 'name1', 'vg_obj_name': 'name2'}
 name_pairs_amore = name_pairs_amore.groupby(['image', 'object', 'url', 'name1', 'name2']).agg({'correct_name': 'mean', 'same_object': 'mean'})
 
 print('\n-------------------')
-print("name_pairs_amore:", len(name_pairs_amore), name_pairs_amore.index)
+print("name_pairs_amore:", len(name_pairs_amore))
 print(name_pairs_amore[:5].to_string())
 
 
