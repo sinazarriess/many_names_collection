@@ -17,7 +17,7 @@ import json
 from nltk.corpus import wordnet as wn
 
 
-PHASE = "pilot" # "pre-pilot" # "round0" "round1" None
+PHASE = "round0" # "pre-pilot" # "round0" "round1" None
 IMAGES_PER_HIT = 6
 
 REMOVE_SYNONYMS = False
@@ -115,7 +115,7 @@ def main():
             vg_data = json.load(file)
         vg_dict = {img['image_id']: img for img in vg_data}
 
-        vg_names = list(set([name for img in vg_data for object in img['objects'] for name in object['names']]))
+        vg_names = sorted(list(set([name for img in vg_data for object in img['objects'] for name in object['names']])))
 
         df['quality_control_dict'] = [{} for _ in range(len(df))]
         df['n_fillers'] = [0 for _ in range(len(df))]
@@ -235,6 +235,10 @@ def main():
 
 
     df = pd.read_csv(auxpath)
+    # Set again for reproducibility, just in case the first part is skipped
+    random.seed(481727)
+    np.random.seed(567912)
+
     df['quality_control_dict'] = df['quality_control_dict'].apply(eval)
     df['names_list'] = df['names_list'].apply(eval)
     print("Auxiliary file loaded from", auxpath)
@@ -307,12 +311,13 @@ def main():
 
 
     # Now turn bins into rows of the AMT csv:
-    header = ["items"]
+    header = ["items", "quality_control"]
     rows = []
     n_controls = []
     n_controls_pos = []
     for bin in bins:
         items = []
+        quality_controls = []
         controls = 0
         controls_pos = 0
         n_names = 0
@@ -324,6 +329,7 @@ def main():
             random.shuffle(names_list)
             item.append(names_list)
             n_names += len(names_list)
+            items.append(item)
             # Obfuscate with font labels: TODO Move the obfuscation down; do more globally, separately.
             for key in df.at[idx, 'quality_control_dict']:
                 controls += 1
@@ -339,9 +345,8 @@ def main():
                 elif df.at[idx, 'quality_control_dict'][key].startswith("syn"):
                     df.at[idx, 'quality_control_dict'][key] = "bold" + df.at[idx, 'quality_control_dict'][key][3:]
             # Obfuscate further with hex encoding
-            item.append(str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex())
-            items.append(item)
-        row = [items]
+            quality_controls.append(str(df.at[idx, 'quality_control_dict']).replace("'", '"').encode('utf-8').hex())
+        row = [items, quality_controls]
         rows.append(row)
         n_controls.append(controls/n_names)
         n_controls_pos.append(controls_pos/n_names)
