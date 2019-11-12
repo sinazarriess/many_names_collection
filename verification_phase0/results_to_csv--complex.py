@@ -14,7 +14,7 @@ import os
 CONTROL_RELIABILITY_THRESHOLD = .5  # Delete control if fewer than this did it correctly
 
 # Approve/bonus assignments/workers
-ASSIGNMENT_APPROVAL_TRESHOLD = .7   # will approve any assignment with score higher than this
+ASSIGNMENT_APPROVAL_TRESHOLD = .8   # will approve any assignment with score higher than this (pilot1: 0.7)
 WORKER_APPROVAL_TRESHOLD = .85   # will approve all assignments even if a few assignments are crap
 BONUS_THRESHOLD = 1.0
 
@@ -26,8 +26,8 @@ WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
 NO_REJECTION = False
 COULANCE = 1
 
-INSPECT_FAILED_CONTROLS = False
-INSPECT_REJECTED_ASSIGNMENTS = False
+INSPECT_FAILED_CONTROLS = True
+INSPECT_REJECTED_ASSIGNMENTS = True
 
 
 if NO_REJECTION:
