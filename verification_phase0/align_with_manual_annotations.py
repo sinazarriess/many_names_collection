@@ -3,7 +3,7 @@ from scipy.stats import pearsonr
 
 ROUNDS = {
     'pilot1': '1_pre-pilot/processed_results/pilot1/name_annotations_ANON.csv',
-    # 'pilot2': '1_pre-pilot/processed_results/pilot2/name_annotations_ANON.csv',
+    'pilot2': '1_pre-pilot/processed_results/pilot2/name_annotations_ANON.csv',
 }
 
 name_annotations = None
@@ -23,7 +23,7 @@ print('\n-------------------')
 print("name_annotations:", len(name_annotations))
 print(name_annotations[:5].to_string())
 
-# Turn name_annotations into name_pairs (one pair of names per row) # TODO Actually make this a main output format?
+# Turn name_annotations into name_pairs (one pair of names per row)
 name_pairs = []
 columns = ['round', 'image', 'object', 'url', 'workerid', 'name1', 'name2', 'correct_name', 'same_object']
 for i, row in name_annotations.iterrows():
@@ -32,21 +32,19 @@ for i, row in name_annotations.iterrows():
 name_pairs = pd.DataFrame(name_pairs, columns=columns).groupby(['round', 'image', 'object', 'url', 'name1', 'name2']).mean()
 name_pairs.reset_index(level=0, inplace=True)
 
-# TODO inter-annotator agreement; name_pairs also more convenient for this
-
 print('\n-------------------')
 print("name_pairs:", len(name_pairs))
 print(name_pairs[:5].to_string())
 
 # Load manual annotations, make representations comparable/compatible
 manual_annotations = '../raw_data_phase0/verification_pilot/verif_annos_pilot.csv'
-name_pairs_amore = pd.read_csv(manual_annotations, sep="\t")
-name_pairs_amore['image'] = name_pairs_amore['url'].apply(lambda x: x.split('//')[2].split('_')[0])
-name_pairs_amore['object'] = name_pairs_amore['url'].apply(lambda x: x.split('//')[2].split('_')[1])
-name_pairs_amore['same_object'] = name_pairs_amore['same_object'].replace({'Yes': 1, 'Not sure': .5, 'No': 0})
-name_pairs_amore['correct_name'] = (3 - name_pairs_amore['correct_name']) / 3   # scale from [3,-3] to [0,2]
-name_pairs_amore.rename(columns={'mn_obj_name': 'name1', 'vg_obj_name': 'name2'}, inplace=True)
-name_pairs_amore = name_pairs_amore.groupby(['image', 'object', 'url', 'name1', 'name2']).agg({'correct_name': 'mean', 'same_object': 'mean'})
+manual_annotations = pd.read_csv(manual_annotations, sep="\t")
+manual_annotations['image'] = manual_annotations['url'].apply(lambda x: x.split('//')[2].split('_')[0])
+manual_annotations['object'] = manual_annotations['url'].apply(lambda x: x.split('//')[2].split('_')[1])
+manual_annotations['same_object'] = manual_annotations['same_object'].replace({'Yes': 1, 'Not sure': .5, 'No': 0})
+manual_annotations['correct_name'] = (3 - manual_annotations['correct_name']) / 3   # scale from [3,-3] to [0,2]
+manual_annotations.rename(columns={'mn_obj_name': 'name1', 'vg_obj_name': 'name2'}, inplace=True)
+name_pairs_amore = manual_annotations.groupby(['image', 'object', 'url', 'name1', 'name2']).mean()[['correct_name', 'same_object']]
 
 print('\n-------------------')
 print("name_pairs_amore:", len(name_pairs_amore))
@@ -75,7 +73,6 @@ print('===============')
 # print()
 # print(annotations.groupby(['workerid', 'hitid'])['rating', 'correct1', 'correct2'].agg(['count', 'mean']).to_string())
 
-quit()
 
 # Explore mismaches
 print()
