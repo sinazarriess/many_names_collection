@@ -164,7 +164,7 @@ if __name__ == '__main__':
         logging.info("New hit groupId: " + hit_data['HIT']['HITGroupId'])
 
         # Sleepy time, now and then:.
-        if n_hits_published != total_rows-1 and ((n_hits_published + 1) % batch_size) == 0:
+        if n_hits_published != total_rows and (n_hits_published % batch_size) == 0:
             outname = os.path.join(out_path, 'created_%s_uptobatch%d.json' % (moment, batch_idx))
             with open(outname, 'w') as outfile:
                 json.dump(all_resulting_HITs, outfile)
