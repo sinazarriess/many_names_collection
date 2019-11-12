@@ -34,7 +34,7 @@ if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
 
 # TODO Generalize; get paths from a config argument?
-resultsdir = '1_pre-pilot/results'
+resultsdir = '1_pre-pilot/results/round0'
 
 # TODO check overwrite
 
@@ -50,6 +50,7 @@ for filename in glob.glob(os.path.join(resultsdir, '*.json')):
                 assignment['RequesterAnnotation'] = hit['RequesterAnnotation']
                 assignment.update(hit['Params'])
                 assignment['items'] = eval(assignment['items'])
+                assignment['quality_control'] = eval(assignment['quality_control'])
                 answers = {}
                 for key in assignment['Answers']:
                     answers.update(assignment['Answers'][key])
@@ -101,14 +102,14 @@ meta = ['hitid', 'requesterannotation', 'assignmentid', 'workerid']
 image_annotations = []
 for i in reversed(range(MAX_N_IMAGES)): # reversed in order for names with 10 and 1 to not interfere.
     # columns = meta + ['image_url_{}'.format(i), 'quality_control_{}'.format(i)]
-    columns = meta + ['items'] + [col for col in assignments_from_mturk.columns if col.startswith('img{}'.format(i))]
+    columns = meta + ['items', 'quality_control'] + [col for col in assignments_from_mturk.columns if col.startswith('img{}'.format(i))]
     df = assignments_from_mturk[columns].copy()
     df.columns = [col.replace('img{}-'.format(i), '').lower() for col in df.columns]
     df['names'] = df['items'].apply(lambda x: x[i][1] if len(x) > i else [])
     df['n_names'] = df['names'].apply(len)
     df['image_url'] = df['items'].apply(lambda x: x[i][0] if len(x) > i else '')
     # unobfuscate quality control
-    df['quality_control'] = df['items'].apply(lambda x: json.loads(bytes.fromhex(x[i][2]).decode('utf-8')) if len(x) > i else {})
+    df['quality_control'] = df['quality_control'].apply(lambda x: json.loads(bytes.fromhex(x[i]).decode('utf-8')) if len(x) > i else {})
     del df['items']
     image_annotations.append(df)
 
