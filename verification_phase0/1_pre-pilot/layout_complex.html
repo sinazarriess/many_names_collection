@@ -212,7 +212,6 @@ var num_names_per_image = [];
 document.addEventListener('DOMContentLoaded', function(){
 
     for (var i = 0; i < items.length; i++) {
-        MTurk_HIT_Ids.push(items[i][2]);
         images.push(items[i][0]);
         names.push(items[i][1]);
     }
@@ -408,7 +407,7 @@ function fiximages() {
 
 $(window).scroll(fiximages);
 
-var MTurk_HIT_Ids = [];
+var MTurk_HIT_Ids = ${quality_control};
 
 
 </script>
