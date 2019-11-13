@@ -1,5 +1,19 @@
-Round0:
 
+TODO:
+- Batch1:  rows 0-199 published
+    - acc/rej and block/bonus   !!! I've already blocked from batch1, based on almost-all results.
+    - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
+    - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
+- Batch2:  rows 200-299 published
+    - publish rows 300-399
+    - acc/rej and block/bonus
+- Batch3:
+    - new UTid (max 50)
+    - new title (batch 3)
+    - new out and result dirs
+
+
+Round0.1:
 UniqueTurker:
 27ba5e76d856b0a5f9a3cc21894bf87a
 (max 50)
