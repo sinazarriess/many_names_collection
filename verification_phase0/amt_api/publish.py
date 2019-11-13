@@ -30,27 +30,27 @@ def get_qualifications(config):
                 'Comparator': 'DoesNotExist',
                 'ActionsGuarded':'DiscoverPreviewAndAccept'})
 
-    # qlist.extend([
-    #     {'QualificationTypeId': '00000000000000000040',
-    #     'Comparator': 'GreaterThanOrEqualTo',
-    #     'IntegerValues': [
-    #         int(config['qualification']['approvedhits']),
-    #         ],
-    #     'ActionsGuarded':'PreviewAndAccept'},
-    #     {'QualificationTypeId': '000000000000000000L0',
-    #     'Comparator': 'GreaterThanOrEqualTo',
-    #     'IntegerValues': [
-    #         int(config['qualification']['approvalrate']),
-    #         ],'ActionsGuarded':'PreviewAndAccept'},
-    #     {'QualificationTypeId' : '00000000000000000071',
-    #             'Comparator' : 'In',
-    #             'LocaleValues' : [
-    #                 {'Country':'GB'}, {'Country':'US'},
-    #                 {'Country':'AU'}, {'Country':'CA'},
-    #                 {'Country':'IE'}, {'Country':'NZ'}
-    #                 ],
-    #             'ActionsGuarded': 'PreviewAndAccept'}
-    #     ])
+        qlist.extend([
+            {'QualificationTypeId': '00000000000000000040',
+            'Comparator': 'GreaterThanOrEqualTo',
+            'IntegerValues': [
+                int(config['qualification']['approvedhits']),
+                ],
+            'ActionsGuarded':'PreviewAndAccept'},
+            {'QualificationTypeId': '000000000000000000L0',
+            'Comparator': 'GreaterThanOrEqualTo',
+            'IntegerValues': [
+                int(config['qualification']['approvalrate']),
+                ],'ActionsGuarded':'PreviewAndAccept'},
+            {'QualificationTypeId' : '00000000000000000071',
+                    'Comparator' : 'In',
+                    'LocaleValues' : [
+                        {'Country':'GB'}, {'Country':'US'},
+                        {'Country':'AU'}, {'Country':'CA'},
+                        {'Country':'IE'}, {'Country':'NZ'}
+                        ],
+                    'ActionsGuarded': 'PreviewAndAccept'}
+            ])
 
     return qlist
 
