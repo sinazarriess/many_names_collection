@@ -38,8 +38,8 @@ if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
 
 # TODO Generalize; get paths from a config argument?
-resultsdir = '1_pre-pilot/results/batch2'
-auxdir = '1_pre-pilot/aux/batch2'
+resultsdir = '1_pre-pilot/results/batch3'
+auxdir = '1_pre-pilot/aux/batch3'
 os.makedirs(auxdir, exist_ok=True)
 
 recompute_name_annotations = not os.path.exists(auxdir + '/name_annotations.csv') or input("Recompute name annotations? y/N").lower().startswith('y')
@@ -408,6 +408,8 @@ for i, row in assignments.iterrows():
         # print('  ', row['errors_mturk'])
         # print('  ', '\n  '.join(row['mistakes']))
         # input()
+
+assignments.sort_values(by='workerid', inplace=True)
 
 print('\n---------------')
 print(assignments[:5].to_string())
