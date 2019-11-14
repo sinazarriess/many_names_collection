@@ -9,13 +9,15 @@ import numpy as np
 from collections import Counter
 import os
 
+from tqdm import tqdm
+
 
 # Remove unreliable controls
-CONTROL_RELIABILITY_THRESHOLD = .5  # Delete control if fewer than this did it correctly
+CONTROL_RELIABILITY_THRESHOLD = .2  # Delete control if fewer than this did it correctly
 
 # Approve/bonus assignments/workers
-ASSIGNMENT_APPROVAL_TRESHOLD = .8   # will approve any assignment with score higher than this (pilot1: 0.7)
-WORKER_APPROVAL_TRESHOLD = .85   # will approve all assignments even if a few assignments are crap
+ASSIGNMENT_APPROVAL_TRESHOLD = .75   # will approve any assignment with score higher than this (pilot1: 0.7)
+WORKER_APPROVAL_TRESHOLD = .9   # will approve all assignments even if a few assignments are crap
 BONUS_THRESHOLD = 1.0
 
 # Block based on assignments/workers
@@ -29,14 +31,18 @@ COULANCE = 1
 INSPECT_FAILED_CONTROLS = True
 INSPECT_REJECTED_ASSIGNMENTS = True
 
+PAY_ATTENTION_TO_WORKERS = []
+
 
 if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
 
 # TODO Generalize; get paths from a config argument?
-resultsdir = '1_pre-pilot/results/round0'
+resultsdir = '1_pre-pilot/results/batch2'
+auxdir = '1_pre-pilot/aux/batch2'
+os.makedirs(auxdir, exist_ok=True)
 
-# TODO check overwrite
+recompute_name_annotations = not os.path.exists(auxdir + '/name_annotations.csv') or input("Recompute name annotations? y/N").lower().startswith('y')
 
 # Read all assignments from the .json file from MTurk
 assignments_from_mturk = []
@@ -57,7 +63,6 @@ for filename in glob.glob(os.path.join(resultsdir, '*.json')):
                 assignment.update(answers)
                 del assignment['Answers']
                 assignments_from_mturk.append(assignment)
-
 
 assignments_from_mturk = pd.DataFrame(assignments_from_mturk)
 assignments_from_mturk.columns = [x.lower() for x in assignments_from_mturk.columns]
@@ -139,100 +144,114 @@ print(image_annotations[:5].to_string())
 print('---------------------')
 
 
-# Split dataframe into one row per name annotation
-name_annotations = []
-meta = ['hitid', 'requesterannotation', 'assignmentid', 'workerid', 'image', 'object', 'image_url', 'quality_control', 'names']
-for n in reversed(range(MAX_N_NAMES)):
-    columns = meta + ['name{}-rating'.format(n), 'name{}-type'.format(n), 'name{}-color'.format(n)]
-    df = image_annotations[columns].copy()
-    df.columns = [col.replace('name{}-'.format(n), '') for col in df.columns]
-    df['name'] = df['names'].apply(lambda x: x[n] if len(x) > n else np.nan)
-    df = df.loc[~df['name'].isna()]
-    name_annotations.append(df)
+if recompute_name_annotations:
 
-name_annotations = pd.concat(name_annotations)
+    # Split dataframe into one row per name annotation
+    name_annotations = []
+    meta = ['hitid', 'requesterannotation', 'assignmentid', 'workerid', 'image', 'object', 'image_url', 'quality_control', 'names']
+    for n in reversed(range(MAX_N_NAMES)):
+        columns = meta + ['name{}-rating'.format(n), 'name{}-type'.format(n), 'name{}-color'.format(n)]
+        df = image_annotations[columns].copy()
+        df.columns = [col.replace('name{}-'.format(n), '') for col in df.columns]
+        df['name'] = df['names'].apply(lambda x: x[n] if len(x) > n else np.nan)
+        df = df.loc[~df['name'].isna()]
+        name_annotations.append(df)
 
-# Cleanup, typing, sorting
-name_annotations.reset_index(inplace=True)
-name_annotations = name_annotations[['hitid', 'requesterannotation', 'assignmentid', 'workerid', 'image', 'object', 'name', 'rating', 'type', 'color', 'image_url', 'quality_control', 'names']]
-name_annotations['rating'] = name_annotations['rating'].astype(int)
-name_annotations['type'] = name_annotations['type'].replace({0: 'linguistic', 1: 'bounding box', 2: 'visual', 3: 'other'})
-name_annotations['color'] = name_annotations['color'].astype(int)
-name_annotations = name_annotations.sort_values(by=['workerid', 'hitid']).reset_index(drop=True)
+    name_annotations = pd.concat(name_annotations)
 
-# From 'color' column, compute list of same-colored names, and dict of same-objectness
-name_annotations['same_color'] = [[] for _ in range(len(name_annotations))]
-name_annotations['colors'] = [{} for _ in range(len(name_annotations))]
-for i, row in name_annotations.iterrows():
-    if row['color'] != -1:
-        same_color = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['color'] == row['color'])]
-        same_colored_names = same_color['name'].unique().tolist()
-    else:
-        same_colored_names = [row['name']]
-    name_annotations.at[i, 'same_color'] = same_colored_names
-    name_annotations.at[i, 'colors'].update({name: 1 if name in same_colored_names else 0 for name in name_annotations.at[i, 'names']})
+    # Cleanup, typing, sorting
+    name_annotations.reset_index(inplace=True)
+    name_annotations = name_annotations[['hitid', 'requesterannotation', 'assignmentid', 'workerid', 'image', 'object', 'name', 'rating', 'type', 'color', 'image_url', 'quality_control', 'names']]
+    name_annotations['rating'] = name_annotations['rating'].astype(int)
+    name_annotations['type'] = name_annotations['type'].replace({0: 'linguistic', 1: 'bounding box', 2: 'visual', 3: 'other'})
+    name_annotations['color'] = name_annotations['color'].astype(int)
+    name_annotations = name_annotations.sort_values(by=['workerid', 'hitid']).reset_index(drop=True)
 
-# Create 'control_type' column storing what type of quality control it is
-name_annotations['control_type'] = ""
-for i, row in name_annotations.iterrows():
-    name_annotations.at[i, 'control_type'] = "" if row['name'] not in row['quality_control'] else row['quality_control'][row['name']]
-
-del name_annotations['quality_control']
-
-
-# Check if quality control items are correct
-name_annotations['correct1'] = np.nan
-name_annotations['correct2'] = np.nan
-name_annotations['correct3'] = np.nan
-name_annotations['correct3_explanation'] = ""
-for i, row in name_annotations.iterrows():
-    if row['control_type'] == 'vg_majority':    # max 1 point
-        name_annotations.at[i, 'correct1'] = float(row['rating'] == 0)
-
-    elif row['control_type'].startswith('typo'):  # 2 points
-        original = '-'.join(row['control_type'].split('-')[1:])
-        original_row = name_annotations.loc[name_annotations['assignmentid'] == row['assignmentid']].loc[(name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object'])].loc[name_annotations['name'] == original].squeeze()
-        if row['rating'] == 0:
-            name_annotations.at[i, 'correct1'] = float(False)
-        elif row['type'] != 'linguistic':
-            if original_row['rating'] == 0:
-                name_annotations.at[i, 'correct1'] = float(False)
-            elif row['type'] != original_row['type']:
-                name_annotations.at[i, 'correct1'] = float(False)
+    # From 'color' column, compute list of same-colored names, and dict of same-objectness
+    name_annotations['same_color'] = [[] for _ in range(len(name_annotations))]
+    name_annotations['colors'] = [{} for _ in range(len(name_annotations))]
+    for i, row in name_annotations.iterrows():
+        if row['color'] != -1:
+            same_color = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['color'] == row['color'])]
+            same_colored_names = same_color['name'].unique().tolist()
         else:
-            name_annotations.at[i, 'correct1'] = float(True)
-        name_annotations.at[i, 'correct2'] = float(original in row['same_color'])
+            same_colored_names = [row['name']]
+        name_annotations.at[i, 'same_color'] = same_colored_names
+        name_annotations.at[i, 'colors'].update({name: 1 if name in same_colored_names else 0 for name in name_annotations.at[i, 'names']})
 
-    elif row['control_type'] == 'alternative':  # 1; 2 if pos
-        name_annotations.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] not in ['bounding box', 'other']))
-        positive = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['control_type'] == 'vg_majority')]
-        if len(positive) > 0:
-            name_annotations.at[i, 'correct2'] = float(positive['name'].squeeze() not in row['same_color'])
+    # Create 'control_type' column storing what type of quality control it is
+    name_annotations['control_type'] = ""
+    for i, row in name_annotations.iterrows():
+        name_annotations.at[i, 'control_type'] = "" if row['name'] not in row['quality_control'] else row['quality_control'][row['name']]
 
-    elif row['control_type'] == 'random':  # 2 points
-        name_annotations.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] != 'other'))
-        name_annotations.at[i, 'correct2'] = float(len(row['same_color']) == 1)
+    del name_annotations['quality_control']
 
-    elif row['control_type'].startswith('syn'): # 2 points
-        synonyms = row['control_type'][4:].split(',')
-        same_rating = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['rating'] == row['rating'])]['name'].unique().tolist()
-        same_type = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['type'] == row['type'])]['name'].unique().tolist()
-        name_annotations.at[i, 'correct1'] = float(not any([syn not in same_rating for syn in synonyms]))
-        if row['rating'] != 0 and name_annotations.at[i, 'correct1'] == 1:
-            name_annotations.at[i, 'correct1'] = float(not any([syn not in same_type for syn in synonyms]))
-        name_annotations.at[i, 'correct2'] = float(not any([syn not in row['same_color'] for syn in synonyms]))
 
-    else: # not a control item, but still a consistency check possible:
-        if row['rating'] == 2 and row['type'] == 'bounding box':
-            names_deemed_good = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['rating'] == 0)]['name'].unique().tolist()
-            if len(names_deemed_good) > 0:
-                good_names_same_color = [n for n in row['same_color'] if n in names_deemed_good]
-                name_annotations.at[i, 'correct3'] = float(len(good_names_same_color) == 0)
-                if not name_annotations.at[i, 'correct3']:
-                    name_annotations.at[i, 'correct3_explanation'] = row['name'] + '_' + ','.join(good_names_same_color)
+    print("Checking if quality control items are correct...")
 
-# Change how rating is represented; this is a bit risky, but it works, so let's not touch it.
-# name_annotations['rating'] = name_annotations['rating'].apply(lambda x: (2 - x) / 2)    # mapping 2 to 0, 1 to 1/2, 0 to 1.
+    # Check if quality control items are correct
+    name_annotations['correct1'] = np.nan
+    name_annotations['correct2'] = np.nan
+    name_annotations['correct3'] = np.nan
+    name_annotations['correct3_explanation'] = ""
+
+    # print(name_annotations.groupby('control_type').agg({'name': 'count'}))
+
+    for i, row in tqdm(name_annotations.iterrows()):
+        if row['control_type'] == 'vg_majority':    # max 1 point
+            name_annotations.at[i, 'correct1'] = float(row['rating'] == 0)
+
+        elif row['control_type'].startswith('typo'):  # 2 points
+            original = '-'.join(row['control_type'].split('-')[1:])
+            original_row = name_annotations.loc[name_annotations['assignmentid'] == row['assignmentid']].loc[(name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object'])].loc[name_annotations['name'] == original].squeeze()
+            if row['rating'] == 0:
+                name_annotations.at[i, 'correct1'] = float(False)
+            elif row['type'] != 'linguistic':
+                if original_row['rating'] == 0:
+                    name_annotations.at[i, 'correct1'] = float(False)
+                elif row['type'] != original_row['type']:
+                    name_annotations.at[i, 'correct1'] = float(False)
+            else:
+                name_annotations.at[i, 'correct1'] = float(True)
+            name_annotations.at[i, 'correct2'] = float(original in row['same_color'])
+
+        elif row['control_type'] == 'alternative':  # 1; 2 if pos
+            name_annotations.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] not in ['bounding box', 'other']))
+            positive = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['control_type'] == 'vg_majority')]
+            if len(positive) > 0:
+                name_annotations.at[i, 'correct2'] = float(positive['name'].squeeze() not in row['same_color'])
+
+        elif row['control_type'] == 'random':  # 2 points
+            name_annotations.at[i, 'correct1'] = float(not (row['rating'] == 0 or row['type'] != 'other'))
+            name_annotations.at[i, 'correct2'] = float(len(row['same_color']) == 1)
+
+        elif row['control_type'].startswith('syn'): # 2 points
+            synonyms = row['control_type'][4:].split(',')
+            same_rating = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['rating'] == row['rating'])]['name'].unique().tolist()
+            same_type = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['type'] == row['type'])]['name'].unique().tolist()
+            name_annotations.at[i, 'correct1'] = float(not any([syn not in same_rating for syn in synonyms]))
+            if row['rating'] != 0 and name_annotations.at[i, 'correct1'] == 1:
+                name_annotations.at[i, 'correct1'] = float(not any([syn not in same_type for syn in synonyms]))
+            name_annotations.at[i, 'correct2'] = float(not any([syn not in row['same_color'] for syn in synonyms]))
+
+        else: # not a control item, but still a consistency check possible:
+            if row['rating'] == 2 and row['type'] == 'bounding box':
+                names_deemed_good = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['image'] == row['image']) & (name_annotations['object'] == row['object']) & (name_annotations['rating'] == 0)]['name'].unique().tolist()
+                if len(names_deemed_good) > 0:
+                    good_names_same_color = [n for n in row['same_color'] if n in names_deemed_good]
+                    name_annotations.at[i, 'correct3'] = float(len(good_names_same_color) == 0)
+                    if not name_annotations.at[i, 'correct3']:
+                        name_annotations.at[i, 'correct3_explanation'] = row['name'] + '_' + ','.join(good_names_same_color)
+
+    # Change how rating is represented; this is a bit risky, but it works, so let's not touch it.
+    # name_annotations['rating'] = name_annotations['rating'].apply(lambda x: (2 - x) / 2)    # mapping 2 to 0, 1 to 1/2, 0 to 1.
+
+    name_annotations.to_csv(auxdir + '/name_annotations.csv')
+
+
+else:
+    name_annotations = pd.read_csv(auxdir + '/name_annotations.csv', converters={'control_type': str, 'same_color': eval})
+
 
 # Compute which controls are reliable (>X% correct)
 scores_per_name = name_annotations.groupby(['image', 'object', 'name']).agg({'correct1': 'mean', 'correct2': 'mean', 'correct3': 'mean', 'image_url': lambda x: x.tolist()[0], 'control_type': lambda x: x.tolist()[0], 'rating': lambda x: x.tolist(), 'type': lambda x: x.tolist(), 'same_color': lambda x: x.tolist()}).reset_index()
@@ -285,16 +304,26 @@ name_annotations.at[~name_annotations['reliable2'], 'correct2-filtered'] = np.na
 
 
 # Create assignments dataframe with some basic stats: # TODO Oh my this is ugly code...
-assignments = name_annotations.groupby(['hitid', 'requesterannotation', 'assignmentid', 'workerid']).agg({'rating': 'mean', 'color': 'mean',
+assignments = name_annotations.groupby(['hitid', 'requesterannotation', 'assignmentid', 'workerid']).agg({'rating': 'mean', 'color': 'mean', 'name': 'count',
                                                                                                      'correct1': ['count', 'sum'], 'correct2': ['count', 'sum'], 'correct3': ['count', 'sum', lambda x: x.tolist()],
-                                                                                                     'correct1-filtered': ['count', 'sum'], 'correct2-filtered': ['count', 'sum'], 'correct3-filtered': ['count', 'sum'], })
+                                                                                                     'correct1-filtered': ['count', 'sum'], 'correct2-filtered': ['count', 'sum'], 'correct3-filtered': ['count', 'sum']})
 assignments.columns = ['_'.join(tup).rstrip('_') for tup in assignments.columns.values]
+assignments.rename(columns={'name_count': 'n_annotations'}, inplace=True)
 assignments['control_score'] = (assignments['correct1_sum'] + assignments['correct2_sum'] + assignments['correct3_sum']) / (assignments['correct1_count'] + assignments['correct2_count'] + assignments['correct3_count'])
 assignments['control_score-filtered'] = (assignments['correct1-filtered_sum'] + assignments['correct2-filtered_sum'] + assignments['correct3-filtered_sum']) / (assignments['correct1-filtered_count'] + assignments['correct2-filtered_count'] + assignments['correct3-filtered_count'])
 assignments['n_controls'] = assignments['correct1_count'] + assignments['correct2_count'] + assignments['correct3_count']
 assignments['n_correct'] = assignments['correct1_sum'] + assignments['correct2_sum'] + assignments['correct3_sum']
+assignments['n_controls-filtered'] = assignments['correct1-filtered_count'] + assignments['correct2-filtered_count'] + assignments['correct3-filtered_count']
 # assignments.drop(['correct1_count', 'correct1_sum', 'correct2_count', 'correct2_sum', 'correct3_count', 'correct3_sum'], axis=1, inplace=True)
 assignments.drop(['correct1-filtered_count', 'correct1-filtered_sum', 'correct2-filtered_count', 'correct2-filtered_sum', 'correct3-filtered_count', 'correct3-filtered_sum'], axis=1, inplace=True)
+
+incomplete_assignments = assignments.loc[assignments['n_annotations'] < 10]
+if len(incomplete_assignments) > 0:
+    print("WARNING: There were {} incomplete assignments.".format(len(incomplete_assignments)))
+
+low_control_assignments = assignments.loc[assignments['n_controls-filtered'] < 8]
+if len(low_control_assignments) > 0:
+    print("WARNING: There were {} low-control (<8) assignments.".format(len(low_control_assignments)))
 
 
 # Add the control score according to M-turk:
@@ -356,10 +385,17 @@ assignments['mistakes'] = [[] for _ in range(len(assignments))]
 for i, row in assignments.iterrows():
     mistakes1 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct1'] == 0.0)][['image_url', 'name', 'control_type', 'rating', 'type']].values.tolist()
     mistakes2 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct2'] == 0.0)][['image_url', 'name', 'control_type', 'same_color']].values.tolist()
-    mistakes3 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct3'] == 0.0)][['image_url', 'name', 'control_type', 'correct3_explanation']].values.tolist()
-    mistakes1 = ["{} - {} - {}: {}".format(m[0], m[1], m[2], m[3] if m[3] == 0 else m[4]) for m in mistakes1]
-    mistakes2 = ["{} - {} - {}: {}".format(m[0], m[1], m[2], m[3]) for m in mistakes2]
-    mistakes3 = ["{} - {} - {} ~ {}".format(m[0], m[1], m[2], m[3]) for m in mistakes3]
+    mistakes3 = name_annotations.loc[(name_annotations['assignmentid'] == row['assignmentid']) & (name_annotations['correct3'] == 0.0)][['image_url', 'name', 'type', 'correct3_explanation']].values.tolist()
+    mistakes1 = ["{} - {}: must be {}; you said {}".format(m[0],
+                                                           m[1],
+                                                           m[2].replace('random', '\'other\'').replace('alternative', '\'bounding box error\'').replace('typo', '\'linguistic\'').split('-')[0],
+                                                           str(m[4]).replace('nan', '\'adequate\'').replace('random', '\'other\'').replace('visual', '\'named object misinterpreted\'').replace('bounding box', '\'bounding box error\'').replace('typo', '\'linguistic\'').split('-')[0]) for m in mistakes1]
+    mistakes2 = ["{} - {}: you erroneously gave this the same color as {}".format(m[0],
+                                                                                  m[1],
+                                                                                  m[3]) for m in mistakes2]
+    mistakes3 = ["{} - {}: you said this was a bounding box error, but gave it the same color as {}, which you said were adequate names; that cannot be.".format(m[0],
+                                                                                                                                                                 m[1],
+                                                                                                                                                                 m[3]) for m in mistakes3]
     assignments.at[i, 'mistakes'] = mistakes1 + mistakes2 + mistakes3
 assignments['n_mistakes'] = assignments['mistakes'].apply(len)
 
@@ -387,13 +423,23 @@ bonused_and_rejected = decisions_by_worker.loc[decisions_by_worker['decision2'].
 if len(bonused_and_rejected) > 0:
     print("WARNING: Some workers were both bonused and blocked/rejected:\n", bonused_and_rejected.to_string())
 
+# Inspect workers who requester feedback:
+print()
+by_selected_workers = assignments.loc[assignments['workerid'].isin(PAY_ATTENTION_TO_WORKERS)].sort_values(by='workerid')
+prev_worker = ""
+for i, row in by_selected_workers.iterrows():
+    if row['workerid'] != prev_worker:
+        print("== {} ==".format(row['workerid']))
+        prev_worker = row['workerid']
+    # print("{}: {}, {}, {}".format(row['assignmentid'], row['decision1'], row['decision2'], row['explanation']))
+    print('  ' + '\n  '.join(row['mistakes']))
+print()
 
 if INSPECT_REJECTED_ASSIGNMENTS:
     for i, row in assignments.loc[assignments['decision1'] == 'reject'].iterrows():
         print("{}, {}: assignment: {} ({}); worker mean: {} ({})".format(row['assignmentid'], row['workerid'], row['control_score-filtered'], row['control_score'], mean_score_per_worker.at[row['workerid'], 'control_score-filtered'], mean_score_per_worker.at[row['workerid'], 'control_score']))
         print('  ' + '\n  '.join(row['mistakes']))
         print()
-
 
 
 with open(os.path.join(resultsdir, 'per_name.csv'), 'w+') as outfile:
