@@ -141,7 +141,7 @@ if __name__ == '__main__':
         logging.warning("Check your initial row. I will exit now.")
         sys.exit()
 
-    batch_idx = initial_row / batch_size
+    batch_idx = initial_row / batch_size    # TODO Not quite right.
 
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
     n_hits_published = 0
@@ -172,7 +172,7 @@ if __name__ == '__main__':
             logging.info("saved batch as: " + outname)
 
             logging.info("sleeping between batches..." + time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
-            time.sleep(int(config['batch']['secondsbetween']))
+            time.sleep(eval(config['batch']['secondsbetween']))
 
             batch_idx += 1
             logging.info("wakeup ..." + time.strftime("%Y-%b-%d_%H_%M_%S", time.localtime()))
