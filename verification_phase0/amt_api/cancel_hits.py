@@ -18,6 +18,13 @@ import amt_api
 def cancel_hits(mturk, path_published):
     known_hits = []
     hits_canceled = 0
+    ## CODE FOR PANIC MODE
+    # hits_to_cancel = []
+    # for hit in hits_to_cancel:
+    #     mturk.update_expiration_for_hit(HITId=hit, ExpireAt=datetime.datetime(2018, 1, 1))
+    #     hits_canceled += 1
+    #     known_hits.append(hit)
+    # quit()
     for filename in glob.glob(os.path.join(path_published, '*_final.json')):
         print(filename)
         with open(filename, 'r') as handle:
