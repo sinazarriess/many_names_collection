@@ -1,16 +1,58 @@
 
 TODO:
-- Batch1:  rows 0-199 published
-    - acc/rej and block/bonus   !!! I've already blocked from batch1, based on almost-all results.
-    - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
-    - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
-- Batch2:  rows 200-299 published
-    - publish rows 300-399
-    - acc/rej and block/bonus
+
+### Round 1 ####
 - Batch3:
-    - new UTid (max 50)
-    - new title (batch 3)
-    - new out and result dirs
+    [STARTED] - publish rows 115-199
+    [DONE] - rows 110-114 published (then crash)
+    [DONE] - rows 100-109 published
+    [DONE] - rows 25-99 published.
+    [DONE] - rows 0-4, 5-24 published -- but canceled after a while, so need to check.
+    [DONE] - update csv
+    [DONE] - proper qualifications
+    [DONE] - new UTid (max 50)
+    [DONE] - new title (batch 3)
+    [DONE] - new out and result dirs
+
+
+Oops: HITS 0-4 published, but canceled after 20 minutes, in panic.
+Oops: HITS 5-24 published without qualifications; canceled after a minute.
+manually_approve = [
+'3P6ENY9P79WGW4YJXVH96G0JODOHIB',
+'3E6L1VR4XWMGPOCC04KK6SY1Z7GF6H',
+'3ABAOCJ4R84F5GND102V7NZ1W94MQS',
+'3PKJ68EHDNWCRFIPFD29IHFJ1SDHJN',
+'3KA7IJSNW65YMDI1AYXXT2YXFEEPBF',
+'3RZS0FBRWKAHWIA7OYTS4M4FXZEPCM',
+'3HEADTGN2PSY74WMS7SMZ9SJJOIRVF',
+'3UEDKCTP9VQA9AIVKPG9SJQ22EHK7N',
+'33P2GD6NRNS72ZO7XY2LJWFWGHDHKM',
+'3X878VYTIEIZTOQHJEPCC6YXUI0F7G',
+'3OB6JN3A9QPFHH2DEFRVCD96SV6MRT',
+'35F6NGNVM8J9CT8IEYU1TADYLR87TG',
+'31KSVEGZ34SBMTWRIHXILBBXQXKRWP',
+'372AGES0I45QBT1HSMT4NUP4ZZQRXI',
+'3O71U79SRBPRIW2QT4R02NE2EXPMSH',
+'3HO4MYYR12O58692VTFJSSZ49UVU6V',
+'3W0KKJIARR9E9ONEUU8F6JMXDYNK8A',
+'30QQTY5GMKKOC6N7E3KBY6Z045FU7U',
+'388CL5C1RJNIM56PIYEMYWSB5HIHLP',
+]
+
+
+### ROUND 0 ####
+- Batch1:  rows 0-199 published
+    [DONE] - acc/rej and block/bonus
+    [DONE] - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
+    [DONE] - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
+- Batch2:  rows 200-299 published
+    [DONE] - publish rows 300-399
+    [DONE] - acc/rej and block/bonus
+    [DONE] - emails
+TODO:
+- Future batches from 400 onwards.
+
+
 
 
 Round0.1:
