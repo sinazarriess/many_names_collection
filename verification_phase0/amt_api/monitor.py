@@ -12,7 +12,7 @@ def monitor_submission(mturk, path_published, total_hits, statuses=["Submitted"]
     '''ask AMT for results'''
     known_hits = []
     total_assignments = 0
-    
+
     publication_files = glob.glob(os.path.join(path_published, '*_final.json'))
     if len(publication_files) == 0:
         # TODO: only take latest, since it contains all previous ones, too
@@ -31,6 +31,22 @@ def monitor_submission(mturk, path_published, total_hits, statuses=["Submitted"]
                 total_assignments += len(assignments)
                 known_hits.append(item['HIT']['HITId'])
     print("%.2f%% (%d/%d) assignments." % ((total_assignments/total_hits*100), total_assignments, total_hits))
+
+
+def monitor_from_list_of_hitids():
+    total_assignments = 0
+    known_hits = []
+    manually_monitor = [
+    ]
+    for hitid in manually_monitor:
+        assignments = amt_api.get_assignments(mturk,
+                                              hitid,
+                                              statuses=statuses)
+        print("HIT/Assignments", hitid, len(assignments))
+        total_assignments += len(assignments)
+        known_hits.append(hitid)
+
+    print(len(manually_monitor), 'hits;', total_assignments, 'assigments')
 
 
 if __name__ == "__main__":

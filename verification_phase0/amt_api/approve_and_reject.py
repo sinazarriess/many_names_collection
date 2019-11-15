@@ -25,6 +25,23 @@ BONUS_FEEDBACK = 'We have awarded a bonus of ${} because you did all control ite
 ###############################
 
 
+
+def approve_from_list_of_hitids(mturk):
+    total_assignments = 0
+    known_hits = []
+    manually_approve = [
+    ]
+    for hitid in manually_approve:
+        print("HIT:", hitid)
+        assignments = amt_api.get_assignments(mturk, hitid, statuses=["Submitted"])
+        for ass in assignments:
+            r = mturk.approve_assignment(
+                AssignmentId=ass['AssignmentId'],
+                RequesterFeedback=APPROVE_FEEDBACK,
+            )
+            print("Approved", ass['AssignmentId'])
+
+
 def main():
 
     if len(sys.argv) < 2:
@@ -41,6 +58,10 @@ def main():
     assignmentspath = os.path.join(resultspath, 'per_assignment.csv')
 
     mturk = amt_api.connect_mturk(config)
+
+    ## Manual correction
+    # approve_from_list_of_hitids(mturk)
+    # quit()
 
     ## One-time correction:
     # for id in ['3JC6VJ2SABJSWDTJA7TOO55XXBO5A6']: # '['30MVJZJNHMDMYTYZ73JITKDI82E9J9', '3IHR8NYAM71HNYVLLLSB98OEV9QP4D', '3R2PKQ87NW85A2XNEU2NM542VMYMIB', '3S06PH7KSR4R62VCTUIEBG0M58W1DL', '37C0GNLMHF3MDOW9Z0UV6CR3DHM6DU']:
