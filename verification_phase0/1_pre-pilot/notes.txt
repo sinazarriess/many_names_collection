@@ -1,8 +1,24 @@
-
-TODO:
+### Round 0 cont. ###
+- Batch1:  rows 0-199 published
+    [DONE] - acc/rej and block/bonus
+    [DONE] - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
+    [DONE] - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
+- Batch2:  rows 200-299 published
+    [DONE] - publish rows 300-399
+    [DONE] - acc/rej and block/bonus
+    [DONE] - emails
+- To do:
+    [DONE, NEEDS TESTING] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
+    - Update UniqueTurker id
+    - set config back to round0, batch4 (title)
+- Batch 4: rows 400-600.  # TODO
 
 ### Round 1 ####
 - Batch3:
+    [DONE] - download results; approve/reject
+    [DONE] - publish rows 240-269
+    [DONE] - publish rows 225-239
+    [DONE] - publish rows 200-224
     [DONE] - re-publish rows 0-24 and 99
     [DONE] - publish rows 115-199
     [DONE] - rows 110-114 published (then crash)
@@ -43,18 +59,6 @@ TODO:
         '388CL5C1RJNIM56PIYEMYWSB5HIHLP',
 
 
-### ROUND 0 ####
-- Batch1:  rows 0-199 published
-    [DONE] - acc/rej and block/bonus
-    [DONE] - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
-    [DONE] - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
-- Batch2:  rows 200-299 published
-    [DONE] - publish rows 300-399
-    [DONE] - acc/rej and block/bonus
-    [DONE] - emails
-TODO:
-- Future batches from 400 onwards.
-
 
 
 
@@ -64,7 +68,7 @@ UniqueTurker:
 (max 50)
 
 sandbox: 3EM1AY4FAHYNVEJ5EPG5MLW3NONML7
-req: 34HBYQ0RIJURTKRC1MK6D17GMCNJ23
+req: 34HBYQ0RIJURTKRC1MK6D17GMCNJ23   ->  36F95TCBSAWHUSXX4JXYTTZXQ6L2MT   (improved hotdog example)
 
 
 
