@@ -134,6 +134,9 @@ if __name__ == '__main__':
     # Load data specified by config
     data = pd.read_csv(config['data']['csvfile'], sep=",", keep_default_na=False)
 
+    print("Loaded data: {} rows".format(len(data)))
+
+
     if total_rows == -1:
         total_rows = len(data)
 
