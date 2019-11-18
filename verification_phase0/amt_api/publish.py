@@ -16,13 +16,21 @@ def get_qualifications(config):
         print("this is sandbox mode, no qualifications needed")
         return qlist
 
-    if 'entry_id' in config['qualification']:
-        print("create hit with data protection qualification")
+    TESTING = False
+    if TESTING:
+        print("WARNING! Only qualifications for testing created.")
+        qlist.append({'QualificationTypeId': '3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3',
+                     'Comparator': 'Exists',
+                     'ActionsGuarded':'DiscoverPreviewAndAccept'})
 
-        qlist.append({'QualificationTypeId': config['qualification']['entry_id'],
-                      'Comparator': 'GreaterThanOrEqualTo',
-                      'IntegerValues': [100],
-                      'ActionsGuarded': 'Accept'})
+    else:
+        if 'entry_id' in config['qualification']:
+            print("create hit with data protection qualification")
+
+            qlist.append({'QualificationTypeId': config['qualification']['entry_id'],
+                          'Comparator': 'GreaterThanOrEqualTo',
+                          'IntegerValues': [100],
+                          'ActionsGuarded': 'Accept'})
 
         # do not allow turkers who have a qualification that blocks them from participating
         if 'block_id' in config['qualification']:
