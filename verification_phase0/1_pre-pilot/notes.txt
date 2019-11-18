@@ -1,3 +1,5 @@
+FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2CEUA8RLKEP25 (myself)
+
 ### Round 0 cont. ###
 - Batch1:  rows 0-199 published
     [DONE] - acc/rej and block/bonus
@@ -9,9 +11,13 @@
     [DONE] - emails
 - To do:
     [DONE, NEEDS TESTING] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
-    - Update UniqueTurker id
-    - set config back to round0, batch4 (title)
-- Batch 4: rows 400-600.  # TODO
+    [DONE] - Update UniqueTurker id --> 7730a8f983bbdb750c8008ab0f532f83 (50)
+    [DONE] - set config back to round0, batch4 (title)
+    [DONE] - experiment with approval rate 98?
+- Batch 4:
+    [DONE] - rows 400-499 published.
+    - publish 500-699
+
 
 ### Round 1 ####
 - Batch3:
