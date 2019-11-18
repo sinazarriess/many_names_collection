@@ -16,13 +16,13 @@ from tqdm import tqdm
 CONTROL_RELIABILITY_THRESHOLD = .2  # Delete control if fewer than this did it correctly
 
 # Approve/bonus assignments/workers
-ASSIGNMENT_APPROVAL_TRESHOLD = .75   # will approve any assignment with score higher than this (pilot1: 0.7)
+ASSIGNMENT_APPROVAL_TRESHOLD = .8   # will approve any assignment with score higher than this (pilot1: 0.7)
 WORKER_APPROVAL_TRESHOLD = .9   # will approve all assignments even if a few assignments are crap
 BONUS_THRESHOLD = 1.0
 
 # Block based on assignments/workers
 ASSIGNMENT_BLOCK_THRESHOLD = .6   # will block worker based on single assignment below this
-WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
+WORKER_BLOCK_THRESHOLD = .9     # will block worker based on mean below this
 
 # Some more absolute params
 NO_REJECTION = False
@@ -31,7 +31,7 @@ COULANCE = 1
 INSPECT_FAILED_CONTROLS = True
 INSPECT_REJECTED_ASSIGNMENTS = True
 
-PAY_ATTENTION_TO_WORKERS = []
+PAY_ATTENTION_TO_WORKERS = ['A3QRZPJT2CT2IK']
 
 
 if NO_REJECTION:
@@ -67,6 +67,8 @@ for filename in glob.glob(os.path.join(resultsdir, '*.json')):
 assignments_from_mturk = pd.DataFrame(assignments_from_mturk)
 assignments_from_mturk.columns = [x.lower() for x in assignments_from_mturk.columns]
 assignments_from_mturk.rename(columns={"stored_font_size": 'control_score_mturk'}, inplace=True)
+
+print("Assignments from MTurk:", len(assignments_from_mturk))
 
 MAX_N_IMAGES = max([int(col.split('-')[0][3:]) for col in assignments_from_mturk.columns if col.startswith('img')]) + 1
 MAX_N_NAMES = max([int(col.split('-')[1][4:]) for col in assignments_from_mturk.columns if col.startswith('img') and col.split('-')[1].startswith('name')]) + 1
@@ -138,8 +140,10 @@ image_annotations['image'] = image_annotations['image_url'].apply(lambda x: x.sp
 image_annotations['object'] = image_annotations['image_url'].apply(lambda x: x.split('//')[-1].split('_')[1] if x != '' else x)
 # del per_image['image_url']
 
+# print(image_annotations.groupby(['requesterannotation', 'image', 'object']).count().to_string())
+
 print('---------------------')
-print("image_annotations:", len(image_annotations))
+print("image_annotations:", len(image_annotations), "({} unique images)".format(len(image_annotations['image'].unique())))
 print(image_annotations[:5].to_string())
 print('---------------------')
 
@@ -250,7 +254,7 @@ if recompute_name_annotations:
 
 
 else:
-    name_annotations = pd.read_csv(auxdir + '/name_annotations.csv', converters={'control_type': str, 'same_color': eval})
+    name_annotations = pd.read_csv(auxdir + '/name_annotations.csv', converters={'control_type': str, 'same_color': eval}, index=False)
 
 
 # Compute which controls are reliable (>X% correct)
