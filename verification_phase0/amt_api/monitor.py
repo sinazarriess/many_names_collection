@@ -8,7 +8,7 @@ import configparser
 
 import amt_api
 
-def monitor_submission(mturk, path_published, total_hits, statuses=["Submitted"]):
+def monitor_submission(mturk, path_published, assignments_per_hit, statuses=["Submitted"]):
     '''ask AMT for results'''
     known_hits = []
     total_assignments = 0
@@ -30,7 +30,7 @@ def monitor_submission(mturk, path_published, total_hits, statuses=["Submitted"]
                 print("HIT/Assignments",item['HIT']['HITId'], len(assignments))
                 total_assignments += len(assignments)
                 known_hits.append(item['HIT']['HITId'])
-    print("%.2f%% (%d/%d) assignments." % ((total_assignments/total_hits*100), total_assignments, total_hits))
+    print("%.2f%% (%d/%d) assignments." % ((total_assignments/(len(known_hits)*assignments_per_hit)*100), total_assignments, len(known_hits)*assignments_per_hit))
 
 
 def monitor_from_list_of_hitids():
@@ -62,9 +62,6 @@ if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read(configfile)
 
-    # TODO This doesn't work if there are multiple json files.
-    total_hits = int(config["batch"]["total_rows"]) * int(config["hit"]["maxassignments"])
-
     basepath = os.path.dirname(configfile)
     out_path = os.path.join(basepath, config['data']['admindir'])
 
@@ -76,7 +73,7 @@ if __name__ == "__main__":
 
     statuses = ["Submitted", "Approved"]    # TODO Extend functionality; print statuses of HITs; annotations...
     while n_steps < max_steps:
-        monitor_submission(mturk, out_path, total_hits, statuses=statuses)
+        monitor_submission(mturk, out_path, int(config["hit"]["maxassignments"]), statuses=statuses)
         print("*****")
         time.sleep(200)
 
