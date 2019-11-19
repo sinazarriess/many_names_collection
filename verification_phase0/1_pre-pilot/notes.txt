@@ -10,13 +10,21 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE] - acc/rej and block/bonus
     [DONE] - emails
 - To do:
-    [DONE, NEEDS TESTING] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
+    [DONE] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
     [DONE] - Update UniqueTurker id --> 7730a8f983bbdb750c8008ab0f532f83 (50)
     [DONE] - set config back to round0, batch4 (title)
     [DONE] - experiment with approval rate 98?
 - Batch 4:
-    [DONE] - rows 400-499 published.
-    - publish 500-699
+    [DONE] - rows 400-419  (aborted, so no FINAL.json)
+    [DONE] - rows 420-599 published.
+    [DONE] - rows 600-799
+    [DONE] - get results, approve, reject, block
+    [DONE] - emails
+- Batch 5:
+    [DONE] - update UniqueTurker
+    [DONE] - update title
+    [IN PROGRESS] - rows 800-999
+    - rows 1000-1047 (?)
 
 
 ### Round 1 ####
