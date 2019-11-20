@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-BATCHES = [1,2,3,4,5]
+BATCHES = [3]
 out_path = '1_pre-pilot/results/merged_{}'.format('-'.join([str(x) for x in BATCHES]))
 os.makedirs(out_path, exist_ok=True)
 
@@ -42,6 +42,10 @@ assignments = assignments[columns]
 
 print("\n-------------")
 print('assignments:', len(assignments))
+print('hits:', len(assignments['hitid'].unique()))
+print('workers:', len(assignments['workerid'].unique()))
+print('rejections:', len(assignments.loc[assignments['decision1'] == 'reject']))
+print('bonuses:', len(assignments.loc[assignments['decision2'] == 'bonus']))
 print(assignments[:5].to_string())
 print("-------------")
 
