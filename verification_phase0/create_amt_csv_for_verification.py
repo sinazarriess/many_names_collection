@@ -17,8 +17,8 @@ import json
 from nltk.corpus import wordnet as wn
 
 
-PHASE = "round0" # "pre-pilot" # "round0" "round1" None
-IMAGES_PER_HIT = 6
+PHASE = "round2" # "pre-pilot" # "round0" "round1" None
+IMAGES_PER_HIT = 7
 
 REMOVE_SYNONYMS = False
 MIN_CONTROL_PERCENTAGE = .1
@@ -267,6 +267,13 @@ def main():
                 with open('test_imgids/bottomup.nottrain.imgids') as imgids:
                     imgids = [int(s.strip()) for s in imgids]
             df = df.loc[df['vg_img_id'].isin(imgids)]
+
+        elif PHASE == "round2":
+            with open('test_imgids/bottomup.nottopMN.imgids') as imgids:
+                imgids0 = [int(s.strip()) for s in imgids]
+            with open('test_imgids/bottomup.nottrain.imgids') as imgids:
+                imgids1 = [int(s.strip()) for s in imgids]
+            df = df.loc[~(df['vg_img_id'].isin(imgids0)) & ~(df['vg_img_id'].isin(imgids1))]
 
         # For pilot, restrict to only already annotated images
         elif "pilot" in PHASE:
