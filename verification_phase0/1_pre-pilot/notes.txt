@@ -1,36 +1,15 @@
 FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2CEUA8RLKEP25 (myself)
 
 ### Round 0 cont. ###
-- Batch1:  rows 0-199 published
+- Batch1 (round 0):  rows 0-199 published
     [DONE] - acc/rej and block/bonus
     [DONE] - Get back to Abbie A2Q3FS9G8ITCN7 on what she did wrong
     [DONE] - Get back to Kimberlea AK1Y09TWU3IQ6 on what she did wrong and answer her other questions
-- Batch2:  rows 200-299 published
+- Batch2 (round 0):  rows 200-299 published
     [DONE] - publish rows 300-399
     [DONE] - acc/rej and block/bonus
     [DONE] - emails
-- To do:
-    [DONE] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
-    [DONE] - Update UniqueTurker id --> 7730a8f983bbdb750c8008ab0f532f83 (50)
-    [DONE] - set config back to round0, batch4 (title)
-    [DONE] - experiment with approval rate 98?
-- Batch 4:
-    [DONE] - rows 400-419  (aborted, so no FINAL.json; copied into the other one)
-    [DONE] - rows 420-599 published.
-    [DONE] - rows 600-799
-    [DONE] - get results, approve, reject, block
-    [DONE] - emails
-- Batch 5:
-    [DONE] - update UniqueTurker
-    [DONE] - update title
-    [DONE] - publish rows 800-999
-    [DONE] - rows 1000-1047
-    [DONE] - get results, approve, reject, block
-    [DONE] - emails
-
-
-### Round 1 ####
-- Batch3:
+- Batch3 (round 1):
     [DONE] - download results; approve/reject
     [DONE] - publish rows 240-269
     [DONE] - publish rows 225-239
@@ -46,6 +25,32 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE] - new UTid (max 50)
     [DONE] - new title (batch 3)
     [DONE] - new out and result dirs
+- To do:
+    [DONE] - Improve Hotdog example --> new LayoutId 36F95TCBSAWHUSXX4JXYTTZXQ6L2MT
+    [DONE] - Update UniqueTurker id --> 7730a8f983bbdb750c8008ab0f532f83 (50)
+    [DONE] - set config back to round0, batch4 (title)
+    [DONE] - experiment with approval rate 98?
+- Batch 4 (round 0):
+    [DONE] - rows 400-419  (aborted, so no FINAL.json; copied into the other one)
+    [DONE] - rows 420-599 published.
+    [DONE] - rows 600-799
+    [DONE] - get results, approve, reject, block
+    [DONE] - emails
+- Batch 5 (round 0):
+    [DONE] - update UniqueTurker
+    [DONE] - update title
+    [DONE] - publish rows 800-999
+    [DONE] - rows 1000-1047
+    [DONE] - get results, approve, reject, block
+    [DONE] - emails
+- Batch 6 (round2)
+    [DONE] - create amt csv for round2
+    [DONE] - update Uniqueturker (n=100)
+    [DONE] - update title
+    [ONGOING] - publish rows 0-400
+    - get results
+    - emails
+    - approve, reject
 
 
 [DONE] Oops: HITS 0-4 published, but canceled after 20 minutes, in panic. HITS 5-24 published without qualifications; canceled after a minute. These were manually approved; no bonus; no block; results ignored.
