@@ -57,12 +57,14 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE] - update title "unicorn"
     [DONE] - update result and out dirs
     [DONE; ERROR! CANCELLED] - publish rows 500-599 at once
-    [ONGOING; ERROR! CANCELLED at... 710?] - publish 600-999
+    [DONE; ERROR! CANCELLED at... 710?] - publish 600-999
     [DONE] - publish rows 500-599 at once
     [ONGOING] - publish 600-999 10 every 10 minutes
+    [DONE] - publish 1000-1099 because none were available
     - get results
     - emails
     - approve, reject
+    - reject any assignments for the erroneous HITs.
 
 
 [DONE] Oops: HITS 0-4 published, but canceled after 20 minutes, in panic. HITS 5-24 published without qualifications; canceled after a minute. These were manually approved; no bonus; no block; results ignored.
