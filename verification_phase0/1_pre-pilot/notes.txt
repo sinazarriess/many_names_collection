@@ -45,9 +45,21 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE] - emails
 - Batch 6 (round2)
     [DONE] - create amt csv for round2
-    [DONE] - update Uniqueturker (n=100)
-    [DONE] - update title
-    [ONGOING] - publish rows 0-400
+    [DONE] - update Uniqueturker (n=100)   5ef3cc79319628dc8e502407738fd1ea
+    [DONE] - update title "magpie"
+    [DONE] - publish rows 0-399
+    [DONE] - publish rows 400-499  because none were available
+    [DONE] - get results
+    [DONE] - emails
+    [DONE] - approve, reject
+- Batch 7 (round2):
+    [DONE] - update UniqueTurker (n=100)  acc9131e45110edbe3c7722a2a024f8d
+    [DONE] - update title "unicorn"
+    [DONE] - update result and out dirs
+    [DONE; ERROR! CANCELLED] - publish rows 500-599 at once
+    [ONGOING; ERROR! CANCELLED at... 710?] - publish 600-999
+    [DONE] - publish rows 500-599 at once
+    [ONGOING] - publish 600-999 10 every 10 minutes
     - get results
     - emails
     - approve, reject
