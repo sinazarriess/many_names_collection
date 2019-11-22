@@ -1,3 +1,8 @@
+TODO:
+- Email from Sean; AO33H4GL9KZX9 -- what did he do wrong?
+- Check if any non-approved assignments remain
+- Check which assignments to REDO
+
 FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2CEUA8RLKEP25 (myself)
 
 ### Round 0 cont. ###
@@ -75,8 +80,7 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE] - reject (?) any (none!) assignments for the erroneous HITs.
 - Batch 7 wrong-starting-id:
     [DONE] - 1 assignment; approved
-- Email from Sean; AO33H4GL9KZX9 -- what did I do wrong?
-- Check if any non-approved assignments remain
+
 
 [DONE] Oops: HITS 0-4 published, but canceled after 20 minutes, in panic. HITS 5-24 published without qualifications; canceled after a minute. These were manually approved; no bonus; no block; results ignored.
         '39O6Z4JLX2XI40IY16YEORE7K52XVG',
