@@ -71,6 +71,16 @@ def main():
     #      print(id, "approved")
     # quit()
 
+    # r = mturk.send_bonus(
+    #     WorkerId='A3MF8KW2U865HE',
+    #     BonusAmount=BONUS_AMOUNT,
+    #     AssignmentId='3XIQGXAUMC8JFUFV9A0Z6XUS1XZ7X2',
+    #     Reason=BONUS_FEEDBACK,
+    #     UniqueRequestToken='3XIQGXAUMC8JFUFV9A0Z6XUS1XZ7X2',
+    # )
+    # print(r)
+    # quit()
+
     assignments = pd.read_csv(assignmentspath)
 
     if 'block_id' in config['qualification']:
