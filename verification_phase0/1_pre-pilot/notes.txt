@@ -59,13 +59,24 @@ FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2C
     [DONE; ERROR! CANCELLED] - publish rows 500-599 at once
     [DONE; ERROR! CANCELLED at... 710?] - publish 600-999
     [DONE] - publish rows 500-599 at once
-    [ONGOING] - publish 600-999 10 every 10 minutes
+    [DONE] - publish 600-999 10 every 10 minutes
     [DONE] - publish 1000-1099 because none were available
-    - get results
-    - emails
-    - approve, reject
-    - reject any assignments for the erroneous HITs.
-
+    [DONE] - get results
+    [DONE] - emails
+    [DONE] - approve, reject
+- Batch 8 (round2)
+    [DONE] - update Uniqueturker (n=120)
+    [DONE] - publish 1100-1199
+    [DONE] - publish 1200 up to 1713 (20 every 10 minutes)
+    [DONE] - get reults
+    [DONE] - emails
+    [DONE] - approve, reject
+- Batch 7 bugged:
+    [DONE] - reject (?) any (none!) assignments for the erroneous HITs.
+- Batch 7 wrong-starting-id:
+    [DONE] - 1 assignment; approved
+- Email from Sean; AO33H4GL9KZX9 -- what did I do wrong?
+- Check if any non-approved assignments remain
 
 [DONE] Oops: HITS 0-4 published, but canceled after 20 minutes, in panic. HITS 5-24 published without qualifications; canceled after a minute. These were manually approved; no bonus; no block; results ignored.
         '39O6Z4JLX2XI40IY16YEORE7K52XVG',
