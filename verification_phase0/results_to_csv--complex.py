@@ -22,7 +22,7 @@ BONUS_THRESHOLD = 1.0
 
 # Block based on assignments/workers
 ASSIGNMENT_BLOCK_THRESHOLD = .6   # will block worker based on single assignment below this
-WORKER_BLOCK_THRESHOLD = .9     # will block worker based on mean below this
+WORKER_BLOCK_THRESHOLD = .85     # will block worker based on mean below this
 
 # Some more absolute params
 NO_REJECTION = False
@@ -31,15 +31,15 @@ COULANCE = 1
 INSPECT_FAILED_CONTROLS = True
 INSPECT_REJECTED_ASSIGNMENTS = True
 
-PAY_ATTENTION_TO_WORKERS = ['A3QRZPJT2CT2IK']
+PAY_ATTENTION_TO_WORKERS = ['A2J2P9JE374XCM', 'A19TD2J8506A4Y']
 
 
 if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
 
 # TODO Generalize; get paths from a config argument?
-resultsdir = '1_pre-pilot/results/batch3'
-auxdir = '1_pre-pilot/aux/batch3'
+resultsdir = '1_pre-pilot/results/batch7-wrong-starting-id'
+auxdir = '1_pre-pilot/aux/batch7-wrong-starting-id'
 os.makedirs(auxdir, exist_ok=True)
 
 recompute_name_annotations = not os.path.exists(auxdir + '/name_annotations.csv') or input("Recompute name annotations? y/N").lower().startswith('y')
@@ -164,7 +164,7 @@ if recompute_name_annotations:
     name_annotations = pd.concat(name_annotations)
 
     # Cleanup, typing, sorting
-    name_annotations.reset_index(inplace=True)
+    name_annotations.reset_index(inplace=True, drop=True)
     name_annotations = name_annotations[['hitid', 'requesterannotation', 'assignmentid', 'workerid', 'image', 'object', 'name', 'rating', 'type', 'color', 'image_url', 'quality_control', 'names']]
     name_annotations['rating'] = name_annotations['rating'].astype(int)
     name_annotations['type'] = name_annotations['type'].replace({0: 'linguistic', 1: 'bounding box', 2: 'visual', 3: 'other'})
@@ -211,7 +211,9 @@ if recompute_name_annotations:
             if row['rating'] == 0:
                 name_annotations.at[i, 'correct1'] = float(False)
             elif row['type'] != 'linguistic':
-                if original_row['rating'] == 0:
+                if isinstance(original_row['rating'], pd.Series):
+                    print("Skipping control item because it's weird.", original_row)
+                elif original_row['rating'] == 0:
                     name_annotations.at[i, 'correct1'] = float(False)
                 elif row['type'] != original_row['type']:
                     name_annotations.at[i, 'correct1'] = float(False)
@@ -250,15 +252,21 @@ if recompute_name_annotations:
     # Change how rating is represented; this is a bit risky, but it works, so let's not touch it.
     # name_annotations['rating'] = name_annotations['rating'].apply(lambda x: (2 - x) / 2)    # mapping 2 to 0, 1 to 1/2, 0 to 1.
 
-    name_annotations.to_csv(auxdir + '/name_annotations.csv')
+    name_annotations.to_csv(auxdir + '/name_annotations.csv', index=False)
 
 
 else:
-    name_annotations = pd.read_csv(auxdir + '/name_annotations.csv', converters={'control_type': str, 'same_color': eval}, index=False)
+    name_annotations = pd.read_csv(auxdir + '/name_annotations.csv', converters={'control_type': str, 'same_color': eval, 'colors': eval})
+
+
+print('\n---------------------')
+print("name_annotations:", len(name_annotations))
+print(name_annotations[:5].to_string())
+print('---------------------')
 
 
 # Compute which controls are reliable (>X% correct)
-scores_per_name = name_annotations.groupby(['image', 'object', 'name']).agg({'correct1': 'mean', 'correct2': 'mean', 'correct3': 'mean', 'image_url': lambda x: x.tolist()[0], 'control_type': lambda x: x.tolist()[0], 'rating': lambda x: x.tolist(), 'type': lambda x: x.tolist(), 'same_color': lambda x: x.tolist()}).reset_index()
+scores_per_name = name_annotations.groupby(['image', 'object', 'name']).agg({'correct1': 'mean', 'correct2': 'mean', 'correct3': 'mean', 'image_url': lambda x: x.tolist()[0], 'control_type': lambda x: x.tolist()[0], 'rating': lambda x: x.tolist(), 'type': lambda x: x.tolist(), 'same_color': lambda x: x.tolist(), 'colors': lambda x: x.tolist()}).reset_index()
 scores_per_name['reliable1'] = scores_per_name['correct1'] >= CONTROL_RELIABILITY_THRESHOLD
 scores_per_name['reliable2'] = scores_per_name['correct2'] >= CONTROL_RELIABILITY_THRESHOLD
 reliable1_controls = scores_per_name.loc[scores_per_name['reliable1']][['image', 'object', 'name']].values.tolist()
@@ -271,16 +279,30 @@ for i, row in name_annotations.iterrows():
     if [row['image'], row['object'], row['name']] not in reliable2_controls:
         name_annotations.at[i, 'reliable2'] = False
 
-print('\n---------------------')
-print("name_annotations:", len(name_annotations))
-print(name_annotations[:5].to_string())
-print('---------------------')
-
 # Some summary stats
 scores_per_name.reset_index(inplace=True)
 scores_per_name['control_type_trimmed'] = scores_per_name['control_type'].apply(lambda x: x.split('-')[0])
 print("Control reliability:")
 print(scores_per_name.groupby(['reliable1', 'reliable2', 'control_type_trimmed']).count())
+
+# name_pairs = []
+# columns = ['round', 'image', 'object', 'url', 'workerid', 'name1', 'name2', 'correct_name', 'error_type', 'same_object']
+# for i, row in name_annotations.iterrows():
+#     for name in row['colors']:
+#         name_pairs.append([row['round'], row['image'], row['object'], row['image_url'], row['workerid'], row['name'], name, row['rating'], row['type'], row['colors'][name]])
+# name_pairs = pd.DataFrame(name_pairs, columns=columns).groupby(['round', 'image', 'object', 'url', 'name1', 'name2']).mean()
+# name_pairs.reset_index(level=0, inplace=True)
+
+print("Inter-annotator agreement")
+# Are these stats biased towards images with more names? They are counted more times... Then again, there are more names there to agree or not agree on.
+scores_per_name['type'] = scores_per_name['type'].apply(lambda x: [str(t) for t in x])
+scores_per_name['rating_agreement_cat'] = scores_per_name['rating'].apply(lambda x: sum([(x.count(score)*(x.count(score)-1)) / (len(x)*(len(x)-1)) for score in [0,1,2]]))
+scores_per_name['rating_agreement_std'] = scores_per_name['rating'].apply(np.std)
+scores_per_name['type_agreement'] = scores_per_name['type'].apply(lambda x: sum([(x.count(score)*(x.count(score)-1)) / (len(x)*(len(x)-1)) for score in ['nan', 'linguistic', 'bounding box', 'visual', 'other']]))
+scores_per_name['colors'] = scores_per_name['colors'].apply(lambda x: {key: [d[key] for d in x] for key in x[0]})
+scores_per_name['colors_agreement'] = scores_per_name['colors'].apply(lambda x: [sum([(x[k].count(score)*(x[k].count(score)-1)) / (len(x[k])*(len(x[k])-1)) for score in [0, 1]]) for k in x])
+scores_per_name['colors_agreement'] = scores_per_name['colors_agreement'].apply(lambda x: sum(x) / len(x))
+print(scores_per_name[['rating_agreement_cat', 'rating_agreement_std', 'type_agreement', 'colors_agreement']].mean())
 print()
 
 # Inspect unreliable controls
@@ -328,6 +350,7 @@ if len(incomplete_assignments) > 0:
 low_control_assignments = assignments.loc[assignments['n_controls-filtered'] < 8]
 if len(low_control_assignments) > 0:
     print("WARNING: There were {} low-control (<8) assignments.".format(len(low_control_assignments)))
+    print(low_control_assignments['n_controls-filtered'].to_list())
 
 
 # Add the control score according to M-turk:
@@ -429,27 +452,31 @@ bonused_and_rejected = decisions_by_worker.loc[decisions_by_worker['decision2'].
 if len(bonused_and_rejected) > 0:
     print("WARNING: Some workers were both bonused and blocked/rejected:\n", bonused_and_rejected.to_string())
 
+print("Num workers with filtered score == 1, but mturk score < .9:", len(assignments.loc[(assignments['control_score_mturk'] < .9) & assignments['control_score-filtered'] == 1]))
+
+
 # Inspect workers who requester feedback:
 print()
+print("Workers to pay attention to:")
 by_selected_workers = assignments.loc[assignments['workerid'].isin(PAY_ATTENTION_TO_WORKERS)].sort_values(by='workerid')
 prev_worker = ""
 for i, row in by_selected_workers.iterrows():
     if row['workerid'] != prev_worker:
         print("== {} ==".format(row['workerid']))
         prev_worker = row['workerid']
-    # print("{}: {}, {}, {}".format(row['assignmentid'], row['decision1'], row['decision2'], row['explanation']))
+    print("{}: {}, {}, {}".format(row['assignmentid'], row['decision1'], row['decision2'], row['explanation']))
     print('  ' + '\n  '.join(row['mistakes']))
 print()
 
 if INSPECT_REJECTED_ASSIGNMENTS:
+    print("Rejected assignments:")
     for i, row in assignments.loc[assignments['decision1'] == 'reject'].iterrows():
         print("{}, {}: assignment: {} ({}); worker mean: {} ({})".format(row['assignmentid'], row['workerid'], row['control_score-filtered'], row['control_score'], mean_score_per_worker.at[row['workerid'], 'control_score-filtered'], mean_score_per_worker.at[row['workerid'], 'control_score']))
         print('  ' + '\n  '.join(row['mistakes']))
         print()
 
-
 with open(os.path.join(resultsdir, 'per_name.csv'), 'w+') as outfile:
-    scores_per_name.to_csv(outfile)
+    scores_per_name.to_csv(outfile, index=False)
     print("Stats per name written to", outfile.name)
 
 ## Writing non-anonymous files
@@ -469,7 +496,7 @@ for i, workerid in enumerate(name_annotations_anon['workerid'].unique()):
     assignments_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
 
 with open(os.path.join(resultsdir, 'name_annotations_ANON.csv'), 'w+') as outfile:
-    name_annotations_anon.to_csv(outfile)
+    name_annotations_anon.to_csv(outfile, index=False)
     print("Anonymized name annotations written to", outfile.name)
 
 with open(os.path.join(resultsdir, 'per_assignment_ANON.csv'), 'w+') as outfile:
