@@ -6,13 +6,13 @@ from collections import Counter
 
 
 BATCHES = [1,2,3,4,5,6,7,8]
-out_path = '1_pre-pilot/results/merged_{}'.format('-'.join([str(x) for x in BATCHES]))
+out_path = '1_crowdsourced/results/merged_{}'.format('-'.join([str(x) for x in BATCHES]))
 os.makedirs(out_path, exist_ok=True)
 
 if os.path.exists(out_path) and input("Recompute & overwrite merged csv files? y/N").lower().startswith('y'):
 
-    name_annotations_paths = [(i, '1_pre-pilot/results/batch{}/name_annotations.csv'.format(i)) for i in BATCHES]
-    assignments_paths = [(i, '1_pre-pilot/results/batch{}/per_assignment.csv'.format(i)) for i in BATCHES]
+    name_annotations_paths = [(i, '1_crowdsourced/results/batch{}/name_annotations.csv'.format(i)) for i in BATCHES]
+    assignments_paths = [(i, '1_crowdsourced/results/batch{}/per_assignment.csv'.format(i)) for i in BATCHES]
 
     print("Merging dataframes...")
 
