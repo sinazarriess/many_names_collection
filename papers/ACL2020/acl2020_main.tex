@@ -1,0 +1,269 @@
+%
+% File acl2020.tex
+%
+%% Based on the style files for ACL 2020, which were
+%% Based on the style files for ACL 2018, NAACL 2018/19, which were
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2020}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{color, colortbl}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{latexsym}
+\usepackage{multirow}
+\usepackage{times}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+\renewcommand{\UrlFont}{\ttfamily\small}
+
+%\usepackage{microtype}
+
+%\aclfinalcopy % Uncomment this line for the final submission
+%\def\aclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//gbt: #1//}}}
+\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
+\newcommand{\mw}[1]{\textcolor{orange!60!black}{\emph{//mw: #1//}}}
+
+% To streamline frequently used terms:
+\newcommand{\mn}{ManyNames\xspace}
+
+\title{Something with Objects and Names}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+%\input{introduction}
+
+\begin{itemize}
+	\item Real-world objects, being members of many categories, can be called by many names. Nonetheless, humans have a preferred name which they use to call an object (CITE) (\textsl{entry-level name}). 
+	\item ...
+	\item ...
+	\item ...
+	\item We adopt an empirical view on the notion of entry-level name, and define it  as the most frequently given name by humans who were asked to name an object depicted in an image. 
+	\item ...
+	\item ...
+	\item This paper:
+	\item We address the problem of (entry-level) object naming, and use the \mn dataset that provides many name annotations per object to obtain entry-level names and their alternatives for each object instance. 
+	\item Contributions are XXX:
+	\item[(1)] We obtain verified name responses for each object in \mn, along with name sets of originally wrongly identified objects. 
+	\item We provide an analysis of naming variation: Agreement, number of alternatives, ...
+	\item[(2)] ...
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related}
+%\input{related}
+
+[Sectioning to be revised]
+
+\paragraph{(Entry-Level) Object Names}
+Cognitive Science/psycholinguistics:\\
+- levels of specificity\\
+- basic-level vs. entry-level\\
+- object naming studies
+Language + Vision:\\
+Ordonez et al., Zarriess \& Schlangen, ... \\
+- Our work: empirical notion of entry-level
+
+\paragraph{Visual Object Recognition in Computer Vision}
+- Object detection, using pre-trained features representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
+- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image)\\
+- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
+
+
+\section{ManyNames: Entry-Level Names and their Alternatives}
+\label{sec:manynames}
+\input{manynames}
+
+
+\section{Experiments}
+\label{sec:experiments}
+%\input{experiments}
+\iffalse
+\cs{under construction}
+\begin{itemize}
+	\item Object detection models in CV have different goal than L+V object recognition models (see related work--former is on labels, latter on predicting natural language). 
+	However, the former, pre-trained towards labels, are the backbone / used as feature extractors for the latter.
+	\item ... 
+	\item As we explained, there is a high variation of object names, and objects may be named by multiple alternative names (\cs{vocab size MN vs. vocab size VG for same object set}). 
+	Yet, humans usually have a clearly preferred name for individual object instances (and the set of those is relatively small)--humans agree on a particular name for an instance (entry-level name).
+	\item Hence, to model human object naming, datasets with many/dozens of annotations for the same instance are required. 
+	\item We argue that such datasets are more reliable in that they provide empirically derived preferred names (entry-level names), and richer--the provide valid name alternatives. 
+	\item But since their elicitation is expensive and time-consuming, it is not realistic to create training datasets of dozens of object names for pre-training features with CV models, which need a huge amount of training data. 
+\end{itemize}
+\fi
+
+We propose to use datasets of object names for evaluating models on the task of object naming (depending on results: also valuable for comparing object detection/image classification models).
+Specifically, we analyse object detection [and classification] models on the task of human object naming, using the \mn dataset as test data:\\
+Can object detection models, trained on arbitrary names, account for human object naming?
+\begin{itemize}
+	\item Do they predict the entry-level name?
+	\item Are valid name alternatives among the top-N predictions?
+	\item Do models make similar mistakes as humans when being faced with the task of naming highlighted objects in images [i.e.,\ the artificial setup of object naming for data annotation]?\\
+	-- naming an alternative object (maybe more salient)\\
+	-- predicting a semantically related name
+	%do we get different evaluation results when testing existing object classification models on preferred responses from name distributions, as compared to naming responses collected from 1-3 workers (e.g., VisualGenome)? 
+	\item Can we use \mn as fine-tuning dataset? (Here: only Vanilla model)\\
+	-- can we learn entry-level names by fine-tuning object detection models on \mn?\\
+	-- Can we directly learn entry-level names by fine-tuning image classification models on \mn, i.e.,\ the pre-trained features to initialize object detection models?
+\end{itemize}
+
+
+
+\subsection{Predicting Entry-Level Names}
+\label{sect:exp_entry}
+Question: Can object detection models trained on a set of "arbitrarily" chosen object names account for entry-level object names? 
+
+Note that the source dataset for defining the vocabulary (\textsl{Vocab}, i.e.,\ the overall set of considered names, i.e., the softmax layer's dimensions), and the source dataset which provides the ground truth names for the individual objects (\textsl{GTtrain}) may differ.  
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{l|c|r@{~}r@{~}r@{~}r@{~}r@{~}r|@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}}
+		\toprule
+		&   & \multicolumn{6}{c}{All Test Images ($\#$)} 
+		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\	
+		Model--Vocab	 
+		&  GTtrain &  =VG & =MN & $\in$MN  & KL & MRR & HL 
+		&  =VG & =MN & $\in$MN  & KL & MRR & HL\\ 
+		\midrule
+		FRCNN--VG2500 & VG \\
+		FRCNN--VG1600 & VG \\
+		FRCNN--MN442 & VG \\
+		\midrule \midrule
+		& \multicolumn{12}{c}{Classifiers: Fine-tuning pre-trained image features on \mn}\\
+		Features--Vocab & GTtrain  \\
+		\midrule 
+		FRCNN--VG1600--XX1600 & MN \\
+		FRCNN--VG1600--MN442 &  MN \\
+		ResNet101--VG1600 & VG \\
+		ResNet101--VG1600 & MN \\
+		ResNet101--MN442 & VG \\
+		ResNet101--MN442 & MN \\
+		\bottomrule
+	\end{tabular}
+	\caption{Target vocabulary in test data: MN442. Vocab denotes the dataset from which the target vocabulary for training was induced (the numbers give the size of the vocabulary). GTtrain denotes the dataset from which the ground truth labels are obtained during \textit{training}. MRR is mean reciprocal rank; HL is Hamming loss.\label{tab:entrylevels}. }
+\end{table*}
+
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{l@{~}|rrrr}
+		\toprule
+		... \\
+		\midrule
+		Domain	 & ... \\ 
+		\midrule
+		All           \\
+		home           \\
+		food           \\
+		buildings      \\
+		vehicles       \\
+		animals\_plants \\
+		clothing       \\
+		people         \\
+		\bottomrule
+	\end{tabular}
+	\caption{RESULTS FOR SELECTED MODELS \label{tab:domains_bestmodel}}
+\end{table*}
+
+\subsection{Humans vs. Models: Which Mistakes do they Make?}
+\label{sect:exp_analysis}
+
+\paragraph{Categorisation of Errors}
+see Figure\ ref{fig:mistakes}
+\begin{enumerate}
+	\item Clear mistake \\
+	e.g.,\ rice vs. bread
+	\item Alternative name\\
+	e.g.,\ building vs. house
+	\item Alternative object \cs{(other cluster from verif data)}
+	\item Synonym\\
+	e.g.\ plane vs. airplane
+	\item Semantically related\\
+	e.g.\  motorcycle vs. scooter
+\end{enumerate}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=.2]{images/2323938.jpg}
+	\includegraphics[scale=.2]{images/2322259.jpg}
+	\includegraphics[scale=.2]{images/2371657.jpg}
+	
+	\caption{resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes}}
+\end{figure}
+
+\subsection{Generalization Ability: OpenImages}
+\label{sect:exp_openimages}
+Question: Can models trained towards \mn generalize to other, related datasets? Here: OpenImages. \cs{[Increase coverage with zero-shot learning?]}\
+
+Models compared: FRCNN--VG1600 vs. FRCNN--MN442 vs. ResNet101--XX (best Vanilla).
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+%\bibliography{BLA}
+%\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Appendices}
+\label{sec:appendix}
+Appendices are material that can be read, and include lemmas, formulas, proofs, and tables that are not critical to the reading and understanding of the paper. 
+Appendices should be \textbf{uploaded as supplementary material} when submitting the paper for review.
+Upon acceptance, the appendices come after the references, as shown here.
+
+\paragraph{\LaTeX-specific details:}
+Use {\small\verb|\appendix|} before any appendix section to switch the section numbering over to letters.
+
+
+\section{Supplemental Material}
+\label{sec:supplemental}
+Supplementary material may report preprocessing decisions, model parameters, and other details necessary for the replication of the experiments reported in the paper.
+Seemingly small preprocessing decisions can sometimes make a large difference in performance, so it is crucial to record such decisions to precisely characterize state-of-the-art methods. 
+
+
+\end{document}
