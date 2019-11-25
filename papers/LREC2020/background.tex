@@ -26,6 +26,23 @@ Current recognition benchmarks use labels (and images) from the ImageNet \cite{i
 % (e.g., for the young beagle case above, it would be the category \domain{beagle}).
 In L\&V, deep object recognition systems are widely used for feature extraction, whereas the object labeling itself can often not be used directly. For instance, many labels in the ILSVRC  challenge \cite{ILSVRC15} correspond to very specific breeds of animals, whereas other common categories for,\ e.g.,\ people are missing.
 
+\begin{table*}[htb]
+  \centering
+  \begin{tabular}{lrrrrr}
+    \toprule
+    &   RefCoco/+  &  Flickr30kE &           VG &      VGmn &        MN \\
+    \midrule
+    \# objects & 50.000 & 243.801 & 3.781.232 & 25.223 & 25.315 \\
+    naming vocab size &  5.004 &  10.423 &   105.441 &  1.061 &  7.970 \\
+    av. annotations/object &      2.8 &       2.3 &         1.7 &      7.2 &     35.3 \\
+    \% objects with n types $>$ 1 &      0.7 &       0.3 &         0.02 &      0.1 &      0.9 \\
+    av. types/object &      1.9 &       1.4 &         1 &      1.1 &      5.7 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:compare}
+  \caption{Overview statistics for different data sets containing object naming data. VGmn shows statistics for the subset of \vg that overlaps with our ManyNames dataset. \gbt{What is the VGmn column? Is it necessary?} \sz{VGmn refers to the subset of images in VG that appear in MN. This shows that the images we selected for ManyNames also have more annotations in VG. I think this is useful to know.} \gbt{ok! We'll need to explain why the number of objects not identical.}}
+\end{table*}
+
 \subsection{Hierarchical Object Categorization}
 
 Some work in L\&V \cite{deng2014large,wang2014poodle,peterson2018learning} criticizes the use of single labels for object naming and categorization.

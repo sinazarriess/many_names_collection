@@ -48,8 +48,7 @@
 		% van (76) &  apple (33) &  flower (40) &  curtain (182) &  castle (14) &  skateboarder (80) &  cap (20) \\
 		\bottomrule
 	\end{tabular}
-	\caption{Overview of the ManyNames dataset: Top 5 VG names for each domain (number of instances in parentheses).
-		\label{tab:overview_dataset1}}
+	\caption{Overview of the ManyNames dataset: Top 5 VG names for each domain (number of instances in parentheses).\label{tab:overview_dataset1}}
 \end{table*}
 
 \begin{figure*}[htp]
@@ -83,7 +82,7 @@ For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{b
 %\gbt{Just to clarify: we also collected objects named \textsl{duck}, \textsl{goose}, or \textsl{gull}, right? Not only \textsl{bird}?}
 
 We then retrieved all VG images depicting an object whose name matches or is subsumed by words in one of these synsets; we refer to these words as \textit{seeds} ($450$\ in total).
-%\gbt{from the dataframe it's 449. Also, there are some mistakes ('dugout.', 'man's').+++
+\gbt{from the dataframe in the github it's 449. Also, there are some mistakes in the list of seeds ('dugout.', 'man's') -- to check after the deadline.}
 We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{We obtained tags with CoreNLP \cite{manning2014stanford}.}, or that were multi-word expressions (e.g.,~\textsl{pink bird}). 
 We further only considered objects whose bounding box covered~\mbox{$20-90\%$} of the image area.
 % We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
