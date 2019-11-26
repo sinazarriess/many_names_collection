@@ -89,6 +89,23 @@ if os.path.exists(out_path) and input("Recompute & overwrite merged csv files? y
 
 
 annotations_all = pd.read_csv(os.path.join(out_path, 'name_annotations_ANON.csv'), converters={'name_cluster-nofillers': eval, 'name_cluster': eval, 'same_object': eval})
+
+UNRELIABLE_WORKER_THRESHOLD = 0.9
+UNRELIABLE_ASSIGNMENT_TRESHOLD = 0.7
+
+assignments = pd.read_csv(os.path.join(out_path, 'per_assignment_ANON.csv'), converters={'mistakes': eval})
+
+per_worker = assignments.groupby('workerid').agg({'control_score-filtered': 'mean'}).reset_index()
+unreliable_workers = per_worker.loc[per_worker['control_score-filtered'] < UNRELIABLE_WORKER_THRESHOLD]['workerid']
+
+unreliable_assignments = assignments.loc[(assignments['control_score-filtered'] < UNRELIABLE_ASSIGNMENT_TRESHOLD) | (assignments['workerid'].isin(unreliable_workers))]['assignmentid']
+
+print("Workers: {}; unreliable: {}".format(len(per_worker), len(unreliable_workers)))
+print("Assignments: {}; unreliable: {}".format(len(assignments), len(unreliable_assignments)))
+
+if True:
+    annotations_all = annotations_all.loc[~annotations_all['assignmentid'].isin(unreliable_assignments)]
+
 annotations_targets = annotations_all.loc[annotations_all['control_type'].isna() | (annotations_all['control_type'] == 'vg_majority') | (annotations_all['control_type'].apply(lambda x: isinstance(x, str) and x.startswith('syn')))]
 
 print("\n-------------")
@@ -111,10 +128,29 @@ print("-------------")
 # Compute how many names are adequate that are NOT in the same cluster
 
 
+if False:
+    # Inspect workers who requester feedback:
+    print()
+    print("Workers to pay attention to:")
+    PAY_ATTENTION_TO_WORKERS = ['AO33H4GL9KZX9']
+    by_selected_workers = assignments.loc[assignments['workerid'].isin(PAY_ATTENTION_TO_WORKERS)].sort_values(by='workerid')
+    prev_worker = ""
+    for i, row in by_selected_workers.iterrows():
+        if row['workerid'] != prev_worker:
+            print("== {} ==".format(row['workerid']))
+            prev_worker = row['workerid']
+        print("{}: {}, {}, {}".format(row['assignmentid'], row['decision1'], row['decision2'], row['explanation']))
+        print('  ' + '\n  '.join(row['mistakes']))
+    print()
+
+
+
 
 print("\n~~~~~~~~~~~~~~")
 print("Inter-annotator agreement:")
 scores_per_name = annotations_targets.groupby(['image', 'object', 'name']).agg({'adequacy': lambda x: x.tolist(), 'inadequacy_type': lambda x: x.tolist(), 'name_cluster': lambda x: x.tolist(), 'same_object': lambda x: x.tolist()}).reset_index()
+# Remove points with <=1 annotator to avoid division by zero
+scores_per_name = scores_per_name.loc[scores_per_name['adequacy'].apply(lambda x: len(x) > 1)]
 # Are these stats biased towards images with more names? They are counted more times... Then again, there are more names there to agree or not agree on.
 scores_per_name['adequacy_bin'] = scores_per_name['adequacy'].apply(lambda x: [0 if a == 0 else 1 for a in x])
 scores_per_name['inadequacy_type'] = scores_per_name['inadequacy_type'].apply(lambda x: [str(t) for t in x])
