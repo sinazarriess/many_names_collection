@@ -63,7 +63,7 @@ def get_qualifications(config):
     return qlist
 
 
-def create_new_hit(mturk, config, hit_params, hit_quals, annotation):
+def create_new_hit(mturk, config, hit_params, max_assignments, hit_quals, annotation):
     new_hit = mturk.create_hit(
         HITLayoutId=config['layout']['id'],
         HITLayoutParameters=hit_params,
@@ -73,7 +73,7 @@ def create_new_hit(mturk, config, hit_params, hit_quals, annotation):
         LifetimeInSeconds=eval(config['hit']['lifetime']),
         Keywords=config['hit']['keywords'],
         AssignmentDurationInSeconds=eval(config['hit']['assignmentduration']),
-        MaxAssignments=int(config['hit']['maxassignments']),
+        MaxAssignments=max_assignments,
         QualificationRequirements=hit_quals,
         RequesterAnnotation=annotation,
     )
@@ -154,12 +154,16 @@ if __name__ == '__main__':
 
     batch_idx = initial_row / batch_size    # TODO Not quite right.
 
+    max_assignments = int(config['hit']['maxassignments'])  # Potentially overriden by data csv
+    if 'source' in data.columns:
+        input("Warning: max_assignments from config will be overriden by assignments column from data csv (enter to continue)")
+
     ## Loop through all data rows from starting index, creating HITs, sleep after every batch size
     n_hits_published = 0
     for row_idx, row in data[initial_row:initial_row+total_rows].iterrows():
         logging.info("Batch {}, HIT {}".format(batch_idx, row_idx))
 
-        param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items()]
+        param_list = [{'Name': key, 'Value': str(value)} for key, value in row.to_dict().items() if key not in ['source', 'assignments']]
 
         # Add unique turker id, or else empty string
         unique_turker_id = config["qualification"]["unique_turker_id"] if "unique_turker_id" in config["qualification"] else ""
@@ -167,7 +171,14 @@ if __name__ == '__main__':
         param_list = [{'Name': 'unique_turker_id', 'Value': unique_turker_id}, {'Name': 'unique_turker_limit', 'Value': unique_turker_limit}] + param_list
         logging.info(param_list)
 
-        hit_data = create_new_hit(mturk, config, param_list, qualifications, config['data']['csvfile'] + '_' + str(row_idx))
+        if 'assignments' in data.columns:
+            max_assignments = row['assignments']
+        if 'source' in data.columns:
+            annotation = config['data']['csvfile'] + '_' + str(row_idx) + '___' + row['source']
+        else:
+            annotation = config['data']['csvfile'] + '_' + str(row_idx)
+
+        hit_data = create_new_hit(mturk, config, param_list, max_assignments, qualifications, annotation)
         n_hits_published += 1
         all_resulting_HITs.append(hit_data)
 
