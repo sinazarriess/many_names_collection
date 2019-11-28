@@ -98,13 +98,49 @@ assignments = pd.read_csv(os.path.join(out_path, 'per_assignment_ANON.csv'), con
 per_worker = assignments.groupby('workerid').agg({'control_score-filtered': 'mean'}).reset_index()
 unreliable_workers = per_worker.loc[per_worker['control_score-filtered'] < UNRELIABLE_WORKER_THRESHOLD]['workerid']
 
-unreliable_assignments = assignments.loc[(assignments['control_score-filtered'] < UNRELIABLE_ASSIGNMENT_TRESHOLD) | (assignments['workerid'].isin(unreliable_workers))]['assignmentid']
+assignments['reliable'] = (assignments['control_score-filtered'] >= UNRELIABLE_ASSIGNMENT_TRESHOLD) & ~(assignments['workerid'].isin(unreliable_workers))
 
 print("Workers: {}; unreliable: {}".format(len(per_worker), len(unreliable_workers)))
-print("Assignments: {}; unreliable: {}".format(len(assignments), len(unreliable_assignments)))
+print("Assignments: {}; unreliable: {}".format(len(assignments), len(assignments.loc[~assignments['reliable']])))
 
-if True:
-    annotations_all = annotations_all.loc[~annotations_all['assignmentid'].isin(unreliable_assignments)]
+if False:
+    annotations_all = annotations_all.loc[assignments['reliable']]
+
+coverage = assignments.loc[assignments['reliable']].groupby('source').agg({'assignmentid': 'count'})
+for i in range(1047):
+    src = '../1_pre-pilot/verification_round0_amt.csv_{}'.format(i)
+    if src not in coverage.index:
+        coverage[src]['assignmentid'] = 0
+for i in range(292):
+    src = '../1_pre-pilot/verification_round1_amt.csv_{}'.format(i)
+    if src not in coverage.index:
+        coverage[src]['assignmentid'] = 0
+for i in range(1713):
+    src = '../1_pre-pilot/verification_round2_amt.csv_{}'.format(i)
+    if src not in coverage.index:
+        coverage[src]['assignmentid'] = 0
+coverage['missing'] = coverage['assignmentid'].apply(lambda x: 0 if x >= 3 else 3-x)
+print("MISSING:", coverage['missing'].sum())
+
+round0_amt = pd.read_csv('1_crowdsourced/verification_round0_amt.csv', sep=",", keep_default_na=False)
+round1_amt = pd.read_csv('1_crowdsourced/verification_round1_amt.csv', sep=",", keep_default_na=False)
+round2_amt = pd.read_csv('1_crowdsourced/verification_round2_amt.csv', sep=",", keep_default_na=False)
+
+rounds_amt = {'round0': round0_amt, 'round1': round1_amt, 'round2': round2_amt}
+
+print(assignments.loc[~assignments['reliable']][:30].to_string())
+
+to_be_redone = []
+
+columns = ['items', 'quality_control', 'source', 'assignments']
+for i, row in coverage.loc[coverage['missing'] > 0].iterrows():
+    round_amt = rounds_amt[i.split('_')[-3]]
+    line = int(i.split('_')[-1])
+    to_be_redone.append([round_amt.at[line,'items'], round_amt.at[line,'quality_control'], i, row['missing']])
+
+to_be_redone = pd.DataFrame(to_be_redone, columns=columns)
+to_be_redone.to_csv('1_crowdsourced/to_be_redone_amt.csv', index=False)
+print("HITs to be redone written to 1_crowdsourced/to_be_redone_amt.csv.")
 
 annotations_targets = annotations_all.loc[annotations_all['control_type'].isna() | (annotations_all['control_type'] == 'vg_majority') | (annotations_all['control_type'].apply(lambda x: isinstance(x, str) and x.startswith('syn')))]
 
