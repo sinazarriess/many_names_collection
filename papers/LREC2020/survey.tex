@@ -84,6 +84,7 @@ This dataset is suitable to analyze object naming in descriptions, for a quite l
 % \end{itemize}
 
 \subsection{Visual Genome}
+\label{sec:vg-survey}
 
 \vgenome (VG, \newcite{krishna2016visualgenome}) is one of the most densely and richly annotated resources currently available in L\&V; here, we focus on aspects immediately relevant to object naming.
 %In the following, we will focus on describing aspects immediately relevant to object naming only, but many other annotations are available as well (e.g. questions, paragraphs, etc.)
@@ -94,7 +95,7 @@ The first round of the procedure, and the basic backbone for the further rounds,
 
 In a second, independent round (involving new workers), annotators were asked to process the region descriptions by (i) marking the object names contained in the region description, and (ii) drawing a tight box around the corresponding region. As different region descriptions can potentially mention the same objects, each worker was shown a list of previously marked objects and encouraged to select an existing object rather than annotating a new one.
 
-One of the main advantages of \vg are its size, with 3.8 million objects as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
+One of the main advantages of \vg are its size, with 3.8 million objects ($108$K images) as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
 Another is the fact that it in principle provides exhaustive annotations of objects in the image, often with several region descriptions and possibly object names per object.
 This should make it easier to identify factors intervening in naming choices, and to model contextual aspects that may affect them, than in the case of \refcoco.
 However, there is a crucial pitfall: As Figure \ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fifth object IDs in the figure actually correspond to the same object.
@@ -104,9 +105,7 @@ This means that the identity of objects cannot be established based on the annot
 \subsection{Discussion}
 \cs{@Sina I changed some stuff here, maybe you prefer the old version...}
 As the discussion above showed, while some existing resources can be used to shed light on factors affecting naming choices, they do not provide enough data to assess object-specific naming behavior: To what extent do different people choose the same name for a specific object? How much variation is there? 
-To answer these sorts of questions, we need naming data from many subjects for the same objects. 
-Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
-These are the motivations for our dataset, ManyNames, and for building it on top of \vg, as discussed next.
+To answer these sorts of questions, we need naming data from many subjects for the same objects; this is what we collect in ManyNames.
 
 \begin{figure}
 \begin{center}
