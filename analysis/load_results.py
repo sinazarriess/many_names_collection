@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 import glob
 import json
 import os
@@ -11,6 +11,39 @@ import numpy as np
 import pandas as pd
 #from spellchecker import SpellChecker
 #from nltk.stem.wordnet import WordNetLemmatizer
+
+def load_verified_results(datafile_csv="../proc_data_phase0/spellchecking/all_responses_round0-3_cleaned.csv",
+                          veriffile_csv="../many_names_collection/verification_phase0/1_crowdsourced/results/merged_1-2-3-4-5-6-7-8/name_annotations_ANON.csv",
+                          min_adequacy=1,
+                          clustered=False):
+    """
+    Adds a column to the MN dataframe with response sets for only verified (mean adequacy>=min_adequacy) names. 
+    (TODO: make more efficient)
+    Args:
+        clustered (bool)    Loads response set with all "adequate" names, irrespective of the clustering
+    """
+    mn_df = load_cleaned_results(datafile_csv)    
+    verif_df = pd.read_csv(veriffile_csv, sep=",")
+    groups = verif_df[["image","object","name","adequacy"]].groupby(by=["image","name"])
+    names_per_imgid = defaultdict(list)
+    for gr in groups:
+        imgid,objname = gr[0]
+        adequacy = gr[1]["adequacy"].mean()
+        if adequacy <= min_adequacy:
+            names_per_imgid[imgid].append(objname)
+    
+    verified = [None]*len(mn_df)
+    for row in mn_df.iterrows():
+        imgid = row[1]["vg_img_id"]
+        idx = row[0]
+        verified_responses = Counter(dict([(nm,cnt) for (nm,cnt) in row[1]["spellchecked"].most_common() if nm in names_per_imgid[imgid]]))
+        # assumption: img not in verif_df ==> take all responses with cnt > 1, because these are highly frequent <-> valid [@MW: double-check that this is what has been done]
+        if len(verified_responses) == 0:
+            verified_responses = Counter(dict([(nm,cnt) for (nm,cnt) in row[1]["spellchecked"].most_common() if cnt>1]))
+        verified[idx] = verified_responses
+        
+    mn_df["verified"] = verified
+    return mn_df
 
 def load_resultsdata_csv(datafile_csv):
     if os.path.isdir(datafile_csv):
