@@ -58,10 +58,10 @@
   \label{fig:instructions1}
 \end{figure*}
 
-We take data from \vgenome~\cite{krishna2016visualgenome}, which
+We take data from \vgenome~(VG, \newcite{krishna2016visualgenome}), which
 contains a dense region-based labeling of $108$K~images with, inter alia, object names, attributes and relationships,
 all linked to WordNet synsets \cite{fellbaum1998wordnet}.
-\vgenome (VG) suits our purpose of collecting names for naturalistic instances of common objects, as it has images of varying complexity, with close-ups as well as images with many objects.
+\vg suits our purpose of collecting names for naturalistic instances of common objects, as it has images of varying complexity, with close-ups as well as images with many objects.
 As common in Computer Vision, objects are localized as bounding boxes, as in Figure~\ref{fig:cake}.% 
 \footnote{We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).}
 
@@ -75,9 +75,9 @@ They are all based on McRae et al.'s  \cite{mcrae2005semantic} feature norms, a 
 % We added the \domain{person} category because it is very frequent category in \vgenome.
 
 Within each domain, we aimed at collecting instances at different taxonomic levels to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy in the first place (e.g.\ \domain{home}).
-Instead, we defined a set of synsets ($52$\ in total; listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows.
+Instead, we defined a set of synsets ($52$\ in total; listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows. 
 
-From the set of synsets that match or subsume the concepts in the McRae norms, we kept those with a high number of \vg object instances of different names.
+First, to create our synset set, we chose those \vg synsets that match or subsume the object classes in the McRae norms, and have a high number of \vg object instances of different names.\cs{prev. sentence this is still a bit fluffy}
 For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vg, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
 %\gbt{Just to clarify: we also collected objects named \textsl{duck}, \textsl{goose}, or \textsl{gull}, right? Not only \textsl{bird}?}
 
@@ -92,7 +92,7 @@ We further only considered objects whose bounding box covered~\mbox{$20-90\%$} o
 % Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 % \paragraph{Sampling of instances}
 Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. This yielded a dataset of\ $31,093$~instances, which was further pruned during annotation, as explained next.
-Table~\ref{tab:overview_dataset1} shows the top 5 \vgenome names in each of the domains.
+Table~\ref{tab:overview_dataset1} shows the top 5 \vg names in each of the domains.
 
 \subsection{Elicitation Procedure}
 \label{ssec:elicitation}
@@ -104,7 +104,7 @@ We took special care of minimizing this issue in two ways: Specifying the instru
 Figure~\ref{fig:instructions1} shows the task instructions for this first round, in which 9 workers annotated each image.
 
 %We eliminated around $5.5$K\ images based on pruning, obtaining the final dataset with $25,596$\ images.
-After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) ``Bounding box is unclear'' was marked at most twice; (iii) at most 17\% of elicited names were in plural form (to remove cases where the bounding box contains several objects); (iv) the most frequent elicited name is of the same domain as the \vgenome name.
+After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) ``Bounding box is unclear'' was marked at most twice; (iii) at most 17\% of elicited names were in plural form (to remove cases where the bounding box contains several objects); (iv) the most frequent elicited name is of the same domain as the \vg name.
 This yielded $25,596$ images (we discarded $5,497$).
 We then did 3 more collection rounds, obtaining a total of 36 images per object.
 Figure~\ref{fig:instructions2} shows the instructions for these rounds; they were accompanied by a FAQ solving common issues. 
