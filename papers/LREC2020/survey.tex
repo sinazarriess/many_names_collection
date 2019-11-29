@@ -4,7 +4,7 @@ We identified three previously existing resources that can be of use for analysi
 Table~\ref{tab:compare} summarizes their main characteristics and compares them to our dataset (last two columns; see Section~\ref{sec:data}).
 As the table shows, previous datasets provide between one and three annotations per object, which, we believe, is not enough to assess naming behavior for individual objects and which
 motivates our data collection. %, in which we collect 36 names per object.
-In the following, we will look at their characteristics in more detail and work out requirements for a dataset that is suitable below for a large-scale, in-depth study targeted at object naming.
+In the following, we will look at their characteristics in more detail and work out requirements for a dataset that is suitable for a large-scale study of object naming.
 
 \subsection{\refcoco and \refcocop}
 
@@ -83,6 +83,7 @@ This dataset is suitable to analyze object naming in descriptions, for a quite l
 % \end{itemize}
 
 \subsection{Visual Genome}
+\label{sec:vg-survey}
 
 \vgenome (VG, \newcite{krishna2016visualgenome}) is one of the most densely and richly annotated resources currently available in L\&V; here, we focus on aspects immediately relevant to object naming.
 %In the following, we will focus on describing aspects immediately relevant to object naming only, but many other annotations are available as well (e.g. questions, paragraphs, etc.)
@@ -93,27 +94,30 @@ The first round of the procedure, and the basic backbone for the further rounds,
 
 In a second, independent round (involving new workers), annotators were asked to process the region descriptions by (i) marking the object names contained in the region description, and (ii) drawing a tight box around the corresponding region. As different region descriptions can potentially mention the same objects, each worker was shown a list of previously marked objects and encouraged to select an existing object rather than annotating a new one.
 
-One of the main advantages of \vg are its size, with 3.8 million objects as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
-Another is the fact that it, in principle, provides exhaustive annotations of objects in the image, often with several region descriptions and possibly object names per object.
+
+One of the main advantages of \vg are its size, with 3.8 million objects ($108$K images) as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
+Another is the fact that it in principle provides exhaustive annotations of objects in the image, often with several region descriptions and possibly object names per object.
 This should make it easier to identify factors intervening in naming choices, and to model contextual aspects that may affect them, than in the case of \refcoco.
 
 However, there is a crucial pitfall: As Figure \ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fifth object IDs in the figure actually correspond to the same object.
 Moreover, the regions for the beak of the object (third and fourth object IDs) overlap with those of the bird.
 This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
-The relatively low number of annotations per objects in VisualGenome (1.7 on average) shown in Table \ref{tab:compare} and the very small number of objects that have more than one name associated with it (5\%) seem to be an effect of this problem.
-Thus, even though there is a different name (\textit{vulture}) for \textit{bird} object in Figure \ref{fig:bird}, this cannot be established based on the given data.
+For instance, even though there is a different name (\textit{vulture}) for \textit{bird} object in Figure \ref{fig:bird}, the annotation suggests that \textit{bird} is the only available name. 
+The relatively low number of annotations per objects in VisualGenome (1.7 on average) shown in Table \ref{tab:compare} and the very small number of objects that have more than one name associated with it (5\%) seem to be an effect of this partial linking problem.
 We experimented with filtering and merging bounding boxes based on overlap, but this would introduce substantial noise into the data (e.g.\ truly overlapping objects).
 
-Table \ref{tab:compare} also shows the statistics for the subset of objects that we selected for ManyNames and, here, we find a considerably higher average of annotations per object (7). However, interestingly, the portion of objects that have different names associated with them is still extremely small.
-Note that, even though RefCOCO has much less annotations per object, there are many objects with different names (70\%).
+Table \ref{tab:compare} also shows the statistics for the subset of those VG objects that we selected for ManyNames and, here, we find a considerably higher average of annotations per object (7). 
+We think that this might be an effect of our category selection procedure explained in Section \ref{sec:data}. However, interestingly, the portion of objects that have different names associated with them is still extremely small.
+Note that in contrast, even though RefCOCO has much less annotations per object, there are many objects with different names (70\%).
 
 
 %\cs{The explanation of intervening factors in object naming in the background may be a bit more detailed, such as to really understand the drawbacks of the existing datasets with respect to distractors.}
 
 \subsection{Discussion}
-\cs{@Sina I changed some stuff here, maybe you prefer the old version...}
-As the discussion above showed, while some existing resources can be used to shed light on factors affecting naming choices, they do not provide enough data to systematically assess how variable object naming really is. The RefCOCO data suggest that many objects  object-specific naming behavior: To what extent do different people choose the same name for a specific object? How much variation is there? 
-To answer these sorts of questions, we need naming data from many subjects for the same objects. 
+
+While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k entities data) suggests that for most objects there is more than none available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
+The VG data, to the contrary, seems to indicate that the vast majority of objects should only be associated with a single name, but it is difficult to estimate to what extent this finding results from problems with annotation (partial linking).
+This shows that to be able to analyze object naming in more detail, we simply need naming data from many subjects for the same objects. 
 Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
 These are the motivations for our dataset, ManyNames, and for building it on top of \vg, as discussed next.
 
