@@ -6,13 +6,29 @@ from collections import Counter
 
 
 BATCHES = [1,2,3,4,5,6,7,8]
+REDONE = ['redone']
 out_path = '1_crowdsourced/results/merged_{}'.format('-'.join([str(x) for x in BATCHES]))
+if len(REDONE) > 0:
+    out_path += '_{}'.format('-'.join(REDONE))
+
+write_csv = not os.path.exists(out_path) or input("Recompute & overwrite merged csv files? y/N").lower().startswith('y')
+
 os.makedirs(out_path, exist_ok=True)
+BATCHES = ['batch{}'.format(i) for i in BATCHES] + REDONE
 
-if os.path.exists(out_path) and input("Recompute & overwrite merged csv files? y/N").lower().startswith('y'):
+# For computing which assignments to redo:
+if len(REDONE) == 0:
+    UNRELIABLE_WORKER_THRESHOLD = 0.9
+    UNRELIABLE_ASSIGNMENT_TRESHOLD = 0.7
+# For actually deleting rows (less strict):
+else:
+    UNRELIABLE_WORKER_THRESHOLD = 0.5
+    UNRELIABLE_ASSIGNMENT_TRESHOLD = 0.6
 
-    name_annotations_paths = [(i, '1_crowdsourced/results/batch{}/name_annotations.csv'.format(i)) for i in BATCHES]
-    assignments_paths = [(i, '1_crowdsourced/results/batch{}/per_assignment.csv'.format(i)) for i in BATCHES]
+if write_csv:
+
+    name_annotations_paths = [(i, '1_crowdsourced/results/{}/name_annotations.csv'.format(i)) for i in BATCHES]
+    assignments_paths = [(i, '1_crowdsourced/results/{}/per_assignment.csv'.format(i)) for i in BATCHES]
 
     print("Merging dataframes...")
 
@@ -89,10 +105,6 @@ if os.path.exists(out_path) and input("Recompute & overwrite merged csv files? y
 
 
 annotations_all = pd.read_csv(os.path.join(out_path, 'name_annotations_ANON.csv'), converters={'name_cluster-nofillers': eval, 'name_cluster': eval, 'same_object': eval})
-
-UNRELIABLE_WORKER_THRESHOLD = 0.9
-UNRELIABLE_ASSIGNMENT_TRESHOLD = 0.7
-
 assignments = pd.read_csv(os.path.join(out_path, 'per_assignment_ANON.csv'), converters={'mistakes': eval})
 
 per_worker = assignments.groupby('workerid').agg({'control_score-filtered': 'mean'}).reset_index()
@@ -103,8 +115,13 @@ assignments['reliable'] = (assignments['control_score-filtered'] >= UNRELIABLE_A
 print("Workers: {}; unreliable: {}".format(len(per_worker), len(unreliable_workers)))
 print("Assignments: {}; unreliable: {}".format(len(assignments), len(assignments.loc[~assignments['reliable']])))
 
-if False:
-    annotations_all = annotations_all.loc[assignments['reliable']]
+if len(REDONE) > 0:
+    annotations_all = annotations_all.loc[annotations_all['assignmentid'].isin(assignments.loc[assignments['reliable']]['assignmentid'])]
+    del annotations_all['reliable1']
+    del annotations_all['reliable2']
+    with open(os.path.join(out_path, 'name_annotations_filtered_ANON.csv'), 'w+') as outfile:
+        annotations_all.to_csv(outfile, index=False)
+        print("Anonymized, filtered name annotations written to", outfile.name)
 
 coverage = assignments.loc[assignments['reliable']].groupby('source').agg({'assignmentid': 'count'})
 for i in range(1047):
