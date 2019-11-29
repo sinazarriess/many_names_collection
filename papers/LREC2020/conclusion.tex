@@ -9,13 +9,13 @@ We have surveyed datasets that can be useful to address this question, and propo
 
 For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous, which can affect model performance on object categorization and naming.
 Crucially, evaluations in these tasks assume that object identification is possible based on the bounding box. 
-Our data suggests that this is not always the case and provides empirical data to for instance asses whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case) or really off.
+Our data suggests that this is not always the case and provides empirical data to, for instance, assess whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case) or really off.
 % (as in the case where they label objects as the background, like \word{grass} for \word{dog}).
 
 Moreover, standard evaluations assume that object names (or categories) are unique.
 % The naming variation we have found also challenge the common assumption that there exists a single canonical name for individual visual objects (also see \cite{deng2014large,wang2014poodle,peterson2018learning}).
 The ability to distinguish incorrect object names from good alternatives is essential for visual object understanding.
-Our data provides a first step towards enabling model evaluation on naming variants of an instance, checking for instance to what extent the top N predicted are names valid alternatives (\textsl{dog, animal, pet}) or not (\textsl{dog, hat, grass}).
+Our data provides a first step towards enabling model evaluation on naming variants of an instance, checking, e.g.,\ to what extent the top N predicted names are valid alternatives (\word{dog, animal, pet}) or not (\word{dog, hat, grass}).
 However, to fully enable this sort of analysis, a further annotation step is needed, to account for the referential uncertainty of bounding boxes and annotation noise.
 We plan to take this step in future work, which will also enable more robust conclusions with respect to naming variation.
 

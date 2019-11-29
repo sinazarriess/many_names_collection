@@ -18,25 +18,27 @@
  \caption{\label{fig:ntypes} Cumulative histograms for number of types in ManyNames, with frequency thresholds} 
 \end{figure}
 
-As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous dataset: 35.3 on average, compared to 1-7.
+As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous datasets: 35.3 on average, compared to 1-7.
 It also contains the most variability, since objects have on average 5.7 names (compared to 1-1.9).
-Figure~\ref{fig:ex-high-low-agreement} shows some example datapoints of ManyNames with high and low agreement.
-ManyNames is in principle suitable to study how much inter-subject naming variation there is, and what factors influence such variation.
-However, data analysis shows that object identification is still an issue in our data: Despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. 
+Figure~\ref{fig:ex-high-low-agreement} shows some example datapoints of ManyNames with high and low name agreement.
+ManyNames 
+%in in principle suitable to study 
+shows high potential use for studying the extent of inter-subject naming variation, and what factors influence such variation.
+Data analysis shows that object identification remains an issue in our data, though: Despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. 
 Typically, workers named an adjacent object or one supported by the target object (such as \word{toy/book} instead of \word{bed} in Fig.~\ref{fig:ex-high-low-agreement}, image K), or a part of the target object.
-While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated by the bounding box, as in the \word{bed/sleeping bag} case of in Fig.~\ref{fig:ex-high-low-agreement} (image L).
+While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated by the bounding box, as in the \word{bed/sleeping bag} case in Fig.~\ref{fig:ex-high-low-agreement} (image L).
 Referential uncertainty of this kind is a roadblock for the use of L\&V resources to study naming variation.
 Note that pointing gestures in natural communication are as referentially uncertain as bounding boxes, if not more; however, typically those gestures are grounded in a specific discourse context, which helps reduced uncertainty.
 In future work, we plan to filter out these cases.
 
 \subsection{Naming variation and agreement}
 \label{subsec:counts}
-
+\cs{(Unless I have overseen it:) It would be good to introduce/explain what a response set is, i.e. the set of names + counts---the number of annotators having entered each of these names---and that threshold t is on the counts in the response set, etc. (and referring to Figure~5)}
 Our analysis of naming variation shows that, on the one hand, we have a fair bit of consistency in the names chosen for objects, and, on the other, also consistent variation.
-Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$ to account for possible noise in the crowdsourced data.
-Without any frequency thresholding~\mbox{($t$=1)}, the proportion of instances that have a single name annotated is very small, below 10\%, and there is a long tail of datapoints with many names, up to 19. 
-With a reasonable (based on data inspection) threshold of $t$=2, a bit over 20\% of the objects have one name, almost 50\% up to 3 names, and 100\% up to 8 names.
-The average number of names is 2.9, and the most frequent name accounts on average for 75\% of the responses for a given object (Table~\ref{tab:agree}, and see below).
+Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$\cs{what is t actually? e.g., 'thresholds on the number of annotators entering an individual name (?)'} to account for possible noise in the crowdsourced data.
+Without any frequency thresholding~\mbox{($t$=1 \cs{maybe add something like 'i.e. the name was entered by one annotator'})}, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
+With a reasonable (based on data inspection) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
+The average number of names is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
 Thus, in our data objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, and at the same time there is variation.
 
 \begin{table*}
@@ -76,10 +78,10 @@ where $k$\ denotes the number of name types and $p_i$\ is the proportion of name
 
 Apart from the trends mentioned above, it is remarkable that only in 73\% of the cases the most frequent response coincides with the \vg name, and the \vg name accounts for 63\% of the responses on average.
 Our dataset can be expected to yield a more robust estimate for so-called entry-point names \cite{jolicoeur1984pictures}, that is, the name that most naturally comes to mind for a given object.
-The $H$ measures indicate a fair amount of agreement, a bit lower than in picture norming studies on artificial idealized images (e.g.\ \newcite{snodgrass} report an average $H$ of 0.55), which can be expected when using real images.
+The $H$ measures indicate a fair amount of agreement, a bit lower than in picture norming studies on artificial idealized images (e.g.\ \newcite{snodgrass} report an average $H$ of\ $0.55$), which can be expected when using real images.
 
 If we check agreement by domain, two domains stand out: the \domain{animals\_plants} domain, which is often discussed in the literature and where we find almost perfect agreement\ (\mbox{$H=0.2$}), and the \domain{people} domain with a particularly low agreement.
-Across domains, however, we find a large standard deviation for both \%top and $H$, of around 20\% for all domains except \domain{people}.
+Across domains, however, we find a large standard deviation for both \%top and $H$, of around\ $20\%$ for all domains except \domain{people}.
 This indicates that agreement varies quite a bit across instances, with factors that cannot be attributed to domain only.
 The qualitative examples in Figure \ref{fig:ex-high-low-agreement} illustrate this, showing visual instances with very high or low agreement.
 These suggest that instances which are more prototypical of a category trigger higher agreement, although further research is necessary to examine the relevant factors.
@@ -122,13 +124,13 @@ The following section will examine other sources of variation in object naming.
 \subsection{Sources of variation}
 \label{subsec:sources}
 
-Previous work on object naming has assumed that variation is mostly taxonomical (see Section~\ref{sec:rel-work}).
+Previous work on object naming has assumed that variation is mostly taxonomic\cs{hierarchical, to stream-line use of terms here?} (see Section~\ref{sec:rel-work}).
 This parameter does not seem to explain the variation in ManyNames. 
 Table \ref{tab:rel} shows the distribution of the lexical relations between ManyNames responses and the original \vg annotation, estimated from WordNet.
 To obtain these data, we exploited the synset annotation in the \vg names, and added automatic linking for the additional ManyNames names, with a simple first-sense heuristic.%
 \footnote{To detect hypernyms, we use the hypernym closure of the synset with a depth of 10; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory (90\%\ of the name types, accounting for 97\%\ of the tokens).}
 As shown in the table, in the vast majority of cases, no hierarchical relation between the name and the synset can be retrieved from WordNet.
-Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of specificity.
+Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of specificity. \cs{I'd prefer to use the term abstraction here.}
 Among the names that do have a hierarchical relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
 %%In this section, we take a closer look at the lexical variation we observe in our data set. 
 %We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
