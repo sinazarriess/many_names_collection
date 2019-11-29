@@ -23,7 +23,7 @@ It also contains the most variability, since objects have on average 5.7 names (
 Figure~\ref{fig:ex-high-low-agreement} shows some example datapoints of ManyNames with high and low name agreement.
 ManyNames 
 %in in principle suitable to study 
-shows high potential use for studying the extent of inter-subject naming variation, and what factors influence such variation.
+shows high potential use for studying the degree of inter-subject naming agreement, and what factors influence variation.
 Data analysis shows that object identification remains an issue in our data, though: Despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. 
 Typically, workers named an adjacent object or one supported by the target object (such as \word{toy/book} instead of \word{bed} in Fig.~\ref{fig:ex-high-low-agreement}, image K), or a part of the target object.
 While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated by the bounding box, as in the \word{bed/sleeping bag} case in Fig.~\ref{fig:ex-high-low-agreement} (image L).
@@ -33,12 +33,14 @@ In future work, we plan to filter out these cases.
 
 \subsection{Naming variation and agreement}
 \label{subsec:counts}
-\cs{(Unless I have overseen it:) It would be good to introduce/explain what a response set is, i.e. the set of names + counts---the number of annotators having entered each of these names---and that threshold t is on the counts in the response set, etc. (and referring to Figure~5)}
+
+We analyze the response sets obtained per object, that is, the set of names and their frequency (number of annotators entering a particular name).
 Our analysis of naming variation shows that, on the one hand, we have a fair bit of consistency in the names chosen for objects, and, on the other, also consistent variation.
-Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$\cs{what is t actually? e.g., 'thresholds on the number of annotators entering an individual name (?)'} to account for possible noise in the crowdsourced data.
-Without any frequency thresholding~\mbox{($t$=1 \cs{maybe add something like 'i.e. the name was entered by one annotator'})}, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
-With a reasonable (based on data inspection) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
-The average number of names is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
+Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$.
+Without any frequency thresholding~\mbox{($t$=1}, that is, allowing names entered by only one annotator)}, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
+With a reasonable (based on data inspection; names entered by one annotator only have the most noise, which is to be expected) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
+This threshold is the one illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which includes names that have at least frequency 2.
+The average number of names with this threshold is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
 Thus, in our data objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, and at the same time there is variation.
 
 \begin{table*}
