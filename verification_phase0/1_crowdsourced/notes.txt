@@ -1,7 +1,34 @@
-TODO:
-- Email from Sean; AO33H4GL9KZX9 -- what did he do wrong?
+Resulting stats:
+
+Workers: 255
+Assignments: 9491
+
+name_annotations: 285082
+targets: 223129
+unique images: 19427 / 19427
+unique names: 8872 / 2310
+
+adequacy_agreement_cat       0.773857
+adequacy_agreement_bin       0.882058
+adequacy_agreement_std       0.185084
+inadequacy_type_agreement    0.857049
+same_object_agreement        0.936799
+
+Number of names total: 69355
+Number of adequate names total: 52305
+Adequate names per image (<1): 2.6971072036301758
+Clusters (majority) per image: 1.7723271735213877
+Adequate clusters (majority) per image: 1.0934873407930696
+Cluster size (majority): 2.243211059800761
+Adequate cluster size (majority): 2.8810713948882394
+
+
+TODO
 - Check if any non-approved assignments remain
-- Check which assignments to REDO
+
+
+[DONE] - Email from Sean; AO33H4GL9KZX9 -- what did he do wrong?
+[DONE] - Check which assignments to REDO
 
 FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2CEUA8RLKEP25 (myself)
 
