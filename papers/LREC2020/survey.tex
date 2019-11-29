@@ -11,19 +11,19 @@ In the following, we will look at their characteristics in more detail and work 
 Both \refcoco and \refcocop \cite{Yu2016} use the \referit\cite{Kazemzadeh2014} game for collecting referring expressions (RE) for natural objects in real-world images, and are built on top of MS COCO \cite{mscoco}, 
 a dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
 The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
-Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
+Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object. 
 The matcher must click on the object she thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
 REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use location words, urging them to refer to the appearance of objects.
  % \gbt{How come the naming vocabulary size is so large if RefCOCO contains only 80 categories? How did you compute these numbers, are they for names, or whole REs?} \sz{well, 80 categories doesn't mean much as the categories can be very general (like "human") ... and it nicely shows that natural names are much more variable than strict categories}
 % Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories.
 
-The statistics in Table \ref{tab:compare} suggest that the multiple annotations ($2.84$\ on average) actually contain a considerable amount of variation in naming (almost 2 different names on average per object). However, the small number of annotations per object would not allow for a reliable assessment of speaker agreement. 
+Table \ref{tab:compare} shows that the multiple annotations ($2.84$\ on average) actually contain a considerable amount of variation in naming (almost 2 different names on average per object). However, the small number of annotations per object does not allow for a reliable assessment of speaker agreement. 
 
 RefCOCO has been used to model and examine the effect of context on referring expression generation in general \cite{Yu2016}, though this work did not look at object names specifically. 
-A controlled analysis of the effect of context on choice in object naming, as for instance in \cite{graf2016animal}, would require substantial further data annotation as not all objects of an image are annotated with REs and corresponding categories. Hence, so-called distractor objects  \cite{krahmer:2012} and their names cannot be analyzed systematically.
+A controlled analysis of the effect of context on choice in naming, as for instance in \cite{graf2016animal}, would require substantial further data annotation as not all objects of an image are annotated with REs and corresponding categories. Hence, so-called distractor objects  \cite{krahmer:2012} and their names cannot be analyzed systematically.
 Also, while in \refcoco the elicited names can assumed to be natural, it is unclear how the additional constraints in \refcocop impact on the naturalness of object naming.
-Finally, the main drawback of this dataset is that the set of categories included is quite small ($80$~COCO categories).
-To sum up, \refcoco is suitable for generally modeling referring expressions in context for a restricted set of categories, but less appropriate for analyzing object naming in particular.
+Finally, the set of categories in MSCOCO included is quite small ($80$~COCO categories).
+To sum up, \refcoco is suitable for generally modeling referring expressions in context for a restricted set of categories, but less appropriate for analyzing object naming at a large scale.
 
 % \begin{itemize}
 % \item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy (e.g.,~\cat{bird, person, car, bus})
@@ -115,7 +115,7 @@ Note that in contrast, even though RefCOCO has much less annotations per object,
 
 \subsection{Discussion}
 
-While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k entities data) suggests that for most objects there is more than none available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
+While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
 The VG data, to the contrary, seems to indicate that the vast majority of objects should only be associated with a single name, but it is difficult to estimate to what extent this finding results from problems with annotation (partial linking).
 This shows that to be able to analyze object naming in more detail, we simply need naming data from many subjects for the same objects. 
 Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
