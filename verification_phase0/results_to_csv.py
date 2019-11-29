@@ -38,8 +38,8 @@ if NO_REJECTION:
     print("Warning: NO_REJECTION is set to true; all assignments will be accepted.")
 
 # TODO Generalize; get paths from a config argument?
-resultsdir = '1_pre-pilot/results/batch7-wrong-starting-id'
-auxdir = '1_pre-pilot/aux/batch7-wrong-starting-id'
+resultsdir = '1_crowdsourced/results/redone'
+auxdir = '1_crowdsourced/aux/redone'
 os.makedirs(auxdir, exist_ok=True)
 
 recompute_name_annotations = not os.path.exists(auxdir + '/name_annotations.csv') or input("Recompute name annotations? y/N").lower().startswith('y')
@@ -295,6 +295,8 @@ print(scores_per_name.groupby(['reliable1', 'reliable2', 'control_type_trimmed']
 
 print("Inter-annotator agreement")
 # Are these stats biased towards images with more names? They are counted more times... Then again, there are more names there to agree or not agree on.
+# Remove points with <=1 annotator to avoid division by zero
+scores_per_name = scores_per_name.loc[scores_per_name['rating'].apply(lambda x: len(x) > 1)]
 scores_per_name['type'] = scores_per_name['type'].apply(lambda x: [str(t) for t in x])
 scores_per_name['rating_agreement_cat'] = scores_per_name['rating'].apply(lambda x: sum([(x.count(score)*(x.count(score)-1)) / (len(x)*(len(x)-1)) for score in [0,1,2]]))
 scores_per_name['rating_agreement_std'] = scores_per_name['rating'].apply(np.std)
