@@ -10,7 +10,7 @@ Since these datasets can, however, be useful to examine other aspects of object 
 
 \subsection{\refcoco and \refcocop}
 
-Both datasets use the \referit\cite{Kazemzadeh2014} game for collecting referring expressions (RE) for natural objects in real-world images, and are built on top of MS COCO \cite{mscoco}, 
+Both datasets  \cite{Yu2016} use the \referit\cite{Kazemzadeh2014} game for collecting referring expressions (RE) for natural objects in real-world images, and are built on top of MS COCO \cite{mscoco}, 
 a dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
 The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
 Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
@@ -19,7 +19,7 @@ REs in \refcoco/+ were collected under the constraints that (i) all images conta
  % \gbt{How come the naming vocabulary size is so large if RefCOCO contains only 80 categories? How did you compute these numbers, are they for names, or whole REs?} \sz{well, 80 categories doesn't mean much as the categories can be very general (like "human") ... and it nicely shows that natural names are much more variable than strict categories}
 % Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories.
 
-We expect this dataset to be good to examine the effect of distractors on naming choices in a referential setting, because images contain distractors. \cs{what does this mean, maybe give example?, e.g., from above with dog and dalmatian or so; otherwise the issue with the following part may not be understood}
+We expect this dataset to be good to examine the effect of context on naming choices in a referential setting, because the images contain complex scenes with other objects of more or less similar categories, i.e.\ so-called distractors \cite{krahmer:2012}.
 Moreover, multiple annotations ($2.84$\ on average) allow for some minimal analysis of naming variation.
 However, note that not all objects of an image are annotated with REs and corresponding categories, so it may be difficult to analyze the effect of distractors with automatic processing.
 While in \refcoco, the elicited names can assumed to be natural, it is unclear how the additional constraints in \refcocop impact on the naturalness of object naming.
@@ -93,7 +93,6 @@ The first round of the procedure, and the basic backbone for the further rounds,
 
 In a second, independent round (involving new workers), annotators were asked to process the region descriptions by (i) marking the object names contained in the region description, and (ii) drawing a tight box around the corresponding region. As different region descriptions can potentially mention the same objects, each worker was shown a list of previously marked objects and encouraged to select an existing object rather than annotating a new one.
 
-\gbt{@Sina, pls check that I got this right:}
 One of the main advantages of \vg are its size, with 3.8 million objects as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
 Another is the fact that it potentially provides exhaustive annotations of objects in the image, often with several region descriptions and possibly object names per object.
 This should make it easier to identify factors intervening in naming choices.
