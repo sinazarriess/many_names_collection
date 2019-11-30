@@ -126,14 +126,14 @@ The following section will examine other sources of variation in object naming.
 \subsection{Sources of variation}
 \label{subsec:sources}
 
-Previous work on object naming has assumed that variation is mostly hierarchical (see Section~\ref{sec:rel-work}).
+Previous work on object naming has assumed that variation is mostly along a taxonomic axis, and in particular hierarchical (see Section~\ref{sec:rel-work}).
 This parameter does not seem to explain the variation in ManyNames. 
 Table \ref{tab:rel} shows the distribution of the lexical relations between ManyNames responses and the original \vg annotation, estimated from WordNet.
 To obtain these data, we exploited the synset annotation in the \vg names, and added automatic linking for the additional ManyNames names, with a simple first-sense heuristic.%
 \footnote{To detect hypernyms, we use the hypernym closure of the synset with a depth of 10; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory (90\%\ of the name types, accounting for 97\%\ of the tokens).}
 As shown in the table, in the vast majority of cases, no hierarchical relation between the name and the synset can be retrieved from WordNet.
-Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of abstraction. 
-Among the names that do have a hierarchical relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
+Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of abstraction of the chosen name. 
+Among the names that do have a taxonomic relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
 %%In this section, we take a closer look at the lexical variation we observe in our data set. 
 %We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
 %For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
@@ -153,9 +153,9 @@ Among the names that do have a hierarchical relation to the synset, hypernyms ar
 %\cs{Considering the track we are submitting to, one or two examples per relation in an additional column in the table wouldn't hurt.}
 
 In a qualitative analysis, we found the following types of variation in the data, illustrated with examples in Figure~\ref{fig:ex-high-low-agreement}.
-\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{toast/dessert/breakfast}, image C).
-\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers (\textit{bed/bench}, \textit{sandwich/hotdog}, images J and D).
-\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{sandwich/basket}, image B). 
+\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{toast/dessert}, image C).
+\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers as to what an object is (\textit{bed/bench}, images J).
+\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{burger/basket}, image B). 
 \textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\textit{robe/dress}, image not shown).
 %As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
 %
