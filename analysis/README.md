@@ -5,6 +5,16 @@
 * see `proc_data_phase0`for preprocessed data
   - `proc_data_phase0/basic_preprocessing/all_results_files_preprocessed_rounds0-3.csv` is essentially the basic ManyNames dataset
 * some of the scripts in this folder might have outdated paths to data files
+* proc_data_phase0/verification/all_responses_round0-3_verified.csv adds verification data.
+
+The 'verified' column contains, for each image (row), a dictionary from each name for that image to:
+-   cluster (list of names),
+-   adequacy (mean, normalized, with 0=inadequate and 1=adequate),
+-   inadequacy_type (majority vote; None if name is adequate),
+-   cluster_id (0 = the most prominent cluster, based on all names in each cluster; 1 the next prominent cluster, etc.),
+-   cluster_weight (so the proportion of people who entered a (any) name in that cluster, proportion between 0 and 1)
+
+Example: {'man': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'helmet': {'cluster': ('helmet',), 'adequacy': 0.5, 'inadequacy_type': 'bounding box', 'cluster_id': 1, 'cluster_weight': 0.0625}, 'player': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'batter': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'baseball player': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'person': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}}
 
 **Scripts**
 

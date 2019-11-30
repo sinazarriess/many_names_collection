@@ -2,58 +2,93 @@
 
 # created gbt Sun Feb 24 2019
 
-import pandas as pd
-import numpy as np
 import os
-#from collections import Counter
-#from utils_analysis import *
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from ast import literal_eval
+from collections import Counter
+
+# spellchecked_min2: why this restriction? Did we really not check names with freq=1?
+
+df=pd.read_csv('../proc_data_phase0/verification/all_responses_round0-3_verified.csv', sep="\t")
+#df=pd.read_csv('kk.csv', sep="\t")
+df=df.drop(['responses_r0','opt-outs','top_response_domain_r0','responses_domains_r0',
+            'sample_type','all_responses','clean','canon',
+            'responses_domains_r1', 'responses_r1', 'top_response_domain_r1',
+       'responses_domains_r2', 'responses_r2', 'top_response_domain_r2',
+       'responses_domains_r3', 'responses_r3', 'top_response_domain_r3'], axis=1)
+#df=df.head(1)
+#print(df)
+print(df.columns)
+
+adequacies=[] # number of adequate names (total)
+tot_names=0; non_ad=0 # total n of names; n of non-adequate names (see threshold below)
+list_n_ad_names=[] # number of adequate names per canonical object
+list_entry_names=[] # entry names for each canonical object (cluster 0)
+list_freqs_entry_name=[] # entry names for each canonical object (cluster 0)
+no_entry_lev=0
+for row in df.itertuples():
+    name_freqs=eval(row.spellchecked_min2)
+    print(name_freqs)
+    # find entry-level name; this should be done for the canonical object,
+    # but I can't recover the info from the verified column (name data in a dictionary),
+    # so I use the one from all data and check if the entry level name form those data is in cluster 0
+    # there are only 700 imgs where the most frequent name is not in cluster 0; TODO: check them, and mend this
+    entry_name,entry_freq=name_freqs.most_common(1)[0] # returns tuple, e.g. ('man',11)
+    d = literal_eval(row.verified) # dictionary with verification data
+    n_ad_names_img=0; freqs_canon_names=1; entry_name_in_cluster0=False
+    for name in d.keys(): # each name for this object
+        tot_names+=1
+        #print("\t",name)
+        values_dict = d[name]
+        ad=values_dict['adequacy']
+        adequacies.append(ad); 
+        if ad < 0.6: non_ad += 1
+        else: # name is adequate
+            if values_dict['cluster_id']==0: # labels canonical object
+                if name==entry_name: entry_name_in_cluster0=True
+                n_ad_names_img += 1 # number of adequate names
+                freqs_canon_names += name_freqs[name] # total frequency of canonical names
+#    print("\t",freqs_canon_names)
+    if entry_name_in_cluster0==False: entry_name,entry_freq=(None,0) ### TO BE MENDED IN THE FUTURE (see comment 'find entry-level name' above)
+    list_n_ad_names.append(n_ad_names_img)
+    list_entry_names.append(entry_name)
+    freq_entry_name=(entry_freq+1)/freqs_canon_names
+    list_freqs_entry_name.append(freq_entry_name)
 
 
-df=pd.read_csv('pairs-annotation/annotated-crossclasssified-pairs-alldomains.csv',index_col=0)
-df.head()
-f_all=df[df.same_object=='f'].subrelation.value_counts()
-t_all=df[df.same_object=='t'].subrelation.value_counts()
+df['n_canonical_names']=list_n_ad_names
+df['entry_name']=list_entry_names
+df['entry_freq']=list_freqs_entry_name
 
+df.entry_freq.plot(kind='hist')
+plt.show()
+plt.close()
 
-#df=pd.read_csv("../data_phase0/results-created_2019-Feb-20_13_36_05_final.csv",sep="\t")
-#print(df.head())
-#print(df.columns)
+#"{'man': 
+# {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 
+# 'adequacy': 1.0, 
+#'inadequacy_type': None, 
+# 'cluster_id': 0, 
+# 'cluster_weight': 0.9375}, 
+# 'helmet': {'cluster': ('helmet',), 'adequacy': 0.5, 'inadequacy_type': 'bounding box', 'cluster_id': 1, 'cluster_weight': 0.0625}, 'player': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'batter': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'baseball player': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}, 'person': {'cluster': ('baseball player', 'batter', 'man', 'person', 'player'), 'adequacy': 1.0, 'inadequacy_type': None, 'cluster_id': 0, 'cluster_weight': 0.9375}}"
 
-#TO DO (from paper files)
 #
-#analyse data from Phase 0
-#
-#Items:
-#
-#\begin{itemize}
-#\item  to what extent do people agree when their task is to give the most straightforward name they can think of to a visual object? (see \ref{sec:snowgrad})
-#\item is the level of agreement the same for all categories? (see \ref{sec:snowgrad})
-#\item how specific are the most familiar names? link names to WordNet, show that WordNet might not be ideal to assess specificity
-#\item assess how representative name annotations in Visual Genome are, when compared to our names (see \ref{sec:vg})
-#\end{itemize}
-#
-#
-#Note: I (Gemma) will use three levels of analysis: ALL (all data lumped together), DOMAIN (Gemma's reorganization of Carina's ``supercategories''; see doc 0\_object\_naming\_taboo), COLLECTION NODE (Carina's ``synset / collection node'').
-# 
-#Plans for analysis (then we see what to put in the paper):
-#
-#\begin{enumerate}
-#\item compute snowgrad measure and do a:
-#  \begin{itemize}
-#  \item histogram ALL
-#  \item boxplot by DOMAIN
-#  \item dataframe with mean and sd by COLLECTION NODE 
-#  \item[\ra] This will tell us how much agreement there is among subjects about how to name objects in general and within each domain/''subcategory''.
-#  \end{itemize}
-#\item can we find generalizations about tendencies in agreement? (open: how to go about it)
-#\end{enumerate}
 
-# df = pd.read_csv('domains_names_pairs_relations_v2.csv',index_col=0)
-
-# df.columns
-
-# for i in ['home','people','clothing','vehicles','buildings','food','animals_plants']:
-#     filename= i+'-to-annotate.csv'
-#     d=df[(df.relation=="crossclassified") & (df.domain==i)].sort_values('totalfreq',ascending=False)
-#     d=d.head(1000)
-#     d.to_csv(filename)
+### Histogram
+#adequacies=np.array(list_n_ad_names)
+#plt.plot(x=adequacies)
+#plt.grid(axis='y', alpha=0.75)
+#plt.title('Number of names')
+##to_write='names with adequacy < 0.6: {} / {} ({:.1%})'.format(non_ad, tot_names, non_ad/tot_names)
+##plt.text(0.,15000,to_write)
+#plt.show()
+#plt.close()
+#
+#
+#df['n_canonical_names']=list_n_ad_names
+#ndist = df.n_canonical_names.value_counts()
+#ndist.plot(kind='bar',rot=0,title="Distribution of number of names per canonical object")
+#plt.show()
+#plt.close()
