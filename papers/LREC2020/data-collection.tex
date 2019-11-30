@@ -75,11 +75,11 @@ They are all based on McRae et al.'s  \cite{mcrae2005semantic} feature norms, a 
 % We added the \domain{person} category because it is very frequent category in \vgenome.
 
 Within each domain, we aimed at collecting instances at different taxonomic levels to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy in the first place (e.g.\ \domain{home}).
-Instead, we defined a set of synsets ($52$\ in total; listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows. 
+Instead, we defined a set of 52 synsets (listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows. 
 
 First, to create our synset set, we chose those \vg synsets that match or subsume the object classes in the McRae norms, and cover different names in \vg.
 %which \vg objects get diverse names.
-For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{dog, beagle, greyhound, puppy, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vg, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
+For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{dog, beagle, greyhound, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vg, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
 %\gbt{Just to clarify: we also collected objects named \textsl{duck}, \textsl{goose}, or \textsl{gull}, right? Not only \textsl{bird}?}
 
 We then retrieved all VG images depicting an object whose name matches a word in these collection synsets or in those subsumed by them. We refer to the names obtained as \textit{seeds} ($450$\ in total).
@@ -93,7 +93,8 @@ We further only considered objects whose bounding box covered~\mbox{$20-90\%$} o
 % Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 % \paragraph{Sampling of instances}
 Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. This yielded a dataset of\ $31,093$~instances, which was further pruned during annotation, as explained next.
-Table~\ref{tab:overview_dataset1} shows the top 5 \vg names in each of the domains. \gbt{If someone feels like it: It'd be good to use small caps for domains throughout, and also to have the same (alphabetical?) order for all domains in all tables.}
+Table~\ref{tab:overview_dataset1} shows the top 5 \vg names in each of the domains. 
+%\gbt{If someone feels like it: It'd be good to use small caps for domains throughout, and also to have the same (alphabetical?) order for all domains in all tables.}
 
 \subsection{Elicitation Procedure}
 \label{ssec:elicitation}

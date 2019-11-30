@@ -1,30 +1,29 @@
 %\cs{If space allows, I would also put an example image+annotation for RefCOCO and Flickr30kE}
 %\gbt{Space doesn't seem to allow :)}
 We identified three previously existing resources that can be of use for analysis and modeling of object naming: RefCOCO (and a variant, RefCOCO+), Flickr30k Entities, and Visual Genome. %
-%\footnote{Other resources, such as \gbt{imagenet, openimages, see the other datasets cited in the openimages dataset}, provide object categories, rather than names.}
-% footnote not necessary! this is explained in the background section
 Table~\ref{tab:compare} summarizes their main characteristics and compares them to our dataset (last two columns; see Section~\ref{sec:data}).
-As the table shows, previous datasets provide between one and three annotations per object, which, we believe, is not enough to assess naming behavior for individual objects.
-This motivates our data collection. %, in which we collect 36 names per object.
-Since these datasets can, however, be useful to examine other aspects of object naming, we summarize their characteristics below.
+As the table shows, previous datasets provide between one and three annotations per object, which, we believe, is not enough to assess naming behavior for individual objects and which
+motivates our data collection. %, in which we collect 36 names per object.
+In the following, we will look at their characteristics in more detail and work out requirements for a dataset that is suitable for a large-scale study of object naming.
 
 \subsection{\refcoco and \refcocop}
 
 Both \refcoco and \refcocop \cite{Yu2016} use the \referit\cite{Kazemzadeh2014} game for collecting referring expressions (RE) for natural objects in real-world images, and are built on top of MS COCO \cite{mscoco}, 
 a dataset of images of natural scenes of $91$~common object categories (e.g.,~\cat{dog, pizza, chair}). 
 The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
-Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object in the image. 
+Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object. 
 The matcher must click on the object she thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
 REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use location words, urging them to refer to the appearance of objects.
  % \gbt{How come the naming vocabulary size is so large if RefCOCO contains only 80 categories? How did you compute these numbers, are they for names, or whole REs?} \sz{well, 80 categories doesn't mean much as the categories can be very general (like "human") ... and it nicely shows that natural names are much more variable than strict categories}
 % Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories.
 
-We expect this dataset to be good to examine the effect of context on naming choices in a referential setting, because the images contain complex scenes with other objects of more or less similar categories, i.e.\ so-called distractors \cite{krahmer:2012}.
-Moreover, multiple annotations ($2.84$\ on average) allow for some minimal analysis of naming preferences and variation.
-However, note that not all objects of an image are annotated with REs and corresponding categories, so it may be difficult to analyze the effect of distractors with automatic processing.
+Table \ref{tab:compare} shows that the multiple annotations ($2.84$\ on average) actually contain a considerable amount of variation in naming (almost 2 different names on average per object). However, the small number of annotations per object does not allow for a reliable assessment of speaker agreement. 
+
+RefCOCO has been used to model and examine the effect of context on referring expression generation in general \cite{Yu2016}, though this work did not look at object names specifically. 
+A controlled analysis of the effect of context on choice in naming, as for instance in \cite{graf2016animal}, would require substantial further data annotation as not all objects of an image are annotated with REs and corresponding categories. Hence, so-called distractor objects  \cite{krahmer:2012} and their names cannot be analyzed systematically.
 Also, while in \refcoco the elicited names can assumed to be natural, it is unclear how the additional constraints in \refcocop impact on the naturalness of object naming.
-Finally, the main drawback of this dataset is that the set of categories included is quite small ($80$~COCO categories).
-To sum up, we would recommend \refcoco to study the effect of distractors on object naming in a restricted set of categories.
+Finally, the set of categories in MSCOCO included is quite small ($80$~COCO categories).
+To sum up, \refcoco is suitable for generally modeling referring expressions in context for a restricted set of categories, but less appropriate for analyzing object naming at a large scale.
 
 % \begin{itemize}
 % \item[(1)] \textbf{Specific categories}: not available, the $80$~COCO categories tend to be entry-level categories and are not linked to the ImageNet taxonomy (e.g.,~\cat{bird, person, car, bus})
@@ -95,23 +94,38 @@ The first round of the procedure, and the basic backbone for the further rounds,
 
 In a second, independent round (involving new workers), annotators were asked to process the region descriptions by (i) marking the object names contained in the region description, and (ii) drawing a tight box around the corresponding region. As different region descriptions can potentially mention the same objects, each worker was shown a list of previously marked objects and encouraged to select an existing object rather than annotating a new one.
 
+
 One of the main advantages of \vg are its size, with 3.8 million objects ($108$K images) as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K.
 Another is the fact that it in principle provides exhaustive annotations of objects in the image, often with several region descriptions and possibly object names per object.
 This should make it easier to identify factors intervening in naming choices, and to model contextual aspects that may affect them, than in the case of \refcoco.
+
 However, there is a crucial pitfall: As Figure \ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fifth object IDs in the figure actually correspond to the same object.
 Moreover, the regions for the beak of the object (third and fourth object IDs) overlap with those of the bird.
-This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze contextual factors for naming.\cs{The explanation of intervening factors in object naming in the background may be a bit more detailed, such as to really understand the drawbacks of the existing datasets with respect to distractors.}
+This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
+For instance, even though there is a different name (\textit{vulture}) for \textit{bird} object in Figure \ref{fig:bird}, the annotation suggests that \textit{bird} is the only available name. 
+The relatively low number of annotations per objects in VisualGenome (1.7 on average) shown in Table \ref{tab:compare} and the very small number of objects that have more than one name associated with it (5\%) seem to be an effect of this partial linking problem.
+We experimented with filtering and merging bounding boxes based on overlap, but this would introduce substantial noise into the data (e.g.\ truly overlapping objects).
+
+Table \ref{tab:compare} also shows the statistics for the subset of those VG objects that we selected for ManyNames and, here, we find a considerably higher average of annotations per object (7). 
+We think that this might be an effect of our category selection procedure explained in Section \ref{sec:data}. However, interestingly, the portion of objects that have different names associated with them is still extremely small.
+Note that in contrast, even though RefCOCO has much less annotations per object, there are many objects with different names (70\%).
+
+
+%\cs{The explanation of intervening factors in object naming in the background may be a bit more detailed, such as to really understand the drawbacks of the existing datasets with respect to distractors.}
 
 \subsection{Discussion}
-\cs{@Sina I changed some stuff here, maybe you prefer the old version...}
-As the discussion above showed, while some existing resources can be used to shed light on factors affecting naming choices, they do not provide enough data to assess object-specific naming behavior: To what extent do different people choose the same name for a specific object? How much variation is there? 
-To answer these sorts of questions, we need naming data from many subjects for the same objects; this is what we collect in ManyNames.
+
+While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
+The VG data, to the contrary, seems to indicate that the vast majority of objects should only be associated with a single name, but it is difficult to estimate to what extent this finding results from problems with annotation (partial linking).
+This shows that to be able to analyze object naming in more detail, we simply need naming data from many subjects for the same objects. 
+Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
+These are the motivations for our dataset, ManyNames, and for building it on top of \vg, as discussed next.
 
 \begin{figure}
 \begin{center}
 %\fbox{\parbox{6cm}{
 %This is a figure with a caption.}}
-\includegraphics[scale=0.4]{figures/vulture.png} 
+\includegraphics[scale=0.32]{figures/vulture.png} 
 \begin{tabular}{lp{6cm}}
 object id & linked region descriptions\\
 \hline
