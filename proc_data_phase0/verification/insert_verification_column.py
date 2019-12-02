@@ -14,13 +14,14 @@ os.makedirs('../proc_data_phase0/verified/', exist_ok=True)
 manynames = load_results.load_cleaned_results(many_names_path, index_col='vg_img_id')
 manynames['spellchecked_min2'] = manynames['spellchecked'].apply(lambda x: Counter({k: x[k] for k in x if x[k] > 1}))
 
-verifications = pd.read_csv(verification_data_path, converters={'name_cluster-nofillers': eval, 'same_object': eval})
+verifications = pd.read_csv(verification_data_path, converters={'name_cluster-nofillers': eval, 'same_object-nofillers': eval})
 del verifications['batch']
 del verifications['source']
 del verifications['hitid']
 del verifications['assignmentid']
 del verifications['workerid']
 del verifications['name_cluster']
+del verifications['same_object']
 
 # Remove all manipulated control items
 # ad hoc fix for weird bug: elizabethville is not in fact a control item
@@ -28,7 +29,7 @@ verifications = verifications.loc[(verifications['name'] == 'elizabethville') |
                                   verifications['control_type'].isna() |
                                   (verifications['control_type'] == 'vg_majority') |
                                   (verifications['control_type'].apply(lambda x: isinstance(x, str) and x.startswith('syn')))]
-verifications.rename(columns={'name_cluster-nofillers': 'name_cluster'}, inplace=True)
+verifications.rename(columns={'name_cluster-nofillers': 'name_cluster', 'same_object-nofillers': 'same_object'}, inplace=True)
 
 
 print("ManyNames:", len(manynames))
@@ -90,5 +91,5 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
             manynames.at[img, 'verified'][name]['cluster_id'] = clusters_sorted.index(manynames.at[img, 'verified'][name]['cluster'])
             manynames.at[img, 'verified'][name]['cluster_weight'] = cluster_weights[manynames.at[img, 'verified'][name]['cluster']]
 
-manynames.to_csv(out_path, index=False, sep="\t")
+manynames.to_csv(out_path, sep="\t")
 print("New ManyNames csv with verification column saved to",out_path)
