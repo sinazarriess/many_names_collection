@@ -27,8 +27,8 @@ else:
 
 if write_csv:
 
-    name_annotations_paths = [(i, '1_crowdsourced/results/{}/name_annotations.csv'.format(i)) for i in BATCHES]
-    assignments_paths = [(i, '1_crowdsourced/results/{}/per_assignment.csv'.format(i)) for i in BATCHES]
+    name_annotations_paths = [(i, '1_crowdsourced/results/{}/name_annotations_ANON.csv'.format(i)) for i in BATCHES]
+    assignments_paths = [(i, '1_crowdsourced/results/{}/per_assignment_ANON.csv'.format(i)) for i in BATCHES]
 
     print("Merging dataframes...")
 
@@ -45,18 +45,24 @@ if write_csv:
 
     print('Merged into name_annotations of {} rows.'.format(len(name_annotations)))
 
+    # Weird bug fix: elizabethville is not a filler
+    name_annotations.at[name_annotations['name'] == 'elizabethville','control_type'] = np.nan
+
     # Create "no-filler" variants of same_object and name_cluster:
     print("Creating columns without fillers")
     fillers = {}
     for i, row in tqdm(name_annotations.iterrows()):
+        key = (row['image'], row['object'])
+        if key not in fillers:
+            fillers[key] = []
         if isinstance(row['control_type'], str) and row['control_type'] != 'vg_majority' and not row['control_type'].startswith('syn'):
-            key = (row['image'], row['object'])
-            if key not in fillers:
-                fillers[key] = []
             fillers[key].append(row['name'])
     name_annotations['name_cluster-nofillers'] = name_annotations['name_cluster'].copy()
     for i, row in tqdm(name_annotations.iterrows()):
         name_annotations.at[i,'name_cluster-nofillers'] = [n for n in row['name_cluster-nofillers'] if n not in fillers[(row['image'], row['object'])]]
+    name_annotations['same_object-nofillers'] = name_annotations['same_object'].copy()
+    for i, row in tqdm(name_annotations.iterrows()):
+        name_annotations.at[i,'same_object-nofillers'] = {n: row['same_object-nofillers'][n] for n in row['same_object-nofillers'] if n not in fillers[(row['image'], row['object'])]}
 
 
     assignments_dfs = []
@@ -92,8 +98,8 @@ if write_csv:
     name_annotations_anon = name_annotations.copy()
     assignments_anon = assignments.copy()
     for i, workerid in enumerate(name_annotations_anon['workerid'].unique()):
-        name_annotations_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
-        assignments_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
+        name_annotations_anon.replace(to_replace={'workerid': {workerid: 'Worker{}'.format(i)}}, inplace=True)
+        assignments_anon.replace(to_replace={'workerid': {workerid: 'Worker{}'.format(i)}}, inplace=True)
 
     with open(os.path.join(out_path, 'name_annotations_ANON.csv'), 'w+') as outfile:
         name_annotations_anon.to_csv(outfile, index=False)
