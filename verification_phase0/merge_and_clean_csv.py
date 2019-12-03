@@ -27,8 +27,8 @@ else:
 
 if write_csv:
 
-    name_annotations_paths = [(i, '1_crowdsourced/results/{}/name_annotations_ANON.csv'.format(i)) for i in BATCHES]
-    assignments_paths = [(i, '1_crowdsourced/results/{}/per_assignment_ANON.csv'.format(i)) for i in BATCHES]
+    name_annotations_paths = [(i, '1_crowdsourced/results/{}/name_annotations.csv'.format(i)) for i in BATCHES]
+    assignments_paths = [(i, '1_crowdsourced/results/{}/per_assignment.csv'.format(i)) for i in BATCHES]
 
     print("Merging dataframes...")
 
@@ -98,8 +98,8 @@ if write_csv:
     name_annotations_anon = name_annotations.copy()
     assignments_anon = assignments.copy()
     for i, workerid in enumerate(name_annotations_anon['workerid'].unique()):
-        name_annotations_anon.replace(to_replace={'workerid': {workerid: 'Worker{}'.format(i)}}, inplace=True)
-        assignments_anon.replace(to_replace={'workerid': {workerid: 'Worker{}'.format(i)}}, inplace=True)
+        name_annotations_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
+        assignments_anon.replace(to_replace={'workerid': {workerid: 'worker{}'.format(i)}}, inplace=True)
 
     with open(os.path.join(out_path, 'name_annotations_ANON.csv'), 'w+') as outfile:
         name_annotations_anon.to_csv(outfile, index=False)
