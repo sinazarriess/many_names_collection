@@ -109,6 +109,7 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
         for name in names_for_img: # (there's only one though)
             manynames.at[img, 'verified'][name] = {'cluster': [name],
                                                'adequacy': 1.0,
+                                               'can_be_same_object': [name],
                                                'inadequacy_type': None,
                                                 'cluster_id': 0,
                                                 'cluster_weight': 1.0,
