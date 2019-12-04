@@ -150,18 +150,23 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 	Model--Vocab	& GTtrain  
 	&  hit &  correct &  incorrect &  hit &  correct &  wrong \\
 	\midrule
-	FRCNN--VG1600 & VG           &         0.75 &                  0.14 &                    0.11 &         0.54 &                  0.30 &                    0.16 \\
-	RCNN--MN442 & VG &         0.71 &                  0.13 &                    0.15 &         0.48 &                  0.28 &                    0.24 \\
+	FRCNN--VG1600 & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
+	FRCNN--MN442 & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
 	\midrule \midrule
-	FRCNN--VG1600--VGMN & MN &         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+	FRCNN--VG1600--VGMN & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+	 &         80.7 &                   9.2 &                    10.1 &         60.1 &                  23.8 &                    16.1 \\
 	\midrule
-	ResNet101--MN442 & MN & 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
-	ResNet101--VG1600 & MN &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
-	ResNet101--VG1600 & VG &         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
-	ResNet101--MN442 & VG &         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
+	ResNet101--MN442 & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
+	 &         69.7 &                  10.3 &                    20.1 &         51.1 &                  23.3 &                    25.6 \\
+	ResNet101--VGMN & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
+	 &         68.7 &                  10.5 &                    20.8 &         50.7 &                  24.2 &                    25.1 \\
+	ResNet101--VGMN & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
+	 &         62.8 &                  12.6 &                    24.6 &         31.4 &                  30.0 &                    38.6 \\
+	ResNet101--MN442 & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
+	 &         63.8 &                  12.6 &                    23.6 &         32.3 &                  30.0 &                    37.7 \\
 	\bottomrule
 \end{tabular}
-\caption{Break-down of the results: Categorization of the predicted name\ $\hat{n}$ into either a \textit{hit} (exact match with entry-level name, cf. standard evaluation), \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} (wrong object, $\text{count}(\hat{n})<2$, co-hyponym, clear mistake). \label{tab:exp_overview_results}}
+\caption{Break-down of the results (in \%): Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit} (exact match with entry-level name, cf. standard evaluation), \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} (wrong object, $\text{count}(\hat{n})<2$, co-hyponym, clear mistake). \label{tab:exp_overview_results}}
 \end{table*}
 
 \begin{table*}[t]
@@ -172,23 +177,30 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 		& & \multicolumn{6}{c}{All Test Images ($\#$)} 
 		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\
 		\toprule
-		& &  same &  syn. &  syn. &  hypo. &  hyper. &  hyper. &  same &  syn. &  syn. &  hypo. &  hyper. &  hyper. \\
+		& &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. \\
 		& 	&  cluster &  & cluster & & & cluster 
 			& cluster  &  & cluster & & & cluster \\
 		\midrule
-		FRCNN--VG1600 & VG             &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
-		RCNN--MN442 & VG &                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
+		FRCNN--VG1600 & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
+		 &                  94.6 &              0.0 &                 0.7 &               3.4 &              1.3 &                  0.0 &                  95.5 &              0.0 &                 0.0 &               3.0 &              1.5 &                  0.0 \\
+		FRCNN--MN442 & VG %&                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
+		 &                  93.3 &              1.3 &                 2.0 &               1.3 &              2.0 &                  0.0 &                  93.8 &              0.0 &                 3.1 &               1.6 &              1.6 &                  0.0 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN & MN &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
+		FRCNN--VG1600--VGMN & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
+		 &                  94.9 &              0.0 &                 0.0 &               2.0 &              3.0 &                  0.0 &                  96.2 &              0.0 &                 0.0 &               1.9 &              1.9 &                  0.0 \\
 		\midrule
-		ResNet101--VGMN & MN &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
-		ResNet101--MN442 & MN & 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
-		ResNet101--VGMN & VG &                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
-		ResNet101--MN442 & VG &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
+		ResNet101--VGMN & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		 &                  83.9 &              0.0 &                 2.7 &               6.2 &              5.4 &                  1.8 &                  92.6 &              0.0 &                 1.9 &               1.9 &              3.7 &                  0.0 \\
+		ResNet101--MN442 & MN %& 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		  &                  86.4 &              0.0 &                 2.7 &               5.5 &              3.6 &                  1.8 &                  92.3 &              0.0 &                 1.9 &               1.9 &              3.8 &                  0.0 \\
+		ResNet101--VGMN & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		 &                  87.4 &              0.0 &                 2.2 &               1.5 &              8.1 &                  0.7 &                  92.5 &              0.0 &                 1.5 &               1.5 &              4.5 &                  0.0 \\
+		ResNet101--MN442 & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
+		&                  88.9 &              0.0 &                 2.2 &               2.2 &              5.9 &                  0.7 &                  92.5 &              0.0 &                 3.0 &               1.5 &              3.0 &                  0.0 \\
 		\bottomrule
 	\end{tabular}
 	
-	\caption{Break-down of the results for the \textit{correct} name predictions. \textit{hyponym}: $\hat{n}$ is a hyponym of the entry-level name. \textit{hypernym\_cl}: $\hat{n}$ is a hypernym of any of the valid names (cluster). \textit{Synonym} and \textit{synonym\_cl} are analogous. \label{tab:exp_details_correct}}
+	\caption{Break-down of the results for the \textit{correct} name predictions. Proportions (in \%) of the \textit{correct} categories to all correctly classified instances.  \textit{hyponym}: $\hat{n}$ is a hyponym of the entry-level name. \textit{hypernym\_cl}: $\hat{n}$ is a hypernym of any of the valid names (cluster). \textit{Synonym} and \textit{synonym\_cl} are analogous. \label{tab:exp_details_correct}}
 \end{table*}
 
 \begin{table*}[t]
@@ -206,27 +218,18 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 		&  hypo. & (vis. &  ling. &  box &  other) &   & count     \\
 		 
 	\midrule
-	FRCNN--VG1600 & VG     &                 6 
-		&            2 & 0 &                   16 &           6 &           49 &             20 &                 3 &            5 & 0 &                   16 &           13 &           50 &             13 \\
-	FRCNN--MN442 & VG       &                 6 
-		&            1 & 0 &                   15 &           6 &           60 &             13 &                 2 &            2 & 0 &                   13 &           11 &           60 &             11 \\
+	FRCNN--VG1600 & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
+	FRCNN--MN442 & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
 	\midrule \midrule
-	FRCNN--VG1600--VGMN & MN &                 14 
-		&            1 & 0 &                   12 &           5 &           50 &             17 &                 11 &            3 & 0 &                   16 &           11 &           50 &             11 \\
+	FRCNN--VG1600--VGMN & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
 	\midrule
-		ResNet101--VGMN & MN		&                 11 & 0 &  0 &                   12 &           1 &           64 &             11 &                 3 & 0 &  0 &                   12 &           5 &           69 &             10 \\
-	ResNet101--MN442 & MN &                 9 
-		& 0 &  0 &                   13 &           2 &           63 &             13 &                 5 & 0 &  0 &                   15 &           7 &           62 &             12 \\
-	ResNet101--VGMN & VG &                 10 
-			& 0 &  0 &                   6 &           2 
-			&           69 &             12 
-		&  4 
-			& 0 &  0 &                   3 &           6 
-			&           67 &             20 \\ 
-	ResNet101--MN442 & VG &                 8 & 0 &  0 &                   7 &           3 &           69 &             13 &                 1 & 0 &  0 &                   6 &           8 &           62 &             23 \\
+	ResNet101--VGMN & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
+	ResNet101--MN442 & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
+	ResNet101--VGMN & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
+	ResNet101--MN442 & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
 	\bottomrule
 \end{tabular}
-\caption{Results in \%. Break-down of the results for the \textit{wrong} name predictions.  \label{tab:exp_details_wrong}}
+\caption{Break-down of the results for the \textit{wrong} name predictions. Proportions (in \%) of the corresponding categories to all wrongly classified instances.  \label{tab:exp_details_wrong}}
 \end{table*}
 
 
