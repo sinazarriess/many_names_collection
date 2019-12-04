@@ -82,21 +82,21 @@ def cluster_from_similarity_matrix(similarities):
     # 3. threshold of majority (>.5)
 
 
-if True:    # new clustering
-    scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: {key: sum(x[key])/len(x[key]) for key in x})
-    for (img, name), row in scores_per_name.iterrows():
-        scores_per_name.at[(img, name), 'same_object'] = {name: row['same_object']}
-    scores_per_image = scores_per_name.reset_index().groupby('image').agg({'same_object': lambda x: {key: d[key] for d in x for key in d}})
-    for img, row in scores_per_image.iterrows():
-        scores_per_image.at[img,'same_object'] = cluster_from_similarity_matrix(row['same_object'])
-        # TODO Rename this col, also below.
+# Old way:
+scores_per_name['same_object_majority'] = scores_per_name['same_object'].apply(lambda x: {k: Counter(x[k]).most_common(1)[0][0] for k in x})
+scores_per_name['name_cluster_majority'] = scores_per_name['same_object_majority'].apply(lambda x: tuple(sorted(k for k in x if x[k] == 1)))
 
-    print("\nScores_per_image:", len(scores_per_image))
-    print(scores_per_image[:10].to_string())
+# New way:
+scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: {key: sum(x[key])/len(x[key]) for key in x})
+for (img, name), row in scores_per_name.iterrows():
+    scores_per_name.at[(img, name), 'same_object'] = {name: row['same_object']}
+scores_per_image = scores_per_name.reset_index().groupby('image').agg({'same_object': lambda x: {key: d[key] for d in x for key in d}})
+for img, row in scores_per_image.iterrows():
+    scores_per_image.at[img,'same_object'] = cluster_from_similarity_matrix(row['same_object'])
+    # TODO Rename this col, also below.
 
-else:   # old, majority based 'clustering'
-    scores_per_name['same_object_majority'] = scores_per_name['same_object'].apply(lambda x: {k: Counter(x[k]).most_common(1)[0][0] for k in x})
-    scores_per_name['name_cluster_majority'] = scores_per_name['same_object_majority'].apply(lambda x: tuple(sorted(k for k in x if x[k] == 1)))
+print("\nScores_per_image:", len(scores_per_image))
+print(scores_per_image[:10].to_string())
 
 print("\nScores_per_name:", len(scores_per_name))
 print(scores_per_name[:10].to_string())
@@ -109,6 +109,7 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
         for name in names_for_img: # (there's only one though)
             manynames.at[img, 'verified'][name] = {'cluster': [name],
                                                'adequacy': 1.0,
+                                               'can_be_same_object': [name],
                                                'inadequacy_type': None,
                                                 'cluster_id': 0,
                                                 'cluster_weight': 1.0,
@@ -117,14 +118,13 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
         cluster_weights = {}
         clustering = scores_per_image.at[img, 'same_object']
         for name in names_for_img:
-            if True:
-                cluster = tuple(sorted([n for n in clustering if clustering[n] == clustering[name]]))
-            else:
-                cluster = scores_per_name.at[(img, name),'name_cluster_majority']   # old, majority-based way
+            cluster = tuple(sorted([n for n in clustering if clustering[n] == clustering[name]]))
+            can_be_same_object = scores_per_name.at[(img, name),'name_cluster_majority']   # old, majority-based way
             inadequacy_type = scores_per_name.at[(img, name), 'inadequacy_type_majority']
             if inadequacy_type == 'nan':
                 inadequacy_type = None
             manynames.at[img, 'verified'][name] = {'cluster': cluster,
+                                                   'can_be_same_object': can_be_same_object,
                                                    'adequacy': scores_per_name.at[(img, name),'adequacy_mean'],
                                                    'inadequacy_type': inadequacy_type,
                                                    }
