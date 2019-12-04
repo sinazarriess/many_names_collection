@@ -4,6 +4,10 @@ import pandas as pd
 from collections import Counter
 from tqdm import tqdm
 import numpy as np
+import random
+from sklearn import cluster
+
+random.seed(1234)
 
 verification_data_path = '../../verification_phase0/1_crowdsourced/results/merged_1-2-3-4-5-6-7-8_redone/name_annotations_filtered_ANON.csv'
 many_names_path = "../spellchecking/all_responses_round0-3_cleaned.csv"
@@ -39,6 +43,15 @@ print(manynames[:10].to_string())
 print("\nVerifications:", len(verifications))
 print(verifications[:10].to_string())
 
+# verifications['matrix'] = verifications['same_object'].copy()
+# for i, row in verifications.iterrows():
+#     verifications.at[i, 'matrix'] = {row['name']: row['matrix']}
+# scores_per_img = verifications.groupby('image').agg({'matrix': lambda x: x.tolist()})
+# scores_per_img['matrix'] = scores_per_img['matrix'].apply(lambda x: {name: sum([d[name] for d in x]) for name in x[0]})
+
+# print(scores_per_img.to_string())
+
+
 # aggregate per image+name
 scores_per_name = verifications.groupby(['image', 'name']).agg({'adequacy': lambda x: x.tolist(), 'inadequacy_type': lambda x: x.tolist(), 'name_cluster': lambda x: x.tolist(), 'same_object': lambda x: x.tolist()})
 # Remove points with <=1 annotator to avoid division by zero
@@ -50,8 +63,40 @@ scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: 
 
 scores_per_name['adequacy_mean'] = scores_per_name['adequacy'].apply(lambda x: (2-(sum(x)/len(x)))/2)
 scores_per_name['inadequacy_type_majority'] = scores_per_name['inadequacy_type'].apply(lambda x: Counter(x).most_common(1)[0][0]) # TODO What if no option has majority?
-scores_per_name['same_object_majority'] = scores_per_name['same_object'].apply(lambda x: {k: Counter(x[k]).most_common(1)[0][0] for k in x})
-scores_per_name['name_cluster_majority'] = scores_per_name['same_object_majority'].apply(lambda x: tuple(sorted(k for k in x if x[k] == 1)))
+
+print(scores_per_name[:10].to_string())
+
+def cluster_from_similarity_matrix(similarities):
+    names = sorted(list(similarities.keys())) # first sort to avoid hash randomness
+    random.shuffle(names)   # now shuffle to avoid some kind of bias
+    distances = np.zeros((len(names), len(names)))
+    for i in range(len(names)):
+        for j in range(len(names)):
+            distances[i,j] = 1 - similarities[names[i]][names[j]]   # invert from closeness to distance
+    # https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering
+    clustering = cluster.AgglomerativeClustering(n_clusters=None, affinity='precomputed', linkage="complete", distance_threshold=.5).fit_predict(distances)
+    return {n: cl for n,cl in zip(names, clustering)}
+
+    # 1. list of names ordered by adequacy
+    # 2. list of pairs of names ordered by similarity, then adequacy
+    # 3. threshold of majority (>.5)
+
+
+if True:    # new clustering
+    scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: {key: sum(x[key])/len(x[key]) for key in x})
+    for (img, name), row in scores_per_name.iterrows():
+        scores_per_name.at[(img, name), 'same_object'] = {name: row['same_object']}
+    scores_per_image = scores_per_name.reset_index().groupby('image').agg({'same_object': lambda x: {key: d[key] for d in x for key in d}})
+    for img, row in scores_per_image.iterrows():
+        scores_per_image.at[img,'same_object'] = cluster_from_similarity_matrix(row['same_object'])
+        # TODO Rename this col, also below.
+
+    print("\nScores_per_image:", len(scores_per_image))
+    print(scores_per_image[:10].to_string())
+
+else:   # old, majority based 'clustering'
+    scores_per_name['same_object_majority'] = scores_per_name['same_object'].apply(lambda x: {k: Counter(x[k]).most_common(1)[0][0] for k in x})
+    scores_per_name['name_cluster_majority'] = scores_per_name['same_object_majority'].apply(lambda x: tuple(sorted(k for k in x if x[k] == 1)))
 
 print("\nScores_per_name:", len(scores_per_name))
 print(scores_per_name[:10].to_string())
@@ -70,8 +115,12 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
                                                }
     else:
         cluster_weights = {}
+        clustering = scores_per_image.at[img, 'same_object']
         for name in names_for_img:
-            cluster = scores_per_name.at[(img, name),'name_cluster_majority']
+            if True:
+                cluster = tuple(sorted([n for n in clustering if clustering[n] == clustering[name]]))
+            else:
+                cluster = scores_per_name.at[(img, name),'name_cluster_majority']   # old, majority-based way
             inadequacy_type = scores_per_name.at[(img, name), 'inadequacy_type_majority']
             if inadequacy_type == 'nan':
                 inadequacy_type = None

@@ -45,18 +45,24 @@ if write_csv:
 
     print('Merged into name_annotations of {} rows.'.format(len(name_annotations)))
 
+    # Weird bug fix: elizabethville is not a filler
+    name_annotations.at[name_annotations['name'] == 'elizabethville','control_type'] = np.nan
+
     # Create "no-filler" variants of same_object and name_cluster:
     print("Creating columns without fillers")
     fillers = {}
     for i, row in tqdm(name_annotations.iterrows()):
+        key = (row['image'], row['object'])
+        if key not in fillers:
+            fillers[key] = []
         if isinstance(row['control_type'], str) and row['control_type'] != 'vg_majority' and not row['control_type'].startswith('syn'):
-            key = (row['image'], row['object'])
-            if key not in fillers:
-                fillers[key] = []
             fillers[key].append(row['name'])
     name_annotations['name_cluster-nofillers'] = name_annotations['name_cluster'].copy()
     for i, row in tqdm(name_annotations.iterrows()):
         name_annotations.at[i,'name_cluster-nofillers'] = [n for n in row['name_cluster-nofillers'] if n not in fillers[(row['image'], row['object'])]]
+    name_annotations['same_object-nofillers'] = name_annotations['same_object'].copy()
+    for i, row in tqdm(name_annotations.iterrows()):
+        name_annotations.at[i,'same_object-nofillers'] = {n: row['same_object-nofillers'][n] for n in row['same_object-nofillers'] if n not in fillers[(row['image'], row['object'])]}
 
 
     assignments_dfs = []
