@@ -7,6 +7,8 @@ import numpy as np
 import random
 from sklearn import cluster
 
+from itertools import chain, combinations
+
 random.seed(1234)
 
 verification_data_path = '../../verification_phase0/1_crowdsourced/results/merged_1-2-3-4-5-6-7-8_redone/name_annotations_filtered_ANON.csv'
@@ -77,9 +79,18 @@ def cluster_from_similarity_matrix(similarities):
     clustering = cluster.AgglomerativeClustering(n_clusters=None, affinity='precomputed', linkage="complete", distance_threshold=.5).fit_predict(distances)
     return {n: cl for n,cl in zip(names, clustering)}
 
-    # 1. list of names ordered by adequacy
-    # 2. list of pairs of names ordered by similarity, then adequacy
-    # 3. threshold of majority (>.5)
+def soft_cluster_from_similarity_matrix(similarities):
+    names = sorted(list(similarities.keys())) # first sort to avoid hash randomness
+    random.shuffle(names)   # now shuffle to avoid some kind of bias
+    name_sets = chain.from_iterable(combinations(names, r) for r in range(len(names), 0, -1))   # ordered from big to small
+    soft_clusters = []
+    for name_set in name_sets:
+        if not any([set(name_set) <= set(cluster) for cluster in soft_clusters]):
+            if not any([similarities[n1][n2] < .5 for n1,n2 in combinations(name_set, 2)]):
+                soft_clusters.append(name_set)
+    return soft_clusters
+
+
 
 
 # Old way:
@@ -91,9 +102,13 @@ scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: 
 for (img, name), row in scores_per_name.iterrows():
     scores_per_name.at[(img, name), 'same_object'] = {name: row['same_object']}
 scores_per_image = scores_per_name.reset_index().groupby('image').agg({'same_object': lambda x: {key: d[key] for d in x for key in d}})
+
+scores_per_image['cluster'] = [{} for _ in range(len(scores_per_image))]
+scores_per_image['soft_cluster'] = [[] for _ in range(len(scores_per_image))]
+
 for img, row in scores_per_image.iterrows():
-    scores_per_image.at[img,'same_object'] = cluster_from_similarity_matrix(row['same_object'])
-    # TODO Rename this col, also below.
+    scores_per_image.at[img,'cluster'] = cluster_from_similarity_matrix(row['same_object'])
+    scores_per_image.at[img, 'soft_cluster'] = soft_cluster_from_similarity_matrix(row['same_object'])
 
 print("\nScores_per_image:", len(scores_per_image))
 print(scores_per_image[:10].to_string())
@@ -103,6 +118,7 @@ print(scores_per_name[:10].to_string())
 
 # Loop through manynames updating each row with a new 'verified' column (dictionary)
 manynames['verified'] = [{} for _ in range(len(manynames))]
+manynames['verified_soft_clusters'] = [{} for _ in range(len(manynames))]
 for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
     names_for_img = set(list(row['spellchecked_min2'].keys()) + [row['vg_obj_name']])
     if len(names_for_img) == 1:  # imgs with only one name weren't verified; just assume they're correct
@@ -114,16 +130,23 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
                                                 'cluster_id': 0,
                                                 'cluster_weight': 1.0,
                                                }
+        manynames.at[img, 'verified_soft_clusters'][(name)] = {'index': 0,
+                                                                'count': 1.0,
+                                                                'adequacy': row['verified'][name]['adequacy'],
+                                                                'inadequacy_type': row['verified'][name]['inadequacy_type']}
     else:
         cluster_weights = {}
-        clustering = scores_per_image.at[img, 'same_object']
+        clustering = scores_per_image.at[img, 'cluster']
+        soft_clustering = scores_per_image.at[img, 'soft_cluster']
         for name in names_for_img:
             cluster = tuple(sorted([n for n in clustering if clustering[n] == clustering[name]]))
-            can_be_same_object = scores_per_name.at[(img, name),'name_cluster_majority']   # old, majority-based way
+            soft_clusters = [sc for sc in soft_clustering if name in sc]
+            can_be_same_object = scores_per_name.at[(img, name), 'name_cluster_majority']   # old, majority-based way
             inadequacy_type = scores_per_name.at[(img, name), 'inadequacy_type_majority']
             if inadequacy_type == 'nan':
                 inadequacy_type = None
             manynames.at[img, 'verified'][name] = {'cluster': cluster,
+                                                   'soft_clusters': soft_clusters,
                                                    'can_be_same_object': can_be_same_object,
                                                    'adequacy': scores_per_name.at[(img, name),'adequacy_mean'],
                                                    'inadequacy_type': inadequacy_type,
@@ -139,6 +162,16 @@ for img, row in tqdm(manynames.iterrows(), total=len(manynames)):
         for name in manynames.at[img, 'verified']:
             manynames.at[img, 'verified'][name]['cluster_id'] = clusters_sorted.index(manynames.at[img, 'verified'][name]['cluster'])
             manynames.at[img, 'verified'][name]['cluster_weight'] = cluster_weights[manynames.at[img, 'verified'][name]['cluster']]
+
+        soft_cluster_counts = {cluster: sum([row['spellchecked_min2'][name] for name in cluster]) for cluster in soft_clustering}
+        # soft_clusters_total_weight = sum(cluster_weights.values())
+        # soft_cluster_weights = {cluster: (soft_cluster_weights[cluster] / soft_clusters_total_weight) for cluster in soft_cluster_weights}
+        soft_clusters_sorted = [y[0] for y in sorted(list(soft_cluster_counts.items()), key=lambda x: x[1], reverse=True)]
+        for sc in soft_clusters_sorted:
+            manynames.at[img, 'verified_soft_clusters'][sc] = {'index': soft_clusters_sorted.index(sc),
+                                                               'count': soft_cluster_counts[sc],
+                                                               'adequacy': sum([row['verified'][name]['adequacy'] for name in sc]) / len(sc),
+                                                               'inadequacy_type': Counter([row['verified'][name]['inadequacy_type'] for name in sc]).most_common(1)[0][0]}
 
 manynames.to_csv(out_path, sep="\t")
 print("New ManyNames csv with verification column saved to",out_path)
