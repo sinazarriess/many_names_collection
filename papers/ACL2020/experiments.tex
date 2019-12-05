@@ -137,6 +137,17 @@ To look into in detail (example images):
 \end{itemize}
 
 \paragraph{Wrong predictions}
+
+\begin{figure*}[t]
+\includegraphics[scale=.5]{images/FRCNN-1600-442_change_matrix.jpg}
+\includegraphics[scale=.5]{images/FRCNN_change_matrix.jpg}
+\includegraphics[scale=.5]{images/FRCNN-ResNet_change_matrix.jpg}
+\includegraphics[scale=.5]{images/FRCNN-ResNet-VG_change_matrix.jpg}
+
+\caption{Confusion-matrix-style visualization showing error categories of predictions that changed from object detection with FRCNN-VG1600 to naming with FRCNN-VG1600-VGMN (finetuned)}
+\end{figure*}
+
+
 Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories of predicted name\ $\hat{n}$ is incorrect: WordNet co-hyponyms,  other object (inadequacy types: visual, linguistic, bounding box, other (types other+None), $\text{count}(\hat{n})<2$, error (just wrong+unkn(not found in WordNet))}
 
 \begin{table*}[t]
