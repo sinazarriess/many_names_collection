@@ -122,12 +122,21 @@ see Figure\ ref{fig:mistakes}
 	\includegraphics[scale=.2]{images/2322259.jpg}
 	\includegraphics[scale=.2]{images/2371657.jpg}
 	
-	\caption{resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes}}
+	\caption{resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:matrices}}
 \end{figure}
 
 \subsection{Results}
 \paragraph{Overview}
 Table\ \ref{tab:exp_overview_results}: \cs{Shows the overview and what MN adds without going into detail: Standard evaluation -- hit; We can additionally distinguish between correct (name alternative, see caption of Table) and clear mistake.}
+
+\paragraph{How do predictions change?} Figure \ref{fig:matrices} visualizes the change in predictions for  some of our retrained and finetuned models with respect to the object detection baseline (bottom-up-1600). For each object, where the new model predicts a different name than the baseline model, we look at the hit-error categories of the original and new predicted name. Observations:
+\begin{itemize}
+\item Retraining faster-rcnn on less names does not lead to better calibration of entry-level names: more original hits change to same-cluster predictions than the other way round. (top left matrix)
+\item Finetuning the original faster-rcnn on many names recalibrates many decision from same-cluster names to the correct hit. Interestingly, also clear errors are calibrated to perfect hits, whereas hardly any error is changed to same-cluster or related.  (top right matrix)
+\item A similar tendency can be found for the ResNet models: finetuning ResNet on MN changes many predictions from same-cluster to hits. This is less the case when ResNet is finetuned on VG annotations.
+\item Interestingly, both ResNet models change hits into related names (hypernyms, hyponyms, cp-hyponyms) -- why does this happen?
+\end{itemize}
+
 
 \paragraph{Correct predictions}
 Table\ \ref{tab:exp_details_correct}: \cs{Gives detailed results to the categories of "correct name" (but not hit): same cluster, WordNet synonym, WordNet hypernym/hyponym}\\
@@ -139,10 +148,10 @@ To look into in detail (example images):
 \paragraph{Wrong predictions}
 
 \begin{figure*}[t]
-\includegraphics[scale=.5]{images/FRCNN-1600-442_change_matrix.jpg}
-\includegraphics[scale=.5]{images/FRCNN_change_matrix.jpg}
-\includegraphics[scale=.5]{images/FRCNN-ResNet_change_matrix.jpg}
-\includegraphics[scale=.5]{images/FRCNN-ResNet-VG_change_matrix.jpg}
+\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_FRCNN--MN442_VG.jpg}
+\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_FRCNN--VG1600--VGMN_MN.jpg}
+\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_ResNet101--VGMN_VG.jpg}
+\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_ResNet101--MN442_MN.jpg}
 
 \caption{Confusion-matrix-style visualization showing error categories of predictions that changed from object detection with FRCNN-VG1600 to naming with FRCNN-VG1600-VGMN (finetuned)}
 \end{figure*}
