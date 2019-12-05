@@ -6,6 +6,7 @@ from tqdm import tqdm
 import numpy as np
 import random
 from sklearn import cluster
+from matplotlib import pyplot as plt
 
 from itertools import chain, combinations
 
@@ -44,6 +45,12 @@ print(manynames[:10].to_string())
 
 print("\nVerifications:", len(verifications))
 print(verifications[:10].to_string())
+
+## Pie chart of error distribution :)
+# verifications['inadequacy_type_level'] = verifications['inadequacy_type'].apply(str) + verifications['adequacy'].apply(str)
+# verifications['inadequacy_type_level'].value_counts().plot.pie()
+# plt.show()
+# quit()
 
 # verifications['matrix'] = verifications['same_object'].copy()
 # for i, row in verifications.iterrows():
