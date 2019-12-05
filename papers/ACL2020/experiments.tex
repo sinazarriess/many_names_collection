@@ -36,6 +36,20 @@ Can object detection models, trained on arbitrary names, account for human objec
 
 \paragraph{Models}
 
+We test two object detection models that are trained with a different vocabulary:
+
+\begin{itemize}
+\item FRCNN--VG1600: we used the code and model of the bottom-up attention model (\textit{Bottom-up} henceforth)  \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} \footnote{\url{https://github.com/peteanderson80/bottom-up-attention}} The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
+
+\item FRCNN--MN442: we retrain Faster R-CNN \cite{fasterrcnn2015} on a smaller vocab. We use \citeauthor{anderson2018updown}'s to preprocess the data set, but restrict the object classes to the 442 entry-level names found in ManyNames. For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{https://github.com/jwyang/faster-rcnn.pytorch}} and initialized it with a pretrained ResNet-101 provided in this implementation.\footnote{ResNet-101 was pretrained with Caffe.}
+\end{itemize}
+
+We test a range of object classification models via transfer learning, that are finetuned with different vocabulary/training data:
+
+\begin{itemize}
+\item ...
+\end{itemize}
+
 \paragraph{Measures}
 
 
