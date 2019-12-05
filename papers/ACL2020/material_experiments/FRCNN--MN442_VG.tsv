@@ -1,1073 +1,1073 @@
-image_id	category	mn_name	adequacy	pred_name	adequacy
-32	same_cluster	cabinet	1.0	cabinets	1.0
-160	co-hyponyms	dress	1.0	jacket	--
-308	same_cluster	bridge	1.0	sidewalk,side walk	1.0
-474	hit	table	1.0	table	1.0
-535	hit	table	1.0	table	1.0
-556	other_object-bounding box	rug	1.0	floor	0.5
-625	hit	car	1.0	car	1.0
-691	hyponym	animal	1.0	giraffe	--
-1045	hit	table	1.0	table	1.0
-1074	same_cluster	house	1.0	building	1.0
-1132	same_cluster	counter	1.0	table	1.0
-1375	hit	man	1.0	man	1.0
-1590	hit	table	0.41666666666666663	table	0.41666666666666663
-1687	hit	chair	1.0	chair	1.0
-2611	hit	bird	1.0	bird	1.0
-2657	hit	animal	1.0	animal	1.0
-3611	hit	horse	1.0	horse	1.0
-3966	co-hyponyms	desk	1.0	counter	--
-4257	hit	building	1.0	building	1.0
-4711	hit	house	1.0	house	1.0
-4725	hit	house	1.0	house	1.0
-4766	hit	house	1.0	house	1.0
-4884	hit	chair	1.0	chair	1.0
-4911	same_cluster	carpet	1.0	floor	1.0
-61562	co-hyponyms	rug	1.0	bed	--
-61586	same_cluster	umpire	1.0	man	1.0
-61590	hit	boy	1.0	boy	1.0
-150336	hit	woman	1.0	woman	1.0
-150418	hit	horse	1.0	horse	1.0
-286084	hit	truck	1.0	truck	1.0
-498263	same_cluster	sink	0.9166666666666666	counter	0.9166666666666666
-498298	hit	woman	1.0	woman	1.0
-498334	hit	shirt	1.0	shirt	1.0
-712987	same_cluster	person	1.0	woman	1.0
-713267	hit	motorcycle	1.0	motorcycle	1.0
-713472	hit	couch	1.0	couch	1.0
-713702	hit	train	1.0	train	1.0
-1159909	hit	desk	0.8333333333333334	desk	0.8333333333333334
-1159981	hit	bus	0.8333333333333334	bus	0.8333333333333334
-1160027	same_cluster	bathtub	1.0	tub	1.0
-1160051	hit	couch	1.0	couch	1.0
-1160088	hit	motorcycle	1.0	motorcycle	1.0
-1160203	hit	bed	1.0	bed	1.0
-1591814	error	dugout	1.0	shirt	--
-1591904	same_cluster	airplane	1.0	plane	1.0
-1591965	error	table	0.8333333333333334	bench	--
-1592028	hit	table	1.0	table	1.0
-1592205	same_cluster	airplane	1.0	plane	1.0
-1592412	hit	boat	1.0	boat	1.0
-1593036	hit	couch	1.0	couch	1.0
-2315401	hit	shirt	0.33333333333333337	shirt	0.33333333333333337
-2315509	hit	cat	1.0	cat	1.0
-2315539	hit	bench	1.0	bench	1.0
-2315708	other_object-bounding box	knife	1.0	banana	0.33333333333333337
-2315931	hit	bird	1.0	bird	1.0
-2315994	hit	giraffe	1.0	giraffe	1.0
-2316008	hit	table	1.0	table	1.0
-2316156	hit	woman	1.0	woman	1.0
-2316232	hit	boat	1.0	boat	1.0
-2316235	hit	bridge	1.0	bridge	1.0
-2316247	hit	cow	1.0	cow	1.0
-2316279	hit	cat	1.0	cat	1.0
-2316318	hit	bench	1.0	bench	1.0
-2316621	hit	boat	1.0	boat	1.0
-2316635	hit	dog	1.0	dog	1.0
-2316823	hit	horse	1.0	horse	1.0
-2316881	hit	plane	1.0	plane	1.0
-2317073	same_cluster	airplane	1.0	plane	1.0
-2317185	same_cluster	skateboarder	1.0	man	1.0
-2317461	hit	bed	1.0	bed	1.0
-2317476	hit	man	1.0	man	1.0
-2317497	hyponym	baseball player	1.0	catcher	--
-2317541	hit	train	1.0	train	1.0
-2317743	error	hot dog,hotdog	0.875	bun	--
-2317819	hit	pizza	1.0	pizza	1.0
-2317863	hit	cat	1.0	cat	1.0
-2318065	co-hyponyms	skateboarder	1.0	woman	--
-2318299	other_object-bounding box	dress	1.0	woman	0.16666666666666663
-2318321	error	sandwich	1.0	dirt	--
-2318653	other_object-None	pizza	0.33333333333333337	cheese	1.0
-2318682	hit	table	1.0	table	1.0
-2318709	hit	boy	1.0	boy	1.0
-2318816	hit	jacket	1.0	jacket	1.0
-2318853	hit	train	1.0	train	1.0
-2318958	hit	bench	1.0	bench	1.0
-2319130	hit	bed	1.0	bed	1.0
-2319243	hit	window	0.9166666666666666	window	0.9166666666666666
-2319291	hit	cow	1.0	cow	1.0
-2319473	error	dress	1.0	man	--
-2319561	hit	horse	1.0	horse	1.0
-2319606	hit	cat	1.0	cat	1.0
-2319626	hit	dog	1.0	dog	1.0
-2319638	hit	pizza	1.0	pizza	1.0
-2319738	hit	giraffe	1.0	giraffe	1.0
-2319764	hit	dog	1.0	dog	1.0
-2319842	error	shirt	1.0	laptop	--
-2320078	hit	horse	1.0	horse	1.0
-2320159	hit	dress	1.0	dress	1.0
-2320285	same_cluster	car	0.8333333333333334	truck	0.8333333333333334
-2320381	hit	house	1.0	house	1.0
-2320486	hit	motorcycle	1.0	motorcycle	1.0
-2320516	hit	couch	1.0	couch	1.0
-2320540	hit	boy	1.0	boy	1.0
-2320729	hit	shirt	1.0	shirt	1.0
-2320763	other_object-bounding box	rug	0.875	floor	0.375
-2320922	hit	boat	1.0	boat	1.0
-2320949	hit	desk	1.0	desk	1.0
-2321375	hit	pizza	1.0	pizza	1.0
-2321465	same_cluster	airplane	1.0	plane	1.0
-2321593	co-hyponyms	fork	1.0	spoon	--
-2321601	same_cluster	airplane	1.0	plane	1.0
-2321797	hit	giraffe	1.0	giraffe	1.0
-2322197	hit	truck	1.0	truck	1.0
-2322229	hit	bench	1.0	bench	1.0
-2322231	same_cluster	truck	1.0	car	1.0
-2322259	hit	building	1.0	building	1.0
-2322312	hit	truck	1.0	truck	1.0
-2322327	hit	pan	1.0	pan	1.0
-2322499	hit	table	1.0	table	1.0
-2322717	hit	woman	1.0	woman	1.0
-2322761	same_cluster	woman	0.625	man	0.625
-2322886	hit	car	1.0	car	1.0
-2322892	co-hyponyms	child	1.0	boy	--
-2322899	hit	sheep	1.0	sheep	1.0
-2322926	hit	counter	1.0	counter	1.0
-2322990	same_cluster	counter	0.8333333333333334	table	0.8333333333333334
-2323003	hit	sandwich	1.0	sandwich	1.0
-2323093	same_cluster	suit	1.0	jacket	1.0
-2323172	same_cluster	woman	1.0	girl	1.0
-2323428	error	planter	1.0	oven	--
-2323600	error	train	0.9166666666666666	door	--
-2323699	hit	dog	1.0	dog	1.0
-2323727	hit	cake	0.8333333333333334	cake	0.8333333333333334
-2323784	hit	rug	1.0	rug	1.0
-2323863	error	jacket	1.0	man	--
-2323871	hit	bird	1.0	bird	1.0
-2323934	hit	bridge	1.0	bridge	1.0
-2323938	same_cluster	rice	1.0	food	1.0
-2323957	hit	hat	1.0	hat	1.0
-2324191	hit	cat	1.0	cat	1.0
-2324423	synonym_cl	woman	1.0	girl	--
-2325275	same_cluster	baseball player	1.0	player	1.0
-2325311	hit	boat	0.8333333333333334	boat	0.8333333333333334
-2326137	hit	bowl	1.0	bowl	1.0
-2326211	error	sandwich	1.0	plate	--
-2326627	hit	cat	1.0	cat	1.0
-2326790	hit	man	1.0	man	1.0
-2326868	hit	cat	1.0	cat	1.0
-2326931	same_cluster	sandwich	1.0	bread	1.0
-2326990	hit	suit	1.0	suit	1.0
-2327179	hit	dress	1.0	dress	1.0
-2327232	other_object-None	pasta	1.0	broccoli	0.875
-2327298	hit	train	1.0	train	1.0
-2327373	hit	pizza	1.0	pizza	1.0
-2327667	hit	bed	0.8333333333333334	bed	0.8333333333333334
-2327830	hit	cat	1.0	cat	1.0
-2328101	hit	giraffe	0.8333333333333334	giraffe	0.8333333333333334
-2328124	hit	man	1.0	man	1.0
-2328239	hit	bridge	1.0	bridge	1.0
-2328242	hit	bed	1.0	bed	1.0
-2328324	hit	cat	1.0	cat	1.0
-2328879	hit	table	1.0	table	1.0
-2329031	same_cluster	sandwich	0.9285714285714286	hot dog,hotdog	0.9285714285714286
-2329105	hit	zebra	1.0	zebra	1.0
-2329362	hit	chair	1.0	chair	1.0
-2329371	same_cluster	baseball player	1.0	boy	1.0
-2329403	hit	woman	1.0	woman	1.0
-2329628	hit	woman	1.0	woman	1.0
-2329925	hit	desk	1.0	desk	1.0
-2330220	hit	man	1.0	man	1.0
-2330368	same_cluster	couch	1.0	bed	1.0
-2330394	hit	broccoli	0.8333333333333334	broccoli	0.8333333333333334
-2330403	hit	horse	0.6666666666666667	horse	0.6666666666666667
-2330414	hit	horse	1.0	horse	1.0
-2330907	hit	cat	1.0	cat	1.0
-2330968	hit	bench	1.0	bench	1.0
-2331008	hit	horse	1.0	horse	1.0
-2331065	hit	bench	1.0	bench	1.0
-2331151	hit	truck	1.0	truck	1.0
-2331168	same_cluster	airplane	1.0	plane	1.0
-2331275	hit	motorcycle	1.0	motorcycle	1.0
-2331355	error	cake	1.0	fruit	--
-2331489	same_cluster	desk	0.8333333333333334	table	0.8333333333333334
-2331590	same_cluster	goose	1.0	bird	1.0
-2331644	hit	bench	1.0	bench	1.0
-2331793	hit	car	1.0	car	1.0
-2332119	hit	woman	1.0	woman	1.0
-2332294	same_cluster	skateboarder	1.0	man	1.0
-2332326	hit	bench	1.0	bench	1.0
-2332389	hit	couch	1.0	couch	1.0
-2332443	low_cnt	pizza	0.6666666666666667	cheese	--
-2332848	hit	chair	1.0	chair	1.0
-2333046	hit	bowl	1.0	bowl	1.0
-2333212	hit	child	1.0	child	1.0
-2333438	other_object-bounding box	bench	1.0	dog	0.5
-2333443	hit	dog	1.0	dog	1.0
-2333798	hit	garage door	1.0	garage door	1.0
-2334013	hit	horse	1.0	horse	1.0
-2334138	hit	bed	1.0	bed	1.0
-2334247	hit	bottle	1.0	bottle	1.0
-2334322	hit	woman	1.0	woman	1.0
-2334350	error	child	0.9166666666666666	shirt	--
-2334588	hit	giraffe	1.0	giraffe	1.0
-2334647	hit	giraffe	1.0	giraffe	1.0
-2334819	hit	chair	1.0	chair	1.0
-2334968	low_cnt	boy	1.0	floor	--
-2334979	hit	giraffe	1.0	giraffe	1.0
-2335036	hit	cake	1.0	cake	1.0
-2335038	hit	cake	1.0	cake	1.0
-2335185	hit	train	1.0	train	1.0
-2335357	same_cluster	sofa	1.0	couch	1.0
-2335395	hit	jar	1.0	jar	1.0
-2335733	same_cluster	cup	0.875	container	0.875
-2335764	hit	bench	1.0	bench	1.0
-2335846	hit	catcher	1.0	catcher	1.0
-2335906	same_cluster	van	1.0	car	1.0
-2336128	hit	bed	0.8333333333333334	bed	0.8333333333333334
-2336466	same_cluster	plane	1.0	jet	1.0
-2336547	hit	boat	0.8333333333333334	boat	0.8333333333333334
-2336554	hit	bench	1.0	bench	1.0
-2336626	hit	bench	1.0	bench	1.0
-2336632	error	container	1.0	oven	--
-2336641	hit	boat	1.0	boat	1.0
-2336747	hit	car	1.0	car	1.0
-2336897	hit	table	1.0	table	1.0
-2337073	hit	woman	1.0	woman	1.0
-2337162	hit	train	1.0	train	1.0
-2337181	hit	bench	1.0	bench	1.0
-2337357	hit	bench	1.0	bench	1.0
-2337412	hit	giraffe	1.0	giraffe	1.0
-2337449	hit	pizza	1.0	pizza	1.0
-2338008	hit	table	0.875	table	0.875
-2338093	error	jacket	1.0	flowers	--
-2338234	hit	car	1.0	car	1.0
-2338254	hit	car	1.0	car	1.0
-2338309	hit	chair	1.0	chair	1.0
-2338354	error	shirt	1.0	woman	--
-2338415	hit	house	1.0	house	1.0
-2338449	hit	motorcycle	1.0	motorcycle	1.0
-2338468	other_object-bounding box	bridge	1.0	train	0.16666666666666663
-2338820	hit	bed	1.0	bed	1.0
-2339057	error	jacket	1.0	door	--
-2339187	hit	woman	1.0	woman	1.0
-2339287	hit	couch	1.0	couch	1.0
-2339493	hit	dog	0.6666666666666667	dog	0.6666666666666667
-2339787	hit	plane	1.0	plane	1.0
-2339883	co-hyponyms	knife	1.0	rug	--
-2340041	other_object-bounding box	jacket	1.0	bear	0.41666666666666663
-2340058	error	sheep	1.0	head	--
-2340680	hit	cow	1.0	cow	1.0
-2340773	same_cluster	boy	1.0	man	1.0
-2340813	hit	boat	1.0	boat	1.0
-2340947	error	car	1.0	ground	--
-2340984	hit	jacket	1.0	jacket	1.0
-2340999	hit	truck	1.0	truck	1.0
-2341056	hit	boat	1.0	boat	1.0
-2341092	hit	giraffe	1.0	giraffe	1.0
-2341136	hit	girl	1.0	girl	1.0
-2341366	error	cat	1.0	window	--
-2341545	hit	woman	1.0	woman	1.0
-2341665	hit	zebra	1.0	zebra	1.0
-2341844	hit	motorcycle	0.8333333333333334	motorcycle	0.8333333333333334
-2341930	hit	zebra	1.0	zebra	1.0
-2342088	same_cluster	skateboarder	1.0	man	1.0
-2342109	low_cnt	van	1.0	car	--
-2342226	hit	dog	1.0	dog	1.0
-2342266	same_cluster	airplane	1.0	plane	1.0
-2342270	hit	giraffe	1.0	giraffe	1.0
-2342654	hit	mouse	1.0	mouse	1.0
-2342685	hit	pizza	1.0	pizza	1.0
-2342762	hit	dog	1.0	dog	1.0
-2342867	same_cluster	fruit	0.5833333333333333	food	0.5833333333333333
-2342881	hit	train	1.0	train	1.0
-2343006	hit	bridge	1.0	bridge	1.0
-2343148	hit	truck	1.0	truck	1.0
-2343236	same_cluster	bathtub	1.0	tub	1.0
-2343305	hit	train	1.0	train	1.0
-2343376	error	man	1.0	face	--
-2343482	hit	girl	1.0	girl	1.0
-2343564	same_cluster	baby	0.8333333333333334	girl	0.8333333333333334
-2343612	same_cluster	desk	1.0	table	1.0
-2343623	hit	man	1.0	man	1.0
-2343624	hit	desk	1.0	desk	1.0
-2343725	hit	bridge	1.0	bridge	1.0
-2343739	hit	boat	1.0	boat	1.0
-2343762	hit	bed	1.0	bed	1.0
-2343767	hit	woman	1.0	woman	1.0
-2343796	hit	woman	1.0	woman	1.0
-2344059	hit	car	1.0	car	1.0
-2344119	same_cluster	chair	1.0	bench	1.0
-2344274	hit	car	1.0	car	1.0
-2344297	hit	man	1.0	man	1.0
-2344656	hit	table	1.0	table	1.0
-2344881	hit	cat	1.0	cat	1.0
-2345008	hit	giraffe	1.0	giraffe	1.0
-2345040	hit	train	1.0	train	1.0
-2345052	hit	horse	1.0	horse	1.0
-2345225	hit	house	0.6666666666666667	house	0.6666666666666667
-2345311	hit	bench	1.0	bench	1.0
-2345314	error	hood	1.0	door	--
-2345357	hit	train	1.0	train	1.0
-2345490	hit	table	0.8333333333333334	table	0.8333333333333334
-2345529	same_cluster	desk	1.0	table	1.0
-2345598	hit	horse	1.0	horse	1.0
-2345609	hit	bird	1.0	bird	1.0
-2345619	hit	car	0.9166666666666666	car	0.9166666666666666
-2345629	hit	train	1.0	train	1.0
-2345779	hit	table	1.0	table	1.0
-2345838	other_object-None	jacket	1.0	person	1.0
-2345850	hit	bench	1.0	bench	1.0
-2346071	hit	couch	0.8333333333333334	couch	0.8333333333333334
-2346124	hit	couch	1.0	couch	1.0
-2346212	hit	giraffe	1.0	giraffe	1.0
-2346343	hit	building	1.0	building	1.0
-2346358	hit	cat	1.0	cat	1.0
-2346372	hit	cat	1.0	cat	1.0
-2346419	hit	horse	1.0	horse	1.0
-2346444	hit	house	1.0	house	1.0
-2346456	hit	woman	1.0	woman	1.0
-2346532	same_cluster	airplane	1.0	plane	1.0
-2346596	hit	jacket	1.0	jacket	1.0
-2346824	hit	man	0.8333333333333334	man	0.8333333333333334
-2346928	error	pillow	0.7142857142857143	carpet	--
-2347030	hit	giraffe	1.0	giraffe	1.0
-2347159	hit	train	1.0	train	1.0
-2347210	hit	man	1.0	man	1.0
-2347254	hit	sheep	1.0	sheep	1.0
-2347285	same_cluster	airplane	1.0	plane	1.0
-2347290	same_cluster	baseball player	1.0	man	1.0
-2347374	co-hyponyms	man	0.875	boy	--
-2347523	hit	girl	1.0	girl	1.0
-2347544	same_cluster	sandwich	1.0	bread	1.0
-2347576	hit	motorcycle	1.0	motorcycle	1.0
-2347683	hit	couch	1.0	couch	1.0
-2347710	hit	bed	1.0	bed	1.0
-2347755	hit	counter	1.0	counter	1.0
-2347822	hit	man	1.0	man	1.0
-2347884	hit	boat	1.0	boat	1.0
-2347981	error	jacket	1.0	person	--
-2347987	hit	woman	1.0	woman	1.0
-2348184	hit	zebra	1.0	zebra	1.0
-2348389	hit	horse	1.0	horse	1.0
-2348483	hit	zebra	1.0	zebra	1.0
-2348528	hit	horse	1.0	horse	1.0
-2348579	other_object-bounding box	bun	1.0	hot dog,hotdog	0.33333333333333337
-2348588	same_cluster	bench	1.0	chair	1.0
-2348594	same_cluster	rice	1.0	food	1.0
-2348690	hit	dog	1.0	dog	1.0
-2348981	hit	horse	1.0	horse	1.0
-2348994	same_cluster	skateboarder	1.0	man	1.0
-2349004	low_cnt	bread	1.0	pizza	--
-2349012	hit	woman	1.0	woman	1.0
-2349240	error	train	1.0	car	--
-2349243	error	giraffe	1.0	head	--
-2349680	co-hyponyms	hat	1.0	sweater	--
-2349739	hit	bread	1.0	bread	1.0
-2349902	hit	car	1.0	car	1.0
-2349911	hit	butterfly	1.0	butterfly	1.0
-2350083	hit	bench	1.0	bench	1.0
-2350119	error	horse	1.0	man	--
-2350164	co-hyponyms	surfer	1.0	woman	--
-2350235	same_cluster	bull	0.6666666666666667	cow	0.6666666666666667
-2350388	hit	giraffe	1.0	giraffe	1.0
-2350417	hit	man	1.0	man	1.0
-2350576	hit	house	1.0	house	1.0
-2350715	hit	cat	1.0	cat	1.0
-2350935	hit	pizza	1.0	pizza	1.0
-2351043	hit	giraffe	1.0	giraffe	1.0
-2351078	other_object-bounding box	meat	1.0	sandwich	0.16666666666666663
-2351086	same_cluster	bathtub	1.0	tub	1.0
-2351090	hit	table	1.0	table	1.0
-2351300	hit	bench	1.0	bench	1.0
-2351336	hit	train	1.0	train	1.0
-2351404	hit	chair	1.0	chair	1.0
-2351406	hit	bed	1.0	bed	1.0
-2351470	hit	table	1.0	table	1.0
-2351529	hit	couch	1.0	couch	1.0
-2351597	error	counter	1.0	floor	--
-2351639	hit	train	1.0	train	1.0
-2351705	hit	man	1.0	man	1.0
-2351944	hit	train	1.0	train	1.0
-2351996	hit	table	1.0	table	1.0
-2352059	error	pizza	0.75	plate	--
-2352074	hit	counter	1.0	counter	1.0
-2352261	hit	desk	1.0	desk	1.0
-2352268	hyponym	cake	1.0	donut,doughnut	--
-2352286	hit	couch	1.0	couch	1.0
-2352328	hit	plane	1.0	plane	1.0
-2352332	same_cluster	airplane	1.0	plane	1.0
-2352365	error	food	1.0	plate	--
-2352419	same_cluster	woman	1.0	player	1.0
-2352471	hit	woman	1.0	woman	1.0
-2352582	hit	dog	1.0	dog	1.0
-2352618	hit	shirt	1.0	shirt	1.0
-2352706	hit	bed	1.0	bed	1.0
-2352782	hit	dog	1.0	dog	1.0
-2353050	same_cluster	airplane	1.0	plane	1.0
-2353053	same_cluster	table	1.0	counter	1.0
-2353208	other_object-bounding box	house	0.75	tree	0.625
-2353233	same_cluster	batter	1.0	player	1.0
-2353256	hit	train	1.0	train	1.0
-2353317	error	hot dog,hotdog	1.0	wrapper	--
-2353412	error	woman	0.8571428571428572	hair	--
-2353589	hit	desk	1.0	desk	1.0
-2353604	hit	knife	1.0	knife	1.0
-2353679	hit	girl	1.0	girl	1.0
-2353814	hit	horse	1.0	horse	1.0
-2353819	hit	truck	1.0	truck	1.0
-2353876	hit	shirt	1.0	shirt	1.0
-2353903	hit	cat	1.0	cat	1.0
-2353969	hit	dog	1.0	dog	1.0
-2354029	same_cluster	bun	0.9166666666666666	bread	0.9166666666666666
-2354055	co-hyponyms	truck	1.0	box	--
-2354060	same_cluster	desk	0.8333333333333334	table	0.8333333333333334
-2354085	hit	sandwich	1.0	sandwich	1.0
-2354184	synonym_cl	train	1.0	car	--
-2354226	hit	table	1.0	table	1.0
-2354269	hit	tie	1.0	tie	1.0
-2354346	hit	bird	1.0	bird	1.0
-2354570	hit	cow	1.0	cow	1.0
-2354750	other_object-None	sink	0.41666666666666663	counter	1.0
-2354780	other_object-visual	mirror	1.0	window	0.5
-2354786	hit	car	1.0	car	1.0
-2354892	error	van	1.0	door	--
-2354896	hit	tent	0.6666666666666667	tent	0.6666666666666667
-2355034	hit	plane	1.0	plane	1.0
-2355254	hit	zebra	1.0	zebra	1.0
-2355530	hit	couch	1.0	couch	1.0
-2355626	hit	giraffe	1.0	giraffe	1.0
-2355705	other_object-None	pizza	0.33333333333333337	cheese	0.9166666666666666
-2355779	hit	train	1.0	train	1.0
-2355872	hit	woman	1.0	woman	1.0
-2355930	hit	car	1.0	car	1.0
-2356032	hit	glass	1.0	glass	1.0
-2356283	hit	desk	1.0	desk	1.0
-2356562	error	curtain	1.0	wall	--
-2356572	hit	counter	1.0	counter	1.0
-2356779	hit	shirt	1.0	shirt	1.0
-2356785	hit	boat	1.0	boat	1.0
-2356915	error	car	1.0	tire	--
-2356990	hit	shirt	1.0	shirt	1.0
-2357001	error	donut,doughnut	1.0	bowl	--
-2357082	hit	giraffe	1.0	giraffe	1.0
-2357118	hit	boat	1.0	boat	1.0
-2357123	hit	woman	1.0	woman	1.0
-2357139	synonym	curtain	1.0	curtains	--
-2357249	hit	horse	0.8333333333333334	horse	0.8333333333333334
-2357459	hit	table	1.0	table	1.0
-2357516	error	car	1.0	wall	--
-2357517	hit	woman	1.0	woman	1.0
-2357667	hit	tie	1.0	tie	1.0
-2357724	hit	child	1.0	child	1.0
-2357792	hit	cow	1.0	cow	1.0
-2357801	other_object-bounding box	cabinet	1.0	man	0.33333333333333337
-2357880	same_cluster	skater	1.0	man	1.0
-2357888	hit	table	1.0	table	1.0
-2357928	hit	woman	1.0	woman	1.0
-2357939	hit	cake	1.0	cake	1.0
-2358083	hit	cow	1.0	cow	1.0
-2358632	same_cluster	house	1.0	building	1.0
-2358894	hit	shirt	1.0	shirt	1.0
-2358910	error	cake	1.0	flowers	--
-2358978	hit	bun	1.0	bun	1.0
-2359002	hit	bear	1.0	bear	1.0
-2359038	hit	dog	1.0	dog	1.0
-2359042	synonym_cl	boy	1.0	baby	--
-2359113	hit	zebra	1.0	zebra	1.0
-2359295	hit	motorcycle	1.0	motorcycle	1.0
-2359352	hit	table	1.0	table	1.0
-2359569	error	dog	1.0	stand	--
-2359571	error	cake	1.0	box	--
-2359787	hit	girl	0.8333333333333334	girl	0.8333333333333334
-2360005	hit	train	1.0	train	1.0
-2360152	hit	table	1.0	table	1.0
-2360186	hit	bird	1.0	bird	1.0
-2360190	hit	zebra	1.0	zebra	1.0
-2360477	other_object-bounding box	cabinets	0.9166666666666666	kitchen	0.41666666666666663
-2360620	hit	giraffe	1.0	giraffe	1.0
-2360657	hit	bed	1.0	bed	1.0
-2360683	hit	hood	0.6666666666666667	hood	0.6666666666666667
-2360734	hit	motorcycle	1.0	motorcycle	1.0
-2360763	other_object-None	woman	0.33333333333333337	bed	0.8333333333333334
-2360942	same_cluster	child	0.9166666666666666	woman	0.9166666666666666
-2360980	error	pizza	1.0	cheese	--
-2360992	hit	train	1.0	train	1.0
-2361022	hit	cow	1.0	cow	1.0
-2361058	low_cnt	chair	1.0	couch	--
-2361090	same_cluster	shirt	0.6666666666666667	sweater	0.6666666666666667
-2361144	same_cluster	airplane	1.0	plane	1.0
-2361149	hit	plane	0.6428571428571428	plane	0.6428571428571428
-2361310	hit	shirt	1.0	shirt	1.0
-2361464	same_cluster	counter	1.0	table	1.0
-2361476	co-hyponyms	shirt	1.0	jacket	--
-2361487	hit	horse	1.0	horse	1.0
-2361490	same_cluster	donut,doughnut	1.0	food	1.0
-2361501	hit	boat	1.0	boat	1.0
-2361606	hit	couch	1.0	couch	1.0
-2361625	hit	rug	1.0	rug	1.0
-2361763	same_cluster	airplane	1.0	plane	1.0
-2361863	hit	boy	1.0	boy	1.0
-2361913	hit	plane	1.0	plane	1.0
-2361933	hit	spoon	0.8333333333333334	spoon	0.8333333333333334
-2362404	other_object-bounding box	bun	0.8333333333333334	sandwich	0.33333333333333337
-2362554	hit	dog	0.41666666666666663	dog	0.41666666666666663
-2362586	hit	giraffe	0.16666666666666663	giraffe	0.16666666666666663
-2362605	error	skater	1.0	shirt	--
-2362652	hit	couch	1.0	couch	1.0
-2362916	hit	bridge	1.0	bridge	1.0
-2362917	error	chair	1.0	pillow	--
-2363001	hit	train	1.0	train	1.0
-2363054	hit	bed	1.0	bed	1.0
-2363136	hit	bench	1.0	bench	1.0
-2363149	hit	shirt	1.0	shirt	1.0
-2363282	hit	pizza	1.0	pizza	1.0
-2363359	hit	car	1.0	car	1.0
-2363399	hit	bread	1.0	bread	1.0
-2363434	hit	shirt	1.0	shirt	1.0
-2363551	same_cluster	umpire	1.0	man	1.0
-2363755	hit	motorcycle	1.0	motorcycle	1.0
-2363820	hit	dog	1.0	dog	1.0
-2363859	hit	pizza	1.0	pizza	1.0
-2363882	error	chair	1.0	woman	--
-2363969	hit	pitcher	1.0	pitcher	1.0
-2364047	hit	bed	1.0	bed	1.0
-2364059	hit	pizza	1.0	pizza	1.0
-2364196	same_cluster	skier	1.0	woman	1.0
-2364341	hit	table	1.0	table	1.0
-2364443	hit	zebra	1.0	zebra	1.0
-2364476	hit	counter	1.0	counter	1.0
-2364594	error	cheese	0.6666666666666667	sauce	--
-2364730	hit	shirt	1.0	shirt	1.0
-2364800	hit	building	1.0	building	1.0
-2364829	same_cluster	child	1.0	girl	1.0
-2364899	hit	train	1.0	train	1.0
-2364953	hit	horse	1.0	horse	1.0
-2365073	hit	cow	1.0	cow	1.0
-2365138	hit	bird	1.0	bird	1.0
-2365194	hit	truck	1.0	truck	1.0
-2365279	hit	giraffe	1.0	giraffe	1.0
-2365321	error	girl	1.0	hair	--
-2365333	other_object-bounding box	spatula	0.9166666666666666	cake	0.16666666666666663
-2365369	same_cluster	man	1.0	person	1.0
-2365572	hit	woman	1.0	woman	1.0
-2365595	hit	giraffe	1.0	giraffe	1.0
-2365612	hit	boat	1.0	boat	1.0
-2365654	low_cnt	hot dog,hotdog	1.0	bun	--
-2365720	hit	boy	1.0	boy	1.0
-2365816	hit	pizza	0.8333333333333334	pizza	0.8333333333333334
-2365937	hit	woman	1.0	woman	1.0
-2365947	hit	cow	1.0	cow	1.0
-2366145	hit	zebra	1.0	zebra	1.0
-2366157	hit	horse	1.0	horse	1.0
-2366481	low_cnt	shirt	1.0	jacket	--
-2366546	hit	horse	1.0	horse	1.0
-2366559	hit	car	1.0	car	1.0
-2366610	hit	shirt	1.0	shirt	1.0
-2366635	hit	counter	1.0	counter	1.0
-2366687	hit	horse	1.0	horse	1.0
-2366703	same_cluster	airplane	1.0	plane	1.0
-2367115	hit	bridge	1.0	bridge	1.0
-2367127	hit	bed	1.0	bed	1.0
-2367150	other_object-bounding box	dugout	1.0	fence	0.33333333333333337
-2367441	same_cluster	carpet	1.0	floor	1.0
-2367486	low_cnt	toilet	0.75	seat	--
-2367595	hit	woman	1.0	woman	1.0
-2367839	hit	bed	0.6666666666666667	bed	0.6666666666666667
-2367840	hit	horse	1.0	horse	1.0
-2367867	hit	shirt	1.0	shirt	1.0
-2368046	hit	bed	0.8333333333333334	bed	0.8333333333333334
-2368172	hit	giraffe	1.0	giraffe	1.0
-2368254	low_cnt	shirt	1.0	jacket	--
-2368274	hit	boat	1.0	boat	1.0
-2368309	error	sandwich	1.0	donut,doughnut	--
-2368848	hit	woman	1.0	woman	1.0
-2368882	low_cnt	robe	1.0	jacket	--
-2368977	hit	giraffe	1.0	giraffe	1.0
-2369045	hit	curtain	1.0	curtain	1.0
-2369293	hit	cat	1.0	cat	1.0
-2369413	hit	horse	1.0	horse	1.0
-2369420	hit	bridge	1.0	bridge	1.0
-2369433	other_object-bounding box	bowl	1.0	banana	0.5
-2369740	hit	boat	1.0	boat	1.0
-2369942	hit	giraffe	1.0	giraffe	1.0
-2370191	co-hyponyms	boy	1.0	man	--
-2370342	hit	dog	1.0	dog	1.0
-2370378	same_cluster	desk	1.0	table	1.0
-2370485	hit	bench	1.0	bench	1.0
-2370518	hit	shirt	0.875	shirt	0.875
-2370581	same_cluster	airplane	0.6666666666666667	plane	0.6666666666666667
-2370695	hit	jacket	1.0	jacket	1.0
-2370780	hit	train	1.0	train	1.0
-2370791	other_object-None	sink	0.6666666666666667	counter	0.8333333333333334
-2370840	hit	bed	1.0	bed	1.0
-2370947	same_cluster	house	1.0	building	1.0
-2371014	same_cluster	jacket	1.0	suit	1.0
-2371025	error	table	1.0	floor	--
-2371119	hit	dog	1.0	dog	1.0
-2371217	hit	table	1.0	table	1.0
-2371395	hit	house	1.0	house	1.0
-2371402	hit	dresser	1.0	dresser	1.0
-2371403	hit	boy	1.0	boy	1.0
-2371590	same_cluster	airplane	1.0	plane	1.0
-2371657	hit	bathtub	1.0	bathtub	1.0
-2371671	hit	desk	1.0	desk	1.0
-2371680	hit	bench	1.0	bench	1.0
-2371692	hit	giraffe	1.0	giraffe	1.0
-2371704	hit	vase	1.0	vase	1.0
-2371755	hit	cake	1.0	cake	1.0
-2371817	hit	desk	1.0	desk	1.0
-2371995	same_cluster	suit	1.0	jacket	1.0
-2372173	other_object-None	sandwich	1.0	bread	0.8333333333333334
-2372326	error	skier	1.0	helmet	--
-2372345	hit	sheep	1.0	sheep	1.0
-2372521	hit	table	1.0	table	1.0
-2372550	hit	car	1.0	car	1.0
-2372699	hit	cabinet	0.8333333333333334	cabinet	0.8333333333333334
-2372715	hit	horse	1.0	horse	1.0
-2372752	hit	truck	1.0	truck	1.0
-2372823	hit	horse	1.0	horse	1.0
-2372848	hit	cup	1.0	cup	1.0
-2372906	same_cluster	counter	1.0	cabinet	1.0
-2372912	hit	hot dog,hotdog	0.8333333333333334	hot dog,hotdog	0.8333333333333334
-2372928	same_cluster	airplane	0.75	jet	0.75
-2372984	hit	salad	1.0	salad	1.0
-2373005	hit	truck	1.0	truck	1.0
-2373136	hit	chair	1.0	chair	1.0
-2373202	same_cluster	desk	0.9166666666666666	table	0.9166666666666666
-2373413	error	scooter	1.0	girl	--
-2373817	hit	cake	1.0	cake	1.0
-2373861	error	woman	1.0	hair	--
-2373865	hit	giraffe	1.0	giraffe	1.0
-2373883	same_cluster	skateboarder	1.0	man	1.0
-2374149	hit	pizza	0.9285714285714286	pizza	0.9285714285714286
-2374166	hit	woman	1.0	woman	1.0
-2374238	hit	zebra	1.0	zebra	1.0
-2374325	hit	table	1.0	table	1.0
-2374357	hit	cat	1.0	cat	1.0
-2374639	hit	hair	0.9375	hair	0.9375
-2374650	same_cluster	airplane	1.0	plane	1.0
-2374797	error	table	1.0	plate	--
-2374808	hit	pizza	0.875	pizza	0.875
-2374880	hit	cat	1.0	cat	1.0
-2374892	hit	desk	0.8333333333333334	desk	0.8333333333333334
-2374930	hit	dog	1.0	dog	1.0
-2374948	hit	sheep	0.75	sheep	0.75
-2375126	hit	man	1.0	man	1.0
-2375187	hit	bird	1.0	bird	1.0
-2375428	hit	dog	1.0	dog	1.0
-2375456	error	hot dog,hotdog	0.9166666666666666	bun	--
-2375497	same_cluster	airplane	1.0	plane	1.0
-2375597	error	salad	1.0	pan	--
-2375608	hit	boy	1.0	boy	1.0
-2375634	hit	bowl	1.0	bowl	1.0
-2375647	hit	counter	1.0	counter	1.0
-2375785	hit	motorcycle	0.8333333333333334	motorcycle	0.8333333333333334
-2375891	hit	woman	1.0	woman	1.0
-2375917	hit	bench	1.0	bench	1.0
-2375999	same_cluster	pitcher	1.0	man	1.0
-2376061	same_cluster	house	0.8333333333333334	building	0.8333333333333334
-2376094	hit	man	1.0	man	1.0
-2376185	same_cluster	airplane	1.0	plane	1.0
-2376316	same_cluster	jacket	1.0	shirt	1.0
-2376439	same_cluster	bathtub	1.0	sink	1.0
-2376606	hit	woman	1.0	woman	1.0
-2376662	error	hot dog,hotdog	0.75	wrapper	--
-2376682	hit	sweater	1.0	sweater	1.0
-2376746	hit	boy	0.875	boy	0.875
-2376751	hit	sheep	1.0	sheep	1.0
-2376838	other_object-None	chair	0.16666666666666663	suitcase,suit case	1.0
-2376859	hit	toilet	0.7857142857142857	toilet	0.7857142857142857
-2377052	hit	tent	1.0	tent	1.0
-2377270	same_cluster	bathtub	1.0	tub	1.0
-2377573	hit	dog	1.0	dog	1.0
-2377607	hit	boy	1.0	boy	1.0
-2377627	hit	bowl	1.0	bowl	1.0
-2377638	error	truck	1.0	trailer	--
-2377678	hit	horse	0.875	horse	0.875
-2377697	hit	cat	1.0	cat	1.0
-2377717	other_object-bounding box	desk	1.0	laptop	0.16666666666666663
-2377783	hit	catcher	1.0	catcher	1.0
-2377788	error	cow	1.0	head	--
-2377799	hit	boy	1.0	boy	1.0
-2377801	hit	train	1.0	train	1.0
-2377848	low_cnt	shirt	0.5833333333333333	bear	--
-2377849	hit	man	0.9285714285714286	man	0.9285714285714286
-2377964	hit	woman	1.0	woman	1.0
-2378050	same_cluster	jacket	1.0	shirt	1.0
-2378197	hit	pizza	0.75	pizza	0.75
-2378198	co-hyponyms	skier	1.0	man	--
-2378426	hit	chair	1.0	chair	1.0
-2378499	hit	man	1.0	man	1.0
-2378546	same_cluster	jacket	1.0	shirt	1.0
-2378600	hit	man	1.0	man	1.0
-2378604	hit	woman	1.0	woman	1.0
-2378650	hit	dress	1.0	dress	1.0
-2378815	hit	woman	1.0	woman	1.0
-2378853	hit	cat	1.0	cat	1.0
-2378871	same_cluster	man	1.0	boy	1.0
-2379026	co-hyponyms	cat	1.0	dog	--
-2379047	hit	pizza	0.875	pizza	0.875
-2379175	hit	woman	1.0	woman	1.0
-2379227	hit	zebra	1.0	zebra	1.0
-2379241	hit	horse	1.0	horse	1.0
-2379381	hit	pizza	1.0	pizza	1.0
-2379643	hit	giraffe	1.0	giraffe	1.0
-2379667	hit	bench	1.0	bench	1.0
-2379683	hit	motorcycle	1.0	motorcycle	1.0
-2379719	hit	cow	0.7857142857142857	cow	0.7857142857142857
-2379779	hit	boy	1.0	boy	1.0
-2380228	hit	cat	1.0	cat	1.0
-2380309	hit	horse	1.0	horse	1.0
-2380379	hit	salad	1.0	salad	1.0
-2380416	hit	cow	1.0	cow	1.0
-2380450	hit	table	1.0	table	1.0
-2380479	hit	boy	1.0	boy	1.0
-2380742	hit	jersey	1.0	jersey	1.0
-2380816	hit	bowl	1.0	bowl	1.0
-2380954	hit	donut,doughnut	1.0	donut,doughnut	1.0
-2380979	same_cluster	airplane	1.0	plane	1.0
-2381096	hit	dress	1.0	dress	1.0
-2381118	hit	cat	1.0	cat	1.0
-2381315	same_cluster	jacket	1.0	coat	1.0
-2381367	hit	man	1.0	man	1.0
-2381375	hit	dog	1.0	dog	1.0
-2381490	hit	giraffe	1.0	giraffe	1.0
-2381845	hit	bed	1.0	bed	1.0
-2381884	hit	woman	1.0	woman	1.0
-2381949	same_cluster	tennis player	1.0	woman	1.0
-2382479	hit	sheep	1.0	sheep	1.0
-2382583	hit	man	1.0	man	1.0
-2382644	hit	boat	1.0	boat	1.0
-2382709	same_cluster	soda	1.0	bottle	1.0
-2382796	hit	zebra	1.0	zebra	1.0
-2382898	hit	man	1.0	man	1.0
-2383093	hit	giraffe	1.0	giraffe	1.0
-2383224	other_object-bounding box	desk	1.0	laptop	0.5
-2383236	hit	cat	1.0	cat	1.0
-2383270	hit	table	1.0	table	1.0
-2383514	error	man	1.0	jersey	--
-2383516	error	couch	1.0	man	--
-2383708	hit	horse	1.0	horse	1.0
-2383768	hit	shirt	1.0	shirt	1.0
-2383946	hit	bench	1.0	bench	1.0
-2384295	hit	boy	1.0	boy	1.0
-2384328	hit	giraffe	1.0	giraffe	1.0
-2384359	hit	table	1.0	table	1.0
-2384468	same_cluster	skater	1.0	skateboarder	1.0
-2384655	hit	chair	1.0	chair	1.0
-2384734	hit	couch	1.0	couch	1.0
-2384779	hit	jacket	1.0	jacket	1.0
-2384984	hit	horse	1.0	horse	1.0
-2385022	hit	woman	1.0	woman	1.0
-2385144	hit	cake	1.0	cake	1.0
-2385167	hit	woman	1.0	woman	1.0
-2385596	hit	vase	1.0	vase	1.0
-2385635	hit	pizza	0.5714285714285714	pizza	0.5714285714285714
-2385857	hit	giraffe	1.0	giraffe	1.0
-2385869	error	table	1.0	fence	--
-2385888	hit	cow	0.8333333333333334	cow	0.8333333333333334
-2386078	hit	shirt	1.0	shirt	1.0
-2386224	hit	dress	1.0	dress	1.0
-2386252	same_cluster	jacket	1.0	suit	1.0
-2386257	hit	child	1.0	child	1.0
-2386458	hit	woman	1.0	woman	1.0
-2386770	hit	man	1.0	man	1.0
-2386793	hit	counter	0.8333333333333334	counter	0.8333333333333334
-2387015	hit	desk	1.0	desk	1.0
-2387037	low_cnt	cabinet	1.0	wall	--
-2387071	same_cluster	scooter	0.8571428571428572	bike	0.8571428571428572
-2387219	hit	jacket	1.0	jacket	1.0
-2387669	hit	tent	1.0	tent	1.0
-2387697	hit	train	1.0	train	1.0
-2387763	hit	cat	1.0	cat	1.0
-2387935	hit	shirt	1.0	shirt	1.0
-2387957	hit	bird	1.0	bird	1.0
-2387975	error	statue	1.0	arm	--
-2388064	other_object-None	shoe	0.41666666666666663	man	1.0
-2388225	low_cnt	tie	0.8333333333333334	shirt	--
-2388400	same_cluster	bread	1.0	sandwich	1.0
-2388981	hit	cabinet	1.0	cabinet	1.0
-2389634	hit	cat	1.0	cat	1.0
-2389671	hit	bottle	1.0	bottle	1.0
-2389811	hit	giraffe	1.0	giraffe	1.0
-2390077	hit	cake	1.0	cake	1.0
-2390177	hit	dog	1.0	dog	1.0
-2390271	hit	woman	1.0	woman	1.0
-2390303	hit	bridge	1.0	bridge	1.0
-2390340	hit	woman	1.0	woman	1.0
-2390440	co-hyponyms	girl	1.0	boy	--
-2390780	hit	horse	0.8333333333333334	horse	0.8333333333333334
-2390788	hit	train	1.0	train	1.0
-2390809	same_cluster	vehicle	1.0	truck	1.0
-2390856	hit	boat	1.0	boat	1.0
-2390864	hit	bird	1.0	bird	1.0
-2390997	hit	dog	1.0	dog	1.0
-2391046	hit	man	1.0	man	1.0
-2391191	hit	pizza	1.0	pizza	1.0
-2391346	hit	giraffe	1.0	giraffe	1.0
-2391398	hit	bench	1.0	bench	1.0
-2391454	error	bathtub	1.0	light	--
-2391665	same_cluster	dugout	1.0	fence	1.0
-2391824	hit	giraffe	1.0	giraffe	1.0
-2391829	hit	dog	1.0	dog	1.0
-2391882	other_object-bounding box	jacket	1.0	shirt	0.5
-2392053	hit	boy	1.0	boy	1.0
-2392176	hit	cat	1.0	cat	1.0
-2392368	error	woman	1.0	hair	--
-2392417	hit	giraffe	1.0	giraffe	1.0
-2392482	same_cluster	airplane	1.0	plane	1.0
-2392644	hit	boy	1.0	boy	1.0
-2392663	hit	curtain	0.8333333333333334	curtain	0.8333333333333334
-2392910	hit	child	1.0	child	1.0
-2392961	hit	boy	1.0	boy	1.0
-2393093	hit	cow	1.0	cow	1.0
-2393177	error	cake	1.0	board	--
-2393301	hit	dog	1.0	dog	1.0
-2393375	hit	bowl	1.0	bowl	1.0
-2393564	hit	bench	1.0	bench	1.0
-2393645	same_cluster	woman	1.0	person	1.0
-2393835	hit	woman	1.0	woman	1.0
-2393912	hit	food	1.0	food	1.0
-2393951	hit	car	1.0	car	1.0
-2394086	hit	giraffe	1.0	giraffe	1.0
-2394088	co-hyponyms	cup	1.0	vase	--
-2394123	hit	floor	0.9166666666666666	floor	0.9166666666666666
-2394215	other_object-bounding box	food	1.0	plate	0.25
-2394430	hit	scooter	1.0	scooter	1.0
-2394491	same_cluster	shirt	1.0	dress	1.0
-2394553	hit	pizza	1.0	pizza	1.0
-2394626	hit	truck	1.0	truck	1.0
-2394797	hit	bowl	1.0	bowl	1.0
-2394813	same_cluster	skier	1.0	man	1.0
-2395025	hit	train	1.0	train	1.0
-2395382	hit	cow	1.0	cow	1.0
-2395413	hit	suit	0.8333333333333334	suit	0.8333333333333334
-2395484	hit	truck	1.0	truck	1.0
-2395539	hit	shirt	1.0	shirt	1.0
-2395559	hit	cat	1.0	cat	1.0
-2395699	hit	cow	1.0	cow	1.0
-2395759	hit	cow	1.0	cow	1.0
-2395806	hit	woman	1.0	woman	1.0
-2395935	same_cluster	batter	1.0	player	1.0
-2396098	hit	cat	1.0	cat	1.0
-2396315	hit	horse	1.0	horse	1.0
-2396391	same_cluster	airplane	1.0	plane	1.0
-2396413	hit	girl	1.0	girl	1.0
-2396639	hit	bottle	1.0	bottle	1.0
-2396646	hit	pizza	1.0	pizza	1.0
-2396724	same_cluster	restaurant	1.0	window	1.0
-2396752	hit	table	0.8333333333333334	table	0.8333333333333334
-2396786	hit	zebra	1.0	zebra	1.0
-2396805	low_cnt	boy	1.0	man	--
-2396992	hit	jacket	1.0	jacket	1.0
-2397149	other_object-bounding box	car	1.0	snow	0.5
-2397273	hit	chair	1.0	chair	1.0
-2397347	same_cluster	couch	1.0	chair	1.0
-2397438	same_cluster	zebra	0.6666666666666667	head	0.6666666666666667
-2397611	hypernym	girl	1.0	woman	--
-2397653	hit	boat	1.0	boat	1.0
-2397872	hit	motorcycle	1.0	motorcycle	1.0
-2397897	hit	desk	1.0	desk	1.0
-2397933	hit	pizza	0.75	pizza	0.75
-2397944	hit	giraffe	1.0	giraffe	1.0
-2397988	hit	table	1.0	table	1.0
-2398032	hit	boat	1.0	boat	1.0
-2398065	hit	woman	1.0	woman	1.0
-2398204	hit	cat	1.0	cat	1.0
-2398224	low_cnt	chicken	1.0	food	--
-2398485	same_cluster	jacket	1.0	shirt	1.0
-2398489	error	chair	1.0	motorcycle	--
-2398527	hit	curtain	0.9	curtain	0.9
-2398749	hit	train	1.0	train	1.0
-2398796	hit	cat	1.0	cat	1.0
-2398798	hit	desk	0.8333333333333334	desk	0.8333333333333334
-2398922	hit	house	1.0	house	1.0
-2399046	hit	table	1.0	table	1.0
-2399115	hit	woman	1.0	woman	1.0
-2399204	hit	giraffe	1.0	giraffe	1.0
-2399217	hit	woman	1.0	woman	1.0
-2399355	hit	carpet	1.0	carpet	1.0
-2399852	hit	shirt	1.0	shirt	1.0
-2400037	hit	motorcycle	1.0	motorcycle	1.0
-2400093	co-hyponyms	spoon	1.0	pot	--
-2400414	hit	sheep	1.0	sheep	1.0
-2400472	hit	train	1.0	train	1.0
-2400542	low_cnt	woman	1.0	man	--
-2400651	hit	chair	1.0	chair	1.0
-2400668	hit	shirt	1.0	shirt	1.0
-2400798	error	horse	1.0	chair	--
-2400837	hit	cow	1.0	cow	1.0
-2400919	hit	bed	1.0	bed	1.0
-2401218	hit	giraffe	1.0	giraffe	1.0
-2401246	hit	man	1.0	man	1.0
-2401349	same_cluster	rug	0.8333333333333334	floor	0.8333333333333334
-2401739	hit	boat	1.0	boat	1.0
-2401915	hit	zebra	1.0	zebra	1.0
-2401958	low_cnt	jacket	1.0	shirt	--
-2402059	hit	dog	1.0	dog	1.0
-2402073	error	desk	1.0	man	--
-2402174	hit	man	1.0	man	1.0
-2402254	hit	pizza	1.0	pizza	1.0
-2402363	same_cluster	carpet	0.75	floor	0.75
-2402452	hit	rice	1.0	rice	1.0
-2402470	hit	carpet	1.0	carpet	1.0
-2402503	hit	boat	1.0	boat	1.0
-2402579	hit	boy	1.0	boy	1.0
-2402867	hit	bathtub	1.0	bathtub	1.0
-2403303	hit	woman	1.0	woman	1.0
-2403337	same_cluster	house	1.0	building	1.0
-2403401	hit	counter	0.875	counter	0.875
-2403459	hit	desk	1.0	desk	1.0
-2403474	hit	man	1.0	man	1.0
-2403518	hit	blender	1.0	blender	1.0
-2403568	hit	truck	1.0	truck	1.0
-2403657	low_cnt	jacket	1.0	woman	--
-2403677	synonym	cabinet	1.0	cabinets	--
-2403703	low_cnt	airplane	1.0	fence	--
-2403726	hit	girl	1.0	girl	1.0
-2403875	hit	bed	1.0	bed	1.0
-2404158	hit	train	1.0	train	1.0
-2404273	hit	pizza	0.8333333333333334	pizza	0.8333333333333334
-2404360	hit	table	1.0	table	1.0
-2404388	hit	jacket	1.0	jacket	1.0
-2404405	hit	giraffe	1.0	giraffe	1.0
-2404431	error	shirt	1.0	man	--
-2404446	hit	woman	1.0	woman	1.0
-2404594	error	sandwich	1.0	plate	--
-2404609	hit	table	1.0	table	1.0
-2404826	hit	catcher	1.0	catcher	1.0
-2404868	hit	shirt	1.0	shirt	1.0
-2404898	error	truck	0.8333333333333334	roof	--
-2404981	other_object-bounding box	keyboard	0.5714285714285714	desk	0.5714285714285714
-2405051	hit	giraffe	1.0	giraffe	1.0
-2405083	hit	child	1.0	child	1.0
-2405305	other_object-bounding box	mirror	1.0	wall	0.33333333333333337
-2405476	hit	cat	1.0	cat	1.0
-2405510	hit	counter	1.0	counter	1.0
-2405579	hit	shirt	1.0	shirt	1.0
-2405784	hit	airplane	1.0	airplane	1.0
-2405807	hit	bathtub	1.0	bathtub	1.0
-2406005	hit	woman	1.0	woman	1.0
-2406097	error	bench	1.0	wall	--
-2406131	hit	bird	1.0	bird	1.0
-2406274	hit	desk	1.0	desk	1.0
-2406321	hit	cat	1.0	cat	1.0
-2406429	hit	motorcycle	1.0	motorcycle	1.0
-2406803	same_cluster	airplane	1.0	plane	1.0
-2406932	hit	dog	1.0	dog	1.0
-2406962	same_cluster	jacket	0.9166666666666666	suit	0.9166666666666666
-2406969	error	horse	1.0	statue	--
-2407026	hit	shirt	1.0	shirt	1.0
-2407032	low_cnt	table	1.0	bear	--
-2407210	hit	table	1.0	table	1.0
-2407240	hit	plane	1.0	plane	1.0
-2407260	hit	roof	1.0	roof	1.0
-2407270	hit	cake	1.0	cake	1.0
-2407308	same_cluster	skateboarder	1.0	boy	1.0
-2407326	hit	pizza	1.0	pizza	1.0
-2407332	hit	hat	1.0	hat	1.0
-2407462	hit	couch	1.0	couch	1.0
-2407470	same_cluster	bathtub	1.0	tub	1.0
-2407710	hit	bed	0.8333333333333334	bed	0.8333333333333334
-2407742	hit	jacket	1.0	jacket	1.0
-2407794	hypernym	skier	1.0	person	--
-2407975	hit	jacket	0.9375	jacket	0.9375
-2408003	hit	truck	1.0	truck	1.0
-2408041	hit	giraffe	1.0	giraffe	1.0
-2408069	hit	couch	1.0	couch	1.0
-2408077	error	giraffe	1.0	head	--
-2408160	hit	girl	1.0	girl	1.0
-2408210	hit	dog	1.0	dog	1.0
-2408225	co-hyponyms	train	1.0	container	--
-2408262	same_cluster	airplane	1.0	plane	1.0
-2408280	other_object-bounding box	woman	1.0	jacket	0.5
-2408372	hit	boy	1.0	boy	1.0
-2408416	error	giraffe	1.0	head	--
-2408471	same_cluster	carpet	0.9375	floor	0.9375
-2408507	hit	soup	1.0	soup	1.0
-2408632	hit	desk	0.875	desk	0.875
-2408750	hit	bird	1.0	bird	1.0
-2408794	hit	shirt	1.0	shirt	1.0
-2408800	hit	man	1.0	man	1.0
-2408876	error	bed	1.0	water	--
-2408930	hit	man	1.0	man	1.0
-2408940	same_cluster	sandwich	1.0	food	1.0
-2408984	hit	zebra	1.0	zebra	1.0
-2409134	hit	bench	1.0	bench	1.0
-2409223	hit	giraffe	1.0	giraffe	1.0
-2409231	hit	dugout	1.0	dugout	1.0
-2409283	hit	bench	1.0	bench	1.0
-2409317	hit	pizza	1.0	pizza	1.0
-2409333	hit	table	0.8571428571428572	table	0.8571428571428572
-2409369	same_cluster	airplane	1.0	plane	1.0
-2409372	hit	table	1.0	table	1.0
-2409569	hit	bed	1.0	bed	1.0
-2409570	hit	bird	1.0	bird	1.0
-2409611	same_cluster	robe	1.0	shirt	1.0
-2409662	hit	jacket	1.0	jacket	1.0
-2409807	hit	woman	1.0	woman	1.0
-2409885	hit	jacket	1.0	jacket	1.0
-2409913	hit	woman	1.0	woman	1.0
-2409962	hit	bench	1.0	bench	1.0
-2410043	same_cluster	grill	1.0	counter	1.0
-2410103	hit	shirt	1.0	shirt	1.0
-2410172	hit	motorcycle	1.0	motorcycle	1.0
-2410205	error	bathtub	1.0	wall	--
-2410247	hit	truck	1.0	truck	1.0
-2410421	error	woman	1.0	hair	--
-2410790	hit	chair	1.0	chair	1.0
-2410984	hit	plane	1.0	plane	1.0
-2411179	same_cluster	airplane	1.0	plane	1.0
-2411200	hit	woman	1.0	woman	1.0
-2411288	hit	girl	1.0	girl	1.0
-2411323	hit	bridge	0.8333333333333334	bridge	0.8333333333333334
-2411340	same_cluster	child	1.0	boy	1.0
-2411357	co-hyponyms	dog	1.0	horse	--
-2411449	hit	bed	1.0	bed	1.0
-2411954	same_cluster	airplane	1.0	plane	1.0
-2411981	hit	truck	1.0	truck	1.0
-2412141	same_cluster	airplane	1.0	plane	1.0
-2412204	same_cluster	girl	1.0	woman	1.0
-2412260	low_cnt	pizza	0.375	plate	--
-2412704	hit	cat	1.0	cat	1.0
-2413041	error	skier	1.0	snow	--
-2413462	hit	boy	1.0	boy	1.0
-2413559	co-hyponyms	bowl	1.0	plate	--
-2413591	hit	giraffe	1.0	giraffe	1.0
-2413669	error	airplane	1.0	ground	--
-2413715	hit	man	1.0	man	1.0
-2413719	hit	desk	1.0	desk	1.0
-2413801	hit	shirt	1.0	shirt	1.0
-2413820	error	bench	1.0	man	--
-2413845	hit	cat	1.0	cat	1.0
-2413959	hit	motorcycle	1.0	motorcycle	1.0
-2413987	hit	bun	0.8333333333333334	bun	0.8333333333333334
-2413998	hit	horse	1.0	horse	1.0
-2414017	same_cluster	scooter	1.0	motorcycle	1.0
-2414021	hit	curtain	1.0	curtain	1.0
-2414318	hit	giraffe	1.0	giraffe	1.0
-2414657	hit	woman	1.0	woman	1.0
-2414757	hit	bench	1.0	bench	1.0
-2414857	co-hyponyms	dress	1.0	shirt	--
-2414948	hit	bed	0.625	bed	0.625
-2415085	co-hyponyms	dresser	1.0	shelf	--
-2415135	same_cluster	shirt	0.875	jacket	0.875
-2415556	hit	boy	1.0	boy	1.0
-2415650	hit	boy	0.8333333333333334	boy	0.8333333333333334
-2415665	hit	boy	1.0	boy	1.0
-2415754	hit	shirt	1.0	shirt	1.0
-2415760	hit	couch	1.0	couch	1.0
-2415831	hit	train	1.0	train	1.0
-2416021	other_object-bounding box	desk	1.0	keyboard	0.33333333333333337
-2416302	co-hyponyms	dress	0.8333333333333334	shirt	--
-2416535	hit	woman	1.0	woman	1.0
-2416595	hit	bench	1.0	bench	1.0
-2416656	hit	cat	1.0	cat	1.0
-2416688	hit	giraffe	1.0	giraffe	1.0
-2416771	hit	train	1.0	train	1.0
-2416887	hit	cake	1.0	cake	1.0
-2416954	same_cluster	desk	1.0	table	1.0
-2417025	hit	sandwich	0.875	sandwich	0.875
-2417127	hit	woman	1.0	woman	1.0
-2417141	hit	woman	0.8333333333333334	woman	0.8333333333333334
-2417184	co-hyponyms	cow	1.0	bear	--
-2417294	hit	desk	0.8333333333333334	desk	0.8333333333333334
-2417386	hit	bridge	1.0	bridge	1.0
-2417434	same_cluster	couch	1.0	sofa	1.0
-2417438	hit	bed	0.9	bed	0.9
-2417585	same_cluster	airplane	1.0	plane	1.0
-2417682	hit	curtain	1.0	curtain	1.0
-2417758	hit	man	0.8333333333333334	man	0.8333333333333334
-2417910	same_cluster	counter	1.0	table	1.0
+image_id	category	mn_name	adequacy	pred_name	adequacy	pred_score_converted
+32	same_cluster	cabinet	1.0	cabinets	1.0	0.8284855559680364
+160	co-hyponyms	dress	1.0	jacket	--	0.20935888508554934
+308	same_cluster	bridge	1.0	sidewalk,side walk	1.0	0.46570745492746896
+474	hit	table	1.0	table	1.0	0.7854692654090725
+535	hit	table	1.0	table	1.0	0.922874138830423
+556	other_object-bounding box	rug	1.0	floor	0.5	0.35729551550676064
+625	hit	car	1.0	car	1.0	0.36066480622940494
+691	hyponym	animal	1.0	giraffe	--	0.43426589873465227
+1045	hit	table	1.0	table	1.0	0.8718139982919177
+1074	same_cluster	house	1.0	building	1.0	0.48038397416062356
+1132	same_cluster	counter	1.0	table	1.0	0.08659641315577365
+1375	hit	man	1.0	man	1.0	0.7059595468672032
+1590	hit	table	0.41666666666666663	table	0.41666666666666663	0.5368534522951552
+1687	hit	chair	1.0	chair	1.0	0.7537780449671929
+2611	hit	bird	1.0	bird	1.0	0.9512140049383464
+2657	hit	animal	1.0	animal	1.0	0.5366695949292489
+3611	hit	horse	1.0	horse	1.0	0.8842286549916799
+3966	co-hyponyms	desk	1.0	counter	--	0.49577571716996194
+4257	hit	building	1.0	building	1.0	0.7168242094245103
+4711	hit	house	1.0	house	1.0	0.67680597042532
+4725	hit	house	1.0	house	1.0	0.6307220627475395
+4766	hit	house	1.0	house	1.0	0.7607132637294126
+4884	hit	chair	1.0	chair	1.0	0.9813509314039544
+4911	same_cluster	carpet	1.0	floor	1.0	0.6437038342525117
+61562	co-hyponyms	rug	1.0	bed	--	0.24497301853451015
+61586	same_cluster	umpire	1.0	man	1.0	0.3502599276473448
+61590	hit	boy	1.0	boy	1.0	0.4976535551037462
+150336	hit	woman	1.0	woman	1.0	0.6393598101738972
+150418	hit	horse	1.0	horse	1.0	0.953228870435255
+286084	hit	truck	1.0	truck	1.0	0.9437081655825654
+498263	same_cluster	sink	0.9166666666666666	counter	0.9166666666666666	0.36663135251571477
+498298	hit	woman	1.0	woman	1.0	0.8332634410014947
+498334	hit	shirt	1.0	shirt	1.0	0.6962288642129785
+712987	same_cluster	person	1.0	woman	1.0	0.5110501313956135
+713267	hit	motorcycle	1.0	motorcycle	1.0	0.15758704034986198
+713472	hit	couch	1.0	couch	1.0	0.5239736029300442
+713702	hit	train	1.0	train	1.0	0.24740056592532544
+1159909	hit	desk	0.8333333333333334	desk	0.8333333333333334	0.023655383773483796
+1159981	hit	bus	0.8333333333333334	bus	0.8333333333333334	0.8394473002873633
+1160027	same_cluster	bathtub	1.0	tub	1.0	0.33413392618723387
+1160051	hit	couch	1.0	couch	1.0	0.31742921674737584
+1160088	hit	motorcycle	1.0	motorcycle	1.0	0.7657247487449412
+1160203	hit	bed	1.0	bed	1.0	0.955355427159945
+1591814	error	dugout	1.0	shirt	--	0.18331621999587752
+1591904	same_cluster	airplane	1.0	plane	1.0	0.7767711433492408
+1591965	error	table	0.8333333333333334	bench	--	0.0682693212460207
+1592028	hit	table	1.0	table	1.0	0.49266659639330546
+1592205	same_cluster	airplane	1.0	plane	1.0	0.6314316073348701
+1592412	hit	boat	1.0	boat	1.0	0.9753990648408477
+1593036	hit	couch	1.0	couch	1.0	0.519660572581737
+2315401	hit	shirt	0.33333333333333337	shirt	0.33333333333333337	0.6174701602556293
+2315509	hit	cat	1.0	cat	1.0	0.6457088119384685
+2315539	hit	bench	1.0	bench	1.0	0.8664867589941301
+2315708	other_object-bounding box	knife	1.0	banana	0.33333333333333337	0.6471569548921972
+2315931	hit	bird	1.0	bird	1.0	0.9768358800851641
+2315994	hit	giraffe	1.0	giraffe	1.0	0.9306579464949563
+2316008	hit	table	1.0	table	1.0	0.9017242060377774
+2316156	hit	woman	1.0	woman	1.0	0.5455324663787763
+2316232	hit	boat	1.0	boat	1.0	0.9249078250049768
+2316235	hit	bridge	1.0	bridge	1.0	0.47732886625246
+2316247	hit	cow	1.0	cow	1.0	0.5999588912448398
+2316279	hit	cat	1.0	cat	1.0	0.8761197699574876
+2316318	hit	bench	1.0	bench	1.0	0.9545612215357062
+2316621	hit	boat	1.0	boat	1.0	0.8766980465578826
+2316635	hit	dog	1.0	dog	1.0	0.9662227981395874
+2316823	hit	horse	1.0	horse	1.0	0.9866963643143214
+2316881	hit	plane	1.0	plane	1.0	0.5990251816061126
+2317073	same_cluster	airplane	1.0	plane	1.0	0.5776579503734028
+2317185	same_cluster	skateboarder	1.0	man	1.0	0.4258741324458682
+2317461	hit	bed	1.0	bed	1.0	0.3253581720140066
+2317476	hit	man	1.0	man	1.0	0.721593100008996
+2317497	hyponym	baseball player	1.0	catcher	--	0.314364464161658
+2317541	hit	train	1.0	train	1.0	0.7632737085574102
+2317743	error	hot dog,hotdog	0.875	bun	--	0.21647142691113366
+2317819	hit	pizza	1.0	pizza	1.0	0.7447816365002815
+2317863	hit	cat	1.0	cat	1.0	0.9847779738455539
+2318065	co-hyponyms	skateboarder	1.0	woman	--	0.4029374776605068
+2318299	other_object-bounding box	dress	1.0	woman	0.16666666666666663	0.7158303516417694
+2318321	error	sandwich	1.0	dirt	--	0.007101254904093874
+2318653	other_object-None	pizza	0.33333333333333337	cheese	1.0	0.5233934876482951
+2318682	hit	table	1.0	table	1.0	0.551505646842805
+2318709	hit	boy	1.0	boy	1.0	0.31783229735571894
+2318816	hit	jacket	1.0	jacket	1.0	0.5608964095081727
+2318853	hit	train	1.0	train	1.0	0.7835995180153055
+2318958	hit	bench	1.0	bench	1.0	0.9609647034644141
+2319130	hit	bed	1.0	bed	1.0	0.9387968936415235
+2319243	hit	window	0.9166666666666666	window	0.9166666666666666	0.8680165902416912
+2319291	hit	cow	1.0	cow	1.0	0.2194326840163319
+2319473	error	dress	1.0	man	--	0.21204722934633072
+2319561	hit	horse	1.0	horse	1.0	0.31879157439545436
+2319606	hit	cat	1.0	cat	1.0	0.8907999569793121
+2319626	hit	dog	1.0	dog	1.0	0.985332252074076
+2319638	hit	pizza	1.0	pizza	1.0	0.39203927581554987
+2319738	hit	giraffe	1.0	giraffe	1.0	0.9559212224746138
+2319764	hit	dog	1.0	dog	1.0	0.9284622894635409
+2319842	error	shirt	1.0	laptop	--	0.026382033310300004
+2320078	hit	horse	1.0	horse	1.0	0.9218129514816502
+2320159	hit	dress	1.0	dress	1.0	0.6682385058111895
+2320285	same_cluster	car	0.8333333333333334	truck	0.8333333333333334	0.6124791561202961
+2320381	hit	house	1.0	house	1.0	0.8756463977888845
+2320486	hit	motorcycle	1.0	motorcycle	1.0	0.7769417429204242
+2320516	hit	couch	1.0	couch	1.0	0.21934581606167697
+2320540	hit	boy	1.0	boy	1.0	0.1645237144212253
+2320729	hit	shirt	1.0	shirt	1.0	0.8316862288866488
+2320763	other_object-bounding box	rug	0.875	floor	0.375	0.7958273222556063
+2320922	hit	boat	1.0	boat	1.0	0.9301478449792657
+2320949	hit	desk	1.0	desk	1.0	0.5607124210983552
+2321375	hit	pizza	1.0	pizza	1.0	0.44721236380519286
+2321465	same_cluster	airplane	1.0	plane	1.0	0.6326024918460197
+2321593	co-hyponyms	fork	1.0	spoon	--	0.414467106874461
+2321601	same_cluster	airplane	1.0	plane	1.0	0.4785218270539577
+2321797	hit	giraffe	1.0	giraffe	1.0	0.965560614104149
+2322197	hit	truck	1.0	truck	1.0	0.8740094082237395
+2322229	hit	bench	1.0	bench	1.0	0.9367300178998152
+2322231	same_cluster	truck	1.0	car	1.0	0.5969611638198029
+2322259	hit	building	1.0	building	1.0	0.69671547227873
+2322312	hit	truck	1.0	truck	1.0	0.49023228515354256
+2322327	hit	pan	1.0	pan	1.0	0.34988431118202257
+2322499	hit	table	1.0	table	1.0	0.893016025151044
+2322717	hit	woman	1.0	woman	1.0	0.8669291598067691
+2322761	same_cluster	woman	0.625	man	0.625	0.427938067439015
+2322886	hit	car	1.0	car	1.0	0.7307702557112166
+2322892	co-hyponyms	child	1.0	boy	--	0.6506504563729586
+2322899	hit	sheep	1.0	sheep	1.0	0.33538073052168854
+2322926	hit	counter	1.0	counter	1.0	0.7672205783824121
+2322990	same_cluster	counter	0.8333333333333334	table	0.8333333333333334	0.42123056107886375
+2323003	hit	sandwich	1.0	sandwich	1.0	0.6363352242762231
+2323093	same_cluster	suit	1.0	jacket	1.0	0.5181391441468862
+2323172	same_cluster	woman	1.0	girl	1.0	0.7111431147745726
+2323428	error	planter	1.0	oven	--	0.0881732593244585
+2323600	error	train	0.9166666666666666	door	--	0.00366402834626697
+2323699	hit	dog	1.0	dog	1.0	0.8015966565045413
+2323727	hit	cake	0.8333333333333334	cake	0.8333333333333334	0.9544382358552239
+2323784	hit	rug	1.0	rug	1.0	0.5846301408616673
+2323863	error	jacket	1.0	man	--	0.29345865024870704
+2323871	hit	bird	1.0	bird	1.0	0.8721753008993363
+2323934	hit	bridge	1.0	bridge	1.0	0.977144125276933
+2323938	same_cluster	rice	1.0	food	1.0	0.4318915014040212
+2323957	hit	hat	1.0	hat	1.0	0.9727566827809688
+2324191	hit	cat	1.0	cat	1.0	0.9724620782617746
+2324423	synonym_cl	woman	1.0	girl	--	0.21637885916478064
+2325275	same_cluster	baseball player	1.0	player	1.0	0.26926595529348296
+2325311	hit	boat	0.8333333333333334	boat	0.8333333333333334	0.5969930602924279
+2326137	hit	bowl	1.0	bowl	1.0	0.6718857356104945
+2326211	error	sandwich	1.0	plate	--	0.3976846503950606
+2326627	hit	cat	1.0	cat	1.0	0.8886157902134969
+2326790	hit	man	1.0	man	1.0	0.28538633819567505
+2326868	hit	cat	1.0	cat	1.0	0.981645469569961
+2326931	same_cluster	sandwich	1.0	bread	1.0	0.46847558707644066
+2326990	hit	suit	1.0	suit	1.0	0.6100089474010103
+2327179	hit	dress	1.0	dress	1.0	0.7164222759522916
+2327232	other_object-None	pasta	1.0	broccoli	0.875	0.4593633371017702
+2327298	hit	train	1.0	train	1.0	0.7181767965293223
+2327373	hit	pizza	1.0	pizza	1.0	0.7040461114923257
+2327667	hit	bed	0.8333333333333334	bed	0.8333333333333334	0.5064481972142575
+2327830	hit	cat	1.0	cat	1.0	0.986805710317555
+2328101	hit	giraffe	0.8333333333333334	giraffe	0.8333333333333334	0.9165004068862052
+2328124	hit	man	1.0	man	1.0	0.8399085156463646
+2328239	hit	bridge	1.0	bridge	1.0	0.8652928974603273
+2328242	hit	bed	1.0	bed	1.0	0.9485350240389145
+2328324	hit	cat	1.0	cat	1.0	0.02670855279219163
+2328879	hit	table	1.0	table	1.0	0.13958265932227965
+2329031	same_cluster	sandwich	0.9285714285714286	hot dog,hotdog	0.9285714285714286	0.4988868831533845
+2329105	hit	zebra	1.0	zebra	1.0	0.9548272131305459
+2329362	hit	chair	1.0	chair	1.0	0.8532016646582649
+2329371	same_cluster	baseball player	1.0	boy	1.0	0.70860215390693
+2329403	hit	woman	1.0	woman	1.0	0.5399791872363228
+2329628	hit	woman	1.0	woman	1.0	0.8032092051323676
+2329925	hit	desk	1.0	desk	1.0	0.6803942853308713
+2330220	hit	man	1.0	man	1.0	0.7666924941660254
+2330368	same_cluster	couch	1.0	bed	1.0	0.5659978984362535
+2330394	hit	broccoli	0.8333333333333334	broccoli	0.8333333333333334	0.7062683287017033
+2330403	hit	horse	0.6666666666666667	horse	0.6666666666666667	0.7303615218067736
+2330414	hit	horse	1.0	horse	1.0	0.9636284287991838
+2330907	hit	cat	1.0	cat	1.0	0.9886003129065397
+2330968	hit	bench	1.0	bench	1.0	0.21715395701688528
+2331008	hit	horse	1.0	horse	1.0	0.9946596778732005
+2331065	hit	bench	1.0	bench	1.0	0.8434404294195913
+2331151	hit	truck	1.0	truck	1.0	0.8228455152065345
+2331168	same_cluster	airplane	1.0	plane	1.0	0.6221089546063571
+2331275	hit	motorcycle	1.0	motorcycle	1.0	0.8058791210501491
+2331355	error	cake	1.0	fruit	--	0.6687586417364778
+2331489	same_cluster	desk	0.8333333333333334	table	0.8333333333333334	0.49858244805830915
+2331590	same_cluster	goose	1.0	bird	1.0	0.6925857307875818
+2331644	hit	bench	1.0	bench	1.0	0.49234380873359734
+2331793	hit	car	1.0	car	1.0	0.9082096859076065
+2332119	hit	woman	1.0	woman	1.0	0.7762722129509483
+2332294	same_cluster	skateboarder	1.0	man	1.0	0.6008187184607341
+2332326	hit	bench	1.0	bench	1.0	0.6043879131715392
+2332389	hit	couch	1.0	couch	1.0	0.6394788232779185
+2332443	low_cnt	pizza	0.6666666666666667	cheese	--	0.04035957482210552
+2332848	hit	chair	1.0	chair	1.0	0.5388896404939265
+2333046	hit	bowl	1.0	bowl	1.0	0.9170532691024861
+2333212	hit	child	1.0	child	1.0	0.46495917561610456
+2333438	other_object-bounding box	bench	1.0	dog	0.5	0.12125959204112631
+2333443	hit	dog	1.0	dog	1.0	0.9727045711130786
+2333798	hit	garage door	1.0	garage door	1.0	0.2522613067998591
+2334013	hit	horse	1.0	horse	1.0	0.9305463071743706
+2334138	hit	bed	1.0	bed	1.0	0.9752768252971976
+2334247	hit	bottle	1.0	bottle	1.0	0.94348084898998
+2334322	hit	woman	1.0	woman	1.0	0.650660094708973
+2334350	error	child	0.9166666666666666	shirt	--	0.08893979333196737
+2334588	hit	giraffe	1.0	giraffe	1.0	0.9568556128297068
+2334647	hit	giraffe	1.0	giraffe	1.0	0.5685796910227536
+2334819	hit	chair	1.0	chair	1.0	0.8073982945607836
+2334968	low_cnt	boy	1.0	floor	--	0.3614063843291653
+2334979	hit	giraffe	1.0	giraffe	1.0	0.9299919243871153
+2335036	hit	cake	1.0	cake	1.0	0.915305836732391
+2335038	hit	cake	1.0	cake	1.0	0.6411621689205208
+2335185	hit	train	1.0	train	1.0	0.8337384957217748
+2335357	same_cluster	sofa	1.0	couch	1.0	0.5541423658420398
+2335395	hit	jar	1.0	jar	1.0	0.798201630697749
+2335733	same_cluster	cup	0.875	container	0.875	0.4621092664603611
+2335764	hit	bench	1.0	bench	1.0	0.3834544569934321
+2335846	hit	catcher	1.0	catcher	1.0	0.5169233831065015
+2335906	same_cluster	van	1.0	car	1.0	0.43139429039072635
+2336128	hit	bed	0.8333333333333334	bed	0.8333333333333334	0.8906047663572165
+2336466	same_cluster	plane	1.0	jet	1.0	0.3774596376067393
+2336547	hit	boat	0.8333333333333334	boat	0.8333333333333334	0.6578030402375211
+2336554	hit	bench	1.0	bench	1.0	0.719986581059275
+2336626	hit	bench	1.0	bench	1.0	0.9759623628307598
+2336632	error	container	1.0	oven	--	0.5480549824418326
+2336641	hit	boat	1.0	boat	1.0	0.27857186866697214
+2336747	hit	car	1.0	car	1.0	0.8231063643486993
+2336897	hit	table	1.0	table	1.0	0.8883805326843328
+2337073	hit	woman	1.0	woman	1.0	0.7892486136110155
+2337162	hit	train	1.0	train	1.0	0.9407064688631437
+2337181	hit	bench	1.0	bench	1.0	0.8687167801773165
+2337357	hit	bench	1.0	bench	1.0	0.15298107074636047
+2337412	hit	giraffe	1.0	giraffe	1.0	0.8988275628535203
+2337449	hit	pizza	1.0	pizza	1.0	0.7859918993806144
+2338008	hit	table	0.875	table	0.875	0.7116656581372905
+2338093	error	jacket	1.0	flowers	--	0.0023602431202584856
+2338234	hit	car	1.0	car	1.0	0.5338868291520538
+2338254	hit	car	1.0	car	1.0	0.7528938987072091
+2338309	hit	chair	1.0	chair	1.0	0.980732009515184
+2338354	error	shirt	1.0	woman	--	0.7606842423374923
+2338415	hit	house	1.0	house	1.0	0.8127027351459353
+2338449	hit	motorcycle	1.0	motorcycle	1.0	0.5867412390602963
+2338468	other_object-bounding box	bridge	1.0	train	0.16666666666666663	0.18088998796017888
+2338820	hit	bed	1.0	bed	1.0	0.681147152441874
+2339057	error	jacket	1.0	door	--	0.18648683389905676
+2339187	hit	woman	1.0	woman	1.0	0.9258177139106435
+2339287	hit	couch	1.0	couch	1.0	0.4680333242799923
+2339493	hit	dog	0.6666666666666667	dog	0.6666666666666667	0.7067526993597307
+2339787	hit	plane	1.0	plane	1.0	0.5830046944076244
+2339883	co-hyponyms	knife	1.0	rug	--	0.09815340851999647
+2340041	other_object-bounding box	jacket	1.0	bear	0.41666666666666663	0.3133797458252772
+2340058	error	sheep	1.0	head	--	0.517353284077584
+2340680	hit	cow	1.0	cow	1.0	0.9300837339233748
+2340773	same_cluster	boy	1.0	man	1.0	0.5206950167231428
+2340813	hit	boat	1.0	boat	1.0	0.9806537575966469
+2340947	error	car	1.0	ground	--	0.15224515322566806
+2340984	hit	jacket	1.0	jacket	1.0	0.48919004167381264
+2340999	hit	truck	1.0	truck	1.0	0.3861420420206459
+2341056	hit	boat	1.0	boat	1.0	0.015249051444666374
+2341092	hit	giraffe	1.0	giraffe	1.0	0.884501801472713
+2341136	hit	girl	1.0	girl	1.0	0.908391358002249
+2341366	error	cat	1.0	window	--	0.2529723695214731
+2341545	hit	woman	1.0	woman	1.0	0.5497296919034722
+2341665	hit	zebra	1.0	zebra	1.0	0.9596352124991393
+2341844	hit	motorcycle	0.8333333333333334	motorcycle	0.8333333333333334	0.3522226097486011
+2341930	hit	zebra	1.0	zebra	1.0	0.9762385548136074
+2342088	same_cluster	skateboarder	1.0	man	1.0	0.4070792558488919
+2342109	low_cnt	van	1.0	car	--	0.6353367279431505
+2342226	hit	dog	1.0	dog	1.0	0.9603313049614924
+2342266	same_cluster	airplane	1.0	plane	1.0	0.5298220002471766
+2342270	hit	giraffe	1.0	giraffe	1.0	0.34471688559175845
+2342654	hit	mouse	1.0	mouse	1.0	0.9906793441737942
+2342685	hit	pizza	1.0	pizza	1.0	0.816608886383624
+2342762	hit	dog	1.0	dog	1.0	0.9783910110857738
+2342867	same_cluster	fruit	0.5833333333333333	food	0.5833333333333333	0.281705429868714
+2342881	hit	train	1.0	train	1.0	0.8873818319316017
+2343006	hit	bridge	1.0	bridge	1.0	0.8685391502249015
+2343148	hit	truck	1.0	truck	1.0	0.9102345306843813
+2343236	same_cluster	bathtub	1.0	tub	1.0	0.4954418675686678
+2343305	hit	train	1.0	train	1.0	0.960064802658294
+2343376	error	man	1.0	face	--	0.47598952989990295
+2343482	hit	girl	1.0	girl	1.0	0.6316863322510153
+2343564	same_cluster	baby	0.8333333333333334	girl	0.8333333333333334	0.26203589378799164
+2343612	same_cluster	desk	1.0	table	1.0	0.6269308293674393
+2343623	hit	man	1.0	man	1.0	0.30829876999701394
+2343624	hit	desk	1.0	desk	1.0	0.5863413117144636
+2343725	hit	bridge	1.0	bridge	1.0	0.9348989695299449
+2343739	hit	boat	1.0	boat	1.0	0.7960893757440873
+2343762	hit	bed	1.0	bed	1.0	0.9555468206461835
+2343767	hit	woman	1.0	woman	1.0	0.8469640174151964
+2343796	hit	woman	1.0	woman	1.0	0.6396361982854377
+2344059	hit	car	1.0	car	1.0	0.740059016303031
+2344119	same_cluster	chair	1.0	bench	1.0	0.4755540988783385
+2344274	hit	car	1.0	car	1.0	0.9119896780148522
+2344297	hit	man	1.0	man	1.0	0.9491401294766276
+2344656	hit	table	1.0	table	1.0	0.7389061431807437
+2344881	hit	cat	1.0	cat	1.0	0.04830908792953811
+2345008	hit	giraffe	1.0	giraffe	1.0	0.9513842797234032
+2345040	hit	train	1.0	train	1.0	0.9111696130065735
+2345052	hit	horse	1.0	horse	1.0	0.9894213355980748
+2345225	hit	house	0.6666666666666667	house	0.6666666666666667	0.3482936375570134
+2345311	hit	bench	1.0	bench	1.0	0.9901755455296248
+2345314	error	hood	1.0	door	--	0.009760706437168875
+2345357	hit	train	1.0	train	1.0	0.8670318178438178
+2345490	hit	table	0.8333333333333334	table	0.8333333333333334	0.4259879530639681
+2345529	same_cluster	desk	1.0	table	1.0	0.4276517417393282
+2345598	hit	horse	1.0	horse	1.0	0.972232578100832
+2345609	hit	bird	1.0	bird	1.0	0.8100408812560703
+2345619	hit	car	0.9166666666666666	car	0.9166666666666666	0.4615292006637582
+2345629	hit	train	1.0	train	1.0	0.9079333122975596
+2345779	hit	table	1.0	table	1.0	0.5769517824157109
+2345838	other_object-None	jacket	1.0	person	1.0	0.39222030440519834
+2345850	hit	bench	1.0	bench	1.0	0.39856916822484806
+2346071	hit	couch	0.8333333333333334	couch	0.8333333333333334	0.1518594945611237
+2346124	hit	couch	1.0	couch	1.0	0.7366236368619532
+2346212	hit	giraffe	1.0	giraffe	1.0	0.966875665347134
+2346343	hit	building	1.0	building	1.0	0.707994391729248
+2346358	hit	cat	1.0	cat	1.0	0.9728853004260012
+2346372	hit	cat	1.0	cat	1.0	0.6105487513141028
+2346419	hit	horse	1.0	horse	1.0	0.9783777432463231
+2346444	hit	house	1.0	house	1.0	0.5469550575248183
+2346456	hit	woman	1.0	woman	1.0	0.9200226331346582
+2346532	same_cluster	airplane	1.0	plane	1.0	0.5689855189488648
+2346596	hit	jacket	1.0	jacket	1.0	0.6943119786698324
+2346824	hit	man	0.8333333333333334	man	0.8333333333333334	0.764470449452068
+2346928	error	pillow	0.7142857142857143	carpet	--	0.1753501665281735
+2347030	hit	giraffe	1.0	giraffe	1.0	0.9354648212943592
+2347159	hit	train	1.0	train	1.0	0.9658070362796116
+2347210	hit	man	1.0	man	1.0	0.82078336769481
+2347254	hit	sheep	1.0	sheep	1.0	0.8520007529681032
+2347285	same_cluster	airplane	1.0	plane	1.0	0.6116136787230284
+2347290	same_cluster	baseball player	1.0	man	1.0	0.2962834704425343
+2347374	co-hyponyms	man	0.875	boy	--	0.528057040479237
+2347523	hit	girl	1.0	girl	1.0	0.423405496331324
+2347544	same_cluster	sandwich	1.0	bread	1.0	0.3139266300403851
+2347576	hit	motorcycle	1.0	motorcycle	1.0	0.9055710629043593
+2347683	hit	couch	1.0	couch	1.0	0.6985231433061658
+2347710	hit	bed	1.0	bed	1.0	0.6010673044163888
+2347755	hit	counter	1.0	counter	1.0	0.4238720140166756
+2347822	hit	man	1.0	man	1.0	0.8683633899580951
+2347884	hit	boat	1.0	boat	1.0	0.9242373454224618
+2347981	error	jacket	1.0	person	--	0.2273425489607716
+2347987	hit	woman	1.0	woman	1.0	0.672280427062487
+2348184	hit	zebra	1.0	zebra	1.0	0.13528607335507448
+2348389	hit	horse	1.0	horse	1.0	0.11432865734180708
+2348483	hit	zebra	1.0	zebra	1.0	0.9639147866940139
+2348528	hit	horse	1.0	horse	1.0	0.8398478853067102
+2348579	other_object-bounding box	bun	1.0	hot dog,hotdog	0.33333333333333337	0.3565885989053115
+2348588	same_cluster	bench	1.0	chair	1.0	0.5187097902164571
+2348594	same_cluster	rice	1.0	food	1.0	0.3159821434822102
+2348690	hit	dog	1.0	dog	1.0	0.9669301388085069
+2348981	hit	horse	1.0	horse	1.0	0.910723625744968
+2348994	same_cluster	skateboarder	1.0	man	1.0	0.4853275321807233
+2349004	low_cnt	bread	1.0	pizza	--	0.14897020969890762
+2349012	hit	woman	1.0	woman	1.0	0.08172124679830775
+2349240	error	train	1.0	car	--	0.017511047830362097
+2349243	error	giraffe	1.0	head	--	0.7235564510077004
+2349680	co-hyponyms	hat	1.0	sweater	--	0.5000532711688905
+2349739	hit	bread	1.0	bread	1.0	0.6872535010298075
+2349902	hit	car	1.0	car	1.0	0.897512707823904
+2349911	hit	butterfly	1.0	butterfly	1.0	0.9820860466698813
+2350083	hit	bench	1.0	bench	1.0	0.005898055373927673
+2350119	error	horse	1.0	man	--	0.5735612624157528
+2350164	co-hyponyms	surfer	1.0	woman	--	0.43199512258044004
+2350235	same_cluster	bull	0.6666666666666667	cow	0.6666666666666667	0.5947794327927777
+2350388	hit	giraffe	1.0	giraffe	1.0	0.9502700459191723
+2350417	hit	man	1.0	man	1.0	0.9280199472402628
+2350576	hit	house	1.0	house	1.0	0.8666897221209832
+2350715	hit	cat	1.0	cat	1.0	0.9108040229795038
+2350935	hit	pizza	1.0	pizza	1.0	0.2795881285304682
+2351043	hit	giraffe	1.0	giraffe	1.0	0.9522900233255389
+2351078	other_object-bounding box	meat	1.0	sandwich	0.16666666666666663	0.26014276714201645
+2351086	same_cluster	bathtub	1.0	tub	1.0	0.38921708381202935
+2351090	hit	table	1.0	table	1.0	0.47472547707507695
+2351300	hit	bench	1.0	bench	1.0	0.7702176599177137
+2351336	hit	train	1.0	train	1.0	0.9646451302922131
+2351404	hit	chair	1.0	chair	1.0	0.5875464839868453
+2351406	hit	bed	1.0	bed	1.0	0.9610543707031413
+2351470	hit	table	1.0	table	1.0	0.8937747095212645
+2351529	hit	couch	1.0	couch	1.0	0.6735145703832804
+2351597	error	counter	1.0	floor	--	0.47274798069966417
+2351639	hit	train	1.0	train	1.0	0.9497133963303798
+2351705	hit	man	1.0	man	1.0	0.6863831057954727
+2351944	hit	train	1.0	train	1.0	0.944187438306663
+2351996	hit	table	1.0	table	1.0	0.7393964933818825
+2352059	error	pizza	0.75	plate	--	0.2889890502738535
+2352074	hit	counter	1.0	counter	1.0	0.7248011026172632
+2352261	hit	desk	1.0	desk	1.0	0.6460952885231384
+2352268	hyponym	cake	1.0	donut,doughnut	--	0.3790669295683001
+2352286	hit	couch	1.0	couch	1.0	0.37505813903025287
+2352328	hit	plane	1.0	plane	1.0	0.7170792243816044
+2352332	same_cluster	airplane	1.0	plane	1.0	0.5724553693289837
+2352365	error	food	1.0	plate	--	0.4346895875238114
+2352419	same_cluster	woman	1.0	player	1.0	0.4184089934429056
+2352471	hit	woman	1.0	woman	1.0	0.5904876432492334
+2352582	hit	dog	1.0	dog	1.0	0.9903408036977016
+2352618	hit	shirt	1.0	shirt	1.0	0.8927463005950275
+2352706	hit	bed	1.0	bed	1.0	0.8613039824327872
+2352782	hit	dog	1.0	dog	1.0	0.9894875479712856
+2353050	same_cluster	airplane	1.0	plane	1.0	0.6614442688261534
+2353053	same_cluster	table	1.0	counter	1.0	0.5244761353238083
+2353208	other_object-bounding box	house	0.75	tree	0.625	0.44866434606851463
+2353233	same_cluster	batter	1.0	player	1.0	0.44339199351065656
+2353256	hit	train	1.0	train	1.0	0.9225908853342838
+2353317	error	hot dog,hotdog	1.0	wrapper	--	0.2805129077837934
+2353412	error	woman	0.8571428571428572	hair	--	0.6654337969251684
+2353589	hit	desk	1.0	desk	1.0	0.6917005464802272
+2353604	hit	knife	1.0	knife	1.0	0.9748345492229884
+2353679	hit	girl	1.0	girl	1.0	0.8077563811251532
+2353814	hit	horse	1.0	horse	1.0	0.9707147558513758
+2353819	hit	truck	1.0	truck	1.0	0.35618204066101233
+2353876	hit	shirt	1.0	shirt	1.0	0.6769945635595479
+2353903	hit	cat	1.0	cat	1.0	0.902548544494672
+2353969	hit	dog	1.0	dog	1.0	0.4637332725435165
+2354029	same_cluster	bun	0.9166666666666666	bread	0.9166666666666666	0.19824461963559492
+2354055	co-hyponyms	truck	1.0	box	--	0.6153118015635853
+2354060	same_cluster	desk	0.8333333333333334	table	0.8333333333333334	0.36575648754775975
+2354085	hit	sandwich	1.0	sandwich	1.0	0.6277937437848893
+2354184	synonym_cl	train	1.0	car	--	0.16411787030158803
+2354226	hit	table	1.0	table	1.0	0.8843357280670743
+2354269	hit	tie	1.0	tie	1.0	0.36541918184338834
+2354346	hit	bird	1.0	bird	1.0	0.9179388397726289
+2354570	hit	cow	1.0	cow	1.0	0.6658950917293035
+2354750	other_object-None	sink	0.41666666666666663	counter	1.0	0.10596748178798181
+2354780	other_object-visual	mirror	1.0	window	0.5	0.7057639754703118
+2354786	hit	car	1.0	car	1.0	0.839918226773465
+2354892	error	van	1.0	door	--	0.0022123571327924423
+2354896	hit	tent	0.6666666666666667	tent	0.6666666666666667	0.6254565995864106
+2355034	hit	plane	1.0	plane	1.0	0.797878517442205
+2355254	hit	zebra	1.0	zebra	1.0	0.3627276500216128
+2355530	hit	couch	1.0	couch	1.0	0.6514136504624517
+2355626	hit	giraffe	1.0	giraffe	1.0	0.9641629900237072
+2355705	other_object-None	pizza	0.33333333333333337	cheese	0.9166666666666666	0.04530387325834023
+2355779	hit	train	1.0	train	1.0	0.9849447652881272
+2355872	hit	woman	1.0	woman	1.0	0.7283382233484964
+2355930	hit	car	1.0	car	1.0	0.7444550225594558
+2356032	hit	glass	1.0	glass	1.0	0.8165159627483914
+2356283	hit	desk	1.0	desk	1.0	0.544387047309244
+2356562	error	curtain	1.0	wall	--	0.005829420984071617
+2356572	hit	counter	1.0	counter	1.0	0.7481450573151118
+2356779	hit	shirt	1.0	shirt	1.0	0.5680527575034909
+2356785	hit	boat	1.0	boat	1.0	0.8966519909555126
+2356915	error	car	1.0	tire	--	0.11534981783739312
+2356990	hit	shirt	1.0	shirt	1.0	0.4134813653290262
+2357001	error	donut,doughnut	1.0	bowl	--	0.016600838155312176
+2357082	hit	giraffe	1.0	giraffe	1.0	0.961096937106314
+2357118	hit	boat	1.0	boat	1.0	0.9746354344572635
+2357123	hit	woman	1.0	woman	1.0	0.6526638228505414
+2357139	synonym	curtain	1.0	curtains	--	0.3114278783064754
+2357249	hit	horse	0.8333333333333334	horse	0.8333333333333334	0.8127796091244943
+2357459	hit	table	1.0	table	1.0	0.8069872703915644
+2357516	error	car	1.0	wall	--	0.04330997336382456
+2357517	hit	woman	1.0	woman	1.0	0.8158840366127985
+2357667	hit	tie	1.0	tie	1.0	0.9796738227821542
+2357724	hit	child	1.0	child	1.0	0.3827623526161906
+2357792	hit	cow	1.0	cow	1.0	0.9444409750403873
+2357801	other_object-bounding box	cabinet	1.0	man	0.33333333333333337	0.25326796331137974
+2357880	same_cluster	skater	1.0	man	1.0	0.37732548317182235
+2357888	hit	table	1.0	table	1.0	0.5217825263524519
+2357928	hit	woman	1.0	woman	1.0	0.7285794418371615
+2357939	hit	cake	1.0	cake	1.0	0.3010019954382906
+2358083	hit	cow	1.0	cow	1.0	0.3530694433733778
+2358632	same_cluster	house	1.0	building	1.0	0.9023682090683416
+2358894	hit	shirt	1.0	shirt	1.0	0.8024138964055323
+2358910	error	cake	1.0	flowers	--	0.28573785010272945
+2358978	hit	bun	1.0	bun	1.0	0.4239155264340613
+2359002	hit	bear	1.0	bear	1.0	0.9733849482563639
+2359038	hit	dog	1.0	dog	1.0	0.9755335701047104
+2359042	synonym_cl	boy	1.0	baby	--	0.44272891314341256
+2359113	hit	zebra	1.0	zebra	1.0	0.9813239186360229
+2359295	hit	motorcycle	1.0	motorcycle	1.0	0.7286262903510297
+2359352	hit	table	1.0	table	1.0	0.5379541237849915
+2359569	error	dog	1.0	stand	--	0.08434352527255763
+2359571	error	cake	1.0	box	--	0.24255402621001973
+2359787	hit	girl	0.8333333333333334	girl	0.8333333333333334	0.7277648912104854
+2360005	hit	train	1.0	train	1.0	0.8788005144622958
+2360152	hit	table	1.0	table	1.0	0.6937188927829988
+2360186	hit	bird	1.0	bird	1.0	0.8269869368610212
+2360190	hit	zebra	1.0	zebra	1.0	0.9582710719882788
+2360477	other_object-bounding box	cabinets	0.9166666666666666	kitchen	0.41666666666666663	0.7421906408809859
+2360620	hit	giraffe	1.0	giraffe	1.0	0.9038164812477505
+2360657	hit	bed	1.0	bed	1.0	0.5157443401251864
+2360683	hit	hood	0.6666666666666667	hood	0.6666666666666667	0.4808169213841753
+2360734	hit	motorcycle	1.0	motorcycle	1.0	0.3444036279881486
+2360763	other_object-None	woman	0.33333333333333337	bed	0.8333333333333334	0.8126760788380853
+2360942	same_cluster	child	0.9166666666666666	woman	0.9166666666666666	0.5822130734577742
+2360980	error	pizza	1.0	cheese	--	0.14552325104999492
+2360992	hit	train	1.0	train	1.0	0.35901511423625293
+2361022	hit	cow	1.0	cow	1.0	0.9809782792652246
+2361058	low_cnt	chair	1.0	couch	--	0.5442396657871379
+2361090	same_cluster	shirt	0.6666666666666667	sweater	0.6666666666666667	0.3623898881533153
+2361144	same_cluster	airplane	1.0	plane	1.0	0.762139759848984
+2361149	hit	plane	0.6428571428571428	plane	0.6428571428571428	0.423885679816911
+2361310	hit	shirt	1.0	shirt	1.0	0.9193894555362302
+2361464	same_cluster	counter	1.0	table	1.0	0.5572100031811897
+2361476	co-hyponyms	shirt	1.0	jacket	--	0.40725416123724795
+2361487	hit	horse	1.0	horse	1.0	0.034038614091064685
+2361490	same_cluster	donut,doughnut	1.0	food	1.0	0.12515483526994145
+2361501	hit	boat	1.0	boat	1.0	0.804238372733844
+2361606	hit	couch	1.0	couch	1.0	0.512216642588927
+2361625	hit	rug	1.0	rug	1.0	0.40495537984118285
+2361763	same_cluster	airplane	1.0	plane	1.0	0.6027010300247643
+2361863	hit	boy	1.0	boy	1.0	0.6967953375457686
+2361913	hit	plane	1.0	plane	1.0	0.5705867155813763
+2361933	hit	spoon	0.8333333333333334	spoon	0.8333333333333334	0.9913227083178091
+2362404	other_object-bounding box	bun	0.8333333333333334	sandwich	0.33333333333333337	0.7743852657683374
+2362554	hit	dog	0.41666666666666663	dog	0.41666666666666663	0.8844897632154936
+2362586	hit	giraffe	0.16666666666666663	giraffe	0.16666666666666663	0.1333056989864455
+2362605	error	skater	1.0	shirt	--	0.4978523990985451
+2362652	hit	couch	1.0	couch	1.0	0.5411995445194459
+2362916	hit	bridge	1.0	bridge	1.0	0.9952827278330041
+2362917	error	chair	1.0	pillow	--	0.2893955221592602
+2363001	hit	train	1.0	train	1.0	0.5663587008869918
+2363054	hit	bed	1.0	bed	1.0	0.957321370973821
+2363136	hit	bench	1.0	bench	1.0	0.825697995750696
+2363149	hit	shirt	1.0	shirt	1.0	0.7357733170118037
+2363282	hit	pizza	1.0	pizza	1.0	0.5590137050931585
+2363359	hit	car	1.0	car	1.0	0.8518503816361065
+2363399	hit	bread	1.0	bread	1.0	0.7871250338269299
+2363434	hit	shirt	1.0	shirt	1.0	0.17015960469127353
+2363551	same_cluster	umpire	1.0	man	1.0	0.2962200317808875
+2363755	hit	motorcycle	1.0	motorcycle	1.0	0.8297727158519204
+2363820	hit	dog	1.0	dog	1.0	0.9711034875824683
+2363859	hit	pizza	1.0	pizza	1.0	0.6829088154609985
+2363882	error	chair	1.0	woman	--	0.412904147736298
+2363969	hit	pitcher	1.0	pitcher	1.0	0.2944745374128676
+2364047	hit	bed	1.0	bed	1.0	0.7595259040183149
+2364059	hit	pizza	1.0	pizza	1.0	0.5123321545973962
+2364196	same_cluster	skier	1.0	woman	1.0	0.5396057419383095
+2364341	hit	table	1.0	table	1.0	0.8466904717644004
+2364443	hit	zebra	1.0	zebra	1.0	0.7569233568145305
+2364476	hit	counter	1.0	counter	1.0	0.5311869358992297
+2364594	error	cheese	0.6666666666666667	sauce	--	0.2997367187947238
+2364730	hit	shirt	1.0	shirt	1.0	0.6566645843984995
+2364800	hit	building	1.0	building	1.0	0.7896268820830482
+2364829	same_cluster	child	1.0	girl	1.0	0.5023434111443434
+2364899	hit	train	1.0	train	1.0	0.593509725253948
+2364953	hit	horse	1.0	horse	1.0	0.9601214857403502
+2365073	hit	cow	1.0	cow	1.0	0.6963094081594702
+2365138	hit	bird	1.0	bird	1.0	0.8070356142983048
+2365194	hit	truck	1.0	truck	1.0	0.7747014525682149
+2365279	hit	giraffe	1.0	giraffe	1.0	0.70266304180072
+2365321	error	girl	1.0	hair	--	0.6542118143555214
+2365333	other_object-bounding box	spatula	0.9166666666666666	cake	0.16666666666666663	0.599458360776358
+2365369	same_cluster	man	1.0	person	1.0	0.41277977734134247
+2365572	hit	woman	1.0	woman	1.0	0.5515453953804191
+2365595	hit	giraffe	1.0	giraffe	1.0	0.9747849534388602
+2365612	hit	boat	1.0	boat	1.0	0.671825386433691
+2365654	low_cnt	hot dog,hotdog	1.0	bun	--	0.47016146330975506
+2365720	hit	boy	1.0	boy	1.0	0.8001507917405641
+2365816	hit	pizza	0.8333333333333334	pizza	0.8333333333333334	0.5233710471008953
+2365937	hit	woman	1.0	woman	1.0	0.7858692757441581
+2365947	hit	cow	1.0	cow	1.0	0.43380229158815625
+2366145	hit	zebra	1.0	zebra	1.0	0.9703556570529014
+2366157	hit	horse	1.0	horse	1.0	0.9956750692044025
+2366481	low_cnt	shirt	1.0	jacket	--	0.587622560116393
+2366546	hit	horse	1.0	horse	1.0	0.9843923294278654
+2366559	hit	car	1.0	car	1.0	0.9274697978514768
+2366610	hit	shirt	1.0	shirt	1.0	0.5951432071772164
+2366635	hit	counter	1.0	counter	1.0	0.5974927907496163
+2366687	hit	horse	1.0	horse	1.0	0.9892316747922977
+2366703	same_cluster	airplane	1.0	plane	1.0	0.7794776080116903
+2367115	hit	bridge	1.0	bridge	1.0	0.5514972855431444
+2367127	hit	bed	1.0	bed	1.0	0.858880967877851
+2367150	other_object-bounding box	dugout	1.0	fence	0.33333333333333337	0.2294655024665158
+2367441	same_cluster	carpet	1.0	floor	1.0	0.02246315445333559
+2367486	low_cnt	toilet	0.75	seat	--	0.4763662018770165
+2367595	hit	woman	1.0	woman	1.0	0.8736597380143986
+2367839	hit	bed	0.6666666666666667	bed	0.6666666666666667	0.7187598877146116
+2367840	hit	horse	1.0	horse	1.0	0.9763754617909278
+2367867	hit	shirt	1.0	shirt	1.0	0.8343389656788494
+2368046	hit	bed	0.8333333333333334	bed	0.8333333333333334	0.6897978315524752
+2368172	hit	giraffe	1.0	giraffe	1.0	0.7481825932861983
+2368254	low_cnt	shirt	1.0	jacket	--	0.4370637521401606
+2368274	hit	boat	1.0	boat	1.0	0.5248711982450582
+2368309	error	sandwich	1.0	donut,doughnut	--	0.4696024204295598
+2368848	hit	woman	1.0	woman	1.0	0.6741620756106109
+2368882	low_cnt	robe	1.0	jacket	--	0.7164877898466046
+2368977	hit	giraffe	1.0	giraffe	1.0	0.9771675755874214
+2369045	hit	curtain	1.0	curtain	1.0	0.4474651863593755
+2369293	hit	cat	1.0	cat	1.0	0.9591007329222432
+2369413	hit	horse	1.0	horse	1.0	0.9763281409152021
+2369420	hit	bridge	1.0	bridge	1.0	0.7195853019729451
+2369433	other_object-bounding box	bowl	1.0	banana	0.5	0.4548269303532095
+2369740	hit	boat	1.0	boat	1.0	0.8141318264172404
+2369942	hit	giraffe	1.0	giraffe	1.0	0.8636400850556966
+2370191	co-hyponyms	boy	1.0	man	--	0.48944652218220636
+2370342	hit	dog	1.0	dog	1.0	0.8793215948503835
+2370378	same_cluster	desk	1.0	table	1.0	0.4886320295248963
+2370485	hit	bench	1.0	bench	1.0	0.7508002079352478
+2370518	hit	shirt	0.875	shirt	0.875	0.013720068434318321
+2370581	same_cluster	airplane	0.6666666666666667	plane	0.6666666666666667	0.6817186447047506
+2370695	hit	jacket	1.0	jacket	1.0	0.10367875323378505
+2370780	hit	train	1.0	train	1.0	0.9655194990583248
+2370791	other_object-None	sink	0.6666666666666667	counter	0.8333333333333334	0.6149576122956475
+2370840	hit	bed	1.0	bed	1.0	0.9605132188866206
+2370947	same_cluster	house	1.0	building	1.0	0.33853621811368684
+2371014	same_cluster	jacket	1.0	suit	1.0	0.8489469505934082
+2371025	error	table	1.0	floor	--	0.486574754943014
+2371119	hit	dog	1.0	dog	1.0	0.9345504122435551
+2371217	hit	table	1.0	table	1.0	0.8421735204083469
+2371395	hit	house	1.0	house	1.0	0.9384091160255036
+2371402	hit	dresser	1.0	dresser	1.0	0.6322589453632662
+2371403	hit	boy	1.0	boy	1.0	0.8469319451475745
+2371590	same_cluster	airplane	1.0	plane	1.0	0.6254666628735852
+2371657	hit	bathtub	1.0	bathtub	1.0	0.45181786808729174
+2371671	hit	desk	1.0	desk	1.0	0.8233176359701108
+2371680	hit	bench	1.0	bench	1.0	0.9626949929989165
+2371692	hit	giraffe	1.0	giraffe	1.0	0.9687529722322502
+2371704	hit	vase	1.0	vase	1.0	0.7227729858630559
+2371755	hit	cake	1.0	cake	1.0	0.9770297508423238
+2371817	hit	desk	1.0	desk	1.0	0.9144482887347306
+2371995	same_cluster	suit	1.0	jacket	1.0	0.020409005869801333
+2372173	other_object-None	sandwich	1.0	bread	0.8333333333333334	0.31348414875339164
+2372326	error	skier	1.0	helmet	--	0.47669521442864565
+2372345	hit	sheep	1.0	sheep	1.0	0.9067891102283012
+2372521	hit	table	1.0	table	1.0	0.8905043374709543
+2372550	hit	car	1.0	car	1.0	0.8599966390690906
+2372699	hit	cabinet	0.8333333333333334	cabinet	0.8333333333333334	0.3658685907579537
+2372715	hit	horse	1.0	horse	1.0	0.9125353343721824
+2372752	hit	truck	1.0	truck	1.0	0.8844172875224331
+2372823	hit	horse	1.0	horse	1.0	0.9367420280747093
+2372848	hit	cup	1.0	cup	1.0	0.42027222023280425
+2372906	same_cluster	counter	1.0	cabinet	1.0	0.4296491923926604
+2372912	hit	hot dog,hotdog	0.8333333333333334	hot dog,hotdog	0.8333333333333334	0.6285069398848526
+2372928	same_cluster	airplane	0.75	jet	0.75	0.5589402585087011
+2372984	hit	salad	1.0	salad	1.0	0.16869541055096002
+2373005	hit	truck	1.0	truck	1.0	0.46583928774754063
+2373136	hit	chair	1.0	chair	1.0	0.9468834436096678
+2373202	same_cluster	desk	0.9166666666666666	table	0.9166666666666666	0.806726818700533
+2373413	error	scooter	1.0	girl	--	0.18328290344665113
+2373817	hit	cake	1.0	cake	1.0	0.9689988477581124
+2373861	error	woman	1.0	hair	--	0.9013808428219042
+2373865	hit	giraffe	1.0	giraffe	1.0	0.9839233214350399
+2373883	same_cluster	skateboarder	1.0	man	1.0	0.32684858534387684
+2374149	hit	pizza	0.9285714285714286	pizza	0.9285714285714286	0.7429242968841377
+2374166	hit	woman	1.0	woman	1.0	0.7934135235923531
+2374238	hit	zebra	1.0	zebra	1.0	0.9002332054906906
+2374325	hit	table	1.0	table	1.0	0.5248359993664378
+2374357	hit	cat	1.0	cat	1.0	0.7109516802739526
+2374639	hit	hair	0.9375	hair	0.9375	0.7462701637320479
+2374650	same_cluster	airplane	1.0	plane	1.0	0.6269765494709998
+2374797	error	table	1.0	plate	--	0.5805283899437456
+2374808	hit	pizza	0.875	pizza	0.875	0.2530843653474086
+2374880	hit	cat	1.0	cat	1.0	0.9048096781626573
+2374892	hit	desk	0.8333333333333334	desk	0.8333333333333334	0.26398597430610726
+2374930	hit	dog	1.0	dog	1.0	0.5871262119862554
+2374948	hit	sheep	0.75	sheep	0.75	0.6230677815761863
+2375126	hit	man	1.0	man	1.0	0.5901855377278915
+2375187	hit	bird	1.0	bird	1.0	0.9752033321961074
+2375428	hit	dog	1.0	dog	1.0	0.9645870405434688
+2375456	error	hot dog,hotdog	0.9166666666666666	bun	--	0.4428678571178857
+2375497	same_cluster	airplane	1.0	plane	1.0	0.622347243536252
+2375597	error	salad	1.0	pan	--	0.18008054758250522
+2375608	hit	boy	1.0	boy	1.0	0.5210995119000111
+2375634	hit	bowl	1.0	bowl	1.0	0.8311874540339628
+2375647	hit	counter	1.0	counter	1.0	0.6505838510062552
+2375785	hit	motorcycle	0.8333333333333334	motorcycle	0.8333333333333334	0.7321248124215799
+2375891	hit	woman	1.0	woman	1.0	0.7564468010919645
+2375917	hit	bench	1.0	bench	1.0	0.9259155944130664
+2375999	same_cluster	pitcher	1.0	man	1.0	0.4348751921608734
+2376061	same_cluster	house	0.8333333333333334	building	0.8333333333333334	0.5484204915133348
+2376094	hit	man	1.0	man	1.0	0.9334627412342521
+2376185	same_cluster	airplane	1.0	plane	1.0	0.6299455204243414
+2376316	same_cluster	jacket	1.0	shirt	1.0	0.03569505180954831
+2376439	same_cluster	bathtub	1.0	sink	1.0	0.4533799078287169
+2376606	hit	woman	1.0	woman	1.0	0.779192545248309
+2376662	error	hot dog,hotdog	0.75	wrapper	--	0.14631129560796563
+2376682	hit	sweater	1.0	sweater	1.0	0.4873380949111343
+2376746	hit	boy	0.875	boy	0.875	0.5919701180421044
+2376751	hit	sheep	1.0	sheep	1.0	0.9505323686768649
+2376838	other_object-None	chair	0.16666666666666663	suitcase,suit case	1.0	0.7128748100796499
+2376859	hit	toilet	0.7857142857142857	toilet	0.7857142857142857	0.7163995012709863
+2377052	hit	tent	1.0	tent	1.0	0.2948366859855869
+2377270	same_cluster	bathtub	1.0	tub	1.0	0.5909103154331353
+2377573	hit	dog	1.0	dog	1.0	0.9916981952024104
+2377607	hit	boy	1.0	boy	1.0	0.49240123256409457
+2377627	hit	bowl	1.0	bowl	1.0	0.8919443200947059
+2377638	error	truck	1.0	trailer	--	0.007162443054918473
+2377678	hit	horse	0.875	horse	0.875	0.9330166959395352
+2377697	hit	cat	1.0	cat	1.0	0.49249139038671214
+2377717	other_object-bounding box	desk	1.0	laptop	0.16666666666666663	0.5462165066918199
+2377783	hit	catcher	1.0	catcher	1.0	0.6517313349202306
+2377788	error	cow	1.0	head	--	0.2339874535903465
+2377799	hit	boy	1.0	boy	1.0	0.5904884457935019
+2377801	hit	train	1.0	train	1.0	0.7550262659396182
+2377848	low_cnt	shirt	0.5833333333333333	bear	--	0.27042324218730496
+2377849	hit	man	0.9285714285714286	man	0.9285714285714286	0.5455686487294478
+2377964	hit	woman	1.0	woman	1.0	0.9303431038815435
+2378050	same_cluster	jacket	1.0	shirt	1.0	0.4514250753505198
+2378197	hit	pizza	0.75	pizza	0.75	0.29924372215622724
+2378198	co-hyponyms	skier	1.0	man	--	0.6211072373223989
+2378426	hit	chair	1.0	chair	1.0	0.2323568271759369
+2378499	hit	man	1.0	man	1.0	0.8783639358446347
+2378546	same_cluster	jacket	1.0	shirt	1.0	0.0183654995443137
+2378600	hit	man	1.0	man	1.0	0.8340306239666777
+2378604	hit	woman	1.0	woman	1.0	0.8478268339213012
+2378650	hit	dress	1.0	dress	1.0	0.5668429139985312
+2378815	hit	woman	1.0	woman	1.0	0.765640448494574
+2378853	hit	cat	1.0	cat	1.0	0.9258320947068432
+2378871	same_cluster	man	1.0	boy	1.0	0.32452324798211646
+2379026	co-hyponyms	cat	1.0	dog	--	0.7317417174019297
+2379047	hit	pizza	0.875	pizza	0.875	0.6093714158786594
+2379175	hit	woman	1.0	woman	1.0	0.6293224518562388
+2379227	hit	zebra	1.0	zebra	1.0	0.8267870091907936
+2379241	hit	horse	1.0	horse	1.0	0.720317145249943
+2379381	hit	pizza	1.0	pizza	1.0	0.7862298716471023
+2379643	hit	giraffe	1.0	giraffe	1.0	0.5583802764259318
+2379667	hit	bench	1.0	bench	1.0	0.8249408488891696
+2379683	hit	motorcycle	1.0	motorcycle	1.0	0.7195916482297968
+2379719	hit	cow	0.7857142857142857	cow	0.7857142857142857	0.3910709330354675
+2379779	hit	boy	1.0	boy	1.0	0.7900067681945427
+2380228	hit	cat	1.0	cat	1.0	0.9713780005707895
+2380309	hit	horse	1.0	horse	1.0	0.9856115863309531
+2380379	hit	salad	1.0	salad	1.0	0.5257228586626761
+2380416	hit	cow	1.0	cow	1.0	0.8459489914527759
+2380450	hit	table	1.0	table	1.0	0.44300793217281575
+2380479	hit	boy	1.0	boy	1.0	0.52809934518024
+2380742	hit	jersey	1.0	jersey	1.0	0.59705208600981
+2380816	hit	bowl	1.0	bowl	1.0	0.5351487249362465
+2380954	hit	donut,doughnut	1.0	donut,doughnut	1.0	0.9651871474280668
+2380979	same_cluster	airplane	1.0	plane	1.0	0.5754506593100839
+2381096	hit	dress	1.0	dress	1.0	0.520912813295311
+2381118	hit	cat	1.0	cat	1.0	0.6743040735205518
+2381315	same_cluster	jacket	1.0	coat	1.0	0.2840955333856736
+2381367	hit	man	1.0	man	1.0	0.11366392690982664
+2381375	hit	dog	1.0	dog	1.0	0.9098580964182741
+2381490	hit	giraffe	1.0	giraffe	1.0	0.9562436962813471
+2381845	hit	bed	1.0	bed	1.0	0.8968470346165702
+2381884	hit	woman	1.0	woman	1.0	0.7961256384227656
+2381949	same_cluster	tennis player	1.0	woman	1.0	0.700285405238183
+2382479	hit	sheep	1.0	sheep	1.0	0.9477377411938692
+2382583	hit	man	1.0	man	1.0	0.8419813715906449
+2382644	hit	boat	1.0	boat	1.0	0.9434026881848118
+2382709	same_cluster	soda	1.0	bottle	1.0	0.3000831449713291
+2382796	hit	zebra	1.0	zebra	1.0	0.977887594976137
+2382898	hit	man	1.0	man	1.0	0.6722499118128014
+2383093	hit	giraffe	1.0	giraffe	1.0	0.8923229104567112
+2383224	other_object-bounding box	desk	1.0	laptop	0.5	0.9382797787718254
+2383236	hit	cat	1.0	cat	1.0	0.9512395627687353
+2383270	hit	table	1.0	table	1.0	0.8754647071816019
+2383514	error	man	1.0	jersey	--	0.45290323896674056
+2383516	error	couch	1.0	man	--	0.2918817414842096
+2383708	hit	horse	1.0	horse	1.0	0.8762128730406644
+2383768	hit	shirt	1.0	shirt	1.0	0.11014505946121976
+2383946	hit	bench	1.0	bench	1.0	0.9941948185674978
+2384295	hit	boy	1.0	boy	1.0	0.659607437590024
+2384328	hit	giraffe	1.0	giraffe	1.0	0.9834204554185652
+2384359	hit	table	1.0	table	1.0	0.7821861860456498
+2384468	same_cluster	skater	1.0	skateboarder	1.0	0.26691836793596996
+2384655	hit	chair	1.0	chair	1.0	0.9316750478053863
+2384734	hit	couch	1.0	couch	1.0	0.007956063524372281
+2384779	hit	jacket	1.0	jacket	1.0	0.22032945557947023
+2384984	hit	horse	1.0	horse	1.0	0.969426556518897
+2385022	hit	woman	1.0	woman	1.0	0.60026998893508
+2385144	hit	cake	1.0	cake	1.0	0.37480726059207636
+2385167	hit	woman	1.0	woman	1.0	0.4805061963630477
+2385596	hit	vase	1.0	vase	1.0	0.814555060490099
+2385635	hit	pizza	0.5714285714285714	pizza	0.5714285714285714	0.5396230531699724
+2385857	hit	giraffe	1.0	giraffe	1.0	0.9631280360316681
+2385869	error	table	1.0	fence	--	0.7194282823690502
+2385888	hit	cow	0.8333333333333334	cow	0.8333333333333334	0.6256308087952389
+2386078	hit	shirt	1.0	shirt	1.0	0.7205337161450986
+2386224	hit	dress	1.0	dress	1.0	0.8605411323135703
+2386252	same_cluster	jacket	1.0	suit	1.0	0.35660435230927734
+2386257	hit	child	1.0	child	1.0	0.3554568565809471
+2386458	hit	woman	1.0	woman	1.0	0.762276489337814
+2386770	hit	man	1.0	man	1.0	0.6747027841367278
+2386793	hit	counter	0.8333333333333334	counter	0.8333333333333334	0.4589551722786778
+2387015	hit	desk	1.0	desk	1.0	0.49809582745975123
+2387037	low_cnt	cabinet	1.0	wall	--	0.0996146843667308
+2387071	same_cluster	scooter	0.8571428571428572	bike	0.8571428571428572	0.4562586444881131
+2387219	hit	jacket	1.0	jacket	1.0	0.015022008999403414
+2387669	hit	tent	1.0	tent	1.0	0.5064900231714683
+2387697	hit	train	1.0	train	1.0	0.773360271099865
+2387763	hit	cat	1.0	cat	1.0	0.7297487671114292
+2387935	hit	shirt	1.0	shirt	1.0	0.4891673642254348
+2387957	hit	bird	1.0	bird	1.0	0.9954509074751332
+2387975	error	statue	1.0	arm	--	0.007830998012934739
+2388064	other_object-None	shoe	0.41666666666666663	man	1.0	0.59604289746148
+2388225	low_cnt	tie	0.8333333333333334	shirt	--	0.7843684050678587
+2388400	same_cluster	bread	1.0	sandwich	1.0	0.148982288176171
+2388981	hit	cabinet	1.0	cabinet	1.0	0.2839053924853335
+2389634	hit	cat	1.0	cat	1.0	0.8227794457031212
+2389671	hit	bottle	1.0	bottle	1.0	0.8956106063975192
+2389811	hit	giraffe	1.0	giraffe	1.0	0.7383049776955571
+2390077	hit	cake	1.0	cake	1.0	0.796062261187364
+2390177	hit	dog	1.0	dog	1.0	0.7133192798812173
+2390271	hit	woman	1.0	woman	1.0	0.4834230934578405
+2390303	hit	bridge	1.0	bridge	1.0	0.3947843286414837
+2390340	hit	woman	1.0	woman	1.0	0.8741376247989567
+2390440	co-hyponyms	girl	1.0	boy	--	0.40883955817525836
+2390780	hit	horse	0.8333333333333334	horse	0.8333333333333334	0.8219830462259947
+2390788	hit	train	1.0	train	1.0	0.9574748299135128
+2390809	same_cluster	vehicle	1.0	truck	1.0	0.4817456053608936
+2390856	hit	boat	1.0	boat	1.0	0.9519292146679059
+2390864	hit	bird	1.0	bird	1.0	0.9866009652505642
+2390997	hit	dog	1.0	dog	1.0	0.988812333994517
+2391046	hit	man	1.0	man	1.0	0.7502654566654935
+2391191	hit	pizza	1.0	pizza	1.0	0.6300004292851128
+2391346	hit	giraffe	1.0	giraffe	1.0	0.970431474397882
+2391398	hit	bench	1.0	bench	1.0	0.6007674899240215
+2391454	error	bathtub	1.0	light	--	0.006127792306855332
+2391665	same_cluster	dugout	1.0	fence	1.0	0.16454138390742742
+2391824	hit	giraffe	1.0	giraffe	1.0	0.9403168663818015
+2391829	hit	dog	1.0	dog	1.0	0.9749971083135804
+2391882	other_object-bounding box	jacket	1.0	shirt	0.5	0.045638695120764426
+2392053	hit	boy	1.0	boy	1.0	0.7323360230790503
+2392176	hit	cat	1.0	cat	1.0	0.9506482961562246
+2392368	error	woman	1.0	hair	--	0.3267828900854233
+2392417	hit	giraffe	1.0	giraffe	1.0	0.9630329689033233
+2392482	same_cluster	airplane	1.0	plane	1.0	0.6637093527848781
+2392644	hit	boy	1.0	boy	1.0	0.7466427648974914
+2392663	hit	curtain	0.8333333333333334	curtain	0.8333333333333334	0.4051246407314428
+2392910	hit	child	1.0	child	1.0	0.3790480116847552
+2392961	hit	boy	1.0	boy	1.0	0.555496129453943
+2393093	hit	cow	1.0	cow	1.0	0.8346841195994215
+2393177	error	cake	1.0	board	--	0.2466470902664355
+2393301	hit	dog	1.0	dog	1.0	0.8175725417153895
+2393375	hit	bowl	1.0	bowl	1.0	0.7859444160285182
+2393564	hit	bench	1.0	bench	1.0	0.15548686145773927
+2393645	same_cluster	woman	1.0	person	1.0	0.2635717184254653
+2393835	hit	woman	1.0	woman	1.0	0.7317949871840111
+2393912	hit	food	1.0	food	1.0	0.3105545061540579
+2393951	hit	car	1.0	car	1.0	0.738360655331619
+2394086	hit	giraffe	1.0	giraffe	1.0	0.9567840689383493
+2394088	co-hyponyms	cup	1.0	vase	--	0.12171704790445735
+2394123	hit	floor	0.9166666666666666	floor	0.9166666666666666	0.5751472105440077
+2394215	other_object-bounding box	food	1.0	plate	0.25	0.017904797548986533
+2394430	hit	scooter	1.0	scooter	1.0	0.5669309089789482
+2394491	same_cluster	shirt	1.0	dress	1.0	0.2652877407676125
+2394553	hit	pizza	1.0	pizza	1.0	0.8028214421496733
+2394626	hit	truck	1.0	truck	1.0	0.9550872705185577
+2394797	hit	bowl	1.0	bowl	1.0	0.2197528361240236
+2394813	same_cluster	skier	1.0	man	1.0	0.6912986507077201
+2395025	hit	train	1.0	train	1.0	0.895570777402042
+2395382	hit	cow	1.0	cow	1.0	0.8699498568149381
+2395413	hit	suit	0.8333333333333334	suit	0.8333333333333334	0.6466325805741356
+2395484	hit	truck	1.0	truck	1.0	0.7041365539714868
+2395539	hit	shirt	1.0	shirt	1.0	0.5841684327602162
+2395559	hit	cat	1.0	cat	1.0	0.8852603167973895
+2395699	hit	cow	1.0	cow	1.0	0.9883245003940629
+2395759	hit	cow	1.0	cow	1.0	0.7993341816655004
+2395806	hit	woman	1.0	woman	1.0	0.6819766129617553
+2395935	same_cluster	batter	1.0	player	1.0	0.3010254423152509
+2396098	hit	cat	1.0	cat	1.0	0.7262404279178405
+2396315	hit	horse	1.0	horse	1.0	0.9924274985881771
+2396391	same_cluster	airplane	1.0	plane	1.0	0.532526377635768
+2396413	hit	girl	1.0	girl	1.0	0.7064545794177798
+2396639	hit	bottle	1.0	bottle	1.0	0.7357505423779253
+2396646	hit	pizza	1.0	pizza	1.0	0.8150310838734307
+2396724	same_cluster	restaurant	1.0	window	1.0	0.22507315690862853
+2396752	hit	table	0.8333333333333334	table	0.8333333333333334	0.5920199595388197
+2396786	hit	zebra	1.0	zebra	1.0	0.9649901265261264
+2396805	low_cnt	boy	1.0	man	--	0.23880185593227404
+2396992	hit	jacket	1.0	jacket	1.0	0.619841184181502
+2397149	other_object-bounding box	car	1.0	snow	0.5	0.5710827682983154
+2397273	hit	chair	1.0	chair	1.0	0.9401401302153498
+2397347	same_cluster	couch	1.0	chair	1.0	0.32372939453935684
+2397438	same_cluster	zebra	0.6666666666666667	head	0.6666666666666667	0.6320246130570243
+2397611	hypernym	girl	1.0	woman	--	0.6567531195956174
+2397653	hit	boat	1.0	boat	1.0	0.8672479270809458
+2397872	hit	motorcycle	1.0	motorcycle	1.0	0.6015661763383178
+2397897	hit	desk	1.0	desk	1.0	0.9514332524252368
+2397933	hit	pizza	0.75	pizza	0.75	0.5429182219265852
+2397944	hit	giraffe	1.0	giraffe	1.0	0.7313300668162968
+2397988	hit	table	1.0	table	1.0	0.6469221208163953
+2398032	hit	boat	1.0	boat	1.0	0.7559926459495702
+2398065	hit	woman	1.0	woman	1.0	0.9286563439761235
+2398204	hit	cat	1.0	cat	1.0	0.3559825196352991
+2398224	low_cnt	chicken	1.0	food	--	0.358259308933111
+2398485	same_cluster	jacket	1.0	shirt	1.0	0.4754433625475516
+2398489	error	chair	1.0	motorcycle	--	0.21110457480189648
+2398527	hit	curtain	0.9	curtain	0.9	0.025971625513414323
+2398749	hit	train	1.0	train	1.0	0.9852557155958664
+2398796	hit	cat	1.0	cat	1.0	0.9240927034734148
+2398798	hit	desk	0.8333333333333334	desk	0.8333333333333334	0.01575112432244587
+2398922	hit	house	1.0	house	1.0	0.6496234282585797
+2399046	hit	table	1.0	table	1.0	0.7540567154181631
+2399115	hit	woman	1.0	woman	1.0	0.24848685987418892
+2399204	hit	giraffe	1.0	giraffe	1.0	0.8081613862985563
+2399217	hit	woman	1.0	woman	1.0	0.8475994637430001
+2399355	hit	carpet	1.0	carpet	1.0	0.3149021151658038
+2399852	hit	shirt	1.0	shirt	1.0	0.8953661066023405
+2400037	hit	motorcycle	1.0	motorcycle	1.0	0.6881549252433984
+2400093	co-hyponyms	spoon	1.0	pot	--	0.3585437144056484
+2400414	hit	sheep	1.0	sheep	1.0	0.020283607126127798
+2400472	hit	train	1.0	train	1.0	0.9701938632037963
+2400542	low_cnt	woman	1.0	man	--	0.029987056418880817
+2400651	hit	chair	1.0	chair	1.0	0.2840056320737608
+2400668	hit	shirt	1.0	shirt	1.0	0.06774345971734184
+2400798	error	horse	1.0	chair	--	0.47297879024582595
+2400837	hit	cow	1.0	cow	1.0	0.5605834623201524
+2400919	hit	bed	1.0	bed	1.0	0.6239734165968368
+2401218	hit	giraffe	1.0	giraffe	1.0	0.9710201704832334
+2401246	hit	man	1.0	man	1.0	0.8211874336866628
+2401349	same_cluster	rug	0.8333333333333334	floor	0.8333333333333334	0.6037026502593618
+2401739	hit	boat	1.0	boat	1.0	0.5248096908146088
+2401915	hit	zebra	1.0	zebra	1.0	0.9563641144159843
+2401958	low_cnt	jacket	1.0	shirt	--	0.3646914452814211
+2402059	hit	dog	1.0	dog	1.0	0.9865948193417381
+2402073	error	desk	1.0	man	--	0.018081139198963876
+2402174	hit	man	1.0	man	1.0	0.5889812421498416
+2402254	hit	pizza	1.0	pizza	1.0	0.5252033223183672
+2402363	same_cluster	carpet	0.75	floor	0.75	0.19803238281370084
+2402452	hit	rice	1.0	rice	1.0	0.9764015766200549
+2402470	hit	carpet	1.0	carpet	1.0	0.041014466305282875
+2402503	hit	boat	1.0	boat	1.0	0.6836273848926366
+2402579	hit	boy	1.0	boy	1.0	0.8349377685064288
+2402867	hit	bathtub	1.0	bathtub	1.0	0.23370662812921403
+2403303	hit	woman	1.0	woman	1.0	0.6839542729871848
+2403337	same_cluster	house	1.0	building	1.0	0.5049935681814726
+2403401	hit	counter	0.875	counter	0.875	0.921274509453219
+2403459	hit	desk	1.0	desk	1.0	0.8858409574921895
+2403474	hit	man	1.0	man	1.0	0.435955130619627
+2403518	hit	blender	1.0	blender	1.0	0.9989524776918088
+2403568	hit	truck	1.0	truck	1.0	0.9193792926274743
+2403657	low_cnt	jacket	1.0	woman	--	0.2573785965234042
+2403677	synonym	cabinet	1.0	cabinets	--	0.26421693058274126
+2403703	low_cnt	airplane	1.0	fence	--	0.9638710401399528
+2403726	hit	girl	1.0	girl	1.0	0.663745464929038
+2403875	hit	bed	1.0	bed	1.0	0.9426275550780334
+2404158	hit	train	1.0	train	1.0	0.9043374865797076
+2404273	hit	pizza	0.8333333333333334	pizza	0.8333333333333334	0.676969216716188
+2404360	hit	table	1.0	table	1.0	0.760888874630609
+2404388	hit	jacket	1.0	jacket	1.0	0.37416197564985726
+2404405	hit	giraffe	1.0	giraffe	1.0	0.9786020705598676
+2404431	error	shirt	1.0	man	--	0.5193387114839932
+2404446	hit	woman	1.0	woman	1.0	0.7173175765036558
+2404594	error	sandwich	1.0	plate	--	0.16258333990872387
+2404609	hit	table	1.0	table	1.0	0.8128151567447034
+2404826	hit	catcher	1.0	catcher	1.0	0.9047837773012101
+2404868	hit	shirt	1.0	shirt	1.0	0.07014000137846477
+2404898	error	truck	0.8333333333333334	roof	--	0.00608331955555791
+2404981	other_object-bounding box	keyboard	0.5714285714285714	desk	0.5714285714285714	0.5861755451364772
+2405051	hit	giraffe	1.0	giraffe	1.0	0.8721564621978104
+2405083	hit	child	1.0	child	1.0	0.4297294104500033
+2405305	other_object-bounding box	mirror	1.0	wall	0.33333333333333337	0.36660940020152116
+2405476	hit	cat	1.0	cat	1.0	0.8698151207887398
+2405510	hit	counter	1.0	counter	1.0	0.6491639571179992
+2405579	hit	shirt	1.0	shirt	1.0	0.7255856802938916
+2405784	hit	airplane	1.0	airplane	1.0	0.5511191018776911
+2405807	hit	bathtub	1.0	bathtub	1.0	0.574017863231904
+2406005	hit	woman	1.0	woman	1.0	0.798399978664945
+2406097	error	bench	1.0	wall	--	0.36544827323253826
+2406131	hit	bird	1.0	bird	1.0	0.9429642209997009
+2406274	hit	desk	1.0	desk	1.0	0.7628880502946712
+2406321	hit	cat	1.0	cat	1.0	0.7245917123697379
+2406429	hit	motorcycle	1.0	motorcycle	1.0	0.6985472334830763
+2406803	same_cluster	airplane	1.0	plane	1.0	0.5450397170095183
+2406932	hit	dog	1.0	dog	1.0	0.4990678299671779
+2406962	same_cluster	jacket	0.9166666666666666	suit	0.9166666666666666	0.5472076763232187
+2406969	error	horse	1.0	statue	--	0.5834266724980545
+2407026	hit	shirt	1.0	shirt	1.0	0.9128246075411888
+2407032	low_cnt	table	1.0	bear	--	0.2045794500473854
+2407210	hit	table	1.0	table	1.0	0.13572179308269094
+2407240	hit	plane	1.0	plane	1.0	0.6228640349600115
+2407260	hit	roof	1.0	roof	1.0	0.7663644398623308
+2407270	hit	cake	1.0	cake	1.0	0.004507076857737399
+2407308	same_cluster	skateboarder	1.0	boy	1.0	0.6244387758304807
+2407326	hit	pizza	1.0	pizza	1.0	0.7672203235251469
+2407332	hit	hat	1.0	hat	1.0	0.9368751070002019
+2407462	hit	couch	1.0	couch	1.0	0.6158393803447022
+2407470	same_cluster	bathtub	1.0	tub	1.0	0.23617599833319783
+2407710	hit	bed	0.8333333333333334	bed	0.8333333333333334	0.7142905870261884
+2407742	hit	jacket	1.0	jacket	1.0	0.3659082231936597
+2407794	hypernym	skier	1.0	person	--	0.4331116638781763
+2407975	hit	jacket	0.9375	jacket	0.9375	0.6175458638930025
+2408003	hit	truck	1.0	truck	1.0	0.7581456639148839
+2408041	hit	giraffe	1.0	giraffe	1.0	0.9414813289375084
+2408069	hit	couch	1.0	couch	1.0	0.6210031112932869
+2408077	error	giraffe	1.0	head	--	0.056451835441157575
+2408160	hit	girl	1.0	girl	1.0	0.7570326537048389
+2408210	hit	dog	1.0	dog	1.0	0.2663491731595197
+2408225	co-hyponyms	train	1.0	container	--	0.058857288931241925
+2408262	same_cluster	airplane	1.0	plane	1.0	0.63411356913819
+2408280	other_object-bounding box	woman	1.0	jacket	0.5	0.5305269554107187
+2408372	hit	boy	1.0	boy	1.0	0.6063410600263026
+2408416	error	giraffe	1.0	head	--	0.7042750428598382
+2408471	same_cluster	carpet	0.9375	floor	0.9375	0.33642812118972093
+2408507	hit	soup	1.0	soup	1.0	0.9464558455392202
+2408632	hit	desk	0.875	desk	0.875	0.9277989570389585
+2408750	hit	bird	1.0	bird	1.0	0.9873252421191018
+2408794	hit	shirt	1.0	shirt	1.0	0.7872747838587807
+2408800	hit	man	1.0	man	1.0	0.5117598083874365
+2408876	error	bed	1.0	water	--	0.02307735447702433
+2408930	hit	man	1.0	man	1.0	0.40728670897084535
+2408940	same_cluster	sandwich	1.0	food	1.0	0.3536581692249966
+2408984	hit	zebra	1.0	zebra	1.0	0.9832682651829551
+2409134	hit	bench	1.0	bench	1.0	0.6125265663426921
+2409223	hit	giraffe	1.0	giraffe	1.0	0.8293662343616719
+2409231	hit	dugout	1.0	dugout	1.0	0.9687731251928287
+2409283	hit	bench	1.0	bench	1.0	0.9484436054551934
+2409317	hit	pizza	1.0	pizza	1.0	0.7250114961806284
+2409333	hit	table	0.8571428571428572	table	0.8571428571428572	0.5675489321200491
+2409369	same_cluster	airplane	1.0	plane	1.0	0.7159160317109319
+2409372	hit	table	1.0	table	1.0	0.8682187825209031
+2409569	hit	bed	1.0	bed	1.0	0.9594696356389425
+2409570	hit	bird	1.0	bird	1.0	0.9586902694906337
+2409611	same_cluster	robe	1.0	shirt	1.0	0.791312400092016
+2409662	hit	jacket	1.0	jacket	1.0	0.6010548956133722
+2409807	hit	woman	1.0	woman	1.0	0.5619911670776596
+2409885	hit	jacket	1.0	jacket	1.0	0.7269831480199807
+2409913	hit	woman	1.0	woman	1.0	0.6569150869300117
+2409962	hit	bench	1.0	bench	1.0	0.8008852651856876
+2410043	same_cluster	grill	1.0	counter	1.0	0.10566161001268823
+2410103	hit	shirt	1.0	shirt	1.0	0.8025357830318931
+2410172	hit	motorcycle	1.0	motorcycle	1.0	0.7671733164728385
+2410205	error	bathtub	1.0	wall	--	0.37179343714014007
+2410247	hit	truck	1.0	truck	1.0	0.6336611631619792
+2410421	error	woman	1.0	hair	--	0.5509436035993494
+2410790	hit	chair	1.0	chair	1.0	0.39476773188063374
+2410984	hit	plane	1.0	plane	1.0	0.689068553886077
+2411179	same_cluster	airplane	1.0	plane	1.0	0.6031035974630383
+2411200	hit	woman	1.0	woman	1.0	0.4629472157927896
+2411288	hit	girl	1.0	girl	1.0	0.7949917780304115
+2411323	hit	bridge	0.8333333333333334	bridge	0.8333333333333334	0.503276836865079
+2411340	same_cluster	child	1.0	boy	1.0	0.8205925206197322
+2411357	co-hyponyms	dog	1.0	horse	--	0.036097786646196346
+2411449	hit	bed	1.0	bed	1.0	0.9728327150308274
+2411954	same_cluster	airplane	1.0	plane	1.0	0.5905220119862599
+2411981	hit	truck	1.0	truck	1.0	0.35498070863928993
+2412141	same_cluster	airplane	1.0	plane	1.0	0.5094311034767568
+2412204	same_cluster	girl	1.0	woman	1.0	0.5999145511169912
+2412260	low_cnt	pizza	0.375	plate	--	0.5297859218917755
+2412704	hit	cat	1.0	cat	1.0	0.9943532660654624
+2413041	error	skier	1.0	snow	--	0.5255479114781227
+2413462	hit	boy	1.0	boy	1.0	0.5383735372590284
+2413559	co-hyponyms	bowl	1.0	plate	--	0.43680960751451126
+2413591	hit	giraffe	1.0	giraffe	1.0	0.9305630910854821
+2413669	error	airplane	1.0	ground	--	0.007674575191081708
+2413715	hit	man	1.0	man	1.0	0.7484138569276068
+2413719	hit	desk	1.0	desk	1.0	0.8989037622951339
+2413801	hit	shirt	1.0	shirt	1.0	0.9446923153222977
+2413820	error	bench	1.0	man	--	0.3556048918193029
+2413845	hit	cat	1.0	cat	1.0	0.974183188666182
+2413959	hit	motorcycle	1.0	motorcycle	1.0	0.6319337739765031
+2413987	hit	bun	0.8333333333333334	bun	0.8333333333333334	0.7518314270965202
+2413998	hit	horse	1.0	horse	1.0	0.9874328957279709
+2414017	same_cluster	scooter	1.0	motorcycle	1.0	0.4485354817599722
+2414021	hit	curtain	1.0	curtain	1.0	0.6220793669810549
+2414318	hit	giraffe	1.0	giraffe	1.0	0.9513697168914619
+2414657	hit	woman	1.0	woman	1.0	0.6766596692025995
+2414757	hit	bench	1.0	bench	1.0	0.9111914161039325
+2414857	co-hyponyms	dress	1.0	shirt	--	0.37523729179592946
+2414948	hit	bed	0.625	bed	0.625	0.31378524384083284
+2415085	co-hyponyms	dresser	1.0	shelf	--	0.38595460861985376
+2415135	same_cluster	shirt	0.875	jacket	0.875	0.4674339325762745
+2415556	hit	boy	1.0	boy	1.0	0.8193497241471674
+2415650	hit	boy	0.8333333333333334	boy	0.8333333333333334	0.5182223842522218
+2415665	hit	boy	1.0	boy	1.0	0.823442787835832
+2415754	hit	shirt	1.0	shirt	1.0	0.3604533517134556
+2415760	hit	couch	1.0	couch	1.0	0.44700845439869563
+2415831	hit	train	1.0	train	1.0	0.45921849405162046
+2416021	other_object-bounding box	desk	1.0	keyboard	0.33333333333333337	0.7209349562225895
+2416302	co-hyponyms	dress	0.8333333333333334	shirt	--	0.12089203171860581
+2416535	hit	woman	1.0	woman	1.0	0.751657454284449
+2416595	hit	bench	1.0	bench	1.0	0.3385352891802424
+2416656	hit	cat	1.0	cat	1.0	0.9469319545430017
+2416688	hit	giraffe	1.0	giraffe	1.0	0.9416390959694825
+2416771	hit	train	1.0	train	1.0	0.9363614735929601
+2416887	hit	cake	1.0	cake	1.0	0.6023537970836274
+2416954	same_cluster	desk	1.0	table	1.0	0.41596847322063407
+2417025	hit	sandwich	0.875	sandwich	0.875	0.8868021619913737
+2417127	hit	woman	1.0	woman	1.0	0.7923005801315248
+2417141	hit	woman	0.8333333333333334	woman	0.8333333333333334	0.752359576478187
+2417184	co-hyponyms	cow	1.0	bear	--	0.6591870807335963
+2417294	hit	desk	0.8333333333333334	desk	0.8333333333333334	0.5635687249351972
+2417386	hit	bridge	1.0	bridge	1.0	0.39818002729321234
+2417434	same_cluster	couch	1.0	sofa	1.0	0.4933094006125525
+2417438	hit	bed	0.9	bed	0.9	0.7474623958631574
+2417585	same_cluster	airplane	1.0	plane	1.0	0.5360568692317896
+2417682	hit	curtain	1.0	curtain	1.0	0.931026757294239
+2417758	hit	man	0.8333333333333334	man	0.8333333333333334	0.8303035778097432
+2417910	same_cluster	counter	1.0	table	1.0	0.10180692645042991
