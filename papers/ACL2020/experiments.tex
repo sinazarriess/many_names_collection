@@ -198,17 +198,18 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 &  \multicolumn{3}{c||}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$ 0.9}\\
                   model &  hit &  correct &  incorrect &  hit &  correct &  incorrect \\
 \midrule
-       FRCNN--VG1600\_VG &      0.95 &          0.02 &            0.03 &     0.64 &         0.24 &           0.12 \\
-        FRCNN--MN442\_VG &      0.90 &          0.02 &            0.09 &     0.61 &         0.24 &           0.15 \\
-         \midrule \midrule
- FRCNN--VG1600--VGMN\_MN &      0.95 &          0.01 &            0.04 &     0.73 &         0.16 &           0.11 \\
- \midrule 
-     ResNet101--VGMN\_VG &      0.88 &          0.02 &            0.10 &     0.49 &         0.24 &           0.28 \\
-     ResNet101--VGMN\_MN &      0.90 &          0.02 &            0.09 &     0.57 &         0.19 &           0.24 \\
-    ResNet101--MN442\_MN &      0.90 &          0.01 &            0.09 &     0.58 &         0.20 &           0.22 \\
+       FRCNN--VG1600\_VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
+        FRCNN--MN442\_VG &      89.6 &           1.6 &             8.8 &     60.7 &         23.9 &           15.4 \\
+        		\midrule \midrule
+ FRCNN--VG1600--VGMN\_MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
+ 		\midrule 
+     ResNet101--VGMN\_VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
+     ResNet101--VGMN\_MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
+    ResNet101--MN442\_MN &      90.1 &           1.3 &             8.6 &     58.2 &         19.5 &           22.3 \\
 \bottomrule
+
 \end{tabular}
-\caption{Break-down of the results (in \%): Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} for objects with a high agreement entry-level name and less agreement entry-level names. \label{tab:errors_agreement}}
+\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:errors_agreement}}
 \end{table*}
 
 
