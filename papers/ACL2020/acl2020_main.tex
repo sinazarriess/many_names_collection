@@ -85,24 +85,7 @@
 
 \section{Related Work}
 \label{sec:related}
-%\input{related}
-
-[Sectioning to be revised]
-
-\paragraph{(Entry-Level) Object Names}
-Cognitive Science/psycholinguistics:\\
-- levels of specificity\\
-- basic-level vs. entry-level\\
-- object naming studies
-Language + Vision:\\
-Ordonez et al., Zarriess \& Schlangen, ... \\
-- Our work: empirical notion of entry-level
-
-\paragraph{Visual Object Recognition in Computer Vision}
-- Object detection, using pre-trained features representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
-- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image)\\
-- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
-
+\input{related}
 
 \section{ManyNames: A Source for Entry-Level Names}
 \label{sec:manynames}
@@ -120,20 +103,28 @@ Ordonez et al., Zarriess \& Schlangen, ... \\
 
 %\appendix
 %
-%\section{Appendices}
-%\label{sec:appendix}
-%Appendices are material that can be read, and include lemmas, formulas, proofs, and tables that are not critical to the reading and understanding of the paper. 
-%Appendices should be \textbf{uploaded as supplementary material} when submitting the paper for review.
-%Upon acceptance, the appendices come after the references, as shown here.
-%
-%\paragraph{\LaTeX-specific details:}
-%Use {\small\verb|\appendix|} before any appendix section to switch the section numbering over to letters.
-%
-%
-%\section{Supplemental Material}
-%\label{sec:supplemental}
-%Supplementary material may report preprocessing decisions, model parameters, and other details necessary for the replication of the experiments reported in the paper.
-%Seemingly small preprocessing decisions can sometimes make a large difference in performance, so it is crucial to record such decisions to precisely characterize state-of-the-art methods. 
+\section{Appendices}
+\label{sec:appendix}
+Appendices are material that can be read, and include lemmas, formulas, proofs, and tables that are not critical to the reading and understanding of the paper.
+Appendices should be \textbf{uploaded as supplementary material} when submitting the paper for review.
+Upon acceptance, the appendices come after the references, as shown here.
+
+\paragraph{\LaTeX-specific details:}
+Use {\small\verb|\appendix|} before any appendix section to switch the section numbering over to letters.
+
+
+\section{Supplemental Material}
+\label{sec:supplemental}
+Supplementary material may report preprocessing decisions, model parameters, and other details necessary for the replication of the experiments reported in the paper.
+Seemingly small preprocessing decisions can sometimes make a large difference in performance, so it is crucial to record such decisions to precisely characterize state-of-the-art methods.
+
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{images/verification-interface.pdf}
+  \caption{A screenshot of our verification task interface. Up to ten names could be shown for an image in this way (the number of available colors in the second task would increase accordingly).}
+  \label{fig:verification-interface}
+\end{figure*}
 
 \bibliographystyle{acl_natbib}
 \bibliography{naming}
