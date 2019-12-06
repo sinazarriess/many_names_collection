@@ -1,5 +1,251 @@
 % experiments.tex
 
+\cs{todo: discuss differences between domains}
+
+Our goal is to experimentally obtain insights into the usefulness of computer vision object labeling models, that are commonly used for \lv methods, to account for natural human object naming. 
+Specifically, our research questions are
+\begin{enumerate}
+	\item Do object detection models, despite being trained on \arbitrary  
+	names, account for human object naming?\cs{repetitive}
+	\item Can image features, that were pre-trained using object detection or image classification model, be fine-tuned on \mn towards this naming task through simple transfer learning? Figure~\ref{fig:exp_confusions} \\
+	\cs{move to models: -- can we learn entry-level names by fine-tuning object detection models on \mn?\\
+		-- Can we directly learn entry-level names by fine-tuning image classification models on \mn, i.e.,\ the pre-trained features to initialize object detection models?}
+\end{enumerate}
+TO BE COVERED BY THE SUBSECTIONS BELOW:
+\begin{enumerate}
+	\item Do models prefer the entry-level name of an object over an \cs{arbitrary$\rightarrow$?} name? Table~\ref{tab:exp_VGvsMN}
+	\item In cases of failure, do they predict alternative, but less preferred  names instead? Tables~\ref{tab:exp_overview_results}, \ref{tab:exp_alternatives}
+	\item What phenomena of human behavior on the object naming task of \mn do the models mirror? That is, which model mistakes or confusions are due to the artificial setup of the task itself, and less a failure of the model? (Recall that \mn serves as a \textit{proxy} for natural human object naming, since annotators were asked to name a highlighted object in an image isolated from its situative context; Section~\ref{sec:manynames}) Table~\ref{tab:exp_details_wrong} (and \ref{tab:exp_errors_agreement},  \ref{tab:exp_alternatives})
+	
+	%That is, do they make similar mistakes (wrong object--maybe more salient?, related name, e.g.,~co-hyponyms)?
+	\item \cs{Not examined at the moment -- MRR and Jaccard may be re-added for this: Are valid name alternatives among the top-N predictions?}
+	%\item do we get different evaluation results when testing existing object classification models on preferred responses from name distributions, as compared to naming responses collected from 1-3 workers (e.g., VisualGenome)? 
+\end{enumerate}
+We use the \mn dataset in two ways, as analytical testbed, and for fine-tuning pre-trained image features towards entry-level name prediction.
+
+
+\subsection{Experimental Setup}
+\label{sect:exp_setup}
+
+\paragraph{Data}
+
+\paragraph{Models}
+We test two object detection models that are trained with a different vocabulary:
+
+\begin{itemize}
+	\item FRCNN--VG1600: we used the code and model of the bottom-up attention model (\textit{Bottom-up} henceforth)  \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} \footnote{\url{https://github.com/peteanderson80/bottom-up-attention}} The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
+	
+	\item FRCNN--MN442: we retrain Faster R-CNN \cite{fasterrcnn2015} on a smaller vocab. We use \citeauthor{anderson2018updown}'s to preprocess the data set, but restrict the object classes to the 442 entry-level names found in ManyNames. For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{https://github.com/jwyang/faster-rcnn.pytorch}} and initialized it with a pretrained ResNet-101 provided in this implementation.\footnote{ResNet-101 was pretrained with Caffe.}
+\end{itemize}
+
+We test a range of object classification models via transfer learning, that are finetuned with different vocabulary/training data:
+
+\begin{itemize}
+	\item ...
+\end{itemize}
+
+\paragraph{Measures}
+
+
+\subsection{Results}
+\label{sect:exp_results}
+
+\paragraph{Entry-Level Name Prediction}
+
+\begin{table}[t]
+	\centering
+	\small
+	\begin{tabular}{l@{~}|@{~}c@{~}|@{~}r@{~}r@{~}|@{~}r@{~}r@{~}}
+		\toprule
+		&  & \multicolumn{2}{c}{All} 
+		& \multicolumn{2}{c}{VG$\neq$MN}\\
+		&  & \multicolumn{2}{c}{($1072$)} 
+		& \multicolumn{2}{c}{($223$)}\\	
+		Model--Vocab	 
+		&  GTtrain &  =VG & =MN 
+		&  =VG & =MN \\ 
+		\midrule
+		FRCNN--MN442 & VG &  65.4 &      71.2 &   20.0 &      48.4  \\
+		FRCNN--VG1600 & VG &    67.3 &      74.5 &    19.1 &      52.9  \\
+		\midrule \midrule
+		\multicolumn{6}{c}{Classifiers: Fine-tuning pre-trained features on MN}\\
+		Features--Vocab &   \\
+		\midrule 
+		FRCNN--VG1600--VGMN & MN &    70.8 &      80.6 &    13.8 &      60.4  \\ 
+		\midrule
+		ResNet101--VGMN & MN  & 60.9 &  68.6 &  13.8 & 50.2  \\
+		
+		ResNet101--MN442 & MN &            61.7 &              69.6 &                        13.8 &              50.7 \\
+		ResNet101--VGMN\_4ep  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
+		ResNet101--VGMN\_8ep & VG &            63.9 &              62.6 &          34.2 &              28.0 \\
+		ResNet101--MN442 & VG  &            63.7 &              63.7 &                  30.7 &              31.1  \\
+		\bottomrule
+	\end{tabular}
+	\caption{Target vocabulary in test data: MN442. Vocab denotes the dataset from which the target vocabulary for training was induced (the numbers give the size of the vocabulary). GTtrain denotes the dataset from which the ground truth labels are obtained during \textit{training}. Note that we considered all name responses in MN, including those with $\text{count}(name)<2$\label{tab:exp_VGvsMN}. }
+\end{table}
+
+\paragraph{Alternative Name Prediction}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.2]{images/2323938.jpg}
+	\includegraphics[scale=.2]{images/2322259.jpg}
+	\includegraphics[scale=.2]{images/2371657.jpg}
+	
+	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes}}
+\end{figure}
+
+\cs{TODO::}
+Categorization of "errors" (see Figure~\ref{fig:mistakes}):
+\begin{enumerate}
+	\item Clear mistake \\
+	e.g.,\ rice vs. bread
+	\item Alternative name\\
+	e.g.,\ building vs. house
+	\item Alternative object \cs{(other cluster from verif data)}
+	\item Synonym\\
+	e.g.,\ plane vs. airplane
+	\item Semantically related\\
+	e.g.,\  motorcycle vs. scooter
+\end{enumerate}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{l|l|r@{~}r@{~}r@{~}||r@{~}r@{~}r@{~}}
+		\toprule
+		& & \multicolumn{3}{c}{All Test Images ($\#$)} 
+		& \multicolumn{3}{c}{VG$\neq$MN Images ($\#$)}\\
+		\toprule
+		Model--Vocab	& GTtrain  
+		&  hit &  correct &  incorrect &  hit &  correct &  wrong \\
+		\midrule
+		FRCNN--VG1600 & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
+		FRCNN--MN442 & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
+		\midrule \midrule
+		FRCNN--VG1600--VGMN & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+		&         80.7 &                   9.2 &                    10.1 &         60.1 &                  23.8 &                    16.1 \\
+		\midrule
+		ResNet101--MN442 & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
+		&         69.7 &                  10.3 &                    20.1 &         51.1 &                  23.3 &                    25.6 \\
+		ResNet101--VGMN & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
+		&         68.7 &                  10.5 &                    20.8 &         50.7 &                  24.2 &                    25.1 \\
+		ResNet101--VGMN & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
+		&         62.8 &                  12.6 &                    24.6 &         31.4 &                  30.0 &                    38.6 \\
+		ResNet101--MN442 & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
+		&         63.8 &                  12.6 &                    23.6 &         32.3 &                  30.0 &                    37.7 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Break-down of the results (in \%): Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit} (exact match with entry-level name, cf. standard evaluation), \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} (wrong object, $\text{count}(\hat{n})<2$, co-hyponym, clear mistake). \label{tab:exp_overview_results}}
+\end{table*}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{lrrr||rrr}
+		\toprule
+		&  \multicolumn{3}{c||}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$ 0.9}\\
+		model &  hit &  correct &  incorrect &  hit &  correct &  incorrect \\
+		\midrule
+		FRCNN--VG1600\_VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
+		FRCNN--MN442\_VG &      89.6 &           1.6 &             8.8 &     60.7 &         23.9 &           15.4 \\
+		\midrule \midrule
+		FRCNN--VG1600--VGMN\_MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
+		\midrule 
+		ResNet101--VGMN\_VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
+		ResNet101--VGMN\_MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
+		ResNet101--MN442\_MN &      90.1 &           1.3 &             8.6 &     58.2 &         19.5 &           22.3 \\
+		\bottomrule
+		
+	\end{tabular}
+	\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:exp_errors_agreement}}
+\end{table*}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{llr@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}}
+		\toprule
+		& & \multicolumn{6}{c}{All Test Images ($\#$)} 
+		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\
+		\toprule
+		& &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. \\
+		& 	&  cluster &  & cluster & & & cluster 
+		& cluster  &  & cluster & & & cluster \\
+		\midrule
+		FRCNN--VG1600 & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
+		&                  94.6 &              0.0 &                 0.7 &               3.4 &              1.3 &                  0.0 &                  95.5 &              0.0 &                 0.0 &               3.0 &              1.5 &                  0.0 \\
+		FRCNN--MN442 & VG %&                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
+		&                  93.3 &              1.3 &                 2.0 &               1.3 &              2.0 &                  0.0 &                  93.8 &              0.0 &                 3.1 &               1.6 &              1.6 &                  0.0 \\
+		\midrule \midrule
+		FRCNN--VG1600--VGMN & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
+		&                  94.9 &              0.0 &                 0.0 &               2.0 &              3.0 &                  0.0 &                  96.2 &              0.0 &                 0.0 &               1.9 &              1.9 &                  0.0 \\
+		\midrule
+		ResNet101--VGMN & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		&                  83.9 &              0.0 &                 2.7 &               6.2 &              5.4 &                  1.8 &                  92.6 &              0.0 &                 1.9 &               1.9 &              3.7 &                  0.0 \\
+		ResNet101--MN442 & MN %& 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		&                  86.4 &              0.0 &                 2.7 &               5.5 &              3.6 &                  1.8 &                  92.3 &              0.0 &                 1.9 &               1.9 &              3.8 &                  0.0 \\
+		ResNet101--VGMN & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		&                  87.4 &              0.0 &                 2.2 &               1.5 &              8.1 &                  0.7 &                  92.5 &              0.0 &                 1.5 &               1.5 &              4.5 &                  0.0 \\
+		ResNet101--MN442 & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
+		&                  88.9 &              0.0 &                 2.2 &               2.2 &              5.9 &                  0.7 &                  92.5 &              0.0 &                 3.0 &               1.5 &              3.0 &                  0.0 \\
+		\bottomrule
+	\end{tabular}
+	
+	\caption{Break-down of the results for the \textit{correct} name predictions. Proportions (in \%) of the \textit{correct} categories to all correctly classified instances.  \textit{hyponym}: $\hat{n}$ is a hyponym of the entry-level name. \textit{hypernym\_cl}: $\hat{n}$ is a hypernym of any of the valid names (cluster). \textit{Synonym} and \textit{synonym\_cl} are analogous. \label{tab:exp_alternatives}}
+\end{table*}
+
+\paragraph{Incorrect Predictions}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{ll|r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}}
+		\toprule
+		&& \multicolumn{7}{c}{All Test Images ($\#$)} 
+		& \multicolumn{7}{c}{VG$\neq$MN Images ($\#$)}\\
+		\toprule
+		Model--Vocab & GTtrain  
+		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low 
+		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low \\
+		& & hypo. & (vis. &  ling. &  box &  other)   & & count 
+		&  hypo. & (vis. &  ling. &  box &  other) &   & count     \\
+		
+		\midrule
+		FRCNN--VG1600 & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
+		FRCNN--MN442 & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
+		\midrule \midrule
+		FRCNN--VG1600--VGMN & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
+		\midrule
+		ResNet101--VGMN & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
+		ResNet101--MN442 & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
+		ResNet101--VGMN & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
+		ResNet101--MN442 & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Break-down of the results for the \textit{wrong} name predictions. Proportions (in \%) of the corresponding categories to all wrongly classified instances.  \label{tab:exp_details_wrong}}
+\end{table*}
+
+\paragraph{Human Object Naming through Transfer-Learning} Figure \ref{fig:exp_confusions} visualizes the change in predictions for  some of our retrained and finetuned models with respect to the object detection baseline (bottom-up-1600). For each object, where the new model predicts a different name than the baseline model, we look at the hit-error categories of the original and new predicted name. Observations:
+\begin{itemize}
+	\item Retraining faster-rcnn on less names does not lead to better calibration of entry-level names: more original hits change to same-cluster predictions than the other way round. (top left matrix)
+	\item Finetuning the original faster-rcnn on many names recalibrates many decision from same-cluster names to the correct hit. Interestingly, also clear errors are calibrated to perfect hits, whereas hardly any error is changed to same-cluster or related.  (top right matrix)
+	\item A similar tendency can be found for the ResNet models: finetuning ResNet on MN changes many predictions from same-cluster to hits. This is less the case when ResNet is finetuned on VG annotations.
+	\item Interestingly, both ResNet models change hits into related names (hypernyms, hyponyms, cp-hyponyms) -- why does this happen?
+\end{itemize}
+
+\begin{figure*}[t]
+	\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_FRCNN--MN442_VG.jpg}
+	\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_FRCNN--VG1600--VGMN_MN.jpg}
+	\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_ResNet101--VGMN_VG.jpg}
+	\includegraphics[scale=.5]{images/matrix_FRCNN--VG1600_VG_ResNet101--MN442_MN.jpg}
+	
+	\caption{Confusion-matrix-style visualization showing error categories of predictions that changed from object detection with FRCNN-VG1600 to naming with FRCNN-VG1600-VGMN (finetuned) \label{fig:exp_confusions}}
+\end{figure*}
+
+
+\subsection{Discussion}
+\label{sect:exp_discussion}
+
 \iffalse
 \cs{under construction}
 \begin{itemize}
@@ -14,6 +260,7 @@
 \end{itemize}
 \fi
 
+\iffalse
 We propose to use datasets of object names for evaluating models on the task of object naming (depending on results: also valuable for comparing object detection/image classification models).
 Specifically, we analyse object detection [and classification] models on the task of human object naming, using the \mn dataset as test data:\\
 Can object detection models, trained on arbitrary names, account for human object naming?
@@ -223,7 +470,7 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 \bottomrule
 
 \end{tabular}
-\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:errors_agreement}}
+\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:exp_errors_agreement}}
 \end{table*}
 
 
@@ -290,7 +537,7 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 \caption{Break-down of the results for the \textit{wrong} name predictions. Proportions (in \%) of the corresponding categories to all wrongly classified instances.  \label{tab:exp_details_wrong}}
 \end{table*}
 
-
+\fi
 
 
 \subsection{[TBC] Generalization Ability: OpenImages}
