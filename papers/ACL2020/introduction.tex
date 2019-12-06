@@ -15,7 +15,8 @@ Crucially, though, as we will empirically show, human object naming is \textit{i
 For example, Figure~\ref{fig:duck} shows two instances of the concept duck, and when people were asked to name the highlighted object, most ($27$) people called the instance on the left \name{bird}, while \name{duck} was strongly preferred for the right instance. 
 
 Despite its relevance in \lv, the challenge of instance-based natural naming has been overseen, and most \lv datasets not necessarily provide enough information to make progress on the problem of modeling natural object naming (they only provide very few names). 
-Research that particularly focuses on the prediction of entry-level names is scarce, and existing work has adopted (i) taxonomic view (?) and (ii) developed specialized methods implementing the taxonomic view (?)\cite{Ordonez:2016}. \cs{check paper}
+Research that particularly focuses on the prediction of entry-level names is scarce, and existing work has adopted the view that (i) entry-level names arise on the conceptual level, and (ii) developed specialized methods \cite{Ordonez:2016}. 
+%To our knowledge, work that gives systematic insights into the ability of standard object recognition models to account for natural object naming, and in how far simple \cs{straightfoward?} re-training or transfer learning can increase this ability, is lacking. 
 %
 \begin{figure}
 	\centering
@@ -36,7 +37,7 @@ Specifically, and in contrast to previous works, we
 (i) take on an empirical notion of entry-level names, and define it on the instance-level, i.e., the name that humans prefer to use when calling a particular object in a real-world image.   
 (ii) We examine in how far standard models in computer vision, namely object detection and image classification models, do learn entry-level naming by being trained on images labeled with rather \textit{\arbitrary} (as opposed to entry-level) object names. \cs{add sth based on results - how to fine-tune or whether it's possible to fine-tune; how readily available they are to be used for transfer learning, the standard method in \lv}
 
-We use \mn, a new dataset of real-world images, built on top of \vg, which provides an excellent resource for our study, since it was  annotated with a large number\ $(36)$ of object names by means of a crowdsourcing study.
+We use \mn, a new dataset of real-world images, built on top of \vg, which provides an excellent resource for our study, since it was annotated with a large number\ $(36)$ of object names by means of a crowdsourcing study.
 
 Our contributions are: 
 (i) We present our extension of the \mn dataset that augments all collected object names with verification information, which allows an in-depth analysis of naming models on the task of object naming. 

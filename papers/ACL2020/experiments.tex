@@ -30,19 +30,19 @@ We use the \mn dataset in two ways, as analytical testbed, and for fine-tuning p
 \paragraph{Data}
 
 \paragraph{Models}
-We test two object detection models that are trained with a different vocabulary:
+We test two object detection models which both use the Faster R-CNN architecture \cite{fasterrcnn2015}, and were initialized with features that were pre-trained on $1K$~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}. 
+They were both trained on \vg, but, essentially, differ in their target vocabulary. 
+FRCNN--VG1600\footnote{We used the code and model of \citeauthor{anderson2018updown}'s \shortcite{anderson2018updown} bottom-up attention model, available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} \cite{anderson2018updown} uses a vocabulary of $1600$~object classes \cs{add how it was derived}.
+For FRCNN--MN442, we pre-process the \vg data as in \citeauthor{anderson2018updown} \cs{right, @Sina?}, but restrict the object classes to the $442$~entry-level names found in \mn (Section~\ref{sect:?}). 
+For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{github.com/jwyang/faster-rcnn.pytorch}}
 
-\begin{itemize}
-	\item FRCNN--VG1600: we used the code and model of the bottom-up attention model (\textit{Bottom-up} henceforth)  \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} \footnote{\url{https://github.com/peteanderson80/bottom-up-attention}} The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
-	
-	\item FRCNN--MN442: we retrain Faster R-CNN \cite{fasterrcnn2015} on a smaller vocab. We use \citeauthor{anderson2018updown}'s to preprocess the data set, but restrict the object classes to the 442 entry-level names found in ManyNames. For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{https://github.com/jwyang/faster-rcnn.pytorch}} and initialized it with a pretrained ResNet-101 provided in this implementation.\footnote{ResNet-101 was pretrained with Caffe.}
-\end{itemize}
 
-We test a range of object classification models via transfer learning, that are finetuned with different vocabulary/training data:
-
-\begin{itemize}
-	\item ...
-\end{itemize}
+Using transfer learning, we further test a range of Vanilla object classification models consisting of multi-layer neural networks.  
+To predict the entry-level name of a target object, they are fed image features extracted for the target's bounding box, and apply softmax at the output layer that corresponds to the vocabulary of target names. 
+The models differ in the pre-trained image features used for feature extraction, in the training signal, and, similarly to the FRCNN models above, in the vocabulary that we use for training them: 
+Regarding the features, we either use the FRCNN--VG1600 model above (i.e.,~the features were pre-trained on \vg), or use the ResNet-101 model that was used to initialize the FRCNN models above. 
+Note that ResNet's $1K$~object classes capture subordinate categories of ImageNet leaf nodes (e.g.,~Siberian husky, American black bear). 
+Vocab + signal: 
 
 \paragraph{Measures}
 
