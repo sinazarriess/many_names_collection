@@ -1,24 +1,25 @@
 \cs{need to make clear the diff btw objects meaning the concept and meaning an instance}
 
-Real-world objects, being members of many categories, can be called by many names (e.g.,\ an apple can be called \name{apple, fruit, food} etc.). 
-In \langvis research (\lv), the choice of a particular name for an object is a pervasive task---it underlies virtually all tasks which model how speakers use language to refer to objects in the world, such as image description, visual question answering, etc. 
+Real-world objects, being members of many categories, can be called by many names (e.g.,\ a duck can be called \name{duck, bird, animal} etc.). 
+In \langvis research (\lv), the choice of a particular name for an object is a pervasive task---it underlies virtually all tasks which model how speakers use language to refer to objects in the world, such as image description, visual question answering, referring expression generation, etc. 
 %
-\lv methods are generally based on object detection or image classification models (or the visual features extracted from them) which were pre-trained towards predicting the single correct label of objects. The set of labels are often determined rather arbitrarily---it may contain very specific (e.g.,\ \name{goblet, gyromitra}) as well as "basic-level" labels (e.g., \name{bus}) (cf. the inventory of the ILSVRC challenges; \citealt{ILSVRC15}). 
+\lv methods are generally based on object detection or image classification models (or the visual features extracted from them) which were pre-trained towards predicting the single correct label of objects. The set of labels are often determined rather arbitrarily---it may contain very specific (e.g.,\ \name{goblet, gyromitra}) as well as "basic-level" labels (e.g., \name{bus}; cf. the label inventory of the ILSVRC challenges; \citealt{ILSVRC15}). 
 
 This approach has its justification in that models can learn rich, discriminative visual feature representations which capture fine-grained differences in object appearances (e.g.,\ shape--pointed vs. slightly pointed). 
 It is, however, different from predicting the natural name of an object, 
-because, as has been found in numerous studies in psychology, humans have a preference towards a particular name (\textit{entry-level name}, e.g.,\ \name{apple}) when naturally calling an object  \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
+because, as has been found in numerous studies in psychology, humans have a preference towards a particular name (\textit{entry-level name}, e.g.,\ \name{duck}) when naturally calling an object  \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
 Entry-level names have hereby usually been considered to be an attribute of concrete \textit{concepts} (e.g.,\ penguin, duck), where the choice of a concept's entry-level name depends on factors such as its typicality with respect to its basic-level category (bird). \cs{Need to check Jolicoeur and their experiments} 
-Crucially, though, as our analysis also shows (ManyNames analysis), human object naming is \textit{instance}-dependent---contextual visual features (see also \citet{graf2016animal}) may humans have choose different names for object instances of the same concrete concept, and have them even disagree in their choice for the same instance \cs{real example here with duck, bird}. 
+Crucially, though, as we will empirically show, human object naming is \textit{instance}-dependent---contextual visual features (see also \citealt{graf2016animal}) may humans have prefer different names for object instances of the same concrete concept, and have them even disagree in their choice for the same instance \cs{insert image example here with duck, bird}. 
 
 Despite its relevance in \lv, the challenge of instance-based naming variation has been overseen, and most \lv datasets not necessarily provide enough information to make progress on the problem of modelling natural object naming (they only provide very few names). 
-Research that particularly focuses on the prediction of entry-level names is scarce, and existing work has adopted (i) taxonomic view (?) and (ii) developed specialised methods implementing the taxonomic view (?)\cite{Ordonez:2016}. \cs{check paper}
+Research that particularly focuses on the prediction of entry-level names is scarce, and existing work has adopted (i) taxonomic view (?) and (ii) developed specialized methods implementing the taxonomic view (?)\cite{Ordonez:2016}. \cs{check paper}
 
-In this paper, we seek an understanding of the notion of entry-level names of instances of real-world objects in images, and address the problem of automatically predicting those. %, i.e.,\ the name that humans naturally prefer to call an object.  
+In this paper, we seek an understanding of the notion of entry-level names of instances of real-world objects in images, and systematic insights into  the problem of retraining or fine-tuning object detection models (and features in transfer learning) such that they capture a natural vocabulary and linguistic preferences in naming. %, i.e.,\ the name that humans naturally prefer to call an object.  
 Specifically, and in contrast to previous works, we 
-(i) take on an empirical notion of entry-level names, and define it on the instance-level, i.e., the name that humans prefer to use when calling a particular object in a real-world image. 
-(ii) examine in how far standard models in computer vision, namely object detection or image classification models, do already learn entry-level names by being trained on images labelled with rather \textit{arbitrary} object names. XXX
-For this purpose, we use \mn, a new dataset of real-world images, built on top of \vg, which was  annotated with a large number\ $(36)$ of object names by means of a crowdsourcing study. 
+(i) take on an empirical notion of entry-level names, and define it on the instance-level, i.e., the name that humans prefer to use when calling a particular object in a real-world image.   
+(ii) We examine in how far standard models in computer vision, namely object detection and image classification models, do learn entry-level naming by being trained on images labeled with rather \textit{arbitrary} (as opposed to entry-level) object names. \cs{add sth based on results - how to fine-tune or whether it's possible to fine-tune; how readily available they are to be used for transfer learning, the standard method in \lv}
+
+We use \mn, a new dataset of real-world images, built on top of \vg, which provides an excellent resource for our study, since it was  annotated with a large number\ $(36)$ of object names by means of a crowdsourcing study.
 
 Our contributions are: 
 (i) We present our extension of the \mn dataset that augments all collected object names with verification information, which allows an in-depth analysis of naming models on the task of object naming. 
