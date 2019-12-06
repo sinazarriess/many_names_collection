@@ -1,24 +1,32 @@
 
-[Sectioning to be revised]
 
 As we outline in the following, our work on natural object naming is of relevance to research in psychology, \langvis and computer vision. 
 
 \paragraph{(Entry-Level) Object Names}
 
-cognitive science/psychology:\\
-- levels of specificity\\
-- basic-level vs. entry-level\\ 
-- object naming studies
+%cognitive science/psychology:\\
+%- levels of specificity\\
+%- basic-level vs. entry-level\\ 
+%- object naming studies
+%
+%Language + Vision:\\
+%Ordonez et al., Zarriess \& Schlangen, ... \\
+%- Our work: empirical notion of entry-level
 
-Language + Vision:\\
-Ordonez et al., Zarriess \& Schlangen, ... \\
-- Our work: empirical notion of entry-level
+In psychology and cognitive science, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
+The typicality of the object with respect to this basic-level category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level category (\name{bird}), while for atypical objects  (e.g.,\ \name{penguin}) the more specific name corresponds to the entry-level category. 
+This strictly taxonomic view suggests that entry-level names generally hold for all instances a category (e.g.,\ penguin). 
+\newcite{Ordonez:2016} take up this view and learn to transfer an object's category detected by an object recognition system to its natural name, using external resources like corpus statistics. 
+In contrast, our work exploits actual naming data for instances of real-world objects and tests object naming model on ManyNames, a corpus with robust name annotations from many different speakers.
+This dataset is comparable to picture naming data, though we focus on real-world objects in images instead of prototypical line drawings as in e.g.\ \cite{rossion2004revisiting}, 
+ \newcite{zarriess-schlangen:2017} learn a naming model from names produced in referring expressions to real-world objects, but they do not have access to name annotations from (many) different speakers and adopt very simply evaluation measures (like accuracy). 
+ This work explores and adopts more nuanced evaluation metrics and aims to model robust speaker preferences with respect to natural naming.
+ \sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
+ 
+%members of different \textit{basic-level} categories (e.g., a duck, a robin, a penguin, etc. are all members of \cat{birds}) 
+% \newcite{rohde2012communicating} and \newcite{graf2016animal} investigate naming in context and find that the specificity of a name is dependent on the taxonomic relatedness of other objects in context.
 
-\paragraph{}
-In psychology and cognitive science, the study of (entry-level) naming is well-established (CITE). 
-Studies have usually used prototypical line drawings of members of different \textit{basic-level} categories (e.g., a duck, a robin, a penguin, etc. are all members of \cat{birds}) 
-\cite{jolicoeur1984pictures}, and examined the influence of an object's typicality with respect to its category on the natural choice of its name: highly typical objects (e.g.,\ a robin) have been found to be preferably named by their basic-level category (\name{bird}), while for atypical members a subordinate category (e.g.,\ \name{penguin}) is preferred. 
-As such, entry-level names have been considered being an attribute of concrete \textit{concepts} (e.g.,\ penguin). \cs{Need to check Jolicoeur and their experiments; say sth about shared visual features}
+ \cs{Need to check Jolicoeur and their experiments; say sth about shared visual features}
 % prototypical visual features common to all its instances (e.g.,\ apples are round, pears are ... (CHECK)). 
 
 
