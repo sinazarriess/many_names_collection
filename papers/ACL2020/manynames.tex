@@ -143,11 +143,11 @@ Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
 	\label{fig:entry-level-name-stability}
 \end{figure}
 For each object we computed, on the basis of the distribution of names in ManyNames for that object, how many names should have been gathered for the majority name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability (a reasonable confidence requirement).
-The blue line shows that, even after gathering 10 names, the entry-level name has been confidently identified for only 68\% of objects.
+The blue line shows that, even after gathering 10 names, the majority name is this likely to be the entry-level name for only 68\% of objects (put differently: for the remaining 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
 Gathering 20 names increases this to 78\%.
 The red line shows the same tendency but by taking only names from the entry-level cluster into account (as identified by our Verification results):
 by discarding names for other objects, the entry-level name for the intended object can be confidently identified slightly more quickly (but not by much, since names for the wrong object tend to be a minority anyway).
-Both lines level level out well below 100\%, reflecting that for 15\%-20\% \cs{Can you compute that individually for each domain?} of objects even gathering 36 names is not enough for the majority name to be confidently assumed to be the entry-level name: differences in frequencies between the contenders are simply too small.
+Both lines level level out well below 100\%, reflecting that for 15\%-20\% \cs{Can you compute that individually for each domain?} of objects even gathering 36 names is not enough for the entry-level name to come out as majority with 95\% probability: differences in frequencies between the contenders are simply too small.
 \mw{@cs, @sz, @gbt: A closely related (but different) question this immediately brings to mind (of a critical reviewer?) is: how sure are we, for a given object, given the particular names we gathered, that the most frequent name in our sample (what we \emph{call} the entry-level name) is indeed the most frequent name in the population (what actually \emph{is} the entry-level name, right?)? Should we address this question earlier? I think the stats will look very similar (though they're not the same): that for 15-20\% of objects we really aren't sure.}
 
 %%%%%% BY SAMPLING, FOR GEMMA:
