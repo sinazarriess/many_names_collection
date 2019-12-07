@@ -7,13 +7,13 @@ Specifically, our research questions are
 \begin{enumerate}
 	\item Do object detection models, despite being trained on \arbitrary  
 	names, account for human object naming?\cs{repetitive}
-	\item Can image features, that were pre-trained using object detection or image classification model, be fine-tuned on \mn towards this naming task through simple transfer learning? Figure~\ref{fig:exp_confusions} \\
+	\item Can we apply simple transfer learning on \mn to train classifiers towards this naming task by utilizing pre-trained object detection or image classification model as feature extractors? Figure~\ref{fig:exp_confusions} \\
 	\cs{move to models: -- can we learn entry-level names by fine-tuning object detection models on \mn?\\
 		-- Can we directly learn entry-level names by fine-tuning image classification models on \mn, i.e.,\ the pre-trained features to initialize object detection models?}
 \end{enumerate}
 TO BE COVERED BY THE SUBSECTIONS BELOW:
 \begin{enumerate}
-	\item Do models prefer the entry-level name of an object over an \cs{arbitrary$\rightarrow$?} name? Table~\ref{tab:exp_VGvsMN}
+	\item Do models prefer the entry-level name of an object over an \arbitrary name? Table~\ref{tab:exp_VGvsMN}
 	\item In cases of failure, do they predict alternative, but less preferred  names instead? Tables~\ref{tab:exp_overview_results}, \ref{tab:exp_alternatives}
 	\item What phenomena of human behavior on the object naming task of \mn do the models mirror? That is, which model mistakes or confusions are due to the artificial setup of the task itself, and less a failure of the model? (Recall that \mn serves as a \textit{proxy} for natural human object naming, since annotators were asked to name a highlighted object in an image isolated from its situative context; Section~\ref{sec:manynames}) Table~\ref{tab:exp_details_wrong} (and \ref{tab:exp_errors_agreement},  \ref{tab:exp_alternatives})
 	
@@ -27,62 +27,92 @@ We use the \mn dataset in two ways, as analytical testbed, and for fine-tuning p
 \subsection{Experimental Setup}
 \label{sect:exp_setup}
 
-\paragraph{Data}
-
 \paragraph{Models}
-We test two object detection models which both use the Faster R-CNN architecture \cite{fasterrcnn2015}, and were initialized with features that were pre-trained on $1K$~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}. 
+We test two object detection models which both use the Faster R-CNN architecture \cite{fasterrcnn2015}, and were initialized with features that were pre-trained on $1$K~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}. 
 They were both trained on \vg, but, essentially, differ in their target vocabulary. 
-FRCNN--VG1600\footnote{We used the code and model of \citeauthor{anderson2018updown}'s \shortcite{anderson2018updown} bottom-up attention model, available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} \cite{anderson2018updown} uses a vocabulary of $1600$~object classes \cs{add how it was derived}.
-For FRCNN--MN442, we pre-process the \vg data as in \citeauthor{anderson2018updown} \cs{right, @Sina?}, but restrict the object classes to the $442$~entry-level names found in \mn (Section~\ref{sect:?}). 
+FRCNN$_{\text{VG1600}}$\footnote{We used the code and model of \citeauthor{anderson2018updown}'s \shortcite{anderson2018updown} bottom-up attention model, available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} \cite{anderson2018updown} uses a vocabulary of $1600$~object classes \cs{add how it was derived}.
+For FRCNN$_{\text{MN442}}$, we pre-process the \vg data as in \citeauthor{anderson2018updown} \cs{right, @Sina?}, but restrict the object classes to the $442$~entry-level names found in \mn (Section~\ref{sect:mn_analysis}). 
 For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{github.com/jwyang/faster-rcnn.pytorch}}
 
+\cs{start to be moved to an appropriate place}
+While we consider \mn's size ($25$K instances) to be excellent for evaluation and analysis purposes, it is too small to serve as data for training object detection models from scratch, which require the learning of millions of parameters. 
+It may, however, serve as training data for transfer learning. 
+\cs{end to be moved to an appropriate place}
+We assess the possibility to explicitly obtain entry-level naming models through transfer learning, by training a Vanilla object classifier on \mn using the FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN--VG442, so we only use the former model.} model as feature extractor. 
+For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer.\cs{add size} 
+\cs{todo: details to architecture and training}
+To predict the entry-level name of a target object~$o$, the classifier, a multi-layer neural network, is fed the object's features, and applies softmax activation to the output layer that corresponds to the target vocabulary. 
+The target vocabulary (VGMN, henceforth) comprises the overlap of VG1600 and the \mn names (\cs{$XX$} in total). 
 
-Using transfer learning, we further test a range of Vanilla object classification models consisting of multi-layer neural networks.  
-To predict the entry-level name of a target object, they are fed image features extracted for the target's bounding box, and apply softmax at the output layer that corresponds to the vocabulary of target names. 
-The models differ in the pre-trained image features used for feature extraction, in the training signal, and, similarly to the FRCNN models above, in the vocabulary that we use for training them: 
-Regarding the features, we either use the FRCNN--VG1600 model above (i.e.,~the features were pre-trained on \vg), or use the ResNet-101 model that was used to initialize the FRCNN models above. 
-Note that ResNet's $1K$~object classes capture subordinate categories of ImageNet leaf nodes (e.g.,~Siberian husky, American black bear). 
-Vocab + signal: 
-
-\paragraph{Measures}
-
-
-\subsection{Results}
-\label{sect:exp_results}
-
-\paragraph{Entry-Level Name Prediction}
+We furthermore assess the drop in effectiveness of such a Vanilla  classifier when we do not use FRCNN (trained on \vg) as feature extractor, but instead it's initialization model, i.e.,~ResNet-101. 
+\cs{Next sentence relevant here? Or just as detail in related work?:: (Note that ResNet's $1$K~object classes capture subordinate categories of ImageNet leaf nodes; e.g.,~Siberian husky, American black bear.)} 
+As with the FRCNN models above, we compare models which differ in  their target vocabulary, i.e.,~VGMN or MN442. 
+\cs{Maybe the next sentences are better just in the results section, when discussing the table::} Finally, we compare against two further classifiers which are trained on the \vg labels. 
+Note that all four models are optimized on the $25$K~objects in \mn. 
 
 \begin{table}[t]
 	\centering
 	\small
-	\begin{tabular}{l@{~}|@{~}c@{~}|@{~}r@{~}r@{~}|@{~}r@{~}r@{~}}
+	\begin{tabular}{@{~}l@{~}|@{~}c@{~}|cc|cc@{~}}
 		\toprule
 		&  & \multicolumn{2}{c}{All} 
 		& \multicolumn{2}{c}{VG$\neq$MN}\\
 		&  & \multicolumn{2}{c}{($1072$)} 
 		& \multicolumn{2}{c}{($223$)}\\	
-		Model--Vocab	 
-		&  GTtrain &  =VG & =MN 
-		&  =VG & =MN \\ 
+		Model$_{\text{Vocab}}$ 
+		&  GTtrain &  VG & MN 
+		&  VG & MN \\ 
 		\midrule
-		FRCNN--MN442 & VG &  65.4 &      71.2 &   20.0 &      48.4  \\
-		FRCNN--VG1600 & VG &    67.3 &      74.5 &    19.1 &      52.9  \\
+		FRCNN$_{\text{MN442}}$ & VG &  65.4 &      71.2 &   20.0 &      48.4  \\
+		FRCNN$_{\text{VG1600}}$ & VG &    67.3 &      74.5 &    19.1 &      52.9  \\
 		\midrule \midrule
-		\multicolumn{6}{c}{Classifiers: Fine-tuning pre-trained features on MN}\\
-		Features--Vocab &   \\
+		\multicolumn{6}{c}{Classifiers: Transfer learning on MN}\\
+		Features$_{\text{Vocab}}$ &   \\
 		\midrule 
-		FRCNN--VG1600--VGMN & MN &    70.8 &      80.6 &    13.8 &      60.4  \\ 
+		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN &    70.8 &      80.6 &    13.8 &      60.4  \\ 
 		\midrule
-		ResNet101--VGMN & MN  & 60.9 &  68.6 &  13.8 & 50.2  \\
+		ResNet$_{\text{VGMN}}$ & MN  & 60.9 &  68.6 &  13.8 & 50.2  \\
 		
-		ResNet101--MN442 & MN &            61.7 &              69.6 &                        13.8 &              50.7 \\
-		ResNet101--VGMN\_4ep  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
-		ResNet101--VGMN\_8ep & VG &            63.9 &              62.6 &          34.2 &              28.0 \\
-		ResNet101--MN442 & VG  &            63.7 &              63.7 &                  30.7 &              31.1  \\
+		ResNet$_{\text{MN442}}$ & MN &            61.7 &              69.6 &                        13.8 &              50.7 \\
+		ResNet$_{\text{VGMN}}$  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
+		%ResNet$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
+		%ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &          34.2 &              28.0 \\
+		ResNet$_{\text{MN442}}$ & VG  &            63.7 &              63.7 &                  30.7 &              31.1  \\
 		\bottomrule
 	\end{tabular}
-	\caption{Target vocabulary in test data: MN442. Vocab denotes the dataset from which the target vocabulary for training was induced (the numbers give the size of the vocabulary). GTtrain denotes the dataset from which the ground truth labels are obtained during \textit{training}. Note that we considered all name responses in MN, including those with $\text{count}(name)<2$\label{tab:exp_VGvsMN}. }
+	\caption{Model accuracy (in \%) on the \mn test objects. Vocab denotes the dataset used to induce the target vocabulary for training (the numbers give the size of the vocabulary). GTtrain gives the dataset that provides the ground truth labels during training, and VG and MN for testing \label{tab:exp_VGvsMN}.}
 \end{table}
+
+\paragraph{Data}
+\cs{todo after Section~\ref{sect:mn_overview} has been written.}
+\begin{itemize}
+	\item Test data: overlap of \mn and \vg test data (CITE)
+	\item Target vocabulary of test data: overlap of MN442 and VG (\cs{XX} names)
+	\item Source of label: \mn, but we compare against \vg
+\end{itemize}
+
+%\paragraph{Measures}
+
+
+\subsection{Results: Entry-Level Name Prediction}
+\label{sect:exp_results}
+%\paragraph{Entry-Level Name Prediction}
+Table \ref{tab:exp_VGvsMN} shows the accuracy of all models on the \mn test data. 
+We compare model effectiveness on predicting the entry-level name (columns MN) against predicting the \arbitrary VG name (columns VG), and furthermore report results on the test instances where the two names differ (block VG$\neq$MN). 
+\begin{itemize}
+	\item The FRCNN models are better on predicting the entry-level name (columns MN) than the \arbitrary VG name (columns VG). 
+	This shows that they do learn entry-level naming to some extent, despite being trained on VG, i.e.,~\arbitrary ground truth labels.
+	\cs{I would not comment on diff. btw. the two FRCNNs, it's small compared to their diffs to the classifiers, and may be also due to the diff. implementations, and VG1600 being trained additionally on attributes.}
+	\item The overall best model is FRCNN$_\text{VG1600}$$_\text{-VGMN}$, the Vanilla classifier that uses  FRCNN$_\text{VG1600}$ features and is trained on the \mn training data. 
+	\item \cs{?What to keep here:} The classifiers using ResNet features are the least effective, but come close to the FRCNN object detectors on entry-level naming (columns MN, GTtrain MN), or even better  (columns VG, GTtrain VG) despite being trained on a fraction of FRCNN's training size using a simple Vanilla classifier in contrast to a fully-fledged CNN architecture.
+	This confirms what we observed on the FRCNN results: and follow the pattern of learning entry-level naming  
+	\item Models learn entry-level naming when being trained on \arbitrary naming data, obtaining better results on entry-level prediction than \arbitrary name prediction for the same instances, and benefit from being trained on entry-levels using transfer learning. \cs{overfitting?}
+	\item Comparing the target vocabulary, MN442 and VG1600/VGMN, we see that the restriction on a smaller, but empirically derived vocabulary of entry-level names only, is not beneficial, with all MN442 models being worse or comparable to VGMN/VG100.
+\end{itemize}
+
+\subsection{Quantitative Analysis}
+\label{sect:exp_analysis}
+
 
 \paragraph{Alternative Name Prediction}
 \begin{figure}
@@ -111,27 +141,27 @@ Categorization of "errors" (see Figure~\ref{fig:mistakes}):
 \begin{table*}[t]
 	\centering
 	\small
-	\begin{tabular}{l|l|r@{~}r@{~}r@{~}||r@{~}r@{~}r@{~}}
+	\begin{tabular}{l|c|r@{~}r@{~}r@{~}||r@{~}r@{~}r@{~}}
 		\toprule
 		& & \multicolumn{3}{c}{All Test Images ($\#$)} 
 		& \multicolumn{3}{c}{VG$\neq$MN Images ($\#$)}\\
 		\toprule
-		Model--Vocab	& GTtrain  
+		Model$_{\text{Vocab}}$	& GTtrain  
 		&  hit &  correct &  incorrect &  hit &  correct &  wrong \\
 		\midrule
-		FRCNN--VG1600 & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
-		FRCNN--MN442 & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
+		FRCNN$_{\text{VG1600}}$ & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
+		FRCNN$_{\text{MN442}}$ & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
 		&         80.7 &                   9.2 &                    10.1 &         60.1 &                  23.8 &                    16.1 \\
 		\midrule
-		ResNet101--MN442 & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
+		ResNet101$_{\text{MN442}}$ & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
 		&         69.7 &                  10.3 &                    20.1 &         51.1 &                  23.3 &                    25.6 \\
-		ResNet101--VGMN & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
+		ResNet101$_{\text{VGMN}}$ & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
 		&         68.7 &                  10.5 &                    20.8 &         50.7 &                  24.2 &                    25.1 \\
-		ResNet101--VGMN & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
+		ResNet101$_{\text{VGMN}}$ & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
 		&         62.8 &                  12.6 &                    24.6 &         31.4 &                  30.0 &                    38.6 \\
-		ResNet101--MN442 & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
+		ResNet101$_{\text{MN442}}$ & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
 		&         63.8 &                  12.6 &                    23.6 &         32.3 &                  30.0 &                    37.7 \\
 		\bottomrule
 	\end{tabular}
@@ -141,19 +171,19 @@ Categorization of "errors" (see Figure~\ref{fig:mistakes}):
 \begin{table*}[t]
 	\centering
 	\small
-	\begin{tabular}{lrrr||rrr}
+	\begin{tabular}{l|c|rrr||rrr}
 		\toprule
-		&  \multicolumn{3}{c||}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$ 0.9}\\
-		model &  hit &  correct &  incorrect &  hit &  correct &  incorrect \\
+		& &  \multicolumn{3}{c||}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$ 0.9}\\
+		Model$_{\text{Vocab}}$ &  GTtrain & hit &  correct &  incorrect &  hit &  correct &  incorrect \\
 		\midrule
-		FRCNN--VG1600\_VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
-		FRCNN--MN442\_VG &      89.6 &           1.6 &             8.8 &     60.7 &         23.9 &           15.4 \\
+		FRCNN$_{\text{VG1600}}$ & VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
+		FRCNN$_{\text{MN442}}$ & VG &      89.6 &           1.6 &             8.8 &     60.7 &         23.9 &           15.4 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN\_MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
+		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
 		\midrule 
-		ResNet101--VGMN\_VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
-		ResNet101--VGMN\_MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
-		ResNet101--MN442\_MN &      90.1 &           1.3 &             8.6 &     58.2 &         19.5 &           22.3 \\
+		ResNet101$_{\text{VGMN}}$ & VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
+		ResNet101$_{\text{VGMN}}$ & MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
+		ResNet101$_{\text{MN442}}$ & MN &      90.1 &           1.3 &             8.6 &     58.2 &         19.5 &           22.3 \\
 		\bottomrule
 		
 	\end{tabular}
@@ -163,30 +193,30 @@ Categorization of "errors" (see Figure~\ref{fig:mistakes}):
 \begin{table*}[t]
 	\centering
 	\small
-	\begin{tabular}{llr@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}}
+	\begin{tabular}{l|c|r@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}r@{~}}
 		\toprule
 		& & \multicolumn{6}{c}{All Test Images ($\#$)} 
 		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\
 		\toprule
-		& &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. \\
+		Model$_{\text{Vocab}}$ &  GTtrain & same &  syn. &  syn. &  hyper. &  hypo. &  hyper. &  same &  syn. &  syn. &  hyper. &  hypo. &  hyper. \\
 		& 	&  cluster &  & cluster & & & cluster 
 		& cluster  &  & cluster & & & cluster \\
 		\midrule
-		FRCNN--VG1600 & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
+		FRCNN$_{\text{VG1600}}$ & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
 		&                  94.6 &              0.0 &                 0.7 &               3.4 &              1.3 &                  0.0 &                  95.5 &              0.0 &                 0.0 &               3.0 &              1.5 &                  0.0 \\
-		FRCNN--MN442 & VG %&                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
+		FRCNN$_{\text{MN442}}$ & VG %&                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
 		&                  93.3 &              1.3 &                 2.0 &               1.3 &              2.0 &                  0.0 &                  93.8 &              0.0 &                 3.1 &               1.6 &              1.6 &                  0.0 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
+		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
 		&                  94.9 &              0.0 &                 0.0 &               2.0 &              3.0 &                  0.0 &                  96.2 &              0.0 &                 0.0 &               1.9 &              1.9 &                  0.0 \\
 		\midrule
-		ResNet101--VGMN & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		ResNet101$_{\text{VGMN}}$ & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		&                  83.9 &              0.0 &                 2.7 &               6.2 &              5.4 &                  1.8 &                  92.6 &              0.0 &                 1.9 &               1.9 &              3.7 &                  0.0 \\
-		ResNet101--MN442 & MN %& 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		ResNet101$_{\text{MN442}}$ & MN %& 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		&                  86.4 &              0.0 &                 2.7 &               5.5 &              3.6 &                  1.8 &                  92.3 &              0.0 &                 1.9 &               1.9 &              3.8 &                  0.0 \\
-		ResNet101--VGMN & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		ResNet101$_{\text{VGMN}}$ & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		&                  87.4 &              0.0 &                 2.2 &               1.5 &              8.1 &                  0.7 &                  92.5 &              0.0 &                 1.5 &               1.5 &              4.5 &                  0.0 \\
-		ResNet101--MN442 & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
+		ResNet101$_{\text{MN442}}$ & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
 		&                  88.9 &              0.0 &                 2.2 &               2.2 &              5.9 &                  0.7 &                  92.5 &              0.0 &                 3.0 &               1.5 &              3.0 &                  0.0 \\
 		\bottomrule
 	\end{tabular}
@@ -199,27 +229,27 @@ Categorization of "errors" (see Figure~\ref{fig:mistakes}):
 \begin{table*}[t]
 	\centering
 	\small
-	\begin{tabular}{ll|r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}}
+	\begin{tabular}{l|c|r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}||r@{~}|r@{~}r@{~}r@{~}r@{~}|r@{~}r@{~}}
 		\toprule
 		&& \multicolumn{7}{c}{All Test Images ($\#$)} 
 		& \multicolumn{7}{c}{VG$\neq$MN Images ($\#$)}\\
 		\toprule
-		Model--Vocab & GTtrain  
+		Model$_{\text{Vocab}}$ & GTtrain  
 		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low 
 		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low \\
 		& & hypo. & (vis. &  ling. &  box &  other)   & & count 
 		&  hypo. & (vis. &  ling. &  box &  other) &   & count     \\
 		
 		\midrule
-		FRCNN--VG1600 & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
-		FRCNN--MN442 & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
+		FRCNN$_{\text{VG1600}}$ & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
+		FRCNN$_{\text{MN442}}$ & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
+		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
 		\midrule
-		ResNet101--VGMN & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
-		ResNet101--MN442 & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
-		ResNet101--VGMN & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
-		ResNet101--MN442 & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
+		ResNet101$_{\text{VGMN}}$ & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
+		ResNet101$_{\text{MN442}}$ & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
+		ResNet101$_{\text{VGMN}}$ & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
+		ResNet101$_{\text{MN442}}$ & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
 		\bottomrule
 	\end{tabular}
 	\caption{Break-down of the results for the \textit{wrong} name predictions. Proportions (in \%) of the corresponding categories to all wrongly classified instances.  \label{tab:exp_details_wrong}}
@@ -286,7 +316,7 @@ Can object detection models, trained on arbitrary names, account for human objec
 We test two object detection models that are trained with a different vocabulary:
 
 \begin{itemize}
-\item FRCNN--VG1600: we used the code and model of the bottom-up attention model (\textit{Bottom-up} henceforth)  \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} \footnote{\url{https://github.com/peteanderson80/bottom-up-attention}} The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
+\item FRCNN$_{\text{VG1600}}$: we used the code and model of the bottom-up attention model (\textit{Bottom-up} henceforth)  \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown} \footnote{\url{https://github.com/peteanderson80/bottom-up-attention}} The model is based on the object detection method Faster R-CNN \cite{fasterrcnn2015}. The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.\footnote{Bottom-up is trained with an additional output over attributes, but we only use the object class prediction layer.} 
 
 \item FRCNN--MN442: we retrain Faster R-CNN \cite{fasterrcnn2015} on a smaller vocab. We use \citeauthor{anderson2018updown}'s to preprocess the data set, but restrict the object classes to the 442 entry-level names found in ManyNames. For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{https://github.com/jwyang/faster-rcnn.pytorch}} and initialized it with a pretrained ResNet-101 provided in this implementation.\footnote{ResNet-101 was pretrained with Caffe.}
 \end{itemize}
@@ -312,25 +342,25 @@ Note that the source dataset for defining the vocabulary (\textsl{Vocab}, i.e.,\
 		\toprule
 		&   & \multicolumn{6}{c}{All Test Images ($\#$)} 
 		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\	
-		Model--Vocab	 
+		Model$_{\text{Vocab}}$	 
 		&  GTtrain &  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR 
 		&  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR\\ 
 		\midrule
 		FRCNN--MN442 & VG &            65.4 &              71.2 &                85.6 &         1.0 &             69.8 &          0.8 &             0.7 &            20.0 &              48.4 &                78.7 &         1.4 &             60.4 &          0.7 &             0.5 \\
 		FRCNN--VG2500 & VG \\
-		FRCNN--VG1600 & VG &            67.3 &              74.5 &                89.2 &         0.6 &             74.3 &          0.8 &             0.7 &            19.1 &              52.9 &                86.2 &         0.8 &             69.4 &          0.7 &             0.6 \\
+		FRCNN$_{\text{VG1600}}$ & VG &            67.3 &              74.5 &                89.2 &         0.6 &             74.3 &          0.8 &             0.7 &            19.1 &              52.9 &                86.2 &         0.8 &             69.4 &          0.7 &             0.6 \\
 		\midrule \midrule
 		& \multicolumn{12}{c}{Classifiers: Fine-tuning pre-trained image features on \mn}\\
-		Features--Vocab & GTtrain  \\
+		Features$_{\text{Vocab}}$ & GTtrain  \\
 		\midrule 
-		FRCNN--VG1600--VGMN & MN &            70.8 &              80.6 &                90.1 &         4.7 &             62.0 &          0.8 &             0.6 &            13.8 &              60.4 &                85.8 &         4.6 &             47.3 &          0.7 &             0.5 \\ 
-		FRCNN--VG1600--MN442 &  MN \\
+		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &            70.8 &              80.6 &                90.1 &         4.7 &             62.0 &          0.8 &             0.6 &            13.8 &              60.4 &                85.8 &         4.6 &             47.3 &          0.7 &             0.5 \\ 
+		FRCNN$_{\text{VG1600}}$--MN442 &  MN \\
 		\midrule
-		ResNet101--VGMN & MN  &            60.9 &              68.6 &                77.9 &         4.9 &             56.4 &          0.8 &             0.6 &            13.8 &              50.2 &                73.3 &         4.7 &             42.9 &          0.6 &             0.4 \\
+		ResNet101$_{\text{VGMN}}$ & MN  &            60.9 &              68.6 &                77.9 &         4.9 &             56.4 &          0.8 &             0.6 &            13.8 &              50.2 &                73.3 &         4.7 &             42.9 &          0.6 &             0.4 \\
 		
 		ResNet101--MN442 & MN &            61.7 &              69.6 &                78.9 &         4.9 &             57.4 &          0.8 &             0.6 &            13.8 &              50.7 &                73.8 &         4.6 &             45.1 &          0.6 &             0.5 \\
-		ResNet101--VGMN\_4ep  &   VG &  62.4 &              62.9 &                75.0 &         5.0 &             53.7 &          0.7 &             0.6 &            28.4 &              31.1 &                64.9 &         4.8 &             39.1 &          0.4 &             0.4 \\
-		ResNet101--VGMN\_8ep & VG &            63.9 &              62.6 &                75.6 &         5.0 &             53.9 &          0.7 &             0.6 &            34.2 &              28.0 &                66.2 &         4.9 &             39.7 &          0.4 &             0.4 \\
+		ResNet101$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &                75.0 &         5.0 &             53.7 &          0.7 &             0.6 &            28.4 &              31.1 &                64.9 &         4.8 &             39.1 &          0.4 &             0.4 \\
+		ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &                75.6 &         5.0 &             53.9 &          0.7 &             0.6 &            34.2 &              28.0 &                66.2 &         4.9 &             39.7 &          0.4 &             0.4 \\
 		ResNet101--MN442 & VG  &            63.7 &              63.7 &                76.6 &         5.0 &             55.4 &          0.7 &             0.6 &            30.7 &              31.1 &                67.1 &         4.8 &             41.0 &          0.4 &             0.4 \\
 		\bottomrule
 	\end{tabular}
@@ -429,20 +459,20 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 		& & \multicolumn{3}{c}{All Test Images ($\#$)} 
 		& \multicolumn{3}{c}{VG$\neq$MN Images ($\#$)}\\
 	\toprule
-	Model--Vocab	& GTtrain  
+	Model$_{\text{Vocab}}$	& GTtrain  
 	&  hit &  correct &  incorrect &  hit &  correct &  wrong \\
 	\midrule
-	FRCNN--VG1600 & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
+	FRCNN$_{\text{VG1600}}$ & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
 	FRCNN--MN442 & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
 	\midrule \midrule
-	FRCNN--VG1600--VGMN & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+	FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
 	 &         80.7 &                   9.2 &                    10.1 &         60.1 &                  23.8 &                    16.1 \\
 	\midrule
 	ResNet101--MN442 & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
 	 &         69.7 &                  10.3 &                    20.1 &         51.1 &                  23.3 &                    25.6 \\
-	ResNet101--VGMN & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
+	ResNet101$_{\text{VGMN}}$ & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
 	 &         68.7 &                  10.5 &                    20.8 &         50.7 &                  24.2 &                    25.1 \\
-	ResNet101--VGMN & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
+	ResNet101$_{\text{VGMN}}$ & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
 	 &         62.8 &                  12.6 &                    24.6 &         31.4 &                  30.0 &                    38.6 \\
 	ResNet101--MN442 & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
 	 &         63.8 &                  12.6 &                    23.6 &         32.3 &                  30.0 &                    37.7 \\
@@ -459,13 +489,13 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 &  \multicolumn{3}{c||}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$ 0.9}\\
                   model &  hit &  correct &  incorrect &  hit &  correct &  incorrect \\
 \midrule
-       FRCNN--VG1600\_VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
+       FRCNN$_{\text{VG1600}}$\_VG &      94.8 &           1.8 &             3.4 &     63.6 &         24.5 &           12.0 \\
         FRCNN--MN442\_VG &      89.6 &           1.6 &             8.8 &     60.7 &         23.9 &           15.4 \\
         		\midrule \midrule
- FRCNN--VG1600--VGMN\_MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
+ FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$\_MN &      94.5 &           1.3 &             4.2 &     72.9 &         16.5 &           10.6 \\
  		\midrule 
-     ResNet101--VGMN\_VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
-     ResNet101--VGMN\_MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
+     ResNet101$_{\text{VGMN}}$\_VG &      88.3 &           1.8 &             9.9 &     48.5 &         23.6 &           27.8 \\
+     ResNet101$_{\text{VGMN}}$\_MN &      89.6 &           1.6 &             8.8 &     57.0 &         19.4 &           23.6 \\
     ResNet101--MN442\_MN &      90.1 &           1.3 &             8.6 &     58.2 &         19.5 &           22.3 \\
 \bottomrule
 
@@ -486,21 +516,21 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 		& 	&  cluster &  & cluster & & & cluster 
 			& cluster  &  & cluster & & & cluster \\
 		\midrule
-		FRCNN--VG1600 & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
+		FRCNN$_{\text{VG1600}}$ & VG     %        &                  0.95 &              0.0 &                0.01 &              0.01 &             0.03 &                 0.0 &                  0.96 &              0.0 &                 0.0 &              0.01 &             0.03 &                 0.0 \\
 		 &                  94.6 &              0.0 &                 0.7 &               3.4 &              1.3 &                  0.0 &                  95.5 &              0.0 &                 0.0 &               3.0 &              1.5 &                  0.0 \\
 		FRCNN--MN442 & VG %&                   0.97 &             0.01 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\
 		 &                  93.3 &              1.3 &                 2.0 &               1.3 &              2.0 &                  0.0 &                  93.8 &              0.0 &                 3.1 &               1.6 &              1.6 &                  0.0 \\
 		\midrule \midrule
-		FRCNN--VG1600--VGMN & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
+		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN %&                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 &                   1.0 &              0.0 &                 0.0 &               0.0 &              0.0 &                 0.0 \\
 		 &                  94.9 &              0.0 &                 0.0 &               2.0 &              3.0 &                  0.0 &                  96.2 &              0.0 &                 0.0 &               1.9 &              1.9 &                  0.0 \\
 		\midrule
-		ResNet101--VGMN & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		ResNet101$_{\text{VGMN}}$ & MN %&                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		 &                  83.9 &              0.0 &                 2.7 &               6.2 &              5.4 &                  1.8 &                  92.6 &              0.0 &                 1.9 &               1.9 &              3.7 &                  0.0 \\
 		ResNet101--MN442 & MN %& 0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		  &                  86.4 &              0.0 &                 2.7 &               5.5 &              3.6 &                  1.8 &                  92.3 &              0.0 &                 1.9 &               1.9 &              3.8 &                  0.0 \\
-		ResNet101--VGMN & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
+		ResNet101$_{\text{VGMN}}$ & VG %&                   0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 \\
 		 &                  87.4 &              0.0 &                 2.2 &               1.5 &              8.1 &                  0.7 &                  92.5 &              0.0 &                 1.5 &               1.5 &              4.5 &                  0.0 \\
-		ResNet101--MN442 & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
+		ResNet101$_{\text{MN442}}$ & VG% &                  0.98 &              0.0 &                0.02 &               0.0 &              0.0 &                 0.0 &                  0.97 &              0.0 &                0.03 &               0.0 &              0.0 &                 0.0 \\		
 		&                  88.9 &              0.0 &                 2.2 &               2.2 &              5.9 &                  0.7 &                  92.5 &              0.0 &                 3.0 &               1.5 &              3.0 &                  0.0 \\
 		\bottomrule
 	\end{tabular}
@@ -516,22 +546,22 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 		&& \multicolumn{7}{c}{All Test Images ($\#$)} 
 		& \multicolumn{7}{c}{VG$\neq$MN Images ($\#$)}\\
 		\toprule
-		Model--Vocab & GTtrain  
+		Model$_{\text{Vocab}}$ & GTtrain  
 		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low 
 		&  co- &  \multicolumn{4}{c}{other object}  &  error &  low \\
 		& & hypo. & (vis. &  ling. &  box &  other)   & & count 
 		&  hypo. & (vis. &  ling. &  box &  other) &   & count     \\
 		 
 	\midrule
-	FRCNN--VG1600 & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
-	FRCNN--MN442 & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
+	FRCNN$_{\text{VG1600}}$ & VG     &                 13.2 &             1.7 &                 0.0 &                  17.4 &            6.6 &           39.7 &             21.5 &                  5.7 &             5.7 &                 0.0 &                  17.1 &           14.3 &           42.9 &             14.3 \\
+	FRCNN$_{\text{MN442}}$ & VG       &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
 	\midrule \midrule
-	FRCNN--VG1600--VGMN & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
+	FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &                 30.6 &             0.9 &                 0.0 &                  13.0 &            5.6 &           32.4 &             17.6 &                 16.7 &             2.8 &                 0.0 &                  16.7 &           11.1 &           41.7 &             11.1 \\
 	\midrule
-	ResNet101--VGMN & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
-	ResNet101--MN442 & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
-	ResNet101--VGMN & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
-	ResNet101--MN442 & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
+	ResNet101$_{\text{VGMN}}$ & MN	&                 34.1 &             0.0 &                 0.0 &                  13.0 &            1.3 &           39.5 &             12.1 &                 19.6 &             0.0 &                 0.0 &                  12.5 &            5.4 &           51.8 &             10.7 \\
+	ResNet101$_{\text{MN442}}$ & MN  &                 33.0 &             0.0 &                 0.0 &                  14.0 &            1.9 &           37.7 &             13.5 &                 21.1 &             0.0 &                 0.0 &                  15.8 &            7.0 &           43.9 &             12.3 \\
+	ResNet101$_{\text{VGMN}}$ & VG  &                 37.6 &             0.0 &                 0.0 &                   6.1 &            2.3 &           41.1 &             12.9 &                 24.4 &             0.0 &                 0.0 &                   3.5 &            5.8 &           45.3 &             20.9 \\
+	ResNet101$_{\text{MN442}}$ & VG &                 34.0 &             0.0 &                 0.0 &                   7.5 &            2.8 &           41.9 &             13.8 &                 22.6 &             0.0 &                 0.0 &                   6.0 &            8.3 &           39.3 &             23.8 \\
 	\bottomrule
 \end{tabular}
 \caption{Break-down of the results for the \textit{wrong} name predictions. Proportions (in \%) of the corresponding categories to all wrongly classified instances.  \label{tab:exp_details_wrong}}
@@ -544,4 +574,4 @@ Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories
 \label{sect:exp_openimages}
 Question: Can models trained towards \mn generalize to other, related datasets? Here: OpenImages. \cs{[Increase coverage with zero-shot learning?]}\
 
-Models compared: FRCNN--VG1600 vs. FRCNN--MN442 vs. ResNet101--XX (best Vanilla).
+Models compared: FRCNN$_{\text{VG1600}}$ vs. FRCNN$_{\text{MN442}}$ vs. ResNet101--XX (best Vanilla).
