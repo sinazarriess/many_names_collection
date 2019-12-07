@@ -142,13 +142,13 @@ Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
 	\caption{Proportion of objects (vertical) for which the entry-level name can be confidently (95\%) identified after gathering N names (horizontal). \mw{increase plot font size}}
 	\label{fig:entry-level-name-stability}
 \end{figure}
-For each object we computed, on the basis of the distribution of names in ManyNames for that object, how many names should have been gathered for the most frequent name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability (a reasonable confidence requirement).
+For each object we computed, on the basis of the distribution of names in ManyNames for that object, how many names should have been gathered for the majority name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability (a reasonable confidence requirement).
 The blue line shows that, even after gathering 10 names, the entry-level name has been confidently identified for only 68\% of objects.
 Gathering 20 names increases this to 78\%.
 The red line shows the same tendency but by taking only names from the entry-level cluster into account (as identified by our Verification results):
 by discarding names for other objects, the entry-level name for the intended object can be confidently identified slightly more quickly (but not by much, since names for the wrong object tend to be a minority anyway).
-Both lines level level out well below 100\%, reflecting that for 15\%-20\% of objects even gathering 36 names does not allow us to confidently state which name is the entry-level name: differences in frequencies between the contenders are simply too small.
-\mw{@cs, @sz: I wonder how this is / ought to be taken into account in other analyses in the paper. I lack a proper overview to be able to tell.}
+Both lines level level out well below 100\%, reflecting that for 15\%-20\% of objects even gathering 36 names is not enough for the majority name to be confidently assumed to be the entry-level name: differences in frequencies between the contenders are simply too small.
+\mw{@cs, @sz: I wonder how this is / ought to be taken into account in other analyses in the paper. I think the difference between sample majority name and population majority name could be useful? I lack a proper overview to be able to tell.}
 
 %%%%%% BY SAMPLING, FOR GEMMA:
 % For each object that has an adequate entry-level name (adequacy $<.5$ according to our Verification results), we randomly sampled (including duplicates) a list of 36 names using the proportions in ManyNames as sampling probabilities, and computed the lowest number of collected names (i.e., the lowest index in the list) after which the entry-level name would reliably remain the most frequent one.
