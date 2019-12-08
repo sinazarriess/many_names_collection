@@ -3,6 +3,25 @@ The previous Section \ref{sec:experiments} looked at the performance of the diff
 This way of evaluating object naming is unsatisfactory: the ManyNames data, and also our verification data, clearly shows that human annotators often agree on a certain entry-level name with other names might be adequate too.
 In the following, we show how our verification data can be used to gain more detailed insights into the way different naming models calibrate their decisions and reflect human-like naming behaviour.
 
+\paragraph{Error Categories} We categorize model predictions into the following types (also see Figure~\ref{fig:mistakes} for examples):
+
+\begin{itemize}
+\item Correct-hit: the entry-level name 
+\item Correct-valid: a name from the set of valid alternatives, a synonym or a hypernym (\textit{house/building})
+\item: Incorrect-human-like: a name produced by annotators, but not a valid alternative of the entry-level name  (\textit{chair/cat})
+\item Incorrect-related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
+\item Incorrect-off: a non-sensical name (none of the above)
+\end{itemize}
+
+
+\subsection{How human-like are model predictions and errors?}
+
+Table \ref{tab:humanlike} shows the breakdown of the model results for the error categories explained above. An important general trend is that the proportion of human-like error seems to be surprisingly constant across all models. \sz{why??}
+Both object detection models essentially achieve the same portion of valid predictions. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the models makes more nonsensical errors, which might be an effect of the reduction in training data.
+Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits but less valid predictions, and also less nonsensical errors as compared to FRCNN$_{\text{VG1600}}$.
+This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit by the finetuned classification model.
+All ResNet models produce a lot of errors in the ``related'' category, which suggests that they tend to confuse similar names that are, however, not valid. 
+
 \begin{table*}[t]
 \centering
 	\small
@@ -17,12 +36,11 @@ In the following, we show how our verification data can be used to gain more det
  FRCNN$_{\text{VG1600--VGMN}}$ &  MN & 80.7 &      9.0 &         3.7 &      3.4 &    3.3 \\
          \midrule
      ResNet101$_{\text{VGMN}}$ &  VG & 62.8 &     11.6 &         5.2 &     10.3 &   10.1 \\
+         ResNet101$_{\text{MN442}}$ &  VG & 63.8 &     11.9 &         5.7 &      8.8 &    9.9 \\
      ResNet101$_{\text{VGMN}}$ &  MN & 68.7 &      9.9 &         5.5 &      7.7 &    8.2 \\
     ResNet101$_{\text{MN442}}$ &  MN & 69.7 &      9.9 &         5.9 &      7.0 &    7.6 \\
-    ResNet101$_{\text{MN442}}$ &  VG & 63.8 &     11.9 &         5.7 &      8.8 &    9.9 \\
 \bottomrule
 \end{tabular}
-
 
 \caption{Model results for different categories of errors} \label{tab:humanlike}
 \end{table*}
@@ -50,7 +68,6 @@ In the following, we show how our verification data can be used to gain more det
 \caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:exp_errors_agreement}}
 \end{table*}
 
-\paragraph{Alternative Name Prediction}
 \begin{figure}
 	\centering
 	\includegraphics[scale=.2]{images/2323938.jpg}
@@ -60,81 +77,39 @@ In the following, we show how our verification data can be used to gain more det
 	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes} \gbt{Will we have space for the figure? (Maybe we should \textit{make} space?) Also, shouldn't we put examples from the most successful model instead?}}
 \end{figure}
 
-\cs{TODO::}
-Categorization of "errors" (see Figure~\ref{fig:mistakes}):
-\begin{enumerate}
-	\item Clear mistake \\
-	e.g.,\ rice vs. bread
-	\item Alternative name\\
-	e.g.,\ building vs. house
-	\item Alternative object \cs{(other cluster from verif data)}
-	\item Synonym\\
-	e.g.,\ plane vs. airplane
-	\item Semantically related\\
-	e.g.,\  motorcycle vs. scooter
-\end{enumerate}
+\subsection{How do predictions correlate with human agreement?}
+
+An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
+This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans \sz{is it okay to claim this?}.
+In Table \ref{tab:exp_errors_agreement}, we show the break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more or less than 90\% of the annotators opted for the entry-level name. 
+Here, we find a very clear pattern for all models, namely that the portion of hits is generally high when human agreement is also high.
+Note that this even holds for the ResNet-based classifiers that generally achieve less accuracy.
+When agreement is lower, all models produce less hits and more valid alternatives. 
+This indicates that there is indeed a certain similarity between what is difficult for humans and models.
+Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. \sz{why???}
 
 
-\paragraph{Human Object Naming through Transfer-Learning} Figure \ref{fig:exp_confusions} visualizes the change in predictions for  some of our retrained and finetuned models with respect to the object detection baseline (bottom-up-1600). For each object, where the new model predicts a different name than the baseline model, we look at the hit-error categories of the original and new predicted name. Observations:
-\begin{itemize}
-	\item Retraining faster-rcnn on fewer, entry-level names does not lead to better calibration of entry-level names: more original hits change to same-cluster predictions than the other way round. (top left matrix)
-	\item Finetuning the original faster-rcnn on many names recalibrates many decision from same-cluster names to the correct hit. Interestingly, also clear errors are calibrated to perfect hits, whereas hardly any error is changed to same-cluster or related.  (top right matrix)
-	\item A similar tendency can be found for the ResNet models: finetuning ResNet on MN changes many predictions from same-cluster to hits. This is less the case when ResNet is finetuned on VG annotations.
-	\item Interestingly, both ResNet models change hits into related names (hypernyms, hyponyms, cp-hyponyms) -- why does this happen?
-\end{itemize}
+%\cs{TODO::}
+%Categorization of "errors" ():
+%\begin{enumerate}
+%	\item Clear mistake \\
+%	e.g.,\ rice vs. bread
+%	\item Alternative name\\
+%	e.g.,\ building vs. house
+%	\item Alternative object \cs{(other cluster from verif data)}
+%	\item Synonym\\
+%	e.g.,\ plane vs. airplane
+%	\item Semantically related\\
+%	e.g.,\  motorcycle vs. scooter
+%\end{enumerate}
 
 
 
-\subsection{[TBC] Humans vs. Models: Which Mistakes do they Make?}
-\label{sect:exp_analysis}
-
-\paragraph{Categorization of Errors}
-see Figure\ ref{fig:mistakes}
-\begin{enumerate}
-	\item Clear mistake \\
-	e.g.,\ rice vs. bread
-	\item Alternative name\\
-	e.g.,\ building vs. house
-	\item Alternative object \cs{(other cluster from verif data)}
-	\item Synonym\\
-	e.g.,\ plane vs. airplane
-	\item Semantically related\\
-	e.g.,\  motorcycle vs. scooter
-\end{enumerate}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=.2]{images/2323938.jpg}
-	\includegraphics[scale=.2]{images/2322259.jpg}
-	\includegraphics[scale=.2]{images/2371657.jpg}
-	
-	\caption{resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:matrices}}
-\end{figure}
-
-\subsection{Results}
-
-\paragraph{Overview}
-Table\ \ref{tab:exp_overview_results}: \cs{Shows the overview and what MN adds without going into detail: Standard evaluation -- hit; We can additionally distinguish between correct (name alternative, see caption of Table) and clear mistake.}
-
-\paragraph{How do predictions change?} Figure \ref{fig:matrices} visualizes the change in predictions for  some of our retrained and finetuned models with respect to the object detection baseline (bottom-up-1600). For each object, where the new model predicts a different name than the baseline model, we look at the hit-error categories of the original and new predicted name. Observations:
-\begin{itemize}
-\item Retraining faster-rcnn on less names does not lead to better calibration of entry-level names: more original hits change to same-cluster predictions than the other way round. (top left matrix)
-\item Finetuning the original faster-rcnn on many names recalibrates many decision from same-cluster names to the correct hit. Interestingly, also clear errors are calibrated to perfect hits, whereas hardly any error is changed to same-cluster or related.  (top right matrix)
-\item A similar tendency can be found for the ResNet models: finetuning ResNet on MN changes many predictions from same-cluster to hits. This is less the case when ResNet is finetuned on VG annotations.
-\item Interestingly, both ResNet models change hits into related names (hypernyms, hyponyms, cp-hyponyms) -- why does this happen?
-\end{itemize}
 
 
-\paragraph{Correct predictions}
-Table\ \ref{tab:exp_details_correct}: \cs{Gives detailed results to the categories of "correct name" (but not hit): same cluster, WordNet synonym, WordNet hypernym/hyponym}\\
-To look into in detail (example images): 
-\begin{itemize}
-	\item Compare FRCNN vs. FRCNN-finetuned (row block 1 vs. row block 2) with respect to the synonym categories (i.e., predicted name is in a synonym/synonyms\_cluster-relation to the target object) vs. same\_cluster (i.e., predicted name is in response set). 
-\end{itemize}
 
-\paragraph{Wrong predictions}
 
-Table\ \ref{tab:exp_details_wrong}: \cs{Gives detailed results to the categories of predicted name\ $\hat{n}$ is incorrect: WordNet co-hyponyms,  other object (inadequacy types: visual, linguistic, bounding box, other (types other+None), $\text{count}(\hat{n})<2$, error (just wrong+unkn(not found in WordNet))}
+
 
 
 %%% Local Variables:
