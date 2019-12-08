@@ -1,64 +1,39 @@
-
-
-\cs{@gbt @mw}
+\cs{In the remainder of this paper, we will use object and object instance interchangeably.}
 \subsection{Overview of ManyNames}
 \label{sect:mn_overview}
 
 brief summary of lrec paper, shortcoming, what we added
 
+\begin{itemize}
+	\item For each object: a response set comprising all entered names (spellchecked) and their respective counts, i.e., the number of annotators which enter the respective name.
+	\item Problems: referential uncertainty: object other than target object was  identified as named
+\end{itemize}
+
 \subsection{Verification of Annotations}
 \label{sect:mn_verification}
+\cs{START TODO at the end}
+Goal: Verification of entered object names necessary to exclude incorrect names (wrong object was named) required. \\
+Collected: adequacy judgements from 0-2; source/type of inadequacy; CLUSTERS: for each entry-level name (or any other name in the response set), all its valid alternatives.
+\cs{END TODO }
 
-\mw{Below can be shortened no doubt; but could also be moved to appendix. Plz. let me know what you consider the most appropriate (I'm an ACL noobie).}
+We used Amazon Mechanical Turk\footnote{(\url{https://mturk.com})} (AMT) to verify all the \mn naming data (response sets), with two exceptions: We consider response sets with ~$100$\%~agreement (i.e.,~all annotators gave the same name for an object) as correct, so do not require verification, and all names with a count of~$1$ as unreliable, so we directly discarded those from the sets.
+We collected verifications for the remaining $19,427$~objects, with on average $4$ names each, as follows: 
+For each object, we presented $3$~annotators with its image, with the object highlighted by its bounding box, and a list of all its names to be verified (see Figure~\cs{1}) in the supplementary material).
+They were asked to judge the ``adequacy''\footnote{We defined that \textit{a name is   ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.} of each name on a 3-point scale (with $0$=``perfectly adequate'', $1$=``there may be a (slight) inadequacy'', and $2$=``totally inadequate''). 
+In the case they did not choose ``adequate", they had to specify the type of inadequacy (``linguistic mistake", ``named object not tightly in bounding box",  ``named object mistaken for something it's not", and ``something else"). \cs{maybe in ManyNames we need exampled for all those, when the need for verification is explained.}
 
+In addition to judging name adequacy, we asked the annotators to cluster the list of names (through coloring), such that each group (color) would comprise the names they thought to be likely intended (by the \mn annotators entering the name) for the \textit{same} real-world object.
+
+\iffalse
 Although the initial data gathering phase involved some very basic quality control (detecting repeated names, empty text fields, typos), we had no rigorous way of ascertaining that our participants were providing adequate names for the intended object.
-Given our high number of annotators in phase 1 we decided to simply discard names that were entered by only one annotator.
-Moreover, for images where all 36 annotators entered the same name we decided to take this name to be adequate. 
-That still leaves 19427 images, with on average 4 names each, to be properly verified, which we did as follows.
+\fi
 
-We conducted a second round of annotation where we asked people whether each name for a given image was adequate and, if not, what type of inadequacy it was.
-Moreover, we asked them to indicate which names were likely intended for the same real-world object.
-The task interface is shown in figure~\ref{fig:verification-interface} in the appendix.
-Adequacy was rated on a 3-point scale from ``perfectly adequate'' to ``there may be a (slight) inadequacy'' to ``totally inadequate'', represented by appropriate emotes.
-We provided (and clarified by means of explanation and visual examples) the following definition: \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
-When the participant selected slightly or totally inadequate, four additional icons would appear to indicate the type of inadequacy: ``linguistic mistake'', ``named object not tightly in bounding box'', ``named object mistaken for something it's not'', and ``something else''.
-We provided detailed instructions and examples at the top, as well as informative hover texts on all the buttons.
+Since the quality of the data we gather in this phase will be essential for gaining insight into the \mn dataset, as well as for evaluating computational models (Section~\ref{sec:experiments}), we conducted rigorous quality control (see the supplementary material for details).
 
-Because the quality of the data we gather in this phase will be essential for gaining insight into the ManyNames dataset, as well as for evaluating computational models (section~\ref{sec:experiments}), we conducted rigorous quality control.
-Every task included around 15\% automatically generated quality control items of various kinds (names for objects in a different image, names for other objects in the same image, WordNet synonyms of given names, inserted typos, and more).
-When trying to submit their results, participants would get a warning if their accuracy on these items was below 90\%, and the advice to stop doing these tasks if it was below 80\%, with the option to double-check their responses.
-They would get a bonus of \$0.15 if all control items were answered correctly (happened about half the time).
-After every round we blocked annotators with low ($<$90\%) average accuracy, removed their results from the dataset and republished the relevant tasks to ensure consistent coverage of our data.
+%We implemented this verification task on Amazon Mechanical Turk (\url{https://mturk.com}). 
 
-We implemented this verification task on Amazon Mechanical Turk (\url{https://mturk.com}). 
-Basic numbers and results are reported in Table~\ref{tab:verification-numbers}.
-\begin{table}[t]
-	\centering
-	\small
-	\begin{tabular}{|ll|ll|}
-		\hline
-		\multicolumn{2}{|c|}{\textbf{Task setup:}} & \multicolumn{2}{c|}{\textbf{Results:}} \\ \hline
-		Images: & 19427 &
-			Annotators: & 255 \\
-		Img-name pairs: & 69356 &
-			Annotators/task: & $\geq$ 3 \\
-		Tasks: & 3052 &
-			Adeq. mean: & \hspace{-3em}.80 (std .093)\\
-		Images/task: & 6-7 &			
-			Agreement (adeq.) & 88\% \\ 
-		Names/task: & 20-30 &
-			Agr. (inadeq. type): & 86\% \\
-		\multicolumn{2}{|l|}{Task reward: \ \$.50 (+.15)} & 
-			Agr. (same-obj): & 94\% \\
-		\hline
-	\end{tabular}
-	\caption{Verification task overview.}
-	\label{tab:verification-numbers}
-\end{table}
-Average name adequacy, encoded on a scale $[0,1]$, is 0.80 with small standard deviation (0.093). 
-Inter-annotator agreement is high also by other measures: the proportion of annotators agreeing on ``adequate'' is 88\%, agreeing on inadequacy type is 86\%, and agreeing on whether two names were intended for the same object is 94\%.
-This level is agreement is high given the complexity of the task (e.g., pictures sometimes unclear), especially bearing in mind that we essentially asked our participants to do some kind of mind-reading (i.e., which object could someone who entered an inadequate name plausibly have had in mind?).
-Figure~\ref{fig:verification-piechart} shows the proportion of `adequate' judgments and the types of inadequacies our annotators reported.
+\paragraph{Postprocessing and Basic Statistics}
+\cs{Table moved to suppl.}
 \begin{figure}[t]
 	\centering
 	\hspace*{.2\columnwidth}\includegraphics[width=.7\columnwidth]{images/verification_piechart.pdf}
@@ -66,17 +41,32 @@ Figure~\ref{fig:verification-piechart} shows the proportion of `adequate' judgme
 	\label{fig:verification-piechart}
 \end{figure}
 \mw{Possibly a pie-chart counting actual names and their aggregated (+thresholded) scores would be more informative than the current pie-chart, which counts original (i.e., non-aggregated) verification annotations.}
+\cs{If you have time for it, @MW, could you add this in addition?}
+%
+Overall, $255$~annotators a total of $69,356$~obj--name pairs.
+We aggregate our name adequacy judgments (representing adequate as 1, slightly inadequate as 0.5 and totally inadequate as 0) by taking the mean, and inadequacy type judgments by taking the majority (also counting ``none'' if there was no inadequacy). 
+Average name adequacy on this scale of $[0,1]$ is 0.80 (\mbox{std=$0.093$}). \cs{@MW: check that this is the right place here.}
+Inter-annotator agreement is high also by other measures: the proportion of annotators agreeing on ``adequate'' is 88\%, agreeing on inadequacy type is 86\%, and agreeing on whether two names were intended for the same object is 94\%.
+We consider this level of agreement as high given the complexity of the task (e.g., pictures sometimes unclear), especially bearing in mind that we essentially asked our participants to do some kind of mind-reading (i.e., which object could someone who entered an inadequate name plausibly have had in mind?).
+Figure~\ref{fig:verification-piechart} shows the proportion of `adequate' judgments and the types of inadequacies our annotators reported.
 
-We aggregate our name adequacy judgments (representing adequate as 1, slightly inadequate as 0.5 and totally inadequate as 0) by taking the mean, and inadequacy type judgments by taking the majority (also counting ``none'' if there was no inadequacy).
-As for the judgments of whether two names were intended for the same object, we use two different types of aggregations, for different purposes.
-For evaluating computational object naming models, we want to know primarily whether a name generated by a model could have been intended to name the same object as the entry-level name (i.e., the most frequent name).
-This we compute by a simple majority rule: true if name1 and name2 were judged to be for the same object by a majority of annotators, and false otherwise.
-However, we are also interested in more general statistics, e.g., the mean number of names per object, and the relative frequencies of names for a given object.
-For this, we need to compute clusters of names (the pairwise majority rule does not result in a proper clustering): as distance between names we use the proportion of annotators saying they do not name the same object, and we perform agglomerative, complete-linkage clustering with a threshold of .5 (i.e., all pairs of names in a cluster must name the same object according to a majority of annotators).
+As for the judgments of whether two names were intended for the same object, we use two different types of aggregations, for different purposes.\cs{This pair-wise view is only because of the need for aggregating the clustering of 3 annotators into one, isn't it? In this case, it would be "aggregating name cluster", no?! So what you did for the first aggregation (modeling) was a pair-wise aggregation?}
+For analysing computational object naming models, we want to have all valid name alternatives to the entry-level name (or a target name in general), i.e.,~a soft clustering of names. 
+%want to know primarily whether a name generated by a model could have been intended to name the same object as the entry-level name (i.e., the most frequent name).
+This we compute, by a simple majority rule: true if name1 and name2 were judged to be for the same object by a majority of annotators, and false otherwise.
+
+For analysing object naming on the verified \mn data (Section~\ref{sect:mn_analysis}), e.g.~assess the mean number of names per object, however, 
+%However, we are also interested in more general statistics, e.g., the mean number of names per object, and the relative frequencies of names for a given object.
+%For this, 
+we need \cs{@MW please check if that's correct}  to compute hard clusters
+%clusters of names
+(the pairwise majority rule does not result in a proper clustering): as distance between names we use the proportion of annotators saying they do not name the same object, and we perform agglomerative, complete-linkage clustering with a threshold of .5 (i.e., all pairs of names in a cluster must name the same object according to a majority of annotators).
 A possible disadvantage of this (hard) clustering method is that every name can only be in one cluster, i.e., name only one object.
 It entails for instance that \emph{food} cannot be clustered both with \emph{pizza} and with the \emph{cheese} on top, even though both are definitely instances of food.
-But this is not as problematic as it may seem, because we do not care primarily about such taxonomic relationships (which could be gotten from, e.g., WordNet) -- rather, we care about (and asked our annotators) which single object a person who entered \emph{food} was likely intending to name: presumably the pizza as a whole rather than the cheese on top.
-Moreover, although (hard) clustering may occasionally lead us to \emph{under}estimate the number of names for an object, the alternative, \emph{soft} clustering (where each name could potentially be in multiple clusters) would risk \emph{over}estimating the number of names per object, as well as the number of named objects in an image, both of which would be more harmful to our aims.
+But this is not as problematic as it may seem, because we do not care primarily about such taxonomic relationships--- %(which could be gotten from, e.g., WordNet) -- 
+rather, we care about %(and asked our annotators) 
+which single object a person who entered \emph{food} was likely intending to name: presumably the pizza as a whole rather than the cheese on top. 
+Moreover, although hard clustering may occasionally lead us to \emph{under}estimate the number of names for an object, the alternative, \emph{soft} clustering (where each name could potentially be in multiple clusters) would risk \emph{over}estimating the number of names per object, as well as the number of named objects in an image, both of which would be more harmful to our aims.
 
 % We relied on 255 mostly recurring workers, who did a total of 9491 published tasks.
 % Each task would present the worker with 6 or 7 images, for a total of between 20 and 30 names.
