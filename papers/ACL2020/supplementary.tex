@@ -90,10 +90,42 @@
 \end{figure*}
 
 \cs{The text is is just copied from the main, it needs to be adapted here.}
+\paragraph{Annotation Procedure}
 We provided (and clarified by means of explanation and visual examples) the following definition: \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
 When the participant selected slightly or totally inadequate, four additional icons would appear to indicate the type of inadequacy: ``linguistic mistake'', ``named object not tightly in bounding box'', ``named object mistaken for something it's not'', and ``something else''.
 We provided detailed instructions and examples at the top, as well as informative hover texts on all the buttons.
 
+\paragraph{Quality Control}
+Every task included around 15\% automatically generated quality control items of various kinds (names for objects in a different image, names for other objects in the same image, WordNet synonyms of given names, inserted typos, and more).
+When trying to submit their results, participants would get a warning if their accuracy on these items was below 90\%, and the advice to stop doing these tasks if it was below 80\%, with the option to double-check their responses.
+They would get a bonus of \$0.15 if all control items were answered correctly (happened about half the time).
+After every round we blocked annotators with low ($<$90\%) average accuracy, removed their results from the dataset and republished the relevant tasks to ensure consistent coverage of our data.
+
+\paragraph{Basic Statistics}
+\begin{table}[t]
+	\centering
+	\small
+	\begin{tabular}{|ll|ll|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Task setup:}} & \multicolumn{2}{c|}{\textbf{Results:}} \\ \hline
+		Images: & 19,427 &
+		Annotators: & 255 \\
+		Img-name pairs: & 69,356 &
+		Annotators/task: & $\geq$ 3 \\
+		Tasks: & 3,052 &
+		Adeq. mean: & \hspace{-3em}.80 (std .093)\\
+		Images/task: & 6-7 &			
+		Agreement (adeq.) & 88\% \\ 
+		Names/task: & 20-30 &
+		Agr. (inadeq. type): & 86\% \\
+		\multicolumn{2}{|l|}{Task reward: \ \$.50 (+.15)} & 
+		Agr. (same-obj): & 94\% \\
+		\hline
+	\end{tabular}
+	\caption{Verification task overview. 
+		\label{tab:verification-numbers}}
+\end{table}
+Basic numbers and results are reported in Table~\ref{tab:verification-numbers}.
 \bibliographystyle{acl_natbib}
 \bibliography{naming}
 \end{document}
