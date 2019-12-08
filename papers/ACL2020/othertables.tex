@@ -1,0 +1,30 @@
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{l|c|r@{~}r@{~}r@{~}||r@{~}r@{~}r@{~}}
+		\toprule
+		& & \multicolumn{3}{c}{All Test Images ($\#$)} 
+		& \multicolumn{3}{c}{VG$\neq$MN Images ($\#$)}\\
+		\toprule
+		Model$_{\text{Vocab}}$	& GTtrain  
+		&  hit &  correct &  incorrect &  hit &  correct &  wrong \\
+		\midrule
+		FRCNN$_{\text{VG1600}}$ & VG           &         74.8 &                  13.9 &                    11.3 &         54.3 &                  30.0 &                    15.7 \\
+		FRCNN$_{\text{MN442}}$ & VG &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
+		\midrule \midrule
+		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN %&         0.81 &                  0.09 &                    0.11 &         0.60 &                  0.23 &                    0.17 \\
+		&         80.7 &                   9.2 &                    10.1 &         60.1 &                  23.8 &                    16.1 \\
+		\midrule
+		ResNet101$_{\text{MN442}}$ & MN %& 0.70 &                  0.09 &                    0.21 &         0.51 &                  0.22 &                    0.27 \\
+		&         69.7 &                  10.3 &                    20.1 &         51.1 &                  23.3 &                    25.6 \\
+		ResNet101$_{\text{VGMN}}$ & MN% &         0.69 &                  0.09 &                    0.22 &         0.51 &                  0.23 &                    0.26 \\	
+		&         68.7 &                  10.5 &                    20.8 &         50.7 &                  24.2 &                    25.1 \\
+		ResNet101$_{\text{VGMN}}$ & VG %&         0.63 &                  0.11 &                    0.26 &         0.31 &                  0.28 &                    0.40 \\
+		&         62.8 &                  12.6 &                    24.6 &         31.4 &                  30.0 &                    38.6 \\
+		ResNet101$_{\text{MN442}}$ & VG %&         0.64 &                  0.11 &                    0.25 &         0.32 &                  0.29 &                    0.39 \\
+		&         63.8 &                  12.6 &                    23.6 &         32.3 &                  30.0 &                    37.7 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Break-down of the results (in \%): Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit} (exact match with entry-level name, cf. standard evaluation), \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} (wrong object, $\text{count}(\hat{n})<2$, co-hyponym, clear mistake). \label{tab:exp_overview_results}}
+\end{table*}
