@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 from functools import reduce
 from operator import mul
-from math import factorial as fac, floor
+from math import factorial as fac
 
 import seaborn as sns
 
@@ -28,6 +28,41 @@ ADEQUACY_THRESHOLD = .5   # adequacy of entry name (and, in one condition, alter
 CANONICAL_THRESHOLD = .5   # weight of canonical cluster should be at least ...
 NUM_SAMPLES_FOR_STABILITY = 30
 SUBSAMPLE = False       # for debugging
+
+def basic_stats():
+
+    csvfile = '../proc_data_phase0/verification/all_responses_round0-3_verified.csv'
+    df = load_results.load_cleaned_results(csvfile)
+
+    errors = []
+    for i, row in tqdm(df.iterrows(), total=len(df)):
+        for n in row['verified']:
+            errors.append([row['cat'],
+                           n,
+                           row['spellchecked_min2'][n],
+                           row['verified'][n]['adequacy'],
+                           row['verified'][n]['inadequacy_type'],
+                           int(round(row['verified'][n]['adequacy']))
+                           ])
+
+    errors = pd.DataFrame(errors, columns=['cat', 'name', 'count', 'adequacy', 'inadequacy_type', 'adequacy_bin'])
+    errors['inadequacy_type_level'] = errors['inadequacy_type'].apply(str) + errors['adequacy_bin'].apply(str)
+
+    counts = errors['inadequacy_type_level'].value_counts()
+
+    # counts = counts[['None1', 'None0', 'bounding box1', 'bounding box0', 'visual1', 'visual0', 'linguistic1', 'linguistic0', 'other1', 'other0']]
+
+    print(counts)
+    print(counts / counts.sum())
+
+    counts.plot.pie()
+    plt.show()
+
+    quit()
+
+    pass
+
+
 
 def analytic(auxfile):
 
@@ -57,20 +92,37 @@ def analytic(auxfile):
 
     df = pd.read_csv(auxfile)
 
+    # for i, row in df.iterrows():
+    #     domains = {}
+    #     for r in range(4):
+    #         domains.update(eval(row['responses_domains_r{}'.format(r)]))
+    #     entry_name = eval(row['spellchecked_min2']).most_common(1)[0][0]
+    #     if entry_name in domains:
+    #         df.at[i, 'domain'] = domains[entry_name]
+    #     else:
+    #         print(entry_name, 'not in', domains)
+
+    print(df.columns)
+    print(df[:10].to_string())
+
     df.columns = [col.replace('names_needed_95_', '') for col in df.columns]
 
-    stacked = df[['all_names', 'entry_cluster_names']].stack().reset_index()
-    stacked.rename(columns={'level_1': 'setting', 0: 'names_needed_95'}, inplace=True)
+    stacked = df[['cat', 'all_names', 'entry_cluster_names']].melt(id_vars=['cat']).reset_index()
 
-    counted = stacked.groupby(['setting', 'names_needed_95']).count().reset_index().rename(
-        columns={'level_0': 'count'})
-    counted['percentage'] = counted.groupby(['setting'])['count'].apply(lambda x: 100 * x / float(x.sum()))
-    counted['cumulative %'] = counted.groupby(['setting'])['percentage'].cumsum()
+    stacked.rename(columns={'variable': 'setting', 'value': 'names_needed_95'}, inplace=True)
+
+    print(stacked[:10].to_string())
+
+    counted = stacked.groupby(['cat', 'setting', 'names_needed_95']).count().reset_index().rename(columns={'index': 'count'})
+    counted['percentage'] = counted.groupby(['cat', 'setting'])['count'].apply(lambda x: 100 * x / float(x.sum()))
+    counted['cumulative %'] = counted.groupby(['cat', 'setting'])['percentage'].cumsum()
     counted = counted.loc[counted['names_needed_95'] <= 36]
 
     counted.rename(columns={'names_needed_95': 'number of names gathered', 'cumulative %': '% of entry names identified'}, inplace=True)
 
-    ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='setting', data=counted, hue_order=settings)
+    ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted, hue_order=settings)
+    # ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted.loc[counted['setting'] == 'entry_cluster_names'])
+    # ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted.loc[counted['setting'] == 'all_names'])
     plt.ylim((0, 100))
     plt.xlim((0, 36))
     ax.legend().texts[0].set_text("identification among:")
@@ -270,6 +322,8 @@ if __name__ == "__main__":
 
     auxfile = 'aux/stability_samples_{}_{}_{}_{}{}'.format(ADEQUACY_THRESHOLD, CANONICAL_THRESHOLD, NUM_SAMPLES_FOR_STABILITY, SUBSAMPLE, "_analytic" if do_analytic else "")
     os.makedirs('aux', exist_ok=True)
+
+    basic_stats()
 
     if do_analytic:
         analytic(auxfile)
