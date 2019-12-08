@@ -76,68 +76,75 @@ Moreover, although hard clustering may occasionally lead us to \emph{under}estim
 
 \subsection{Analysis}
 \label{sect:mn_analysis}
-
-\cs{+ @sz?}\\
 \cs{Here goes what has not been discussed in LREC paper, because it focusses on entry-level names. }
 \cs{Results aimed to show that we need \underline{multiple} annotations per object \underline{instance} to get the entry-level name}
 
-\paragraph{Definition of ``Entry-level Name''} \sz{has this been mentioned before?}
+\paragraph{Definition of \textit{Entry-level Name}} \sz{has this been mentioned before?}
 \mw{I'd definitely put this in the introduction, and leave only a reminder here.}
-In the following, we consider a name annotated for an object as an entry-level name if it corresponds to the most frequent name given a set of name annotations for an object.
+\cs{Remove me at the end, to make sure definition is in intro.}
+As we explained in Section~\ref{sec:intro}, we define \textit{entry-level name} for an object as the name that 
+%In the following, we consider a name annotated for an object as an entry-level name if it 
+corresponds to the most frequent name given a set of name annotations for the object.
 \mw{We could also consider defining entry-level name as `the most frequent adequate name'? Or perhaps as `the most frequent name \emph{if it is adequate}, none otherwise'? Depending on what makes the narrative easier.}
 
 \mw{Also make sure to define the notion of `entry-level object', or `canonical object' perhaps? i.e., the object/cluster of the entry-level name.}
-
-\paragraph{Entry-level Names in ManyNames:} As shown in Table \ref{tab:stat-entry-level}, ManyNames provides a large vocabulary of names (7970) for 25K objects. Note that this vocabulary is much larger than what state-of-the-art object detectors are typically trained on. The vocabulary of entry-level names is drastically smaller and contains only 442 types. This small set, however, covers at least 50\% of the objects in VisualGenome, i.e. almost 2M objects in VisualGenome are mentioned in a region descriptions with one of these 442 entry-level names.
 
 \begin{table}[t]
 	\centering
 	\small
 	\begin{tabular}{p{5cm}l}
 		\toprule		
-\# objects in MN & 25,315\\
-total vocab  &  7,970\\
-entry-level vocab & 442\\
-\# objects with entry-level name in VG & $\sim$ 2M (50\%)\\
-\midrule
-av. agreement all names & 34.9\%\\
-av. agreement entry-level names & 75.2\%\\
-av. agreement entry-level cluster & 42.3\%\\
-\midrule
-av. adequacy all names & 0.81\\
-av. adequacy entry-level names & 0.97 \\
-av. adequacy entry-level cluster & 0.94 \\
-\bottomrule	
+		\# objects in MN & 25,315\\
+		total vocab  &  7,970\\
+		entry-level vocab & 442\\
+		\# objects with entry-level name in VG & $\sim$ 2M (50\%)\\
+		\midrule
+		av. agreement all names & 34.9\%\\
+		av. agreement entry-level names & 75.2\%\\
+		av. agreement entry-level cluster & 42.3\%\\
+		\midrule
+		av. adequacy all names & 0.81\\
+		av. adequacy entry-level names & 0.97 \\
+		av. adequacy entry-level cluster & 0.94 \\
+		\bottomrule	
 	\end{tabular}
-	\caption{Basic statistics for entry-level names in MN}
+	\caption{Basic statistics for entry-level names in MN. Av. agreement denotes the proportion of annotators that annotated a certain name for an object. }
 	\label{tab:stat-entry-level}
 \end{table}
 
-\paragraph{Entry-level Names are Instance-Dependent:} In a traditional, taxonomic view of object naming, entry-level names can be determined solely based on the object's class, meaning that all instances of a class have the same entry-level name. The MN data provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). Instead, we observe that there are many pairs of entry-level names that do not have a fixed preference ordering across instances, as illustrated in Figure \ref{fig:duck} where the rather non-prototypical instance of a \textit{duck} is named \textit{bird} by most annotators. We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \textit{boy-player}, \textit{sandwich-food}, \textit{building-church}, ...).
+\paragraph{Entry-level Names in ManyNames:} As shown in Table \ref{tab:stat-entry-level}, ManyNames provides a large vocabulary of names (7970) for 25K objects. Note that this vocabulary is much larger than what state-of-the-art object detectors are typically trained on. The vocabulary of entry-level names is drastically smaller and contains only 442 types. This small set, however, covers at least 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names. 
 
+\paragraph{Entry-level Names are Instance-Dependent:} 
+\cs{Make consistent with what is (was) in the intro wrt formulation:}
+In a traditional, taxonomic view of object naming, entry-level names can be determined solely based on the object's class, meaning that all instances of a class have the same entry-level name. The MN data provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). Instead, we observe that there are many pairs of entry-level names that do not have a fixed preference ordering across instances, as illustrated in Figure \ref{fig:duck} where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators. We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \name{boy-player}, \textit{sandwich-food}, \name{building-church}, ...).
 
+\iffalse
 \sz{does this solve this? Statistics wrt entry-level of object class != entry-level of its instances to (i.e.,\ entry-levels cannot be derived on class-level)} \gbt{But, what's an object class in our data? We can't really use collection synsets, can we? Those are not really object classes?} \gbt{UPDATE: We change focus from class to ``entry-level names are instance-specific''. Matthijs is on it.}
+\fi
 
-
+TODO: 
 \sz{somewhere we should mention these tendencies on adequacy and agreement for (non-)entry-level names shown in Table \ref{tab:stat-entry-level}}
 
 
 \paragraph{Identifying entry-level names requires many annotators}
+\iffalse
 ManyNames was collected in four rounds of 9 annotators each.
-On average, the most frequent names differed between rounds for 20\% of objects (std.dev. 2.4\%p), suggesting that entry-level names cannot be reliably identified from too few annotators.
+On average, the entry-level name differed between rounds for 20\% of objects (std.dev. 2.4\%p), suggesting that entry-level names cannot be reliably identified from too few annotators.
 Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
 \mw{@gbt: I first did it the way you suggested, i.e., by sampling, but I found the resulting plot (not shown now) too hard to interpret, even a bit misleading. I've kept this text + plot in the TeX source further below, commented out, in case you want to have a look. But I think the following is better:}
+\fi
 \begin{figure}[t]
 	\includegraphics[width=\columnwidth]{images/stability_analytic.png}
 	\caption{Proportion of objects (vertical) for which the entry-level name can be confidently (95\%) identified after gathering N names (horizontal). \mw{increase plot font size}}
 	\label{fig:entry-level-name-stability}
 \end{figure}
-For each object we computed, on the basis of the distribution of names in ManyNames for that object, how many names should have been gathered for the majority name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability (a reasonable confidence requirement).
-The blue line shows that, even after gathering 10 names, the majority name is this likely to be the entry-level name for only 68\% of objects (put differently: for the remaining 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
+For each object we estimated, on the basis of its \mn response set, how many names should have been gathered for the majority name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability. % (a reasonable confidence requirement).
+The blue line shows that, even after gathering 10 names, the majority name is  likely to be the entry-level name for only 68\% of objects (i.e.,~for 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
 Gathering 20 names increases this to 78\%.
-The red line shows the same tendency but by taking only names from the entry-level cluster into account (as identified by our Verification results):
+The red line shows the same tendency but by taking only names from the cluster of the entry-level name into account (as identified by our hard clustering in \ref{sect:mn_verification}): 
 by discarding names for other objects, the entry-level name for the intended object can be confidently identified slightly more quickly (but not by much, since names for the wrong object tend to be a minority anyway).
-Both lines level level out well below 100\%, reflecting that for 15\%-20\% \cs{Can you compute that individually for each domain?} of objects even gathering 36 names is not enough for the entry-level name to come out as majority with 95\% probability: differences in frequencies between the contenders are simply too small.
+Both lines level out well below 100\%, reflecting that for 15\%-20\% \cs{If time permits, can you compute that individually for each domain, and mention what/if something stands out?} of objects even gathering 36 names is not enough for the entry-level name to come out as majority with 95\% probability: differences in frequencies between the contenders are simply too small.
+\cs{@mw: see discussion on slack wrt following comments - can you add what was agreed upon there?}
 \mw{@cs, @sz, @gbt: A closely related (but different) question this immediately brings to mind (of a critical reviewer?) is: how sure are we, for a given object, given the particular names we gathered, that the most frequent name in our sample (what we \emph{call} the entry-level name) is indeed the most frequent name in the population (what actually \emph{is} the entry-level name, right?)? Should we address this question earlier? I think the stats will look very similar (though they're not the same): that for 15-20\% of objects we really aren't sure.}
 
 %%%%%% BY SAMPLING, FOR GEMMA:
@@ -155,21 +162,13 @@ Both lines level level out well below 100\%, reflecting that for 15\%-20\% \cs{C
 %	\label{fig:entry-level-name-stability}
 %\end{figure}
 
-\paragraph{Of Verification Annotations}
-
-\cs{@gbt @mw}
-
-
-
+\paragraph{TODOS (if possible)}
 \begin{itemize}
-	\item ...
-	\item ...
-	\item For the instances where VG!=topMN: Percentage of instances where the VG name is among the responses of an \textit{alternative object} (as given by clustering).
-	\item Comparison of VG and MN, demonstrating that MN is a more reliable source for entry-level names. 
+	\item For the instances where VG!=topMN: Percentage of instances where the VG name is among the responses of an \textit{alternative object} (as given by clustering). (for Sect 4)
+	\item Comparison of VG and MN, demonstrating that MN is a more reliable source for entry-level names. ()for Sect 4)
 \end{itemize}
 
 
-%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "acl2020_main"
 %%% End:
