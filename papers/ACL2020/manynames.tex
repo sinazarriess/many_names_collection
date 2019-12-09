@@ -124,18 +124,22 @@ Table~\ref{tab:stat-entry-level} provides a bird's eye overview.
 2. For the instances where VG!=topMN: Percentage of instances where the VG name is among the responses of an \textit{alternative object} (as given by clustering). (for Sect 4)
 . 3. Comparison of VG and MN, demonstrating that MN is a more reliable source for entry-level names. (for Sect 4)}
 
-\cs{Make consistent with what is (was) in the intro wrt formulation:}
-Let us focus on our two main reasons for using \mn to evaluate computational models, i.e., a dataset where actual contextualized instances are named (not prototypes or classes), and where every instance is named by many annotators.
-Regarding the first, we can show that different instances of the same class can differ in entry-level name.
+Let us focus on our two main reasons for wanting to use \mn to evaluate computational models, i.e., a dataset where (i) actual contextualized instances are named (not prototypes or classes), and (ii) every instance is named by many annotators.
+\cs{Make formulation consistent with what is (was) in the intro:}
+Regarding feature (i), recall that the traditional, taxonomic view of object naming regards entry-level names as determinable based on the object's class, meaning that all instances of a class have the same entry-level name. 
+Instead, we observe that there are many pairs of entry-level names that do not have a fixed preference ordering across instances, as illustrated in Figure~\ref{fig:duck} where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators.
+To quantify this point, let us concentrate on cases in \mn where there is a `clear winner', namely, objects where the entry-level name is at least twice as frequent in the response set as the next most frequent name -- a very strict requirement which only 281 of the 422 entry-level names of \mn meet.
+These names, which are a clear winner at least once, are still on average a clear winner only in 46\% of cases where there is a clear winner at all (SD: .34).
+Now, some of this is due to errors of the type we have sought to identify, but the verified results support the same conclusion: 
+even restricting attention to cases where the name is adequate and names the right object, they are still a clear winner only in 66\% of cases where there is one (SD: .35, but skewed with about half over 80\%).
 
-\mw{Old stuff here, currently redoing but Carina was too impatient so I had to push:}
-In a traditional, taxonomic view of object naming, entry-level names can be determined solely based on the object's class, meaning that all instances of a class have the same entry-level name. The MN data provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). Instead, we observe that there are many pairs of entry-level names that do not have a fixed preference ordering across instances, as illustrated in Figure \ref{fig:duck} where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators. We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \name{boy-player}, \textit{sandwich-food}, \name{building-church}, ...).
+%provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \name{boy-player}, \textit{sandwich-food}, \name{building-church}, ...).
 
 %ManyNames was collected in four rounds of 9 annotators each.
 %On average, the entry-level name differed between rounds for 20\% of objects (std.dev. 2.4\%p), suggesting that entry-level names cannot be reliably identified from too few annotators.
 %Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
 %\mw{@gbt: I first did it the way you suggested, i.e., by sampling, but I found the resulting plot (not shown now) too hard to interpret, even a bit misleading. I've kept this text + plot in the TeX source further below, commented out, in case you want to have a look. But I think the following is better:}
-Regarding our second reason, Figure~\ref{fig:entry-level-name-stability} shows that gathering many annotations is necessary for reliably identifying entry-level names.
+Regarding our second reason, feature (ii) mentioned above, Figure~\ref{fig:entry-level-name-stability} shows that gathering many annotations is necessary for reliably identifying entry-level names.
 \begin{figure}[t]
 	\includegraphics[width=.9\columnwidth]{images/stability_analytic.png}
 	\caption{Proportion of objects (vertical) for which the entry-level name can be confidently (95\%) identified after gathering N names (horizontal). \mw{increase plot font size}}
