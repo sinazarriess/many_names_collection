@@ -12,7 +12,7 @@ As we outline in the following, our work on natural object naming brings togethe
 %Language + Vision:\\
 %Ordonez et al., Zarriess \& Schlangen, ... \\
 %- Our work: empirical notion of entry-level
-\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
+%\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
 In psycholinguistics, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
 The typicality of the object with respect to this basic-level \category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while for atypical objects  (e.g.,\ \name{penguin}) the more specific name corresponds to the entry-level category. 
 This strictly taxonomic view suggests that entry-level names generally hold for all instances of a \category (e.g.,\ penguin). 
@@ -21,7 +21,7 @@ In contrast, our work exploits actual naming data for instances of real-world ob
 This dataset is comparable to picture naming data, though we focus on real-world objects in images instead of prototypical line drawings as in, e.g.,~\newcite{rossion2004revisiting}.  
  \newcite{zarriess-schlangen:2017} learn a naming model from names produced in referring expressions to real-world objects, but they do not have access to name annotations from (many) different speakers and adopt very simple evaluation measures (like accuracy). 
 Our present work explores and adopts more nuanced evaluation metrics and aims to model robust speaker preferences with respect to natural naming.
- \sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
+ %\sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
  
 %members of different \textit{basic-level} categories (e.g., a duck, a robin, a penguin, etc. are all members of \cat{birds}) 
 % \newcite{rohde2012communicating} and \newcite{graf2016animal} investigate naming in context and find that the specificity of a name is dependent on the taxonomic relatedness of other objects in context.
@@ -31,7 +31,14 @@ Our present work explores and adopts more nuanced evaluation metrics and aims to
 
 
 
-\paragraph{Visual Object Recognition in Computer Vision}
-- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
-- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image). It predicts the class of the most salient object in an image. \\
-- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
+\paragraph{Visual Object Recognition} is a major focus of research in Computer Vision, with object classification being a core task in this area. 
+Neural object classification systems are trained to label the most salient object in an image and often use the ImageNet \cite{imagenet_cvpr09} benchmark that labels images/objects with 1000 fine-grained classes \cite{googlenet,he2016deep}). 
+These neural object classifiers have proven extremely useful in a large range of transfer learning scenarios. They are commonly used as pretrained feature extractors in object detection systems that localize objects and predict their labels \cite{fasterrcnn2015}.
+For instance, a commonly used object detector in \lv is \citep{anderson2018updown}'s so-called bottom-up model, which is based on a pretrained ResNet classification and finetunes Faster-RCNN \cite{fasterrcnn2015} for object detection and classification on \vg. 
+We will use a pretrained ResNet, Faster-RCNN and Bottom-up as models in our work too, extending and testing them for entry-level object naming. 
+
+
+%Current recognition benchmarks use labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically implement a single ground-truth label approach.
+%- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
+%- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image). It predicts the class of the most salient object in an image. \\
+%- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 

@@ -45,42 +45,38 @@ We leave modeling experiments that take into account other possible names of obj
 
 \paragraph{Models}
 
-We test 1) an existing object detection and classification model trained on \vg (FRCNN$_{\text{VG1600}}$); 2) the same model, re-trained on the smaller vocabulary of entry-level names, MN442 (FRCNN$_{\text{MN442}}$); 3) an object classification model trained on FRCNN$_{\text{VG1600}}$ features, that is, a version of FRCNN$_{\text{VG1600}}$ fine-tuned on \mn data (FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ \gbt{find better name?}); 4) object classification models trained directly on object detection features (given by ResNet 101; \cite{}), rather than object classification features.
+We test two object detection models trained on objects and names from the original \vg data, using the Faster R-CNN architecture \cite{fasterrcnn2015} which is initialized with features that were pre-trained on $1$K~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}.
+We use and retrain these two models with different target vocabularies:
 
-FRCNN$_{\text{VG1600}}$ is the bottom-up attention model of \citeauthor{anderson2018updown}'s \citeyear{anderson2018updown},\footnote{Available at \url{https://github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.}
-trained to do object classification with a vocabulary of $1600$ VG names as class labels. \cs{add how the vocabulary was derived}.
-The model is based on the object detection \gbt{detection, or classification?} method Faster R-CNN \cite{fasterrcnn2015}. 
-The authors initialized it with ResNet-101 \cite{he2016deep} features (pretrained on ImageNet) to then train it on \vg.
-To train FRCNN$_{\text{MN442}}$, we follow the same methodology as in \citeauthor{anderson2018updown} \cs{right, @Sina?} but restrict the object classes to the $442$~entry-level names found in \mn; accordingly, we train on fewer images. \gbt{Right? Only those that have an entry-level name? TODO: add how many imgs for FRCNN$_{\text{VG1600}}$ and FRCNN$_{\text{MN442}}$.}
-\gbt{Also, Do we also use the additional attribute loss?}
-\footnote{For training, we use a PyTorch reimplementation of Faster R-CNN, \url{github.com/jwyang/faster-rcnn.pytorch}.}
-FRCNN$_{\text{MN442}}$ serves us to test the hypothesis that training only on entry-level names may improve generalization and hence performance.
+\begin{small}
+\begin{itemize}
+\item FRCNN$_{\text{VG1600}}$: We use \citep{anderson2018updown}'s model\footnote{We used the code and model available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} that is optimized for a set 1600 object names in \vg. This set was obtained by first taking the 2500 most frequent names in \vg and then (manually) filtering certain names.
+ \item  FRCNN$_{\text{MN442}}$: we pre-process the \vg data as in \citeauthor{anderson2018updown}, but restrict the object classes to the $442$~entry-level names found in \mn (Section~\ref{sect:mn_analysis}). 
+For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{github.com/jwyang/faster-rcnn.pytorch}}
+\end{itemize}
+\end{small}
 
 The two former models are trained on \vg, which has almost 4 million labeled objects.
 \mn is too small to train object detection models on it from scratch, which require learning millions of parameters.
-On the other hand, obtaining enough naming data to be able to estimate entry-level names for larger datasets is very costly --probably unrealistic.
+On the other hand, obtaining enough naming data to be able to estimate entry-level names for larger datasets is very costly and probably unrealistic.
 Therefore, we investigate the possibility of obtaining entry-level data via transfer learning, fine-tuning existing models with \mn data.
-We do so with the standard methodology \gbt{in L\&V?} of taking the last hidden layer of existing Computer Vision models as input, and train object classification models to predict entry-level names (MN442).
+We do so with the standard methodology of taking the last hidden layer of existing Computer Vision models as input, and train object classification models to predict entry-level names (MN442).
 
-We experiment with two kinds of input. First, the features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.}. 
-We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).
-For comparison, we consider a much less informed kind of input, namely the features from an object detection model, ResNet-101 \cite{+++}, which are the ones that FRCNN$_{\text{VG1600}}$ use as initialization features. \gbt{Previous sentence to be improved}
-Results should of course be worse, and our aim is to assess the feasibility of using such generic object representations to obtain entry-level names.
+We experiment with two kinds of (transferred) input features, different training vocabularies and ground-truth names for instances, similar to the detection models above.
+This yields the following 5 transfer-learning-based naming models:
 
-\cs{Next sentence relevant here? Or just as detail in related work?:: (Note that ResNet's $1$K~object classes capture subordinate categories of ImageNet leaf nodes; e.g.,~Siberian husky, American black bear.)} 
+\begin{small}
+\begin{itemize}
+\item FRCNN$_{\text{VG1600}}$-VGMN:  This models extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.}. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer.\cs{add size} The model uses the VGMN vocabulary (overlap of ManyNames and VG vocab).
+\item ResNet-VGMN: For comparison, we consider a much less informed input, namely the features from the ResNet-101 object detection  pretrained on ImageNet \cite{+++}.
+Results should of course be worse, and our aim is to assess the feasibility of using such generic object representations to obtain entry-level names. The model uses the VGMN vocabulary.  The model is optimized on VG and MN ground truth names respectively.
+ \item  ResNet-MN442:  The same model as before, but trained with a vocab of 442 entry-level names. The model is optimized on VG and MN ground truth names respectively.
+\end{itemize}
+\end{small}
 
-\gbt{BEGIN not integrated in the text yet}
-As with the FRCNN models above, we compare models which differ in  their target vocabulary, i.e.,~VGMN or MN442. 
-\cs{Maybe the next sentences are better just in the results section, when discussing the table::} Finally, we compare against two further classifiers which are trained on the \vg labels. 
-Note that all four models are optimized on the $25$K~objects in \mn. 
-\gbt{END not integrated}
 
-\gbt{IMPORTANT: I would not include all four ResNet models in the main paper; it takes a lot of space in all the result tables and doesn't add much information. I'd put the most relevant (at most two, maybe even only one) in the main paper and leave the rest for the supplementary material. TBD}
-
-\cs{todo: details to architecture and training of the vanilla classifiers.}
-\gbt{I leave this here unchanged:} For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer.\cs{add size} 
+Note that all five models are optimized on the $25$K~objects in \mn. 
 To predict the entry-level name of a target object~$o$, the classifier, a multi-layer neural network, is fed the object's features, and applies softmax activation to the output layer that corresponds to the target vocabulary. 
-The target vocabulary (VGMN, henceforth) comprises the overlap of VG1600 and the \mn names (\cs{$XX$} in total). \gbt{All \mn names? or only MN422? To be clarified above under paragraph `Data'.}
 
 \begin{table}[t]
 	\centering
