@@ -24,7 +24,7 @@
 	\begin{tabular}{l|@{~}c|@{~}c@{~}|c@{~}c@{~}c@{~}c@{~}|c}
 		\toprule
 		&  & Hit & \multicolumn{4}{c@{~}|}{Human-like} & Off \\
-		Model &  GT &  & SameObj. &  OtherObj. &  LowCount &  Related &   \\
+		Model & GT  &  & SameObject &  OtherObject &  LowCount &  Related &   \\
 		\midrule
 		FRCNN$_{\text{VG1600}}$&VG &         74.8 &                13.7 &                  2.9 &              2.4 &              1.7 &          4.5 \\
 		FRCNN$_{\text{MN442}}$&VG &         71.1 &                13.6 &                  3.4 &              2.0 &              2.6 &          7.4 \\
@@ -40,26 +40,7 @@
 	\caption{Model results for different categories of errors. \label{tab:humanlike}}
 \end{table*}
 
-\begin{table}[t]
-	\centering
-	\small
-	\begin{tabular}{l|l|c@{~}c@{~}c@{~}c}
-		\toprule
-		{Model} &  GT & visual &  linguistic &  box &  other \\
-		\midrule
-		FRCNN$_{\text{VG1600}}$ & VG &             4.3 &                 0.0 &                  95.7 &            0.0 \\
-		FRCNN$_{\text{MN442}}$ & VG &             3.4 &                 0.0 &                  96.6 &            0.0 \\
-		\midrule
-		FRCNN$_{\text{VG1600--VGMN}}$ & MN &             6.7 &                 0.0 &                  93.3 &            0.0 \\
-		\midrule
-		ResNet101$_{\text{VGMN}}$ & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
-		ResNet101$_{\text{MN442}}$ & MN &             3.0 &                 0.0 &                  97.0 &            0.0 \\
-		ResNet101$_{\text{VGMN}}$ & VG &             5.6 &                 0.0 &                  94.4 &            0.0 \\
-		ResNet101$_{\text{MN442}}$ & VG &             4.8 &                 0.0 &                  95.2 &            0.0 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Break-down of the instances (in \%) for which the models predicted an \textit{inadequate} name according to the type of inadequacy.  \label{tab:exp_inadequacy}}
-\end{table}
+
 
 
 The previous Section \ref{sec:experiments} looked at the performance of the different naming models using vanilla evaluation methods like accuracy.
@@ -70,12 +51,20 @@ In the following, we show how our verification data can be used to gain more det
 
 \paragraph{Error Categories} We categorize model predictions into the following types (see also Figure~\ref{fig:mistakes} for examples):\\
 Besides \textit{Hit}, the entry-level name, and \textit{Off}, a non-sensical name (none of the others), we distinguish between different \textit{Human-like mishits}:
+\begin{tabularx}{.49\textwidth}{lX}
+	\sameobject: & an alternative name for the object (see Section~\ref{sect:mn_verification}), or a synonym or a hypernym (\name{house/building}) \\
+	OtherObject & a name produced by annotators, but not an alternative of the entry-level name \\
+	LowCount: & a name produced by one annotator\\
+	Related:& a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
+\end{tabularx}
+\iffalse
 \begin{itemize}
-\item \sameobject: an alternative name for the object (see Section~\ref{sect:mn_verification}), or a synonym or a hypernym (\name{house/building})
-\item OtherObject: a name produced by annotators, but not an alternative of the entry-level name  
-\item LowCount: a name produced by only one annotator
-\item Related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
+	\item \sameobject: an alternative name for the object (see Section~\ref{sect:mn_verification}), or a synonym or a hypernym (\name{house/building})
+	\item OtherObject: a name produced by annotators, but not an alternative of the entry-level name 
+	\item LowCount: a name produced by only one annotator
+	\item Related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
 \end{itemize}
+\fi
 
 We use WordNet \cite{fellbaum1998wordnet} for determining whether two names are semantically related. 
 
@@ -112,23 +101,6 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 \end{table*}
 \fi
 
-
-\paragraph{Why May Models Predict Inadequate Names?}
-In Table~\ref{tab:exp_inadequacy} we focus on the predicted names that are in \mn, but judged as inadequate (i.e.,~adequacy score$<0.5$). 
-Most of the inadequate object name predictions are related to an inaccurate bounding box. 
-The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of box errors, and hence, the highest \textit{visual} (i.e.,~the object is difficult to interpret) inadequate name predictions. 
-\iffalse
-\cs{remove next couple of sentences? it's very assumptive}
-This may be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names. 
-And the ResNet101-based models, which use features that were pre-trained towards image classification (i.e.,~categorizing the salient object in an image (region)), make slightly more visual errors when being optimized on \vg ground truth labels than their \mn ground truth counterparts. 
-\fi
-%
-None of the models predicted an inadequate name that was a linguistic, or any other error. 
-Recall that all predictions we are analysing here were in the \mn data, i.e.,~at least two people gave the predicted, but inadequate name for the object. 
-That the models make similar mistakes to humans (problems in identifying or recognizing the target object) on the \mn data reveals the problem of modeling a phenomenon of human behavior---object naming in our case---by leveraging data that only approximates the real-world situation in which the phenomenon occurs. 
-
-
-
 \begin{table*}[t]
 \centering
 	\small
@@ -150,7 +122,26 @@ That the models make similar mistakes to humans (problems in identifying or reco
 \end{tabular}
 \caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{human-like} error (less preferred name, synonym, hypernym/hyponym), or \textit{off} \label{tab:exp_errors_agreement}}
 \end{table*}
-
+\begin{table}[t]
+	\centering
+	\small
+	\begin{tabular}{l|l|c@{~}c@{~}c@{~}c}
+		\toprule
+		{Model} &  GT & visual &  linguistic &  box &  other \\
+		\midrule
+		FRCNN$_{\text{VG1600}}$ & VG &             4.3 &                 0.0 &                  95.7 &            0.0 \\
+		FRCNN$_{\text{MN442}}$ & VG &             3.4 &                 0.0 &                  96.6 &            0.0 \\
+		\midrule
+		FRCNN$_{\text{VG1600--VGMN}}$ & MN &             6.7 &                 0.0 &                  93.3 &            0.0 \\
+		\midrule
+		ResNet101$_{\text{VGMN}}$ & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
+		ResNet101$_{\text{MN442}}$ & MN &             3.0 &                 0.0 &                  97.0 &            0.0 \\
+		ResNet101$_{\text{VGMN}}$ & VG &             5.6 &                 0.0 &                  94.4 &            0.0 \\
+		ResNet101$_{\text{MN442}}$ & VG &             4.8 &                 0.0 &                  95.2 &            0.0 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Break-down of the instances (in \%) for which the models predicted an \textit{inadequate} name according to the type of inadequacy.  \label{tab:exp_inadequacy}}
+\end{table}
 \iffalse
 \begin{figure}
 	\centering
@@ -161,19 +152,31 @@ That the models make similar mistakes to humans (problems in identifying or reco
 	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes} \gbt{Will we have space for the figure? (Maybe we should \textit{make} space?) Also, shouldn't we put examples from the most successful model instead?}}
 \end{figure}
 \fi 
-
-
-
-\subsection{How do predictions correlate with human agreement?}
-
+\subsection{How do Predictions Correlate with Human Agreement?}
 An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
-This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. \sz{is it okay to claim this?}.\cs{how about the way it is now?}
+This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. 
+
 In Table \ref{tab:exp_errors_agreement}, we show the break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more or less than 90\% of the annotators opted for the entry-level name. 
 Here, we find a very clear pattern for all models, namely that the portion of hits is generally high when human agreement is also high.
 Note that this even holds for the ResNet-based classifiers that generally achieve less accuracy.
 When agreement is lower, all models produce less hits and more valid alternatives. 
 This indicates that there is indeed a certain similarity between what is difficult for humans and models.
-Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. \sz{why???}
+Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. \sz{why???}\\
+
+
+In Table~\ref{tab:exp_inadequacy} we focus on the predicted \mn names that were judged as inadequate (i.e.,~adequacy score\mbox{$<0.5$}) and their inadequacy types (see Section~\ref{sect:mn_analysis}.
+Most of the inadequate name predictions are related to an inaccurate bounding box. 
+The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of box errors, and hence, the highest \textit{visual} (i.e.,~the object is difficult to interpret) inadequate name predictions. 
+This might be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names . 
+\iffalse
+\cs{remove next couple of sentences? it's very assumptive}
+This may be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names. 
+And the ResNet101-based models, which use features that were pre-trained towards image classification (i.e.,~categorizing the salient object in an image (region)), make slightly more visual errors when being optimized on \vg ground truth labels than their \mn ground truth counterparts. 
+\fi
+%
+None of the models predicted an inadequate name that was a linguistic, or any other error. 
+Recall that all predictions we are analysing here were in the \mn data, i.e.,~at least two people gave the predicted, but inadequate name for the object. 
+That the models make similar mistakes to humans (problems in identifying or recognizing the target object) on the \mn data reveals the problem of modeling a phenomenon of human behavior---object naming in our case---by leveraging data that only approximates the real-world situation in which the phenomenon occurs. 
 
 
 %\cs{TODO::}
