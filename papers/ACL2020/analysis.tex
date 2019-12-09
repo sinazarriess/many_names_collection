@@ -1,26 +1,26 @@
 
 The previous Section \ref{sec:experiments} looked at the performance of the different naming models using vanilla evaluation methods like accuracy.
-This way of evaluating object naming is unsatisfactory: the ManyNames data, and also our verification data, clearly shows that human annotators often agree on a certain entry-level name with other names might be adequate too.
-In the following, we show how our verification data can be used to gain more detailed insights into the way different naming models calibrate their decisions and reflect human-like naming behaviour.
+This way of evaluating object naming is unsatisfactory: the ManyNames data, and also our verification data, clearly shows that human annotators often agree on a certain entry-level name with other names might be adequate too.\cs{XX}
+In the following, we show how our verification data can be used to gain more detailed insights into the way different naming models calibrate their decisions and reflect human-like naming behavior.
 
 \paragraph{Error Categories} We categorize model predictions into the following types (also see Figure~\ref{fig:mistakes} for examples):
 
 \begin{itemize}
 \item Correct-hit: the entry-level name 
-\item Correct-valid: a name from the set of valid alternatives, a synonym or a hypernym (\textit{house/building})
-\item: Incorrect-human-like: a name produced by annotators, but not a valid alternative of the entry-level name  (\textit{chair/cat})
+\item Correct-valid: a name from the set of valid alternatives, a synonym or a hypernym (\name{house/building}) \cs{set of alternatives:: task1: all, task2: only adequacy$>$0.5}
+\item Incorrect-human-like: a name produced by annotators, but not a valid alternative of the entry-level name  (\name{chair/cat}) \cs{task1: other object; low count; task2: alternatives adequ $<$ 0.5 (other object, low count)}
 \item Incorrect-related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
 \item Incorrect-off: a non-sensical name (none of the above)
 \end{itemize}
+\cs{WordNet}
 
-
-\subsection{How human-like are model predictions and errors?}
+\subsection{How Human-Like are Model Predictions and Errors?}
 
 Table \ref{tab:humanlike} shows the breakdown of the model results for the error categories explained above. An important general trend is that the proportion of human-like error seems to be surprisingly constant across all models. \sz{why??}
-Both object detection models essentially achieve the same portion of valid predictions. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the models makes more nonsensical errors, which might be an effect of the reduction in training data.
+Both object detection models essentially achieve the same portion of valid predictions. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the former makes more nonsensical errors (column off), which might be an effect of the reduction in training data.
 Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits but less valid predictions, and also less nonsensical errors as compared to FRCNN$_{\text{VG1600}}$.
-This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit by the finetuned classification model.
-All ResNet models produce a lot of errors in the ``related'' category, which suggests that they tend to confuse similar names that are, however, not valid. 
+This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit (it predicts the entry-level) by the fine-tuned classification model.
+The proportion of instances for which the ResNet models predict a `related'' category is high, which suggests that they tend to confuse semantically similar names to a valid name, that are, however, not valid. 
 
 \begin{table*}[t]
 \centering
@@ -80,7 +80,7 @@ All ResNet models produce a lot of errors in the ``related'' category, which sug
 \subsection{How do predictions correlate with human agreement?}
 
 An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
-This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans \sz{is it okay to claim this?}.
+This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. \sz{is it okay to claim this?}.\cs{how about the way it is now?}
 In Table \ref{tab:exp_errors_agreement}, we show the break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more or less than 90\% of the annotators opted for the entry-level name. 
 Here, we find a very clear pattern for all models, namely that the portion of hits is generally high when human agreement is also high.
 Note that this even holds for the ResNet-based classifiers that generally achieve less accuracy.
