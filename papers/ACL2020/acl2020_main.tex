@@ -84,7 +84,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-
+Object detection and image classification models from Computer Vision are typically trained towards predicting labels of objects. 
+Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose.  
+Based on large-scale, thouroughly verified object naming data from many annotators, we conduct an extensive analysis of the ability of object detection and classification models to account for entry-level object naming.
+We show that object classification models ``spontaneously'' learn good entry-level names and that they can be further finetuned via transfer learning. 
+\sz{A short sentence on human-like errors?}
 \end{abstract}
 
 \section{Introduction}
@@ -97,7 +101,7 @@
 
 \section{ManyNames: A Source for Entry-Level Names}
 \label{sec:manynames}
-\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
+%\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
 \input{manynames}
 
 \section{Predicting Entry-Level Names}
