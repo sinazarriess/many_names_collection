@@ -55,13 +55,16 @@
 \newcommand{\mn}{ManyNames\xspace}
 \newcommand{\vg}{VisualGenome\xspace}
 \newcommand{\ra}{$\rightarrow$}
+\newcommand{\sameobject}{SameObject\xspace}
+\newcommand{\cluster}{Cluster\xspace}
 
 \newcommand{\cat}[1]{\textsc{#1}}
 \newcommand{\name}[1]{\textsl{#1}}
 
 % Terms that need to be replaced throughout the paper by more appropriate ones:
 \newcommand{\arbitrary}{arbitrary$\rightarrow$?\xspace}
-
+\newcommand{\categories}{classes\xspace}
+\newcommand{\category}{class\xspace}
 
 \title{From Object Classification to Naming: Modeling Entry-level Names for Real-world Objects}
 
@@ -81,7 +84,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-
+Object detection and image classification models from Computer Vision are typically trained towards predicting labels of objects. 
+Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose.  
+Based on large-scale, thouroughly verified object naming data from many annotators, we conduct an extensive analysis of the ability of object detection and classification models to account for entry-level object naming.
+We show that object classification models ``spontaneously'' learn good entry-level names and that they can be further finetuned via transfer learning. 
+\sz{A short sentence on human-like errors?}
 \end{abstract}
 
 \section{Introduction}
@@ -94,14 +101,14 @@
 
 \section{ManyNames: A Source for Entry-Level Names}
 \label{sec:manynames}
-\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
+%\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
 \input{manynames}
 
-\section{Predicting entry-level names}
+\section{Predicting Entry-Level Names}
 \label{sec:experiments}
 \input{experiments}
 
-\section{Analysis of model naming behavior}
+\section{Analysis of Model Naming Behavior}
 \label{sec:analysis}
 \input{analysis}
 
@@ -113,7 +120,7 @@
 
 %\appendix
 %
-% \section{Appendices}
+% \section{Appendices}\newcommand{sameobject}
 % \label{sec:appendix}
 % \iffalse
 % Appendices are material that can be read, and include lemmas, formulas, proofs, and tables that are not critical to the reading and understanding of the paper.
