@@ -6,61 +6,80 @@ brief summary of lrec paper, shortcoming, what we added
 
 \begin{itemize}
 	\item For each object: a response set comprising all entered names (spellchecked) and their respective counts, i.e., the number of annotators which enter the respective name.
-	\item Problems: referential uncertainty: object other than target object was  identified as named
+	\item Problems \mw{I already had a go writing a 'bridge' paragraph containing this; see below.}: referential uncertainty: object other than target object was  identified as named
+	\item \cs{Mention how agreement on \mn is computed (anticipating that we'll be taking a closer look at this in 3.3 when the verification is in place).}
 \end{itemize}
 
-\subsection{Verification of Annotations}
+
+\mw{Sina wrote this in 3.3; I think it should go here in 3.1., in order for 3.3 to more clearly show the added value of verification:}
+ManyNames provides a large vocabulary of names (7970) for 25K objects.
+Note that this vocabulary is much larger than what state-of-the-art object detectors are typically trained on. 
+The vocabulary of entry-level names -- defined for each object as the most frequent name given -- is drastically smaller and contains only 442 types. 
+This small set, however, covers at least 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
+
+
+
+Manual inspection of the \mn data revealed that annotators occasionally named an object different from the one highlighted by the bounding box (e.g., the name \emph{helmet} when the bounding box highlights an entire motorcyclist), or the right object but with an incorrect name (e.g., ``horse'' for a cow), and sometimes the bounding box may have been unclear.
+Although these errors are interesting human data in their own right, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology used for \mn, where there is a financial incentive to complete the task as quickly as possible.
+As such they pose a challenge for our research goal, which is to see whether the object-naming ability of computational models resembles those of actual language users.
+
+\subsection{Collecting verification of ManyNames}
 \label{sect:mn_verification}
-\cs{START TODO at the end}
-Goal: Verification of entered object names necessary to exclude incorrect names (wrong object was named) required. \\
-Collected: adequacy judgements from 0-2; source/type of inadequacy; CLUSTERS: for each entry-level name (or any other name in the response set), all its valid alternatives.
-\cs{END TODO }
 
-We used Amazon Mechanical Turk\footnote{(\url{https://mturk.com})} (AMT) to verify all the \mn naming data (response sets), with two exceptions: We consider response sets with ~$100$\%~agreement (i.e.,~all annotators gave the same name for an object) as correct, so do not require verification, and all names with a count of~$1$ as unreliable, so we directly discarded those from the sets.
-We collected verifications for the remaining $19,427$~objects, with on average $4$ names each, as follows: 
+To overcome the aforementioned challenge we collected a new layer of verification annotations on top of \mn.
+We recruited annotators from Amazon Mechanical Turk\footnote{
+	\url{https://mturk.com}
+} (AMT) to categorize the object-name pairs from \mn into various categories (e.g., adequate vs.\ different types of errors), explained below.
+Since this is a multiple-choice task (unlike the generation task through which \mn was gathered) we were able to conduct rigorous quality control, ensuring the reliability of our new layer of annotations (see the supplementary material for details).
+
+We verified all the \mn naming data (response sets), with two exceptions: 
+We consider response sets with ~$100$\%~agreement (i.e.,~all annotators gave the same name for an object) as correct, so do not require verification, and all names with a count of~$1$ as unreliable, so we directly discarded those from the sets.
+We collected verifications for the remaining $19,427$~objects, with on average $4$ names each, which we did as follows:
+
 For each object, we presented $3$~annotators with its image, with the object highlighted by its bounding box, and a list of all its names to be verified (see Figure~\cs{1}) in the supplementary material).
-They were asked to judge the ``adequacy''\footnote{We defined that \textit{a name is   ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.} of each name on a 3-point scale (with $0$=``perfectly adequate'', $1$=``there may be a (slight) inadequacy'', and $2$=``totally inadequate''). 
-In the case they did not choose ``adequate", they had to specify the type of inadequacy (``linguistic mistake", ``named object not tightly in bounding box",  ``named object mistaken for something it's not", and ``something else"). \cs{maybe in ManyNames we need exampled for all those, when the need for verification is explained.}
+They were asked to judge the ``adequacy''\footnote{
+	In the task we provided the definition that \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
+} of each name on a 3-point scale (represented pictorially): ``perfectly adequate'', ``there may be a (slight) inadequacy'' and ``totally inadequate'' (we will encode these below as 1.0, 0.5 and 0.0, respectively).
+Whenever they did not select ``adequate'', they had to specify the type of inadequacy, choosing between ``linguistic mistake'', ``named object not tightly in bounding box",  ``named object mistaken for something it's not'', and ``something else'' (represented pictorially).
+In addition to judging name adequacy, we asked the annotators which names they thought were likely intended (by the original    quit()
+ \mn annotators) to name the \textit{same} real-world object, 
+through an intuitive coloring task where they would assign the same color to names intended for the same object (again, see Figure~\cs{1}).
+Note that this is independent of name adequacy: ``cow'' can be adequate and ``horse'' inadequate, yet both could be intended as naming the same object (i.e., a cow that one annotator misinterpreted to be a horse).
 
-In addition to judging name adequacy, we asked the annotators to cluster the list of names (through coloring), such that each group (color) would comprise the names they thought to be likely intended (by the \mn annotators entering the name) for the \textit{same} real-world object.
+\mw{I think the following is nice, but strictly redundant, so candidate for deletion if need be:}
+Summing up, we provide new verification of \mn, in the form of: name adequacy judgments, type of inadequacy (linguistic, bounding box, named object misinterpreted, other), and information about which names were likely intended for the same object. In relation to our research goal, in section~\ref{sec:analysis} these results will allow us to quantify, for instance, whether the name generated by a given model, if it is not the entry-level name, is at least a name that could reasonably be for the same object as the entry-level name, and whether it is adequate.
 
-\iffalse
-Although the initial data gathering phase involved some very basic quality control (detecting repeated names, empty text fields, typos), we had no rigorous way of ascertaining that our participants were providing adequate names for the intended object.
-\fi
 
-Since the quality of the data we gather in this phase will be essential for gaining insight into the \mn dataset, as well as for evaluating computational models (Section~\ref{sec:experiments}), we conducted rigorous quality control (see the supplementary material for details).
 
 %We implemented this verification task on Amazon Mechanical Turk (\url{https://mturk.com}). 
 
-\paragraph{Postprocessing and Basic Statistics}
-\cs{Table moved to suppl.}
-\begin{figure}[t]
-	\centering
-	\hspace*{.2\columnwidth}\includegraphics[width=.7\columnwidth]{images/verification_piechart.pdf}
-	\caption{Verification results (counting individual annotations). Lighter shade within a hue indicates slight/possible error of that type; darker shade severe error.}
-	\label{fig:verification-piechart}
-\end{figure}
-\mw{Possibly a pie-chart counting actual names and their aggregated (+thresholded) scores would be more informative than the current pie-chart, which counts original (i.e., non-aggregated) verification annotations.}
-\cs{If you have time for it, @MW, could you add this in addition?}
-%
-Overall, $255$~annotators a total of $69,356$~obj--name pairs.
-We aggregate our name adequacy judgments (representing adequate as 1, slightly inadequate as 0.5 and totally inadequate as 0) by taking the mean, and inadequacy type judgments by taking the majority (also counting ``none'' if there was no inadequacy). 
-Average name adequacy on this scale of $[0,1]$ is 0.80 (\mbox{std=$0.093$}). \cs{@MW: check that this is the right place here.}
+\paragraph{Judgment aggregation}
+Overall, $255$~participants annotated a total of $69,356$~object-name pairs, with three participants per pair.
+We aggregate our name adequacy judgments by taking the mean, and inadequacy type judgments by taking the majority (counting ``none'' for annotators saying there is no inadequacy). 
+Average name adequacy, on the scale from totally inadequate (0) to adequate (1), is 0.80 (\mbox{std=$0.093$}).
 Inter-annotator agreement is high also by other measures: the proportion of annotators agreeing on ``adequate'' is 88\%, agreeing on inadequacy type is 86\%, and agreeing on whether two names were intended for the same object is 94\%.
 We consider this level of agreement as high given the complexity of the task (e.g., pictures sometimes unclear), especially bearing in mind that we essentially asked our participants to do some kind of mind-reading (i.e., which object could someone who entered an inadequate name plausibly have had in mind?).
-Figure~\ref{fig:verification-piechart} shows the proportion of `adequate' judgments and the types of inadequacies our annotators reported.
+Figure~\ref{fig:verification-piechart} shows the proportion of `adequate' judgments and the types of inadequacies our individual annotators reported (a), as well as the aggregated (mean/majority) judgments (b).
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=\columnwidth]{images/verification_piechart_double.pdf}\\
+	\hspace*{\fill}a.\hspace*{\fill}\hspace*{\fill}b.\hspace*{\fill}\hspace*{\fill}
+	\caption{Verification results: a. counting individual annotations; b. counting image-name pairs with their aggregated scores. Lighter shade within a hue indicates slight/possible error of that type; darker shade severe error.}
+	\label{fig:verification-piechart}
+\end{figure}
 
-As for the judgments of whether two names were intended for the same object, we use two different types of aggregations, for different purposes.\cs{This pair-wise view is only because of the need for aggregating the clustering of 3 annotators into one, isn't it? In this case, it would be "aggregating name cluster", no?! So what you did for the first aggregation (modeling) was a pair-wise aggregation?}
-For analysing computational object naming models, we want to have all valid name alternatives to the entry-level name (or a target name in general), i.e.,~a soft clustering of names. 
-%want to know primarily whether a name generated by a model could have been intended to name the same object as the entry-level name (i.e., the most frequent name).
-This we compute, by a simple majority rule: true if name1 and name2 were judged to be for the same object by a majority of annotators, and false otherwise.
-
-For analysing object naming on the verified \mn data (Section~\ref{sect:mn_analysis}), e.g.~assess the mean number of names per object, however, 
+As for the judgments of whether two names were intended for the same object, we use two different types of aggregations, for different purposes: \sameobject and \cluster.
+% \cs{This pair-wise view is only because of the need for aggregating the clustering of 3 annotators into one, isn't it? In this case, it would be "aggregating name cluster", no?! So what you did for the first aggregation (modeling) was a pair-wise aggregation?} \mw{I don't understand this...}
+First, for analysing computational object naming models (Section~\ref{sec:analysis}), 
+% we want to have all valid name alternatives to the entry-level name (or a target name in general), i.e.,~a soft clustering of names. 	% <- Carina's reformulation, but not strictly true and not clear to me.
+we want to know primarily whether the name generated by a model, if it isn't the entry-level name, was at least intended for the same object as the entry-level name (i.e., the most frequent name).
+This \textbf{\sameobject} measure we compute by a simple majority rule: true if name1 and name2 were judged to be for the same object by a majority of annotators, and false otherwise.
+Second, for a better understanding of the verified \mn data itself (Section~\ref{sect:mn_analysis}) we want to be able, e.g., to assess the mean number of names per object, and for that we need to compute actual \emph{clusters} of names (the pairwise majority rule does not result in a proper clustering). 
 %However, we are also interested in more general statistics, e.g., the mean number of names per object, and the relative frequencies of names for a given object.
 %For this, 
-we need \cs{@MW please check if that's correct}  to compute hard clusters
-%clusters of names
-(the pairwise majority rule does not result in a proper clustering): as distance between names we use the proportion of annotators saying they do not name the same object, and we perform agglomerative, complete-linkage clustering with a threshold of .5 (i.e., all pairs of names in a cluster must name the same object according to a majority of annotators).
+% we need \cs{@MW please check if that's correct} \mw{No it isn't} to compute hard clusters
+We compute the \textbf{\cluster} of a name by agglomerative, complete-linkage clustering with a distance threshold of .5, using as distance between two names the proportion of annotators saying they do not name the same object (i.e., this means that all pairs of names in a cluster must name the same object according to a majority of annotators).
+\mw{The following is candidate for removal/shortening if we need to save space.}
 A possible disadvantage of this (hard) clustering method is that every name can only be in one cluster, i.e., name only one object.
 It entails for instance that \emph{food} cannot be clustered both with \emph{pizza} and with the \emph{cheese} on top, even though both are definitely instances of food.
 But this is not as problematic as it may seem, because we do not care primarily about such taxonomic relationships--- %(which could be gotten from, e.g., WordNet) -- 
@@ -76,28 +95,18 @@ Moreover, although hard clustering may occasionally lead us to \emph{under}estim
 
 \subsection{Analysis}
 \label{sect:mn_analysis}
-\cs{Here goes what has not been discussed in LREC paper, because it focusses on entry-level names. }
-\cs{Results aimed to show that we need \underline{multiple} annotations per object \underline{instance} to get the entry-level name}
 
-\paragraph{Definition of \textit{Entry-level Name}} \sz{has this been mentioned before?}
-\mw{I'd definitely put this in the introduction, and leave only a reminder here.}
-\cs{Remove me at the end, to make sure definition is in intro.}
-As we explained in Section~\ref{sec:intro}, we define \textit{entry-level name} for an object as the name that 
-%In the following, we consider a name annotated for an object as an entry-level name if it 
-corresponds to the most frequent name given a set of name annotations for the object.
-\mw{We could also consider defining entry-level name as `the most frequent adequate name'? Or perhaps as `the most frequent name \emph{if it is adequate}, none otherwise'? Depending on what makes the narrative easier.}
-
-\mw{Also make sure to define the notion of `entry-level object', or `canonical object' perhaps? i.e., the object/cluster of the entry-level name.}
-
+The verification we conducted is necessary for our main research aim -- to evaluate computational object naming models -- but they also enable a deeper understanding of the \mn data.
+Table~\ref{tab:stat-entry-level} provides a bird's eye overview.
 \begin{table}[t]
 	\centering
 	\small
 	\begin{tabular}{p{5cm}l}
 		\toprule		
-		\# objects in MN & 25,315\\
-		total vocab  &  7,970\\
-		entry-level vocab & 442\\
-		\# objects with entry-level name in VG & $\sim$ 2M (50\%)\\
+		objects in MN & 25,315\\
+		total vocabulary &  7,970\\
+		entry-level vocabulary & 442\\
+		objects in VG with name in entry-level vocab & $\sim$ 2M (50\%)\\
 		\midrule
 		av. agreement all names & 34.9\%\\
 		av. agreement entry-level names & 75.2\%\\
@@ -108,44 +117,45 @@ corresponds to the most frequent name given a set of name annotations for the ob
 		av. adequacy entry-level cluster & 0.94 \\
 		\bottomrule	
 	\end{tabular}
-	\caption{Basic statistics for entry-level names in MN. Av. agreement denotes the proportion of annotators that annotated a certain name for an object. }
+	\caption{Basic statistics for entry-level names in \mn. Av.agreement denotes the proportion of annotators (out of 36) that annotated a given name for an object, averaged over all names of a relevant subset.}
 	\label{tab:stat-entry-level}
 \end{table}
+\mw{Add more info to the table, e.g., 1. cluster size.
+2. For the instances where VG!=topMN: Percentage of instances where the VG name is among the responses of an \textit{alternative object} (as given by clustering). (for Sect 4)
+. 3. Comparison of VG and MN, demonstrating that MN is a more reliable source for entry-level names. (for Sect 4)}
 
-\paragraph{Entry-level Names in ManyNames:} As shown in Table \ref{tab:stat-entry-level}, ManyNames provides a large vocabulary of names (7970) for 25K objects. Note that this vocabulary is much larger than what state-of-the-art object detectors are typically trained on. The vocabulary of entry-level names is drastically smaller and contains only 442 types. This small set, however, covers at least 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names. 
-
-\paragraph{Entry-level Names are Instance-Dependent:} 
 \cs{Make consistent with what is (was) in the intro wrt formulation:}
+Let us focus on our two main reasons for using \mn to evaluate computational models, i.e., a dataset where actual contextualized instances are named (not prototypes or classes), and where every instance is named by many annotators.
+Regarding the first, we can show that different instances of the same class can differ in entry-level name.
+
+\mw{Old stuff here, currently redoing but Carina was too impatient so I had to push:}
 In a traditional, taxonomic view of object naming, entry-level names can be determined solely based on the object's class, meaning that all instances of a class have the same entry-level name. The MN data provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). Instead, we observe that there are many pairs of entry-level names that do not have a fixed preference ordering across instances, as illustrated in Figure \ref{fig:duck} where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators. We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \name{boy-player}, \textit{sandwich-food}, \name{building-church}, ...).
 
-\iffalse
-\sz{does this solve this? Statistics wrt entry-level of object class != entry-level of its instances to (i.e.,\ entry-levels cannot be derived on class-level)} \gbt{But, what's an object class in our data? We can't really use collection synsets, can we? Those are not really object classes?} \gbt{UPDATE: We change focus from class to ``entry-level names are instance-specific''. Matthijs is on it.}
-\fi
-
-TODO: 
-\sz{somewhere we should mention these tendencies on adequacy and agreement for (non-)entry-level names shown in Table \ref{tab:stat-entry-level}}
-
-
-\paragraph{Identifying entry-level names requires many annotators}
-\iffalse
-ManyNames was collected in four rounds of 9 annotators each.
-On average, the entry-level name differed between rounds for 20\% of objects (std.dev. 2.4\%p), suggesting that entry-level names cannot be reliably identified from too few annotators.
-Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
-\mw{@gbt: I first did it the way you suggested, i.e., by sampling, but I found the resulting plot (not shown now) too hard to interpret, even a bit misleading. I've kept this text + plot in the TeX source further below, commented out, in case you want to have a look. But I think the following is better:}
-\fi
+%ManyNames was collected in four rounds of 9 annotators each.
+%On average, the entry-level name differed between rounds for 20\% of objects (std.dev. 2.4\%p), suggesting that entry-level names cannot be reliably identified from too few annotators.
+%Figure~\ref{fig:entry-level-name-stability} shows this in a more general way.
+%\mw{@gbt: I first did it the way you suggested, i.e., by sampling, but I found the resulting plot (not shown now) too hard to interpret, even a bit misleading. I've kept this text + plot in the TeX source further below, commented out, in case you want to have a look. But I think the following is better:}
+Regarding our second reason, Figure~\ref{fig:entry-level-name-stability} shows that gathering many annotations is necessary for reliably identifying entry-level names.
 \begin{figure}[t]
-	\includegraphics[width=\columnwidth]{images/stability_analytic.png}
+	\includegraphics[width=.9\columnwidth]{images/stability_analytic.png}
 	\caption{Proportion of objects (vertical) for which the entry-level name can be confidently (95\%) identified after gathering N names (horizontal). \mw{increase plot font size}}
 	\label{fig:entry-level-name-stability}
 \end{figure}
-For each object we estimated, on the basis of its \mn response set, how many names should have been gathered for the majority name among them to be the entry-level name (as defined on the basis of 36 names) with 95\% probability. % (a reasonable confidence requirement).
-The blue line shows that, even after gathering 10 names, the majority name is  likely to be the entry-level name for only 68\% of objects (i.e.,~for 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
+For each object we estimated, on the basis of its \mn response set, how many names should have been gathered for the entry-level name (as defined on the basis of 36 names) to be the majority name among them with 95\% probability.
+The blue line shows that, even after gathering 10 names, the entry-level name is sufficiently likely to be the majority name for only 68\% of objects (i.e.,~for 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
 Gathering 20 names increases this to 78\%.
-The red line shows the same tendency but by taking only names from the cluster of the entry-level name into account (as identified by our hard clustering in \ref{sect:mn_verification}): 
-by discarding names for other objects, the entry-level name for the intended object can be confidently identified slightly more quickly (but not by much, since names for the wrong object tend to be a minority anyway).
-Both lines level out well below 100\%, reflecting that for 15\%-20\% \cs{If time permits, can you compute that individually for each domain, and mention what/if something stands out?} of objects even gathering 36 names is not enough for the entry-level name to come out as majority with 95\% probability: differences in frequencies between the contenders are simply too small.
-\cs{@mw: see discussion on slack wrt following comments - can you add what was agreed upon there?}
-\mw{@cs, @sz, @gbt: A closely related (but different) question this immediately brings to mind (of a critical reviewer?) is: how sure are we, for a given object, given the particular names we gathered, that the most frequent name in our sample (what we \emph{call} the entry-level name) is indeed the most frequent name in the population (what actually \emph{is} the entry-level name, right?)? Should we address this question earlier? I think the stats will look very similar (though they're not the same): that for 15-20\% of objects we really aren't sure.}
+Our verification results let us see that most of the remaining indeterminacy occurs within the entry-level name's \cluster:
+the red line is computed by taking only names from the \cluster of the entry-level name into account:
+by discarding names for other objects, the entry-level name for the intended object can be confidently identified more easily -- but not by much, since names for the wrong object tend not to compete for `most frequent' anyway.
+(An analogous plot for the subset of all adequate names essentially coincided with the red line, reflecting that most adequate names were intended for the same object as the entry-level name.)
+
+Note that both lines in Figure~\ref{fig:entry-level-name-stability} stay well below 100\%, reflecting that for 15\%-20\% of objects even gathering 36 names is not enough for the entry-level name to come out as majority with 95\% probability: differences in frequencies between the contenders are simply too small.
+Turning this around: for around 15\%-20\% of objects, we aren't sure that the \emph{sample} entry-level name we derive from \mn -- what we simply called the entry-level name -- in fact corresponds to the \emph{population} entry-level name.
+In these cases gathering more annotations (i.e., more than 36) could help, but it is also possible that some instances do not have a single, clear entry-level name within a mixed population, or even for a given individual.
+Either way, this indeterminacy is not expected to affect our model comparison, hence we will continue to use all entry-level names, as defined in Section~\ref{sec:intro} as the majority name in \mn.
+
+\cs{If time permits, can you compute Figure~\ref{fig:entry-level-name-stability} individually for each domain, and mention what/if something stands out?} \mw{I did this for the `cat' column, see slack, but you probably meant something different by `domain'. Anyway, there are pretty big differences between domains yes...} 
+
 
 %%%%%% BY SAMPLING, FOR GEMMA:
 % For each object that has an adequate entry-level name (adequacy $<.5$ according to our Verification results), we randomly sampled (including duplicates) a list of 36 names using the proportions in ManyNames as sampling probabilities, and computed the lowest number of collected names (i.e., the lowest index in the list) after which the entry-level name would reliably remain the most frequent one.
@@ -161,12 +171,6 @@ Both lines level out well below 100\%, reflecting that for 15\%-20\% \cs{If time
 %	\caption{}
 %	\label{fig:entry-level-name-stability}
 %\end{figure}
-
-\paragraph{TODOS (if possible)}
-\begin{itemize}
-	\item For the instances where VG!=topMN: Percentage of instances where the VG name is among the responses of an \textit{alternative object} (as given by clustering). (for Sect 4)
-	\item Comparison of VG and MN, demonstrating that MN is a more reliable source for entry-level names. ()for Sect 4)
-\end{itemize}
 
 
 %%% mode: latex
