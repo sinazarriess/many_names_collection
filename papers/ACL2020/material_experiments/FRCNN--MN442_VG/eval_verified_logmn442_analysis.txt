@@ -147,13 +147,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['hair.n.01', "hair's-breadth.n.01", 'hair.n.03', 'hair.n.04', 'haircloth.n.01', 'hair.n.06'] 
 	GT-SSIDs: ['girl.n.01', 'female_child.n.01', 'daughter.n.01', 'girlfriend.n.02', 'girl.n.05'] 	GT-CLUSTER: ('child', 'girl')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'child.n.02', 'girl.n.01', 'child.n.03', 'girlfriend.n.02', 'child.n.04', 'child.n.01', 'female_child.n.01', 'daughter.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['body_covering.n.01', 'covering.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['woman.n.01', 'adult.n.01', 'female.n.02', 'person.n.01']
 ('child', 'girl')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'female.n.02', 'adult.n.01', 'woman.n.01', 'person.n.01', 'juvenile.n.01'}
+	MN-CLUSTER-HYPERS: {'juvenile.n.01', 'woman.n.01', 'female.n.02', 'person.n.01', 'adult.n.01'}
 ERROR	
 
  2372823 ORIGINAL-RESPONSES: ['horse'] [('horse', 36)] CLUSTER: ['horse']
@@ -221,13 +222,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['chair.n.01', 'professorship.n.01', 'president.n.04', 'electric_chair.n.01', 'chair.n.05'] 
 	GT-SSIDs: ['horse.n.01', 'horse.n.02', 'cavalry.n.01', 'sawhorse.n.01', 'knight.n.02'] 	GT-CLUSTER: ('horse', 'pony')
+	MN_CLUSTER_SSIDS: {'sawhorse.n.01', 'horse.n.02', 'pony.n.05', 'pony.n.01', 'knight.n.02', 'shot_glass.n.01', 'cavalry.n.01', 'pony.n.03', 'horse.n.01', 'pony.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['equine.n.01', 'odd-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ('horse', 'pony')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'horse.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'odd-toed_ungulate.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'ungulate.n.01', 'odd-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01', 'horse.n.01'}
 ERROR	
 
  2354184 ORIGINAL-RESPONSES: ['train'] [('train', 34)] CLUSTER: ('car', 'train')
@@ -235,7 +237,8 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['car.n.01', 'car.n.02', 'car.n.03', 'car.n.04', 'cable_car.n.01'] 
 	GT-SSIDs: ['train.n.01', 'string.n.04', 'caravan.n.01', 'train.n.04', 'train.n.05', 'gearing.n.01'] 	GT-CLUSTER: ('car', 'train')
-SYNONYM_CL	{'car.n.01', 'car.n.02', 'car.n.03', 'cable_car.n.01', 'car.n.04'}
+	MN_CLUSTER_SSIDS: {'train.n.05', 'car.n.02', 'train.n.01', 'train.n.04', 'string.n.04', 'cable_car.n.01', 'car.n.01', 'car.n.04', 'gearing.n.01', 'caravan.n.01', 'car.n.03'}
+SYNONYM_CL	{'car.n.02', 'cable_car.n.01', 'car.n.01', 'car.n.04', 'car.n.03'}
 
  2365279 ORIGINAL-RESPONSES: ['giraffe'] [('giraffe', 29)] CLUSTER: ['giraffe']
 	PRED:  3 giraffe
@@ -457,13 +460,14 @@ OTHER CLUSTER ('counter', 'countertop', 'vanity') None
 WordNet::
 	PRED-SSIDS:  ['wall.n.01', 'wall.n.02', 'wall.n.03', 'wall.n.04', 'wall.n.05', 'wall.n.06', 'wall.n.07', 'rampart.n.01'] 
 	GT-SSIDs: ['bench.n.01', 'terrace.n.02', 'judiciary.n.01', 'workbench.n.01', 'bench.n.05', 'bench.n.06', 'bench.n.07'] 	GT-CLUSTER: ['bench']
+	MN_CLUSTER_SSIDS: {'terrace.n.02', 'bench.n.01', 'bench.n.06', 'bench.n.05', 'bench.n.07', 'judiciary.n.01', 'workbench.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['partition.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ['bench']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'seat.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2339493 ORIGINAL-RESPONSES: ['dog' 'sand'] [('dog', 30), ('sand', 2)] CLUSTER: ('dog',)
@@ -476,13 +480,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 	GT-CLUSTER: ('coat', 'jacket', 'suit')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'suit.n.06', 'suit.n.03', 'lawsuit.n.01', 'crown.n.11', 'jacket.n.02', 'coat.n.01', 'suit.n.01', 'jacket.n.04', 'courtship.n.01', 'jacket.n.05', 'coating.n.01', 'suit.n.05', 'coat.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 ('coat', 'jacket', 'suit')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'garment.n.01', 'overgarment.n.01', 'clothing.n.01', 'coat.n.01'}
+	MN-CLUSTER-HYPERS: {'coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01'}
 ERROR	
 
  2357801 ORIGINAL-RESPONSES: ['cabinet' 'cabinets' 'man' 'tshirt,t-shirt,t shirt' 'head' 'shirt'] [('cabinet', 12), ('cabinets', 6), ('man', 4), ('tshirt,t-shirt,t shirt', 3), ('head', 2), ('shirt', 2)] CLUSTER: ('cabinet', 'cabinets', 'cupboard')
@@ -636,13 +641,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['motorcycle.n.01'] 
 	GT-SSIDs: ['chair.n.01', 'professorship.n.01', 'president.n.04', 'electric_chair.n.01', 'chair.n.05'] 	GT-CLUSTER: ('chair', 'wheelchair')
+	MN_CLUSTER_SSIDS: {'professorship.n.01', 'wheelchair.n.01', 'chair.n.05', 'electric_chair.n.01', 'president.n.04', 'chair.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('chair', 'wheelchair')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'chair.n.01', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furniture.n.01', 'seat.n.03', 'furnishing.n.02', 'chair.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2417386 ORIGINAL-RESPONSES: ['bridge' 'building' 'train'] [('bridge', 22), ('building', 2), ('train', 2)] CLUSTER: ('bridge', 'overpass')
@@ -865,13 +871,14 @@ OTHER CLUSTER ('burger', 'hotdog') bounding box
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['male_child.n.01', 'boy.n.02', 'son.n.01', 'boy.n.04'] 	GT-CLUSTER: ('boy', 'child', 'kid')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'child.n.02', 'son.n.01', 'boy.n.04', 'kid.n.02', 'child.n.03', 'child.n.04', 'kyd.n.01', 'child.n.01', 'kid.n.05', 'boy.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['male.n.02', 'person.n.01']
 ('boy', 'child', 'kid')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'person.n.01', 'male.n.02', 'juvenile.n.01'}
+	MN-CLUSTER-HYPERS: {'person.n.01', 'juvenile.n.01', 'male.n.02'}
 CO-HYPONYMS	{'person.n.01', 'male.n.02'}
 
  2372345 ORIGINAL-RESPONSES: ['sheep'] [('sheep', 32)] CLUSTER: ['sheep']
@@ -934,13 +941,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['door.n.01', 'doorway.n.01', 'door.n.03', 'door.n.04', 'door.n.05'] 
 	GT-SSIDs: ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 	GT-CLUSTER: ('coat', 'jacket', 'shirt', 'uniform')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'uniform.n.01', 'shirt.n.01', 'crown.n.11', 'jacket.n.02', 'coat.n.01', 'jacket.n.04', 'jacket.n.05', 'coating.n.01', 'coat.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['movable_barrier.n.01', 'barrier.n.01', 'obstruction.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 ('coat', 'jacket', 'shirt', 'uniform')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'garment.n.01', 'overgarment.n.01', 'clothing.n.01', 'coat.n.01'}
+	MN-CLUSTER-HYPERS: {'coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01'}
 ERROR	
 
  2363434 ORIGINAL-RESPONSES: ['shirt' 'toothbrush'] [('shirt', 31), ('toothbrush', 3)] CLUSTER: ('shirt',)
@@ -983,13 +991,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['base.n.08', 'stand.n.02', 'stand.n.03', 'stand.n.04', 'rack.n.05', 'stand.n.06', 'point_of_view.n.01', 'stall.n.03', 'stand.n.09', 'stand.n.10', 'bandstand.n.01', 'stand.n.12'] 
 	GT-SSIDs: ['dog.n.01', 'frump.n.01', 'dog.n.03', 'cad.n.01', 'frank.n.02', 'pawl.n.01', 'andiron.n.01'] 	GT-CLUSTER: ('dalmatian', 'dog')
+	MN_CLUSTER_SSIDS: {'frump.n.01', 'frank.n.02', 'cad.n.01', 'dog.n.01', 'dalmatian.n.01', 'pawl.n.01', 'andiron.n.01', 'dalmatian.n.02', 'dog.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['support.n.10', 'device.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['canine.n.02', 'domestic_animal.n.01', 'carnivore.n.01', 'animal.n.01']
 ('dalmatian', 'dog')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'inhabitant.n.01', 'animal.n.01', 'domestic_animal.n.01', 'european.n.01', 'carnivore.n.01', 'canine.n.02', 'person.n.01'}
+	MN-CLUSTER-HYPERS: {'inhabitant.n.01', 'person.n.01', 'european.n.01', 'canine.n.02', 'carnivore.n.01', 'domestic_animal.n.01', 'animal.n.01'}
 ERROR	
 
  2401958 ORIGINAL-RESPONSES: ['jacket' 'coat'] [('jacket', 29), ('coat', 2)] CLUSTER: ('coat', 'jacket')
@@ -1002,13 +1011,14 @@ LOW COUNT MATCH
 WordNet::
 	PRED-SSIDS:  ['hair.n.01', "hair's-breadth.n.01", 'hair.n.03', 'hair.n.04', 'haircloth.n.01', 'hair.n.06'] 
 	GT-SSIDs: ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 	GT-CLUSTER: ('girl', 'human', 'man', 'person', 'woman')
+	MN_CLUSTER_SSIDS: {'charwoman.n.01', 'girl.n.01', 'person.n.01', 'woman.n.02', 'girl.n.05', 'man.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'girlfriend.n.02', 'female_child.n.01', 'daughter.n.01', 'womanhood.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'world.n.08', 'woman.n.01', 'person.n.02', 'man.n.05', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['body_covering.n.01', 'covering.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 ('girl', 'human', 'man', 'person', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'primate.n.02', 'animal.n.01', 'vertebrate.n.01', 'adult.n.01', 'hominid.n.01', 'male.n.02', 'woman.n.01', 'person.n.01', 'placental.n.01', 'mammal.n.01', 'causal_agent.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'woman.n.01', 'vertebrate.n.01', 'female.n.02', 'person.n.01', 'hominid.n.01', 'male.n.02', 'causal_agent.n.01', 'primate.n.02', 'mammal.n.01', 'chordate.n.01', 'organism.n.01', 'placental.n.01', 'adult.n.01'}
 ERROR	
 
  2371704 ORIGINAL-RESPONSES: ['vase'] [('vase', 32)] CLUSTER: ('jug', 'pottery', 'vase')
@@ -1066,13 +1076,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['cheese.n.01', 'tall_mallow.n.01'] 
 	GT-SSIDs: ['pizza.n.01'] 	GT-CLUSTER: ('pizza', 'pizza slice')
+	MN_CLUSTER_SSIDS: {'pizza.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['dairy_product.n.01', 'food.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('pizza', 'pizza slice')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'food.n.01', 'nutriment.n.01', 'dish.n.02'}
+	MN-CLUSTER-HYPERS: {'food.n.01', 'dish.n.02', 'nutriment.n.01'}
 ERROR	
 
  2340999 ORIGINAL-RESPONSES: ['truck' 'car' 'wheel'] [('truck', 24), ('car', 4), ('wheel', 2)] CLUSTER: ('car', 'pickup', 'pickup truck', 'truck')
@@ -1100,13 +1111,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['head.n.01', 'head.n.02', 'mind.n.01', 'head.n.04', 'head.n.05', 'head.n.06', 'head.n.07', 'fountainhead.n.02', 'head.n.09', 'head.n.10', 'head.n.11', 'capitulum.n.01', 'principal.n.02', 'head.n.14', 'head.n.15', 'promontory.n.01', 'head.n.17', 'head.n.18', 'forefront.n.01', 'pass.n.09', 'headway.n.02', 'point.n.20', 'question.n.02', 'heading.n.01', 'head.n.25', 'head.n.26', 'read/write_head.n.01', 'head.n.28', 'head.n.29', 'head.n.30', 'head.n.31', 'drumhead.n.01', 'oral_sex.n.01'] 
 	GT-SSIDs: ['sheep.n.01', 'sheep.n.02', 'sheep.n.03'] 	GT-CLUSTER: ('animal', 'goat', 'sheep')
+	MN_CLUSTER_SSIDS: {'goat.n.01', 'capricorn.n.03', 'sheep.n.01', 'butt.n.03', 'capricorn.n.01', 'sheep.n.02', 'animal.n.01', 'sheep.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['bovid.n.01', 'ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ('animal', 'goat', 'sheep')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'animal.n.01', 'living_thing.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'whole.n.02', 'bovid.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'object.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'animal.n.01', 'living_thing.n.01', 'vertebrate.n.01', 'object.n.01', 'ungulate.n.01', 'whole.n.02', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'organism.n.01', 'placental.n.01', 'bovid.n.01'}
 ERROR	
 
  2361310 ORIGINAL-RESPONSES: ['shirt' 'tshirt,t-shirt,t shirt' 'dress'] [('shirt', 29), ('tshirt,t-shirt,t shirt', 3), ('dress', 2)] CLUSTER: ('dress', 'shirt', 't-shirt')
@@ -1134,13 +1146,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['roof.n.01', 'roof.n.02', 'roof.n.03', 'ceiling.n.03'] 
 	GT-SSIDs: ['truck.n.01', 'hand_truck.n.01'] 	GT-CLUSTER: ('trailer', 'train', 'truck')
+	MN_CLUSTER_SSIDS: {'trailer.n.04', 'train.n.05', 'trailer.n.03', 'hand_truck.n.01', 'train.n.01', 'train.n.04', 'string.n.04', 'truck.n.01', 'caravan.n.01', 'gearing.n.01', 'preview.n.01', 'dawdler.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['protective_covering.n.01', 'covering.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ('trailer', 'train', 'truck')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'conveyance.n.03', 'self-propelled_vehicle.n.01', 'public_transport.n.01', 'container.n.01', 'person.n.01', 'instrumentality.n.03', 'nonworker.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'idler.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'nonworker.n.01', 'public_transport.n.01', 'self-propelled_vehicle.n.01', 'person.n.01', 'conveyance.n.03', 'vehicle.n.01', 'container.n.01', 'idler.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2316318 ORIGINAL-RESPONSES: ['bench' 'chair'] [('bench', 29), ('chair', 5)] CLUSTER: ('bench', 'chair')
@@ -1189,13 +1202,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['fruit.n.01', 'yield.n.03', 'fruit.n.03'] 
 	GT-SSIDs: ['cake.n.01', 'patty.n.01', 'cake.n.03'] 	GT-CLUSTER: ('bread', 'cake', 'food')
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'boodle.n.01', 'food.n.01', 'food.n.03', 'cake.n.03', 'bread.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['reproductive_structure.n.01', 'plant_organ.n.01', 'plant_part.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['block.n.01']
 ('bread', 'cake', 'food')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'baked_goods.n.01', 'matter.n.03', 'block.n.01', 'starches.n.01', 'food.n.02', 'substance.n.07'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'baked_goods.n.01', 'matter.n.03', 'block.n.01', 'starches.n.01', 'food.n.02'}
 ERROR	
 
  2405807 ORIGINAL-RESPONSES: ['bathtub' 'tub'] [('bathtub', 15), ('tub', 12)] CLUSTER: ('bath tub', 'bathtub', 'tub')
@@ -1213,6 +1227,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['person.n.01', 'person.n.02', 'person.n.03'] 
 	GT-SSIDs: ['skier.n.01'] 	GT-CLUSTER: ('boy', 'child', 'skier', 'woman')
+	MN_CLUSTER_SSIDS: {'womanhood.n.02', 'skier.n.01', 'male_child.n.01', 'child.n.02', 'woman.n.01', 'charwoman.n.01', 'son.n.01', 'boy.n.04', 'child.n.03', 'child.n.04', 'child.n.01', 'woman.n.02', 'boy.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['causal_agent.n.01', 'organism.n.01']
 HYPERNYM? 
@@ -1274,13 +1289,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['floor.n.01', 'floor.n.02', 'floor.n.03', 'floor.n.04', 'floor.n.05', 'floor.n.06', 'floor.n.07', 'floor.n.08', 'floor.n.09', 'floor.n.10'] 
 	GT-SSIDs: ['table.n.01', 'table.n.02', 'table.n.03', 'mesa.n.01', 'table.n.05', 'board.n.04'] 	GT-CLUSTER: ('counter', 'table', 'wood')
+	MN_CLUSTER_SSIDS: {'table.n.03', 'counter.n.03', 'counter.n.07', 'wood.n.01', 'table.n.01', 'wood.n.03', 'woodwind.n.01', 'wood.n.04', 'wood.n.06', 'rejoinder.n.01', 'buffet.n.01', 'counterpunch.n.01', 'table.n.05', 'counter.n.01', 'forest.n.01', 'counter.n.08', 'counter.n.02', 'counter.n.05', 'wood.n.08', 'table.n.02', 'board.n.04', 'wood.n.05', 'mesa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['horizontal_surface.n.01', 'surface.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['array.n.01', 'arrangement.n.02', 'group.n.01']
 ('counter', 'table', 'wood')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'substance.n.01', 'entity.n.01', 'physical_entity.n.01', 'array.n.01', 'material.n.01', 'matter.n.03', 'relation.n.01', 'furnishing.n.02', 'instrumentality.n.03', 'plant_material.n.01', 'arrangement.n.02', 'part.n.01', 'table.n.02', 'furniture.n.01', 'group.n.01'}
+	MN-CLUSTER-HYPERS: {'entity.n.01', 'matter.n.03', 'arrangement.n.02', 'table.n.02', 'part.n.01', 'array.n.01', 'furniture.n.01', 'plant_material.n.01', 'furnishing.n.02', 'group.n.01', 'physical_entity.n.01', 'substance.n.01', 'relation.n.01', 'material.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2374930 ORIGINAL-RESPONSES: ['dog'] [('dog', 33)] CLUSTER: ['dog']
@@ -1353,13 +1369,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 
 	GT-SSIDs: ['chair.n.01', 'professorship.n.01', 'president.n.04', 'electric_chair.n.01', 'chair.n.05'] 	GT-CLUSTER: ('chair', 'sofa')
+	MN_CLUSTER_SSIDS: {'professorship.n.01', 'chair.n.05', 'electric_chair.n.01', 'president.n.04', 'chair.n.01', 'sofa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('chair', 'sofa')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'seat.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2395484 ORIGINAL-RESPONSES: ['truck' 'vehicle' 'car'] [('truck', 27), ('vehicle', 4), ('car', 2)] CLUSTER: ('car', 'truck', 'vehicle')
@@ -1377,13 +1394,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['snow.n.01', 'snow.n.02', 'snow.n.03', 'coke.n.03'] 
 	GT-SSIDs: ['skier.n.01'] 	GT-CLUSTER: ('human', 'man', 'person', 'skier')
+	MN_CLUSTER_SSIDS: {'man.n.01', 'skier.n.01', 'serviceman.n.01', 'person.n.02', 'man.n.05', 'person.n.03', 'man.n.08', 'valet.n.01', 'man.n.09', 'man.n.10', 'person.n.01', 'man.n.06', 'homo.n.02', 'world.n.08', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['precipitation.n.03', 'weather.n.01', 'atmospheric_phenomenon.n.01', 'physical_phenomenon.n.01', 'natural_phenomenon.n.01', 'phenomenon.n.01', 'process.n.06']
 HYPERNYM? 
 	MN-HYPERS: ['athlete.n.01', 'contestant.n.01', 'person.n.01']
 ('human', 'man', 'person', 'skier')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'primate.n.02', 'animal.n.01', 'vertebrate.n.01', 'adult.n.01', 'hominid.n.01', 'male.n.02', 'athlete.n.01', 'placental.n.01', 'person.n.01', 'mammal.n.01', 'contestant.n.01', 'causal_agent.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'animal.n.01', 'adult.n.01', 'vertebrate.n.01', 'athlete.n.01', 'causal_agent.n.01', 'male.n.02', 'person.n.01', 'primate.n.02', 'mammal.n.01', 'chordate.n.01', 'organism.n.01', 'placental.n.01', 'hominid.n.01'}
 ERROR	
 
  2316232 ORIGINAL-RESPONSES: ['boat'] [('boat', 34)] CLUSTER: ['boat']
@@ -1396,13 +1414,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['car.n.01', 'car.n.02', 'car.n.03', 'car.n.04', 'cable_car.n.01'] 
 	GT-SSIDs: ['train.n.01', 'string.n.04', 'caravan.n.01', 'train.n.04', 'train.n.05', 'gearing.n.01'] 	GT-CLUSTER: ['train']
+	MN_CLUSTER_SSIDS: {'train.n.05', 'train.n.01', 'train.n.04', 'string.n.04', 'gearing.n.01', 'caravan.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['public_transport.n.01', 'conveyance.n.03', 'instrumentality.n.03']
 ['train']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'conveyance.n.03', 'public_transport.n.01'}
+	MN-CLUSTER-HYPERS: {'public_transport.n.01', 'conveyance.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2407975 ORIGINAL-RESPONSES: ['jacket' 'coat' 'tshirt,t-shirt,t shirt'] [('jacket', 22), ('coat', 6), ('tshirt,t-shirt,t shirt', 2)] CLUSTER: ('coat', 'jacket', 'parka', 't-shirt')
@@ -1415,6 +1434,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['baby.n.01', 'baby.n.02', 'child.n.03', 'baby.n.04', 'baby.n.05', 'baby.n.06', 'baby.n.07'] 
 	GT-SSIDs: ['male_child.n.01', 'boy.n.02', 'son.n.01', 'boy.n.04'] 	GT-CLUSTER: ('boy', 'child', 'kid')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'child.n.02', 'son.n.01', 'boy.n.04', 'kid.n.02', 'child.n.03', 'child.n.04', 'kyd.n.01', 'child.n.01', 'kid.n.05', 'boy.n.02'}
 SYNONYM_CL	{'child.n.03'}
 
  625 ORIGINAL-RESPONSES: ['car' 'wheel'] [('car', 28), ('wheel', 4)] CLUSTER: ('car',)
@@ -1452,6 +1472,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['flower.n.01', 'flower.n.02', 'flower.n.03'] 
 	GT-SSIDs: ['cake.n.01', 'patty.n.01', 'cake.n.03'] 	GT-CLUSTER: ['cake']
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'cake.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['angiosperm.n.01', 'spermatophyte.n.01', 'vascular_plant.n.01', 'plant.n.02']
 HYPERNYM? 
@@ -1466,13 +1487,14 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['door.n.01', 'doorway.n.01', 'door.n.03', 'door.n.04', 'door.n.05'] 
 	GT-SSIDs: ['avant-garde.n.01', 'vanguard.n.01', 'van.n.03', 'van.n.04', 'van.n.05'] 	GT-CLUSTER: ('automobile', 'truck', 'van', 'vehicle')
+	MN_CLUSTER_SSIDS: {'avant-garde.n.01', 'vanguard.n.01', 'hand_truck.n.01', 'vehicle.n.01', 'van.n.04', 'truck.n.01', 'vehicle.n.02', 'van.n.03', 'fomite.n.01', 'van.n.05', 'vehicle.n.03', 'car.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['movable_barrier.n.01', 'barrier.n.01', 'obstruction.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['artistic_movement.n.01', 'movement.n.04', 'social_group.n.01', 'group.n.01']
 ('automobile', 'truck', 'van', 'vehicle')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'movement.n.04', 'conveyance.n.03', 'artistic_movement.n.01', 'instrumentality.n.03', 'social_group.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'group.n.01'}
+	MN-CLUSTER-HYPERS: {'artistic_movement.n.01', 'movement.n.04', 'self-propelled_vehicle.n.01', 'social_group.n.01', 'conveyance.n.03', 'vehicle.n.01', 'group.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2350235 ORIGINAL-RESPONSES: ['bull' 'cow' 'animal'] [('bull', 14), ('cow', 10), ('animal', 3)] CLUSTER: ('animal', 'bull', 'cow', 'yak')
@@ -1490,13 +1512,14 @@ SAME CLUSTER ('baseball player', 'man', 'pitcher', 'player')
 WordNet::
 	PRED-SSIDS:  ['vase.n.01'] 
 	GT-SSIDs: ['cup.n.01', 'cup.n.02', 'cup.n.03', 'cup.n.04', 'cup.n.05', 'cup.n.06', 'cup.n.07', 'cup.n.08'] 	GT-CLUSTER: ('cup', 'glass', 'mug')
+	MN_CLUSTER_SSIDS: {'methamphetamine.n.01', 'cup.n.04', 'cup.n.02', 'cup.n.03', 'glass.n.02', 'mug.n.01', 'cup.n.07', 'cup.n.08', 'chump.n.01', 'cup.n.05', 'glass.n.01', 'field_glass.n.01', 'looking_glass.n.01', 'glass.n.07', 'glass.n.03', 'countenance.n.03', 'cup.n.01', 'cup.n.06', 'mug.n.04'}
 HYPONYM? 
 	PRED-HYPERS: ['jar.n.01', 'vessel.n.03', 'container.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['container.n.01', 'crockery.n.01', 'instrumentality.n.03', 'tableware.n.01', 'artifact.n.01', 'ware.n.01']
 ('cup', 'glass', 'mug')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'measure.n.02', 'container.n.01', 'tableware.n.01', 'ware.n.01', 'containerful.n.01', 'matter.n.03', 'crockery.n.01', 'solid.n.01', 'instrumentality.n.03', 'artifact.n.01', 'indefinite_quantity.n.01'}
+	MN-CLUSTER-HYPERS: {'matter.n.03', 'measure.n.02', 'artifact.n.01', 'ware.n.01', 'solid.n.01', 'container.n.01', 'crockery.n.01', 'containerful.n.01', 'indefinite_quantity.n.01', 'tableware.n.01', 'instrumentality.n.03'}
 CO-HYPONYMS	{'instrumentality.n.03', 'container.n.01'}
 
  2370780 ORIGINAL-RESPONSES: ['train'] [('train', 36)] CLUSTER: ['train']
@@ -1534,13 +1557,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['land.n.04', 'reason.n.01', 'earth.n.02', 'footing.n.02', 'ground.n.05', 'background.n.02', 'land.n.02', 'ground.n.08', 'ground.n.09', 'ground.n.10', 'flat_coat.n.01'] 
 	GT-SSIDs: ['car.n.01', 'car.n.02', 'car.n.03', 'car.n.04', 'cable_car.n.01'] 	GT-CLUSTER: ('car', 'toy', 'tractor', 'truck', 'vehicle')
+	MN_CLUSTER_SSIDS: {'toy_dog.n.01', 'tractor.n.02', 'toy.n.03', 'car.n.02', 'toy.n.02', 'miniature.n.02', 'tractor.n.01', 'hand_truck.n.01', 'vehicle.n.01', 'cable_car.n.01', 'truck.n.01', 'vehicle.n.02', 'car.n.01', 'fomite.n.01', 'car.n.04', 'plaything.n.01', 'vehicle.n.03', 'car.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ('car', 'toy', 'tractor', 'truck', 'vehicle')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'conveyance.n.03', 'instrumentality.n.03', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'conveyance.n.03', 'vehicle.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2323600 ORIGINAL-RESPONSES: ['train'] [('train', 24)] CLUSTER: ('caboose', 'car', 'train', 'train car')
@@ -1548,13 +1572,14 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['door.n.01', 'doorway.n.01', 'door.n.03', 'door.n.04', 'door.n.05'] 
 	GT-SSIDs: ['train.n.01', 'string.n.04', 'caravan.n.01', 'train.n.04', 'train.n.05', 'gearing.n.01'] 	GT-CLUSTER: ('caboose', 'car', 'train', 'train car')
+	MN_CLUSTER_SSIDS: {'train.n.05', 'galley.n.04', 'cabin_car.n.01', 'car.n.03', 'car.n.02', 'train.n.01', 'train.n.04', 'string.n.04', 'cable_car.n.01', 'car.n.04', 'gearing.n.01', 'caravan.n.01', 'car.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['movable_barrier.n.01', 'barrier.n.01', 'obstruction.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['public_transport.n.01', 'conveyance.n.03', 'instrumentality.n.03']
 ('caboose', 'car', 'train', 'train car')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'structure.n.01', 'self-propelled_vehicle.n.01', 'area.n.05', 'container.n.01', 'public_transport.n.01', 'conveyance.n.03', 'instrumentality.n.03', 'kitchen.n.01', 'room.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'public_transport.n.01', 'room.n.01', 'kitchen.n.01', 'self-propelled_vehicle.n.01', 'conveyance.n.03', 'area.n.05', 'vehicle.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'structure.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2344881 ORIGINAL-RESPONSES: ['cat'] [('cat', 36)] CLUSTER: ['cat']
@@ -1572,13 +1597,14 @@ OTHER CLUSTER ('plate',) bounding box
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['desk.n.01'] 	GT-CLUSTER: ('counter', 'desk', 'table')
+	MN_CLUSTER_SSIDS: {'counter.n.05', 'table.n.03', 'counterpunch.n.01', 'rejoinder.n.01', 'table.n.02', 'table.n.01', 'counter.n.03', 'counter.n.01', 'mesa.n.01', 'counter.n.07', 'table.n.05', 'board.n.04', 'desk.n.01', 'counter.n.08', 'buffet.n.01', 'counter.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['table.n.02', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('counter', 'desk', 'table')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'furnishing.n.02', 'instrumentality.n.03', 'arrangement.n.02', 'table.n.02', 'furniture.n.01', 'group.n.01'}
+	MN-CLUSTER-HYPERS: {'arrangement.n.02', 'table.n.02', 'array.n.01', 'furniture.n.01', 'furnishing.n.02', 'group.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2404868 ORIGINAL-RESPONSES: ['shirt' 'tshirt,t-shirt,t shirt'] [('shirt', 24), ('tshirt,t-shirt,t shirt', 7)] CLUSTER: ('gown', 'shirt', 't-shirt')
@@ -1601,13 +1627,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['soil.n.02', 'dirt.n.02', 'crap.n.01', 'scandal.n.01'] 
 	GT-SSIDs: ['sandwich.n.01'] 	GT-CLUSTER: ('food', 'sandwich')
+	MN_CLUSTER_SSIDS: {'food.n.01', 'sandwich.n.01', 'food.n.02', 'food.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['earth.n.02', 'material.n.01', 'substance.n.01', 'matter.n.03', 'part.n.01', 'physical_entity.n.01', 'relation.n.01', 'entity.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['snack_food.n.01', 'dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('food', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'matter.n.03', 'food.n.01', 'nutriment.n.01', 'dish.n.02', 'snack_food.n.01'}
 ERROR	
 
  2375187 ORIGINAL-RESPONSES: ['bird'] [('bird', 34)] CLUSTER: ['bird']
@@ -1735,7 +1762,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['cabinet.n.01', 'cabinet.n.02', 'cabinet.n.03', 'cabinet.n.04'] 
 	GT-SSIDs: ['cabinet.n.01', 'cabinet.n.02', 'cabinet.n.03', 'cabinet.n.04'] 	GT-CLUSTER: ('cabinet', 'cupboard')
-SYNONYM	{'cabinet.n.03', 'cabinet.n.02', 'cabinet.n.01', 'cabinet.n.04'}
+SYNONYM	{'cabinet.n.04', 'cabinet.n.01', 'cabinet.n.02', 'cabinet.n.03'}
 
  2348483 ORIGINAL-RESPONSES: ['zebra' 'animal'] [('zebra', 32), ('animal', 2)] CLUSTER: ('animal', 'zebra')
 	PRED:  8 zebra
@@ -1767,13 +1794,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['pan.n.01', 'pan.n.02', 'pan.n.03', 'pan.n.04'] 
 	GT-SSIDs: ['salad.n.01'] 	GT-CLUSTER: ('broccoli', 'broccoli and cheese', 'food', 'salad', 'vegetables')
+	MN_CLUSTER_SSIDS: {'salad.n.01', 'broccoli.n.01', 'vegetable.n.02', 'food.n.03', 'food.n.01', 'vegetable.n.01', 'broccoli.n.02', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['cooking_utensil.n.01', 'kitchen_utensil.n.01', 'utensil.n.01', 'implement.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('broccoli', 'broccoli and cheese', 'food', 'salad', 'vegetables')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'herb.n.01', 'vascular_plant.n.01', 'food.n.02', 'matter.n.03', 'crucifer.n.01', 'plant.n.02', 'dish.n.02', 'produce.n.01', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'matter.n.03', 'food.n.01', 'herb.n.01', 'produce.n.01', 'vascular_plant.n.01', 'nutriment.n.01', 'dish.n.02', 'crucifer.n.01', 'plant.n.02', 'food.n.02'}
 ERROR	
 
  2336632 ORIGINAL-RESPONSES: ['container' 'water' 'fruit' 'bottle'] [('container', 11), ('water', 5), ('fruit', 2), ('bottle', 2)] CLUSTER: ('aquarium', 'bottle', 'bowl', 'container', 'tank')
@@ -1781,13 +1809,14 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['oven.n.01'] 
 	GT-SSIDs: ['container.n.01'] 	GT-CLUSTER: ('aquarium', 'bottle', 'bowl', 'container', 'tank')
+	MN_CLUSTER_SSIDS: {'bottle.n.03', 'bowl.n.07', 'bowling_ball.n.01', 'bottle.n.01', 'stadium.n.01', 'bowl.n.08', 'roll.n.15', 'tank.n.02', 'bowl.n.02', 'container.n.01', 'tank.n.01', 'bowl.n.04', 'bowl.n.01', 'tank.n.03', 'aquarium.n.01', 'tank_car.n.01', 'bowl.n.03', 'cooler.n.03', 'bottle.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['kitchen_appliance.n.01', 'home_appliance.n.01', 'appliance.n.02', 'durables.n.01', 'consumer_goods.n.01', 'commodity.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['instrumentality.n.03']
 ('aquarium', 'bottle', 'bowl', 'container', 'tank')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'armored_vehicle.n.01', 'structure.n.01', 'container.n.01', 'area.n.05', 'vivarium.n.01', 'tracked_vehicle.n.01', 'tank.n.02', 'self-propelled_vehicle.n.01', 'enclosure.n.01', 'vessel.n.03', 'instrumentality.n.03', 'military_vehicle.n.01', 'vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'tank.n.02', 'tracked_vehicle.n.01', 'vessel.n.03', 'self-propelled_vehicle.n.01', 'vivarium.n.01', 'area.n.05', 'vehicle.n.01', 'enclosure.n.01', 'military_vehicle.n.01', 'container.n.01', 'armored_vehicle.n.01', 'structure.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2346343 ORIGINAL-RESPONSES: ['building' 'castle' 'clock tower'] [('building', 18), ('castle', 3), ('clock tower', 2)] CLUSTER: ('building', 'castle', 'palace', 'parliament')
@@ -1865,13 +1894,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['light.n.01', 'light.n.02', 'light.n.03', 'luminosity.n.01', 'light.n.05', 'light.n.06', 'light.n.07', 'light.n.08', 'light.n.09', 'light.n.10', 'sparkle.n.01', 'light.n.12', 'inner_light.n.01', 'light.n.14', 'lighter.n.02'] 
 	GT-SSIDs: ['bathtub.n.01'] 	GT-CLUSTER: ('bath', 'bathtub', 'tub')
+	MN_CLUSTER_SSIDS: {'bath.n.01', 'bathroom.n.01', 'bathtub.n.01', 'tub.n.02', 'bath.n.02', 'tub.n.03', 'bath.n.04', 'bath.n.05'}
 HYPONYM? 
 	PRED-HYPERS: ['actinic_radiation.n.01', 'electromagnetic_radiation.n.01', 'radiation.n.01', 'energy.n.01', 'physical_phenomenon.n.01', 'natural_phenomenon.n.01', 'phenomenon.n.01', 'process.n.06']
 HYPERNYM? 
 	MN-HYPERS: ['vessel.n.03', 'container.n.01', 'instrumentality.n.03']
 ('bath', 'bathtub', 'tub')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'container.n.01', 'vessel.n.03'}
+	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'vessel.n.03', 'container.n.01'}
 ERROR	
 
  2345008 ORIGINAL-RESPONSES: ['giraffe'] [('giraffe', 36)] CLUSTER: ['giraffe']
@@ -1884,13 +1914,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['hair.n.01', "hair's-breadth.n.01", 'hair.n.03', 'hair.n.04', 'haircloth.n.01', 'hair.n.06'] 
 	GT-SSIDs: ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 	GT-CLUSTER: ('man', 'person', 'woman')
+	MN_CLUSTER_SSIDS: {'womanhood.n.02', 'man.n.01', 'charwoman.n.01', 'serviceman.n.01', 'person.n.02', 'woman.n.01', 'man.n.05', 'person.n.03', 'man.n.08', 'valet.n.01', 'man.n.09', 'man.n.10', 'person.n.01', 'man.n.06', 'homo.n.02', 'woman.n.02', 'world.n.08', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['body_covering.n.01', 'covering.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 ('man', 'person', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'adult.n.01', 'male.n.02', 'person.n.01', 'causal_agent.n.01'}
+	MN-CLUSTER-HYPERS: {'causal_agent.n.01', 'person.n.01', 'male.n.02', 'female.n.02', 'organism.n.01', 'adult.n.01'}
 ERROR	
 
  2366481 ORIGINAL-RESPONSES: ['shirt'] [('shirt', 29)] CLUSTER: ('dress shirt', 'shirt')
@@ -1963,13 +1994,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['board.n.01', 'board.n.02', 'board.n.03', 'board.n.04', 'display_panel.n.01', 'dining_table.n.01', 'control_panel.n.01', 'circuit_board.n.01', 'board.n.09'] 
 	GT-SSIDs: ['cake.n.01', 'patty.n.01', 'cake.n.03'] 	GT-CLUSTER: ('cake', 'cheesecake', 'pie')
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'proto-indo_european.n.01', 'cake.n.03', 'cheesecake.n.02', 'pie.n.01', 'cheesecake.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['committee.n.01', 'administrative_unit.n.01', 'unit.n.03', 'organization.n.01', 'social_group.n.01', 'group.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['block.n.01']
 ('cake', 'cheesecake', 'pie')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'cake.n.03', 'baked_goods.n.01', 'pastry.n.02', 'block.n.01', 'food.n.02'}
+	MN-CLUSTER-HYPERS: {'baked_goods.n.01', 'cake.n.03', 'block.n.01', 'pastry.n.02', 'food.n.02'}
 ERROR	
 
  2368254 ORIGINAL-RESPONSES: ['shirt' 'tie'] [('shirt', 15), ('tie', 4)] CLUSTER: ('shirt', 'uniform')
@@ -2107,13 +2139,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['shirt.n.01'] 
 	GT-SSIDs: ['skater.n.01'] 	GT-CLUSTER: ('boy', 'man', 'person', 'skateboarder', 'skater')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'person.n.01', 'skateboarder.n.01', 'man.n.01', 'son.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'boy.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'world.n.08', 'person.n.02', 'boy.n.04', 'man.n.05', 'skater.n.01', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['athlete.n.01', 'contestant.n.01', 'person.n.01']
 ('boy', 'man', 'person', 'skateboarder', 'skater')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'adult.n.01', 'athlete.n.01', 'male.n.02', 'person.n.01', 'contestant.n.01', 'causal_agent.n.01', 'skater.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'skater.n.01', 'athlete.n.01', 'causal_agent.n.01', 'person.n.01', 'male.n.02', 'organism.n.01', 'adult.n.01'}
 ERROR	
 
  2402363 ORIGINAL-RESPONSES: ['carpet' 'floor' 'rug' 'cat' 'bed'] [('carpet', 8), ('floor', 6), ('rug', 5), ('cat', 4), ('bed', 3)] CLUSTER: ('carpet', 'floor', 'rug')
@@ -2347,13 +2380,14 @@ LOW COUNT MATCH
 WordNet::
 	PRED-SSIDS:  ['sauce.n.01'] 
 	GT-SSIDs: ['cheese.n.01', 'tall_mallow.n.01'] 	GT-CLUSTER: ('cheese', 'food')
+	MN_CLUSTER_SSIDS: {'tall_mallow.n.01', 'food.n.03', 'food.n.01', 'cheese.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['condiment.n.01', 'flavorer.n.01', 'ingredient.n.03', 'foodstuff.n.02', 'food.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['dairy_product.n.01', 'food.n.02']
 ('cheese', 'food')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'food.n.02', 'dairy_product.n.01', 'matter.n.03', 'substance.n.07'}
+	MN-CLUSTER-HYPERS: {'dairy_product.n.01', 'substance.n.07', 'food.n.02', 'matter.n.03'}
 ERROR	
 
  2398224 ORIGINAL-RESPONSES: ['chicken' 'bird'] [('chicken', 4), ('bird', 2)] CLUSTER: ('bird', 'chicken', 'turkey')
@@ -2366,6 +2400,7 @@ LOW COUNT MATCH
 WordNet::
 	PRED-SSIDS:  ['shirt.n.01'] 
 	GT-SSIDs: ['dress.n.01', 'attire.n.01', 'apparel.n.01'] 	GT-CLUSTER: ('dress',)
+	MN_CLUSTER_SSIDS: {'dress.n.01', 'attire.n.01', 'apparel.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
@@ -2410,13 +2445,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['shirt.n.01'] 
 	GT-SSIDs: ['child.n.01', 'child.n.02', 'child.n.03', 'child.n.04'] 	GT-CLUSTER: ('boy', 'child', 'person')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'child.n.02', 'person.n.02', 'son.n.01', 'boy.n.04', 'person.n.03', 'person.n.01', 'child.n.03', 'child.n.04', 'child.n.01', 'boy.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['juvenile.n.01', 'person.n.01']
 ('boy', 'child', 'person')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'male.n.02', 'person.n.01', 'causal_agent.n.01', 'juvenile.n.01'}
+	MN-CLUSTER-HYPERS: {'juvenile.n.01', 'causal_agent.n.01', 'person.n.01', 'male.n.02', 'organism.n.01'}
 ERROR	
 
  2326790 ORIGINAL-RESPONSES: ['man' 'person'] [('man', 25), ('person', 3)] CLUSTER: ('biker', 'man', 'person', 'rider')
@@ -2434,13 +2470,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['head.n.01', 'head.n.02', 'mind.n.01', 'head.n.04', 'head.n.05', 'head.n.06', 'head.n.07', 'fountainhead.n.02', 'head.n.09', 'head.n.10', 'head.n.11', 'capitulum.n.01', 'principal.n.02', 'head.n.14', 'head.n.15', 'promontory.n.01', 'head.n.17', 'head.n.18', 'forefront.n.01', 'pass.n.09', 'headway.n.02', 'point.n.20', 'question.n.02', 'heading.n.01', 'head.n.25', 'head.n.26', 'read/write_head.n.01', 'head.n.28', 'head.n.29', 'head.n.30', 'head.n.31', 'drumhead.n.01', 'oral_sex.n.01'] 
 	GT-SSIDs: ['cow.n.01', 'cow.n.02', 'cow.n.03'] 	GT-CLUSTER: ['cow']
+	MN_CLUSTER_SSIDS: {'cow.n.02', 'cow.n.01', 'cow.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['cattle.n.01', 'bovine.n.01', 'bovid.n.01', 'ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['cow']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'cattle.n.01', 'chordate.n.01', 'bovid.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'bovine.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'cattle.n.01', 'animal.n.01', 'vertebrate.n.01', 'bovine.n.01', 'ungulate.n.01', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01', 'bovid.n.01'}
 ERROR	
 
  2377607 ORIGINAL-RESPONSES: ['boy' 'skateboarder' 'skater' 'child' 'person'] [('boy', 9), ('skateboarder', 8), ('skater', 5), ('child', 3), ('person', 3)] CLUSTER: ('boy', 'child', 'person', 'skateboarder', 'skater')
@@ -2478,13 +2515,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['face.n.01', 'expression.n.01', 'face.n.03', 'face.n.04', 'face.n.05', 'side.n.04', 'face.n.07', 'face.n.08', 'grimace.n.01', 'font.n.01', 'face.n.11', 'boldness.n.02', 'face.n.13'] 
 	GT-SSIDs: ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 	GT-CLUSTER: ('boy', 'man', 'person', 'photographer')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'person.n.01', 'photographer.n.01', 'man.n.01', 'son.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'boy.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'world.n.08', 'person.n.02', 'boy.n.04', 'man.n.05', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 ('boy', 'man', 'person', 'photographer')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'adult.n.01', 'male.n.02', 'person.n.01', 'artist.n.01', 'causal_agent.n.01', 'creator.n.02'}
+	MN-CLUSTER-HYPERS: {'causal_agent.n.01', 'person.n.01', 'male.n.02', 'artist.n.01', 'creator.n.02', 'organism.n.01', 'adult.n.01'}
 ERROR	
 
  2406932 ORIGINAL-RESPONSES: ['dog'] [('dog', 30)] CLUSTER: ['dog']
@@ -2522,13 +2560,14 @@ OTHER CLUSTER ('boy', 'man', 'person', 'skateboarder', 'skater') None
 WordNet::
 	PRED-SSIDS:  ['wall.n.01', 'wall.n.02', 'wall.n.03', 'wall.n.04', 'wall.n.05', 'wall.n.06', 'wall.n.07', 'rampart.n.01'] 
 	GT-SSIDs: ['car.n.01', 'car.n.02', 'car.n.03', 'car.n.04', 'cable_car.n.01'] 	GT-CLUSTER: ('car', 'truck', 'vehicle')
+	MN_CLUSTER_SSIDS: {'car.n.02', 'hand_truck.n.01', 'vehicle.n.01', 'cable_car.n.01', 'truck.n.01', 'vehicle.n.02', 'car.n.01', 'fomite.n.01', 'car.n.04', 'vehicle.n.03', 'car.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['partition.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ('car', 'truck', 'vehicle')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'conveyance.n.03', 'instrumentality.n.03', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'conveyance.n.03', 'vehicle.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2371817 ORIGINAL-RESPONSES: ['desk' 'table' 'laptop' 'keyboard'] [('desk', 21), ('table', 3), ('laptop', 2), ('keyboard', 2)] CLUSTER: ('desk', 'table')
@@ -2541,13 +2580,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['male_child.n.01', 'boy.n.02', 'son.n.01', 'boy.n.04'] 
 	GT-SSIDs: ['girl.n.01', 'female_child.n.01', 'daughter.n.01', 'girlfriend.n.02', 'girl.n.05'] 	GT-CLUSTER: ('child', 'girl', 'player', 'tennis player')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'child.n.02', 'musician.n.01', 'girl.n.01', 'tennis_player.n.01', 'child.n.03', 'girlfriend.n.02', 'player.n.04', 'child.n.04', 'child.n.01', 'actor.n.01', 'player.n.05', 'female_child.n.01', 'daughter.n.01', 'player.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['woman.n.01', 'adult.n.01', 'female.n.02', 'person.n.01']
 ('child', 'girl', 'player', 'tennis player')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'female.n.02', 'adult.n.01', 'athlete.n.01', 'woman.n.01', 'person.n.01', 'contestant.n.01', 'juvenile.n.01', 'player.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'juvenile.n.01', 'woman.n.01', 'athlete.n.01', 'female.n.02', 'person.n.01', 'adult.n.01', 'player.n.01'}
 CO-HYPONYMS	{'person.n.01'}
 
  2341092 ORIGINAL-RESPONSES: ['giraffe'] [('giraffe', 34)] CLUSTER: ['giraffe']
@@ -2655,6 +2695,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 
 	GT-SSIDs: ['girl.n.01', 'female_child.n.01', 'daughter.n.01', 'girlfriend.n.02', 'girl.n.05'] 	GT-CLUSTER: ('child', 'girl')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'child.n.02', 'girl.n.01', 'child.n.03', 'girlfriend.n.02', 'child.n.04', 'child.n.01', 'female_child.n.01', 'daughter.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
@@ -2666,13 +2707,14 @@ HYPERNYM	{'woman.n.01'}
 WordNet::
 	PRED-SSIDS:  ['dawdler.n.01', 'preview.n.01', 'trailer.n.03', 'trailer.n.04'] 
 	GT-SSIDs: ['truck.n.01', 'hand_truck.n.01'] 	GT-CLUSTER: ['truck']
+	MN_CLUSTER_SSIDS: {'hand_truck.n.01', 'truck.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['idler.n.01', 'nonworker.n.01', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ['truck']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'vehicle.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
 ERROR	
 
  2320949 ORIGINAL-RESPONSES: ['desk' 'table' 'keyboard'] [('desk', 25), ('table', 5), ('keyboard', 5)] CLUSTER: ('desk', 'table')
@@ -2695,14 +2737,15 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['bear.n.01', 'bear.n.02'] 
 	GT-SSIDs: ['cow.n.01', 'cow.n.02', 'cow.n.03'] 	GT-CLUSTER: ['cow']
+	MN_CLUSTER_SSIDS: {'cow.n.02', 'cow.n.01', 'cow.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['carnivore.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['cattle.n.01', 'bovine.n.01', 'bovid.n.01', 'ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['cow']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'cattle.n.01', 'chordate.n.01', 'bovid.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'bovine.n.01'}
-CO-HYPONYMS	{'animal.n.01', 'vertebrate.n.01', 'placental.n.01', 'mammal.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'cattle.n.01', 'animal.n.01', 'vertebrate.n.01', 'bovine.n.01', 'ungulate.n.01', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01', 'bovid.n.01'}
+CO-HYPONYMS	{'placental.n.01', 'vertebrate.n.01', 'mammal.n.01', 'chordate.n.01', 'animal.n.01'}
 
  2396992 ORIGINAL-RESPONSES: ['jacket' 'hot dog,hotdog' 'food'] [('jacket', 28), ('hot dog,hotdog', 3), ('food', 2)] CLUSTER: ('jacket',)
 	PRED:  2 jacket
@@ -2724,13 +2767,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['pillow.n.01'] 
 	GT-SSIDs: ['chair.n.01', 'professorship.n.01', 'president.n.04', 'electric_chair.n.01', 'chair.n.05'] 	GT-CLUSTER: ('chair',)
+	MN_CLUSTER_SSIDS: {'professorship.n.01', 'chair.n.05', 'electric_chair.n.01', 'president.n.04', 'chair.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['cushion.n.03', 'padding.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('chair',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'seat.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2400651 ORIGINAL-RESPONSES: ['chair' 'shirt' 'seat' 'tshirt,t-shirt,t shirt'] [('chair', 14), ('shirt', 2), ('seat', 2), ('tshirt,t-shirt,t shirt', 2)] CLUSTER: ('booster seat', 'chair', 'high chair', 'highchair', 'seat')
@@ -2778,6 +2822,7 @@ SAME CLUSTER ('girl', 'lady', 'person', 'woman')
 WordNet::
 	PRED-SSIDS:  ['doughnut.n.02'] 
 	GT-SSIDs: ['cake.n.01', 'patty.n.01', 'cake.n.03'] 	GT-CLUSTER: ('brownie', 'cake', 'dessert', 'food')
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'dessert.n.01', 'brownie.n.03', 'food.n.03', 'food.n.01', 'cake.n.03', 'brownie.n.01', 'elf.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['friedcake.n.01', 'cake.n.03', 'baked_goods.n.01', 'food.n.02']
 HYPONYM	{'cake.n.03'}
@@ -2787,13 +2832,14 @@ HYPONYM	{'cake.n.03'}
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['table.n.01', 'table.n.02', 'table.n.03', 'mesa.n.01', 'table.n.05', 'board.n.04'] 	GT-CLUSTER: ('table',)
+	MN_CLUSTER_SSIDS: {'table.n.03', 'table.n.02', 'table.n.01', 'table.n.05', 'board.n.04', 'mesa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['array.n.01', 'arrangement.n.02', 'group.n.01']
 ('table',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'group.n.01', 'arrangement.n.02'}
+	MN-CLUSTER-HYPERS: {'group.n.01', 'array.n.01', 'arrangement.n.02'}
 ERROR	
 
  2361913 ORIGINAL-RESPONSES: ['plane' 'airplane'] [('plane', 16), ('airplane', 15)] CLUSTER: ('aircraft', 'airplane', 'plane')
@@ -2861,13 +2907,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['helmet.n.01', 'helmet.n.02'] 
 	GT-SSIDs: ['skier.n.01'] 	GT-CLUSTER: ('person', 'skier', 'woman')
+	MN_CLUSTER_SSIDS: {'womanhood.n.02', 'skier.n.01', 'charwoman.n.01', 'woman.n.01', 'person.n.02', 'person.n.03', 'person.n.01', 'woman.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['armor_plate.n.01', 'plate.n.14', 'shield.n.01', 'protective_covering.n.01', 'covering.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['athlete.n.01', 'contestant.n.01', 'person.n.01']
 ('person', 'skier', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'adult.n.01', 'athlete.n.01', 'person.n.01', 'contestant.n.01', 'causal_agent.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'athlete.n.01', 'causal_agent.n.01', 'person.n.01', 'female.n.02', 'organism.n.01', 'adult.n.01'}
 ERROR	
 
  2340984 ORIGINAL-RESPONSES: ['jacket' 'coat'] [('jacket', 25), ('coat', 7)] CLUSTER: ('coat', 'jacket')
@@ -2885,13 +2932,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['container.n.01'] 
 	GT-SSIDs: ['train.n.01', 'string.n.04', 'caravan.n.01', 'train.n.04', 'train.n.05', 'gearing.n.01'] 	GT-CLUSTER: ('caboose', 'train')
+	MN_CLUSTER_SSIDS: {'train.n.05', 'galley.n.04', 'train.n.01', 'train.n.04', 'string.n.04', 'gearing.n.01', 'caravan.n.01', 'cabin_car.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['public_transport.n.01', 'conveyance.n.03', 'instrumentality.n.03']
 ('caboose', 'train')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'structure.n.01', 'conveyance.n.03', 'area.n.05', 'public_transport.n.01', 'instrumentality.n.03', 'kitchen.n.01', 'room.n.01'}
+	MN-CLUSTER-HYPERS: {'public_transport.n.01', 'room.n.01', 'kitchen.n.01', 'conveyance.n.03', 'area.n.05', 'structure.n.01', 'instrumentality.n.03'}
 CO-HYPONYMS	{'instrumentality.n.03'}
 
  2388225 ORIGINAL-RESPONSES: ['tie'] [('tie', 30)] CLUSTER: ('necktie', 'tie')
@@ -2919,13 +2967,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['male_child.n.01', 'boy.n.02', 'son.n.01', 'boy.n.04'] 
 	GT-SSIDs: ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 	GT-CLUSTER: ('human', 'man', 'person')
+	MN_CLUSTER_SSIDS: {'man.n.01', 'serviceman.n.01', 'person.n.02', 'man.n.05', 'person.n.03', 'man.n.08', 'valet.n.01', 'man.n.09', 'man.n.10', 'person.n.01', 'man.n.06', 'homo.n.02', 'world.n.08', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 ('human', 'man', 'person')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'primate.n.02', 'animal.n.01', 'vertebrate.n.01', 'adult.n.01', 'hominid.n.01', 'male.n.02', 'placental.n.01', 'person.n.01', 'mammal.n.01', 'causal_agent.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'adult.n.01', 'vertebrate.n.01', 'causal_agent.n.01', 'male.n.02', 'person.n.01', 'primate.n.02', 'mammal.n.01', 'chordate.n.01', 'organism.n.01', 'placental.n.01', 'hominid.n.01'}
 CO-HYPONYMS	{'person.n.01', 'male.n.02'}
 
  2395025 ORIGINAL-RESPONSES: ['train'] [('train', 29)] CLUSTER: ('train', 'train engine')
@@ -2948,13 +2997,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['shirt.n.01'] 
 	GT-SSIDs: ['dress.n.01', 'attire.n.01', 'apparel.n.01'] 	GT-CLUSTER: ('dress', 'outfit', 'tennis outfit')
+	MN_CLUSTER_SSIDS: {'dress.n.01', 'apparel.n.01', 'outfit.n.01', 'kit.n.02', 'attire.n.01', 'outfit.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ["woman's_clothing.n.01", 'clothing.n.01']
 ('dress', 'outfit', 'tennis outfit')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {"woman's_clothing.n.01", 'unit.n.03', 'organization.n.01', 'social_group.n.01', 'clothing.n.01', 'group.n.01'}
+	MN-CLUSTER-HYPERS: {'organization.n.01', 'unit.n.03', 'social_group.n.01', 'group.n.01', 'clothing.n.01', "woman's_clothing.n.01"}
 CO-HYPONYMS	{'clothing.n.01'}
 
  2408210 ORIGINAL-RESPONSES: ['dog' 'animal'] [('dog', 32), ('animal', 2)] CLUSTER: ('animal', 'dog')
@@ -3052,13 +3102,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['box.n.01', 'box.n.02', 'box.n.03', 'corner.n.08', 'box.n.05', 'box.n.06', 'box.n.07', 'box.n.08', 'box.n.09', 'box.n.10'] 
 	GT-SSIDs: ['truck.n.01', 'hand_truck.n.01'] 	GT-CLUSTER: ('trailer', 'truck')
+	MN_CLUSTER_SSIDS: {'trailer.n.04', 'trailer.n.03', 'hand_truck.n.01', 'truck.n.01', 'preview.n.01', 'dawdler.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['container.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ('trailer', 'truck')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'person.n.01', 'nonworker.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'idler.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'nonworker.n.01', 'self-propelled_vehicle.n.01', 'person.n.01', 'vehicle.n.01', 'container.n.01', 'idler.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
 CO-HYPONYMS	{'container.n.01'}
 
  2387669 ORIGINAL-RESPONSES: ['tent' 'dog'] [('tent', 26), ('dog', 5)] CLUSTER: ('tent',)
@@ -3161,13 +3212,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['tire.n.01'] 
 	GT-SSIDs: ['car.n.01', 'car.n.02', 'car.n.03', 'car.n.04', 'cable_car.n.01'] 	GT-CLUSTER: ['car']
+	MN_CLUSTER_SSIDS: {'car.n.02', 'cable_car.n.01', 'car.n.01', 'car.n.04', 'car.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['hoop.n.02', 'band.n.07', 'strip.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['motor_vehicle.n.01', 'self-propelled_vehicle.n.01', 'wheeled_vehicle.n.01', 'container.n.01', 'vehicle.n.01']
 ['car']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'container.n.01', 'vehicle.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'self-propelled_vehicle.n.01', 'vehicle.n.01', 'container.n.01', 'motor_vehicle.n.01', 'wheeled_vehicle.n.01'}
 ERROR	
 
  691 ORIGINAL-RESPONSES: ['animal' 'cat'] [('animal', 2), ('cat', 2)] CLUSTER: ('animal', 'cat', 'cheetah', 'leopard', 'tiger')
@@ -3175,6 +3227,7 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['giraffe.n.01'] 
 	GT-SSIDs: ['animal.n.01'] 	GT-CLUSTER: ('animal', 'cat', 'cheetah', 'leopard', 'tiger')
+	MN_CLUSTER_SSIDS: {'tiger.n.02', 'leopard.n.02', 'tiger.n.01', 'kat.n.01', "cat-o'-nine-tails.n.01", 'big_cat.n.01', 'cheetah.n.01', 'computerized_tomography.n.01', 'cat.n.01', 'cat.n.03', 'animal.n.01', 'caterpillar.n.02', 'leopard.n.01', 'guy.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 HYPONYM	{'animal.n.01'}
@@ -3184,13 +3237,14 @@ HYPONYM	{'animal.n.01'}
 WordNet::
 	PRED-SSIDS:  ['person.n.01', 'person.n.02', 'person.n.03'] 
 	GT-SSIDs: ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 	GT-CLUSTER: ('coat', 'jacket', 'shirt')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'shirt.n.01', 'crown.n.11', 'jacket.n.02', 'coat.n.01', 'jacket.n.04', 'jacket.n.05', 'coating.n.01', 'coat.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['causal_agent.n.01', 'organism.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 ('coat', 'jacket', 'shirt')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'garment.n.01', 'overgarment.n.01', 'clothing.n.01', 'coat.n.01'}
+	MN-CLUSTER-HYPERS: {'coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01'}
 ERROR	
 
  2322197 ORIGINAL-RESPONSES: ['truck' 'car'] [('truck', 27), ('car', 6)] CLUSTER: ('car', 'pickup truck', 'truck')
@@ -3238,6 +3292,7 @@ LOW COUNT MATCH
 WordNet::
 	PRED-SSIDS:  ['catcher.n.01', 'catcher.n.02'] 
 	GT-SSIDs: ['ballplayer.n.01'] 	GT-CLUSTER: ('athlete', 'baseball player', 'batter', 'man', 'person', 'player')
+	MN_CLUSTER_SSIDS: {'athlete.n.01', 'person.n.01', 'ballplayer.n.01', 'player.n.05', 'batter.n.01', 'actor.n.01', 'player.n.01', 'man.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'batter.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'player.n.04', 'world.n.08', 'person.n.02', 'musician.n.01', 'man.n.05', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['infielder.n.01', 'fielder.n.01', 'ballplayer.n.01', 'athlete.n.01', 'player.n.01', 'contestant.n.01', 'person.n.01']
 HYPONYM	{'ballplayer.n.01'}
@@ -3322,13 +3377,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['head.n.01', 'head.n.02', 'mind.n.01', 'head.n.04', 'head.n.05', 'head.n.06', 'head.n.07', 'fountainhead.n.02', 'head.n.09', 'head.n.10', 'head.n.11', 'capitulum.n.01', 'principal.n.02', 'head.n.14', 'head.n.15', 'promontory.n.01', 'head.n.17', 'head.n.18', 'forefront.n.01', 'pass.n.09', 'headway.n.02', 'point.n.20', 'question.n.02', 'heading.n.01', 'head.n.25', 'head.n.26', 'read/write_head.n.01', 'head.n.28', 'head.n.29', 'head.n.30', 'head.n.31', 'drumhead.n.01', 'oral_sex.n.01'] 
 	GT-SSIDs: ['giraffe.n.01'] 	GT-CLUSTER: ['giraffe']
+	MN_CLUSTER_SSIDS: {'giraffe.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['giraffe']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'animal.n.01', 'vertebrate.n.01', 'ungulate.n.01', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01'}
 ERROR	
 
  2402254 ORIGINAL-RESPONSES: ['pizza' 'food'] [('pizza', 29), ('food', 2)] CLUSTER: ('food', 'pizza')
@@ -3396,13 +3452,14 @@ SAME CLUSTER ('airplane', 'plane')
 WordNet::
 	PRED-SSIDS:  ['girl.n.01', 'female_child.n.01', 'daughter.n.01', 'girlfriend.n.02', 'girl.n.05'] 
 	GT-SSIDs: ['water_scooter.n.01', 'scooter.n.02', 'motor_scooter.n.01', 'iceboat.n.02', 'scoter.n.01'] 	GT-CLUSTER: ('scooter',)
+	MN_CLUSTER_SSIDS: {'motor_scooter.n.01', 'scoter.n.01', 'water_scooter.n.01', 'scooter.n.02', 'iceboat.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['woman.n.01', 'adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['motorboat.n.01', 'boat.n.01', 'vessel.n.02', 'craft.n.02', 'vehicle.n.01']
 ('scooter',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'motorboat.n.01', 'vessel.n.02', 'craft.n.02', 'boat.n.01', 'vehicle.n.01'}
+	MN-CLUSTER-HYPERS: {'boat.n.01', 'vehicle.n.01', 'craft.n.02', 'vessel.n.02', 'motorboat.n.01'}
 ERROR	
 
  2361606 ORIGINAL-RESPONSES: ['couch' 'sofa'] [('couch', 22), ('sofa', 12)] CLUSTER: ('couch', 'sofa')
@@ -3420,6 +3477,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 
 	GT-SSIDs: ['dress.n.01', 'attire.n.01', 'apparel.n.01'] 	GT-CLUSTER: ('dress', 'robe', 'uniform')
+	MN_CLUSTER_SSIDS: {'uniform.n.01', 'dress.n.01', 'apparel.n.01', 'attire.n.01', 'robe.n.01', 'gown.n.05'}
 HYPONYM? 
 	PRED-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 HYPERNYM? 
@@ -3539,13 +3597,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['food.n.01', 'food.n.02', 'food.n.03'] 	GT-CLUSTER: ('cake', 'chicken and waffles', 'food', 'waffle')
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'waffle.n.01', 'food.n.03', 'food.n.01', 'cake.n.03', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['substance.n.07', 'matter.n.03']
 ('cake', 'chicken and waffles', 'food', 'waffle')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'food.n.02', 'cake.n.03', 'matter.n.03', 'block.n.01', 'baked_goods.n.01', 'substance.n.07'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'baked_goods.n.01', 'matter.n.03', 'cake.n.03', 'block.n.01', 'food.n.02'}
 ERROR	
 
  2397273 ORIGINAL-RESPONSES: ['chair' 'cat'] [('chair', 31), ('cat', 4)] CLUSTER: ('chair',)
@@ -3608,13 +3667,14 @@ SAME CLUSTER ('dugout', 'fence')
 WordNet::
 	PRED-SSIDS:  ['bun.n.01'] 
 	GT-SSIDs: ['hotdog.n.01', 'hotdog.n.02', 'frank.n.02'] 	GT-CLUSTER: ('food', 'hotdog', 'wiener')
+	MN_CLUSTER_SSIDS: {'frank.n.02', 'food.n.03', 'food.n.01', 'hotdog.n.01', 'hotdog.n.02', 'wiener.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['bread.n.01', 'baked_goods.n.01', 'starches.n.01', 'food.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['exhibitionist.n.02', 'egotist.n.01', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'person.n.01']
 ('food', 'hotdog', 'wiener')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'unpleasant_person.n.01', 'exhibitionist.n.02', 'unwelcome_person.n.01', 'meat.n.01', 'matter.n.03', 'sausage.n.01', 'egotist.n.01', 'person.n.01', 'food.n.02', 'substance.n.07'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'exhibitionist.n.02', 'matter.n.03', 'meat.n.01', 'person.n.01', 'unwelcome_person.n.01', 'unpleasant_person.n.01', 'sausage.n.01', 'egotist.n.01', 'food.n.02'}
 ERROR	
 
  2350388 ORIGINAL-RESPONSES: ['giraffe'] [('giraffe', 34)] CLUSTER: ['giraffe']
@@ -3702,13 +3762,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['bun.n.01'] 
 	GT-SSIDs: ['hotdog.n.01', 'hotdog.n.02', 'frank.n.02'] 	GT-CLUSTER: ('food', 'hotdog', 'sandwich')
+	MN_CLUSTER_SSIDS: {'sandwich.n.01', 'frank.n.02', 'food.n.03', 'food.n.01', 'hotdog.n.01', 'hotdog.n.02', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['bread.n.01', 'baked_goods.n.01', 'starches.n.01', 'food.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['exhibitionist.n.02', 'egotist.n.01', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'person.n.01']
 ('food', 'hotdog', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'unpleasant_person.n.01', 'exhibitionist.n.02', 'unwelcome_person.n.01', 'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'egotist.n.01', 'person.n.01', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'exhibitionist.n.02', 'matter.n.03', 'food.n.01', 'person.n.01', 'nutriment.n.01', 'unwelcome_person.n.01', 'dish.n.02', 'unpleasant_person.n.01', 'egotist.n.01', 'snack_food.n.01'}
 ERROR	
 
  713472 ORIGINAL-RESPONSES: ['couch' 'sofa' 'tshirt,t-shirt,t shirt'] [('couch', 15), ('sofa', 13), ('tshirt,t-shirt,t shirt', 2)] CLUSTER: ('couch', 'sofa')
@@ -3726,13 +3787,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['negligee.n.01', 'wrapping.n.01', 'wrap.n.01'] 
 	GT-SSIDs: ['hotdog.n.01', 'hotdog.n.02', 'frank.n.02'] 	GT-CLUSTER: ('bun', 'food', 'hotdog')
+	MN_CLUSTER_SSIDS: {'frank.n.02', 'food.n.03', 'food.n.01', 'hotdog.n.01', 'hotdog.n.02', 'bun.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ["woman's_clothing.n.01", 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['exhibitionist.n.02', 'egotist.n.01', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'person.n.01']
 ('bun', 'food', 'hotdog')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'exhibitionist.n.02', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'baked_goods.n.01', 'bread.n.01', 'matter.n.03', 'egotist.n.01', 'person.n.01', 'starches.n.01', 'food.n.02', 'substance.n.07'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'baked_goods.n.01', 'matter.n.03', 'exhibitionist.n.02', 'person.n.01', 'unwelcome_person.n.01', 'unpleasant_person.n.01', 'egotist.n.01', 'starches.n.01', 'bread.n.01', 'food.n.02'}
 ERROR	
 
  2416771 ORIGINAL-RESPONSES: ['train'] [('train', 34)] CLUSTER: ['train']
@@ -3755,13 +3817,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['pot.n.01', 'toilet.n.02', 'pot.n.03', 'pot.n.04', 'batch.n.02', 'pot.n.06', 'pot.n.07', 'potentiometer.n.02', 'pot.n.09'] 
 	GT-SSIDs: ['spoon.n.01', 'spoon.n.02', 'spoon.n.03'] 	GT-CLUSTER: ('spoon', 'wooden spoon')
+	MN_CLUSTER_SSIDS: {'wooden_spoon.n.01', 'spoon.n.01', 'spoon.n.02', 'spoon.n.03', 'wooden_spoon.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['cooking_utensil.n.01', 'vessel.n.03', 'kitchen_utensil.n.01', 'container.n.01', 'utensil.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['container.n.01', 'cutlery.n.02', 'instrumentality.n.03', 'tableware.n.01', 'artifact.n.01', 'ware.n.01']
 ('spoon', 'wooden spoon')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'award.n.02', 'signal.n.01', 'container.n.01', 'tableware.n.01', 'ware.n.01', 'symbol.n.01', 'cutlery.n.02', 'trophy.n.02', 'instrumentality.n.03', 'booby_prize.n.01', 'communication.n.02', 'artifact.n.01'}
+	MN-CLUSTER-HYPERS: {'award.n.02', 'cutlery.n.02', 'artifact.n.01', 'ware.n.01', 'booby_prize.n.01', 'communication.n.02', 'container.n.01', 'signal.n.01', 'trophy.n.02', 'symbol.n.01', 'tableware.n.01', 'instrumentality.n.03'}
 CO-HYPONYMS	{'instrumentality.n.03', 'container.n.01'}
 
  2380979 ORIGINAL-RESPONSES: ['airplane' 'plane' 'jet'] [('airplane', 19), ('plane', 15), ('jet', 2)] CLUSTER: ('airplane', 'jet', 'plane')
@@ -3864,13 +3927,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['door.n.01', 'doorway.n.01', 'door.n.03', 'door.n.04', 'door.n.05'] 
 	GT-SSIDs: ['hood.n.01', 'hood.n.02', 'hood.n.03', 'hood.n.04', 'hood.n.05', 'hood.n.06', 'hood.n.07', 'hood.n.08', 'hood.n.09', 'hood.n.10'] 	GT-CLUSTER: ('hood',)
+	MN_CLUSTER_SSIDS: {'hood.n.05', 'hood.n.07', 'hood.n.02', 'hood.n.06', 'hood.n.01', 'hood.n.10', 'hood.n.09', 'hood.n.08', 'hood.n.03', 'hood.n.04'}
 HYPONYM? 
 	PRED-HYPERS: ['movable_barrier.n.01', 'barrier.n.01', 'obstruction.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['criminal.n.01', 'principal.n.05', 'wrongdoer.n.01', 'bad_person.n.01', 'person.n.01']
 ('hood',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'bad_person.n.01', 'person.n.01', 'criminal.n.01', 'principal.n.05', 'wrongdoer.n.01'}
+	MN-CLUSTER-HYPERS: {'bad_person.n.01', 'principal.n.05', 'person.n.01', 'criminal.n.01', 'wrongdoer.n.01'}
 ERROR	
 
  2403657 ORIGINAL-RESPONSES: ['jacket' 'shirt' 'coat' 'dress'] [('jacket', 15), ('shirt', 12), ('coat', 3), ('dress', 2)] CLUSTER: ('coat', 'dress', 'jacket')
@@ -3888,13 +3952,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['male_child.n.01', 'boy.n.02', 'son.n.01', 'boy.n.04'] 
 	GT-SSIDs: ['child.n.01', 'child.n.02', 'child.n.03', 'child.n.04'] 	GT-CLUSTER: ('child', 'girl', 'kid', 'person')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'child.n.02', 'person.n.02', 'person.n.03', 'girl.n.01', 'kid.n.02', 'person.n.01', 'child.n.03', 'girlfriend.n.02', 'child.n.04', 'kyd.n.01', 'child.n.01', 'kid.n.05', 'female_child.n.01', 'daughter.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['juvenile.n.01', 'person.n.01']
 ('child', 'girl', 'kid', 'person')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'adult.n.01', 'woman.n.01', 'person.n.01', 'juvenile.n.01', 'causal_agent.n.01'}
+	MN-CLUSTER-HYPERS: {'juvenile.n.01', 'woman.n.01', 'female.n.02', 'person.n.01', 'causal_agent.n.01', 'organism.n.01', 'adult.n.01'}
 CO-HYPONYMS	{'person.n.01'}
 
  2405784 ORIGINAL-RESPONSES: ['airplane' 'plane'] [('airplane', 20), ('plane', 15)] CLUSTER: ('airplane', 'plane')
@@ -3962,6 +4027,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['dress.n.01', 'attire.n.01', 'apparel.n.01'] 	GT-CLUSTER: ['dress']
+	MN_CLUSTER_SSIDS: {'dress.n.01', 'attire.n.01', 'apparel.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
@@ -4006,13 +4072,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['negligee.n.01', 'wrapping.n.01', 'wrap.n.01'] 
 	GT-SSIDs: ['hotdog.n.01', 'hotdog.n.02', 'frank.n.02'] 	GT-CLUSTER: ('food', 'hotdog', 'sandwich')
+	MN_CLUSTER_SSIDS: {'sandwich.n.01', 'frank.n.02', 'food.n.03', 'food.n.01', 'hotdog.n.01', 'hotdog.n.02', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ["woman's_clothing.n.01", 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['exhibitionist.n.02', 'egotist.n.01', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'person.n.01']
 ('food', 'hotdog', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'unpleasant_person.n.01', 'exhibitionist.n.02', 'unwelcome_person.n.01', 'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'egotist.n.01', 'person.n.01', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'exhibitionist.n.02', 'matter.n.03', 'food.n.01', 'person.n.01', 'nutriment.n.01', 'unwelcome_person.n.01', 'dish.n.02', 'unpleasant_person.n.01', 'egotist.n.01', 'snack_food.n.01'}
 ERROR	
 
  2336897 ORIGINAL-RESPONSES: ['table' 'cup' 'cabinet' 'desk' 'dresser'] [('table', 12), ('cup', 5), ('cabinet', 5), ('desk', 2), ('dresser', 2)] CLUSTER: ('buffet', 'cabinet', 'desk', 'dresser', 'sideboard', 'table')
@@ -4060,13 +4127,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['window.n.01', 'window.n.02', 'window.n.03', 'window.n.04', 'window.n.05', 'windowpane.n.01', 'window.n.07', 'window.n.08'] 
 	GT-SSIDs: ['cat.n.01', 'guy.n.01', 'cat.n.03', 'kat.n.01', "cat-o'-nine-tails.n.01", 'caterpillar.n.02', 'big_cat.n.01', 'computerized_tomography.n.01'] 	GT-CLUSTER: ('animal', 'cat')
+	MN_CLUSTER_SSIDS: {'kat.n.01', "cat-o'-nine-tails.n.01", 'big_cat.n.01', 'computerized_tomography.n.01', 'cat.n.01', 'cat.n.03', 'animal.n.01', 'caterpillar.n.02', 'guy.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['framework.n.03', 'supporting_structure.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['feline.n.01', 'carnivore.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ('animal', 'cat')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'animal.n.01', 'living_thing.n.01', 'vertebrate.n.01', 'whole.n.02', 'carnivore.n.01', 'placental.n.01', 'mammal.n.01', 'feline.n.01', 'chordate.n.01', 'object.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'living_thing.n.01', 'vertebrate.n.01', 'feline.n.01', 'object.n.01', 'whole.n.02', 'carnivore.n.01', 'mammal.n.01', 'chordate.n.01', 'organism.n.01', 'placental.n.01'}
 ERROR	
 
  2401739 ORIGINAL-RESPONSES: ['boat'] [('boat', 31)] CLUSTER: ('boat', 'canoe')
@@ -4189,13 +4257,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['skier.n.01'] 	GT-CLUSTER: ('child', 'girl', 'person', 'skier', 'woman')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'womanhood.n.02', 'skier.n.01', 'charwoman.n.01', 'child.n.02', 'person.n.02', 'woman.n.01', 'person.n.03', 'girl.n.01', 'person.n.01', 'child.n.03', 'girlfriend.n.02', 'child.n.04', 'child.n.01', 'woman.n.02', 'female_child.n.01', 'daughter.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['athlete.n.01', 'contestant.n.01', 'person.n.01']
 ('child', 'girl', 'person', 'skier', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'adult.n.01', 'athlete.n.01', 'woman.n.01', 'person.n.01', 'contestant.n.01', 'juvenile.n.01', 'causal_agent.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'juvenile.n.01', 'woman.n.01', 'athlete.n.01', 'female.n.02', 'person.n.01', 'causal_agent.n.01', 'organism.n.01', 'adult.n.01'}
 CO-HYPONYMS	{'person.n.01'}
 
  2343739 ORIGINAL-RESPONSES: ['boat' 'ship'] [('boat', 24), ('ship', 9)] CLUSTER: ('boat', 'ship')
@@ -4238,13 +4307,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['hair.n.01', "hair's-breadth.n.01", 'hair.n.03', 'hair.n.04', 'haircloth.n.01', 'hair.n.06'] 
 	GT-SSIDs: ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 	GT-CLUSTER: ('girl', 'woman')
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'womanhood.n.02', 'charwoman.n.01', 'woman.n.01', 'girl.n.01', 'girlfriend.n.02', 'woman.n.02', 'female_child.n.01', 'daughter.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['body_covering.n.01', 'covering.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 ('girl', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'woman.n.01', 'female.n.02', 'adult.n.01', 'person.n.01'}
+	MN-CLUSTER-HYPERS: {'adult.n.01', 'female.n.02', 'person.n.01', 'woman.n.01'}
 ERROR	
 
  2357888 ORIGINAL-RESPONSES: ['table' 'cake'] [('table', 24), ('cake', 6)] CLUSTER: ('table',)
@@ -4262,6 +4332,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['box.n.01', 'box.n.02', 'box.n.03', 'corner.n.08', 'box.n.05', 'box.n.06', 'box.n.07', 'box.n.08', 'box.n.09', 'box.n.10'] 
 	GT-SSIDs: ['cake.n.01', 'patty.n.01', 'cake.n.03'] 	GT-CLUSTER: ('cake',)
+	MN_CLUSTER_SSIDS: {'cake.n.01', 'patty.n.01', 'cake.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['container.n.01', 'instrumentality.n.03']
 HYPERNYM? 
@@ -4331,13 +4402,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['flower.n.01', 'flower.n.02', 'flower.n.03'] 
 	GT-SSIDs: ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 	GT-CLUSTER: ('coat', 'jacket', 'shirt', 'suit')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'suit.n.06', 'shirt.n.01', 'suit.n.03', 'lawsuit.n.01', 'crown.n.11', 'jacket.n.02', 'coat.n.01', 'suit.n.01', 'jacket.n.04', 'courtship.n.01', 'jacket.n.05', 'coating.n.01', 'suit.n.05', 'coat.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['angiosperm.n.01', 'spermatophyte.n.01', 'vascular_plant.n.01', 'plant.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 ('coat', 'jacket', 'shirt', 'suit')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'garment.n.01', 'overgarment.n.01', 'clothing.n.01', 'coat.n.01'}
+	MN-CLUSTER-HYPERS: {'coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01'}
 ERROR	
 
  2322990 ORIGINAL-RESPONSES: ['counter' 'table' 'food' 'vegetables'] [('counter', 11), ('table', 7), ('food', 2), ('vegetables', 2)] CLUSTER: ('counter', 'countertop', 'table')
@@ -4350,6 +4422,7 @@ SAME CLUSTER ('counter', 'countertop', 'table')
 WordNet::
 	PRED-SSIDS:  ['shirt.n.01'] 
 	GT-SSIDs: ['dugout.n.01', 'dugout_canoe.n.01', 'bunker.n.03'] 	GT-CLUSTER: ['dugout']
+	MN_CLUSTER_SSIDS: {'bunker.n.03', 'dugout_canoe.n.01', 'dugout.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
@@ -4374,13 +4447,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['bowl.n.01', 'bowl.n.02', 'bowl.n.03', 'bowl.n.04', 'stadium.n.01', 'bowling_ball.n.01', 'bowl.n.07', 'bowl.n.08', 'roll.n.15'] 
 	GT-SSIDs: ['doughnut.n.02'] 	GT-CLUSTER: ['donut']
+	MN_CLUSTER_SSIDS: {'doughnut.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['vessel.n.03', 'container.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['friedcake.n.01', 'cake.n.03', 'baked_goods.n.01', 'food.n.02']
 ['donut']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'food.n.02', 'friedcake.n.01', 'cake.n.03', 'baked_goods.n.01'}
+	MN-CLUSTER-HYPERS: {'friedcake.n.01', 'baked_goods.n.01', 'cake.n.03', 'food.n.02'}
 ERROR	
 
  2408940 ORIGINAL-RESPONSES: ['sandwich' 'food'] [('sandwich', 25), ('food', 6)] CLUSTER: ('food', 'sandwich')
@@ -4433,13 +4507,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['head.n.01', 'head.n.02', 'mind.n.01', 'head.n.04', 'head.n.05', 'head.n.06', 'head.n.07', 'fountainhead.n.02', 'head.n.09', 'head.n.10', 'head.n.11', 'capitulum.n.01', 'principal.n.02', 'head.n.14', 'head.n.15', 'promontory.n.01', 'head.n.17', 'head.n.18', 'forefront.n.01', 'pass.n.09', 'headway.n.02', 'point.n.20', 'question.n.02', 'heading.n.01', 'head.n.25', 'head.n.26', 'read/write_head.n.01', 'head.n.28', 'head.n.29', 'head.n.30', 'head.n.31', 'drumhead.n.01', 'oral_sex.n.01'] 
 	GT-SSIDs: ['giraffe.n.01'] 	GT-CLUSTER: ['giraffe']
+	MN_CLUSTER_SSIDS: {'giraffe.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['giraffe']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'animal.n.01', 'vertebrate.n.01', 'ungulate.n.01', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01'}
 ERROR	
 
  2345779 ORIGINAL-RESPONSES: ['table' 'donut,doughnut'] [('table', 29), ('donut,doughnut', 4)] CLUSTER: ('table',)
@@ -4467,13 +4542,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['head.n.01', 'head.n.02', 'mind.n.01', 'head.n.04', 'head.n.05', 'head.n.06', 'head.n.07', 'fountainhead.n.02', 'head.n.09', 'head.n.10', 'head.n.11', 'capitulum.n.01', 'principal.n.02', 'head.n.14', 'head.n.15', 'promontory.n.01', 'head.n.17', 'head.n.18', 'forefront.n.01', 'pass.n.09', 'headway.n.02', 'point.n.20', 'question.n.02', 'heading.n.01', 'head.n.25', 'head.n.26', 'read/write_head.n.01', 'head.n.28', 'head.n.29', 'head.n.30', 'head.n.31', 'drumhead.n.01', 'oral_sex.n.01'] 
 	GT-SSIDs: ['giraffe.n.01'] 	GT-CLUSTER: ['giraffe']
+	MN_CLUSTER_SSIDS: {'giraffe.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['ruminant.n.01', 'even-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['giraffe']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'even-toed_ungulate.n.01', 'ruminant.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'ruminant.n.01', 'animal.n.01', 'vertebrate.n.01', 'ungulate.n.01', 'even-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01'}
 ERROR	
 
  2378871 ORIGINAL-RESPONSES: ['man' 'skier' 'snowboarder' 'person' 'boy' 'tshirt,t-shirt,t shirt'
@@ -4502,13 +4578,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['water.n.01', 'body_of_water.n.01', 'water.n.03', 'water_system.n.02', 'urine.n.01', 'water.n.06'] 
 	GT-SSIDs: ['bed.n.01', 'bed.n.02', 'bed.n.03', 'bed.n.04', 'seam.n.03', 'layer.n.01', 'bed.n.07', 'bed.n.08'] 	GT-CLUSTER: ['bed']
+	MN_CLUSTER_SSIDS: {'seam.n.03', 'bed.n.03', 'bed.n.02', 'bed.n.01', 'bed.n.04', 'bed.n.07', 'bed.n.08', 'layer.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['binary_compound.n.01', 'liquid.n.03', 'compound.n.02', 'fluid.n.02', 'chemical.n.01', 'matter.n.03', 'material.n.01', 'physical_entity.n.01', 'substance.n.01', 'entity.n.01', 'part.n.01', 'relation.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['bedroom_furniture.n.01', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ['bed']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'bedroom_furniture.n.01', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'bedroom_furniture.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2352286 ORIGINAL-RESPONSES: ['couch' 'sofa' 'laptop'] [('couch', 25), ('sofa', 7), ('laptop', 3)] CLUSTER: ('couch', 'sofa')
@@ -4541,13 +4618,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['sandwich.n.01'] 	GT-CLUSTER: ('bread', 'burger', 'food', 'hotdog', 'sandwich')
+	MN_CLUSTER_SSIDS: {'burger.n.01', 'sandwich.n.01', 'frank.n.02', 'boodle.n.01', 'food.n.01', 'food.n.03', 'hotdog.n.01', 'hotdog.n.02', 'hamburger.n.01', 'bread.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['snack_food.n.01', 'dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('bread', 'burger', 'food', 'hotdog', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'exhibitionist.n.02', 'unpleasant_person.n.01', 'unwelcome_person.n.01', 'baked_goods.n.01', 'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'egotist.n.01', 'person.n.01', 'starches.n.01', 'food.n.02', 'nutriment.n.01', 'substance.n.07', 'sandwich.n.01', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'sandwich.n.01', 'baked_goods.n.01', 'substance.n.07', 'matter.n.03', 'exhibitionist.n.02', 'food.n.01', 'person.n.01', 'nutriment.n.01', 'unwelcome_person.n.01', 'dish.n.02', 'unpleasant_person.n.01', 'egotist.n.01', 'starches.n.01', 'food.n.02', 'snack_food.n.01'}
 ERROR	
 
  2407210 ORIGINAL-RESPONSES: ['table' 'blender' 'desk'] [('table', 21), ('blender', 2), ('desk', 2)] CLUSTER: ('countertop', 'desk', 'table')
@@ -4575,13 +4653,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['hair.n.01', "hair's-breadth.n.01", 'hair.n.03', 'hair.n.04', 'haircloth.n.01', 'hair.n.06'] 
 	GT-SSIDs: ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 	GT-CLUSTER: ('person', 'woman')
+	MN_CLUSTER_SSIDS: {'womanhood.n.02', 'charwoman.n.01', 'woman.n.01', 'person.n.02', 'person.n.03', 'person.n.01', 'woman.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['body_covering.n.01', 'covering.n.01', 'natural_object.n.01', 'whole.n.02', 'object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 ('person', 'woman')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'female.n.02', 'adult.n.01', 'person.n.01', 'causal_agent.n.01'}
+	MN-CLUSTER-HYPERS: {'female.n.02', 'causal_agent.n.01', 'person.n.01', 'organism.n.01', 'adult.n.01'}
 ERROR	
 
  2401349 ORIGINAL-RESPONSES: ['rug' 'floor' 'carpet' 'keyboard'] [('rug', 16), ('floor', 8), ('carpet', 5), ('keyboard', 2)] CLUSTER: ('carpet', 'floor', 'mat', 'rug')
@@ -4614,13 +4693,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['oven.n.01'] 
 	GT-SSIDs: ['planter.n.01', 'planter.n.02', 'planter.n.03'] 	GT-CLUSTER: ('flower box', 'flower pot', 'planter', 'pot')
+	MN_CLUSTER_SSIDS: {'pot.n.01', 'pot.n.04', 'planter.n.03', 'toilet.n.02', 'planter.n.01', 'pot.n.03', 'pot.n.09', 'batch.n.02', 'planter.n.02', 'potentiometer.n.02', 'pot.n.06', 'pot.n.07'}
 HYPONYM? 
 	PRED-HYPERS: ['kitchen_appliance.n.01', 'home_appliance.n.01', 'appliance.n.02', 'durables.n.01', 'consumer_goods.n.01', 'commodity.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['farmer.n.01', 'creator.n.02', 'person.n.01']
 ('flower box', 'flower pot', 'planter', 'pot')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'kitchen_utensil.n.01', 'container.n.01', 'farmer.n.01', 'cooking_utensil.n.01', 'utensil.n.01', 'vessel.n.03', 'person.n.01', 'instrumentality.n.03', 'creator.n.02'}
+	MN-CLUSTER-HYPERS: {'vessel.n.03', 'cooking_utensil.n.01', 'person.n.01', 'kitchen_utensil.n.01', 'creator.n.02', 'utensil.n.01', 'farmer.n.01', 'container.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2355530 ORIGINAL-RESPONSES: ['couch' 'sofa'] [('couch', 26), ('sofa', 7)] CLUSTER: ('chair', 'couch', 'sofa')
@@ -4663,13 +4743,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['shelf.n.01', 'ledge.n.01'] 
 	GT-SSIDs: ['chest_of_drawers.n.01', 'dresser.n.02', 'dresser.n.03', 'dressing_table.n.01', 'dresser.n.05'] 	GT-CLUSTER: ('dresser', 'table')
+	MN_CLUSTER_SSIDS: {'table.n.03', 'dresser.n.02', 'table.n.02', 'dressing_table.n.01', 'table.n.01', 'table.n.05', 'dresser.n.03', 'board.n.04', 'chest_of_drawers.n.01', 'dresser.n.05', 'mesa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['support.n.10', 'device.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('dresser', 'table')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'furnishing.n.02', 'instrumentality.n.03', 'arrangement.n.02', 'furniture.n.01', 'group.n.01'}
+	MN-CLUSTER-HYPERS: {'arrangement.n.02', 'array.n.01', 'furniture.n.01', 'furnishing.n.02', 'group.n.01', 'instrumentality.n.03'}
 CO-HYPONYMS	{'instrumentality.n.03'}
 
  2354226 ORIGINAL-RESPONSES: ['table' 'plate'] [('table', 27), ('plate', 6)] CLUSTER: ('table',)
@@ -4717,13 +4798,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['jacket.n.01', 'jacket.n.02', 'crown.n.11', 'jacket.n.04', 'jacket.n.05'] 
 	GT-SSIDs: ['shirt.n.01'] 	GT-CLUSTER: ('blouse', 'shirt', 't-shirt')
+	MN_CLUSTER_SSIDS: {'blouse.n.01', 'shirt.n.01', 'jersey.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['coat.n.01', 'overgarment.n.01', 'garment.n.01', 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['garment.n.01', 'clothing.n.01']
 ('blouse', 'shirt', 't-shirt')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {"woman's_clothing.n.01", 'shirt.n.01', 'garment.n.01', 'top.n.10', 'clothing.n.01'}
+	MN-CLUSTER-HYPERS: {'shirt.n.01', 'top.n.10', 'clothing.n.01', "woman's_clothing.n.01", 'garment.n.01'}
 CO-HYPONYMS	{'garment.n.01', 'clothing.n.01'}
 
  2414657 ORIGINAL-RESPONSES: ['woman' 'tennis player' 'player' 'dress'] [('woman', 18), ('tennis player', 5), ('player', 3), ('dress', 2)] CLUSTER: ('girl', 'player', 'tennis player', 'woman')
@@ -4777,13 +4859,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['shirt.n.01'] 	GT-CLUSTER: ('jacket', 'jersey', 'shirt', 't-shirt', 'uniform')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'uniform.n.01', 'shirt.n.01', 'jersey.n.02', 'new_jersey.n.01', 'crown.n.11', 'jacket.n.02', 'jersey.n.05', 'jacket.n.04', 'jacket.n.05', 'jersey.n.04', 'jersey.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['garment.n.01', 'clothing.n.01']
 ('jacket', 'jersey', 'shirt', 't-shirt', 'uniform')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'coat.n.01', 'shirt.n.01', 'garment.n.01', 'channel_island.n.01', 'overgarment.n.01', 'clothing.n.01'}
+	MN-CLUSTER-HYPERS: {'shirt.n.01', 'overgarment.n.01', 'coat.n.01', 'clothing.n.01', 'channel_island.n.01', 'garment.n.01'}
 ERROR	
 
  1160203 ORIGINAL-RESPONSES: ['bed'] [('bed', 35)] CLUSTER: ['bed']
@@ -4866,13 +4949,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['wall.n.01', 'wall.n.02', 'wall.n.03', 'wall.n.04', 'wall.n.05', 'wall.n.06', 'wall.n.07', 'rampart.n.01'] 
 	GT-SSIDs: ['curtain.n.01', 'curtain.n.02'] 	GT-CLUSTER: ('curtain', 'shower curtain')
+	MN_CLUSTER_SSIDS: {'curtain.n.02', 'curtain.n.01', 'shower_curtain.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['partition.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['blind.n.03', 'furnishing.n.02', 'protective_covering.n.01', 'instrumentality.n.03']
 ('curtain', 'shower curtain')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'protective_covering.n.01', 'furnishing.n.02', 'instrumentality.n.03', 'curtain.n.01', 'blind.n.03'}
+	MN-CLUSTER-HYPERS: {'protective_covering.n.01', 'furnishing.n.02', 'curtain.n.01', 'blind.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2395382 ORIGINAL-RESPONSES: ['cow'] [('cow', 30)] CLUSTER: ['cow']
@@ -4885,14 +4969,15 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['counter.n.01', 'counter.n.02', 'counter.n.03', 'buffet.n.01', 'counter.n.05', 'rejoinder.n.01', 'counter.n.07', 'counter.n.08', 'counterpunch.n.01'] 
 	GT-SSIDs: ['desk.n.01'] 	GT-CLUSTER: ('desk', 'easel', 'table', 'wood')
+	MN_CLUSTER_SSIDS: {'wood.n.04', 'table.n.03', 'wood.n.08', 'table.n.02', 'table.n.01', 'easel.n.01', 'table.n.05', 'wood.n.03', 'board.n.04', 'wood.n.06', 'desk.n.01', 'woodwind.n.01', 'forest.n.01', 'wood.n.05', 'mesa.n.01', 'wood.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['table.n.02', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['table.n.02', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('desk', 'easel', 'table', 'wood')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'material.n.01', 'rack.n.05', 'plant_material.n.01', 'entity.n.01', 'table.n.02', 'furniture.n.01', 'group.n.01', 'matter.n.03', 'support.n.10', 'furnishing.n.02', 'arrangement.n.02', 'substance.n.01', 'physical_entity.n.01', 'relation.n.01', 'instrumentality.n.03', 'device.n.01', 'part.n.01', 'tripod.n.01'}
-CO-HYPONYMS	{'furnishing.n.02', 'table.n.02', 'instrumentality.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'entity.n.01', 'matter.n.03', 'furnishing.n.02', 'device.n.01', 'rack.n.05', 'part.n.01', 'furniture.n.01', 'physical_entity.n.01', 'tripod.n.01', 'arrangement.n.02', 'relation.n.01', 'support.n.10', 'table.n.02', 'array.n.01', 'plant_material.n.01', 'group.n.01', 'substance.n.01', 'material.n.01', 'instrumentality.n.03'}
+CO-HYPONYMS	{'furnishing.n.02', 'furniture.n.01', 'table.n.02', 'instrumentality.n.03'}
 
  2370791 ORIGINAL-RESPONSES: ['sink' 'counter'] [('sink', 16), ('counter', 10)] CLUSTER: ('basin', 'sink')
 	PRED:  54 counter
@@ -4919,13 +5004,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['fence.n.01', 'fence.n.02'] 
 	GT-SSIDs: ['table.n.01', 'table.n.02', 'table.n.03', 'mesa.n.01', 'table.n.05', 'board.n.04'] 	GT-CLUSTER: ('table',)
+	MN_CLUSTER_SSIDS: {'table.n.03', 'table.n.02', 'table.n.01', 'table.n.05', 'board.n.04', 'mesa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['barrier.n.01', 'obstruction.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['array.n.01', 'arrangement.n.02', 'group.n.01']
 ('table',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'group.n.01', 'arrangement.n.02'}
+	MN-CLUSTER-HYPERS: {'group.n.01', 'array.n.01', 'arrangement.n.02'}
 ERROR	
 
  2394626 ORIGINAL-RESPONSES: ['truck' 'car'] [('truck', 30), ('car', 6)] CLUSTER: ('car', 'truck')
@@ -4943,13 +5029,14 @@ SAME CLUSTER ('desk', 'table')
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['bowl.n.01', 'bowl.n.02', 'bowl.n.03', 'bowl.n.04', 'stadium.n.01', 'bowling_ball.n.01', 'bowl.n.07', 'bowl.n.08', 'roll.n.15'] 	GT-CLUSTER: ('bowl',)
+	MN_CLUSTER_SSIDS: {'bowl.n.04', 'bowl.n.01', 'bowl.n.02', 'bowl.n.07', 'stadium.n.01', 'bowl.n.08', 'bowling_ball.n.01', 'bowl.n.03', 'roll.n.15'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['vessel.n.03', 'container.n.01', 'instrumentality.n.03']
 ('bowl',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'container.n.01', 'vessel.n.03'}
+	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'vessel.n.03', 'container.n.01'}
 CO-HYPONYMS	{'instrumentality.n.03'}
 
  2338449 ORIGINAL-RESPONSES: ['motorcycle' 'bike' 'vehicle'] [('motorcycle', 27), ('bike', 5), ('vehicle', 2)] CLUSTER: ('bike', 'motorcycle', 'vehicle')
@@ -4972,13 +5059,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['sweater.n.01', 'perspirer.n.01'] 
 	GT-SSIDs: ['hat.n.01', 'hat.n.02'] 	GT-CLUSTER: ('beanie', 'cap', 'hat')
+	MN_CLUSTER_SSIDS: {'hat.n.01', 'cap.n.02', 'beanie.n.01', 'cap.n.04', 'crown.n.11', 'cap.n.01', 'detonator.n.01', 'hat.n.02', 'ceiling.n.03', 'cap.n.05', 'hood.n.02', 'capital.n.08'}
 HYPONYM? 
 	PRED-HYPERS: ['garment.n.01', 'clothing.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['headdress.n.01', 'clothing.n.01']
 ('beanie', 'cap', 'hat')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'headdress.n.01', 'clothing.n.01', 'cap.n.01', 'skullcap.n.01'}
+	MN-CLUSTER-HYPERS: {'cap.n.01', 'skullcap.n.01', 'clothing.n.01', 'headdress.n.01'}
 CO-HYPONYMS	{'clothing.n.01'}
 
  2346928 ORIGINAL-RESPONSES: ['pillow' 'hat' 'toy'] [('pillow', 16), ('hat', 8), ('toy', 2)] CLUSTER: ('pillow',)
@@ -4986,6 +5074,7 @@ CO-HYPONYMS	{'clothing.n.01'}
 WordNet::
 	PRED-SSIDS:  ['rug.n.01', 'carpet.n.02'] 
 	GT-SSIDs: ['pillow.n.01'] 	GT-CLUSTER: ('pillow',)
+	MN_CLUSTER_SSIDS: {'pillow.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['floor_cover.n.01', 'furnishing.n.02', 'covering.n.02', 'instrumentality.n.03']
 HYPERNYM? 
@@ -5030,13 +5119,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['new_jersey.n.01', 'jersey.n.02', 'jersey.n.03', 'jersey.n.04', 'jersey.n.05'] 
 	GT-SSIDs: ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 	GT-CLUSTER: ('baseball player', 'batter', 'man', 'player')
+	MN_CLUSTER_SSIDS: {'ballplayer.n.01', 'player.n.05', 'batter.n.01', 'actor.n.01', 'player.n.01', 'man.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'batter.n.02', 'serviceman.n.01', 'valet.n.01', 'player.n.04', 'world.n.08', 'musician.n.01', 'man.n.05', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['channel_island.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 ('baseball player', 'batter', 'man', 'player')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'ballplayer.n.01', 'adult.n.01', 'athlete.n.01', 'male.n.02', 'person.n.01', 'contestant.n.01', 'player.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'athlete.n.01', 'person.n.01', 'male.n.02', 'ballplayer.n.01', 'adult.n.01', 'player.n.01'}
 ERROR	
 
  2391191 ORIGINAL-RESPONSES: ['pizza' 'food'] [('pizza', 32), ('food', 2)] CLUSTER: ('food', 'pizza')
@@ -5084,13 +5174,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['sandwich.n.01'] 	GT-CLUSTER: ('food', 'sandwich')
+	MN_CLUSTER_SSIDS: {'food.n.01', 'sandwich.n.01', 'food.n.02', 'food.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['snack_food.n.01', 'dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('food', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'matter.n.03', 'food.n.01', 'nutriment.n.01', 'dish.n.02', 'snack_food.n.01'}
 ERROR	
 
  61586 ORIGINAL-RESPONSES: ['umpire' 'man' 'player'] [('umpire', 16), ('man', 10), ('player', 2)] CLUSTER: ('man', 'umpire')
@@ -5108,14 +5199,15 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['dog.n.01', 'frump.n.01', 'dog.n.03', 'cad.n.01', 'frank.n.02', 'pawl.n.01', 'andiron.n.01'] 
 	GT-SSIDs: ['cat.n.01', 'guy.n.01', 'cat.n.03', 'kat.n.01', "cat-o'-nine-tails.n.01", 'caterpillar.n.02', 'big_cat.n.01', 'computerized_tomography.n.01'] 	GT-CLUSTER: ['cat']
+	MN_CLUSTER_SSIDS: {'kat.n.01', "cat-o'-nine-tails.n.01", 'big_cat.n.01', 'computerized_tomography.n.01', 'cat.n.01', 'cat.n.03', 'caterpillar.n.02', 'guy.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['canine.n.02', 'domestic_animal.n.01', 'carnivore.n.01', 'animal.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['feline.n.01', 'carnivore.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['cat']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'carnivore.n.01', 'placental.n.01', 'mammal.n.01', 'feline.n.01', 'chordate.n.01'}
-CO-HYPONYMS	{'carnivore.n.01', 'animal.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'placental.n.01', 'feline.n.01', 'carnivore.n.01', 'mammal.n.01', 'chordate.n.01', 'vertebrate.n.01'}
+CO-HYPONYMS	{'animal.n.01', 'carnivore.n.01'}
 
  2318853 ORIGINAL-RESPONSES: ['train'] [('train', 33)] CLUSTER: ['train']
 	PRED:  25 train
@@ -5127,13 +5219,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['horse.n.01', 'horse.n.02', 'cavalry.n.01', 'sawhorse.n.01', 'knight.n.02'] 	GT-CLUSTER: ('horse',)
+	MN_CLUSTER_SSIDS: {'sawhorse.n.01', 'horse.n.02', 'knight.n.02', 'cavalry.n.01', 'horse.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['equine.n.01', 'odd-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ('horse',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'odd-toed_ungulate.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'ungulate.n.01', 'odd-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01'}
 ERROR	
 
  2382644 ORIGINAL-RESPONSES: ['boat'] [('boat', 34)] CLUSTER: ['boat']
@@ -5331,13 +5424,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 
 	GT-SSIDs: ['skateboarder.n.01'] 	GT-CLUSTER: ('boy', 'man', 'person', 'skateboarder', 'skater')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'person.n.01', 'skateboarder.n.01', 'man.n.01', 'son.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'boy.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'world.n.08', 'person.n.02', 'boy.n.04', 'man.n.05', 'skater.n.01', 'man.n.06', 'homo.n.02', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['skater.n.01', 'athlete.n.01', 'contestant.n.01', 'person.n.01']
 ('boy', 'man', 'person', 'skateboarder', 'skater')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'adult.n.01', 'athlete.n.01', 'male.n.02', 'person.n.01', 'contestant.n.01', 'causal_agent.n.01', 'skater.n.01'}
+	MN-CLUSTER-HYPERS: {'contestant.n.01', 'skater.n.01', 'athlete.n.01', 'causal_agent.n.01', 'person.n.01', 'male.n.02', 'organism.n.01', 'adult.n.01'}
 CO-HYPONYMS	{'person.n.01'}
 
  2357123 ORIGINAL-RESPONSES: ['woman' 'tennis player' 'player'] [('woman', 18), ('tennis player', 9), ('player', 3)] CLUSTER: ('athlete', 'player', 'tennis player', 'woman')
@@ -5442,7 +5536,8 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['girl.n.01', 'female_child.n.01', 'daughter.n.01', 'girlfriend.n.02', 'girl.n.05'] 
 	GT-SSIDs: ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 	GT-CLUSTER: ('cyclist', 'girl', 'lady', 'person', 'woman')
-SYNONYM_CL	{'girlfriend.n.02', 'female_child.n.01', 'girl.n.01', 'girl.n.05', 'daughter.n.01'}
+	MN_CLUSTER_SSIDS: {'girl.n.05', 'womanhood.n.02', 'charwoman.n.01', 'lady.n.03', 'person.n.02', 'woman.n.01', 'person.n.03', 'girl.n.01', 'person.n.01', 'girlfriend.n.02', 'lady.n.01', 'woman.n.02', 'female_child.n.01', 'dame.n.02', 'daughter.n.01', 'cyclist.n.01'}
+SYNONYM_CL	{'girl.n.05', 'girl.n.01', 'girlfriend.n.02', 'female_child.n.01', 'daughter.n.01'}
 
  2386252 ORIGINAL-RESPONSES: ['jacket' 'suit' 'coat'] [('jacket', 13), ('suit', 12), ('coat', 3)] CLUSTER: ('coat', 'jacket', 'suit')
 	PRED:  91 suit
@@ -5559,13 +5654,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 
 	GT-SSIDs: ['shirt.n.01'] 	GT-CLUSTER: ('shirt', 't-shirt')
+	MN_CLUSTER_SSIDS: {'shirt.n.01', 'jersey.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['garment.n.01', 'clothing.n.01']
 ('shirt', 't-shirt')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'garment.n.01', 'clothing.n.01', 'shirt.n.01'}
+	MN-CLUSTER-HYPERS: {'shirt.n.01', 'garment.n.01', 'clothing.n.01'}
 ERROR	
 
  2352059 ORIGINAL-RESPONSES: ['pizza' 'food'] [('pizza', 32), ('food', 2)] CLUSTER: ('food', 'pizza')
@@ -5573,13 +5669,14 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['home_plate.n.01', 'plate.n.02', 'plate.n.03', 'plate.n.04', 'plate.n.05', 'plate.n.06', 'plate.n.07', 'plate.n.08', 'plate.n.09', 'plate.n.10', 'plate.n.11', 'plate.n.12', 'plate.n.13', 'plate.n.14', 'denture.n.01'] 
 	GT-SSIDs: ['pizza.n.01'] 	GT-CLUSTER: ('food', 'pizza')
+	MN_CLUSTER_SSIDS: {'food.n.01', 'pizza.n.01', 'food.n.02', 'food.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['base.n.03', 'baseball_equipment.n.01', 'sports_equipment.n.01', 'equipment.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('food', 'pizza')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'matter.n.03', 'dish.n.02', 'nutriment.n.01', 'substance.n.07', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'substance.n.07', 'matter.n.03', 'food.n.01', 'nutriment.n.01', 'dish.n.02'}
 ERROR	
 
  2402867 ORIGINAL-RESPONSES: ['bathtub' 'tub'] [('bathtub', 20), ('tub', 6)] CLUSTER: ('bath', 'bathtub', 'tub')
@@ -5647,13 +5744,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['wall.n.01', 'wall.n.02', 'wall.n.03', 'wall.n.04', 'wall.n.05', 'wall.n.06', 'wall.n.07', 'rampart.n.01'] 
 	GT-SSIDs: ['bathtub.n.01'] 	GT-CLUSTER: ('bathtub', 'tub')
+	MN_CLUSTER_SSIDS: {'tub.n.03', 'tub.n.02', 'bathtub.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['partition.n.01', 'structure.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['vessel.n.03', 'container.n.01', 'instrumentality.n.03']
 ('bathtub', 'tub')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'container.n.01', 'vessel.n.03'}
+	MN-CLUSTER-HYPERS: {'instrumentality.n.03', 'vessel.n.03', 'container.n.01'}
 ERROR	
 
  2383516 ORIGINAL-RESPONSES: ['couch' 'sofa' 'dog' 'shirt' 'sweater'] [('couch', 15), ('sofa', 6), ('dog', 4), ('shirt', 3), ('sweater', 2)] CLUSTER: ('couch', 'sofa')
@@ -5661,13 +5759,14 @@ ERROR
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['sofa.n.01', 'couch.n.02', 'couch.n.03'] 	GT-CLUSTER: ('couch', 'sofa')
+	MN_CLUSTER_SSIDS: {'sofa.n.01', 'couch.n.03', 'couch.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('couch', 'sofa')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'seat.n.03', 'instrumentality.n.03'}
 ERROR	
 
  2367486 ORIGINAL-RESPONSES: ['toilet'] [('toilet', 24)] CLUSTER: ('toilet', 'toilet bowl')
@@ -5745,13 +5844,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['horse.n.01', 'horse.n.02', 'cavalry.n.01', 'sawhorse.n.01', 'knight.n.02'] 
 	GT-SSIDs: ['dog.n.01', 'frump.n.01', 'dog.n.03', 'cad.n.01', 'frank.n.02', 'pawl.n.01', 'andiron.n.01'] 	GT-CLUSTER: ('dog',)
+	MN_CLUSTER_SSIDS: {'frump.n.01', 'frank.n.02', 'cad.n.01', 'dog.n.01', 'pawl.n.01', 'andiron.n.01', 'dog.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['equine.n.01', 'odd-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['canine.n.02', 'domestic_animal.n.01', 'carnivore.n.01', 'animal.n.01']
 ('dog',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'domestic_animal.n.01', 'canine.n.02', 'carnivore.n.01', 'animal.n.01'}
+	MN-CLUSTER-HYPERS: {'carnivore.n.01', 'animal.n.01', 'canine.n.02', 'domestic_animal.n.01'}
 CO-HYPONYMS	{'animal.n.01'}
 
  2350164 ORIGINAL-RESPONSES: ['surfer' 'boy' 'person' 'man' 'child' 'jacket'] [('surfer', 8), ('boy', 7), ('person', 5), ('man', 5), ('child', 3), ('jacket', 2)] CLUSTER: ('boy', 'child', 'man', 'person', 'surfer')
@@ -5759,13 +5859,14 @@ CO-HYPONYMS	{'animal.n.01'}
 WordNet::
 	PRED-SSIDS:  ['woman.n.01', 'woman.n.02', 'charwoman.n.01', 'womanhood.n.02'] 
 	GT-SSIDs: ['surfer.n.01'] 	GT-CLUSTER: ('boy', 'child', 'man', 'person', 'surfer')
+	MN_CLUSTER_SSIDS: {'male_child.n.01', 'person.n.01', 'child.n.03', 'man.n.01', 'child.n.02', 'son.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'boy.n.02', 'serviceman.n.01', 'person.n.03', 'valet.n.01', 'child.n.04', 'world.n.08', 'person.n.02', 'boy.n.04', 'man.n.05', 'man.n.06', 'surfer.n.01', 'homo.n.02', 'child.n.01', 'man.n.03'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'female.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['swimmer.n.02', 'traveler.n.01', 'person.n.01']
 ('boy', 'child', 'man', 'person', 'surfer')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'organism.n.01', 'traveler.n.01', 'adult.n.01', 'male.n.02', 'person.n.01', 'swimmer.n.02', 'causal_agent.n.01', 'juvenile.n.01'}
+	MN-CLUSTER-HYPERS: {'swimmer.n.02', 'juvenile.n.01', 'causal_agent.n.01', 'person.n.01', 'male.n.02', 'traveler.n.01', 'organism.n.01', 'adult.n.01'}
 CO-HYPONYMS	{'person.n.01'}
 
  2342654 ORIGINAL-RESPONSES: ['mouse'] [('mouse', 27)] CLUSTER: ('computer mouse', 'mouse')
@@ -5783,13 +5884,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['land.n.04', 'reason.n.01', 'earth.n.02', 'footing.n.02', 'ground.n.05', 'background.n.02', 'land.n.02', 'ground.n.08', 'ground.n.09', 'ground.n.10', 'flat_coat.n.01'] 
 	GT-SSIDs: ['airplane.n.01'] 	GT-CLUSTER: ('airplane', 'plane')
+	MN_CLUSTER_SSIDS: {'airplane.n.01', 'plane.n.02', 'plane.n.03', 'plane.n.05', 'plane.n.04'}
 HYPONYM? 
 	PRED-HYPERS: ['object.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['heavier-than-air_craft.n.01', 'aircraft.n.01', 'craft.n.02', 'vehicle.n.01']
 ('airplane', 'plane')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'vehicle.n.01', 'craft.n.02', 'aircraft.n.01', 'heavier-than-air_craft.n.01'}
+	MN-CLUSTER-HYPERS: {'heavier-than-air_craft.n.01', 'aircraft.n.01', 'craft.n.02', 'vehicle.n.01'}
 ERROR	
 
  2343482 ORIGINAL-RESPONSES: ['girl' 'woman' 'player' 'pitcher' 'baseball player'] [('girl', 16), ('woman', 5), ('player', 4), ('pitcher', 3), ('baseball player', 2)] CLUSTER: ('baseball player', 'girl', 'pitcher', 'player', 'woman')
@@ -5877,6 +5979,7 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['spoon.n.01', 'spoon.n.02', 'spoon.n.03'] 
 	GT-SSIDs: ['fork.n.01', 'branching.n.01', 'fork.n.03', 'fork.n.04', 'crotch.n.02'] 	GT-CLUSTER: ['fork']
+	MN_CLUSTER_SSIDS: {'branching.n.01', 'fork.n.01', 'fork.n.03', 'fork.n.04', 'crotch.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['container.n.01', 'cutlery.n.02', 'instrumentality.n.03', 'tableware.n.01', 'artifact.n.01', 'ware.n.01']
 HYPERNYM? 
@@ -5926,13 +6029,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['bed.n.01', 'bed.n.02', 'bed.n.03', 'bed.n.04', 'seam.n.03', 'layer.n.01', 'bed.n.07', 'bed.n.08'] 
 	GT-SSIDs: ['rug.n.01'] 	GT-CLUSTER: ('carpet', 'rug')
+	MN_CLUSTER_SSIDS: {'rug.n.01', 'carpet.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['bedroom_furniture.n.01', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['floor_cover.n.01', 'furnishing.n.02', 'covering.n.02', 'instrumentality.n.03']
 ('carpet', 'rug')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'covering.n.02', 'instrumentality.n.03', 'floor_cover.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'floor_cover.n.01', 'covering.n.02', 'instrumentality.n.03'}
 CO-HYPONYMS	{'furnishing.n.02', 'instrumentality.n.03'}
 
  2377783 ORIGINAL-RESPONSES: ['catcher' 'man' 'person' 'bat' 'baseball player' 'umpire'] [('catcher', 18), ('man', 7), ('person', 3), ('bat', 2), ('baseball player', 2), ('umpire', 2)] CLUSTER: ('athlete', 'baseball player', 'catcher', 'man', 'person')
@@ -6045,13 +6149,14 @@ SAME CLUSTER ('car', 'jeep', 'truck', 'vehicle')
 WordNet::
 	PRED-SSIDS:  ['rug.n.01'] 
 	GT-SSIDs: ['knife.n.01', 'knife.n.02', 'tongue.n.03'] 	GT-CLUSTER: ('knife', 'pocket knife')
+	MN_CLUSTER_SSIDS: {'pocketknife.n.01', 'knife.n.01', 'tongue.n.03', 'knife.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['floor_cover.n.01', 'furnishing.n.02', 'covering.n.02', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['edge_tool.n.01', 'cutter.n.06', 'cutting_implement.n.01', 'tool.n.01', 'implement.n.01', 'instrumentality.n.03']
 ('knife', 'pocket knife')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'edge_tool.n.01', 'tool.n.01', 'instrumentality.n.03', 'knife.n.01', 'cutter.n.06', 'cutting_implement.n.01', 'implement.n.01'}
+	MN-CLUSTER-HYPERS: {'implement.n.01', 'cutting_implement.n.01', 'knife.n.01', 'edge_tool.n.01', 'cutter.n.06', 'tool.n.01', 'instrumentality.n.03'}
 CO-HYPONYMS	{'instrumentality.n.03'}
 
  2331065 ORIGINAL-RESPONSES: ['bench'] [('bench', 30)] CLUSTER: ['bench']
@@ -6064,13 +6169,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['statue.n.01'] 
 	GT-SSIDs: ['horse.n.01', 'horse.n.02', 'cavalry.n.01', 'sawhorse.n.01', 'knight.n.02'] 	GT-CLUSTER: ['horse']
+	MN_CLUSTER_SSIDS: {'sawhorse.n.01', 'horse.n.02', 'knight.n.02', 'cavalry.n.01', 'horse.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['sculpture.n.01', 'plastic_art.n.01', 'solid_figure.n.01', 'art.n.01', 'figure.n.06', 'creation.n.02', 'shape.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['equine.n.01', 'odd-toed_ungulate.n.01', 'ungulate.n.01', 'placental.n.01', 'mammal.n.01', 'vertebrate.n.01', 'chordate.n.01', 'animal.n.01']
 ['horse']
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'placental.n.01', 'ungulate.n.01', 'mammal.n.01', 'odd-toed_ungulate.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'animal.n.01', 'vertebrate.n.01', 'equine.n.01', 'ungulate.n.01', 'odd-toed_ungulate.n.01', 'mammal.n.01', 'chordate.n.01', 'placental.n.01'}
 ERROR	
 
  2417585 ORIGINAL-RESPONSES: ['airplane' 'plane'] [('airplane', 14), ('plane', 13)] CLUSTER: ('airplane', 'plane')
@@ -6093,13 +6199,14 @@ SAME CLUSTER ('cabinet', 'counter', 'kitchen', 'table')
 WordNet::
 	PRED-SSIDS:  ['laptop.n.01'] 
 	GT-SSIDs: ['shirt.n.01'] 	GT-CLUSTER: ('blouse', 'dress', 'jacket', 'shirt')
+	MN_CLUSTER_SSIDS: {'jacket.n.01', 'shirt.n.01', 'dress.n.01', 'apparel.n.01', 'crown.n.11', 'attire.n.01', 'jacket.n.02', 'blouse.n.01', 'jacket.n.04', 'jacket.n.05'}
 HYPONYM? 
 	PRED-HYPERS: ['portable_computer.n.01', 'personal_computer.n.01', 'digital_computer.n.01', 'computer.n.01', 'machine.n.01', 'device.n.01', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['garment.n.01', 'clothing.n.01']
 ('blouse', 'dress', 'jacket', 'shirt')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'coat.n.01', "woman's_clothing.n.01", 'garment.n.01', 'overgarment.n.01', 'top.n.10', 'clothing.n.01'}
+	MN-CLUSTER-HYPERS: {'overgarment.n.01', 'coat.n.01', 'top.n.10', 'clothing.n.01', "woman's_clothing.n.01", 'garment.n.01'}
 ERROR	
 
  2323957 ORIGINAL-RESPONSES: ['hat'] [('hat', 33)] CLUSTER: ('cap', 'hat')
@@ -6117,13 +6224,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['man.n.01', 'serviceman.n.01', 'man.n.03', 'homo.n.02', 'man.n.05', 'man.n.06', 'valet.n.01', 'man.n.08', 'man.n.09', 'man.n.10', 'world.n.08'] 
 	GT-SSIDs: ['bench.n.01', 'terrace.n.02', 'judiciary.n.01', 'workbench.n.01', 'bench.n.05', 'bench.n.06', 'bench.n.07'] 	GT-CLUSTER: ('bench',)
+	MN_CLUSTER_SSIDS: {'terrace.n.02', 'bench.n.01', 'bench.n.06', 'bench.n.05', 'bench.n.07', 'judiciary.n.01', 'workbench.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['adult.n.01', 'male.n.02', 'person.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('bench',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'instrumentality.n.03', 'seat.n.03', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'furnishing.n.02', 'furniture.n.01', 'seat.n.03', 'instrumentality.n.03'}
 ERROR	
 
  498298 ORIGINAL-RESPONSES: ['woman' 'food'] [('woman', 25), ('food', 3)] CLUSTER: ('woman',)
@@ -6141,13 +6249,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['arm.n.01', 'arm.n.02', 'weapon.n.01', 'arm.n.04', 'branch.n.01', 'sleeve.n.01'] 
 	GT-SSIDs: ['statue.n.01'] 	GT-CLUSTER: ('bird', 'statue')
+	MN_CLUSTER_SSIDS: {'bird.n.02', 'bird.n.01', 'statue.n.01', 'dame.n.01', 'shuttlecock.n.01', 'boo.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['limb.n.01', 'extremity.n.01', 'external_body_part.n.01', 'body_part.n.01', 'part.n.03', 'thing.n.12']
 HYPERNYM? 
 	MN-HYPERS: ['sculpture.n.01', 'plastic_art.n.01', 'solid_figure.n.01', 'art.n.01', 'figure.n.06', 'creation.n.02', 'shape.n.02']
 ('bird', 'statue')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'shape.n.02', 'animal.n.01', 'vertebrate.n.01', 'plastic_art.n.01', 'solid_figure.n.01', 'figure.n.06', 'creation.n.02', 'sculpture.n.01', 'art.n.01', 'chordate.n.01'}
+	MN-CLUSTER-HYPERS: {'sculpture.n.01', 'vertebrate.n.01', 'plastic_art.n.01', 'solid_figure.n.01', 'figure.n.06', 'art.n.01', 'shape.n.02', 'chordate.n.01', 'animal.n.01', 'creation.n.02'}
 ERROR	
 
  2328124 ORIGINAL-RESPONSES: ['man' 'person' 'tshirt,t-shirt,t shirt' 'skater' 'skateboarder'] [('man', 19), ('person', 2), ('tshirt,t-shirt,t shirt', 2), ('skater', 2), ('skateboarder', 2)] CLUSTER: ('man', 'person', 'skateboarder', 'skater')
@@ -6180,13 +6289,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['floor.n.01', 'floor.n.02', 'floor.n.03', 'floor.n.04', 'floor.n.05', 'floor.n.06', 'floor.n.07', 'floor.n.08', 'floor.n.09', 'floor.n.10'] 
 	GT-SSIDs: ['counter.n.01', 'counter.n.02', 'counter.n.03', 'buffet.n.01', 'counter.n.05', 'rejoinder.n.01', 'counter.n.07', 'counter.n.08', 'counterpunch.n.01'] 	GT-CLUSTER: ('bathroom counter', 'counter', 'countertop')
+	MN_CLUSTER_SSIDS: {'counter.n.05', 'counterpunch.n.01', 'rejoinder.n.01', 'counter.n.03', 'counter.n.01', 'counter.n.07', 'countertop.n.01', 'counter.n.08', 'buffet.n.01', 'counter.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['horizontal_surface.n.01', 'surface.n.01']
 HYPERNYM? 
 	MN-HYPERS: ['table.n.02', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 ('bathroom counter', 'counter', 'countertop')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'surface.n.01', 'work_surface.n.01', 'tabletop.n.01', 'furnishing.n.02', 'instrumentality.n.03', 'table.n.02', 'furniture.n.01'}
+	MN-CLUSTER-HYPERS: {'work_surface.n.01', 'table.n.02', 'furniture.n.01', 'surface.n.01', 'furnishing.n.02', 'tabletop.n.01', 'instrumentality.n.03'}
 ERROR	
 
  2411200 ORIGINAL-RESPONSES: ['woman' 'tennis player' 'person' 'bat' 'player'] [('woman', 17), ('tennis player', 7), ('person', 6), ('bat', 2), ('player', 2)] CLUSTER: ('person', 'player', 'tennis player', 'woman')
@@ -6259,13 +6369,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['doughnut.n.02'] 
 	GT-SSIDs: ['sandwich.n.01'] 	GT-CLUSTER: ('burger', 'food', 'hamburger', 'sandwich')
+	MN_CLUSTER_SSIDS: {'burger.n.01', 'sandwich.n.01', 'food.n.03', 'food.n.01', 'hamburger.n.01', 'ground_beef.n.01', 'food.n.02'}
 HYPONYM? 
 	PRED-HYPERS: ['friedcake.n.01', 'cake.n.03', 'baked_goods.n.01', 'food.n.02']
 HYPERNYM? 
 	MN-HYPERS: ['snack_food.n.01', 'dish.n.02', 'nutriment.n.01', 'food.n.01']
 ('burger', 'food', 'hamburger', 'sandwich')
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'snack_food.n.01', 'matter.n.03', 'dish.n.02', 'nutriment.n.01', 'substance.n.07', 'sandwich.n.01', 'food.n.01'}
+	MN-CLUSTER-HYPERS: {'sandwich.n.01', 'substance.n.07', 'matter.n.03', 'food.n.01', 'nutriment.n.01', 'dish.n.02', 'snack_food.n.01'}
 ERROR	
 
  474 ORIGINAL-RESPONSES: ['table' 'desk'] [('table', 32), ('desk', 2)] CLUSTER: ('desk', 'table')
@@ -6308,13 +6419,14 @@ HIT
 WordNet::
 	PRED-SSIDS:  ['bench.n.01', 'terrace.n.02', 'judiciary.n.01', 'workbench.n.01', 'bench.n.05', 'bench.n.06', 'bench.n.07'] 
 	GT-SSIDs: ['table.n.01', 'table.n.02', 'table.n.03', 'mesa.n.01', 'table.n.05', 'board.n.04'] 	GT-CLUSTER: ('table',)
+	MN_CLUSTER_SSIDS: {'table.n.03', 'table.n.02', 'table.n.01', 'table.n.05', 'board.n.04', 'mesa.n.01'}
 HYPONYM? 
 	PRED-HYPERS: ['seat.n.03', 'furniture.n.01', 'furnishing.n.02', 'instrumentality.n.03']
 HYPERNYM? 
 	MN-HYPERS: ['array.n.01', 'arrangement.n.02', 'group.n.01']
 ('table',)
 HYPERNYM OF CLUSTER? 
-	MN-CLUSTER-HYPERS: {'array.n.01', 'group.n.01', 'arrangement.n.02'}
+	MN-CLUSTER-HYPERS: {'group.n.01', 'array.n.01', 'arrangement.n.02'}
 ERROR	
 
  2397872 ORIGINAL-RESPONSES: ['motorcycle' 'bike'] [('motorcycle', 32), ('bike', 4)] CLUSTER: ('bike', 'motorcycle')
@@ -6374,31 +6486,31 @@ OTHER CLUSTER ('food', 'sandwich') bounding box
 \toprule
 {} &  hit-AllTest &  correct-name-AllTest &  incorrect-name-AllTest &  hit-VGnotMN &  correct-name-VGnotMN &  incorrect-name-VGnotMN \\
 \midrule
-All &         71.1 &                  13.9 &                    15.0 &         48.4 &                  28.7 &                    22.9 \\
+All &         71.1 &                  13.6 &                    15.3 &         48.4 &                  28.3 &                    23.3 \\
 \bottomrule
 \end{tabular}
 
-\begin{tabular}{lrrrrrrrrrrrr}
+\begin{tabular}{lrrrrrrrrrr}
 \toprule
-{} &  same\_cluster-AllTest &  synonym-AllTest &  synonym\_cl-AllTest &  hypernym-AllTest &  hyponym-AllTest &  hypernym\_cl-AllTest &  same\_cluster-VGnotMN &  synonym-VGnotMN &  synonym\_cl-VGnotMN &  hypernym-VGnotMN &  hyponym-VGnotMN &  hypernym\_cl-VGnotMN \\
+{} &  same\_cluster-AllTest &  synonym-AllTest &  synonym\_cl-AllTest &  hypernym-AllTest &  hypernym\_cl-AllTest &  same\_cluster-VGnotMN &  synonym-VGnotMN &  synonym\_cl-VGnotMN &  hypernym-VGnotMN &  hypernym\_cl-VGnotMN \\
 \midrule
-All &                  93.3 &              1.3 &                 2.0 &               1.3 &              2.0 &                  0.0 &                  93.8 &              0.0 &                 3.1 &               1.6 &              1.6 &                  0.0 \\
+All &                  95.2 &              1.4 &                 2.1 &               1.4 &                  0.0 &                  95.2 &              0.0 &                 3.2 &               1.6 &                  0.0 \\
 \bottomrule
 \end{tabular}
 
-\begin{tabular}{lrrrrrrrrrrrrrr}
+\begin{tabular}{lrrrrrrrrrrrrrrrr}
 \toprule
-{} &  co-hyponyms-AllTest &  visual-AllTest &  linguistic-AllTest &  bounding box-AllTest &  other-AllTest &  error-AllTest &  low\_cnt-AllTest &  co-hyponyms-VGnotMN &  visual-VGnotMN &  linguistic-VGnotMN &  bounding box-VGnotMN &  other-VGnotMN &  error-VGnotMN &  low\_cnt-VGnotMN \\
+{} &  hyponym-AllTest &  co-hyponyms-AllTest &  visual-AllTest &  linguistic-AllTest &  bounding box-AllTest &  other-AllTest &  error-AllTest &  low\_cnt-AllTest &  hyponym-VGnotMN &  co-hyponyms-VGnotMN &  visual-VGnotMN &  linguistic-VGnotMN &  bounding box-VGnotMN &  other-VGnotMN &  error-VGnotMN &  low\_cnt-VGnotMN \\
 \midrule
-All &                 15.5 &             0.6 &                 0.0 &                  15.5 &            6.2 &           49.1 &             13.0 &                  5.9 &             2.0 &                 0.0 &                  13.7 &           11.8 &           54.9 &             11.8 \\
+All &              1.8 &                 15.2 &             0.6 &                 0.0 &                  15.2 &            6.1 &           48.2 &             12.8 &              1.9 &                  5.8 &             1.9 &                 0.0 &                  13.5 &           11.5 &           53.8 &             11.5 \\
 \bottomrule
 \end{tabular}
 
-\begin{tabular}{lrrrrrrrr}
+\begin{tabular}{lrrrrrrrrrr}
 \toprule
-{} &  co-hyponyms-AllTest &  other\_object-AllTest &  error-AllTest &  low\_cnt-AllTest &  co-hyponyms-VGnotMN &  other\_object-VGnotMN &  error-VGnotMN &  low\_cnt-VGnotMN \\
+{} &  hyponym-AllTest &  co-hyponyms-AllTest &  other\_object-AllTest &  error-AllTest &  low\_cnt-AllTest &  hyponym-VGnotMN &  co-hyponyms-VGnotMN &  other\_object-VGnotMN &  error-VGnotMN &  low\_cnt-VGnotMN \\
 \midrule
-All &                 15.5 &                  22.4 &           49.1 &             13.0 &                  5.9 &                  27.5 &           54.9 &             11.8 \\
+All &              1.8 &                 15.2 &                  22.0 &           48.2 &             12.8 &              1.9 &                  5.8 &                  26.9 &           53.8 &             11.5 \\
 \bottomrule
 \end{tabular}
 
