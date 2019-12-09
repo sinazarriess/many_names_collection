@@ -35,13 +35,10 @@ We leave modeling experiments that take into account other possible names of obj
 \label{sect:exp_setup}
 
 \paragraph{Data}
-\gbt{I moved this here cause I think it will be useful to define the different vocabularies here and then be able to simply refer to them later. Btw, consider using `MN-Entry' instead of `MN442'? but maybe having the number in the name is useful to be able to compare.}
-\cs{todo after Section~\ref{sect:mn_overview} has been written.}
-\begin{itemize}
-	\item Test data: overlap of \mn and \vg test data (CITE)
-	\item Target vocabulary of test data: overlap of MN442 and VG (\cs{XX} names)
-	\item Source of label: \mn, but we compare against \vg
-\end{itemize}
+We split \mn into training ($21K$~objects) and test data ($1,072$). 
+The test data corresponds to the overlap of \mn (MN) and the VG (VG) test split used by  \newcite{anderson2018updown}. 
+The target vocabulary of the test data is MN442. %the overlap of MN442 and VG ($355$ names). 
+For training using transfer learning, we train on the ground truth labels provided by \mn, but compare to training on \vg labels. 
 
 \paragraph{Models}
 
