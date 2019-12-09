@@ -75,20 +75,20 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 \begin{tabular}{ll|rrr|rrr}
 \toprule
 &  & \multicolumn{3}{c|}{MN agreement $>$ 0.9} & \multicolumn{3}{c}{MN agreement $\leq$0.9}\\
-                         model &  gt &  hit &  valid &  incorrect &  hit &  valid &  incorrect \\
+                         model &  GT &  hit &  human-like &  off &  hit &  human-like &  off \\
 \midrule
-       FRCNN$_{\text{VG1600}}$ &  VG &   94.8 &      0.8 &      4.4 &   63.6 &     21.0 &     15.5 \\
-        FRCNN$_{\text{MN442}}$ &  VG &   89.6 &      0.8 &      9.6 &   60.7 &     20.8 &     18.5 \\
-                \midrule
- FRCNN$_{\text{VG1600--VGMN}}$ &  MN &   94.5 &      0.0 &      5.5 &   72.9 &     14.0 &     13.1 \\
-         \midrule
-     ResNet101$_{\text{VGMN}}$ &  VG &   88.3 &      0.5 &     11.2 &   48.5 &     17.8 &     33.7 \\
-     ResNet101$_{\text{VGMN}}$ &  MN &   89.6 &      0.5 &      9.9 &   57.0 &     15.2 &     27.8 \\
-    ResNet101$_{\text{MN442}}$ &  MN &   90.1 &      0.5 &      9.4 &   58.2 &     15.2 &     26.7 \\
-    ResNet101$_{\text{MN442}}$ &  VG &   88.6 &      0.8 &     10.6 &   49.9 &     18.1 &     32.1 \\
+       FRCNN$_{\text{VG1600}}$ &  VG &   94.8 &           2.6 &      2.6 &   63.6 &          30.9 &      5.5 \\
+        FRCNN$_{\text{MN442}}$ &  VG &   89.6 &           4.2 &      6.2 &   60.7 &          31.3 &      8.0 \\
+        \midrule
+ FRCNN$_{\text{VG1600--VGMN}}$ &  MN &   94.5 &           4.2 &      1.3 &   72.9 &          22.7 &      4.4 \\
+ \midrule
+     ResNet101$_{\text{VGMN}}$ &  VG &   88.3 &           6.2 &      5.5 &   48.5 &          38.8 &     12.7 \\
+     ResNet101$_{\text{VGMN}}$ &  MN &   89.6 &           5.5 &      4.9 &   57.0 &          32.9 &     10.1 \\
+    ResNet101$_{\text{MN442}}$ &  MN &   90.1 &           4.9 &      4.9 &   58.2 &          32.8 &      9.0 \\
+    ResNet101$_{\text{MN442}}$ &  VG &   88.6 &           5.2 &      6.2 &   49.9 &          38.2 &     12.0 \\
 \bottomrule
 \end{tabular}
-\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{correct} (less preferred name, synonym, hypernym/hyponym), or \textit{wrong} \label{tab:exp_errors_agreement}}
+\caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{human-like} error (less preferred name, synonym, hypernym/hyponym), or \textit{off} \label{tab:exp_errors_agreement}}
 \end{table*}
 
 \begin{figure}
@@ -117,6 +117,7 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 	FRCNN$_{\text{VG1600--VGMN}}$: rug & cow \\
 	\end{tabular}
 	\caption{Annotations, verification and predictions for 2 objects: name (number of annotations, adequacy rating)}
+	\label{fig:rug}
 \end{figure}
 
 \subsection{How do predictions correlate with human agreement?}

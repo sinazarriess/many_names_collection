@@ -1,26 +1,21 @@
-\cs{In the remainder of this paper, we will use object and object instance interchangeably.}
+In this Section, we discuss why ManyNames is an interesting resource for our purpose of studying entry-level naming and why we needed to extend it with more thoroughly verified annotations. 
+In the remainder of this paper, we will use object and object instance interchangeably.
+
 \subsection{Overview of ManyNames}
 \label{sect:mn_overview}
 
-brief summary of lrec paper, shortcoming, what we added
 
-\begin{itemize}
-	\item For each object: a response set comprising all entered names (spellchecked) and their respective counts, i.e., the number of annotators which enter the respective name.
-	\item Problems \mw{I already had a go writing a 'bridge' paragraph containing this; see below.}: referential uncertainty: object other than target object was  identified as named
-	\item \cs{Mention how agreement on \mn is computed (anticipating that we'll be taking a closer look at this in 3.3 when the verification is in place).}
-\end{itemize}
+ManyNames\footnote{The dataset will be made available upon publication.} builds upon object annotations in \vg and provides up to 36 name annotations in parallel for 25K objects, see e.g.\ Figure \ref{fig:duck}.
+Given the substantial amount of annotation tokens per object, we are able to (i) identify entry-level names as the most frequent name given to each object, and (ii) compute agreement for each name, as the proportion of annotators that opted for a given name.
 
-
-\mw{Sina wrote this in 3.3; I think it should go here in 3.1., in order for 3.3 to more clearly show the added value of verification:}
 ManyNames provides a large vocabulary of names (7970) for 25K objects.
 Note that this vocabulary is much larger than what state-of-the-art object detectors are typically trained on. 
-The vocabulary of entry-level names -- defined for each object as the most frequent name given -- is drastically smaller and contains only 442 types. 
-This small set, however, covers at least 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
+Interestingly, the vocabulary of entry-level names is drastically smaller and contains only 442 types. 
+This small set covers at least 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
 
-
-
-Manual inspection of the \mn data revealed that annotators occasionally named an object different from the one highlighted by the bounding box (e.g., the name \emph{helmet} when the bounding box highlights an entire motorcyclist), or the right object but with an incorrect name (e.g., ``horse'' for a cow), and sometimes the bounding box may have been unclear.
-Although these errors are interesting human data in their own right, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology used for \mn, where there is a financial incentive to complete the task as quickly as possible.
+Manual inspection of the \mn data, however, revealed a range of annotation problems: annotators occasionally named an object different from the one highlighted by the bounding box (e.g., the name \emph{helmet} when the bounding box highlights an entire motorcyclist), or the right object but with an incorrect name (e.g., ``horse'' for a cow), and sometimes the bounding box may have been unclear. See Figure \ref{fig:rug} for examples.
+Although these errors are interesting human data in their own right, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology that uses simple graphical boxes to point workers to the annotation target.
+%used for \mn, where there is a financial incentive to complete the task as quickly as possible.
 As such they pose a challenge for our research goal, which is to see whether the object-naming ability of computational models resembles those of actual language users.
 
 \subsection{Collecting verification of ManyNames}
