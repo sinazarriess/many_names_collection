@@ -77,6 +77,25 @@ All ResNet models produce a lot of errors in the ``related'' category, which sug
 	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes} \gbt{Will we have space for the figure? (Maybe we should \textit{make} space?) Also, shouldn't we put examples from the most successful model instead?}}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\footnotesize
+	\begin{tabular}{p{3.7cm}p{3.7cm}}
+	\includegraphics[scale=.2]{images/556_1063956_seed_ambiguous.png} &
+	\includegraphics[scale=.2]{images/2657_1069343_singleton_obj.png} 
+	\\
+	Entry-level: rug (21) &  animal (9)\\
+	\midrule
+	Same-object: carpet (4, 0.7) &  yak (3,0.8), buffalo (2,0.7) \\
+	Error-box: chair (5, 0.5), floor (3, 0.5) & \\
+	Error-visual:  & cow (6,0.5), ram (3,0.7), bull (2,0.7)\\
+	\midrule
+	FRCNN$_{\text{VG1600}}$: floor & animal\\
+	FRCNN$_{\text{VG1600--VGMN}}$: rug & cow \\
+	\end{tabular}
+	\caption{Annotations, verification and predictions for 2 objects: name (number of annotations, adequacy rating)}
+\end{figure}
+
 \subsection{How do predictions correlate with human agreement?}
 
 An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
