@@ -4,7 +4,7 @@ It has been studied in psycholinguistics~\cite{refs} \mw{Refs!}, but has receive
 We address the following question:\\
 \fbox{\parbox{\columnwidth}{\textbf{Q:} Can standard object detection/image classification models (be fine-tuned to) exhibit human-like object naming behavior?}}\\\\
 In particular, we test several models for their ability to generate \emph{entry-level names}, i.e., the names people prefer when calling a specific object (e.g.,~\name{duck} in Figure~\ref{fig:duck}, right image).
-We wish to find out, for instance, whether different types of models or training regimes will tend towards different kinds of human-like errors in this regard.
+%% SHORTENING %% We wish to find out, for instance, whether different types of models or training regimes will tend towards different kinds of human-like errors in this regard.
 A secondary contribution of this paper is instrumental: for a proper evaluation we must first augment an existing human object naming dataset (\mn, Anonymous, under review) with extensive quality control, the resulting data of which we also describe and make available with this paper.
 
 In \lv, the choice of a particular name for an object is a ubiquitous problem -- it underlies virtually all tasks that model how speakers use language to refer to objects in the world, such as image description, visual question answering and referring expression generation.
@@ -17,8 +17,8 @@ But it raises the issue of whether these models could be used for more human-lik
 % By contrast, the goal of \lv object naming models is to predict the `natural' name of an object, i.e.,~the name a human could choose for the object instance.
 Psycholinguistic studies have found that humans have a preference towards a particular name, defined as the \textit{entry-level name}, when naturally naming an object \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
 However, this research has traditionally focused on \categories and/or their prototypical/schematic depictions (e.g., \newcite{rossion2004revisiting}), as opposed to the situated instances in naturalistic images with which \lv is mostly concerned.
-Humans may prefer different names for different instances of the same \category, and have them even disagree in their choice for the same instance (see also \citealt{graf2016animal}).
-For example, in Figure~\ref{fig:duck}, for the two instances of a duck (from \vg, with names from \mn), most people (27 out of 36) called the instance on the left \name{bird}, while \name{duck} was strongly preferred for the right instance. 
+Yet humans may prefer different names for different instances of the same \category, and have them even disagree in their choice for the same instance (see also \citealt{graf2016animal}).
+For example, in Figure~\ref{fig:duck} most people (27 out of 36) called the duck on the left \name{bird}, while \name{duck} was strongly preferred for the duck on the right. 
 \begin{figure}[t]
 	\centering
 	\small
@@ -38,7 +38,7 @@ Our main contributions in this paper are (i) to run the \mn data through a rigor
 \fbox{\parbox{\columnwidth}{\textbf{Entry-level name:} the most common name given to an object instance according to \mn}}\\\\
 We evaluate the effectiveness of different models on predicting these entry-level names, and our additional verification annotations enable us to understnad the kinds of mistakes each model makes (e.g.,~a `wrong' prediction may be a less preferred name as opposed to a true error).
 We show that generic object classification models on their own (ResNet, Faster-RCNN and Bottom-up) already learn to provide entry-level names for objects, but also that it is possible to apply transfer learning on \mn, successfully using pre-trained features from object detection and image classification models to train entry-level naming models. 
-\mw{Remark about the kinds of human errors, just as in the abstract, or some other more interesting teaser?}
+%% SHORTENING %% \mw{Remark about the kinds of human errors, just as in the abstract, or some other more interesting teaser?}
 
 %% END OF FILE %%
 
