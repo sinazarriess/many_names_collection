@@ -29,11 +29,88 @@ CANONICAL_THRESHOLD = .5   # weight of canonical cluster should be at least ...
 NUM_SAMPLES_FOR_STABILITY = 30
 SUBSAMPLE = False       # for debugging
 
+VERIFIED = False
+
 def basic_stats():
 
     csvfile = '../proc_data_phase0/verification/all_responses_round0-3_verified.csv'
     df = load_results.load_cleaned_results(csvfile)
 
+    df['entry_name'] = df['spellchecked_min2'].apply(lambda x: x.most_common(1)[0][0])
+    for i, row in df.iterrows():
+        df.at[i,'entry_name_verified'] = row['entry_name'] if row['verified'][row['entry_name']]['adequacy'] > ADEQUACY_THRESHOLD else np.nan
+
+    if VERIFIED:   # restrict to verified cases
+        df = df.loc[~(df['entry_name_verified'].isna())]
+        df['entry_name'] = df['entry_name_verified']
+
+    all_entry_names_statuses = {n: [] for n in df['entry_name'].unique()}
+
+    same_cluster = []
+
+    count_pairs = 0
+    for i, row in df.iterrows():
+        n0 = row['entry_name']
+        # if clear winner:
+        most_common = row['spellchecked_min2'].most_common()
+        if len(most_common) == 1 or .5*most_common[0][1] > most_common[1][1]:
+            all_entry_names_statuses[n0].append(True)
+            for n1 in row['spellchecked_min2']:
+                if VERIFIED:
+                    if n1 in all_entry_names_statuses and n1 != n0 and row['verified'][n1]['adequacy'] > ADEQUACY_THRESHOLD and row['verified'][n0]['cluster'] == row['verified'][n1]['cluster']:
+                        count_pairs += 1
+                        all_entry_names_statuses[n1].append(False)
+                        same_cluster.append(True)
+                    elif n1 in all_entry_names_statuses and n1 != n0 and row['verified'][n1]['adequacy'] > ADEQUACY_THRESHOLD:
+                        same_cluster.append(False)
+
+                else:
+                    if n1 in all_entry_names_statuses and n1 != n0 and .5*row['spellchecked_min2'][n0] > row['spellchecked_min2'][n1]:
+                        count_pairs += 1
+                        all_entry_names_statuses[n1].append(False)
+
+    all_entry_names_proportions = {}
+    for n in all_entry_names_statuses:
+        if len(all_entry_names_statuses[n]) > 0:
+            all_entry_names_proportions[n] = sum(all_entry_names_statuses[n])/len(all_entry_names_statuses[n])
+        else:
+            all_entry_names_proportions[n] = np.nan
+
+    proportions = pd.DataFrame(all_entry_names_proportions.items(), columns=['name', 'proportion']).sort_values(by='proportion')
+    proportions = proportions.loc[proportions['proportion'] != 0]
+
+    print(proportions['proportion'].mean(), proportions['proportion'].std())
+
+    print(proportions.to_string())
+    proportions.hist()
+    plt.show()
+
+
+    print(sum(same_cluster)/len(same_cluster))
+
+
+    # NOT VERIFIED:  0.4595991801966485          SD    0.3417786915948539
+    # VERIFIED: 0.6606025985622637 0.348298392688703    (clustering: 0.9424675756568008)
+
+    # NO ADEQUACY THRESHOLD:
+    # non-verified: 0.37012184268554943
+    # non-verified, big dif: 0.37925039030764296
+    # non-verified, .85 dif, adequate: 0.5137965701789666
+    # non-verified, .5 dif, adequate: 0.5590255848385242
+    # ... same cluster: 0.6308093518377098
+    # verified, plain: 0.39042199768877683
+    # verified, big dif: 0.39983132517813524
+    # verified, .85 dif, adequate: 0.5271917340163332
+    # verified, .5 dif, adequate: 0.5705043951474471
+    # ... same cluster: 0.6285499228510919 63%      SD: 0.34936729280912676
+
+    # genuinely not verified, .5 dif: 0.41272882720253123   SD: 0.32621766242442995
+
+    # proportion same cluster: .939431704885344.
+
+    quit()
+
+    ## Pie-chart
     errors = []
     for i, row in tqdm(df.iterrows(), total=len(df)):
         for n in row['verified']:
@@ -91,6 +168,7 @@ def analytic(auxfile):
         df.to_csv(auxfile)
 
     df = pd.read_csv(auxfile)
+    print("Loaded", auxfile)
 
     # for i, row in df.iterrows():
     #     domains = {}
@@ -113,14 +191,20 @@ def analytic(auxfile):
 
     print(stacked[:10].to_string())
 
-    counted = stacked.groupby(['cat', 'setting', 'names_needed_95']).count().reset_index().rename(columns={'index': 'count'})
-    counted['percentage'] = counted.groupby(['cat', 'setting'])['count'].apply(lambda x: 100 * x / float(x.sum()))
-    counted['cumulative %'] = counted.groupby(['cat', 'setting'])['percentage'].cumsum()
+    counted = stacked.groupby(['setting', 'names_needed_95']).count().reset_index().rename(
+        columns={'index': 'count'})
+    counted['percentage'] = counted.groupby(['setting'])['count'].apply(lambda x: 100 * x / float(x.sum()))
+    counted['cumulative %'] = counted.groupby(['setting'])['percentage'].cumsum()
     counted = counted.loc[counted['names_needed_95'] <= 36]
+
+    # counted = stacked.groupby(['cat', 'setting', 'names_needed_95']).count().reset_index().rename(columns={'index': 'count'})
+    # counted['percentage'] = counted.groupby(['cat', 'setting'])['count'].apply(lambda x: 100 * x / float(x.sum()))
+    # counted['cumulative %'] = counted.groupby(['cat', 'setting'])['percentage'].cumsum()
+    # counted = counted.loc[counted['names_needed_95'] <= 36]
 
     counted.rename(columns={'names_needed_95': 'number of names gathered', 'cumulative %': '% of entry names identified'}, inplace=True)
 
-    ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted, hue_order=settings)
+    ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='setting', data=counted, hue_order=settings)
     # ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted.loc[counted['setting'] == 'entry_cluster_names'])
     # ax = sns.lineplot(x='number of names gathered', y='% of entry names identified', hue='cat', data=counted.loc[counted['setting'] == 'all_names'])
     plt.ylim((0, 100))
@@ -310,7 +394,7 @@ def n_names_for_prob_majority(probs, threshold=.9, max_n_names=38, increment=2):
     # time-saving shortcut: if prob[0] and prob[1] aren't so different, then even with 36 names only .85 can be reached.
     if threshold > .85 and len(probs) > 1 and probs[1] > .66 * probs[0]:
         return 99
-    for n in range(1,max_n_names+1,increment):
+    for n in list(range(1,10,1)) + list(range(10,max_n_names+1,increment)):
         if prob_majority(probs, n) > threshold:
             return n
     return 99
