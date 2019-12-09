@@ -1,6 +1,6 @@
 
 
-As we outline in the following, our work on natural object naming is of relevance to research in psychology, \langvis and computer vision. 
+As we outline in the following, our work on natural object naming brings together  research in psycholinguistics, \langvis and computer vision. 
 
 \paragraph{(Entry-Level) Object Naming}
 
@@ -12,15 +12,15 @@ As we outline in the following, our work on natural object naming is of relevanc
 %Language + Vision:\\
 %Ordonez et al., Zarriess \& Schlangen, ... \\
 %- Our work: empirical notion of entry-level
-
-In psychology and cognitive science, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
-The typicality of the object with respect to this basic-level category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level category (\name{bird}), while for atypical objects  (e.g.,\ \name{penguin}) the more specific name corresponds to the entry-level category. 
-This strictly taxonomic view suggests that entry-level names generally hold for all instances a category (e.g.,\ penguin). 
-\newcite{Ordonez:2016} take up this view and learn to transfer an object's category detected by an object recognition system to its natural name, using external resources like corpus statistics. 
-In contrast, our work exploits actual naming data for instances of real-world objects and tests object naming model on ManyNames, a corpus with robust name annotations from many different speakers.
-This dataset is comparable to picture naming data, though we focus on real-world objects in images instead of prototypical line drawings as in e.g.\ \cite{rossion2004revisiting}, 
- \newcite{zarriess-schlangen:2017} learn a naming model from names produced in referring expressions to real-world objects, but they do not have access to name annotations from (many) different speakers and adopt very simply evaluation measures (like accuracy). 
- This work explores and adopts more nuanced evaluation metrics and aims to model robust speaker preferences with respect to natural naming.
+\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
+In psycholinguistics, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
+The typicality of the object with respect to this basic-level \category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while for atypical objects  (e.g.,\ \name{penguin}) the more specific name corresponds to the entry-level category. 
+This strictly taxonomic view suggests that entry-level names generally hold for all instances of a \category (e.g.,\ penguin). 
+\newcite{Ordonez:2016} take up this view and learn to transfer an object's \category detected by an object recognition system to its natural name, using external resources like corpus statistics. 
+In contrast, our work exploits actual naming data for instances of real-world objects and tests object naming models on ManyNames, a corpus with robust name annotations from many different speakers.
+This dataset is comparable to picture naming data, though we focus on real-world objects in images instead of prototypical line drawings as in, e.g.,~\newcite{rossion2004revisiting}.  
+ \newcite{zarriess-schlangen:2017} learn a naming model from names produced in referring expressions to real-world objects, but they do not have access to name annotations from (many) different speakers and adopt very simple evaluation measures (like accuracy). 
+Our present work explores and adopts more nuanced evaluation metrics and aims to model robust speaker preferences with respect to natural naming.
  \sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
  
 %members of different \textit{basic-level} categories (e.g., a duck, a robin, a penguin, etc. are all members of \cat{birds}) 
@@ -32,6 +32,6 @@ This dataset is comparable to picture naming data, though we focus on real-world
 
 
 \paragraph{Visual Object Recognition in Computer Vision}
-- Object detection, using pre-trained features representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
+- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
 - Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image). It predicts the class of the most salient object in an image. \\
 - Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
