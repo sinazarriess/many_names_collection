@@ -1,18 +1,85 @@
+\begin{figure}
+	\centering
+	\footnotesize
+	\begin{tabular}{p{3.7cm}p{3.7cm}}
+		\includegraphics[scale=.2]{images/556_1063956_seed_ambiguous.png} &
+		\includegraphics[scale=.2]{images/2657_1069343_singleton_obj.png} 
+		\\
+		Entry-level: rug (21) &  animal (9)\\
+		\midrule
+		Same-object: carpet (4, 0.7) &  yak (3,0.8), buffalo (2,0.7) \\
+		Error-box: chair (5, 0.5), floor (3, 0.5) & \\
+		Error-visual:  & cow (6,0.5), ram (3,0.7), bull (2,0.7)\\
+		\midrule
+		FRCNN$_{\text{VG1600}}$: floor & animal\\
+		FRCNN$_{\text{VG1600--VGMN}}$: rug & cow \\
+	\end{tabular}
+	\caption{Annotations, verification and predictions for 2 objects: name (number of annotations, adequacy rating)}
+	\label{fig:mistakes}
+\end{figure}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{ll||c|cccc|c}
+		\toprule
+		&  & Hit & \multicolumn{4}{c|}{Human-like} & Off \\
+		Model &  GT &  & SameObject &  OtherObject &  Low Count &  Related &   \\
+		\midrule
+		FRCNN--VG1600&VG &         74.8 &                13.7 &                  2.9 &              2.4 &              1.7 &          4.5 \\
+		FRCNN--MN442&VG &         71.1 &                13.6 &                  3.4 &              2.0 &              2.6 &          7.4 \\
+		\midrule
+		FRCNN--VG1600--VGMN&MN &         80.7 &                 9.0 &                  2.0 &              1.8 &              3.4 &          3.3 \\
+		\midrule
+		ResNet101--VGMN&VG &         62.8 &                11.6 &                  2.1 &              3.2 &             10.3 &         10.1 \\
+		ResNet101--MN442&VG &         63.8 &                11.9 &                  2.4 &              3.3 &              8.8 &          9.9 \\
+		ResNet101--VGMN&MN &         68.7 &                 9.9 &                  3.0 &              2.5 &              7.7 &          8.2 \\
+		ResNet101--MN442&MN &         69.7 &                 9.9 &                  3.2 &              2.7 &              7.0 &          7.6 \\	
+		\bottomrule
+	\end{tabular}
+	\caption{Model results for different categories of errors. \label{tab:humanlike}}
+\end{table*}
+
+\begin{table*}[t]
+	\centering
+	\small
+	\begin{tabular}{ll|c@{~}c@{~}c@{~}c}
+		\toprule
+		{Model} &  GT & visual &  linguistic &  box &  other \\
+		\midrule
+		FRCNN--VG1600 & VG &             4.3 &                 0.0 &                  95.7 &            0.0 \\
+		FRCNN--MN442 & VG &             3.4 &                 0.0 &                  96.6 &            0.0 \\
+		\midrule
+		FRCNN--VG1600--VGMN & MN &             6.7 &                 0.0 &                  93.3 &            0.0 \\
+		\midrule
+		ResNet101--VGMN & VG &             5.6 &                 0.0 &                  94.4 &            0.0 \\
+		ResNet101--MN442 & VG &             4.8 &                 0.0 &                  95.2 &            0.0 \\
+		ResNet101--VGMN & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
+		ResNet101--MN442 & MN &             3.0 &                 0.0 &                  97.0 &            0.0 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Break-down of the instances (in \%) for which the models predicted an \textit{inadequate} name according to the type of inadequacy.  \label{tab:exp_inadequacy}}
+\end{table*}
+
 
 The previous Section \ref{sec:experiments} looked at the performance of the different naming models using vanilla evaluation methods like accuracy.
 This way of evaluating object naming is unsatisfactory: the ManyNames data, and also our verification data, clearly shows that human annotators often agree on a certain entry-level name with other names might be adequate too.\cs{XX}
 In the following, we show how our verification data can be used to gain more detailed insights into the way different naming models calibrate their decisions and reflect human-like naming behavior.
 
-\paragraph{Error Categories} We categorize model predictions into the following types (also see Figure~\ref{fig:mistakes} for examples):
 
+
+\paragraph{Error Categories} We categorize model predictions into the following types (also see Figure~\ref{fig:mistakes} for examples):\\
+Hit: the entry-level name\\
+Off: a non-sensical name (none of the others). \\
+Human-like mishits:
 \begin{itemize}
-\item Correct-hit: the entry-level name 
-\item Correct-valid: a name from the set of valid alternatives, a synonym or a hypernym (\name{house/building}) \cs{set of alternatives:: task1: all, task2: only adequacy$>$0.5}
-\item Incorrect-human-like: a name produced by annotators, but not a valid alternative of the entry-level name  (\name{chair/cat}) \cs{task1: other object; low count; task2: alternatives adequ $<$ 0.5 (other object, low count)}
-\item Incorrect-related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
+\item \sameobject: an alternative name for the object (see Section~\ref{sect:mn_verification}), or a synonym or a hypernym (\name{house/building})
+\item OtherObject: a name produced by annotators, but not an alternative of the entry-level name  
+\item LowCount: a name produced by only one annotator
+\item Related: a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})
 \item Incorrect-off: a non-sensical name (none of the above)
 \end{itemize}
-\cs{WordNet}
+We use WordNet for determining whether two names are semantically related   \newcite{fellbaum1998wordnet}. 
 
 \subsection{How Human-Like are Model Predictions and Errors?}
 
@@ -47,61 +114,19 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 \end{table*}
 \fi
 
-\begin{table*}[t]
-	\centering
-	\small
-\begin{tabular}{ll||c|cccc|c}
-	\toprule
-	  &  & Hit & \multicolumn{4}{c|}{Human-like} & Off \\
-	Model &  GT &  & SameObject &  OtherObject &  Low Count &  Related &   \\
-	\midrule
-	FRCNN--VG1600&VG &         74.8 &                13.7 &                  2.9 &              2.4 &              1.7 &          4.5 \\
-	FRCNN--MN442&VG &         71.1 &                13.6 &                  3.4 &              2.0 &              2.6 &          7.4 \\
-	\midrule
-	FRCNN--VG1600--VGMN&MN &         80.7 &                 9.0 &                  2.0 &              1.8 &              3.4 &          3.3 \\
-	\midrule
-	ResNet101--VGMN&VG &         62.8 &                11.6 &                  2.1 &              3.2 &             10.3 &         10.1 \\
-	ResNet101--MN442&VG &         63.8 &                11.9 &                  2.4 &              3.3 &              8.8 &          9.9 \\
-	ResNet101--VGMN&MN &         68.7 &                 9.9 &                  3.0 &              2.5 &              7.7 &          8.2 \\
-	ResNet101--MN442&MN &         69.7 &                 9.9 &                  3.2 &              2.7 &              7.0 &          7.6 \\	
-	\bottomrule
-\end{tabular}
-\caption{Model results for different categories of errors. \label{tab:humanlike}}
-\end{table*}
-
-\begin{table*}[t]
-	\centering
-	\small
-\begin{tabular}{ll|c@{~}c@{~}c@{~}c}
-	\toprule
-	{Model} &  GT & visual &  linguistic &  box &  other \\
-	\midrule
-	FRCNN--VG1600 & VG &             4.3 &                 0.0 &                  95.7 &            0.0 \\
-	FRCNN--MN442 & VG &             3.4 &                 0.0 &                  96.6 &            0.0 \\
-	\midrule
-	FRCNN--VG1600--VGMN & MN &             6.7 &                 0.0 &                  93.3 &            0.0 \\
-	\midrule
-	ResNet101--VGMN & VG &             5.6 &                 0.0 &                  94.4 &            0.0 \\
-	ResNet101--MN442 & VG &             4.8 &                 0.0 &                  95.2 &            0.0 \\
-	ResNet101--VGMN & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
-	ResNet101--MN442 & MN &             3.0 &                 0.0 &                  97.0 &            0.0 \\
-	\bottomrule
-\end{tabular}
-\caption{Break-down of the instances (in \%) for which the models predicted an \textit{inadequate} name according to the type of inadequacy.  \label{tab:exp_inadequacy}}
-\end{table*}
 
 \paragraph{Why May Models Predict Inadequate Names?}
 In Table~\ref{tab:exp_inadequacy} we focus on the predicted names that are in \mn for the corresponding objects, but judged as inadequate (i.e.,~adequacy score$<0.5$). 
 Most of the inadequate object name predictions are related to an inaccurate bounding box. 
 The overall best FRCNN$_{\text{VG1600--VGMN}}$ model has the smallest proportion of box errors, and hence, the least \textit{visual} (i.e.,~the object is difficult to interpret) inadequate name predictions. 
+\iffalse
 \cs{remove next couple of sentences? it's very assumptive}
 This may be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names. 
 And the ResNet101-based models, which use features that were pre-trained towards image classification (i.e.,~categorizing the salient object in an image (region)), make slightly more visual errors when being optimized on \vg ground truth labels than their \mn ground truth counterparts. 
-
+\fi
 
 None of the models predicted an inadequate name that was a linguistic, or any other error. 
-The results show that the models make similar mistakes to humans (problems in identifying or recognizing the target object) when being faced with data that was collected with a task setup that approximates human behavior, such as \mn.  
-It HERAUSLOCKEN also, though, the limitations of using annotated datasets such as \mn as approximation for human behavior on object naming )or related tasks), and the importance in defining and implementing annotation tasks for data collection. 
+The results show that the models make similar mistakes to humans (problems in identifying or recognizing the target object) when being faced with data that was collected with a task setup that approximates human behavior, such as \mn, and the limitations in defining and implementing annotation tasks for data collection of this sort. 
 
 
 \begin{table*}[t]
@@ -126,6 +151,7 @@ It HERAUSLOCKEN also, though, the limitations of using annotated datasets such a
 \caption{Break-down of the results (in \%) according to the agreement level of the MN name: Categorization of a predicted name\ $\hat{n}$ into either a \textit{hit}, \textit{human-like} error (less preferred name, synonym, hypernym/hyponym), or \textit{off} \label{tab:exp_errors_agreement}}
 \end{table*}
 
+\iffalse
 \begin{figure}
 	\centering
 	\includegraphics[scale=.2]{images/2323938.jpg}
@@ -134,26 +160,9 @@ It HERAUSLOCKEN also, though, the limitations of using annotated datasets such a
 	
 	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes} \gbt{Will we have space for the figure? (Maybe we should \textit{make} space?) Also, shouldn't we put examples from the most successful model instead?}}
 \end{figure}
+\fi 
 
-\begin{figure}
-	\centering
-	\footnotesize
-	\begin{tabular}{p{3.7cm}p{3.7cm}}
-	\includegraphics[scale=.2]{images/556_1063956_seed_ambiguous.png} &
-	\includegraphics[scale=.2]{images/2657_1069343_singleton_obj.png} 
-	\\
-	Entry-level: rug (21) &  animal (9)\\
-	\midrule
-	Same-object: carpet (4, 0.7) &  yak (3,0.8), buffalo (2,0.7) \\
-	Error-box: chair (5, 0.5), floor (3, 0.5) & \\
-	Error-visual:  & cow (6,0.5), ram (3,0.7), bull (2,0.7)\\
-	\midrule
-	FRCNN$_{\text{VG1600}}$: floor & animal\\
-	FRCNN$_{\text{VG1600--VGMN}}$: rug & cow \\
-	\end{tabular}
-	\caption{Annotations, verification and predictions for 2 objects: name (number of annotations, adequacy rating)}
-	\label{fig:rug}
-\end{figure}
+
 
 \subsection{How do predictions correlate with human agreement?}
 
