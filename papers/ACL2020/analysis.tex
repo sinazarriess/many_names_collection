@@ -165,10 +165,10 @@ Note that this holds even for the ResNet-based classifiers that generally achiev
 When human agreement is lower, all models produce fewer hits and more valid alternatives, indicating a similarity between what is difficult for models and humans.
 %Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. % \sz{why???}\\
 
-Table~\ref{tab:exp_inadequacy} focuses on the predicted \mn names that were judged as inadequate (i.e.,~adequacy score \mbox{$<0.5$}) and their inadequacy types (see Section~\ref{sect:mn_analysis}).
+Table~\ref{tab:exp_inadequacy} focuses on the predicted \mn names that were judged as inadequate (i.e.,~adequacy score~\mbox{$<0.5$}) and their inadequacy types (see Section~\ref{sect:mn_analysis}).
 Most of the inadequate name predictions are due to the model naming an object that does not properly fit the bounding box. 
-The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of these bounding box errors, but the highest proportion of \textit{visual} errors (i.e.,~named object misinterpreted for something it's not). 
-An example for this is shown in Figure \ref{fig:mistakes} (right): FRCNN$_{\text{VG1600--VGMN}}$ predicts the more specific name \textit{cow} for an object that is not strictly speaker a cow and which most humans and FRCNN$_{\text{VG1600}}$ named \textit{animal}.
+The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of these bounding box errors, and the highest proportion of \textit{visual} errors (i.e.,~named object misinterpreted for something it's not). 
+An example for this is shown in Figure \ref{fig:mistakes} (right): FRCNN$_{\text{VG1600--VGMN}}$ predicts the more specific name \textit{cow} for an object that is not strictly speaking a cow and which most humans and FRCNN$_{\text{VG1600}}$ named \textit{animal}.
 This illustrates a tricky case of entry-level name: the model needs to `understand' that humans will have difficulties naming that object with a specific or basic-level name and opt instead for an unusually general name.
 
 %This might be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names . 

@@ -52,17 +52,17 @@ We do so with the standard methodology of taking the last hidden layer of existi
 We experiment with two kinds of (transferred) input features, different training vocabularies and ground-truth names for instances, similar to the detection models above.
 This yields the following 5 transfer-learning-based naming models:
 \begin{itemize}
-\item FRCNN$_{\text{VG1600}}$-VGMN:
+\item FRCNN$_{\text{VG1600--VGMN}}$:
 	This model extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{
 	As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.
 }. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer. The model uses the VGMN vocabulary (overlap of the full ManyNames vocabulary with VG).
   \item ResNet-VGMN: 
-For comparison, we consider a much less informed input, namely the features from the ResNet-101 object detection  pretrained on ImageNet \cite{imagenet_cvpr09}.
+For comparison, we consider a much less informed input, namely the features from the ResNet-101 image classification model, that was used to initialize the FRCNN models above, and pretrained on ImageNet \cite{imagenet_cvpr09}. 
 Results should of course be worse, and our aim is to assess the feasibility of using such generic object representations to obtain entry-level names. The model uses the VGMN vocabulary.  The model is optimized on VG and MN ground truth names respectively.
  \item  ResNet-MN442:
  The same model as before, but trained with a vocabulary of 442 entry-level names. The model is optimized on VG and MN ground truth names respectively.
 \end{itemize}
-Note that these five models are optimized on the $25$K~objects in \mn. 
+Note that these five models are optimized on the $21$K~objects in \mn. 
 To predict the entry-level name of a target object~$o$, the classifier, a multi-layer neural network, is fed the object's features, and applies softmax activation to the output layer that corresponds to the target vocabulary. 
 
 %\iffalse
@@ -106,7 +106,7 @@ To predict the entry-level name of a target object~$o$, the classifier, a multi-
 \label{sect:exp_results}
 
 Table \ref{tab:exp_VGvsMN} shows the accuracy of the models on the \mn test data\footnote{ResNet$_{\text{VGMN}}$ with MN is comparable to its couterpart.}. 
-We compare model effectiveness on predicting the entry-level name (columns MN) against predicting the VG name (columns VG). 
+We compare model effectiveness on predicting the entry-level name (column MN) against predicting the VG name (column VG). 
 %We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
 
 % and furthermore report results on the test instances where the two names differ (block VG$\neq$MN). 
@@ -144,12 +144,12 @@ We compare model effectiveness on predicting the entry-level name (columns MN) a
 \end{table}
 
 A pervasive trend is that all models perform better 
-at predicting the entry-level name (columns MN) than the VG name (columns VG), regardless of which vocab and which ground-truth they are trained on.  
+at predicting the entry-level name (MN) than the VG name (VG), regardless of which vocabulary (Vocab) and which ground-truth (GTtrain) they are trained on.  
 Note that the VG names were derived on the basis of a few annotations per object only, and, as shown in Section~\ref{sect:mn_analysis}, even ``just'' $10$ or $20$ names sufficiently likely yield an entry-level name for only $68\%$ or $78\%$ instances, respectively. 
 The results therefore indicate that the even the FRCNN detection models do learn entry-level naming, with an accuracy of up to~$74.5$\%.
 
  The overall best model is FRCNN$_\text{VG1600}$$_\text{-VGMN}$ (the Vanilla classifier with FRCNN$_\text{VG1600}$ features, trained on the \mn). 
-The classifiers using ResNet features are the least effective, but considering that they were trained on a fraction of FRCNN's training size using a simple Vanilla classifier, in contrast to a fully-fledged CNN architecture of the FRCNN object detectors, the drop in effectiveness on entry-level naming (columns MN, GTtrain MN) is decently low. This confirms what we observed on the FRCNN results. 
+The classifiers using ResNet features are the least effective, but considering that they were trained on a fraction of FRCNN's training size using a simple Vanilla classifier, in contrast to a fully-fledged CNN architecture of the FRCNN object detectors, the drop in effectiveness on entry-level naming (column MN, GTtrain MN) is decently low. This confirms what we observed on the FRCNN results. 
 In sum, we find that models learn entry-level naming when being trained on \arbitrary naming data, obtaining better results on entry-level prediction than VG name prediction for the same instances, and benefit from being trained on entry-levels using transfer learning. Comparing the target vocabulary, MN442 and VG1600/VGMN, we see that the restriction on a smaller, but empirically derived vocabulary of entry-level names only, is not beneficial, with all MN442 models being worse or comparable to VGMN/VG100.
 
 
@@ -160,7 +160,7 @@ In sum, we find that models learn entry-level naming when being trained on \arbi
 As Section~\ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, besides a fair amount of agreement.
 Hence, it is striking that even models that are trained on (a lot of) \arbitrary names capture entry-level naming to a good extent.
 However, our results also suggest that current \textit{evaluation} methods might not be very reliable when applied on \arbitrary names, probably punishing models for `errors' that actually constitute plausible alternatives.
-The next Section elaborates on this and proposes a more fair assessment of naming quality achieved by the different models.
+The next section elaborates on this and proposes a more fair assessment of naming quality achieved by the different models.
 
  
 %\iffalse
