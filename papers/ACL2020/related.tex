@@ -35,7 +35,7 @@ as pre-trained feature extractors in object detection systems that localize obje
 For instance, a commonly used object detector in \lv is \citep{anderson2018updown}'s so-called bottom-up model, which is based on a pre-trained ResNet classifier and fine-tuned Faster-RCNN \cite{fasterrcnn2015} for object detection and classification on \vg. 
 We will use pre-trained ResNet, Faster-RCNN and Bottom-up as models in this paper, extending and testing them for entry-level object naming. 
 
-\paragraph{The ManyNames dataset}
+\paragraph{The ManyNames Dataset}
 The \mn dataset (MN, Anonymous, under review) which builds upon object annotations in VisualGenome (VG), provides up to 36 name annotations for 25K objects in images, see e.g.\ Figure \ref{fig:duck}.
 The large number of name annotations per object in \mn gives us a way to reliably derive entry-level names, defined as the most frequent name for an object instance.
 Its vocabulary of all names has 7,970 types; restricted to entry-level names it has 442 types (still covering over 50\% of the objects in \vg).
