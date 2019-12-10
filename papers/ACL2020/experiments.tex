@@ -144,12 +144,12 @@ We compare model effectiveness on predicting the entry-level name (columns MN) a
 % \gbt{add motivation for the latter, and make sure we address this when we discuss results; else, remove.}. 
 %\cs{Left as items for the sake of a better overview for now}
 
-A pervasive trend in these results is that all models perform better 
+A pervasive trend is that all models perform better 
 at predicting the entry-level name (columns MN) than the VG name (columns VG), regardless of which vocab and which ground-truth they are trained on.  
 Note that the VG names were derived on the basis of a few annotations per object only, and, as shown in Section~\ref{sect:mn_analysis}, even ``just'' $10$ or $20$ names sufficiently likely yield an entry-level name for only $68\%$ or $78\%$ instances, respectively. 
 The results therefore indicate that the even the FRCNN detection models do learn entry-level naming, with an accuracy of up to~$74.5$\%.
 
- The overall best model is FRCNN$_\text{VG1600}$$_\text{-VGMN}$, the Vanilla classifier that uses  FRCNN$_\text{VG1600}$ features and is trained on the \mn training data. 
+ The overall best model is FRCNN$_\text{VG1600}$$_\text{-VGMN}$ (the Vanilla classifier with FRCNN$_\text{VG1600}$ features, trained on the \mn). 
 The classifiers using ResNet features are the least effective, but considering that they were trained on a fraction of FRCNN's training size using a simple Vanilla classifier, in contrast to a fully-fledged CNN architecture of the FRCNN object detectors, the drop in effectiveness on entry-level naming (columns MN, GTtrain MN) is decently low. This confirms what we observed on the FRCNN results. 
 In sum, we find that models learn entry-level naming when being trained on \arbitrary naming data, obtaining better results on entry-level prediction than VG name prediction for the same instances, and benefit from being trained on entry-levels using transfer learning. Comparing the target vocabulary, MN442 and VG1600/VGMN, we see that the restriction on a smaller, but empirically derived vocabulary of entry-level names only, is not beneficial, with all MN442 models being worse or comparable to VGMN/VG100.
 
@@ -157,11 +157,11 @@ In sum, we find that models learn entry-level naming when being trained on \arbi
 \subsection{Discussion}
 \label{sect:exp_discussion}
 
-To date, little research has been done on how to finetune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, for purposes of \lv.
-As Section \ref{sec:manynames} showed, object naming is a linguistically complex phenomenon, which involves a lot of variation when names are freely annotated, but also a lot of agreement.
+%To date, little research has been done on how to finetune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, for purposes of \lv.
+As Section \ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, despite a fair amount of agreement between humans,
 Hence, it is a striking result that even models that are trained on (a lot of) \arbitrary names capture entry-level naming to a good extent.
 However, our results also suggest that current \textit{evaluation} methods might not be very reliable when applied on \arbitrary names, probably punishing models for `errors' that actually constitute plausible alternatives.
-The next Section elaborates on this point and proposes a more fair assessment of naming quality achieved by the different models.
+The next Section elaborates on this and proposes a more fair assessment of naming quality achieved by the different models.
 
  
 \iffalse
