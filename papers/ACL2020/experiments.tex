@@ -1,6 +1,6 @@
 % experiments.tex
 
-Given the entry-level naming data from \mn which extends the \arbitrary naming data from VisualGenome (\vg), we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
+Given the entry-level naming data from \mn which extends the \arbitrary naming data from VisualGenome (VG), we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
 Moreover, we are able to systematically vary the vocabulary these models are tasked to learn during training, i.e.\ a standard object naming vocab compiled from a frequency list as in \cite{anderson2018updown} or a carefully selected set of entry-level names, aggregated from the ManyNames data.
 The modeling experiments will assess these various modeling decisions for the task of entry-level naming, but using accuracy as a standard evaluation metric,
 Section~\ref{sec:analysis} will analyse these results with respect to more detailed error types.
@@ -55,11 +55,12 @@ We experiment with two kinds of (transferred) input features, different training
 This yields the following 5 transfer-learning-based naming models:
 
 \begin{itemize}
-\item FRCNN$_{\text{VG1600}}$-VGMN:  This models extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.}. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer.\cs{add size} The model uses the VGMN vocabulary (overlap of ManyNames and VG vocab).
+\item FRCNN$_{\text{VG1600}}$-VGMN:  This models extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.}. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer. The model uses the VGMN vocabulary (overlap of ManyNames and VG vocab).
 \item ResNet-VGMN: For comparison, we consider a much less informed input, namely the features from the ResNet-101 object detection  pretrained on ImageNet \cite{+++}.
 Results should of course be worse, and our aim is to assess the feasibility of using such generic object representations to obtain entry-level names. The model uses the VGMN vocabulary.  The model is optimized on VG and MN ground truth names respectively.
  \item  ResNet-MN442:  The same model as before, but trained with a vocab of 442 entry-level names. The model is optimized on VG and MN ground truth names respectively.
 \end{itemize}
+
 
 
 Note that all five models are optimized on the $25$K~objects in \mn. 
@@ -99,6 +100,21 @@ To predict the entry-level name of a target object~$o$, the classifier, a multi-
 	\caption{Model accuracy (in \%) on the \mn test objects. Vocab denotes the dataset used to induce the target vocabulary for training (the numbers give the size of the vocabulary). GTtrain gives the dataset that provides the ground truth labels during training, and VG and MN for testing \label{tab:exp_VGvsMN}.}
 \end{table}
 \fi
+%\paragraph{Measures}
+
+
+\subsection{Results}
+\label{sect:exp_results}
+
+Table \ref{tab:exp_VGvsMN} shows the accuracy of the models on the \mn test data\footnote{ResNet$_{\text{VGMN}}$ with MN is comparable to its couterpart.}. 
+We compare model effectiveness on predicting the entry-level name (columns MN) against predicting the VG name (columns VG). 
+%We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
+
+% and furthermore report results on the test instances where the two names differ (block VG$\neq$MN). 
+%Note that the VG names were derived on the basis of a few annotations per object only, and, as shown in Section~\ref{sect:mn_analysis}, even ``just'' $10$ or $20$ names sufficiently likely yield an entry-level name for only $68\%$ or $78\%$ instances, respectively.  
+%We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
+% \gbt{add motivation for the latter, and make sure we address this when we discuss results; else, remove.}. 
+%\cs{Left as items for the sake of a better overview for now}
 \begin{table}[t]
 	\centering
 	\small
@@ -125,24 +141,8 @@ To predict the entry-level name of a target object~$o$, the classifier, a multi-
 		\bottomrule
 	\end{tabular}
 	\caption{Model accuracy (in \%) on the \mn test objects. Vocab denotes the dataset used to induce the target vocabulary for training (the numbers are vocabulary size). GTtrain gives the dataset providing the ground truth labels for training, and GTtest for testing \label{tab:exp_VGvsMN}.}
+	\vspace{0ex}
 \end{table}
-
-
-%\paragraph{Measures}
-
-
-\subsection{Results}
-\label{sect:exp_results}
-
-Table \ref{tab:exp_VGvsMN} shows the accuracy of the models on the \mn test data\footnote{ResNet$_{\text{VGMN}}$ with MN is comparable to its couterpart.}. 
-We compare model effectiveness on predicting the entry-level name (columns MN) against predicting the VG name (columns VG). 
-%We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
-
-% and furthermore report results on the test instances where the two names differ (block VG$\neq$MN). 
-%Note that the VG names were derived on the basis of a few annotations per object only, and, as shown in Section~\ref{sect:mn_analysis}, even ``just'' $10$ or $20$ names sufficiently likely yield an entry-level name for only $68\%$ or $78\%$ instances, respectively.  
-%We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
-% \gbt{add motivation for the latter, and make sure we address this when we discuss results; else, remove.}. 
-%\cs{Left as items for the sake of a better overview for now}
 
 A pervasive trend is that all models perform better 
 at predicting the entry-level name (columns MN) than the VG name (columns VG), regardless of which vocab and which ground-truth they are trained on.  
