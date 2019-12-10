@@ -1,11 +1,12 @@
-Objects, being members of many categories, can be called by many names (e.g.,\ a duck can be called \name{duck, bird, animal} etc.). 
+Objects, being members of many categories, can be called by many names (e.g.,\ a duck can be called \name{duck, bird, animal}, etc.). 
 The task of \emph{object naming}---generating not just a formally correct but also an appropriate, \emph{natural} name for an object---is distinct from the closely related tasks of object detection and image classification (see below).
-It has been studied in psycholinguistics~(e.g.,~\citet{Rosch1978}), but has received comparatively little attention in \langvis (\lv) and computational linguistics (CL) research.
+It has been studied in psycholinguistics~(e.g.,~\citealt{Rosch1978}), but has received comparatively little attention in \langvis (\lv) and computational linguistics (CL) research.
 We address the following question:\\
 \fbox{\parbox{\columnwidth}{\textbf{Q:} Can standard object detection/image classification models (be fine-tuned to) exhibit human-like object naming behavior?}}\\\\
 In particular, we test several models for their ability to predict \emph{entry-level names}, i.e., the names people prefer when calling a specific object (e.g.,~\name{bird} in Figure~\ref{fig:duck}, left image).
 %% SHORTENING %% We wish to find out, for instance, whether different types of models or training regimes will tend towards different kinds of human-like errors in this regard.
-A secondary contribution of this paper is instrumental: for a proper evaluation we must first augment an existing human object naming dataset (ManyNames, Anonymous, under review) with extensive quality control, the resulting data of which we also describe and make available with this paper.
+A second contribution of this paper is instrumental: for a proper evaluation we must first augment an existing human object naming dataset (ManyNames, Anonymous, under review) with extensive quality control, the resulting data of which we also describe here.%
+\footnote{Data and code for this paper will be made available upon publication.}
 \begin{figure}[t]
 	\centering
 	\small
@@ -20,14 +21,14 @@ A secondary contribution of this paper is instrumental: for a proper evaluation 
 
 In \lv, object naming underlies virtually all tasks that model how speakers refer to objects in the world, such as image description or visual question answering.
 \lv methods are generally based on object detection or image classification models from computer vision (CV) that were pre-trained towards predicting the single label of each object that is deemed correct by the dataset.
-The labels used often seem unintuitive from a human perspective, e.g., some are very basic, natural names (\name{bus}) while others seem overly specific (\name{goblet, gyromitra}), cf.\ the label inventory of the ILSVRC challenges \cite{ILSVRC15}.
+The labels used often seem unintuitive from a human perspective, e.g., some are very basic, natural names (\name{bus}) while others are much more specific (\name{goblet, gyromitra}), cf.\ the label inventory of the ILSVRC challenges \cite{ILSVRC15}.
 Pre-training on such labels can enable CV models to learn rich, discriminative visual feature representations which capture fine-grained differences in object appearances (e.g.,\ sharp-pointed vs. slightly pointed). 
 But it raises the issue of whether these models could be directly used for more human-like object naming.
 % Accordingly, these CV models are assessed by their ability to predict a single, in cases very specific, ground-truth label.
 
 % By contrast, the goal of \lv object naming models is to predict the `natural' name of an object, i.e.,~the name a human could choose for the object instance.
 Psycholinguistic studies have found that humans have a preference towards a particular name, defined as the \textit{entry-level name}, when naturally naming an object \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
-However, this research has traditionally focused on \categories and/or their prototypical/schematic depictions (e.g., \newcite{rossion2004revisiting}), as opposed to the situated instances in naturalistic images with which \lv is mostly concerned.
+However, this research has traditionally focused on \categories and/or their prototypical/schematic depictions (e.g., \citealt{rossion2004revisiting}), as opposed to the situated instances in naturalistic images with which \lv is mostly concerned.
 But humans may prefer different names for instances of the same \category (e.g., Figure~\ref{fig:duck}), and even disagree in their choice for the same instance (see also \citealt{graf2016animal}).
 %% SHORTENING %% For example, in Figure~\ref{fig:duck} most people (27 out of 36) called the duck on the left \name{bird}, while \name{duck} was strongly preferred for the duck on the right. 
 
@@ -36,10 +37,11 @@ The ManyNames (MN) dataset was designed to help mend this gap: it consists of na
 However, the annotations of \mn have not been verified to filter out incorrect names or names for the wrong object, a problem that is in some sense the opposite of that posed by the single-ground-truth approach.
 
 Our main contributions are to (i) run the \mn data through a rigorous annotation round to quantify both the adequacy of its names and the types of errors they contain, in order to (ii) test and compare object detection and image classification models at the task of \emph{instance-based, entry-level object naming}. 
-More precisely, \mn enables us to define entry-level name as follows:\\
+More precisely we define entry-level name as follows:\\
+%, \mn enables us to define entry-level name as follows:\\
 \fbox{\parbox{\columnwidth}{\textbf{Entry-level name:} the most common name given to an object instance according to ManyNames}}\\\\
 We evaluate the effectiveness of different models on predicting these entry-level names, and our additional verification annotations enable us to understand the kinds of mistakes the models make (e.g.,~a `wrong' prediction may be a less preferred name as opposed to a true error).
-We show that generic object classification models on their own (ResNet, Faster-RCNN and Bottom-up) already learn to provide entry-level names for objects, but also that they can transfer-learn on \mn, successfully using pre-trained features from object detection and image classification models to train entry-level naming models. 
+We show that generic object classification models on their own already learn to provide entry-level names for objects, but also that they can transfer-learn on \mn, successfully using pre-trained features from object detection and image classification models to train entry-level naming models. 
 %% SHORTENING %% \mw{Remark about the kinds of human errors, just as in the abstract, or some other more interesting teaser?}
 
 %% END OF FILE %%
