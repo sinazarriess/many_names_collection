@@ -11,10 +11,10 @@
 %\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
 %% SHORTENING %%Our work on natural object naming connects research in psycholinguistics, \langvis and computer vision. 
 In psycholinguistics, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
-The typicality of the object with respect to this basic-level \category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while atypical objects (e.g.,\ \name{penguin}) are preferably named by the more specific category.
+The typicality of the object with respect to this basic-level \category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while atypical objects (e.g.,\ \name{penguin}) are preferably named by the more specific \category.
 %% This strictly taxonomic view suggests that entry-level names generally hold for all instances of a \category (e.g.,\ penguin).   \mw{Not true!!}
 \newcite{Ordonez:2016} take up this view and train a model to map an object's \category detected by an object recognition system to its natural name, guided by external resources like corpus statistics.
-By contrast, we rely on the \mn dataset (more details below) to directly test as well as fine-tune object recognition (and image classification) systems, and without presupposing a taxonomical relationship between the possible names for an object.
+By contrast, we rely on the ManyNames dataset (more details below) to directly test as well as fine-tune object recognition (and image classification) systems, and without presupposing a taxonomical relationship between the possible names for an object.
 
 Our approach is closer in this regard to \newcite{zarriess-schlangen:2017}, who train an object naming model from names produced in referring expressions to real-world objects.
 However, they do not have access to name annotations from (many) different annotators, and they rely on simple evaluation measures (like accuracy) whereas the additional annotations we collect enable more fine-grained evaluation.
@@ -29,18 +29,18 @@ The \mn dataset on which we rely is akin in spirit to older picture naming datas
 % prototypical visual features common to all its instances (e.g.,\ apples are round, pears are ... (CHECK)). 
 
 In Computer Vision a major focus is visual object recognition, with object classification being a core task. 
-Neural object classification systems are trained to label the most salient object in an image and often use the ImageNet \cite{imagenet_cvpr09} benchmark that labels images/objects with 1000 fine-grained classes \cite{googlenet,he2016deep}). 
-These neural object classifiers have proven extremely useful %% SHORTENING %%in a large range of transfer learning scenarios. They are commonly used 
-as pretrained feature extractors in object detection systems that localize objects and predict their labels \cite{fasterrcnn2015}.
-For instance, a commonly used object detector in \lv is \citep{anderson2018updown}'s so-called bottom-up model, which is based on a pretrained ResNet classification and finetuned Faster-RCNN \cite{fasterrcnn2015} for object detection and classification on \vg. 
-We will use pretrained ResNet, Faster-RCNN and Bottom-up as models in this paper, extending and testing them for entry-level object naming. 
+Neural image classification systems are trained to label the most salient object in an image and often use the ImageNet \cite{imagenet_cvpr09} benchmark that labels images/objects with 1,000 fine-grained classes \cite{googlenet,he2016deep}. 
+These neural classifiers have proven extremely useful %% SHORTENING %%in a large range of transfer learning scenarios. They are commonly used 
+as pre-trained feature extractors in object detection systems that localize objects and predict their labels \cite{fasterrcnn2015}.
+For instance, a commonly used object detector in \lv is \citep{anderson2018updown}'s so-called bottom-up model, which is based on a pre-trained ResNet classifier and fine-tuned Faster-RCNN \cite{fasterrcnn2015} for object detection and classification on \vg. 
+We will use pre-trained ResNet, Faster-RCNN and Bottom-up as models in this paper, extending and testing them for entry-level object naming. 
 
 \paragraph{The ManyNames dataset}
-The \mn dataset (Anonymous, under review) which builds upon object annotations in \vg, providing up to 36 name annotations in parallel for 25K objects in images, see e.g.\ Figure \ref{fig:duck}.
+The \mn dataset (MN, Anonymous, under review) which builds upon object annotations in VisualGenome (VG), provides up to 36 name annotations for 25K objects in images, see e.g.\ Figure \ref{fig:duck}.
 The large number of name annotations per object in \mn gives us a way to reliably derive entry-level names, defined as the most frequent name for an object instance.
-Its vocabulary of all names has 7970 types; restricted to entry-level names it has 442 types (still covering over 50\% of the objects in \vg).
+Its vocabulary of all names has 7,970 types; restricted to entry-level names it has 442 types (still covering over 50\% of the objects in \vg).
 	%% SHORTENING %%The vocabulary of all entry-level names in \mn contains 442 types (the vocabulary of all names is 7970), covering more than 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
-The fact that these objects are diverse and visually situated in real-world scenes aligns with our view that entry-level name should be characterized at an instance-level, not at the class-level.
+That these objects are diverse and visually situated in real-world scenes aligns with our view that entry-level names should be characterized at an instance-level, not at the class-level.
 However, our manual inspection of the \mn data revealed a range of annotation problems, e.g., annotators occasionally named an object different from the one highlighted by the bounding box, or the right object but with an incorrect name.
 Although these errors are interesting human data, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology that uses simple graphical boxes to point workers to the annotation target.
 %used for \mn, where there is a financial incentive to complete the task as quickly as possible.
