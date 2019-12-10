@@ -54,7 +54,7 @@ This yields the following 5 transfer-learning-based naming models:
 \begin{itemize}
 \item FRCNN$_{\text{VG1600--VGMN}}$:
 	This model extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{
-	As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.
+	As experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former.
 }. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer. The model uses the VGMN vocabulary (overlap of the full ManyNames vocabulary with VG).
   \item ResNet-VGMN: 
 For comparison, we consider a much less informed input, namely the features from the ResNet-101 image classification model, that was used to initialize the FRCNN models above, and pretrained on ImageNet \cite{imagenet_cvpr09}. 

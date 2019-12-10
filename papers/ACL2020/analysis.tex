@@ -71,9 +71,11 @@ Semantically related names are determined with WordNet \cite{fellbaum1998wordnet
 
 \paragraph{How Human-Like are Model Predictions and Errors?}
 
-Table \ref{tab:humanlike} shows the breakdown of the results for the error categories explained above. The proportion of human-like error is suprisingly constant across all models.
+Table \ref{tab:humanlike} shows the breakdown of the results for the error categories explained above. 
+The proportion of the human-like errors that related inadequate alternatives is surprisingly constant across all models.
 Both object detection models achieve essentially the same portion of human-like mishits. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the former makes more nonsensical errors (column Off), which might be an effect of the reduction in training data.
-Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits but fewer valid predictions, and also fewer nonsensical errors (other) compared to FRCNN$_{\text{VG1600}}$.
+Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits and also fewer nonsensical errors (other) compared to FRCNN$_{\text{VG1600}}$.
+However, it also predicts fewer valid alternatives (SameObject).
 This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit (it predicts the entry-level) by the fine-tuned classification model.
 The proportion of instances for which the ResNet models predict a `related'' category is high, which suggests that they tend to confuse invalid names that are semantically similar to a valid name. 
 
