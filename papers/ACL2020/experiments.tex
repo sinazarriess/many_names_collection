@@ -1,6 +1,6 @@
 % experiments.tex
 
-Given the entry-level naming data from ManyNames which extends the \arbitrary naming data from \vg, we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
+Given the entry-level naming data from \mn which extends the \arbitrary naming data from VisualGenome (\vg), we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
 Moreover, we are able to systematically vary the vocabulary these models are tasked to learn during training, i.e.\ a standard object naming vocab compiled from a frequency list as in \cite{anderson2018updown} or a carefully selected set of entry-level names, aggregated from the ManyNames data.
 The modeling experiments will assess these various modeling decisions for the task of entry-level naming, but using accuracy as a standard evaluation metric,
 Section~\ref{sec:analysis} will analyse these results with respect to more detailed error types.
@@ -158,8 +158,8 @@ In sum, we find that models learn entry-level naming when being trained on \arbi
 \label{sect:exp_discussion}
 
 %To date, little research has been done on how to finetune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, for purposes of \lv.
-As Section \ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, despite a fair amount of agreement between humans,
-Hence, it is a striking result that even models that are trained on (a lot of) \arbitrary names capture entry-level naming to a good extent.
+As Section \ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, besides a fair amount of agreement.
+Hence, it is striking that even models that are trained on (a lot of) \arbitrary names capture entry-level naming to a good extent.
 However, our results also suggest that current \textit{evaluation} methods might not be very reliable when applied on \arbitrary names, probably punishing models for `errors' that actually constitute plausible alternatives.
 The next Section elaborates on this and proposes a more fair assessment of naming quality achieved by the different models.
 
