@@ -40,11 +40,11 @@ The large number of name annotations per object in \mn gives us a way to reliabl
 Its total vocabulary of names has 7,970 types; restricted to entry-level names, it has 442 types (still covering over 50\% of the object instances in \vg).
 	%% SHORTENING %%The vocabulary of all entry-level names in \mn contains 442 types (the vocabulary of all names is 7970), covering more than 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
 That these objects are diverse and visually situated in real-world scenes aligns with our view that entry-level names should be characterized at an instance-level, not at the class-level.
-However, our manual inspection of the \mn data revealed a range of annotation problems, e.g., annotators occasionally named an object different from the one highlighted by the bounding box, or the right object but with an incorrect name (see Figure.
+However, our manual inspection of the \mn data revealed a range of annotation problems, e.g., annotators occasionally named an object different from the one highlighted by the bounding box, or the right object but with an incorrect name (see Figure~\ref{fig:mistakes}, {\it error-box} and {\it error-visual}).
 Although these errors are interesting human data, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology that uses simple graphical boxes to point workers to the annotation target.
 %used for \mn, where there is a financial incentive to complete the task as quickly as possible.
-As such they pose challenges for our research goal, which is to see whether the object-naming ability of computational models resembles that of actual language users.
-To overcome these we collected a new layer of verification annotations on top of \mn, as follows.
+As such, they pose challenges for our research goal, which is to see whether the object-naming ability of computational models resembles that of actual language users.
+To overcome these, we collected a new layer of verification annotations on top of \mn, as follows.
 
 %Current recognition benchmarks use labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically implement a single ground-truth label approach.
 %- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
