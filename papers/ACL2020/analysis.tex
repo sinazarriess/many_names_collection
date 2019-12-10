@@ -66,11 +66,11 @@ Besides \textit{Hit}, the entry-level name, and \textit{Off}, a non-sensical nam
 \end{itemize}
 \fi
 
-We use WordNet \cite{fellbaum1998wordnet} for determining whether two names are semantically related. 
+Semantically related names are determined with WordNet \cite{fellbaum1998wordnet}. 
 
-\subsection{How Human-Like are Model Predictions and Errors?}
+\paragraph{How Human-Like are Model Predictions and Errors?}
 
-Table \ref{tab:humanlike} shows the breakdown of the results for the error categories explained above. Here, the proportion of human-like error is suprisingly constant across all models.
+Table \ref{tab:humanlike} shows the breakdown of the results for the error categories explained above. The proportion of human-like error is suprisingly constant across all models.
 Both object detection models essentially achieve the same portion of human-like mishits. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the former makes more nonsensical errors (column Off), which might be an effect of the reduction in training data.
 Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits but less valid predictions, and also less nonsensical errors as compared to FRCNN$_{\text{VG1600}}$.
 This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit (it predicts the entry-level) by the fine-tuned classification model.
@@ -153,7 +153,7 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 	\caption{TODO: examples resnet mistakes (trained on vg\_manynames, tested on manynames-442)\label{fig:mistakes} \gbt{Will we have space for the figure? (Maybe we should \textit{make} space?) Also, shouldn't we put examples from the most successful model instead?}}
 \end{figure}
 \fi 
-\subsection{How do Predictions Correlate with Human Agreement?}
+\paragraph{Do Predictions Deteriorate with Agreement?}
 %An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
 %This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. 
 
