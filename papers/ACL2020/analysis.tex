@@ -31,7 +31,7 @@
 		\midrule
 		FRCNN$_{\text{VG1600--VGMN}}$&MN &         80.7 &                 9.0 &                  2.0 &              1.8 &              3.4 &          3.3 \\
 		\midrule
-		ResNet101$_{\text{VGMN}}$&MN &         68.7 &                 9.9 &                  3.0 &              2.5 &              7.7 &          8.2 \\
+		%ResNet101$_{\text{VGMN}}$&MN &         68.7 &                 9.9 &                  3.0 &              2.5 &              7.7 &          8.2 \\
 		ResNet101$_{\text{MN442}}$&MN &         69.7 &                 9.9 &                  3.2 &              2.7 &              7.0 &          7.6 \\	
 		ResNet101$_{\text{VGMN}}$&VG &         62.8 &                11.6 &                  2.1 &              3.2 &             10.3 &         10.1 \\
 		ResNet101$_{\text{MN442}}$&VG &         63.8 &                11.9 &                  2.4 &              3.3 &              8.8 &          9.9 \\
@@ -90,10 +90,11 @@ The proportion of instances for which the ResNet models predict a `related'' cat
         \midrule
  FRCNN$_{\text{VG1600--VGMN}}$ &  MN & 80.7 &      9.0 &         3.7 &      3.4 &    3.3 \\
          \midrule
-     ResNet101$_{\text{VGMN}}$ &  VG & 62.8 &     11.6 &         5.2 &     10.3 &   10.1 \\
+         %ResNet101$_{\text{VGMN}}$ &  MN & 68.7 &      9.9 &         5.5 &      7.7 &    8.2 \\
+         ResNet101$_{\text{MN442}}$ &  MN & 69.7 &      9.9 &         5.9 &      7.0 &    7.6 \\
+     	ResNet101$_{\text{VGMN}}$ &  VG & 62.8 &     11.6 &         5.2 &     10.3 &   10.1 \\
          ResNet101$_{\text{MN442}}$ &  VG & 63.8 &     11.9 &         5.7 &      8.8 &    9.9 \\
-     ResNet101$_{\text{VGMN}}$ &  MN & 68.7 &      9.9 &         5.5 &      7.7 &    8.2 \\
-    ResNet101$_{\text{MN442}}$ &  MN & 69.7 &      9.9 &         5.9 &      7.0 &    7.6 \\
+     
 \bottomrule
 \end{tabular}
 
@@ -112,11 +113,11 @@ The proportion of instances for which the ResNet models predict a `related'' cat
        FRCNN$_{\text{VG1600}}$ &  VG &   94.8 &           2.6 &      2.6 &   63.6 &          30.9 &      5.5 \\
         FRCNN$_{\text{MN442}}$ &  VG &   89.6 &           4.2 &      6.2 &   60.7 &          31.3 &      8.0 \\
         \midrule
- FRCNN$_{\text{VG1600--VGMN}}$ &  MN &   94.5 &           4.2 &      1.3 &   72.9 &          22.7 &      4.4 \\
+ 	FRCNN$_{\text{VG1600--VGMN}}$ &  MN &   94.5 &           4.2 &      1.3 &   72.9 &          22.7 &      4.4 \\
  \midrule
+ %ResNet101$_{\text{VGMN}}$ &  MN &   89.6 &           5.5 &      4.9 &   57.0 &          32.9 &     10.1 \\
+ ResNet101$_{\text{MN442}}$ &  MN &   90.1 &           4.9 &      4.9 &   58.2 &          32.8 &      9.0 \\
      ResNet101$_{\text{VGMN}}$ &  VG &   88.3 &           6.2 &      5.5 &   48.5 &          38.8 &     12.7 \\
-     ResNet101$_{\text{VGMN}}$ &  MN &   89.6 &           5.5 &      4.9 &   57.0 &          32.9 &     10.1 \\
-    ResNet101$_{\text{MN442}}$ &  MN &   90.1 &           4.9 &      4.9 &   58.2 &          32.8 &      9.0 \\
     ResNet101$_{\text{MN442}}$ &  VG &   88.6 &           5.2 &      6.2 &   49.9 &          38.2 &     12.0 \\
 \bottomrule
 \end{tabular}
@@ -134,7 +135,7 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 		\midrule
 		FRCNN$_{\text{VG1600--VGMN}}$ & MN &             6.7 &                 0.0 &                  93.3 &            0.0 \\
 		\midrule
-		ResNet101$_{\text{VGMN}}$ & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
+		%ResNet101$_{\text{VGMN}}$ & MN &             3.1 &                 0.0 &                  96.9 &            0.0 \\
 		ResNet101$_{\text{MN442}}$ & MN &             3.0 &                 0.0 &                  97.0 &            0.0 \\
 		ResNet101$_{\text{VGMN}}$ & VG &             5.6 &                 0.0 &                  94.4 &            0.0 \\
 		ResNet101$_{\text{MN442}}$ & VG &             4.8 &                 0.0 &                  95.2 &            0.0 \\

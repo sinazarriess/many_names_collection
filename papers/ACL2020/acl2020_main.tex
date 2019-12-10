@@ -86,11 +86,12 @@
 \maketitle
 \begin{abstract}
 Object detection and image classification models from Computer Vision are typically trained towards predicting labels of objects. 
-Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose, instead of an \arbitrary name chosen by a single annotator. 
+Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose, instead of an \arbitrary name chosen by at best a few annotators. 
 Based on large-scale, thoroughly verified object naming data from many annotators, we conduct an extensive analysis of the ability of object detection and classification models to account for entry-level object naming.
 We show that standard object classification models ``spontaneously'' learn good entry-level names and perform better
-on predicting entry-level than \arbitrary names, despite being trained on  \arbitrary names.
-We further fine-tune these models via transfer learning and systematically vary their training vocabulary.
+on predicting entry-level than \arbitrary names, despite being trained on the latter, and that we can use transfer learning to train entry-level classifiers on the naming data. 
+Our analyses also reveal the limitations of modeling human naming behavior with proxy data of the true situation in which the phenomenon occurs.  
+%and systematically vary their training vocabulary. \cs{no diffs here with our setup of entry-levels only}
 \sz{something ...}
 \end{abstract}
 
@@ -102,7 +103,7 @@ We further fine-tune these models via transfer learning and systematically vary 
 \label{sec:related}
 \input{related}
 
-\section{Adequacy and errors in ManyNames}
+\section{Adequacy and Errors in ManyNames}
 \label{sec:manynames}
 %\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
 \input{manynames}
