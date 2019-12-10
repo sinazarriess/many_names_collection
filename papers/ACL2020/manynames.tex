@@ -99,7 +99,7 @@ We focus on our two main reasons for testing models on \mn: a dataset where (i) 
 Regarding (i), recall that a traditional view of object naming regards all instances of a class to have the same entry-level name.
 We observe instead that many pairs of entry-level names do not have a fixed preference ordering across instances (e.g.,~Figure~\ref{fig:duck}). 
 %% SHORTENING %% where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators.
-We quantify this by focusing on cases in \mn where there is a `clear winner', namely, objects where the entry-level name is at least twice as frequent in the response set as the next most frequent name---a strict requirement which only 281 of the 422 entry-level names of \mn meet.
+We quantify this by focusing on cases in \mn where there is a `clear winner', namely, objects where the entry-level name is at least twice as frequent in the response set as the next most frequent name---a strict requirement which only 281 of the 442 entry-level names of \mn meet.
 These names, which are a clear winner at least once, are so still on average only in 46\% of cases where there is a clear winner at all (meaning in the other 54\% of cases they are a clear loser).
 %% SHORTENING %%  (SD: .34).
 Importantly, the verified results support the same conclusion: 
@@ -122,9 +122,7 @@ For each object we estimated, on the basis of its \mn response set, how many nam
 The blue line shows that, even after gathering 10 names, the entry-level name is sufficiently likely to be the majority name for only 68\% of objects (i.e.,~for 32\% of objects, there's a greater than 5\% chance of getting a different majority name).
 Gathering 20 names increases this to 78\%.
 Our verification results let us see that most of the remaining indeterminacy occurs within the entry-level name's \cluster:
-the red line is computed by taking only names from the \cluster of the entry-level name into account.
-
-by discarding names for other objects, the entry-level name for the intended object can be confidently identified more easily -- but not by much, since names for the wrong object tend not to compete for `most frequent' anyway.
+the red line is computed by taking only names from the \cluster of the entry-level name into account, showing that, by discarding names for other objects, the entry-level name for the intended object can be confidently identified more easily (but not by much, since names for the wrong object tend not to be frequent anyway).
 %% SHORTENING %% (An analogous plot for the subset of all adequate names essentially coincided with the red line, reflecting that most adequate names were intended for the same object as the entry-level name.)
 
 Note that both lines in Figure~\ref{fig:entry-level-name-stability} stay well below 100\%, reflecting that for 15\%-20\% of objects even gathering 36 names is not enough for the entry-level name to come out as majority (95\% probability): differences in frequencies between the contenders are simply too small.
