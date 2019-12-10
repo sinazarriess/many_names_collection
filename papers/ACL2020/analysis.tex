@@ -44,8 +44,8 @@
 
 
 The previous Section \ref{sec:experiments} looked at the performance of the different naming models using vanilla evaluation methods like accuracy.
-This way of evaluating object naming is unsatisfactory: the \mn data, and also our verification data, clearly shows that human annotators often agree on a certain entry-level name with other names maybe being adequate too. 
-In the following, we show how our verification data can be used to gain more detailed insights into the way different naming models calibrate their decisions and reflect human-like naming behavior. \cs{do we?}
+This way of evaluating object naming is unsatisfactory: the \mn data, and the verification data, clearly shows that other names than the entry-level name may be adequate too. 
+In the following, we use our verification data to assess the severity of errors in different naming models.
 
 
 
@@ -70,7 +70,7 @@ We use WordNet \cite{fellbaum1998wordnet} for determining whether two names are 
 
 \subsection{How Human-Like are Model Predictions and Errors?}
 
-Table \ref{tab:humanlike} shows the breakdown of the model results for the error categories explained above. An important general trend is that the proportion of human-like error seems to be surprisingly constant across all models. \sz{why??}
+Table \ref{tab:humanlike} shows the breakdown of the results for the error categories explained above. Here, the proportion of human-like error is suprisingly constant across all models.
 Both object detection models essentially achieve the same portion of human-like mishits. Thus, the main difference of FRCNN$_{\text{MN442}}$ to  FRCNN$_{\text{VG1600}}$ is that the former makes more nonsensical errors (column Off), which might be an effect of the reduction in training data.
 Importantly, the transferred classification model FRCNN$_{\text{VG1600--VGMN}}$ achieves more hits but less valid predictions, and also less nonsensical errors as compared to FRCNN$_{\text{VG1600}}$.
 This suggests that the transfer learning approach is most effective when the object detection model achieves a valid prediction, which is then calibrated to a perfect hit (it predicts the entry-level) by the fine-tuned classification model.
@@ -153,30 +153,33 @@ The proportion of instances for which the ResNet models predict a `related'' cat
 \end{figure}
 \fi 
 \subsection{How do Predictions Correlate with Human Agreement?}
-An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
-This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. 
+%An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
+%This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. 
 
 In Table \ref{tab:exp_errors_agreement}, we show the break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more or less than 90\% of the annotators opted for the entry-level name. 
-Here, we find a very clear pattern for all models, namely that the portion of hits is generally high when human agreement is also high.
+Here, we generally find that for all models the portion of hits is extremely high when human agreement is also high.
 Note that this even holds for the ResNet-based classifiers that generally achieve less accuracy.
 When agreement is lower, all models produce less hits and more valid alternatives. 
 This indicates that there is indeed a certain similarity between what is difficult for humans and models.
-Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. \sz{why???}\\
+%Interestingly, also the portion of incorrect predictions is substantially higher when the agreement is lower. % \sz{why???}\\
 
 
 In Table~\ref{tab:exp_inadequacy} we focus on the predicted \mn names that were judged as inadequate (i.e.,~adequacy score\mbox{$<0.5$}) and their inadequacy types (see Section~\ref{sect:mn_analysis}.
 Most of the inadequate name predictions are related to an inaccurate bounding box. 
-The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of box errors, and hence, the highest \textit{visual} (i.e.,~the object is difficult to interpret) inadequate name predictions. 
-This might be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names . 
+The overall best model FRCNN$_{\text{VG1600--VGMN}}$ has the smallest proportion of box errors, but the highest \textit{visual} (i.e.,~the object is difficult to interpret) inadequate name predictions. 
+An example for this is shown in Figure \ref{fig:mistakes} (right): FRCNN$_{\text{VG1600--VGMN}}$  predicts a more specific \textit{cow} for an object that most humans and FRCNN$_{\text{VG1600}}$ named \textit{animal}.
+This illustrates an extremely tricky case of entry-level name: the model essentially has to guess that humans will have difficulties naming that object with a specific or basic-level name and opt instead for an unusually general name. 
+
+%This might be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names . 
 \iffalse
 \cs{remove next couple of sentences? it's very assumptive}
 This may be due to it using features pre-trained towards object detection (i.e.,~localization), but then being optimized towards \mn entry-level names. 
 And the ResNet101-based models, which use features that were pre-trained towards image classification (i.e.,~categorizing the salient object in an image (region)), make slightly more visual errors when being optimized on \vg ground truth labels than their \mn ground truth counterparts. 
 \fi
 %
-None of the models predicted an inadequate name that was a linguistic, or any other error. 
+None of the models predicted an inadequate name that was a linguistic, or any other error \sz{what??? no errors no more :-)}. 
 Recall that all predictions we are analysing here were in the \mn data, i.e.,~at least two people gave the predicted, but inadequate name for the object. 
-That the models make similar mistakes to humans (problems in identifying or recognizing the target object) on the \mn data reveals the problem of modeling a phenomenon of human behavior---object naming in our case---by leveraging data that only approximates the real-world situation in which the phenomenon occurs. 
+That the models make similar mistakes to humans (problems in identifying or recognizing the target object) on the \mn data reveals the problem of modeling a phenomenon of human behavior---object naming in our case---by leveraging data that only approximates the real-world situation in which the phenomenon occurs. \sz{this sounds a bit ... convoluted}
 
 
 %\cs{TODO::}
