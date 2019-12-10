@@ -115,7 +115,7 @@ To predict the entry-level name of a target object~$o$, the classifier, a multi-
 		\midrule 
 		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN &    70.8 &      80.6  \\ 
 		\midrule
-		ResNet$_{\text{VGMN}}$ & MN  & 60.9 &  68.6   \\
+		%ResNet$_{\text{VGMN}}$ & MN  & 60.9 &  68.6   \\
 		
 		ResNet$_{\text{MN442}}$ & MN &            61.7 &              69.6  \\
 		ResNet$_{\text{VGMN}}$  &   VG &  62.4 &              62.9  \\
@@ -134,7 +134,7 @@ To predict the entry-level name of a target object~$o$, the classifier, a multi-
 \subsection{Results}
 \label{sect:exp_results}
 
-Table \ref{tab:exp_VGvsMN} shows the accuracy of all models on the \mn test data. 
+Table \ref{tab:exp_VGvsMN} shows the accuracy of the models on the \mn test data\footnote{ResNet$_{\text{VGMN}}$ with MN is comparable to its couterpart.}. 
 We compare model effectiveness on predicting the entry-level name (columns MN) against predicting the VG name (columns VG). 
 %We therefore consider an object's VG name less likely to represent the entry-level name than its MN name. 
 
