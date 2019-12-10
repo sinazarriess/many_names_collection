@@ -18,9 +18,9 @@ A secondary contribution of this paper is instrumental: for a proper evaluation 
 	\caption{Different naming preferences (frequencies) for instances of the same \category \name{duck} in \mn.\label{fig:duck}}
 \end{figure}
 
-In \lv, the choice of a particular name for an object is a ubiquitous problem---it underlies virtually all tasks that model how speakers use language to refer to objects in the world, such as image description, visual question answering and referring expression generation.
-\lv methods are generally based on object detection or image classification models from computer vision (CV) research (or the visual features extracted from them) that were pre-trained towards predicting the single label of each object that is deemed correct by the dataset.
-The labels used often seem unintuitive from a human perspective, e.g., some are very basic, natural names (e.g., \name{bus}) while others seem overly specific (e.g.,\ \name{goblet, gyromitra}; cf.\ the label inventory of the ILSVRC challenges; \citealt{ILSVRC15}).
+In \lv, object naming underlies virtually all tasks that model how speakers refer to objects in the world, such as image description or visual question answering.
+\lv methods are generally based on object detection or image classification models from computer vision (CV) that were pre-trained towards predicting the single label of each object that is deemed correct by the dataset.
+The labels used often seem unintuitive from a human perspective, e.g., some are very basic, natural names (\name{bus}) while others seem overly specific (\name{goblet, gyromitra}), cf.\ the label inventory of the ILSVRC challenges \cite{ILSVRC15}.
 Pre-training on such labels can enable CV models to learn rich, discriminative visual feature representations which capture fine-grained differences in object appearances (e.g.,\ sharp-pointed vs. slightly pointed). 
 But it raises the issue of whether these models could be directly used for more human-like object naming.
 % Accordingly, these CV models are assessed by their ability to predict a single, in cases very specific, ground-truth label.
