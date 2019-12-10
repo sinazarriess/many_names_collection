@@ -118,6 +118,15 @@ Our analyses also demonstrate the challenges of collecting data of language phen
 
 \section{Conclusions}
 \label{sec:conclusions}
+In this paper, we have investigated instance-level entry-level naming of objects in images.
+To the best of our knowledge, our work is the first to investigate entry-level naming on such a large-scale but thorougly verified empirical basis, 
+as opposed to previous works that mostly adopted a strictly taxonomic view of naming.
+For models in \lv, the complexity of human naming data we observed brings up an important question: how should a naming models best finetune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, in order to capture natural naming behavior?
+We showed that the best way to achieve this is to first retrain an object detector on a large set of \arbitrary names and then finetune via transfer learning to entry-level names. 
+In future work, we plan to develop this approach further and assess, e.g., how well the learned naming vocabulary generalizes for other, external datasets.
+We also showed that naming data elicited for boxed objects comes with certain challenges, which have to be considered during evaluation (and potentially during modeling). 
+%Bounding boxes are not always clear enough pointers to objects, and at the same time there is no clear line between other object mistakes (\textit{batter-helmet}), referential disagreements (\textit{bed-sleeping bag}, when the two visually overlap in the image), and valid alternatives (\textit{carpet-floor} can be a metonymy).
+%Future work will need to address these challenges. 
 
 %\bibliography{BLA}
 %\bibliographystyle{acl_natbib}
