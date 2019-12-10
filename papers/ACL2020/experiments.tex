@@ -1,9 +1,9 @@
 % experiments.tex
 
-Given the entry-level naming data from \mn which extends the \arbitrary naming data from VisualGenome (VG), we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
-Moreover, we are able to systematically vary the vocabulary these models are tasked to learn during training, i.e.\ a standard object naming vocab compiled from a frequency list as in \cite{anderson2018updown} or a carefully selected set of entry-level names, aggregated from the ManyNames data.
-The modeling experiments will assess these various modeling decisions for the task of entry-level naming, but using accuracy as a standard evaluation metric,
-Section~\ref{sec:analysis} will analyse these results with respect to more detailed error types.
+Given the entry-level naming data from \mn, which extends the more \arbitrary naming data from VisualGenome (VG), we now have a variety of possibilities to train, re-train or fine-tune existing object detection or classification models, to capture natural naming.
+Moreover, we can systematically vary the vocabulary for these models during training: a standard object naming vocabulary compiled from a frequency list as in \cite{anderson2018updown}, or a set of entry-level names as aggregated from the ManyNames data.
+Our experiments will assess these various modeling decisions for the task of entry-level naming, in the current section by using accuracy as a standard evaluation metric.
+Section~\ref{sec:analysis} will analyze the results with respect to the different types of errors identified by our verification data.
 % found in the verification data in Section \ref{sec:verification}.
 %We leave modeling experiments that take into account other possible names of objects for future work.
 
@@ -29,77 +29,76 @@ Section~\ref{sec:analysis} will analyse these results with respect to more detai
 \label{sect:exp_setup}
 
 \paragraph{Data}
-We split \mn into training ($21K$~objects) and test data ($1,072$). 
-The test data corresponds to the overlap of \mn (MN) and the VG (VG) test split used by  \newcite{anderson2018updown}. 
-The target vocabulary of the test data is MN442. %the overlap of MN442 and VG ($355$ names). 
-For training using transfer learning, we train on the ground truth labels provided by \mn, but compare to training on \vg labels. 
+We split \mn into training ($21K$~objects) and test data ($1,072$), where the test data corresponds to the overlap of \mn (MN) and the \vg (VG) test split used by  \newcite{anderson2018updown}. 
+The target vocabulary of the test data is MN442: the 442 entry-level names we derived from \mn. %the overlap of MN442 and VG ($355$ names). 
+For transfer learning we train models on the ground truth entry-level names provided by \mn, and compare this to training on \vg labels. 
 
 \paragraph{Models}
-
-We test two object detection models trained on objects and names from the original \vg data, using the Faster R-CNN architecture \cite{fasterrcnn2015} which is initialized with features that were pre-trained on $1$K~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}.
+We test two object detection models trained on objects and names from the original \vg data, using the Faster R-CNN architecture \cite{fasterrcnn2015}, initialized with features that were pre-trained on $1$K~ImageNet classes with the ResNet-101 classification model \cite{he2016deep}.
 We use and retrain these two models with different target vocabularies:
 
 \begin{itemize}
-\item FRCNN$_{\text{VG1600}}$: We use \citep{anderson2018updown}'s model\footnote{We used the code and model available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} that is optimized for a set 1600 object names in \vg. This set was obtained by first taking the 2500 most frequent names in \vg and then (manually) filtering certain names.
+\item FRCNN$_{\text{VG1600}}$: We use \citep{anderson2018updown}'s model\footnote{We used the code and model available at  \url{github.com/peteanderson80/bottom-up-attention}. The model is trained with an additional output over attributes, but we only use the object class prediction layer.} that is optimized for a set of 1600 object names in \vg. This set was obtained by first taking the 2500 most frequent names in \vg and then (manually) filtering certain names.
  \item  FRCNN$_{\text{MN442}}$: we pre-process the \vg data as in \citeauthor{anderson2018updown}, but restrict the object classes to the $442$~entry-level names found in \mn (Section~\ref{sect:mn_analysis}). 
 For training, we use a PyTorch reimplementation of Faster R-CNN\footnote{\url{github.com/jwyang/faster-rcnn.pytorch}}
 \end{itemize}
 
 The two former models are trained on \vg, which has almost 4 million labeled objects.
-\mn is too small to train object detection models on it from scratch, which require learning millions of parameters.
+\mn is too small to train object detection models on it from scratch, which requires learning millions of parameters.
 On the other hand, obtaining enough naming data to be able to estimate entry-level names for larger datasets is very costly and probably unrealistic.
-Therefore, we investigate the possibility of obtaining entry-level data via transfer learning, fine-tuning existing models with \mn data.
+Therefore, we investigate the possibility of obtaining effective entry-level naming models via transfer learning, fine-tuning existing models with \mn data.
 We do so with the standard methodology of taking the last hidden layer of existing Computer Vision models as input, and train object classification models to predict entry-level names (MN442).
 
 We experiment with two kinds of (transferred) input features, different training vocabularies and ground-truth names for instances, similar to the detection models above.
 This yields the following 5 transfer-learning-based naming models:
-
 \begin{itemize}
-\item FRCNN$_{\text{VG1600}}$-VGMN:  This models extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.}. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer. The model uses the VGMN vocabulary (overlap of ManyNames and VG vocab).
-\item ResNet-VGMN: For comparison, we consider a much less informed input, namely the features from the ResNet-101 object detection  pretrained on ImageNet \cite{+++}.
+\item FRCNN$_{\text{VG1600}}$-VGMN:
+	This model extracts features from the object classification model FRCNN$_{\text{VG1600}}$\footnote{
+	As our experimental results will show, FRCNN$_{\text{VG1600}}$ is more effective than FRCNN$_{\text{MN442}}$, so we only use the former model.
+}. We expect these to be very good features for our task, as they have been obtained with the same task (object classification) and dataset (\vg).  For each object (i.e.,~bounding box) in \mn, we extract its activation features from FRCNN's last hidden layer before the output layer. The model uses the VGMN vocabulary (overlap of the full ManyNames vocabulary with VG).
+  \item ResNet-VGMN: 
+For comparison, we consider a much less informed input, namely the features from the ResNet-101 object detection  pretrained on ImageNet \cite{imagenet_cvpr09}.
 Results should of course be worse, and our aim is to assess the feasibility of using such generic object representations to obtain entry-level names. The model uses the VGMN vocabulary.  The model is optimized on VG and MN ground truth names respectively.
- \item  ResNet-MN442:  The same model as before, but trained with a vocab of 442 entry-level names. The model is optimized on VG and MN ground truth names respectively.
+ \item  ResNet-MN442:
+ The same model as before, but trained with a vocabulary of 442 entry-level names. The model is optimized on VG and MN ground truth names respectively.
 \end{itemize}
-
-
-
-Note that all five models are optimized on the $25$K~objects in \mn. 
+Note that these five models are optimized on the $25$K~objects in \mn. 
 To predict the entry-level name of a target object~$o$, the classifier, a multi-layer neural network, is fed the object's features, and applies softmax activation to the output layer that corresponds to the target vocabulary. 
 
-\iffalse
-\begin{table}[t]
-	\centering
-	\small
-	\begin{tabular}{@{~}l@{~}|@{~}c@{~}|cc|cc@{~}}
-		\toprule
-		&  & \multicolumn{2}{c}{All} 
-		& \multicolumn{2}{c}{VG$\neq$MN}\\
-		&  & \multicolumn{2}{c}{($1072$)} 
-		& \multicolumn{2}{c}{($223$)}\\	
-		Model$_{\text{Vocab}}$ 
-		&  GTtrain &  VG & MN 
-		&  VG & MN \\ 
-		\midrule
-		FRCNN$_{\text{MN442}}$ & VG &  65.4 &      71.2 &   20.0 &      48.4  \\
-		FRCNN$_{\text{VG1600}}$ & VG &    67.3 &      74.5 &    19.1 &      52.9  \\
-		\midrule \midrule
-		\multicolumn{6}{c}{Classifiers: Transfer learning on MN}\\
-		Features$_{\text{Vocab}}$ &   \\
-		\midrule 
-		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN &    70.8 &      80.6 &    13.8 &      60.4  \\ 
-		\midrule
-		ResNet$_{\text{VGMN}}$ & MN  & 60.9 &  68.6 &  13.8 & 50.2  \\
-		
-		ResNet$_{\text{MN442}}$ & MN &            61.7 &              69.6 &                        13.8 &              50.7 \\
-		ResNet$_{\text{VGMN}}$  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
-		%ResNet$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
-		%ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &          34.2 &              28.0 \\
-		ResNet$_{\text{MN442}}$ & VG  &            63.7 &              63.7 &                  30.7 &              31.1  \\
-		\bottomrule
-	\end{tabular}
-	\caption{Model accuracy (in \%) on the \mn test objects. Vocab denotes the dataset used to induce the target vocabulary for training (the numbers give the size of the vocabulary). GTtrain gives the dataset that provides the ground truth labels during training, and VG and MN for testing \label{tab:exp_VGvsMN}.}
-\end{table}
-\fi
+%\iffalse
+%\begin{table}[t]
+%	\centering
+%	\small
+%	\begin{tabular}{@{~}l@{~}|@{~}c@{~}|cc|cc@{~}}
+%		\toprule
+%		&  & \multicolumn{2}{c}{All} 
+%		& \multicolumn{2}{c}{VG$\neq$MN}\\
+%		&  & \multicolumn{2}{c}{($1072$)} 
+%		& \multicolumn{2}{c}{($223$)}\\	
+%		Model$_{\text{Vocab}}$ 
+%		&  GTtrain &  VG & MN 
+%		&  VG & MN \\ 
+%		\midrule
+%		FRCNN$_{\text{MN442}}$ & VG &  65.4 &      71.2 &   20.0 &      48.4  \\
+%		FRCNN$_{\text{VG1600}}$ & VG &    67.3 &      74.5 &    19.1 &      52.9  \\
+%		\midrule \midrule
+%		\multicolumn{6}{c}{Classifiers: Transfer learning on MN}\\
+%		Features$_{\text{Vocab}}$ &   \\
+%		\midrule 
+%		FRCNN$_{\text{VG1600}}$$_{\text{-VGMN}}$ & MN &    70.8 &      80.6 &    13.8 &      60.4  \\ 
+%		\midrule
+%		ResNet$_{\text{VGMN}}$ & MN  & 60.9 &  68.6 &  13.8 & 50.2  \\
+%		
+%		ResNet$_{\text{MN442}}$ & MN &            61.7 &              69.6 &                        13.8 &              50.7 \\
+%		ResNet$_{\text{VGMN}}$  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
+%		%ResNet$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &              28.4 &              31.1  \\
+%		%ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &          34.2 &              28.0 \\
+%		ResNet$_{\text{MN442}}$ & VG  &            63.7 &              63.7 &                  30.7 &              31.1  \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{Model accuracy (in \%) on the \mn test objects. Vocab denotes the dataset used to induce the target vocabulary for training (the numbers give the size of the vocabulary). GTtrain gives the dataset that provides the ground truth labels during training, and VG and MN for testing \label{tab:exp_VGvsMN}.}
+%\end{table}
+%\fi
 %\paragraph{Measures}
 
 
@@ -158,107 +157,107 @@ In sum, we find that models learn entry-level naming when being trained on \arbi
 \label{sect:exp_discussion}
 
 %To date, little research has been done on how to finetune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, for purposes of \lv.
-As Section \ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, besides a fair amount of agreement.
+As Section~\ref{sec:manynames} showed, object naming is a linguistically complex phenomenon which involves a lot of variation and potential errors, besides a fair amount of agreement.
 Hence, it is striking that even models that are trained on (a lot of) \arbitrary names capture entry-level naming to a good extent.
 However, our results also suggest that current \textit{evaluation} methods might not be very reliable when applied on \arbitrary names, probably punishing models for `errors' that actually constitute plausible alternatives.
 The next Section elaborates on this and proposes a more fair assessment of naming quality achieved by the different models.
 
  
-\iffalse
-\cs{under construction}
-\begin{itemize}
-	\item Object detection models in CV have different goal than L+V object recognition models (see related work--former is on labels, latter on predicting natural language). 
-	However, the former, pre-trained towards labels, are the backbone / used as feature extractors for the latter.
-	\item ... 
-	\item As we explained, there is a high variation of object names, and objects may be named by multiple alternative names (\cs{vocab size MN vs. vocab size VG for same object set}). 
-	Yet, humans usually have a clearly preferred name for individual object instances (and the set of those is relatively small)--humans agree on a particular name for an instance (entry-level name).
-	\item Hence, to model human object naming, datasets with many/dozens of annotations for the same instance are required. 
-	\item We argue that such datasets are more reliable in that they provide empirically derived preferred names (entry-level names), and richer--the provide valid name alternatives. 
-	\item But since their elicitation is expensive and time-consuming, it is not realistic to create training datasets of dozens of object names for pre-training features with CV models, which need a huge amount of training data. 
-\end{itemize}
-\fi
+%\iffalse
+%\cs{under construction}
+%\begin{itemize}
+%	\item Object detection models in CV have different goal than L+V object recognition models (see related work--former is on labels, latter on predicting natural language). 
+%	However, the former, pre-trained towards labels, are the backbone / used as feature extractors for the latter.
+%	\item ... 
+%	\item As we explained, there is a high variation of object names, and objects may be named by multiple alternative names (\cs{vocab size MN vs. vocab size VG for same object set}). 
+%	Yet, humans usually have a clearly preferred name for individual object instances (and the set of those is relatively small)--humans agree on a particular name for an instance (entry-level name).
+%	\item Hence, to model human object naming, datasets with many/dozens of annotations for the same instance are required. 
+%	\item We argue that such datasets are more reliable in that they provide empirically derived preferred names (entry-level names), and richer--the provide valid name alternatives. 
+%	\item But since their elicitation is expensive and time-consuming, it is not realistic to create training datasets of dozens of object names for pre-training features with CV models, which need a huge amount of training data. 
+%\end{itemize}
+%\fi
 
-\iffalse
-We propose to use datasets of object names for evaluating models on the task of object naming (depending on results: also valuable for comparing object detection/image classification models).
-Specifically, we analyse object detection [and classification] models on the task of human object naming, using the \mn dataset as test data:\\
-Can object detection models, trained on arbitrary names, account for human object naming?
-\begin{itemize}
-	\item Do they predict the entry-level name?
-	\item Are valid name alternatives among the top-N predictions?
-x	\item Do models make similar mistakes as humans when being faced with the task of naming highlighted objects in images [i.e.,\ the artificial setup of object naming for data annotation]?\\
-	-- naming an alternative object (maybe more salient)\\
-	-- predicting a semantically related name
-	%do we get different evaluation results when testing existing object classification models on preferred responses from name distributions, as compared to naming responses collected from 1-3 workers (e.g., VisualGenome)? 
-	\item Can we use \mn as fine-tuning dataset? (Here: only Vanilla model)\\
-	-- can we learn entry-level names by fine-tuning object detection models on \mn?\\
-	-- Can we directly learn entry-level names by fine-tuning image classification models on \mn, i.e.,\ the pre-trained features to initialize object detection models?
-\end{itemize}
-\fi
+%\iffalse
+%We propose to use datasets of object names for evaluating models on the task of object naming (depending on results: also valuable for comparing object detection/image classification models).
+%Specifically, we analyse object detection [and classification] models on the task of human object naming, using the \mn dataset as test data:\\
+%Can object detection models, trained on arbitrary names, account for human object naming?
+%\begin{itemize}
+%	\item Do they predict the entry-level name?
+%	\item Are valid name alternatives among the top-N predictions?
+%x	\item Do models make similar mistakes as humans when being faced with the task of naming highlighted objects in images [i.e.,\ the artificial setup of object naming for data annotation]?\\
+%	-- naming an alternative object (maybe more salient)\\
+%	-- predicting a semantically related name
+%	%do we get different evaluation results when testing existing object classification models on preferred responses from name distributions, as compared to naming responses collected from 1-3 workers (e.g., VisualGenome)? 
+%	\item Can we use \mn as fine-tuning dataset? (Here: only Vanilla model)\\
+%	-- can we learn entry-level names by fine-tuning object detection models on \mn?\\
+%	-- Can we directly learn entry-level names by fine-tuning image classification models on \mn, i.e.,\ the pre-trained features to initialize object detection models?
+%\end{itemize}
+%\fi
 
-\iffalse
-OLD TABLE WITH MORE MEASURES
-
-\begin{table*}[t]
-	\centering
-	\small
-	\begin{tabular}{l|c|r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r|@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}}
-		\toprule
-		&   & \multicolumn{6}{c}{All Test Images ($\#$)} 
-		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\	
-		Model$_{\text{Vocab}}$	 
-		&  GTtrain &  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR 
-		&  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR\\ 
-		\midrule
-		FRCNN--MN442 & VG &            65.4 &              71.2 &                85.6 &         1.0 &             69.8 &          0.8 &             0.7 &            20.0 &              48.4 &                78.7 &         1.4 &             60.4 &          0.7 &             0.5 \\
-		FRCNN--VG2500 & VG \\
-		FRCNN$_{\text{VG1600}}$ & VG &            67.3 &              74.5 &                89.2 &         0.6 &             74.3 &          0.8 &             0.7 &            19.1 &              52.9 &                86.2 &         0.8 &             69.4 &          0.7 &             0.6 \\
-		\midrule \midrule
-		& \multicolumn{12}{c}{Classifiers: Fine-tuning pre-trained image features on \mn}\\
-		Features$_{\text{Vocab}}$ & GTtrain  \\
-		\midrule 
-		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &            70.8 &              80.6 &                90.1 &         4.7 &             62.0 &          0.8 &             0.6 &            13.8 &              60.4 &                85.8 &         4.6 &             47.3 &          0.7 &             0.5 \\ 
-		FRCNN$_{\text{VG1600}}$--MN442 &  MN \\
-		\midrule
-		ResNet101$_{\text{VGMN}}$ & MN  &            60.9 &              68.6 &                77.9 &         4.9 &             56.4 &          0.8 &             0.6 &            13.8 &              50.2 &                73.3 &         4.7 &             42.9 &          0.6 &             0.4 \\
-		
-		ResNet101--MN442 & MN &            61.7 &              69.6 &                78.9 &         4.9 &             57.4 &          0.8 &             0.6 &            13.8 &              50.7 &                73.8 &         4.6 &             45.1 &          0.6 &             0.5 \\
-		ResNet101$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &                75.0 &         5.0 &             53.7 &          0.7 &             0.6 &            28.4 &              31.1 &                64.9 &         4.8 &             39.1 &          0.4 &             0.4 \\
-		ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &                75.6 &         5.0 &             53.9 &          0.7 &             0.6 &            34.2 &              28.0 &                66.2 &         4.9 &             39.7 &          0.4 &             0.4 \\
-		ResNet101--MN442 & VG  &            63.7 &              63.7 &                76.6 &         5.0 &             55.4 &          0.7 &             0.6 &            30.7 &              31.1 &                67.1 &         4.8 &             41.0 &          0.4 &             0.4 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Target vocabulary in test data: MN442. Vocab denotes the dataset from which the target vocabulary for training was induced (the numbers give the size of the vocabulary). GTtrain denotes the dataset from which the ground truth labels are obtained during \textit{training}. MRR is mean reciprocal rank; J is Jaccard score. Note that we considered all name responses in MN, including those with $\text{count}(name)<2$\label{tab:entrylevels}. }
-\end{table*}
-
-
-\begin{table*}[t]
-	\centering
-	\small
-	\begin{tabular}{l@{~}|rrrr}
-		\toprule
-		... \\
-		\midrule
-		Domain	 & ... \\ 
-		\midrule
-		All           \\
-		home           \\
-		food           \\
-		buildings      \\
-		vehicles       \\
-		animals\_plants \\
-		clothing       \\
-		people         \\
-		\bottomrule
-	\end{tabular}
-	\caption{RESULTS FOR SELECTED MODELS \label{tab:domains_bestmodel}}
-\end{table*}
-
-% \subsection{[TBC] Generalization Ability: OpenImages}
-% \label{sect:exp_openimages}
-% Question: Can models trained towards \mn generalize to other, related datasets? Here: OpenImages. \cs{[Increase coverage with zero-shot learning?]}\
-
-% Models compared: FRCNN$_{\text{VG1600}}$ vs. FRCNN$_{\text{MN442}}$ vs. ResNet101--XX (best Vanilla).
-\fi
+%\iffalse
+%OLD TABLE WITH MORE MEASURES
+%
+%\begin{table*}[t]
+%	\centering
+%	\small
+%	\begin{tabular}{l|c|r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r|@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}r@{~}}
+%		\toprule
+%		&   & \multicolumn{6}{c}{All Test Images ($\#$)} 
+%		& \multicolumn{6}{c}{VG$\neq$MN Images ($\#$)}\\	
+%		Model$_{\text{Vocab}}$	 
+%		&  GTtrain &  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR 
+%		&  =VG & =MN & $\in$MN  & KL & J & MRR & AvgMRR\\ 
+%		\midrule
+%		FRCNN--MN442 & VG &            65.4 &              71.2 &                85.6 &         1.0 &             69.8 &          0.8 &             0.7 &            20.0 &              48.4 &                78.7 &         1.4 &             60.4 &          0.7 &             0.5 \\
+%		FRCNN--VG2500 & VG \\
+%		FRCNN$_{\text{VG1600}}$ & VG &            67.3 &              74.5 &                89.2 &         0.6 &             74.3 &          0.8 &             0.7 &            19.1 &              52.9 &                86.2 &         0.8 &             69.4 &          0.7 &             0.6 \\
+%		\midrule \midrule
+%		& \multicolumn{12}{c}{Classifiers: Fine-tuning pre-trained image features on \mn}\\
+%		Features$_{\text{Vocab}}$ & GTtrain  \\
+%		\midrule 
+%		FRCNN$_{\text{VG1600}}$$_{\text{VGMN}}$ & MN &            70.8 &              80.6 &                90.1 &         4.7 &             62.0 &          0.8 &             0.6 &            13.8 &              60.4 &                85.8 &         4.6 &             47.3 &          0.7 &             0.5 \\ 
+%		FRCNN$_{\text{VG1600}}$--MN442 &  MN \\
+%		\midrule
+%		ResNet101$_{\text{VGMN}}$ & MN  &            60.9 &              68.6 &                77.9 &         4.9 &             56.4 &          0.8 &             0.6 &            13.8 &              50.2 &                73.3 &         4.7 &             42.9 &          0.6 &             0.4 \\
+%		
+%		ResNet101--MN442 & MN &            61.7 &              69.6 &                78.9 &         4.9 &             57.4 &          0.8 &             0.6 &            13.8 &              50.7 &                73.8 &         4.6 &             45.1 &          0.6 &             0.5 \\
+%		ResNet101$_{\text{VGMN}}$\_4ep  &   VG &  62.4 &              62.9 &                75.0 &         5.0 &             53.7 &          0.7 &             0.6 &            28.4 &              31.1 &                64.9 &         4.8 &             39.1 &          0.4 &             0.4 \\
+%		ResNet101$_{\text{VGMN}}$\_8ep & VG &            63.9 &              62.6 &                75.6 &         5.0 &             53.9 &          0.7 &             0.6 &            34.2 &              28.0 &                66.2 &         4.9 &             39.7 &          0.4 &             0.4 \\
+%		ResNet101--MN442 & VG  &            63.7 &              63.7 &                76.6 &         5.0 &             55.4 &          0.7 &             0.6 &            30.7 &              31.1 &                67.1 &         4.8 &             41.0 &          0.4 &             0.4 \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{Target vocabulary in test data: MN442. Vocab denotes the dataset from which the target vocabulary for training was induced (the numbers give the size of the vocabulary). GTtrain denotes the dataset from which the ground truth labels are obtained during \textit{training}. MRR is mean reciprocal rank; J is Jaccard score. Note that we considered all name responses in MN, including those with $\text{count}(name)<2$\label{tab:entrylevels}. }
+%\end{table*}
+%
+%
+%\begin{table*}[t]
+%	\centering
+%	\small
+%	\begin{tabular}{l@{~}|rrrr}
+%		\toprule
+%		... \\
+%		\midrule
+%		Domain	 & ... \\ 
+%		\midrule
+%		All           \\
+%		home           \\
+%		food           \\
+%		buildings      \\
+%		vehicles       \\
+%		animals\_plants \\
+%		clothing       \\
+%		people         \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{RESULTS FOR SELECTED MODELS \label{tab:domains_bestmodel}}
+%\end{table*}
+%
+%% \subsection{[TBC] Generalization Ability: OpenImages}
+%% \label{sect:exp_openimages}
+%% Question: Can models trained towards \mn generalize to other, related datasets? Here: OpenImages. \cs{[Increase coverage with zero-shot learning?]}\
+%
+%% Models compared: FRCNN$_{\text{VG1600}}$ vs. FRCNN$_{\text{MN442}}$ vs. ResNet101--XX (best Vanilla).
+%\fi
 
 
 %%% Local Variables:
