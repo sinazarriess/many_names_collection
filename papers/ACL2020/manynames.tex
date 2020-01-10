@@ -27,7 +27,7 @@ We recruited annotators from Amazon Mechanical Turk\footnote{
 Since the task was multiple-choice we could conduct rigorous quality control, ensuring the reliability of these annotations (see the supplementary material for details).
 We ran all the \mn data (response sets) through our verification, with two exceptions: 
 response sets with $100$\%~agreement (i.e.,~all annotators gave the same name for an object) are treated as correct, and all names with a count of~$1$ considered unreliable.
-Each of the remaining $19,427$ images, with the target object highlighted with a bounding box, were presented to $3$~annotators, with a list of all its names to be verified (Figure~1 in supplementary material; on average $4$ names per object).
+Each of the remaining $19,427$~images, with the target object highlighted with a bounding box, were presented to $3$~annotators, with a list of all its names to be verified (Figure~1 in supplementary material; on average $4$~names per object).
 They were asked to judge the adequacy\footnote{
 	In the task we provided the definition that \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
 } of each name among ``perfectly adequate'', ``there may be a (slight) inadequacy'' and ``totally inadequate'' (encoded below as 1.0, 0.5 and 0.0, respectively).
@@ -46,8 +46,8 @@ Overall, $255$~participants annotated $69,356$~object-name pairs (each pair rece
 \paragraph{Judgment Aggregation}
 We aggregate our name adequacy judgments by taking the mean, and inadequacy type judgments by taking the majority.
 %% SHORTENING %%  (counting ``none'' for annotators saying there is no inadequacy). 
-Average name adequacy, on the scale from totally inadequate (0) to adequate (1), is 0.80 (\mbox{std=$0.093$}).
-The proportion of annotators agreeing on adequacy ratings is 88\%, agreeing on inadequacy type is 86\%, and agreeing on whether two names were intended for the same object is 94\%.
+Average name adequacy, on the scale from totally inadequate (0) to adequate (1), is~$0.80$ (\mbox{std=$0.093$}).
+The proportion of annotators agreeing on adequacy ratings is 88\%, agreeing on inadequacy type is~$86\%$, and agreeing on whether two names were intended for the same object is~$94\%$.
 This is high given the complexity of the task
 %% SHORTENING %% , essentially mind-reading what the original \mn annotators may have meant, 
 and the fact that pictures and bounding boxes are sometimes unclear.
@@ -66,8 +66,8 @@ First, for analysing computational object naming models (Section~\ref{sec:analys
 % we want to have all valid name alternatives to the entry-level name (or a target name in general), i.e.,~a soft clustering of names. 	% <- Carina's reformulation, but not strictly true and not clear to me.
 we want to know primarily whether the name predicted by a model, if it isn't the entry-level name, was at least intended for the same object as the entry-level name.
 This \textbf{\sameobject} measure we compute by a simple majority rule: true if name1 and name2 were judged to be for the same object by a majority of annotators, and false otherwise.
-Second, for a better understanding of the verified \mn data itself (analysis below) we want to be able, e.g., to assess the mean number of names per object, and for that we need to do clustering (the pairwise majority rule does not result in a proper clustering). 
-We compute the \textbf{\cluster} of a name by agglomerative, complete-linkage clustering with a distance threshold of .5, using as distance between two names the proportion of annotators saying they do not name the same object (hence all pairs of names in a cluster must name the same object according to a majority of annotators).\footnote{
+Second, for a better understanding of the verified \mn data itself (analysis below) we want to be able, e.g., to assess the mean number of names per object, which requires clustering (the pairwise majority rule does not result in a proper clustering). 
+We compute the \textbf{\cluster} of a name by agglomerative, complete-linkage clustering with a distance threshold of~$.5$, using as distance between two names the proportion of annotators saying they do not name the same object (hence all pairs of names in a cluster must name the same object according to a majority of annotators).\footnote{
 	The `hard' clustering we use may occasionally lead us to \emph{under}estimate the number of names for an object (this is also why we will use \sameobject and not \cluster in model analysis). The alternative, \emph{soft} clustering (where each name could potentially be in multiple clusters), would risk \emph{over}estimating the number of names per object, as well as the number of named objects in an image.
 }
 
@@ -119,11 +119,11 @@ Regarding (i), recall that a traditional view of object naming regards all insta
 This predicts that we will find a stable ordering of entry-level names. 
 We observe instead that many pairs of entry-level names do not have a fixed preference ordering across instances (e.g.,~Figure~\ref{fig:duck}). 
 %% SHORTENING %% where the rather non-prototypical instance of a \name{duck} is named \name{bird} by most annotators.
-We quantify this by focusing on cases in \mn where there is a `clear winner', namely, objects where the entry-level name is at least twice as frequent in the response set as the next most frequent name (covering 281 of the 442 entry-level names of \mn).
-These names, which are a clear winner at least once, are so still on average only in 46\% of cases where there is a clear winner at all (meaning in the other 54\% of cases they are a clear loser).
+We quantify this by focusing on cases in \mn where there is a `clear winner', namely, objects where the entry-level name is at least twice as frequent in the response set as the next most frequent name (covering $281$~of the $442$~entry-level names of \mn).
+These names, which are a clear winner at least once, are so still on average only in $46\%$~of cases where there is a clear winner at all (meaning in the other $54\%$~of cases they are a clear loser).
 %% SHORTENING %%  (SD: .34).
 Importantly, the verified results support the same conclusion: 
-even restricting attention to cases where the name is adequate and names the right object, there is still a clear winner only in 66\% of cases where there is one (std\mbox{$=.35$}, skewed with about half over 80\%).
+even restricting attention to cases where the name is adequate and names the right object, there is still a clear winner only in $66\%$~of cases where there is one (std\mbox{$=.35$}, skewed with about half over $80\%$).
 
 %provides evidence that this is not the case, even though we do not have access to ground-truth class annotations in \vg (we only have names). We find that there are 879 pairs of entry-level names that show a different preference ordering depending on the instance (e.g. \name{boy-player}, \textit{sandwich-food}, \name{building-church}, ...).
 

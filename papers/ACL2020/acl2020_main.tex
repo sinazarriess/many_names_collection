@@ -57,6 +57,7 @@
 \newcommand{\mn}{ManyNames\xspace}
 \newcommand{\mnshort}{MN\xspace}
 \newcommand{\vg}{VisualGenome\xspace}
+\newcommand{\vgshort}{VG\xspace}
 \newcommand{\ra}{$\rightarrow$}
 \newcommand{\sameobject}{SameObject\xspace}
 \newcommand{\cluster}{Cluster\xspace}
@@ -69,7 +70,7 @@
 \newcommand{\categories}{classes\xspace}
 \newcommand{\category}{class\xspace}
 
-\title{From Classification to Naming:\\ Modeling Entry-level Names for Objects in Images}
+\title{From Classification to Naming:\\ Modeling Entry-Level Names for Objects in Images}
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -112,7 +113,7 @@ Our detailed error analysis reveals that models generally make more mistakes whe
 
 \section{Predicting Entry-Level Names}
 \label{sec:experiments}
-\input{experiments}
+\input{experiments_merged}
 
 \section{Analysis of Model Naming Behavior}
 \label{sec:analysis}
@@ -121,10 +122,8 @@ Our detailed error analysis reveals that models generally make more mistakes whe
 \section{Conclusions}
 \label{sec:conclusions}
 In this paper, we have investigated instance-level entry-level naming of objects in images.
-To the best of our knowledge, our work is the first to investigate entry-level naming on such a large-scale.
-% but thorougly verified empirical basis, 
-%as opposed to previous works that mostly adopted a class-level and/or strictly taxonomic view of naming.
-For models in \lv, the complexity of human naming data we observed brings up an important question: how should a naming models best fine-tune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, in order to capture natural naming behavior?
+To the best of our knowledge, our work is the first to investigate entry-level naming on such a large-scale, thoroughly verified empirical basis, as opposed to previous works that mostly adopted a class-level and/or strictly taxonomic view of naming.
+For models in \lv, the complexity of human naming data we observed brings up an important question: how should naming models best fine-tune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, in order to capture natural naming behavior?
 We showed that the best way to achieve this is to first retrain an object detector on a large set of \arbitrary names and then fine-tune via transfer learning to entry-level names. 
 In future work, we plan to develop this approach further and assess, e.g., how well the learned naming vocabulary generalizes for other, external datasets.
 We also showed that naming data elicited for boxed objects comes with certain challenges, which have to be considered during evaluation (and potentially during modeling). 

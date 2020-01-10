@@ -21,20 +21,23 @@
 	\caption{Model results for different categories of errors. \label{tab:humanlike}}
 \end{table*}
 
-The previous section looked at the performance of the different naming models using a standard single-label evaluation scheme.
+The previous section looked at the effectiveness of the different naming models using a standard single-label evaluation scheme.
 %vanilla evaluation methods like accuracy.
 This way of evaluating object naming is unsatisfactory: the \mn data, and the verification data, clearly shows that other names than the entry-level name may be adequate too. 
 In the following, we use our verification data to assess the severity of errors in different naming models.
 
 \paragraph{Error Categories} We categorize model predictions into the following types (see also Figure~\ref{fig:mistakes} for examples).
-Besides \textit{Hit} (the entry-level name) and \textit{Off} (none of the following categories, representing a wrong name), we distinguish between different \textit{Human-like mishits}:\\\vspace{-2ex}
+Besides \textit{Hit} (the entry-level name) and \textit{Off} (none of the following categories, representing a random name)
+%wrong name), % [CS] we did not do an exhaustive collection of object names, so the name may still be correct, but just very rare for the instance
+ we distinguish between different \textit{Human-like mishits}:\\\vspace{-2ex}
 
-\begin{tabularx}{.46\textwidth}{@{~}lX}
-	\textbf{\sameobject:} & alternative name for the same object, estimated from \mn and including WordNet synonyms and hypernyms (\name{house/building}; \citealt{fellbaum1998wordnet}). \\
+\begin{tabularx}{.47\textwidth}{@{~}lX}
+	\textbf{\sameobject:} & alternative name for the same object, as estimated from its valid \mn names (see Section~\ref{sect:mn_verification}), or a WordNet synonym or hypernym of the valid MN names (\name{house/building}; \citealt{fellbaum1998wordnet})\\
+	%and including WordNet synonyms and hypernyms (\name{house/building}; \citealt{fellbaum1998wordnet}). \\
 %(see Section~\ref{sect:mn_verification}), or a synonym or a hypernym (\name{house/building}) \\
 	\textbf{OtherObject:} & name produced by annotators, but not an alternative of the entry-level name \\
 	\textbf{LowCount:} & name produced by 1 annotator\\
-	\textbf{Related:}& a hyponym or co-hyponym of the entry-level (\textit{jacket/shirt}; also estimated from WordNet)\\
+	\textbf{Related:}& a WordNet hyponym or co-hyponym of the entry-level (\textit{jacket/shirt})\
 \end{tabularx}
 
 %Semantically related names are determined with WordNet 
@@ -139,7 +142,7 @@ The proportion of instances for which the ResNet models predict a `related' cate
 %An important observation in Section \ref{sec:manynames} is that even the high number of annotations for an object in ManyNames might not be enough to be fully confident about the entry-level name.
 %This suggests that there is a certain portion of objects in the dataset that could be difficult to name even for humans, e.g.,~for linguistic reasons (they don't know how to name the object adequately), or whose name depends on the speaker's interpretation of the situation in which the object is shown, such that an agreement on a certain name is difficult to achieve. 
 
-Table \ref{tab:exp_errors_agreement} shows a break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more (viz.\ less) than 90\% of the annotators opted for the entry-level name. 
+Table \ref{tab:exp_errors_agreement} shows a break-down of model predictions and errors for objects with high and low naming agreement in ManyNames, i.e.\ objects where more (vs.\ less) than~$90\%$ of the annotators opted for the entry-level name. 
 Here, we generally find that for all models the portion of hits is extremely high when human agreement is also high.
 Note that this holds even for the ResNet-based classifiers that generally achieve lower accuracy.
 When human agreement is lower, all models produce fewer hits and more valid alternatives, indicating a similarity between what is difficult for models and humans.
