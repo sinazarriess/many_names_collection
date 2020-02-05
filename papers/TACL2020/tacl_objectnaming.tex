@@ -220,6 +220,7 @@ The following are not necessarily in order (i.e., one could come before/after th
 	\item compute object representation using $\mathbf{v_i}$ and $\mathbf{s_i}$ (context accordingly)
 	\item compute cross-modal reprs fusing name and object repr$^*$
 	\item produce context repr using attention between visual context objects and target object repr $\Rightarrow$ context repr is based on the objects relevant for the target object (e.g., racket in Table~\ref{tab:player_statue})
+	\item produce cross-modal context repr using attention between visual context objects and candidate name repr $\Rightarrow$ context repr is based on the objects similar to candidate name 
 	\item ...
 	\item some magic happens and a score for each pair is output (ranking criterion)
 \end{itemize}
