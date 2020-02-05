@@ -1,21 +1,12 @@
-
-\cs{need to make clear the diff btw objects meaning the class and meaning an instance}
-
-Objects, being members of many categories, can be called by many names (e.g.,\ a duck can be called \name{duck, bird, animal} etc.). 
-The task of \textbf{object naming} has been studied in psycholinguistics~\cite{refs}, but has not received much attention in \langvis (\lv) and computational linguistics (CL) research. 
-We seek to remedy this situation by providing data and systematic modeling insights on the  phenomenon of naming real-world objects, and in particular on \textbf{entry-level names}, the name people  prefer when calling a specific object (e.g.,~\name{bird} in Figure~\ref{fig:duck}, right image). 
-
-In \lv, the choice of a particular name for an object is a ubiquitous problem---it underlies virtually all tasks that model how speakers use language to refer to objects in the world, such as image description, visual question answering, referring expression generation, etc. 
-\lv methods are generally based on object detection or image classification models from computer vision (CV) research (or the visual features extracted from them) that were pre-trained towards predicting the single correct label of objects. 
-The labels seem often to be unintuitive from a human perspective---they may be "basic-level" (e.g., \name{bus}), but also very specific labels (e.g.,\ \name{goblet, gyromitra}; cf.\ the label inventory of the ILSVRC challenges; \citealt{ILSVRC15}). 
-This pre-training strategy on such labels has its justification in that computer vision models can learn rich, discriminative visual feature representations which capture fine-grained differences in object appearances (e.g.,\ sharp--pointed vs. slightly pointed). 
-Accordingly, these CV models are assessed by their ability to predict a single, in cases very specific, ground-truth label. 
-In contrast, the goal of \lv naming models is to predict the natural name of an object, i.e.,~the name humans would choose for the object instance in the given visual situation and points of view. 
-Moreover, as psycholinguistic studies found, humans have a preference towards a particular name, defined as the \textit{entry-level name} (e.g.,\ \name{duck}) when naturally calling an object  \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
-Note, though, that this research has focused on \categories\footnote{When a sub-ordinate level \category is atypical, such as penguins not being very typical birds, this affects their entry-level name (it is common to call a sparrow, but not a penguin, \name{bird}).}, as opposed to instances \lv is encompassed with, for which humans may prefer different names for instances of the same \category, and have them even disagree in their choice for the same instance (see also \citealt{graf2016animal}). 
-For example, Figure~\ref{fig:duck} shows two instances of a duck, and when people were asked to name the highlighted object, most people ($27$) called the instance on the left \name{bird}, while \name{duck} was strongly preferred for the right instance. 
-Hence, the single-ground truth view of CV models %, which was generally adopted by \lv models, 
-is inconclusive for assessing the effectiveness of \lv human entry-level naming models.
+Objects, being members of many \categories, can be called by many names (e.g.,~a duck can be called \name{duck, bird, animal}, etc.). 
+The task of \emph{object naming}---generating not just a formally correct but also an appropriate, \emph{natural} name for an object---is distinct from the closely related tasks of object detection and image classification (see below).
+It has been studied in psycholinguistics~(e.g.,~\citealt{Rosch1978}), but has received comparatively little attention in \langvis (\lv) and computational linguistics (CL) research.
+We address the following question:\\
+\fbox{\parbox{\columnwidth}{\textbf{Q:} Can standard object detection/image classification models (be fine-tuned to) exhibit human-like object naming behavior?}}\\\\
+In particular, we test several models for their ability to predict \emph{entry-level names}, i.e., the names people prefer when calling a specific object (e.g.,~\name{bird} in Figure~\ref{fig:duck}, left image).
+%% SHORTENING %% We wish to find out, for instance, whether different types of models or training regimes will tend towards different kinds of human-like errors in this regard.
+A second contribution of this paper is instrumental: for a proper evaluation we must first augment an existing human object naming dataset (ManyNames, Anonymous, under review) with extensive quality control, the resulting data which we also describe here.%
+\footnote{Data and code for this paper will be made available upon publication.}
 \begin{figure}[t]
 	\centering
 	\small
@@ -25,18 +16,44 @@ is inconclusive for assessing the effectiveness of \lv human entry-level naming 
 		\includegraphics[scale=0.15]{images/2358126_805887_singleton_obj.png}\\
 		bird\ (27),  duck\ (8) & duck (33), bird (3)\\
 	\end{tabular}
-	
-	\caption{Different naming preferences for different instances of the same category \textsc{duck} in \mn.\label{fig:duck}}
+	\caption{Different naming preferences (frequencies) for instances of the same \category \name{duck} in \mn.\label{fig:duck}}
 \end{figure}
-In this paper, addressing the task of \textit{instance-based entry-level object naming}, we put forward a more nuanced evaluation scheme, that goes beyond judging model effectiveness on predicting the entry-level name, and analyses models also in terms of the degree of ``mistakes" it makes (e.g.,~the prediction may be a less preferred name as opposed to a true error).  
 
-Our contributions towards the task of instance-based entry-level naming in \lv and CL research are two-fold:  
-First, we provide data on object naming with real images on a large scale. 
-We take on an empirical notion of entry-level names, and define it on the instance-level, i.e., the name that humans prefer to use when calling a particular object in a real-world image.   
-We extend \mn (under submission), a dataset that provides 36 names for each of 25K objects from \vg~\cite{krishna2016visualgenome}, with information on adequacy and reference of all collected names, which affords rich analysis possibilities. 
+In \lv, object naming underlies virtually all tasks that model how speakers refer to objects in the world, such as image description or visual question answering.
+\lv methods are generally based on object detection or image classification models from computer vision (CV) that were pre-trained towards predicting the single label of each object that is deemed correct by the dataset.
+The labels used often seem unintuitive from a human perspective, e.g., some are very basic, natural names (\name{bus}) while others seem overly specific (\name{goblet, gyromitra}), cf.\ the label inventory of the ILSVRC challenges \cite{ILSVRC15}.
+Pre-training on such labels can enable CV models to learn rich, discriminative visual feature representations which capture fine-grained differences in object appearances (e.g.,\ sharp-pointed vs. slightly pointed). 
+But it raises the issue of whether these models could be directly used for more human-like object naming.
+% Accordingly, these CV models are assessed by their ability to predict a single, in cases very specific, ground-truth label.
 
-Second, we introduce the verified \mn dataset as evaluation data, and provide an extensive analysis of the ability of object detection and classification models to account for entry-level object naming in our dataset. 
-We show that object classification models ``spontaneously'' learn to provide entry-level names for objects, and that it is possible to apply transfer learning on \mn, successfully using pre-trained features from object detection and classification models to train entry-level name classifiers. 
+% By contrast, the goal of \lv object naming models is to predict the `natural' name of an object, i.e.,~the name a human could choose for the object instance.
+Psycholinguistic studies have found that humans have a preference towards a particular name, defined as the \textit{entry-level name}, when naturally naming an object \cite{rosch1976basic,Rosch1978,jolicoeur1984pictures}. 
+However, this research has traditionally focused on \categories and/or their prototypical/schematic depictions (e.g., \citealt{rossion2004revisiting}), as opposed to the situated instances in naturalistic images with which \lv is mostly concerned.
+But humans may prefer different names for instances of the same \category (e.g., Figure~\ref{fig:duck}), and even disagree in their choice for the same instance (see also \citealt{graf2016animal}).
+%% SHORTENING %% For example, in Figure~\ref{fig:duck} most people (27 out of 36) called the duck on the left \name{bird}, while \name{duck} was strongly preferred for the duck on the right. 
+
+Hence, both the single-ground-truth view of CV models and the category-level approach predominant in psycholinguistics are insufficient for assessing the effectiveness of \lv models for human-like, entry-level object naming.
+The ManyNames (MN) dataset was designed to help mend this gap: it consists of names entered by 36~annotators in parallel, for 25K~objects in naturalistic images from \vg~\cite{krishna2016visualgenome}.
+However, the annotations of \mn have not been verified to filter out incorrect names or names for the wrong object, a problem that is in some sense the opposite of that posed by the single-ground-truth approach.
+
+Our main contributions are to (i) run the \mn data through a rigorous annotation round to quantify both the adequacy of its names and the types of errors they contain, in order to (ii) test and compare object detection and image classification models at the task of \emph{instance-based, entry-level object naming}. 
+%More precisely w
+We define entry-level name as follows:\\
+%, \mn enables us to define entry-level name as follows:\\
+\fbox{\parbox{\columnwidth}{\textbf{Entry-level name:} the most common name given to an object instance according to ManyNames}}\\\\
+We evaluate the effectiveness of different models on predicting these entry-level names, and our additional verification annotations enable us to understand the kinds of mistakes the models make (e.g.,~a `wrong' prediction may be a less preferred name as opposed to a true error).
+We show that generic object classification models on their own already learn to provide entry-level names for objects, but also that they can transfer-learn on \mn, successfully using pre-trained features from object detection and image classification models to train entry-level naming models. 
+%% SHORTENING %% \mw{Remark about the kinds of human errors, just as in the abstract, or some other more interesting teaser?}
+
+%% END OF FILE %%
+
+%Our contributions towards the task of instance-based entry-level naming in \lv and CL research are two-fold:  
+%First, we provide data on object naming with real images on a large scale. 
+%We take on an empirical notion of entry-level names, and define it on the instance-level, i.e., the name that humans prefer to use when calling a particular object in a real-world image.   
+%We extend \mn (under submission), a dataset that provides 36 names for each of 25K objects from \vg~\cite{krishna2016visualgenome}, with information on adequacy and reference of all collected names, which affords rich analysis possibilities. 
+%
+%Second, we introduce the verified \mn dataset as evaluation data, and provide an extensive analysis of the ability of object detection and classification models to account for entry-level object naming in our dataset. 
+
 
 \iffalse
 %However, when they speak, humans in general name specific \textit{instances} of objects---actually, instances in particular situations and points of view, which may humans have prefer different names for instances of the same \category, and have them even disagree in their choice for the same instance (see also \citealt{graf2016animal}). 

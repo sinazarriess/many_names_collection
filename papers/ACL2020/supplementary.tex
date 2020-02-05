@@ -82,6 +82,19 @@
 
 \section{Verification Procedure with AMT}
 \label{sec:verif}
+As summarized in the main paper, we recruited annotators from Amazon Mechanical Turk\footnote{
+	\url{https://mturk.com}
+} (AMT) to categorize the object-name pairs from the \mn dataset.
+Here we detail the task interface, our population of annotators, the quality control measures we took, and the approval/rejection policy and rewards.
+Basic numbers and results are summarized in Table~\ref{tab:verification-numbers}.
+
+\paragraph{Task interface and Instructions}
+The task interface is shown in Figure~\ref{fig:verification-interface}.
+We provided (and clarified by means of explanation and visual examples, not show in the image) the following definition: \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
+The buttons in the interface all contained suitable pictorial representations to facilitate learning the task.
+We provided detailed instructions and examples at the top, as well as informative hover texts on all the buttons and some of the highlighted terms in the task headings.
+The hover text of the coloring/clustering task contained a visual example of a completed color grid.
+Feedback from annotators suggested that the task interface was intuitive, and they generally enjoyed doing our tasks.
 \begin{figure*}[t]
 	\centering
 	\includegraphics[width=\textwidth]{images/verification-interface.pdf}
@@ -89,19 +102,11 @@
 	\label{fig:verification-interface}
 \end{figure*}
 
-\cs{The text is is just copied from the main, it needs to be adapted here.}
-\paragraph{Annotation Procedure}
-We provided (and clarified by means of explanation and visual examples) the following definition: \textit{a name is ``adequate'' if there is an object in the image, whose visible parts are tightly circumscribed by the red bounding box, that one could reasonably call by that name}.
-When the participant selected slightly or totally inadequate, four additional icons would appear to indicate the type of inadequacy: ``linguistic mistake'', ``named object not tightly in bounding box'', ``named object mistaken for something it's not'', and ``something else''.
-We provided detailed instructions and examples at the top, as well as informative hover texts on all the buttons.
 
-\paragraph{Quality Control}
-Every task included around 15\% automatically generated quality control items of various kinds (names for objects in a different image, names for other objects in the same image, WordNet synonyms of given names, inserted typos, and more).
-When trying to submit their results, participants would get a warning if their accuracy on these items was below 90\%, and the advice to stop doing these tasks if it was below 80\%, with the option to double-check their responses.
-They would get a bonus of \$0.15 if all control items were answered correctly (happened about half the time).
-After every round we blocked annotators with low ($<$90\%) average accuracy, removed their results from the dataset and republished the relevant tasks to ensure consistent coverage of our data.
-
-\paragraph{Basic Statistics}
+\paragraph{Annotators}
+We used AMT's system of qualifications to set the following entry requirements: at least 1000 tasks completed with over 98\% approval rate, and physical location in country with English as a common language (UK, Ireland, USA, New Zealand, Australia), as a proxy for linguistic background.
+We published our tasks in eight batches of a few hundred each, with one or two days in between batches.
+In every batch we set a limit, using the UniqueTurker script\footnote{\url{https://uniqueturker.myleott.com/}}, to 50 tasks per annotator, which ensured a diversity of annotators (hence more informative inter-annotator agreement scores), enabled us to accumulate a larger crowd of typically recurring annotators -- ultimately 255 annotators in total -- and prevented unreliable annotators from doing too many of our tasks before we had the ability to block them (based on our quality control, see below) by assigning a blocking qualification to them, which we did in between batches.
 \begin{table}[t]
 	\centering
 	\small
@@ -125,7 +130,35 @@ After every round we blocked annotators with low ($<$90\%) average accuracy, rem
 	\caption{Verification task overview. 
 		\label{tab:verification-numbers}}
 \end{table}
-Basic numbers and results are reported in Table~\ref{tab:verification-numbers}.
-\bibliographystyle{acl_natbib}
-\bibliography{naming}
+
+
+
+\paragraph{Quality Control}
+Every task (comprising 20-30 names) contained around 15\% automatically generated quality control items of various kinds, based on several simple automatic rules that are \emph{mostly} true:
+\begin{itemize}
+	\item If the \mn entry-level name is equivalent to the original \vg name, assume it is an adequate name.
+	\item Duplicate one of the \mn names for the object (with a strong bias for selecting the entry-level name), randomly insert a plausible-looking typo, assume it counts as a ``linguistic error''.
+	\item Insert a \vg name for a different object in the same image, with a sufficiently different bounding box, and assume it is a ``bounding box error''.
+	\item Insert a random \mn name from the full vocabulary of \mn names, that is not among the \mn names for the present image, and assume this will qualify as an ''other error''.
+	\item Take any two names among the \mn-names for the object that are synonyms according to WordNet, and assume that they should get the same adequacy rating and inadequacy type.
+\end{itemize}
+Moreover, we checked for consistency between the adequacy/inadequacy type categorization task and the subsequent coloring/clustering task in various ways, e.g., if one name is judged adequate and the other a ``bounding box error'', then they should be assigned different colors.
+None of these rules were exceptionless, but put together they gave a pretty clear picture.
+After ignoring the quality controls that no annotator did in the way intended (assuming those must be exceptions to our rules), about half of our tasks scored a 100\% accurate on the quality controls.
+We would award those annotators a bonus (see below).
+We used our quality control items for providing direct feedback to our annotators: when trying to submit their results, participants would get a warning if their accuracy on the quality control items was below 90\%, and the advice to stop doing these tasks if it was below 80\%, with the option to double-check their responses.
+This was meant to encourage them to pay attention, and to discourage them from doing too many of our tasks if they would continue to get warnings.
+We did not prevent them from submitting however, and we made sure they understood that getting the warning would not mean automatic rejection.
+
+\paragraph{Approval/Rejection, Compensation and Bonus}
+Upon task approval, annotators were awarded \$0.50.
+Annotators who scored 100\% accuracy on our quality controls (ignoring ones that no annotator did correctly) received a bonus of \$0.15, as we announced in the instructions for extra incentive.
+After every round we blocked annotators with average accuracy below 90\%, removed their results from the dataset and republished the relevant tasks to ensure consistent coverage of the \mn data.
+Approval/rejection was decided on a much lower threshold of 70\% accuracy, and with various mechanisms in place for more leniency, e.g., the first task below this threshold would be approved nonetheless; and any task below this threshold would be approved if the annotator's average accuracy was above 90\%.
+We rejected less than 2\% of the tasks.
+
+
+
+%\bibliographystyle{acl_natbib}
+%\bibliography{naming}
 \end{document}

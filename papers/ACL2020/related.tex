@@ -1,9 +1,4 @@
-
-
-As we outline in the following, our work on natural object naming brings together  research in psycholinguistics, \langvis and computer vision. 
-
-\paragraph{(Entry-Level) Object Naming}
-
+%\paragraph{(Entry-Level) Object Naming}
 %cognitive science/psychology:\\
 %- levels of specificity\\
 %- basic-level vs. entry-level\\ 
@@ -12,26 +7,51 @@ As we outline in the following, our work on natural object naming brings togethe
 %Language + Vision:\\
 %Ordonez et al., Zarriess \& Schlangen, ... \\
 %- Our work: empirical notion of entry-level
-\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
+%\cs{Necessary to say something about class vs. category? Otherwise I would just always use class to make things easier.}
+%% SHORTENING %%Our work on natural object naming connects research in psycholinguistics, \langvis and computer vision. 
 In psycholinguistics, studies of picture naming have found that humans identify objects at a preferred level of abstraction, the so-called basic-level \cite{rosch1976basic,jolicoeur1984pictures}. 
-The typicality of the object with respect to this basic-level \category is important for determining the preferred name, i.e.\ the entry-level name: highly typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while for atypical objects  (e.g.,\ \name{penguin}) the more specific name corresponds to the entry-level category. 
-This strictly taxonomic view suggests that entry-level names generally hold for all instances of a \category (e.g.,\ penguin). 
-\newcite{Ordonez:2016} take up this view and learn to transfer an object's \category detected by an object recognition system to its natural name, using external resources like corpus statistics. 
-In contrast, our work exploits actual naming data for instances of real-world objects and tests object naming models on ManyNames, a corpus with robust name annotations from many different speakers.
-This dataset is comparable to picture naming data, though we focus on real-world objects in images instead of prototypical line drawings as in, e.g.,~\newcite{rossion2004revisiting}.  
- \newcite{zarriess-schlangen:2017} learn a naming model from names produced in referring expressions to real-world objects, but they do not have access to name annotations from (many) different speakers and adopt very simple evaluation measures (like accuracy). 
-Our present work explores and adopts more nuanced evaluation metrics and aims to model robust speaker preferences with respect to natural naming.
- \sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
+The typicality of the object with respect to this basic-level is important for determining the preferred name, i.e.\ the entry-level name: typical objects (e.g.,\ a robin) are simply named by their basic-level \category (\name{bird}), while atypical objects (e.g.,\ \name{penguin}) are preferably named by the more specific \category.
+%% This strictly taxonomic view suggests that entry-level names generally hold for all instances of a \category (e.g.,\ penguin).   \mw{Not true!!}
+\citet{Ordonez:2016} adopt this and train a model to map an object's \category detected by an object recognition system to a name, guided by external resources like corpus statistics.
+By contrast, we use \mn (details below) to directly test and fine-tune object recognition and image classification systems, without presupposing a taxonomical relationship between the possible names for an object.
+
+Our approach is closer in this regard to \citet{zarriess-schlangen:2017}, who train an object naming model from names produced in referring expressions for real-world objects.
+However, they do not have access to name annotations from (many) different annotators, and rely on simple evaluation measures, whereas the additional annotations we collect enable more fine-grained evaluation.
+The \mn dataset on which we rely is akin in spirit to older picture naming datasets (e.g.,~\citealt{rossion2004revisiting}) but focuses on naturalistic images of real-world objects instead of prototypical line drawings.
+
+ %\sz{maybe we should not mention the Graf paper here ... we do not look at objects in context}
  
 %members of different \textit{basic-level} categories (e.g., a duck, a robin, a penguin, etc. are all members of \cat{birds}) 
-% \newcite{rohde2012communicating} and \newcite{graf2016animal} investigate naming in context and find that the specificity of a name is dependent on the taxonomic relatedness of other objects in context.
+% \citet{rohde2012communicating} and \citet{graf2016animal} investigate naming in context and find that the specificity of a name is dependent on the taxonomic relatedness of other objects in context.
 
- \cs{Need to check Jolicoeur and their experiments; say sth about shared visual features}
+%% SHORTENING %% \cs{Need to check Jolicoeur and their experiments; say sth about shared visual features}
 % prototypical visual features common to all its instances (e.g.,\ apples are round, pears are ... (CHECK)). 
 
+In Computer Vision a major focus is visual object recognition, with object classification being a core task. 
+Neural image classification systems are trained to label the most salient object in an image and often use the ImageNet \cite{imagenet_cvpr09} benchmark that labels images/objects with 1,000 fine-grained classes \cite{googlenet,he2016deep}. 
+These neural classifiers have proven extremely useful %% SHORTENING %%in a large range of transfer learning scenarios. They are commonly used 
+as pre-trained feature extractors in object detection systems that localize objects and predict their labels \cite{fasterrcnn2015}.
+For instance, a commonly used object detector in \lv is \citeauthor{anderson2018updown}'s~(\citeyear{anderson2018updown}) so-called bottom-up model, which is based on a pre-trained ResNet classifier and fine-tuned Faster-RCNN \cite{fasterrcnn2015} for object detection and classification on \vg. 
+We will use pre-trained ResNet and Faster-RCNN as models in this paper, extending and testing them for entry-level object naming. 
 
+\paragraph{The ManyNames Dataset}
+The \mn dataset (MN, Anonymous, under review), which builds upon object annotations in VisualGenome (VG), provides up to $36$~name annotations for $25$K objects in images, see e.g.\ Figure \ref{fig:duck}.
+The large number of name annotations per object in \mnshort gives us a way to reliably derive entry-level names, defined as the most frequent name for an object instance.
+Its total vocabulary of names has $7,970$~types; restricted to entry-level names, it has $442$~types (still covering over $50\%$~of the  instances in \vgshort).
+	%% SHORTENING %%The vocabulary of all entry-level names in \mn contains 442 types (the vocabulary of all names is 7970), covering more than 50\% of the objects in \vg, i.e. almost 2M objects in \vg are mentioned in region descriptions with one of these 442 entry-level names.
+That these objects are diverse and visually situated in real-world scenes aligns with our view that entry-level names should be characterized at an instance-level, not at the class-level.
+However, our manual inspection of the \mn data revealed a range of annotation problems, e.g., annotators occasionally named an object different from the one highlighted by the bounding box, or the right object but with an incorrect name (see Figure~\ref{fig:mistakes}, {\it error-box} and {\it error-visual}).
+Although these errors are interesting human data, many of them would not occur in actual language use but are artifacts of the crowdsourcing methodology that uses simple graphical boxes to point workers to the annotation target.
+%used for \mn, where there is a financial incentive to complete the task as quickly as possible.
+As such, they pose challenges for our research goal, which is to see whether the object-naming ability of computational models resembles that of actual language users.
+To overcome these, we collected a new layer of verification annotations on top of \mn, as follows.
 
-\paragraph{Visual Object Recognition in Computer Vision}
-- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
-- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image). It predicts the class of the most salient object in an image. \\
-- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
+%Current recognition benchmarks use labels (and images) from the ImageNet \cite{imagenet_cvpr09} taxonomy, but typically implement a single ground-truth label approach.
+%- Object detection, using pre-trained feature representations (see next point) (localize object and predict its \textit{label}; trained with, e.g.\ more coarse-grained ImageNet labels or VG names)\\
+%- Pre-trained feature representations, trained on image classification with 1000 ImageNet fine-grained labels (predict \textit{label} for most salient object in image). It predicts the class of the most salient object in an image. \\
+%- Our work: can object detectors account for natural human object naming with respect to predicting the entry-level name? 
+
+%%% Local Variables:
+%%% mode: plain-tex
+%%% TeX-master: "acl2020_main"
+%%% End:

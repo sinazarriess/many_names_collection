@@ -26,6 +26,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage{latexsym}
 \usepackage{multirow}
+\usepackage{tabularx}
 \usepackage{times}
 \usepackage{url}
 \usepackage{xcolor}
@@ -33,7 +34,7 @@
 
 \renewcommand{\UrlFont}{\ttfamily\small}
 
-%\usepackage{microtype}
+\usepackage{microtype}
 
 %\aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
@@ -44,16 +45,19 @@
 % smaller than 5cm (the original size); we will check this
 % in the camera-ready version and ask you to change it back.
 
+\iffalse
 \newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
 \newcommand{\gbt}[1]{\textcolor{orange}{\emph{//gbt: #1//}}}
 \newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
 \newcommand{\mw}[1]{\textcolor{orange!60!black}{\emph{//mw: #1//}}}
-
+\fi
 % To streamline frequently used terms:
 \newcommand{\langvis}{language\ \&\ vision\xspace}
 \newcommand{\lv}{L\&V\xspace}
 \newcommand{\mn}{ManyNames\xspace}
+\newcommand{\mnshort}{MN\xspace}
 \newcommand{\vg}{VisualGenome\xspace}
+\newcommand{\vgshort}{VG\xspace}
 \newcommand{\ra}{$\rightarrow$}
 \newcommand{\sameobject}{SameObject\xspace}
 \newcommand{\cluster}{Cluster\xspace}
@@ -62,11 +66,11 @@
 \newcommand{\name}[1]{\textsl{#1}}
 
 % Terms that need to be replaced throughout the paper by more appropriate ones:
-\newcommand{\arbitrary}{arbitrary$\rightarrow$?\xspace}
+\newcommand{\arbitrary}{arbitrary\xspace}
 \newcommand{\categories}{classes\xspace}
 \newcommand{\category}{class\xspace}
 
-\title{From Object Classification to Naming: Modeling Entry-level Names for Real-world Objects}
+\title{From Classification to Naming:\\ Modeling Entry-Level Names for Objects in Images}
 
 \author{First Author \\
   Affiliation / Address line 1 \\
@@ -85,10 +89,13 @@
 \maketitle
 \begin{abstract}
 Object detection and image classification models from Computer Vision are typically trained towards predicting labels of objects. 
-Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose.  
-Based on large-scale, thouroughly verified object naming data from many annotators, we conduct an extensive analysis of the ability of object detection and classification models to account for entry-level object naming.
-We show that object classification models ``spontaneously'' learn good entry-level names and that they can be further finetuned via transfer learning. 
-\sz{A short sentence on human-like errors?}
+Our goal is to extend such models to entry-level naming, where the task is to predict the natural name of an object that most humans would choose, instead of an \arbitrary name chosen by at best a few annotators. 
+Based on large-scale, thoroughly verified object naming data from many annotators, we conduct an extensive analysis of the ability of object detection and classification models to account for entry-level object naming.
+We show that standard object classification models ``spontaneously'' learn good entry-level names and perform better
+on predicting entry-level than \arbitrary names, despite being trained on the latter, and that we can use transfer learning to train entry-level classifiers on the naming data. 
+Our detailed error analysis reveals that models generally make more mistakes when human agreement is low, with inadequate predictions due to bounding box issues being a major source of errors.
+%Our analyses also demonstrate the challenges of collecting data of language phenomena that serves as a proxy for real-world situations in which the phenomenon of interest occurs.
+%and systematically vary their training vocabulary. \cs{no diffs here with our setup of entry-levels only}
 \end{abstract}
 
 \section{Introduction}
@@ -99,14 +106,14 @@ We show that object classification models ``spontaneously'' learn good entry-lev
 \label{sec:related}
 \input{related}
 
-\section{ManyNames: A Source for Entry-Level Names}
+\section{Adequacy and Errors in ManyNames}
 \label{sec:manynames}
 %\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
 \input{manynames}
 
 \section{Predicting Entry-Level Names}
 \label{sec:experiments}
-\input{experiments}
+\input{experiments_merged}
 
 \section{Analysis of Model Naming Behavior}
 \label{sec:analysis}
@@ -114,6 +121,18 @@ We show that object classification models ``spontaneously'' learn good entry-lev
 
 \section{Conclusions}
 \label{sec:conclusions}
+In this paper, we have investigated instance-level entry-level naming of objects in images.
+To the best of our knowledge, our work is the first to investigate entry-level naming on such a large-scale, thoroughly verified empirical basis, as opposed to previous works that mostly adopted a class-level and/or strictly taxonomic view of naming.
+For models in \lv, the complexity of human naming data we observed brings up an important question: how should naming models best fine-tune and calibrate the \textit{vocabulary} of object detection and classification models from Computer Vision, in order to capture natural naming behavior?
+We showed that the best way to achieve this is to first retrain an object detector on a large set of \arbitrary names and then fine-tune via transfer learning to entry-level names. 
+In future work, we plan to develop this approach further and assess, e.g., how well the learned naming vocabulary generalizes for other, external datasets.
+We also showed that naming data elicited for boxed objects comes with certain challenges, which have to be considered during evaluation (and potentially during modeling). 
+
+More generally, we believe that the verified object naming data as well as our modeling approach affords tremendous opportunities to study factors affecting object naming that have not been studied to date, such as the prototypicality of the instance itself, or the effect of the visual context.
+
+
+%Bounding boxes are not always clear enough pointers to objects, and at the same time there is no clear line between other object mistakes (\textit{batter-helmet}), referential disagreements (\textit{bed-sleeping bag}, when the two visually overlap in the image), and valid alternatives (\textit{carpet-floor} can be a metonymy).
+%Future work will need to address these challenges. 
 
 %\bibliography{BLA}
 %\bibliographystyle{acl_natbib}

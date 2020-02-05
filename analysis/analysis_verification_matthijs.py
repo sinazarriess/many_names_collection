@@ -110,24 +110,33 @@ def basic_stats():
 
     quit()
 
-    ## Pie-chart
     errors = []
     for i, row in tqdm(df.iterrows(), total=len(df)):
-        for n in row['verified']:
-            errors.append([row['cat'],
-                           n,
-                           row['spellchecked_min2'][n],
-                           row['verified'][n]['adequacy'],
-                           row['verified'][n]['inadequacy_type'],
-                           int(round(row['verified'][n]['adequacy']))
-                           ])
+        for n in row['spellchecked']:
+            if n in row['verified']:
+                errors.append([row['cat'],
+                               n,
+                               row['spellchecked_min2'][n],
+                               row['verified'][n]['adequacy'],
+                               row['verified'][n]['inadequacy_type'],
+                               int(round(row['verified'][n]['adequacy']))
+                               ])
+            elif row['spellchecked'][n] == 1:
+                errors.append([row['cat'],
+                               n,
+                               1,
+                               0,
+                               'noise',
+                               0,
+                               ])
+
 
     errors = pd.DataFrame(errors, columns=['cat', 'name', 'count', 'adequacy', 'inadequacy_type', 'adequacy_bin'])
     errors['inadequacy_type_level'] = errors['inadequacy_type'].apply(str) + errors['adequacy_bin'].apply(str)
 
     counts = errors['inadequacy_type_level'].value_counts()
 
-    # counts = counts[['None1', 'None0', 'bounding box1', 'bounding box0', 'visual1', 'visual0', 'linguistic1', 'linguistic0', 'other1', 'other0']]
+    counts = counts[['None1', 'None0', 'bounding box1', 'bounding box0', 'visual1', 'visual0', 'linguistic1', 'linguistic0', 'other1', 'other0', 'noise0']]
 
     print(counts)
     print(counts / counts.sum())
