@@ -111,7 +111,7 @@ TACL-submission anonymization requirements)}
 \label{sec:introduction}
 
 \cs{How to formulate it? As label distribution learning or as preference learning? (See related work)}
-
+\cs{To discuss: issue due to task being conflated with object identification}
 \section{Related Work}
 \label{sec:related}
 
@@ -141,6 +141,7 @@ In "modelling task", VilBERT is pre-trained to minimise the KL divergence betwee
 Liu et al. (CVPR 2019): Improving Referring Expression Grounding
 with Cross-modal Attention-guided Erasing\\
 %\url{openaccess.thecvf.com/content_CVPR_2019/papers/Liu_Improving_Referring_Expression_Grounding_With_Cross-Modal_Attention-Guided_Erasing_CVPR_2019_paper.pdf}\\
+Operates on a language-guided visual relation graph, whose creation is based on  n-order relationships between objects contained in refexps, i.e., a crucial part of the approach is not relevant for addressing object naming.
 
 \noindent
 Wang et al. (CVPR 2019): Neighbourhood Watch: Referring Expression Comprehension via
@@ -204,7 +205,29 @@ A graph-based model (as shortly talked about in the last object naming meeting) 
 So, I am favouring a transformer-based NN architecture, without a graph-structure, with self-attention (target object and the input information), and cross-attention (between different objects).
 \cs{NOTE END}
 
-\textbf{\cs{I'll add content to the actual architecture tomorrow. But feel free to comment on everything that is here by now / add things to the document.}}
+\textbf{\cs{Below are some baselines and building blocks for a model which we could discuss and extend, to come to an agreement as to which building blocks and features we want to use. Feel free to comment on everything that is here by now / add things to the document.}}
+
+\begin{itemize}
+	\item Simple model 1 (see ACL2020): MLP with softmax at output layer, input is  image feature $\mathbf{v_i}$ of the target object, output is prob distribution
+	\item Simple model 2: MLP with ranking loss, input are $\mathbf{v_i}$ and a true name $\vec{l_i}$, and a set $\vec{L^k_i}$ of $k$ "negative" name embeddings for the target, output similarity score for pair $(v,l)$; score of correct pair, i.e., $MLP(\mathbf{v_i}$, $\vec{l_i})$, is to be larger than score of incorrect pairs by a margin.\footnote{see comments on ranking loss for possible definitions of "negative" and "margin"} 
+	\item Simple model 3: same as 2, but with spatial location feature $\mathbf{s_i}$ (see below) as additional input; embed $\mathbf{s_i}$ in hidden space, then combine (e.g., element-wise multiplication) with hidden repr of $\mathbf{v_i}$
+\end{itemize}
+
+\noindent
+Now we assume an input of target object and context objects reprs, $\mathbf{v_i}$, $\mathbf{v_1}, \dots, \mathbf{v_k}$; $\mathbf{s_i}$, $\mathbf{s_1}, \dots, \mathbf{s_k}$; $\mathbf{v_g}$, and positive and negative name embeddings $\vec{l_i}$, $\vec{L^k_i}$\\
+The following are not necessarily in order (i.e., one could come before/after the other) 
+\begin{itemize}
+	\item compute object representation using $\mathbf{v_i}$ and $\mathbf{s_i}$ (context accordingly)
+	\item compute cross-modal reprs fusing name and object repr$^*$
+	\item produce context repr using attention between visual context objects and target object repr $\Rightarrow$ context repr is based on the objects relevant for the target object (e.g., racket in Table~\ref{tab:player_statue})
+	\item ...
+	\item some magic happens and a score for each pair is output (ranking criterion)
+\end{itemize}
+
+\noindent
+$^*$Questions:\\
+\cs{would it make sense to use some kind of a gating mechanism, that, conditioned on the name, produces a visual object repr that contains only information relevant for the name?}
+
 
 \paragraph{Features (/Input)}
 Let $\mathcal{X} = \mathbb{R}^q$ denote the input space, and $\mathcal{N} = \{n_1, n2, \dots, n_N\}$ denote the complete set of names. 
@@ -215,7 +238,7 @@ Input ${x_i}$ for target object $o_i$ comprises one or more of the following inf
 	\begin{itemize}
 		\item Target object representation:\\
 		-- image features $\mathbf{v_i}$ of bounding box $\mathbf{b_i}$ of $o_i$ \cs{see below for image features}\\
-		-- spatial location features $\mathbf{s_i}$: 5-d vector with normalised top left and bottom right location and relative size (standard features for grounding tasks, such as refexp comprehension, visual semantic role labeling)
+		-- spatial location features $\mathbf{s_i}$: 5-d vector with normalised top left and bottom right location and relative size; or alternatively  vectors with normalised coordinates of the center, the width, height and size (standard features for grounding tasks, such as refexp comprehension, visual semantic role labeling)
 		\item Context representation:\\
 		-- image features $\mathbf{v_1}, \dots, \mathbf{v_k}$ of other objects $o_1, \dots, o_k; i \notin \{1, \dots, k\}$\\
 		option: only objects whose boxes $\mathbf{b_1}, \dots, \mathbf{b_k}$ overlap with box $\mathbf{b_i}$ (e.g., food domain); or no restriction on objects (e.g., racket in image (a), Table~\ref{tab:player_statue})\\
@@ -223,6 +246,9 @@ Input ${x_i}$ for target object $o_i$ comprises one or more of the following inf
 		-- AND/OR: "global" image features, encoding whole image $\mathbf{v_g}$
 		%\item Target + context representation:\\
 		%-- spatial location features: (standard features for grounding tasks, such as refexp comprehension, visual semantic role labeling)
+		\item Relationship between target and context:\\
+		-- 3-d vector of relative distance, relative angle, IoU (intersection-over-union) \cs{this explicit calculation of the visual relations could be an argument for graph-based methods}
+		(Yang et al., inter alia)\\
 	\end{itemize}
 	\item[Language:] None, $\vec{l_i}$, $\vec{l_1}, \dots, \vec{l_k}$; $\vec{l^g_i}$,  $\vec{l^g_1}, \dots, \vec{l^g_k}$
 	\begin{itemize}
@@ -235,7 +261,7 @@ Input ${x_i}$ for target object $o_i$ comprises one or more of the following inf
 		-- embedding $\vec{l^g_i}$ of VG name \cs{does this make sense!?}
 		\item Context objs. \mbox{$o_1, \dots, o_k; i \notin \{1, \dots, k\}$}\\
 		-- None \\
-		-- embeddings $\vec{l_1}, \dots, \vec{l_k}$ of MN names\\
+		%-- embeddings $\vec{l_1}, \dots, \vec{l_k}$ of MN names\\
 		-- embeddings $\vec{l^g_1}, \dots, \vec{l^g_k}$ of VG names \cs{does this make sense!?}\\
 	\end{itemize}
 \end{description}
@@ -258,6 +284,7 @@ Image features $\mathbf{v}$
 	\item Fine-tune on ManyNames 
 	%\item [Apply GAN -- generator does not receive visual input.]
 	\item View it as Label Distribution Learning, or more generally Preference Order Learning? In the former, the degree of preference (i.e., the actual value) is important, in the latter it's only the ranking of labels according to preference. 
+	\item Auxiliary task on prototypicality prediction? (estimated from, e.g., ImageNet)
 \end{itemize}
 \textbf{Ranking loss (max-margin loss)} or \textbf{Label-Ranking Loss} (multiple labels per instance; takes into account the ranking of all labels\footnote{\url{scikit-learn.org/stable/modules/model_evaluation.html}})\\
 \cs{Arguments for ranking loss: 
