@@ -6,7 +6,7 @@ We are grateful to the reviewers for their time and comments!
 ==================== Review #1 ====================
 
 What is this paper about, what contributions does it make, what are the main strengths and weaknesses?
-Authors define the notion of 'entry-level names' which are the most frequent tag given to an object - or simply put, is the majority annotation in the human labeling tasks. 
+Authors define the notion of 'entry-level names' which are the most frequent tag given to an object - or simply put, is the majority annotation in the human labeling tasks.
 The main contribution of the work is the new set of crowd-sourced annotations, and the introduction of the notion of entry-level names. There is high inter-annotator agreement among annotators in defining 'adequacy' of a provided label The proposed method is simply to reduce vocabulary and fine-tune a pre-existing model. The examples which authors provide, for example, the duck in figure 1 -- make it seem that many of the cases where entry level name is significantly different are more 'difficult' examples for a typical object detection model. Some discussion in the paper about such aspect would have been great.
 Strengths:
 
@@ -34,20 +34,23 @@ It wasn't clear how much of the annotations are part of the dataset, and what pa
 
 Annotation collection: are all of 442 names provided as part of annotation task? how is the set of 442 names decided ?
 
-L.317 - How are the same object instances known ? Is this part of the dataset ?     
+L.317 - How are the same object instances known ? Is this part of the dataset ?
 
 Some more statistics on the most frequent label being chosen as the entry level name -- what is the mininum percentage count of an entry-level name among all the labels of the corresponding object (e.g. left image in figure 1: 'bird' is more frequent with 27/35 fraction of all counts for that object. What is the avergae count ?
 
 
 ==================== ANSWER ====================
-Q in Weaknesses: First, our goal is to predict the name of a particular object which humans would naturally use to name it. Mapping labels to "simpler ones" by means of a taxonomy contradicts this goal.
+Thanks for your questions which will help us improve the clarity of our paper.
 
-Q1: The set of names per object are part of the original ManyNames dataset (described in Related Work). All other annotations, i.e., the verifications including the name adequacy, were collected as part of this submission (described in Section 3 and the supplementary material). 
+Re weaknesses:
+  - First, our goal is to predict the name of a particular object which humans would naturally use to name it. Mapping labels to "simpler ones" by means of a taxonomy contradicts this goal.
+  - Please note that there is an entire section about the analysis/statistics of the dataset. The proportion of the entry-level name to all its names of an object is given in Table 1. (it is 75.2% (std=21.9%))
 
-Q2+Q3: The annotation task for the original ManyNames dataset was to "enter the first name that comes to mind" for an individual target object shown in an image and  marked by a bounding box. Hence, same object instances are part of the dataset, and each of them had up to 36 names annotated (Q3).  
-(Q2:) These collected names were then verified with additional annotations (Section 3). The set of 442 names was directly derived from the annotations: we collected the most frequent name of each object instance (i.e., it's entry-level name), which amounts to an overall set of 442 names across the 25k object instances. 
+Re questions:
+ - Q1: The set of names per object are part of the original ManyNames dataset (described in Related Work). All other annotations, i.e., the verifications including the name adequacy, were collected as part of this submission (described in Section 3 and the supplementary material).
+- Q2+3: The annotation task for the original ManyNames dataset was to "enter the first name that comes to mind" for an individual target object shown in an image and  marked by a bounding box. Hence, same object instances are part of the dataset, and each of them had up to 36 names annotated (Q3).
+- Q4: These collected names were then verified with additional annotations (Section 3). The set of 442 names was directly derived from the annotations: we collected the most frequent name of each object instance (i.e., it's entry-level name), which amounts to an overall set of 442 names across the 25k object instances.
 
-Q4: On average, the proportion of the entry-level name to all its names of an object is 75.2% (std=21.9%).
 ==================== ====================
 
 ==================== Review #2 ====================
@@ -77,9 +80,13 @@ Missing References
 Categorizing Concepts With Basic Level for Vision-to-Language Hanzhang Wang, Hanli Wang, Kaisheng Xu CVPR 2018
 
 ==================== ANSWER ====================
-Thank you for the references we did miss to include.
 
-Generating/understanding the name humans would choose to name a particular object instance underlies a range of tasks in Language+Vision, and we therefore consider it relevant for the ACL community, of which Language+Vision has become an established subdiscipline. 
+Thanks a lot for the remarks on linguistic analysis and additional references.
+
+We agree that it would be really interesting to establish what linguistic factors make a name an "entry-level" name.  We see the experiments in this paper as a first step towards adressing this complex question and we believe that CV models are an obvious starting point to approach the task of object naming. In that sense, we believe that our results are not unsurprising as even CV models trained on object classes fair well at entry-level naming. Please note that the target vocabulary when tested on VisualGenome (VG) names and ManyNames is the same! So the plus in performance is not due to the number of labels, but to the properties of the data.
+
+
+Generating/understanding the name humans would choose to name a particular object instance underlies a range of tasks in Language+Vision, and we therefore consider it relevant for the ACL community, of which Language+Vision has become an established subdiscipline.
 ==================== ====================
 
 
@@ -107,6 +114,8 @@ Can we use and test the detector trained on COCO?
 
 ==================== ANSWER ====================
 
+Thanks a lot for you comments. Indeed the paper does not contribute a new model, but we see its main contribution in the careful analysis of human and system annotation errors in a new task.
+
 Q1+2: It's the last layer before the softmax layer over the object classes (i.e., the mean-pooled convolutional feature for the target bounding box).
-Q3: We used Anderson et al.'s model for it being pre-trained on VisualGenome (and for being used (e.g., VilBERT, Lu et al. 2019) or compared to in other works in Language+Vision).  
+Q3: We used Anderson et al.'s model for it being pre-trained on VisualGenome (and for being used (e.g., VilBERT, Lu et al. 2019) or compared to in other works in Language+Vision).
 ==================== ====================
