@@ -1,6 +1,6 @@
 
 ==================== ANSWER GENERAL ====================
-We thank all the reviewers for their reviews and comments!
+We are grateful to the reviewers for their time and comments!
 ==================== ====================
 
 ==================== Review #1 ====================
@@ -78,6 +78,8 @@ Categorizing Concepts With Basic Level for Vision-to-Language Hanzhang Wang, Han
 
 ==================== ANSWER ====================
 Thank you for the references we did miss to include.
+
+Generating/understanding the name humans would choose to name a particular object instance underlies a range of tasks in Language+Vision, and we therefore consider it relevant for the ACL community, of which Language+Vision has become an established subdiscipline. 
 ==================== ====================
 
 
