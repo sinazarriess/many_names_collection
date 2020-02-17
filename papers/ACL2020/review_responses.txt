@@ -1,0 +1,121 @@
+
+==================== ANSWER GENERAL ====================
+We are grateful to the reviewers for their time and comments!
+==================== ====================
+
+==================== Review #1 ====================
+
+What is this paper about, what contributions does it make, what are the main strengths and weaknesses?
+Authors define the notion of 'entry-level names' which are the most frequent tag given to an object - or simply put, is the majority annotation in the human labeling tasks.
+The main contribution of the work is the new set of crowd-sourced annotations, and the introduction of the notion of entry-level names. There is high inter-annotator agreement among annotators in defining 'adequacy' of a provided label The proposed method is simply to reduce vocabulary and fine-tune a pre-existing model. The examples which authors provide, for example, the duck in figure 1 -- make it seem that many of the cases where entry level name is significantly different are more 'difficult' examples for a typical object detection model. Some discussion in the paper about such aspect would have been great.
+Strengths:
+
+The proposed system could be of significant use in bots and agents build to interact with humans which might find use of entry-level names more relatable - though no experiments are conducted to ascertain any impact in downstream applications.
+
+Detailed error analysis is conducted.
+
+Weaknesses:
+
+Comparisons to other methods: Did authors consider using a standard taxonomy to reduce the 'complex labels' to simpler ones? For example, some taxonomies might readily mark ducks to be a 'type-of' bird.
+
+Missing statistics on how frequent are the 'most frequent' labels which are ultimately considered as the entry level names.
+
+Not much is discussed about the set of annotators selected such as their education level and native language. Such attributes of annotators can have an impact on what are the most frequent labels of an object.
+
+Reasons to accept
+A new annotation resource on entry-level names.
+Reasons to reject
+Incomplete details and limited analysis of the collected dataset. Not clear if the the notion of 'entry-level names' is robust across most user groups.
+Overall Recommendation:	2.5
+
+Questions for the Authors(s)
+Questions:
+It wasn't clear how much of the annotations are part of the dataset, and what part is collected as part of this paper.
+
+Annotation collection: are all of 442 names provided as part of annotation task? how is the set of 442 names decided ?
+
+L.317 - How are the same object instances known ? Is this part of the dataset ?
+
+Some more statistics on the most frequent label being chosen as the entry level name -- what is the mininum percentage count of an entry-level name among all the labels of the corresponding object (e.g. left image in figure 1: 'bird' is more frequent with 27/35 fraction of all counts for that object. What is the avergae count ?
+
+
+==================== ANSWER ====================
+Thanks for your questions which will help us improve the clarity of our paper.
+
+Re weaknesses:
+  - First, our goal is to predict the name of a particular object which humans would naturally use to name it. Mapping labels to "simpler ones" by means of a taxonomy contradicts this goal.
+  - Please note that there is an entire section about the analysis/statistics of the dataset. The proportion of the entry-level name to all its names of an object is given in Table 1. (it is 75.2% (std=21.9%))
+
+Re questions:
+ - Q1: The set of names per object are part of the original ManyNames dataset (described in Related Work). All other annotations, i.e., the verifications including the name adequacy, were collected as part of this submission (described in Section 3 and the supplementary material).
+- Q2+3: The annotation task for the original ManyNames dataset was to "enter the first name that comes to mind" for an individual target object shown in an image and  marked by a bounding box. Hence, same object instances are part of the dataset, and each of them had up to 36 names annotated (Q3).
+- Q4: These collected names were then verified with additional annotations (Section 3). The set of 442 names was directly derived from the annotations: we collected the most frequent name of each object instance (i.e., it's entry-level name), which amounts to an overall set of 442 names across the 25k object instances.
+
+==================== ====================
+
+==================== Review #2 ====================
+What is this paper about, what contributions does it make, what are the main strengths and weaknesses?
+Summary: The paper aims to predict for an image the entry-level name (natural name of an object that most people would use). The authors do this by building a image classification dataset where the labels are "entry-level" names on top of the ManyNames dataset. The authors present experiments to compares classification performance of pretrained computer vision models and shows that the models perform better at predicting entry-level names vs names from Visual Genome (VG).
+Contributions:
+
+Clean up the annotation of the ManyNames dataset so that 1) incorrect names are removed and 2) entry-level names can be extracted
+Show standard object classifiers can learn good entry-level names and perform better on entry-level names
+Show that models make more mistakes when human agreement is low
+Strengths:
+
+What name people choose to use to refer to an object is an interesting and important question
+There is careful data collection and good error analysis
+Weaknesses:
+
+No insight into what makes a name a "entry-level" names
+This is a paper that studies image classifier performance and provides little insight on the language aspect of the problem.
+The conclusions are not surprising as the entry-level classification task (with 442 labels) should be easier than the visual-genome classification task (with many more names).
+Reasons to accept
+The dataset of "entry-level" names for objects in images could be of interest to the ACL commmunity
+Reasons to reject
+This paper is really more of a vision paper than one that is suited for ACL community.
+The study of the classifier performance is not that interesting as it is basically an image classification problem
+Overall Recommendation:	2
+Missing References
+Categorizing Concepts With Basic Level for Vision-to-Language Hanzhang Wang, Hanli Wang, Kaisheng Xu CVPR 2018
+
+==================== ANSWER ====================
+
+Thanks a lot for the remarks on linguistic analysis and additional references.
+
+We agree that it would be really interesting to establish what linguistic factors make a name an "entry-level" name.  We see the experiments in this paper as a first step towards adressing this complex question and we believe that CV models are an obvious starting point to approach the task of object naming. In that sense, we believe that our results are not unsurprising as even CV models trained on object classes fair well at entry-level naming. Please note that the target vocabulary when tested on VisualGenome (VG) names and ManyNames is the same! So the plus in performance is not due to the number of labels, but to the properties of the data.
+
+
+Generating/understanding the name humans would choose to name a particular object instance underlies a range of tasks in Language+Vision, and we therefore consider it relevant for the ACL community, of which Language+Vision has become an established subdiscipline.
+==================== ====================
+
+
+==================== Review #3 ====================
+What is this paper about, what contributions does it make, what are the main strengths and weaknesses?
+Existing object detection and image classification models achieved good performance on computer vision benchmarks. However, this system still has a gap to how human learn to call a object.
+This paper presents a new task, object naming to bridge the gap between machine and human. The contributions of this paper are as follows.
+
+(1) test and compare object detection and image classification models (ResNet, Faster-RCNN) at a new task of instance-based, entry-level object naming, i.e., the names people prefer when calling a specific object
+
+(2) introduce a dataset called ManyNames with extensive quality control quantify both the adequacy of its names and the types of errors they contain.
+
+(3) further shows that generic computer vision models not only contain the ability to provide entry-level names for objects but also can transfer-learn on ManyNames, to train entry-level naming models.
+
+Reasons to accept
+introduce both a new task object naming and a object naming data.
+Reasons to reject
+No exciting new technical idea provided.
+Overall Recommendation:	3.5
+Questions for the Authors(s)
+L502: what is the last hidden layer before the output layer in FRCNN. Did the author talk about the resent backbone or the detection head?
+Any reason not to use Facebook's maskrcnn benchmark? I guess it's that Anderson et al. already provided the model trained on VisualGenome?
+
+Can we use and test the detector trained on COCO?
+
+==================== ANSWER ====================
+
+Thanks a lot for you comments. Indeed the paper does not contribute a new model, but we see its main contribution in the careful analysis of human and system annotation errors in a new task.
+
+Q1+2: It's the last layer before the softmax layer over the object classes (i.e., the mean-pooled convolutional feature for the target bounding box).
+Q3: We used Anderson et al.'s model for it being pre-trained on VisualGenome (and for being used (e.g., VilBERT, Lu et al. 2019) or compared to in other works in Language+Vision).
+==================== ====================
