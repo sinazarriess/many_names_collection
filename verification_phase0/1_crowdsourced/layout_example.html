@@ -1,0 +1,1222 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+
+<script src="https://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+
+<script>
+
+var ut_id = "";
+var ut_message = "For now, you have accepted the maximum allowed number of HITs of this type, but more HITs for you may appear later! Please click 'Return HIT' to avoid any impact on your approval rating, and sorry for the inconvenience!"
+var ut_limit = 999;
+
+var items = [['http://object-naming-amore.upf.edu//2362996_1921220_seed_ambiguous.png', ['background', 'bird', 'goldfinch']], ['http://object-naming-amore.upf.edu//2391328_1241475_singleton_obj.png', ['carafes', 'bike', 'motorcycle']], ['http://object-naming-amore.upf.edu//2344355_916102_singleton_obj.png', ['stripe', 'airplane', 'plane']], ['http://object-naming-amore.upf.edu//2389809_1256945_singleton_obj.png', ['tarnish', 'man', 'person', 'cap']], ['http://object-naming-amore.upf.edu//2325670_3298805_seed_ambiguous.png', ['electronic', 'table', 'desk', 'kebyoard', 'keyboard']], ['http://object-naming-amore.upf.edu//2328240_3306768_supercat_unique.png', ['wheel', 'vehicle', 'backpack', 'motorcycle', 'bike']], ['http://object-naming-amore.upf.edu//2354969_2079831_supercat_unique.png', ['donuts', 'finger', 'donut', 'doughnuts', 'tray', 'food']]];
+
+var images = [];
+
+var names = [];
+
+var MAX_NUM_NAMES = 16;
+var MAX_FONT_SIZE = .2
+var MIN_FONT_SIZE = .1
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+function compute_font_family(string) {
+    var word = string.toString();
+    var fontfamily = '';
+    for (var i = 0; (i < word.length && word.substr(i, 2) !== times_new_roman); i += 2) {
+        fontfamily += String.fromCharCode(parseInt(word.substr(i, 2), 16));
+    }
+    return fontfamily;
+}
+
+function replaceEverywhere(node, search, replacement) {
+    if (node.nodeType === 3) { // Node.TEXT_NODE
+        var text = node.data.replaceAll(search, replacement);
+        if (text != node.data) // there's a Safari bug
+            node.data = text;
+    } else if (node.nodeType === 1) { // Node.ELEMENT_NODE
+        if (node.name) {
+            node.name = node.name.replaceAll(search, replacement);
+        }
+        if (node.id) {
+            node.id = node.id.replaceAll(search, replacement);
+        }
+        if (node.title) {
+            node.title = node.title.replaceAll(search, replacement);
+        }
+        if (node.src) {
+            node.src = node.src.replaceAll(search, replacement);
+        }
+        for (var i = 0; i < node.childNodes.length; i++) {
+            replaceEverywhere(node.childNodes[i], search, replacement); // run recursive on DOM
+        }
+    }
+};
+
+function adjust_font_sizes(){
+    var n_pixels = 0;
+    var window_width = 0;
+    var margins = [];
+    for (var i = 0; i < num_images; i++) {
+        for (var n = 0; n < num_names_per_image[i]; n++) {
+            if (names[i][n] in window.HIT_info[i]) {
+                var font = window.HIT_info[i][names[i][n]]
+                if (font == "arial") {
+                    window_width += 1;
+                    if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
+                    }
+                } else if (font.startsWith("sans")) {
+                    window_width += 1;
+                    m = names[i].indexOf(font.substring(5))
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.0').checked) {
+                        if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
+                            n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+font+'1');
+                        } else if (!generate_font_family(i, m, n)) {
+                            n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+font+'2');
+                        } else {
+                            window_width -= 1;
+                        }
+                    }
+                    window_width += 1;
+                    if (!generate_font_size(i, m, n)) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'3');
+                    }
+                } else if (font == "serif") {
+                    window_width += 1;
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked & !document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
+                    }
+                    for (var m = 0; m < num_names_per_image[i]; m++) {
+                        if (m != n & window.HIT_info[i][names[i][m]] == "arial") {
+                            window_width += 1;
+                            if (generate_font_size(i, m, n)) {
+                                n_pixels += 1;
+                                margins.push(i+'-'+n+'-'+font+'2');
+                            }
+                            break;
+                        }
+                    }
+                } else if (font == "courier") {
+                    window_width += 1;
+                    if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
+                    } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-type.3').checked) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
+                    }
+                    window_width += 1;
+                    for (var m = 0; m < num_names_per_image[i]; m++) {
+                        if (m != n & generate_font_size(i, m, n)) {
+                            n_pixels += 1;
+                            margins.push(i+'-'+n+'-'+ m + '-'+ font+'2');
+                            break;
+                        }
+                    }
+                } else if (font.startsWith("bold")) {
+                    window_width += 2;
+                    shapes = font.substring(5).split(',');
+                    var increase_font_size1 = false;
+                    var increase_font_size2 = false;
+                    for (var s=0; s < shapes.length; s++) {
+                        m = names[i].indexOf(shapes[s]);
+                        if (!adjust_margins(i, m, n)) {
+                            increase_font_size1 = true;
+                        } else if (!document.getElementById('IMG'+i+'-NAME'+n+'-rating.0').checked) {
+                            if (!generate_font_family(i, m, n)) {
+                                increase_font_size1 = true;
+                            }
+                        }
+                        if (!generate_font_size(i, m, n)) {
+                            increase_font_size2 = true;
+                        }
+                    }
+                    if (increase_font_size1) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'0');
+                    }
+                    if (increase_font_size2) {
+                        n_pixels += 1;
+                        margins.push(i+'-'+n+'-'+font+'1');
+                    }
+                }
+            } else if (document.getElementById('IMG'+i+'-NAME'+n+'-rating.2').checked & document.getElementById('IMG'+i+'-NAME'+n+'-type.1').checked) {
+                var increase_font_size = false;
+                var increase_width = false;
+                for (var m = 0; m < num_names_per_image[i]; m++) {
+                    if (document.getElementById('IMG'+i+'-NAME'+m+'-rating.0').checked) {
+                        increase_width = true;
+                        if (generate_font_size(i, n, m)) {
+                            increase_font_size = true;
+                            break;
+                        }
+                    }
+                }
+                if (increase_width) {
+                    window_width += 1;
+                }
+                if (increase_font_size) {
+                    margins.push(i+'-'+n+'-'+m);
+                    n_pixels += 1;
+                }
+            }
+        }
+    }
+    if (n_pixels / window_width > MAX_FONT_SIZE) {
+        if (window.confirm(unique_worker_id)) {
+            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
+            return true;
+        } else {
+            return false;
+        }
+    } else if (n_pixels / window_width > MIN_FONT_SIZE) {
+        if(window.confirm(unique_HIT_id)) {
+            document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        document.getElementById("store_font_size").value = n_pixels + ',' + window_width + ',' + (n_pixels/window_width) + ',' + margins.join('_');
+        return true;
+    }
+}
+
+var extra_large_font = false;
+var times_new_roman = '00';
+
+var num_images = 0;
+var num_names_per_image = [];
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    for (var i = 0; i < items.length; i++) {
+        images.push(items[i][0]);
+        names.push(items[i][1]);
+    }
+
+    var img_form_template = document.getElementById("IMG#-form");
+    img_form_template.parentNode.removeChild(img_form_template);
+
+    unique_HIT_id = compute_font_family(unique_HIT_id);
+    unique_worker_id = compute_font_family(unique_worker_id);
+    var num_names_total = 0;
+
+    for (var i = 0; i < images.length; i++) {
+
+        var img = images[i].trim();
+        if (img != "") {
+
+            num_images += 1;
+
+            var num_names = 0;
+
+            img_form = img_form_template.cloneNode(true);
+            replaceEverywhere(img_form, "IMG#", "IMG"+i);
+            replaceEverywhere(img_form, "http://img_url_placeholder/", img);
+
+            document.getElementById("form_main").appendChild(img_form);
+
+            var name_form_template = document.getElementById("IMG"+i+"-NAME#-form");
+            name_form_template.parentNode.removeChild(name_form_template);
+
+            var name_form2_template = document.getElementById("IMG"+i+"-NAME#-form2");
+            name_form2_template.parentNode.removeChild(name_form2_template);
+
+            for (var n = 0; n < names[i].length; n++) {
+                var name = names[i][n].trim();
+                if (name != "") {
+
+                    num_names += 1;
+                    num_names_total += 1;
+
+                    name_form = name_form_template.cloneNode(true);
+                    replaceEverywhere(name_form, "NAME#", "NAME"+n);
+                    replaceEverywhere(name_form, "NAME_PLACEHOLDER", name);
+                    document.getElementById("IMG"+i+"-form-table").appendChild(name_form);
+
+                    name_form2 = name_form2_template.cloneNode(true);
+                    replaceEverywhere(name_form2, "NAME#", "NAME"+n);
+                    replaceEverywhere(name_form2, "NAME_PLACEHOLDER", name);
+                    document.getElementById("IMG"+i+"-form2-table").appendChild(name_form2);
+
+                }
+            }
+
+            num_names_per_image[i] = num_names;
+
+            // Remove superfluous color buttons
+            for (var n = 0; n < num_names; n++) {
+                for (var m = num_names; m < MAX_NUM_NAMES; m++) {
+                    colorbutton = document.getElementById("IMG"+i+"-"+"NAME"+n+"-label-color"+m);
+                    colorbutton.parentNode.removeChild(colorbutton);
+                }
+            }
+        }
+    }
+
+    window.HIT_info = MTurk_HIT_Ids.map(compute_font_family).map(JSON.parse)
+
+    document.getElementById("num_names").innerHTML = num_names_total;
+    document.getElementById("num_images").innerHTML = num_images;
+    document.getElementById("ut_limit").innerHTML = ut_limit;
+
+    if (ut_id == "") {
+        document.getElementById("unique_turker_message").style.display = 'none';
+    }
+
+    if (ut_id != "" && UTWorkerLimitReached(ut_id)) {
+        document.getElementById('form_main').style.display = 'none';
+        document.getElementsByTagName('body')[0].innerHTML = ut_message;
+    }
+
+})
+
+unique_HIT_id = '467269656e646c79207761726e696e672028646f6e277420776f727279293a20796f75207365656d20746f206861766520616e737765726564207365766572616c207175616c69747920636f6e74726f6c206974656d7320696e636f72726563746c792e0a0a496620796f7520676574207468657365207761726e696e677320726567756c61726c792c20796f75206d61792068617665206d6973756e64657273746f6f6420746865207461736b2c20736f20706c6561736520636865636b2074686520696e737472756374696f6e73206f7220636f6e746163742075732e0a0a496620796f7520676574207468657365207761726e696e6773206f6e6c79206f6e636520696e2061207768696c652c207468656e20646f6e277420776f7272792c206a75737420636c69636b204f4b20746f207375626d697420616e6420776520686f706520746f20277365652720796f7520696e20746865206e6578742048495421';
+unique_worker_id = '41726520796f7520737572653f20596f757220616e737765727320746f206d616e79206f66206f7572207175616c69747920636f6e74726f6c206974656d732061726520696e636f72726563742e0a0a57652061647669736520796f7520636c69636b2043414e43454c20746f20636865636b2074686520696e737472756374696f6e7320616e6420646f75626c652d636865636b20796f757220616e73776572732c20616e6420636f6e7461637420757320696620616e797468696e672072656d61696e7320756e636c6561722e0a0a596f752063616e20616c736f20636c69636b204f4b20616e7977617920746f207375626d69742c20616e642077652061726520726561736f6e61626c652068756d616e732c206275742070726f6365656420746f20646f206d6f72652048495473206f662074686973207479706520617420796f7572206f776e207269736b21';
+
+function showhide(e) {
+
+    basename = e.name.split('-');
+    basename = basename[0] + '-' + basename[1]; // IMG#-NAME#
+
+    if (e.checked & e.value == 0) {
+        document.getElementById(basename + '-subform').style.visibility = 'hidden';
+        buttons = document.getElementsByName(basename + '-type');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+            buttons[i].checked = false;
+        }
+    } else if (e.checked & e.value >= 1) {
+        document.getElementById(basename + '-subform').style.visibility = 'visible';
+        var labels = ['ling', 'box', 'vis', 'rand'];
+        if (e.value == 1) {
+            document.getElementById(basename + '-subform').style.background = "#fea";
+            for (var icon=0; icon < 4; icon++) {
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//'+labels[icon]+'-A.png';
+            }
+        } else {
+            document.getElementById(basename + '-subform').style.background = "#fcc";
+            for (var icon=0; icon < 4; icon++) {
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//'+labels[icon]+'-B.png';
+            }
+        }
+        buttons = document.getElementsByName(basename + '-type');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = false;
+        }
+    }
+
+}
+
+
+function generate_font_size(img, n, m) {
+    for (var c = 0; c < num_names_per_image[img]; c++) {
+        var checked = 0;
+        if (document.getElementById("IMG"+img+"-NAME"+n+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (document.getElementById("IMG"+img+"-NAME"+m+"-color."+c).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function generate_font_family(img, n, m) {
+    for (var t = 0; t < 4; t++) {
+        var checked = 0;
+        if (document.getElementById('IMG'+img+'-NAME'+m+'-type.'+t).checked) {
+            checked += 1;
+        }
+        if (document.getElementById('IMG'+img+'-NAME'+n+'-type.'+t).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function adjust_margins(img, n, m) {
+    for (var r = 0; r < 3; r++) {
+        var checked = 0;
+        if (document.getElementById('IMG'+img+'-NAME'+m+'-rating.'+r).checked) {
+            checked += 1;
+        }
+        if (document.getElementById('IMG'+img+'-NAME'+n+'-rating.'+r).checked) {
+            checked += 1;
+        }
+        if (checked == 1) {
+            break;
+        } else if (checked == 2) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function uncheck(buttons) {
+    for (var i=0; i<buttons.length; i++) {
+        buttons[i].checked = false;
+    }
+}
+
+function fiximages() {
+  for (var i = 0; i < num_images; i++) {
+      var scrollTop= $(window).scrollTop(),
+          b1= $("#IMG"+i+"-form"),
+          b2= $("#IMG"+i+"-fixedbox"),
+          min= b1.position().top + 150,
+          max= (b1.position().top + b1.outerHeight()) - b2.outerHeight() - 150;
+
+      b2.css({
+        top: Math.min(Math.max(scrollTop,min),max) - scrollTop
+      });
+  }
+}
+
+$(window).scroll(fiximages);
+
+var MTurk_HIT_Ids = ['7b226261636b67726f756e64223a20227365726966227d', '7b2263617261666573223a2022636f7572696572222c20226d6f746f726379636c65223a2022617269616c222c202262696b65223a2022626f6c642d6d6f746f726379636c65227d', '7b22737472697065223a20227365726966222c2022616972706c616e65223a2022617269616c222c2022706c616e65223a2022626f6c642d616972706c616e65227d', '7b227461726e697368223a2022636f7572696572222c20226d616e223a2022617269616c227d', '7b226b6562796f617264223a202273616e732d6b6579626f617264222c20226465736b223a2022617269616c227d', '7b226261636b7061636b223a20227365726966222c20226d6f746f726379636c65223a2022617269616c222c2022776865656c223a2022626f6c642d62696b65227d', '7b2266696e676572223a20227365726966222c2022646f6e757473223a2022626f6c642d646f6e75742c646f7567686e757473227d'];
+
+
+</script>
+
+
+<style>
+
+
+.box1 {
+}
+.box2 {
+    position:fixed;
+}
+
+span.boundingbox {
+    border:3px;
+    border-style:solid;
+    border-color:#f00;
+    padding:0px;
+}
+
+.intro {
+    font-size: 12pt;
+}
+
+
+/* Thanks to http://jsfiddle.net/dujtbh5f/ kamil335 for the following: */
+
+.hover{
+    text-align:center;
+    position:relative;
+    border: 1px dashed #c00;
+    display: inline-block;
+}
+
+.tooltip{
+    display:none;
+    position:absolute;
+    background-color:white;
+    border:1px solid red;
+    border-radius: 5px;
+    padding:3px;
+    font-size: 12pt;
+    top:30px;
+    left:-250px;
+    width:50vw;
+    font-weight: normal;
+    text-align: left;
+    z-index: 100;
+}
+.tooltiplike {
+    border:1px solid red;
+    border-radius: 5px;
+    padding:3px;
+    font-size: 12pt;
+    top:30px;
+    left:-250px;
+    width:50vw;
+    font-weight: normal;
+    text-align: left;
+}
+
+.hover:hover .tooltip{
+    display:block;
+}
+
+.hover:hover {
+    cursor:help;
+}
+
+
+.column {
+  float: left;
+  padding: 20pt;
+}
+.left {
+  width: 65%;
+}
+.right {
+  width: 25vw;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+img.picture {
+  width: 100%;
+  border: 4px solid #ccc;
+}
+
+
+.formtable, .formtable2 {
+  background-color: #eee;
+  width: 100%;
+  border:4px solid #ccc;
+  background-color: #eee;
+  border-collapse: collapse;
+}
+
+.formtable th, .formtable td {
+    text-align: center;
+}
+.formtable2 th, .formtable2 td {
+    text-align: left;
+}
+th {
+    font-weight: bold;
+    font-size: 14pt;
+    padding: 5pt;
+}
+th, .formtable td {
+    border-bottom: 4px solid #ccc;
+}
+
+td.name, th.name {
+    width: 20%;
+}
+td.name {
+    font-family: monospace;
+    font-size: 12pt;
+    text-align: center;
+}
+
+td.rating, th.rating {
+    width: 10%;
+    text-align: left;
+}
+td.rating {
+    height: 2vw;
+}
+
+
+td.type, th.type {
+    width: 70%;
+}
+td.type {
+    height: 3vw;
+    visibility: hidden;
+    font-size: 10pt;
+    text-align: center;
+}
+
+td.color, th.color {
+    width: 80%;
+}
+
+img.example {
+    height: 200pt;
+}
+
+div.caption {
+    width: 20%;
+    padding: 3pt;
+    display: inline-block;
+    text-align: center;
+    font-size: 10pt;
+    vertical-align: top;
+}
+
+.required:after { content:" *"; }
+
+/* HIDE RADIO */
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+input + img.type {
+  cursor: pointer;
+  height: 5vw;
+  margin: 3pt;
+  margin-bottom: 3pt;
+  outline: 2pt solid #aaa;
+}
+
+/* CHECKED STYLES */
+input:checked + img.type {
+  outline: 3pt solid #000;
+  background-color: #fff;
+}
+
+/* IMAGE STYLES */
+input + img.emote {
+  cursor: pointer;
+  height: 110%;
+  margin: 2pt;
+}
+
+/* CHECKED STYLES */
+input:checked + img.emote {
+  outline: 3pt solid #000;
+  background-color: #fff;
+}
+
+label {
+    cursor: pointer;
+}
+
+div.color {
+  width: 2vw;
+  height: 1.7vw;
+  font-size: 1.3vw;
+  text-align: center;
+  font-weight: bold;
+  padding-top: .35vw;
+  opacity: 1;
+  display: inline-block;
+  outline: 2pt solid #000;
+}
+
+/* COLOR STYLES */
+input + div.color {
+  cursor: pointer;
+  opacity: .2;
+}
+
+/* CHECKED STYLES */
+input:checked + div.color {
+  opacity: 1;
+}
+
+
+#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+
+</style>
+
+<!-- Notes -->
+
+
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects" id="form_main">
+
+    <div style="text-align: center" id="unique_turker_message"><i>For now, you can accept at most <span id="ut_limit"></span> HITs of this kind (more later!). We use the UniqueTurker script to enforce this. Sorry for any inconvenience.</i></div>
+
+    <hr>
+
+    <h2>How (not) to name an object.</h2>
+
+    <p class="intro">
+        We asked various workers to <i>"name the object in the bounding box"</i>, for a large number of images.<br>
+        For our research, <b>we need you to evaluate the names we got:</b>
+        Is each name <i>adequate</i> (see definition below)? If not, what's wrong? Also, were different workers perhaps naming different objects in the image?
+    <br><br>
+        In this HIT you will get <span id="num_images"></span> images, with a total of <span id="num_names"></span> names. This HIT contains quality control items (see also detailed instructions below).
+        <br><br>
+        Read the instructions carefully, and hover over words and buttons in the task for additional examples. Please contact <a href="mailto:amore.upf@gmail.com">amore.upf@gmail.com</a> if anything remains unclear.
+    </p>
+
+
+    <!-- Instructions -->
+    <div style="margin:20pt;">
+    <div class="panel panel-primary">
+    <!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature -->
+    <a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+    <span class="collapse-text" style="font-weight: bold;"></span>
+    </a>
+    <div class="panel-body" id="instructionBody" style="border: 2pt solid #428bca; border-top: 0pt;">
+
+    <h3>1. Approval, rejection, bonus, warnings</h3>
+    &#9658; &nbsp;&nbsp; The quality of your responses is crucial for our research! This HIT contains quality control items.
+    <br><br>
+    &#9658; &nbsp;&nbsp; Mistakes can happen, but if there are several then a <b>friendly warning</b> may appear when you click <b>SUBMIT.</b>
+    Don't worry if you get this warning only once in a while!
+    But if it happens more regularly, please make sure you understood the task before doing any more HITs of this kind,
+    and/or try to work more carefully.
+    <br><br>
+        &#9658; &nbsp;&nbsp; If you make <i>many</i> mistakes then a more <b>serious warning</b> (but still friendly) will appear when you click <b>SUBMIT</b>,
+    advising you to make sure you understand the task, double-check your answers before submitting, and only proceed with HITs of this kind at your own risk.
+    <br><br>
+    &#9658; &nbsp;&nbsp; Regardless of the warning, you can still <b>SUBMIT</b> your results. Your submission is <i>not</i> automatically rejected. We do not reject workers lightly,
+    not only based on automatic quality controls, and with human consideration.
+    <br><br>
+    &#9658; &nbsp;&nbsp; We reward a <b>bonus</b> if you answered all quality controls correctly (bonus amount <i>per HIT</i> specified in title).
+
+
+    <h3>2. When is a name "adequate"? Use the definition!</h3>
+
+    <p class="intro">
+        When judging if a name is "adequate", you <u><i>must</i></u> use the following definition:
+    </p>
+        <div class="intro" style="background-color: #ddd; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
+        <b>DEFINITION:</b> A name is "adequate" if there is an object in the image, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that one could reasonably call by that name. <br>
+            <b>Pay attention:</b><br>
+            <b>1.</b> If there are several objects that tightly fit in the bounding box (as tightly as its rectangular shape and orientation allow), then names for any of them are adequate.<br>
+            <b>2.</b> The bounding box for an object needs to cover only the parts of the object that are visible; parts of an object that are <i>not</i> visible (for instance, that are behind some other object or outside the picture frame) can be outside the bounding box.
+        </div>
+
+    <h3>3. Examples</h3>
+
+    <table style="width: 80%; margin: 5pt; margin-left: 20pt; padding: 5pt; padding-left: 10pt; padding-right: 10pt; font-size: 13pt;">
+        <tr>
+            <td style="width: 10%"><img class="example" src="http://object-naming-amore.upf.edu//2390152_499973_singleton_obj.png" /></td>
+            <td style="width: 60%"><b>Workers entered <i>"pan"</i> / <i>"food": &nbsp; only <i>"pan"</i> is adequate!</i></b><br><br>
+                In this case the bounding box tightly fits only around the pan (as tightly as an upright rectangle can fit a circle); but it is a little bit too big to tightly fit the food.
+                Therefore, only <i>"pan"</i> is adequate; the worker who entered <i>"food"</i> was naming the wrong object.
+                <br><br>
+                <mark><b>Remember:</b> a name must be for an object that is <i>tightly</i> surrounded by the bounding box.</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2337552_957263_singleton_obj" /></td>
+            <td><b><i>"Legs"</i> / <i>"person"</i>: &nbsp; both are adequate names, but for different objects.</b><br><br>
+                The bounding box fits tightly around the legs, and also around all visible parts of the person (as required by the definition), so both names are adequate.
+                However, these names are intended to name two different objects: a person is not the same object as the person's legs -- one is merely a part of the other.
+                <br><br>
+                <mark><b>Remember 1:</b> two names can both be adequate and yet name different objects.</mark><br>
+                <mark><b>Remember 2:</b> only the <i>visible</i> parts of an object need to fit in the bounding box (as for "person").</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2381233_1338282_singleton_obj.png" /></td>
+            <td><b><i>"Burger"</i> / <i>"hotdog"</i>: &nbsp; only <i>"hotdog"</i> is adequate, but both are intended for the same object!</b><br><br>
+                Even though a hotdog is not normally considered a burger, the two workers clearly intended to name the same object: the food item in the bounding box.
+                <br><br>
+                <mark><b>Remember:</b> two different names, one adequate and the other inadequate, can still be intended for the same object.</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2398907_2901496_singleton_obj.png" /></td>
+            <td><b>We got the name <i>"ground"</i>: &nbsp; what was this worker thinking?!</b><br><br>
+                The name may seem totally random, but the ground is in fact showing in the image -- it's just that it is outside the bounding box.
+                In general, for inadequate names, you have to look very closely if there is <i>anything</i> in the picture which the worker could have been naming.
+                <br><br>
+                <mark><b>Remember:</b> named objects can be in the background, outside the bounding box, out of focus, etc. -- so pay attention!</mark>
+            </td>
+        </tr>
+        <tr>
+            <td><img class="example" src="http://object-naming-amore.upf.edu//2365614_2535477_supercat_ambiguous.png" /></td>
+            <td><b><i>"Helicopter"</i> / <i>"airplane"</i> / <i>"truck"</i> / <i>"boat"</i> / ...: &nbsp; only one name is truly adequate, but they are all intended to name the same object!</b><br><br>
+                You have to look closely, but the object seems to be a helicopter. Other workers have misinterpreted the picture, but all were at least <i>intending</i> to name the same object (after all, there are no other airplane-like or boat-like objects in the image).
+                <br><br>
+                <mark><b>Remember 1:</b> many different names, even if some are inadequate, can still all be intended for the same object.</mark> <br>
+                <mark><b>Remember 2:</b> to know for which object a name was intended, you have to look closely also at all other objects in the image -- could it be any of those?</mark>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><i>For more instructions and examples, just hover over terms and icons in the task below.</i></td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="row" id="IMG#-form">
+
+        <hr style="border: 0pt; border-top: 2pt solid #eee; border-bottom: 2pt solid #bbb; background-color: #ddd; height: 20px;">
+
+        <div class="column left">
+
+            <b style="font-size:14pt;">&#9658; Are the following names</b> <div class="hover" style="font-size:14pt;"><b>adequate</b><div class="tooltip">
+                <b>Definition:</b> A name is "adequate" if there is an object in the picture, whose visible parts are <i>tightly</i> circumscribed by the red bounding box, that you could reasonably call by that name.<br>
+                <br>
+                <b>Green button -- adequate names:</b><br>
+                - If multiple objects fit tightly in the bounding box, then names for different objects are adequate -- for instance, for a bounding box tightly fitting a bed and a blanket over it, both <i>"bed"</i> and <i>"blanket"</i> are adequate names.<br>
+                - <i>"person"</i> can be an adequate name if the bounding box fits only their head, in the case that the rest of the person is not visible (for instance, the rest is outside the picture frame).<br>
+                - <i>"sandwich"</i> is adequate for something you would not call a sandwich, but you know that other people sometimes do. Don't be a definition warrior.<br><br>
+                <b>Yellow button -- possible/minor inadequacy:</b><br>
+                - <i>"horsse"</i> for a horse, containing a small typo (minor inadequacy).<br>
+                - <i>"office"</i> for a room that could in principle be a living room, but the image is not clear (possible inadequacy).<br>
+                - <i>"skier"</i> for someone who is actually snowboarding, but you have to look quite closely to see this (minor inadequacy).<br>
+                - <i>"tree"</i> if there is a tree in the bounding box, but the bounding box does not fit the tree tightly (minor inadequacy).<br><br>
+                <b>Red button -- severe inadequacy:</b><br>
+                - <i>"woman"</i> for a person who is obviously, clearly a man, you don't even need to look closely.<br>
+                - <i>"shoe"</i> if there is nothing remotely resembling a shoe in the image.<br>
+                - <i>"house"</i> if the house is clearly, far outside the bounding box.
+                </div></div>
+            <b  style="font-size:14pt;">for the picture on the right? If not, </b><div class="hover" style="font-size:14pt;"><b>what's wrong</b><div class="tooltip">
+            Clicking a yellow or red button will make other buttons appear, to choose the <i>type</i> of inadequacy.<br>
+            Hover your mouse over the different icons to understand their meaning.<br><br>
+            <mark>If a single name has multiple errors (e.g., "horsse" for a cow), choose the error you think is most severe; typos count as minor errors.</mark>
+            <br><br>
+            <b>Examples:</b><br>
+            - The name <i>"horsse"</i> for a horse: click possible/minor (yellow) inadequacy, and the typo icon to indicate a linguistic mistake.<br>
+            - The name <i>"roof"</i> when in fact the entire house fits in the bounding box: click severe (red) inadequacy of the bounding box type ('named object not tightly in bounding box').<br>
+            - The name <i>"horsse"</i> for what is obviously a cow: click severe (red) inadequacy of the 'named object mistaken for something it's not' type -- although there is also a small typo, misinterpreting the object in the image is more severe.<br>
+            - The name <i>"shoe"</i> if there is nothing in the image resembling a shoe: click severe (red) inadequacy with the "?!" icon, because the name seems completely random.<br>
+            - The names <i>"man"</i> and <i>"woman"</i> for a person whose gender is really not clear: for both names click possible/minor (yellow) inadequacy of the 'named object mistaken for something it's not' type.
+            </div></div><b>?</b> (&#8592;hover for definition &amp; additional examples)
+            <br><br>
+
+
+            <table class="formtable" id="IMG#-form-table">
+
+                <tr>
+                    <th class="name">Name given:</th>
+                    <th class="rating">Adequate?</th>
+                    <th class="type">If not, what is (or could be) inadequate about the name, primarily?</th>
+                </tr>
+
+
+                <tr id="IMG#-NAME#-form">
+                    <td class="name">
+                        NAME_PLACEHOLDER
+                    </td>
+                    <td class="rating">
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.0" value="0" onclick="showhide(this);" />
+                            <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-certain.png" title="Perfectly adequate; there's a suitable object for the name, tightly circumscribed by the red bounding box." /></label> <br>
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1" onclick="showhide(this);" />
+                            <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-bit-uncertain.png" title="There may be a (slight) inadequacy..." /></label> <br>
+                        <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2" onclick="showhide(this);" />
+                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-super-uncertain.png" title="Totally inadequate; simply no suitable object(s) for the name or vice versa." /></label>
+                    </td>
+                    <td class="type" id='IMG#-NAME#-subform'>
+                        <div class="caption">
+                            <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar-sounding words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
+                                <img class="type" id="IMG#-NAME#-icon-0" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//ling-A.png"/>
+                               <br>
+                                Linguistic mistake</label>
+                        </div>
+                        <div class="caption">
+                            <label title="The name seems to pertain to a different object, one which should have a different bounding box; the named object does not fit in the given bounding box, or insufficiently tightly.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
+                                <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//box-A.png"/>
+                                <br>
+                                Named object not tightly in bounding box
+                            </label>
+                        </div>
+                        <div class="caption">
+                            <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (sloppiness, or they need glasses?), or the picture is unclear.">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
+                                <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//vis-A.png"/>
+                                <br>
+                                Named object mistaken for something it's not
+                            </label>
+                        </div>
+                        <div class="caption">
+                            <label title="Something else is going on, e.g., worker messing about, trolling, something random, ...">
+                                <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
+                                <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//rand-A.png"/>
+                                <br>
+                                Something else
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br><br>
+
+            <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for </b>
+            <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip">
+                <b>Simple visual example:</b><br>
+                <img src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//truck.png" style="width:50%; float: left; margin: 10pt;" /><br>
+                <i>"House"</i> and <i>"building"</i> get the same color (in this case green; but it could also be red, blue, or purple -- doesn't matter as long as it's the same!), because they are intended to name the same object.
+                The other names get different colors.
+                Beware that the logo is a <i>different object</i> from the truck -- hence different colors -- even though the logo is <i>on</i> the truck.<br>
+                <br><br>
+                <b>Positive examples (assign the same color):</b><br>
+                - <i>"blanket"</i> and <i>"blaknet"</i> were likely intended to name the same object, so should get the same color, even though one has a typo.<br>
+                - <i>"donkey"</i> and <i>"horse"</i>, given an image showing a single animal, were likely intended to name that animal, even though at least one worker must have misidentified it -- so these names should get the same color.<br>
+                - <i>"dinner"</i> and <i>"lunch"</i>, given an image showing a meal, were likely intended to name the same object, even though the workers conceived of it differently -- same color!<br>
+                - <i>"vehicle"</i> and <i>"car"</i> were likely intended to name the same central, prominent car that's in the bounding box, even if there are other, distant vehicles in the background.<br><br>
+                <b>Negative examples (assign different colors):</b><br>
+                - <i>"house"</i> and <i>"roof"</i> are <i>not</i> intended to name the same object, so should get different colors, because the roof is only a part of the house -- even if only the house's roof is visible in the picture.<br>
+                - <i>"person"</i> and <i>"clothes"</i> are <i>not</i> intended to name the same object, even if they have the exact same bounding box; we don't normally confuse people with clothes. So in this case the two names should get different colors.<br>
+                                </div></div><b style="font-size:14pt;">?</b> (&#8592; hover for more instructions/examples; can be tricky!)
+            <br>
+
+            <p class="tooltiplike" style="margin-left: 40pt;">Please remember, from the instructions:<br>
+                &#9657; &nbsp; <mark>two names can both be adequate and yet name different objects</mark> (see the <i>"legs"</i>/<i>"person"</i> example at the top, with only legs visible): in such cases assign a <i>different</i> color to each of these names.<br>
+                &#9657; &nbsp; <mark>two different names, where one is adequate and the other inadequate, can still be intended for the same object</mark> (see the <i>"helicopter"</i>/<i>"boat"</i> and <i>"burger"</i>/<i>"hotdog"</i> examples at the top!): in such cases assign the <i>same</i> color to each of these names.<br></p>
+
+            <table class="formtable2" id="IMG#-form2-table" style="margin-top:10pt;">
+                <tr>
+                    <th class="name">Names:</th>
+                    <th class="color">Assign the same color to names (only) if they were likely intended for the same object:</th>
+                </tr>
+
+                <tr id="IMG#-NAME#-form2">
+                    <td class="name">NAME_PLACEHOLDER</td>
+                    <td class="color">
+                        <label id="IMG#-NAME#-label-color0"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.0" value="0"/>
+                            <div class="color" name="color0" style="background-color: #f00" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color1"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.1" value="1"/>
+                            <div class="color" name="color1" style="background-color: #0f0" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color2"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.2" value="2"/>
+                            <div class="color" name="color2" style="background-color: #00f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color3"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.3" value="3"/>
+                            <div class="color" name="color3" style="background-color: #f0f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color4"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.4" value="4"/>
+                            <div class="color" name="color4" style="background-color: #ff0" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color5"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.5" value="5"/>
+                            <div class="color" name="color5" style="background-color: #0ff" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color6"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.6" value="6"/>
+                            <div class="color" name="color6" style="background-color: #903" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color7"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.7" value="7"/>
+                            <div class="color" name="color7" style="background-color: #390" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color8"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.8" value="8"/>
+                            <div class="color" name="color8" style="background-color: #039" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color9"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.9" value="9"/>
+                            <div class="color" name="color9" style="background-color: #faa" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color10"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.10" value="10"/>
+                            <div class="color" name="color10" style="background-color: #afa" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color11"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.11" value="11"/>
+                            <div class="color" name="color11" style="background-color: #aaf" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color12"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.12" value="12"/>
+                            <div class="color" name="color12" style="background-color: #939" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color13"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.13" value="13"/>
+                            <div class="color" name="color13" style="background-color: #993" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color14"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.14" value="14"/>
+                            <div class="color" name="color14" style="background-color: #399" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        <label id="IMG#-NAME#-label-color15"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.15" value="15"/>
+                            <div class="color" name="color15" style="background-color: #90f" title="Click to choose the color; assign identical colors to names that were likely intended to name the same object.">&nbsp;</div></label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label id="IMG#-NAME#-label-colorX"><input required type="radio" name="IMG#-NAME#-color" id="IMG#-NAME#-color.X" value="X"/>
+                            <div class="color" name="colorX" style="background-color: #999" title="Click here if you really don't know which object this name was meant to apply to.">?</div></label>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <h3>&#9658; Any comments? [Optional]</h3>
+            <input type="text" name="IMG#-comment" style="width:50%; font-size:16pt; padding:5pt" maxlength="100"/>
+
+        </div>
+
+        <div class="column right">
+
+            <div class="box2" id="IMG#-fixedbox">
+                <div style="width:25vw;">
+
+                <img class="picture" src="http://img_url_placeholder/" />
+
+                </div>
+
+                <!--<br><br> <i style="font-size:18pt;">Need help?  &#10233;</i>-->
+
+                <!--<crowd-instructions link-type="button">-->
+
+                    <!--<short-summary>-->
+                        <!--[summary here]-->
+                    <!--</short-summary>-->
+
+                    <!--<positive-example>-->
+                        <!--[positive examples here]-->
+                    <!--</positive-example>-->
+
+                    <!--<negative-example>-->
+                        <!--[negative examples here]-->
+                    <!--</negative-example>-->
+
+                    <!--<detailed-instructions>-->
+                        <!--[detailed instructions here]-->
+                    <!--</detailed-instructions>-->
+
+                <!--</crowd-instructions> -->
+            </div>
+
+        </div>
+
+        <input type="text" style="display:none" name="stored_font_size" id="store_font_size" />
+    </div>
+
+</crowd-form>
+
+
+<script>
+document.querySelector('crowd-form').onsubmit = function(e) {
+    if (!adjust_font_sizes()) {
+        e.preventDefault();
+    }
+}
+
+$(document).ready(
+    function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    var trigger2 = $('#collapseTrigger2');
+    content.hide();
+    $('.collapse-text').text('CLICK HERE for detailed instructions and our quality control policy. This task can be tricky!!');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('Click to hide instructions.');
+      }else{
+        $('.collapse-text').text('CLICK HERE for detailed instructions and our quality control policy. This task can be tricky!!');
+      }
+      fiximages();
+    });
+    // end expand/collapse
+    });
+
+</script>
+
+
+<style>
+// Copied some relevant (and irrelevant) bits from https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css
+.panel{
+	margin-bottom:20px;
+	background-color:#fff;
+	border:1px solid transparent;
+	border-radius:4px;
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.05);
+	box-shadow:0 1px 1px rgba(0,0,0,0.05)
+}
+.panel-body{
+	padding:15px
+}
+.panel-body:before,.panel-body:after{
+	display:table;
+	content:" "
+}
+.panel-body:after{
+	clear:both
+}
+.panel-body:before,.panel-body:after{
+	display:table;
+	content:" "
+}
+.panel-body:after{
+	clear:both
+}
+.panel>.list-group{
+	margin-bottom:0
+}
+.panel>.list-group .list-group-item{
+	border-width:1px 0
+}
+.panel>.list-group .list-group-item:first-child{
+	border-top-right-radius:0;
+	border-top-left-radius:0
+}
+.panel>.list-group .list-group-item:last-child{
+	border-bottom:0
+}
+.panel-heading+.list-group .list-group-item:first-child{
+	border-top-width:0
+}
+.panel>.table,.panel>.table-responsive>.table{
+	margin-bottom:0
+}
+.panel>.panel-body+.table,.panel>.panel-body+.table-responsive{
+	border-top:1px solid #ddd
+}
+.panel>.table>tbody:first-child th,.panel>.table>tbody:first-child td{
+	border-top:0
+}
+.panel>.table-bordered,.panel>.table-responsive>.table-bordered{
+	border:0
+}
+.panel>.table-bordered>thead>tr>th:first-child,.panel>.table-responsive>.table-bordered>thead>tr>th:first-child,.panel>.table-bordered>tbody>tr>th:first-child,.panel>.table-responsive>.table-bordered>tbody>tr>th:first-child,.panel>.table-bordered>tfoot>tr>th:first-child,.panel>.table-responsive>.table-bordered>tfoot>tr>th:first-child,.panel>.table-bordered>thead>tr>td:first-child,.panel>.table-responsive>.table-bordered>thead>tr>td:first-child,.panel>.table-bordered>tbody>tr>td:first-child,.panel>.table-responsive>.table-bordered>tbody>tr>td:first-child,.panel>.table-bordered>tfoot>tr>td:first-child,.panel>.table-responsive>.table-bordered>tfoot>tr>td:first-child{
+	border-left:0
+}
+.panel>.table-bordered>thead>tr>th:last-child,.panel>.table-responsive>.table-bordered>thead>tr>th:last-child,.panel>.table-bordered>tbody>tr>th:last-child,.panel>.table-responsive>.table-bordered>tbody>tr>th:last-child,.panel>.table-bordered>tfoot>tr>th:last-child,.panel>.table-responsive>.table-bordered>tfoot>tr>th:last-child,.panel>.table-bordered>thead>tr>td:last-child,.panel>.table-responsive>.table-bordered>thead>tr>td:last-child,.panel>.table-bordered>tbody>tr>td:last-child,.panel>.table-responsive>.table-bordered>tbody>tr>td:last-child,.panel>.table-bordered>tfoot>tr>td:last-child,.panel>.table-responsive>.table-bordered>tfoot>tr>td:last-child{
+	border-right:0
+}
+.panel>.table-bordered>thead>tr:last-child>th,.panel>.table-responsive>.table-bordered>thead>tr:last-child>th,.panel>.table-bordered>tbody>tr:last-child>th,.panel>.table-responsive>.table-bordered>tbody>tr:last-child>th,.panel>.table-bordered>tfoot>tr:last-child>th,.panel>.table-responsive>.table-bordered>tfoot>tr:last-child>th,.panel>.table-bordered>thead>tr:last-child>td,.panel>.table-responsive>.table-bordered>thead>tr:last-child>td,.panel>.table-bordered>tbody>tr:last-child>td,.panel>.table-responsive>.table-bordered>tbody>tr:last-child>td,.panel>.table-bordered>tfoot>tr:last-child>td,.panel>.table-responsive>.table-bordered>tfoot>tr:last-child>td{
+	border-bottom:0
+}
+.panel>.table-responsive{
+	margin-bottom:0;
+	border:0
+}
+.panel-heading{
+	padding:10px 15px;
+	border-bottom:1px solid transparent;
+	border-top-right-radius:3px;
+	border-top-left-radius:3px
+}
+.panel-heading>.dropdown .dropdown-toggle{
+	color:inherit
+}
+.panel-title{
+	margin-top:0;
+	margin-bottom:0;
+	font-size:16px;
+	color:inherit
+}
+.panel-title>a{
+	color:inherit
+}
+.panel-footer{
+	padding:10px 15px;
+	background-color:#f5f5f5;
+	border-top:1px solid #ddd;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px
+}
+.panel-group .panel{
+	margin-bottom:0;
+	overflow:hidden;
+	border-radius:4px
+}
+.panel-group .panel+.panel{
+	margin-top:5px
+}
+.panel-group .panel-heading{
+	border-bottom:0
+}
+.panel-group .panel-heading+.panel-collapse .panel-body{
+	border-top:1px solid #ddd
+}
+.panel-group .panel-footer{
+	border-top:0
+}
+.panel-group .panel-footer+.panel-collapse .panel-body{
+	border-bottom:1px solid #ddd
+}
+.panel-default{
+	border-color:#ddd
+}
+.panel-default>.panel-heading{
+	color:#333;
+	background-color:#f5f5f5;
+	border-color:#ddd
+}
+.panel-default>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#ddd
+}
+.panel-default>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#ddd
+}
+.panel-primary{
+	border-color:#428bca
+}
+.panel-primary>.panel-heading{
+	color:#fff;
+	background-color:#428bca;
+	border-color:#428bca
+}
+.panel-primary>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#428bca
+}
+.panel-primary>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#428bca
+}
+.panel-success{
+	border-color:#d6e9c6
+}
+.panel-success>.panel-heading{
+	color:#3c763d;
+	background-color:#dff0d8;
+	border-color:#d6e9c6
+}
+.panel-success>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#d6e9c6
+}
+.panel-success>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#d6e9c6
+}
+.panel-warning{
+	border-color:#faebcc
+}
+.panel-warning>.panel-heading{
+	color:#8a6d3b;
+	background-color:#fcf8e3;
+	border-color:#faebcc
+}
+.panel-warning>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#faebcc
+}
+.panel-warning>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#faebcc
+}
+.panel-danger{
+	border-color:#ebccd1
+}
+.panel-danger>.panel-heading{
+	color:#a94442;
+	background-color:#f2dede;
+	border-color:#ebccd1
+}
+.panel-danger>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#ebccd1
+}
+.panel-danger>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#ebccd1
+}
+.panel-info{
+	border-color:#bce8f1
+}
+.panel-info>.panel-heading{
+	color:#31708f;
+	background-color:#d9edf7;
+	border-color:#bce8f1
+}
+.panel-info>.panel-heading+.panel-collapse .panel-body{
+	border-top-color:#bce8f1
+}
+.panel-info>.panel-footer+.panel-collapse .panel-body{
+	border-bottom-color:#bce8f1
+}
+
+</style>
