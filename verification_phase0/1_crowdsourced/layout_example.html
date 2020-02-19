@@ -314,12 +314,12 @@ function showhide(e) {
         if (e.value == 1) {
             document.getElementById(basename + '-subform').style.background = "#fea";
             for (var icon=0; icon < 4; icon++) {
-                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//'+labels[icon]+'-A.png';
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/images/'+labels[icon]+'-A.png';
             }
         } else {
             document.getElementById(basename + '-subform').style.background = "#fcc";
             for (var icon=0; icon < 4; icon++) {
-                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//'+labels[icon]+'-B.png';
+                document.getElementById(basename + '-icon-' + icon).src = 'http://mwestera.humanities.uva.nl/images/'+labels[icon]+'-B.png';
             }
         }
         buttons = document.getElementsByName(basename + '-type');
@@ -826,24 +826,24 @@ input:checked + div.color {
                     </td>
                     <td class="rating">
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.0" value="0" onclick="showhide(this);" />
-                            <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-certain.png" title="Perfectly adequate; there's a suitable object for the name, tightly circumscribed by the red bounding box." /></label> <br>
+                            <img class="emote" name='emote0' src="http://mwestera.humanities.uva.nl/images/em-certain.png" title="Perfectly adequate; there's a suitable object for the name, tightly circumscribed by the red bounding box." /></label> <br>
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.1" value="1" onclick="showhide(this);" />
-                            <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-bit-uncertain.png" title="There may be a (slight) inadequacy..." /></label> <br>
+                            <img class="emote" name='emote1' src="http://mwestera.humanities.uva.nl/images/em-bit-uncertain.png" title="There may be a (slight) inadequacy..." /></label> <br>
                         <label><input required type="radio" name="IMG#-NAME#-rating" id="IMG#-NAME#-rating.2" value="2" onclick="showhide(this);" />
-                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//em-super-uncertain.png" title="Totally inadequate; simply no suitable object(s) for the name or vice versa." /></label>
+                            <img class="emote" name='emote2' src="http://mwestera.humanities.uva.nl/images/em-super-uncertain.png" title="Totally inadequate; simply no suitable object(s) for the name or vice versa." /></label>
                     </td>
                     <td class="type" id='IMG#-NAME#-subform'>
                         <div class="caption">
                             <label title="The inadequacy seems to be purely linguistic, e.g., a confusion of similar-sounding words, not quite the right meaning, or a typo. IMPORTANT: Don't be a definition warrior; if other people could use the name this way, accept it.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.0" value="0" />
-                                <img class="type" id="IMG#-NAME#-icon-0" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//ling-A.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-0" src="http://mwestera.humanities.uva.nl/images/ling-A.png"/>
                                <br>
                                 Linguistic mistake</label>
                         </div>
                         <div class="caption">
                             <label title="The name seems to pertain to a different object, one which should have a different bounding box; the named object does not fit in the given bounding box, or insufficiently tightly.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.1" value="1" />
-                                <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//box-A.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-1" src="http://mwestera.humanities.uva.nl/images/box-A.png"/>
                                 <br>
                                 Named object not tightly in bounding box
                             </label>
@@ -851,7 +851,7 @@ input:checked + div.color {
                         <div class="caption">
                             <label title="The worker may have misinterpreted the picture, mistaking the object for something it is not (sloppiness, or they need glasses?), or the picture is unclear.">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.2" value="2" />
-                                <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//vis-A.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-2" src="http://mwestera.humanities.uva.nl/images/vis-A.png"/>
                                 <br>
                                 Named object mistaken for something it's not
                             </label>
@@ -859,7 +859,7 @@ input:checked + div.color {
                         <div class="caption">
                             <label title="Something else is going on, e.g., worker messing about, trolling, something random, ...">
                                 <input required type="radio" name="IMG#-NAME#-type" id="IMG#-NAME#-type.3" value="3" />
-                                <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//rand-A.png"/>
+                                <img class="type" id="IMG#-NAME#-icon-3" src="http://mwestera.humanities.uva.nl/images/rand-A.png"/>
                                 <br>
                                 Something else
                             </label>
@@ -874,7 +874,7 @@ input:checked + div.color {
             <b style="font-size:14pt;">&#9658; If you had to guess, which names were likely intended for </b>
             <div class="hover" style="font-size:14pt;"><b>naming the same object</b><div class="tooltip">
                 <b>Simple visual example:</b><br>
-                <img src="http://mwestera.humanities.uva.nl/http://object-naming-amore.upf.edu//truck.png" style="width:50%; float: left; margin: 10pt;" /><br>
+                <img src="http://mwestera.humanities.uva.nl/images/truck.png" style="width:50%; float: left; margin: 10pt;" /><br>
                 <i>"House"</i> and <i>"building"</i> get the same color (in this case green; but it could also be red, blue, or purple -- doesn't matter as long as it's the same!), because they are intended to name the same object.
                 The other names get different colors.
                 Beware that the logo is a <i>different object</i> from the truck -- hence different colors -- even though the logo is <i>on</i> the truck.<br>
