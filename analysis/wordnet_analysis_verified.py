@@ -171,6 +171,7 @@ if __name__ == '__main__':
     total_relation_types = Counter()
     for i, row in verified_data.iterrows():
         relations = [(name, synset_word_relation(row['synset'], name, name_to_synset)) for name in row['names_to_be_counted'] if name != row['vg_obj_name']]
+        relations = [(t[0], (t[1][0], t[1][1], row['vg_obj_name'])) for t in relations]
         relations_types = [relation[1][0] for relation in relations]
         relations_tokens = list(chain(*[[relation[1][0] for _ in range(row['spellchecked'][relation[0]])] for relation in relations]))
 
@@ -182,9 +183,9 @@ if __name__ == '__main__':
         total_relation_tokens.update(relations_tokens)
         total_relation_types.update(relations_types)
 
-    ## Print examples of no-relation:
-    # rel_not_covereds = Counter(rel_not_covereds).most_common(9999)
-    # print('\n'.join([str(x[0]) + ' ' + str(x[1]) for x in rel_not_covereds]))
+    # Print examples of no-relation:
+    rel_not_covereds = Counter(rel_not_covereds).most_common(9999)
+    print('\n'.join([str(x[0]) + ' ' + str(x[1]) for x in rel_not_covereds]))
 
 
     print()
