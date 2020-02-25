@@ -1,0 +1,151 @@
+TODOS for Camera-ready
+
+
+TODO@ALL
+We could first talk about how we proceed with the following point (through slack), which combines criticisms by R#2 and R#3:
+
+(R#2, see below, after the TODO assignments): Address and discuss the 
+- differences to WordNet ("which encode far more relations between words about far more words.")
+"How do the relations in one dataset compare to the other ? Maybe this new (smaller) dataset complements them nicely ?"
+
+(R#3): "showing off important aspects of the corpus or additional analysis of the corpus (what is presented here is fairly superficial - I'd like to see more content and details of the sort in Section 5.2 - relations between the different names)."
+
+ASSIGNED TODOS:
+
+TODO@GEMMA
+* (based on R#2, see above) Address and discuss the 
+- potential use for some (concrete) linguistic studies about the relation between words used to name things and/or provide a clear NLP use case for which this dataset would be useful.
+
+
+TODO@SINA
+* (based on R#3) Figure 1: 
+1) [CS: I have changed only the first two lines -- is that correct] 'replace the "." that represent thousands with a ",". It is fairly confusing which "." represent decimals vs thousands. '
+2) 'the second last line says "% of objects with n types > 1", but then all the numbers are 0.9 or below. Either make the numbers proper percents, going from 0 to 100% or replace "%" with something like "ratio" or "fraction".'
+
+
+TODO@CARINA
+* streamline citation format
+
+* (R#3) " very large part of the paper - about 1/2 is taken up with background material, including lots of detail on other datasets that don't seem very relevant for the current effort and 1/2 of figure 2 is just a repeat of figure 1. I think the paper should be made shorter or the less relevant parts replaced with additional content showing off important aspects of the corpus or additional analysis of the corpus (what is presented here is fairly superficial - I'd like to see more content and details of the sort in Section 5.2 - relations between the different names)."
+
+* "p. 5 
+After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) “Bounding box is unclear” was marked at most twice; (iii) at most 17% of elicited names were in plural form (to remove cases where the bounding box contains several objects); 
+
+I believe some further explanation on why "at most twice" and "at most 17%" would be necessary."
+
+
+============================================================================ 
+R#2:
+- My main concern with this paper is that, despite that LREC is a NLP conference that welcomes papers about datasets, the interest of this dataset for the NLP / Computational Linguistics / Language Technologies community seems fairly limited to me. It looks more like a dataset of interest only for domains such as Computer Vision and Cognitive science. The authors does mention that the labels could be useful to make some linguistics studies about the relation between words used to name things but (1) do not make one themselves and/or (2) do not provide a clear NLP use case for which this dataset would be useful. The fundamental criteria that a submitted paper should be of interest to the target audience of LREC is in my opinion not met. 
+- In addition, there already exist language resources such as WordNet which encode far more relations between words about far more words. How do the relations in one dataset compare to the other ? Maybe this new (smaller) dataset complements them nicely ? It is not possible to tell by reading the paper as the authors mainly compare their datasets to other datasets that seem even less relevant to NLP.
+
+I'm aware that my point of view on what is interesting for the NLP community or not could be limited and that there could indeed be some part of the community interested by this dataset. If that's the case, my main concern would be incorrect and my negative review would be mostly inadequate. However, I'm quite confident that a large share of the NLP community would have a concern similar as mine. The authors should thus have foreseen and clearly addressed this critical question in their paper.
+
+============================================================================ 
+============================================================================ 
+============================================================================ 
+LREC 2020 Reviews for Submission #539
+============================================================================ 
+
+Title: Object Naming in Language and Vision: A Survey and a New Dataset
+Authors: Carina Silberer, Sina Zarrieß and Gemma Boleda
+============================================================================
+                            REVIEWER #1
+============================================================================
+
+Detailed Comments
+---------------------------------------------------------------------------
+General comments:
+
+The paper describes an innovative approach to object naming in images taking into account contextual and variation issues.
+
+Although the resources used are not described in the Resources section, the authors indicate that the data set ManyNames will be available on publication.
+
+The style used for references in the body of the text is (author, year), but it should be (author year).
+
+In section 2, the relationship between previous research and this paper is made explicit, which makes the aims of the study very clear.
+
+In section 4, the methodology is generally well-explained, but for the following:
+
+p. 5 
+After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) “Bounding box is unclear” was marked at most twice; (iii) at most 17% of elicited names were in plural form (to remove cases where the bounding box contains several objects); 
+
+I believe some further explanation on why "at most twice" and "at most 17%" would be necessary.
+
+The authors provide a solid discussion of the results in Section 5.
+
+The paper is generally well-written, although some alternative expressions are given below:
+
+p.1 
+Abstract
+...which has been discussed a lot in the theoretical literature --> ...has been much discussed in the…
+
+1.	Introduction
+...as well as the design of models and architectures, as e.g. (Lazaridou et al., 2015; Ordonez et al., 2016; Zhao et al., 2017) --> …architectures (e.g. Lazaridou…
+
+p. 2
+
+2.1. Object Naming as a Linguistic Phenomenon
+...has been looked at a lot in the language generation community --> ...has been much studied in the…
+
+p. 3
+
+3.3. Visual Genome
+One of the main advantages of VG are its size, with 3.8 million objects (108K images) as opposed to 50K and 243K for the other two datasets, and its category coverage, with a vocabulary of object names of 105K compared to 5K/10K. --> Some of the main advantages of VG are …
+
+p. 4
+
+4. A New Dataset: ManyNames
+...which affords analysis possibilities that we will exploit in Section 5. below --> which provides/allows for? 
+
+p. 6
+
+5. Analysis
+...specific discourse context, which helps reduced uncertainty. --> …which helps to reduce uncertainty.
+
+p. 8 
+
+6. Conclusion
+
+However, to fully enable this sort of analysis --> …this kind of analysis
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+
+Detailed Comments
+---------------------------------------------------------------------------
+This paper presents a new datasets of labelled images. As far as my (very limited) competences on the subject go, here are the positive and negative aspects I could identify in this paper.
+
+[ Positive aspects ]
+- The paper reads nicely and respects the size criteria. The overall flow of the paper is also well done. I believe that  most readers will manage to grasp most of the explanations provided.
+- The authors are clearly knowledgeable about the subject and numerous useful information are provided.
+
+[ Negative aspect ]
+- My main concern with this paper is that, despite that LREC is a NLP conference that welcomes papers about datasets, the interest of this dataset for the NLP / Computational Linguistics / Language Technologies community seems fairly limited to me. It looks more like a dataset of interest only for domains such as Computer Vision and Cognitive science. The authors does mention that the labels could be useful to make some linguistics studies about the relation between words used to name things but (1) do not make one themselves and/or (2) do not provide a clear NLP use case for which this dataset would be useful. The fundamental criteria that a submitted paper should be of interest to the target audience of LREC is in my opinion not met. 
+- In addition, there already exist language resources such as WordNet which encode far more relations between words about far more words. How do the relations in one dataset compare to the other ? Maybe this new (smaller) dataset complements them nicely ? It is not possible to tell by reading the paper as the authors mainly compare their datasets to other datasets that seem even less relevant to NLP.
+
+I'm aware that my point of view on what is interesting for the NLP community or not could be limited and that there could indeed be some part of the community interested by this dataset. If that's the case, my main concern would be incorrect and my negative review would be mostly inadequate. However, I'm quite confident that a large share of the NLP community would have a concern similar as mine. The authors should thus have foreseen and clearly addressed this critical question in their paper.
+---------------------------------------------------------------------------
+
+
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+
+Detailed Comments
+---------------------------------------------------------------------------
+This paper describes an effort to annotate a part of the the visual genome dataset with additional intuitive labels from a much larger number of annotators. The authors convincingly show that previous datasets were annotated by too few annotators and therefore didn't give a good estimate of the range and frequency of names given for pictured objects. That problem makes evaluation of machine learning on the dataset problematic, because its quite possible that good labels would be marked as incorrect. The dataset seems very valuable for such efforts, and the paper gives a good description of it.
+
+On the negative side, a very large part of the paper - about 1/2 is taken up with background material, including lots of detail on other datasets that don't seem very relevant for the current effort and 1/2 of figure 2 is just a repeat of figure 1. I think the paper should be made shorter or the less relevant parts replaced with additional content showing off important aspects of the corpus or additional analysis of the corpus (what is presented here is fairly superficial - I'd like to see more content and details of the sort in Section 5.2 - relations between the different names).
+
+Figure 1 should be fixed in several ways: 
+1) replace the "." that represent thousands with a ",". It is fairly confusing which "." represent decimals vs thousands. English uses "," for the latter.
+2) the second last line says "% of objects with n types > 1", but then all the numbers are 0.9 or below. Either make the numbers proper percents, going from 0 to 100% or replace "%" with something like "ratio" or "fraction".
+
+Typo section 2.3 line 9 "where automatically collected" -> "were automatically collected"
+---------------------------------------------------------------------------

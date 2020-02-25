@@ -6,7 +6,7 @@ Compared to experimental work on perception and language grounding, however, rec
 For instance, picture naming norms used in Psycholinguistics record naming responses for hundreds of speakers for the same object  \cite{snodgrass,rossion2004revisiting}, whereas captioning or referring expression data sets typically provide less than 10 annotations per entity \cite{devlin:imcaqui,Kazemzadeh2014,mao15}.
 Consequently, a reliable assessment of inter-annotator agreement, speaker preferences, and a deeper linguistic analysis of the observed variation is mostly not possible with available data collections in  L\&V.
 At the same time, these datasets have much potential for research on these topics, as they provide more realistic images of real-world objects and scenes than the idealized drawings used in picture naming norms (see Figure \ref{fig:cake}), as well as a wider coverage of object categories.
-A more systematic understanding of the factors influencing the choice of object names could inform theoretical work on language grounding and pragmatics \cite{rohde2012communicating,graf2016animal}, as well as the design of models and architectures, as e.g.\ \cite{lazaridou-dinu-baroni:2015:ACL-IJCNLP,Ordonez:2016,zhao2017open}.
+A more systematic understanding of the factors influencing the choice of object names could inform theoretical work on language grounding and pragmatics \cite{rohde2012communicating,graf2016animal}, as well as the design of models and architectures (e.g.,~Lazaridou et al.~\shortcite{lazaridou-dinu-baroni:2015:ACL-IJCNLP}; Ordonez et al.,~\shortcite{Ordonez:2016}; Zhao et al.,~\shortcite{zhao2017open}).
 
 In this paper, we present ManyNames, a dataset with substantial amounts of object names per object for real-world images.
 We start by surveying existing resources in L\&V that provide object names: \refcoco \cite{Yu2016}, a collection of referring expressions, \flickr \cite{plummer2015flickr30kentities}, which provides region-to-phrase linkings for Flickr 30K captions \cite{young:2014}, and \vgenome \cite{krishna2016visualgenome}, which features extensive region-level annotations. We highlight their potential contributions to the study of object naming, and also argue that the low number of annotations per item prevents reliable assessment or linguistic analysis of object-specific preferences and naming variation.
@@ -25,7 +25,7 @@ We start by surveying existing resources in L\&V that provide object names: \ref
 \end{figure}
 
 To address this shortcoming, we contribute a new dataset, ManyNames, that contains 36 crowd-sourced names for 25K instances from \vgenome.%
-\footnote{The dataset will be available upon publication.}
+\footnote{Available at \url{https://github.com/amore-upf/manynames}.}
 The number of annotations per object available in ManyNames is considerably larger than in recent data collections in L\&V.
 %Moreover, our images show objects in complex visual contexts,
 %unlike the ``clean'' ImageNet data~\cite{imagenet_cvpr09} that is popular in Computer Vision \cite{ILSVRC15}, and %unlike stylized line drawings used in picture naming experiments in Cognitive Science (Figure \ref{fig:cake}).
