@@ -1,7 +1,7 @@
 TODOS for Camera-ready
 
 
-TODO@ALL
+[DONE] TODO@ALL
 We could first talk about how we proceed with the following point (through slack), which combines criticisms by R#2 and R#3:
 
 (R#2, see below, after the TODO assignments): Address and discuss the 
@@ -12,7 +12,7 @@ We could first talk about how we proceed with the following point (through slack
 
 ASSIGNED TODOS:
 
-TODO@GEMMA
+[DONE] TODO@GEMMA
 * (based on R#2, see above) Address and discuss the 
 - potential use for some (concrete) linguistic studies about the relation between words used to name things and/or provide a clear NLP use case for which this dataset would be useful.
 
