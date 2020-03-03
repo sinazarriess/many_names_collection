@@ -17,7 +17,7 @@ ASSIGNED TODOS:
 - potential use for some (concrete) linguistic studies about the relation between words used to name things and/or provide a clear NLP use case for which this dataset would be useful.
 
 
-TODO@SINA
+[DONE] TODO@SINA
 * (based on R#3) Figure 1: 
 1) [CS: I have changed only the first two lines -- is that correct] 'replace the "." that represent thousands with a ",". It is fairly confusing which "." represent decimals vs thousands. '
 2) 'the second last line says "% of objects with n types > 1", but then all the numbers are 0.9 or below. Either make the numbers proper percents, going from 0 to 100% or replace "%" with something like "ratio" or "fraction".'
