@@ -1,0 +1,124 @@
+%
+% File acl2020.tex
+%
+%% Based on the style files for ACL 2020, which were
+%% Based on the style files for ACL 2018, NAACL 2018/19, which were
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2020}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{color, colortbl}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{latexsym}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{times}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+\renewcommand{\UrlFont}{\ttfamily\small}
+
+\usepackage{microtype}
+
+%\aclfinalcopy % Uncomment this line for the final submission
+%\def\aclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//gbt: #1//}}}
+\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
+\newcommand{\mw}[1]{\textcolor{orange!60!black}{\emph{//mw: #1//}}}
+\iffalse
+\fi
+% To streamline frequently used terms:
+\newcommand{\langvis}{language\ \&\ vision\xspace}
+\newcommand{\lv}{L\&V\xspace}
+\newcommand{\mn}{ManyNames\xspace}
+\newcommand{\mnshort}{MN\xspace}
+\newcommand{\vg}{VisualGenome\xspace}
+\newcommand{\vgshort}{VG\xspace}
+\newcommand{\ra}{$\rightarrow$}
+\newcommand{\sameobject}{SameObject\xspace}
+\newcommand{\cluster}{Cluster\xspace}
+
+\newcommand{\cat}[1]{\textsc{#1}}
+\newcommand{\name}[1]{\textsl{#1}}
+
+% Terms that need to be replaced throughout the paper by more appropriate ones:
+\newcommand{\arbitrary}{arbitrary\xspace}
+\newcommand{\categories}{classes\xspace}
+\newcommand{\category}{class\xspace}
+
+\title{From Classification to Naming:\\ Modeling Entry-Level Names for Objects in Images}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+\input{introduction}
+
+\section{Related Work}
+\label{sec:related}
+%\input{related}
+
+\section{Adequacy and Errors in ManyNames}
+\label{sec:manynames}
+%\cs{to add: footnote saying that the \mn data will be published upon acceptance of the paper.}
+\input{manynames}
+
+\section{Predicting Entry-Level Names}
+\label{sec:experiments}
+%\input{experiments_merged}
+Largely same content, clarified. With one exception: I'd introduce two evaluation setups: 1) single label, 2) one that counts all valid names as correct. 
+
+\section{Analysis of Model Naming Behavior}
+\label{sec:analysis}
+%\input{analysis}
+
+Probably largely same content; make sure that the analysis bears on the question, ``to what extent do current L\&V models account for human naming behavior?''. And that it is cohesive.
+
+\bibliographystyle{acl_natbib}
+\bibliography{naming}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "acl2020_main"
+%%% End:
