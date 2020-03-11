@@ -19,7 +19,7 @@ This aspect of reference has been understudied in Computational Linguistics and 
 In this paper, we present a new dataset, ManyNames, to provide richer possibilities for both analysis and modeling of human naming behavior. 
 We start by surveying existing resources in L\&V that provide object names,
 assessing their potential to contribute to the study of object naming.
-While these resources can be exploited for this area of inquiry to some extent (as detailed in Section~\ref{sec:survey}), we argue that the low number of annotations per item prevents reliable assessment of \textbf{naming preferences}, on the one hand, and \textbf{variation}, on the other. 
+While these resources can be exploited for this area of inquiry to some extent (as detailed in Section~\ref{sec:survey})\cs{how remove dot?}, we argue that the low number of annotations per item prevents reliable assessment of \textbf{naming preferences}, on the one hand, and \textbf{variation}, on the other. 
 This motivates the development of ManyNames, as well as our design choices for it. 
 
 % SUBMITTED VERSION:
@@ -28,13 +28,14 @@ This motivates the development of ManyNames, as well as our design choices for i
 % Consequently, a reliable assessment of inter-annotator agreement, speaker preferences, and a deeper linguistic analysis of the observed variation is mostly not possible with available data collections in  L\&V.
 % At the same time, these datasets have much potential for research on these topics, as they provide more realistic images of real-world objects and scenes than the idealized drawings used in picture naming norms (see Figure \ref{fig:cake}), as well as a wider coverage of object categories.
 % A more systematic understanding of the factors influencing the choice of object names could inform theoretical work on language grounding and pragmatics \cite{rohde2012communicating,graf2016animal}, as well as the design of models and architectures (e.g.,~Lazaridou et al.~\shortcite{lazaridou-dinu-baroni:2015:ACL-IJCNLP}; Ordonez et al.,~\shortcite{Ordonez:2016}; Zhao et al.,~\shortcite{zhao2017open}).
-ManyNames v.1, the version presented in this paper, contains 36 crowd-sourced names for 25K instances from \vgenome \cite{krishna2016visualgenome}.%
+ManyNames v.1, the version\cs{would remove "the version"} presented in this paper, contains 36 crowd-sourced names for 25K object instances from \vgenome \cite{krishna2016visualgenome}.%
 \footnote{Available at \url{https://github.com/amore-upf/manynames}.}
 It is inspired in picture naming norms as developed in Psycholinguistics~\cite{snodgrass,rossion2004revisiting}, which is the field that has devoted the most attention to object naming to date.
-\gbt{Is it ``picture naming norms'', or ``naming norms''?}
+%\gbt{Is it ``picture naming norms'', or ``naming norms''?}
 % Naming norms record naming responses for dozens or hundreds of speakers for the same object.
-Picture naming norms are typically small (500-1000 images) and use idealized drawings (Figure \ref{fig:cake}, right); ManyNames is much larger and uses real images of objects in complex visual contexts, which makes it suitable for research in L\&V.
+Picture naming norms are typically small (500-1000 images) and use idealized drawings (Figure \ref{fig:cake}, right; \cs{but see, e.g.,~\cite{brodeur2014bank} for exceptions}); ManyNames is much larger and uses real images of objects in complex visual contexts, which makes it suitable for research in L\&V.
 \gbt{should we add footnote citing the naming norms that have real images? (See commented-out tex; \cite{brodeur2014bank} is the ref for the BOSS database.)}
+\cs{see the addition in ref to Figure}
 
 % From Andreas Mädebach:
 
