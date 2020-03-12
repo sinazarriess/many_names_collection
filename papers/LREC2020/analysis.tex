@@ -18,20 +18,20 @@
  \caption{\label{fig:ntypes} Cumulative histograms for number of types in ManyNames, with frequency thresholds} 
 \end{figure}
 
-As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous datasets: 35.3 on average, compared to 1-7.
-It also contains the most variability, since objects have on average 5.7 names (compared to 1-1.9).
+As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous datasets: $35.3$~on average, compared to~$1-7$.
+It also contains the most variability, since objects have on average $5.7$~names (compared to~\mbox{$1-1.9$}).
 Figure~\ref{fig:ex-high-low-agreement} shows some example datapoints of ManyNames with high and low name agreement.
 ManyNames 
 %in in principle suitable to study 
 shows high potential use for studying the degree of inter-subject naming agreement, and what factors influence variation.
-Data analysis shows that object identification remains an issue in our data, though: Despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same bounding box. 
+Data analysis shows that object identification remains an issue in our data, though: Despite our care in filtering out objects that are occluded or have unclear bounding boxes (see\ Section~\ref{sec:data}), we still find many examples where annotators identified different objects for the same box. 
 Typically, workers named an adjacent object or one supported by the target object (such as \word{toy/book} instead of \word{bed} in Fig.~\ref{fig:ex-high-low-agreement}, image K), or a part of the target object.
-While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated by the bounding box, as in the \word{bed/sleeping bag} case in Fig.~\ref{fig:ex-high-low-agreement} (image L).
+While some of these cases are arguably annotation errors, in many cases it is not possible to distinguish which object is being indicated by the  box, as in the \word{bed/sleeping bag} case in Fig.~\ref{fig:ex-high-low-agreement} (image L).
 Referential uncertainty of this kind is a roadblock for the use of L\&V resources to study naming variation.
 Note that pointing gestures in natural communication are as referentially uncertain as bounding boxes, if not more; however, typically those gestures are grounded in a specific discourse context, which helps to reduce uncertainty.
 In future work, we plan to filter out these cases.
 
-\subsection{Naming variation and agreement}
+\subsection{Naming Variation and Agreement}
 \label{subsec:counts}
 
 We analyze the response sets obtained per object, that is, the set of names and their frequency (number of annotators entering a particular name).
@@ -39,9 +39,9 @@ Our analysis of naming variation shows that, on the one hand, we have a fair bit
 Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$.
 Without any frequency thresholding~\mbox{$t$=1}, that is, allowing names entered by only one annotator, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
 With a reasonable (based on data inspection; names entered by one annotator only have the most noise, which is to be expected) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
-This threshold is the one illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which includes names that have at least frequency 2.
+This threshold is the one illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which shows names that have at least frequency 2.
 The average number of names with this threshold is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
-Thus, in our data objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, and at the same time there is variation.
+Hence, in our data, objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, but at the same time there is variation.
 
 \begin{table}
 \centering
@@ -49,7 +49,7 @@ Thus, in our data objects tend to have a preferred name, as expected from work i
 \begin{tabular}{lccccc}
   \toprule
 % & \multicolumn{5}{c}{Instance-level agreement} \\
-  domain &    N &         \%top (std) &          H (std) & t=VG &   \%VG \\
+  Domain &    N &         \%top (std) &          H (std) & t=VG &   \%VG \\
   \midrule
   all &  2.9 &  75.2 (21.9) &  0.9 (0.7) &   72.8 &  62.8 \\
   \midrule
@@ -63,29 +63,29 @@ Thus, in our data objects tend to have a preferred name, as expected from work i
 \bottomrule
 \end{tabular}
 \vspace{-0.3cm}
-\caption{Agreement in object naming, with a frequency threshold of 2.}
+\caption{Agreement in object naming, with a frequency threshold of~$2$.}
 % Domain `an\_pl' is animal\_plants.}
 \label{tab:agree}
 \end{table}
 
-To further assess agreement on the object names, we check the following measures, computed with $t=2$, with results in Table~\ref{tab:agree}:
+To further assess agreement on the object names, we check the following measures, computed with \mbox{$t$=$2$}, with results in Table~\ref{tab:agree}:
 \begin{itemize}
-\item \textbf{N}: the average number of types in the response set of ManyNames.
+\item \textbf{N}: the average number of types in the response set. %of ManyNames.
 \item \textbf{\% top}: the average relative frequency of the most frequent response (shown in percent).
-\item \textbf{$H$}: the $H$ agreement measure from \cite{snodgrass}, where 0 is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
-where $k$\ denotes the number of name types and $p_i$\ is the proportion of name type\ $i$ in the responses. 
+\item $\mathbf{H}$: the $H$ agreement measure from \cite{snodgrass}, where $0$~is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
+where $k$~denotes the number of name types and $p_i$~is the proportion of type~$i$ in the responses. 
 \item \textbf{t=VG}: the percentage of items where the top response in ManyNames is the \vg name.
 \item \textbf{\% VG}: the average relative frequency of the \vg name in the response set.
 \end{itemize}
 
-Apart from the trends mentioned above, it is remarkable that only in 73\% of the cases the most frequent response coincides with the \vg name, and the \vg name accounts for 63\% of the responses on average.
+Apart from the trends mentioned above, it is remarkable that only in $73$\%~of the cases the most frequent response coincides with the \vg name, and the \vg name accounts for $63$\%~of the responses on average.
 Our dataset can be expected to yield a more robust estimate for so-called entry-point names \cite{jolicoeur1984pictures}, that is, the name that most naturally comes to mind for a given object.
-The $H$ measures indicate a fair amount of agreement, a bit lower than in picture norming studies on artificial idealized images (e.g.\ \newcite{snodgrass} report an average $H$ of\ $0.55$), which can be expected when using real images.
+The $H$ measures indicate a fair amount of agreement, a bit lower than in picture norming studies on artificial idealized images (e.g.\ \newcite{snodgrass} report an average $H$ of~$0.55$), which can be expected when using real images.
 
 If we check agreement by domain, two domains stand out: the \domain{animals\_plants} domain, which is often discussed in the literature and where we find almost perfect agreement\ (\mbox{$H=0.2$}), and the \domain{people} domain with a particularly low agreement.
 Across domains, however, we find a large standard deviation for both \%top and $H$, of around\ $20\%$ for all domains except \domain{people}.
 This indicates that agreement varies quite a bit across instances, with factors that cannot be attributed to domain only.
-The qualitative examples in Figure \ref{fig:ex-high-low-agreement} illustrate this, showing visual instances with very high or low agreement.
+The qualitative examples in Figure \ref{fig:ex-high-low-agreement} illustrate this, showing instances with very high or low agreement.
 These suggest that instances which are more prototypical of a category trigger higher agreement, although further research is necessary to examine the relevant factors.
 The following section will examine other sources of variation in object naming.
 
@@ -123,14 +123,14 @@ The following section will examine other sources of variation in object naming.
 %\gbt{The non-canon. VG names suggest that people prefer more general names (``car $>$ sedan'', ``horse $>$ pony'', ``tie $>$ necktie''). Could be due to lexical availability (more general \ra more frequent \ra more available). This could be verified (using frequency). Hypothesis: In cases where top name != VG, the VG name is less general. Could be also a more general hypothesis: see if people prefer more frequent names in general.}
 %\cs{@Table~\ref{tab:qual} (just wrt presentation) The most interesting blocks are 2 and 3 (canonical VG with min agr.; non-canonical with max agr.)}
 
-\subsection{Sources of variation}
+\subsection{Sources of Variation}
 \label{subsec:sources}
 
 Previous work on object naming has assumed that variation is mostly along a taxonomic axis, and in particular hierarchical (see Section~\ref{sec:rel-work}).
 This parameter does not seem to explain the variation in ManyNames. 
 Table \ref{tab:rel} shows the distribution of the lexical relations between ManyNames responses and the original \vg annotation, estimated from WordNet.
 To obtain these data, we exploited the synset annotation in the \vg names, and added automatic linking for the additional ManyNames names, with a simple first-sense heuristic.%
-\footnote{To detect hypernyms, we use the hypernym closure of the synset with a depth of 10; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory (90\%\ of the name types, accounting for 97\%\ of the tokens).}
+\footnote{To detect hypernyms, we use the hypernym closure of the synset with a depth of $10$; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory ($90$\%\ of the name types, accounting for $97$\%\ of the tokens).}
 As shown in the table, in the vast majority of cases, no hierarchical relation between the name and the synset can be retrieved from WordNet.
 Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of abstraction of the chosen name. 
 Among the names that do have a taxonomic relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
@@ -153,12 +153,13 @@ Among the names that do have a taxonomic relation to the synset, hypernyms are t
 %\cs{Considering the track we are submitting to, one or two examples per relation in an additional column in the table wouldn't hurt.}
 
 In a qualitative analysis, we found the following types of variation in the data, illustrated with examples in Figure~\ref{fig:ex-high-low-agreement}.
-\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \textit{toast/dessert}, image C).
-\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers as to what an object is (\textit{bed/bench}, images J).
-\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\textit{burger/basket}, image B). 
-\textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\textit{robe/dress}, image not shown).
+\textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \word{toast/dessert}, image C).
+\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers as to what an object is (\word{bed/bench}, images J).
+\textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\word{burger/basket}, image B). 
+\textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\word{robe/dress}, image not shown).
 %As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
 %
+\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations}
 \begin{table}[t]
 %\small
 \centering
@@ -189,7 +190,7 @@ In a qualitative analysis, we found the following types of variation in the data
 Existing large-scale collections of labels or names of objects in L\&V provide simple annotations of individual objects with canonicalized name sets.
 When humans agree only around 70\% of the cases in how to name an object, it is not clear that the data can be taken as a gold standard in multi-label classification setting, as is commonly done in Computer Vision.
 % At the same time, compared to annotation and modeling frameworks in Computer Vision that frame the problem as an object labeling task, our data shows a much lower agreement than what should be expected if object names were indeed entirely canonical,
-See e.g.\ the ResNet which achieves a top-1 error rate of 25\% on ILSVRC 2015. \gbt{It is not clear to me what this means: what kind of data is this? how does this result relate to our point? -- @Carina, expand?}
+See e.g.\ the ResNet which achieves a top-1 error rate of $25$\% on ILSVRC 2015. \gbt{It is not clear to me what this means: what kind of data is this? how does this result relate to our point? -- @Carina, expand?}
 \fi
 
 %\gbt{I couldn't follow the discussion in the following pargraph. Do you think it's subsumed by the one above? Can we remove it?} 

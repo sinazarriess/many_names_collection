@@ -1,21 +1,21 @@
 \subsection{Object Naming as a Linguistic Phenomenon}
 \label{subsec:rosch}
 
-The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \refexp{dog}'', ``the white \refexp{dog} to the left'').
+The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \word{dog}'', ``the white \word{dog} to the left'').\cs{rephrase}
 Since an object is simultaneously a member of multiple categories (e.g., a young beagle belongs to the categories \cat{dog}, \cat{beagle}, \cat{animal}, \cat{puppy}, \cat{pet}, etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be called by different names \cite{brown1958shall,murphy2004big}.
 
 Seminal work by \newcite{rosch1976basic} inspired a taxonomic view of object naming, in which names exhibit a preferred level of specificity or abstraction called the ``entry-level'' \cite{jolicoeur1984pictures}. 
-This typically corresponds to an intermediate level of specificity (basic level,\ e.g., \refexp{bird}, \refexp{car}), as opposed to more generic (super-ordinate,\ e.g., \refexp{animal}, \refexp{vehicle}) or more specific categories (sub-ordinate,\ e.g., \refexp{sparrow}, \refexp{convertible}).
-However, less prototypical members of basic level categories tend to be instead identified with sub-ordinate categories (e.g., a penguin is typically called \refexp{penguin} and not \refexp{bird}; \newcite{jolicoeur1984pictures}). 
+This typically corresponds to an intermediate level of specificity (basic level,\ e.g., \word{bird}, \word{car}), as opposed to more generic (super-ordinate,\ e.g., \word{animal}, \word{vehicle}) or more specific categories (sub-ordinate,\ e.g., \word{sparrow}, \word{convertible}).
+However, less prototypical members of basic level categories tend to be instead identified with sub-ordinate categories (e.g., a penguin is typically called \word{penguin} and not \word{bird}; \newcite{jolicoeur1984pictures}). 
 
 %This out-of-context preference towards a certain taxonomic level is often referred to as \textbf{lexical availability}. 
-While the traditional notion of entry-level categories suggests that objects tend to be named by a \refexp{single} preferred concept, research on pragmatics has found that speakers adopt their naming choices to the context and, hence, are flexible with respect to the chosen level of specificity \cite{olson1970language,rohde2012communicating,graf2016animal}.
+While the traditional notion of entry-level categories suggests that objects tend to be named by a \textit{single} preferred concept, research on pragmatics has found that speakers adopt their naming choices to the context and, hence, are flexible with respect to the chosen level of specificity \cite{olson1970language,rohde2012communicating,graf2016animal}.
 %Scenarios where multiple objects (of the same category) are present induce a pressure for generating names which uniquely identify the target \cite{olson1970language}, such that sub-level names can be systematically elicited in these cases \cite{rohde2012communicating,graf2016animal}.
-For example, in presence of more than one dog, the name \textsl{dog} is ambiguous and a sub-ordinate category (e.g., \textsl{rottweiler}, \textsl{beagle}) is potentially preferred by speakers. The effect of such distractor objects on the production of referring expressions has been widely examined in the language generation community \cite{krahmer:2012}, though not specifically for object naming. We believe that our new dataset provides an interesting resource for tackling this question.
+For example, in presence of more than one dog, the name \textsl{dog} is ambiguous and a sub-ordinate category (e.g., \word{rottweiler}, \word{beagle}) is potentially preferred by speakers. The effect of such distractor objects on the production of referring expressions has been widely examined in the language generation community \cite{krahmer:2012}, though not specifically for object naming. We believe that our new dataset provides an interesting resource for tackling this question.
 %, though additional factors such as cost or saliency also come into play \cite{graf2016animal,clark1983common}.
 
-The purely taxonomic view on naming has also been criticized in work on object organization, which found that many objects of our daily lifes are part of multiple category systems at the same time \cite{ross1999food,SHAFTO20111}. 
-This \textit{cross-classification} occurs, for instance, with food categories which can be taxonomy-based (e.g.\ \refexp{meat, vegetable}) or script-based (e.g.\  \refexp{breakfast, snack}).
+The purely taxonomic view on naming has also been criticized in work on object organization, which found that many objects of our daily lives are part of multiple category systems at the same time \cite{ross1999food,SHAFTO20111}. 
+This \textit{cross-classification} occurs, for instance, with food categories which can be taxonomy-based (e.g.,~\word{meat, vegetable}) or script-based (e.g.,~\word{breakfast, snack}).
 We provide tentative evidence that cross-classification is indeed relevant for naming variation, and that the taxonomic axis is not the most frequent source of variation in our data.
 
 \subsection{Picture Naming in Cognitive Science}
@@ -27,19 +27,19 @@ Our task is inspired by picture naming, but uses real-world images showing objec
 
 \subsection{Object Recognition in Computer Vision}
 
-In Computer Vision, object recognition is often modeled as a classification task where state-of-the-art systems localize and classify objects into thousands of different categories  \cite{googlenet,ILSVRC15}. 
+In Computer Vision, object recognition is often modeled as a classification task where state-of-the-art systems identify objects by classifying them into thousands of different categories  \cite{googlenet,ILSVRC15}. 
 Current recognition benchmarks use labels and images from the ImageNet \cite{imagenet_cvpr09} ontology, and typically assume a single ground-truth label. 
 The construction of ImageNet was set up as a two-stage procedure: (i) images for given categories in the ontology were automatically collected by querying search engines, (ii) crowd-workers then verified whether each candidate image is an instance of the given category.
-Other data collection efforts for object labels also used a predefined vocabulary and asked annotators to mark all instances of these categories in a set of images \cite{mscoco,OpenImages}. 
+Other data collection efforts for object labels also used a predefined vocabulary and asked annotators to mark all instances of these categories in a set of images \cite{mscoco,OpenImages}.\cs{double-check latter} 
 Recently, \newcite{pont2019natural} have argued for annotation of object labels using free form text though here this free vocabulary is then mapped to a set of underlying classes.
 Thus, even though object recognition benchmarks do provide images of objects and categories, they generally do not provide what we are interested in in this work, namely natural names of objects.
 
 \subsection{Object Naming in L\&V} 
+Previous work in L\&V has collected and used datasets where annotators produced free and natural utterances for a given image. 
+These datasets typically record utterances that are more complex than a single word, such as image captions \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expressions \cite{Kazemzadeh2014,mao15,Yu2016}, visual dialogues \cite{das2017visual,vries2017guesswhat} or image paragraphs \cite{krause2017hierarchical}. 
+While object names occur in all of these datasets, they are not necessarily marked up and linked to the corresponding image regions. The overview in Section \ref{sec:survey} will discuss corpora where the grounding of names of objects to their regions is given, as in the case of \vgenome \cite{krishna2016visualgenome}, or where it can be easily derived, as in the case of referring expressions.
 
-Previous work in L\&V has collected and used data sets where annotators produced free and natural utterances for a given image. 
-Moreover, these data sets typically record utterances that are more complex than a single word, such as image captions \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expressions \cite{Kazemzadeh2014,mao15,Yu2016}, visual dialogues \cite{das2017visual,vries2017guesswhat} or image paragraphs \cite{krause2017hierarchical}. While object names occur in all of these data sets, they are not necessarily marked up and linked to the corresponding image regions. The overview in Section \ref{sec:survey} will discuss corpora where the grounding of names to regions for objects is given, as in the case of \vgenome \cite{krishna2016visualgenome}, or where it can be easily derived, as in the case of referring expressions.
-
-Our new collection, ManyNames, focusses on object names in isolation and is substantially more controlled than common L\&V data sets. This controlled collection procedure allowed us to elicit many annotations for the same object from different annotators, resulting in a data set that is amenable to studying variation and preferences in naming systematically and on a large scale.
+Our new collection, ManyNames, focusses on object names in isolation and is substantially more controlled than common L\&V datasets. This controlled collection procedure allowed us to elicit many names for the same object from different annotators, resulting in a dataset that is amenable to  studying systematically and on a large scale the core phenomena of object naming, viz. naming variation and preferences.\cs{rephrase}
 
 \begin{table*}[htb]
   \centering
@@ -48,13 +48,13 @@ Our new collection, ManyNames, focusses on object names in isolation and is subs
     &   RefCOCO/+  &  Flickr30kE &           VG &      VGmn &        MN \\
     \midrule
     \# objects & 50,000 & 243,801 & 3,781,232 & 25,315 & 25,315 \\
-    naming vocab size &  5,004 &  10,423 &   105,441 &  1,061 &  7,970 \\
+    name vocabulary size &  5,004 &  10,423 &   105,441 &  1,061 &  7,970 \\
     av. annotations/object &      2.8 &       2.3 &         1.7 &      7.2 &     35.3 \\
     ratio of objects with \# types $>$ 1 &      0.7 &       0.3 &         0.02 &      0.05 &      0.9 \\
-    av. types/object &      1.9 &       1.4 &         1 &      1.1 &      5.7 \\
+    av. \# name types/object &      1.9 &       1.4 &         1 &      1.1 &      5.7 \\
     \bottomrule
   \end{tabular}
-  \caption{Overview statistics for different data sets containing object naming data. VGmn shows statistics for the subset of \vg that overlaps with our ManyNames dataset.\label{tab:compare}}
+  \caption{Overview statistics for different datasets containing object naming data. VGmn shows statistics for the subset of \vg that overlaps with our ManyNames dataset.\label{tab:compare}}
 \end{table*}
 
 

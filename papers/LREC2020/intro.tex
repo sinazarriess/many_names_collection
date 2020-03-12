@@ -7,7 +7,7 @@
 % GBT revision (I've re-organized the material into paragraphs differently and gone more directly to object names):
 A central issue in Language \& Vision (L\&V) is how speakers refer to objects. 
 This is most prominent for referring expression generation and interpretation~\cite{Kazemzadeh2014,mao15,Yu2016}, but it also pervades virtually any other L\&V task, such as caption generation or visual dialogue \cite{fangetal:2015,devlin:imcaqui,das2017visual,vries2017guesswhat}.
-One of the central components of referring expressions are \textit{object names}; for instance, speakers may name the left object in Figure \ref{fig:cake} `cake', `food', or `dessert', a.o.
+One of the central components of referring expressions are \textit{object names}; for instance, speakers may name the left object in Figure \ref{fig:cake} \word{cake}, \word{food}, or \word{dessert}, a.o.
 This aspect of reference has been understudied in Computational Linguistics and L\&V; as a consequence, it is not clear to what extent current L\&V models capture human naming behavior.
 % the factors affecting the choice of a name are far from clear, as is the potential of current L\&V models to successfully model naming data.
 
@@ -33,9 +33,9 @@ ManyNames v.1, the version\cs{would remove "the version"} presented in this pape
 It is inspired in picture naming norms as developed in Psycholinguistics~\cite{snodgrass,rossion2004revisiting}, which is the field that has devoted the most attention to object naming to date.
 %\gbt{Is it ``picture naming norms'', or ``naming norms''?}
 % Naming norms record naming responses for dozens or hundreds of speakers for the same object.
-Picture naming norms are typically small (500-1000 images) and use idealized drawings (Figure \ref{fig:cake}, right; \cs{but see, e.g.,~\cite{brodeur2014bank} for exceptions}); ManyNames is much larger and uses real images of objects in complex visual contexts, which makes it suitable for research in L\&V.
-\gbt{should we add footnote citing the naming norms that have real images? (See commented-out tex; \cite{brodeur2014bank} is the ref for the BOSS database.)}
-\cs{see the addition in ref to Figure}
+Picture naming norms are typically small (500-1000 images) and use idealized drawings (Figure~\ref{fig:cake}, right; \cs{but see, e.g.,~\cite{brodeur2014bank} for exceptions}); ManyNames is much larger and uses real-world images of objects in complex visual contexts, which makes it suitable for research in L\&V.
+%\gbt{should we add footnote citing the naming norms that have real images? (See commented-out tex; \cite{brodeur2014bank} is the ref for the BOSS database.)}
+%\cs{see the addition in ref to Figure}
 
 % From Andreas Mädebach:
 
@@ -80,13 +80,13 @@ Picture naming norms are typically small (500-1000 images) and use idealized dra
 
 % NEW -- I thought we needed to include this discussion, too.
 Object names are rarely used in isolation; typically they are embedded in more complex referring expressions, which are themselves embedded in sentences that are part of discourses or dialogues.
-However, in the same way that it has proven useful to model referring expressions in visual scenes in an isolated fashion \cite{Kazemzadeh2014,mao15,Yu2016}, we believe there is value in modeling object names on their own.
+However, in the same way that it has proven useful to model referring expressions in visual scenes in an isolated fashion \cite{Kazemzadeh2014,mao15,Yu2016}, \cs{test models on reasoning abilities over whole scene; we observe instance-based variation, triggered by concrete appearance of object and its context, hence, analogous reasoning is required for naming, too} we believe there is value in modeling object names on their own.
 Questions that need addressing regarding object naming are 1)~how much variation in naming is attested and what factors drive the choice of a name (object category? individual properties of the object? context?); see e.g.\ Rohde et al.~\shortcite{rohde2012communicating} and Graf et al.~\shortcite{graf2016animal}, 2)~how to make L\&V models more human-like with respect to naming, improving the design of L\&V architectures (e.g.,~Lazaridou et al.~\shortcite{lazaridou-dinu-baroni:2015:ACL-IJCNLP}; Ordonez et al.,~\shortcite{Ordonez:2016}; Zhao et al.,~\shortcite{zhao2017open}).
 \gbt{I looked at the bst file but I don't know how to make the year appear without parentheses inside the parenthesis.}
 % ManyNames can inform both theoretical work on language grounding and pragmatics \cite{rohde2012communicating,graf2016animal} and on the design of L\&V models and architectures (e.g.,~Lazaridou et al.~\shortcite{lazaridou-dinu-baroni:2015:ACL-IJCNLP}; Ordonez et al.,~\shortcite{Ordonez:2016}; Zhao et al.,~\shortcite{zhao2017open}).
 Here, for reasons of scope and space, we provide preliminary results on the amount and type of variation we find in the data.
 
-The trends we identify in the dataset are illustrated in Figure \ref{fig:cake} (left): Our data reveals clear naming preferences (in the example, 53\% of the annotators prefer the name \textit{cake}, corresponding to the so-called basic-level category, see Section~\ref{sec:rel-work}) and also rich variation (the remaining annotators prefer other options like \textit{food, dessert, bread}) that is not restricted to taxonomic relations studied in previous work on naming \cite{Ordonez:2016,graf2016animal}: while \word{food} is in a taxonomic relation to \word{cake} (it is a hypernym), \textit{dessert} highlights a different facet of the object.
+The trends we identify in the dataset are illustrated in Figure \ref{fig:cake} (left): Our data reveals clear naming preferences (in the example, 53\% of the annotators prefer the name \word{cake}, corresponding to the so-called basic-level category, see Section~\ref{sec:rel-work}) and also rich variation (the remaining annotators prefer other options like \word{food, dessert, bread}) that is not restricted to taxonomic relations studied in previous work on naming \cite{Ordonez:2016,graf2016animal}: while \word{food} is in a taxonomic relation to \word{cake} (it is a hypernym), \word{dessert} highlights a different facet of the object.
 
 %%% Local Variables:
 %%% mode: latex
