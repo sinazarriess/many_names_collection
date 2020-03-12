@@ -24,15 +24,20 @@ ASSIGNED TODOS:
 
 
 TODO@CARINA
-* streamline citation format
+@Gemma (+Sina):
+Should we stick to the term "cross-classification"? (cf. A. Maedebach)
 
-    - I'll replace Table 3 by plots of 
-      * the distribution of names in general (similar to Fig.5 or 6 here: http://markyatskar.com//publications/situations.pdf), and
-      * of images per domain, 
-      with some names being shown from top to tail.
-    - It is engough for now to explain more the differences between WordNet and ManyNames, w/o additional analyses (except something comes to mind that can be done without the verification data)
+* streamline citation format
+* AMT addition: "restricted to residents of the United States etc."
+
+* plots
+
+    - I'll replace Table 3 by plot of images per domain, with some names being shown from top to tail.
+    - It is enough for now to explain more the differences between WordNet and ManyNames, w/o additional analyses (except something comes to mind that can be done without the verification data)
 
 * (R#3) " very large part of the paper - about 1/2 is taken up with background material, including lots of detail on other datasets that don't seem very relevant for the current effort and 1/2 of figure 2 is just a repeat of figure 1. I think the paper should be made shorter or the less relevant parts replaced with additional content showing off important aspects of the corpus or additional analysis of the corpus (what is presented here is fairly superficial - I'd like to see more content and details of the sort in Section 5.2 - relations between the different names)."
+
+==> It is enough for now to explain more the differences between WordNet and ManyNames, w/o additional analyses (except something comes to mind that can be done without the verification data)
 
 * "p. 5 
 After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) “Bounding box is unclear” was marked at most twice; (iii) at most 17% of elicited names were in plural form (to remove cases where the bounding box contains several objects); 

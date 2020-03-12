@@ -29,6 +29,7 @@
                   \label{tab:overview_dataset2}}
 	\end{table*}
 
+\iffalse
 \begin{table*}[htp]
 	\small
 	\centering
@@ -50,6 +51,14 @@
 	\end{tabular}
 	\caption{Overview of the ManyNames dataset: Top 5 VG names for each domain (number of instances in parentheses).\label{tab:overview_dataset1}}
 \end{table*}
+\fi
+
+\begin{figure*}[htp]
+	\centering
+	\includegraphics[height=.8\columnwidth]{figures/distr_imgs-per-domain_VG.png}
+	\caption{Overview of the number of images and names per domain in ManyNames.}
+	\label{fig:overview_dataset1}
+\end{figure*}
 
 \begin{figure*}[htp]
   \centering
@@ -58,9 +67,9 @@
   \label{fig:instructions1}
 \end{figure*}
 
-We take data from \vgenome~(VG) because its dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
+We take data from \vgenome~(VG) because its dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,~the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
 \vg suits our purpose of collecting names for naturalistic instances of common objects, as it has images of varying complexity, with close-ups as well as images with many objects.
-Moreover, its object names are linked to WordNet synsets \cite{fellbaum1998wordnet}, which allows for analysis possibilities that we will exploit in Section~\ref{sec:analysis} below.
+Moreover, its object names are linked to WordNet synsets \cite{fellbaum1998wordnet}, which allows for analysis possibilities that we will exploit in Section~\ref{sec:analysis}.
 % The object names were obtained from the region descriptions (see Section~\ref{sec:vg-survey}).
 Note that, as common in Computer Vision, objects in \vg images are localized as bounding boxes, as shown in Figure~\ref{fig:cake} (left).% 
 \footnote{We use image and object interchangeably in the following, since we only selected one target object per image (i.e., each object and image in VG is chosen at most once).}
@@ -70,21 +79,21 @@ Note that, as common in Computer Vision, objects in \vg images are localized as 
 
 %Criteria: From CV: select images depicting objects with relatively frequent names; From CogSci: select objects which have been frequently studied in cognitive science/psychological norming studies; we chose McRae et al. as basis.
 We selected images from seven domains: \domain{animals\_plants}, \domain{buildings}, \domain{clothing}, \domain{food}, \domain{home}, \domain{people}, \domain{vehicles}. 
-They are all based on McRae et al.'s  \cite{mcrae2005semantic} feature norms, a dataset widely used in Psycholinguistics that comprises common objects of different categories, except for \domain{people}, which we added because it is a very frequent category in \vg and a very prominent category for humans.
+They are all based on McRae et al.'s~\shortcite{mcrae2005semantic} feature norms, a dataset widely used in Psycholinguistics that comprises common objects of different categories, except for \domain{people}, which we added because it is a very frequent category in \vg and a very prominent category for humans.
 % We start from the concepts of McRae et al.'s feature norms (REF), which are common objects of different categories (e.g.,~\domain{animals}, \domain{furniture}) and, as such, have a high overlap with standard datasets of object norming studies (REFS).
 % We added the \domain{person} category because it is very frequent category in \vgenome.
 
-Within each domain, we aimed at collecting instances at different taxonomic levels to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \textit{dog} and \textit{cow} are both mammals, but \textit{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy in the first place (e.g.\ \domain{home}).
-Instead, we defined a set of 52 synsets (listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows. 
+Within each domain, we aimed at collecting instances at different taxonomic levels to cover a wide range of phenomena, but this is not straightforward because ontological taxonomies do not align well with the lexicon (for instance, \word{dog} and \word{cow} are both mammals, but \word{dog} has many more common subcategories), and most domains are not organized in a clear taxonomy in the first place (e.g.,~\domain{home}).
+Instead, we defined a set of $52$~synsets (listed in Table~\ref{tab:overview_dataset2}) that we used to collect object instances from \vg, as follows. 
 
 First, to create our synset set, we chose those \vg synsets that match or subsume the object classes in the McRae norms, and cover different names in \vg.
 %which \vg objects get diverse names.
-For example, \vg instances subsumed by McRae's \textsl{dog} were named \textsl{dog, beagle, greyhound, bulldog}, etc., while McRae's \textsl{duck}, \textsl{goose}, or \textsl{gull} did not have name variants in \vg, so we kept \textsl{dog} and \textsl{bird} (which subsumes \textsl{duck}, \textsl{goose}, or \textsl{gull}) as collection synsets.
+For example, \vg instances subsumed by McRae's \word{dog} were named \word{dog, beagle, greyhound, bulldog}, etc., while McRae's \word{duck}, \word{goose}, or \word{gull} did not have name variants in \vg, so we kept \word{dog} and \word{bird} (which subsumes \word{duck}, \word{goose}, or \word{gull}) as collection synsets.
 %\gbt{Just to clarify: we also collected objects named \textsl{duck}, \textsl{goose}, or \textsl{gull}, right? Not only \textsl{bird}?}
 
-We then retrieved all VG images depicting an object whose name matches a word in these collection synsets or in those subsumed by them. We refer to the names obtained as \textit{seeds} ($450$\ in total).
+We then retrieved all VG images depicting an object whose name matches a word in these collection synsets or in those subsumed by them. We refer to the names obtained as \textit{seeds} ($450$~in total).
 %\gbt{from the dataframe in the github it's 449. Also, there are some mistakes in the list of seeds ('dugout.', 'man's') -- to check after the deadline.}
-We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{We obtained tags with CoreNLP \cite{manning2014stanford}.}, or that were multi-word expressions (e.g.,~\textsl{pink bird}). 
+We did not consider objects with names in plural form, with parts-of-speech other than nouns\footnote{We obtained tags with CoreNLP \cite{manning2014stanford}.}, or that were multi-word expressions (e.g.,~\word{pink bird}). 
 We further only considered objects whose bounding box covered~\mbox{$20-90\%$} of the image area.
 % We based the definition of our set of nodes on the WN (REF) synsets of the McRae concepts (e.g.,~dog, duck, goose, gull), the nominal WordNet hierarchy, and the frequency distribution of the VG object names' synsets.\footnote{TODO: need to be clear from the general description of VG that the frequ. of instances labeled with the synset of the object name is meant.} 
 % First, we selected a set of collection node candidates---synsets which match (e.g.,~\textsl{dog, duck, goose, gull}) or subsume (e.g.,~\textsl{mammal, bird}) the McRae synsets\footnote{Specific synset IDs, e.g.,~dog.n.01, are omitted for readability.}. 
@@ -92,8 +101,8 @@ We further only considered objects whose bounding box covered~\mbox{$20-90\%$} o
 %\paragraph{Collection of instance candidates}
 % Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 % \paragraph{Sampling of instances}
-Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$\ instances for seeds with up to $800$\ objects, and up to $1000$\ instances for larger seeds. This yielded a dataset of\ $31,093$~instances, which was further pruned during annotation, as explained next.
-Table~\ref{tab:overview_dataset1} shows the top 5 \vg names in each of the domains. 
+Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$~instances for seeds with up to $800$~objects, and up to $1$K~instances for larger seeds. This yielded a dataset of $31,093$~instances, which was further pruned during annotation, as explained next.
+Table~\ref{tab:overview_dataset1} shows the top $5$~\vg names in each of the domains. 
 %\gbt{If someone feels like it: It'd be good to use small caps for domains throughout, and also to have the same (alphabetical?) order for all domains in all tables.}
 
 \subsection{Elicitation Procedure}
@@ -101,17 +110,17 @@ Table~\ref{tab:overview_dataset1} shows the top 5 \vg names in each of the domai
 
 To elicit object names, we set up a crowdsourcing task on Amazon Mechanical Turk (AMT).
 In initial pilot studies, we found object identification via bounding boxes to be problematic.
-In some cases, the bounding box was not clear; in others, AMT workers named objects that were more salient than the one signaled by the box (for instance, for a box around a jacket, the man wearing it).
+In some cases, the bounding box was not clear; in others, AMT workers named objects that were more salient than the one signaled by the box (e.g.,~for a box around a jacket, the man wearing it).
 We took special care of minimizing this issue in two ways: Specifying the instructions such that workers pay close attention to what object is being indicated in the box, and pruning images with unclear boxes or occluded objects via an initial collection round in which we allowed workers to mark such cases.
-Figure~\ref{fig:instructions1} shows the task instructions for this first round, in which 9 workers annotated each image.
+Figure~\ref{fig:instructions1} shows the task instructions for this first round, in which $9$~workers annotated each image.
 
 %We eliminated around $5.5$K\ images based on pruning, obtaining the final dataset with $25,596$\ images.
-After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were estimated via manual inspection): (i) they were not marked as occluded by any subject; (ii) ``Bounding box is unclear'' was marked at most twice; (iii) at most 17\% of elicited names were in plural form (to remove cases where the bounding box contains several objects); (iv) the most frequent elicited name is of the same domain as the \vg name.
-This yielded $25,596$ images (we discarded $5,497$).
-We then did 3 more collection rounds, obtaining a total of 36 images per object.
+After the first round, and based on the opt-out annotation, we kept images that met all the following conditions (thresholds were chosen by manually inspecting the remaining and discarded instances, respectively, depending on different threshold values): (i) they were not marked as occluded by any subject; (ii) ``Bounding box is unclear'' was marked at most twice; (iii) at most~$17$\% of elicited names were in plural form (to remove cases where the bounding box contains several objects); (iv) the most frequent elicited name is of the same domain as the \vg name.
+This yielded $25,596$~images (we discarded~$5,497$).
+We then did ~3~more collection rounds, obtaining a total of $36$~annotations per object.
 Figure~\ref{fig:instructions2} shows the instructions for these rounds; they were accompanied by a FAQ solving common issues. 
 We shuffled the set of images per task between rounds, and workers could only participate in one round, to avoid workers annotating an instance more than once.
-Overall $841$\ workers took part in the data elicitation, with a median of  $261$\ instances \mbox{($\textrm{range}=[9,17K]$)} per worker.
+Overall $841$~workers\footnote{Participation was restricted to residents of the UK, USA, Canada, New Zealand, and Australia.} took part in the data elicitation, with a median of  $261$~instances \mbox{($\textrm{range}=[9,17K]$)} per worker.
 
 \begin{figure*}[htp]
   \centering

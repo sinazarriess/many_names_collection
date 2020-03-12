@@ -7,8 +7,8 @@ We have surveyed datasets that can be useful to address this question, and propo
 % (i) to study how different people would name the same object (image region), and, given a specific name, estimate how likely people are to use it for a given object, which might vary substantially across different instances of a given category, and
 % (ii) to obtain a set of possible names for individual objects, as well as available lexical alternatives for specific names, which again might vary strongly across instances and often cannot be retrieved from existing taxonomies like WordNet. 
 
-For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous, which can affect model performance on object categorization and naming.
-Crucially, evaluations in these tasks assume that object identification is possible based on the bounding box; beyond showing that this is not always the case, our data can be used to assess whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case), or really off.
+For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous, which can affect model performance on object recognition and naming.
+Crucially, evaluations in these tasks assume that object identification is possible based on the box; beyond showing that this is not always the case, our data can be used to assess whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case), or really off.
 
 Moreover, standard evaluations assume that object names (or categories) are unique.
 % The naming variation we have found also challenge the common assumption that there exists a single canonical name for individual visual objects (also see \cite{deng2014large,wang2014poodle,peterson2018learning}).
@@ -27,7 +27,8 @@ We plan to take this step in future work, which will also enable more robust con
 % For the same reason, even fine-grained recognition models (as those trained on ILSVRC) cannot be expected to be able to simply infer the recognition of more general classes.
 %since we found that many name alternatives are not hierarchically related to the VG name, there is only limited use of, e.g., a taxonomic hierarchy, to distinguish automatically a "truly" false prediction (e.g.,\ \textsl{plate}) from a (possibly context-specific) valid alternative (e.g.,\ \textsl{basket}) to the single "ground truth" in a dataset (e.g.,\ \textsl{sandwich}). 
 
-With respect to naming variation, our current data supports the prediction in theoretical research on object naming that there will often be a preferred (entry-level) name for a given visually presented object.
+%With respect to naming variation, our
+Our current data supports the prediction in theoretical research on object naming that there will often be a preferred (entry-level) name for a given visually presented object.
 It tentatively suggests that (a) there is also consistent variation in naming, with an average of almost three elicited names per instance; (b) much of this variation cannot be explained by adopting a hierarchical view, which has been dominant in the psycholinguistic and computational literature; (c) there is high variability in agreement across instances within the same domain.
 The latter suggests that there are specific visual characteristics of either the object itself or the visual context in which it appears that trigger variation. With prototypical, idealized pictures of the sort used in traditional studies (see Figure\ \ref{fig:cake}), this observation would not be possible.
 
