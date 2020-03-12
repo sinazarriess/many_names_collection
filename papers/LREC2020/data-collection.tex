@@ -55,7 +55,7 @@
 
 \begin{figure}[htp]
 	\centering
-	\includegraphics[width=1\columnwidth]{figures/distr_imgs-per-domain_VG.png}
+	\includegraphics[width=1\columnwidth]{figures/distr_imgs-per-domain_VGMN.png}
 	\caption{Cumulative histograms of the number of images and names per domain in ManyNames.}
 	\label{fig:overview_dataset1}
 \end{figure}
@@ -102,7 +102,7 @@ We further only considered objects whose bounding box covered~\mbox{$20-90\%$} o
 % Goal of above procedure was the collection of instances of selected object classes---our nodes--- whose VG names correspond to or subsume (are hypernyms of) a McRae concept, and whose object names differ, that is, of which we can expect that people possess different names for them (e.g.,~\textsl{duck, goose, gull} for \textsl{bird}).
 % \paragraph{Sampling of instances}
 Because of the Zipfian distribution of names, and to balance the collection, we sampled instances depending on the size of the seeds: up to $500$~instances for seeds with up to $800$~objects, and up to $1$K~instances for larger seeds. This yielded a dataset of $31,093$~instances, which was further pruned during annotation, as explained next.
-Table~\ref{tab:overview_dataset1} shows the top $5$~\vg names in each of the domains. 
+Figure~\ref{fig:overview_dataset1} shows the distribution of images and names in ManyNames per domain. 
 %\gbt{If someone feels like it: It'd be good to use small caps for domains throughout, and also to have the same (alphabetical?) order for all domains in all tables.}
 
 \subsection{Elicitation Procedure}
