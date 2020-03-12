@@ -103,12 +103,19 @@ This should make it easier to identify factors intervening in naming choices, an
 
 However, there is a crucial pitfall: As Figure~\ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fifth object IDs in the figure actually correspond to the same object.
 Moreover, the regions for the beak of the object (third and fourth object IDs) overlap with those of the bird.
+<<<<<<< HEAD
 %This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
 %For instance, even though there is a different name (\word{vulture}) for \word{bird} in Figure~\ref{fig:bird}, the annotation suggests that \word{bird} is the only available name. 
 Finally, even though there is a different name (\word{vulture}) for \word{bird} in Figure~\ref{fig:bird}, the annotation suggests that \word{bird} is the only available name. 
 Hence, the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
 The relatively low number of $1.7$~annotations per objects on average in VG (Table~\ref{tab:compare}) and the very small number of objects that have more than one name associated with it ($5$\%) seem to be an effect of this partial linking problem.
 We experimented with filtering and merging bounding boxes based on overlap, but this would introduce substantial noise into the data (e.g.,~truly overlapping objects).
+=======
+This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
+For instance, even though there is a different name (\textit{vulture}) for \textit{bird} object in Figure \ref{fig:bird}, the annotation suggests that \textit{bird} is the only available name. 
+The relatively low number of annotations per objects in VisualGenome (1.7 on average) shown in Table \ref{tab:compare} and the very small number of objects that have more than one name associated with it (2\%) seem to be an effect of this partial linking problem.
+We experimented with filtering and merging bounding boxes based on overlap, but this would introduce substantial noise into the data (e.g.\ truly overlapping objects).
+>>>>>>> 597c3736b296b26714eb0dabfeffb670dff65c9e
 
 Table~\ref{tab:compare} also shows the statistics for the subset of those VG objects that we selected for ManyNames and, here, we find a considerably higher average of $7$~annotations per object. 
 We think that this might be an effect of our category selection procedure explained in Section~\ref{sec:data}. However, interestingly, the portion of objects that have different names associated with them is still extremely small.
