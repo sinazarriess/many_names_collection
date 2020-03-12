@@ -101,8 +101,8 @@ Some of the main advantages of \vg are its size, with $3.8$~million objects ($10
 Another plus is the fact that it in principle provides exhaustive annotations of objects in an image, often with several region descriptions and possibly object names per object.
 This should make it easier to identify factors intervening in naming choices, and to model contextual aspects that may affect them, than in the case of \refcoco.
 
-However, there is a crucial pitfall: As Figure~\ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fifth object IDs in the figure actually correspond to the same object.
-Moreover, the regions for the beak of the object (third and fourth object IDs) overlap with those of the bird. 
+However, there is a crucial pitfall: As Figure~\ref{fig:bird} shows, there is only a partial linking of objects that are mentioned across different region descriptions; for instance, the first, second, and fourth object ID in the figure actually correspond to the same object.
+Moreover, the region for the beak of the object (third object IDs) overlaps with those of the bird. 
 %This means that the identity of objects cannot be established based on the annotation, which severely limits the usefulness of the data to analyze naming.
 %For instance, even though there is a different name (\word{vulture}) for \word{bird} in Figure~\ref{fig:bird}, the annotation suggests that \word{bird} is the only available name. 
 Finally, even though there is a different name (\word{vulture}) for \word{bird} in Figure~\ref{fig:bird}, the annotation suggests that \word{bird} is the only available name. 
@@ -135,7 +135,7 @@ object id & linked region descriptions\\
 \hline
 3595788 & the \textbf{bird} is black in color, nose of the \textbf{bird}, a \textbf{bird} relaxing in stand, small white beak of \textbf{bird}, large black talon of \textbf{bird}, a \textbf{bird} on a green pole, a green bar under \textbf{bird}, black \textbf{bird} on green rail, small black eye of \textbf{bird}\\
 2286017 & large black \textbf{vulture} on fence, a vulture on bar\\
-2385747 & small white beak of \textbf{bird}\\
+%2385747 & small white beak of \textbf{bird}\\
 2681429 & a semi \textbf{long beak}\\  
 2346210 & a black and gray \textbf{vulture}\\
  \end{tabular}
