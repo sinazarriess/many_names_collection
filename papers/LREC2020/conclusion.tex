@@ -7,8 +7,8 @@ We have surveyed datasets that can be useful to address this question, and propo
 % (i) to study how different people would name the same object (image region), and, given a specific name, estimate how likely people are to use it for a given object, which might vary substantially across different instances of a given category, and
 % (ii) to obtain a set of possible names for individual objects, as well as available lexical alternatives for specific names, which again might vary strongly across instances and often cannot be retrieved from existing taxonomies like WordNet. 
 
-For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous, which can affect model performance on object recognition and naming.
-Crucially, evaluations in these tasks assume that object identification is possible based on the box; beyond showing that this is not always the case, our data can be used to assess whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case), or really off.
+For Computer Vision and L\&V, our data highlights the fact that bounding boxes are often ambiguous \sz{does the data presented here really do this?}, which can affect model performance on object recognition and naming.
+Crucially, evaluations in these tasks assume that object identification is possible based on the box; beyond showing that this is not always the case, our data can be used to assess whether model mistakes are plausible (similar to those of humans, as in the \word{toy/book/bed} case), or really off.\sz{well, this paper does not contain the verification data right=}
 
 Moreover, standard evaluations assume that object names (or categories) are unique.
 % The naming variation we have found also challenge the common assumption that there exists a single canonical name for individual visual objects (also see \cite{deng2014large,wang2014poodle,peterson2018learning}).
