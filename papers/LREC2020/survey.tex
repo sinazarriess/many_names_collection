@@ -87,6 +87,53 @@ This dataset is suitable to analyze object naming in descriptions, for a quite l
 \subsection{Visual Genome}
 \label{sec:vg-survey}
 
+\begin{figure}
+\begin{center}
+%\fbox{\parbox{6cm}{
+%This is a figure with a caption.}}
+\includegraphics[scale=0.2]{figures/vulture.png} 
+\small
+\begin{tabular}{lp{6.2cm}}
+object id & linked region descriptions\\
+\hline
+3595788 & the \textbf{bird} is black in color, nose of the \textbf{bird}, a \textbf{bird} relaxing in stand, small white beak of \textbf{bird}, large black talon of \textbf{bird}, a \textbf{bird} on a green pole, a green bar under \textbf{bird}, black \textbf{bird} on green rail, small black eye of \textbf{bird}\\
+2286017 & large black \textbf{vulture} on fence, a vulture on bar\\
+%2385747 & small white beak of \textbf{bird}\\
+2681429 & a semi \textbf{long beak}\\  
+2346210 & a black and gray \textbf{vulture}\\
+ \end{tabular}
+\caption{Bounding boxes, names and region descriptions for an object in VisualGenome}
+\label{fig:bird}
+\end{center}
+\end{figure}
+
+\begin{table*}[htbp]
+	\small
+	\centering
+	\begin{tabular}{lp{14cm}}
+			\toprule
+			Domain & \multicolumn{1}{c}{Collection synsets}\\
+			\midrule			
+			animals\_plants & ungulate$_1$ (2037), horse$_1$ (833), feline$_1$ (763), dog$_1$ (688)
+			bird$_1$ (389), flower$_1$ (44), rodent$_1$ (27), insect$_1$ (12), fish$_1$ (11)\\
+			buildings      &  house$_1$ (364), bridge$_1$ (297), shelter$_1$ (169), restaurant$_1$ (58),
+                                         outbuilding$_1$ (31), hotel$_1$ (19), housing$_1$ (17), place\_of\_worship$_1$ (12)     \\
+			clothing       &  shirt$_1$ (968), overgarment$_1$ (786), dress$_1$ (199), headdress$_1$ (135),
+                                         neckwear$_1$ (65), robe$_1$ (27), glove$_2$ (7), footwear$_1$ (5)    \\
+			food           &  dish$_2$ (812), baked\_goods$_1$ (770), foodstuff$_2$ (280), vegetable$_1$ (48),
+                                         edible\_fruit$_1$ (42), beverage$_1$ (23)   \\
+			home           &  furnishing$_2$ (5,355), vessel$_3$ (525), kitchen\_utensil$_1$ (132), crockery$_1$ (92),
+			cutlery$_2$ (82), tool$_1$ (72), lamp$_1$ (34)    \\
+			people         & woman$_1$ (1768), man$_1$ (1167), male\_child$_1$ (853), athlete$_1$ (396),
+			 child$_1$ (333), creator$_2$ (11), professional$_1$ (5)    \\
+			vehicles       &  aircraft$_1$ (1208), train$_1$ (957), car$_1$ (727), motorcycle$_1$ (564),
+                                         truck$_1$ (559), boat$_1$ (499), ship$_1$ (38)    \\
+			\bottomrule
+		\end{tabular}
+		\caption{Overview of the ManyNames dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses).
+                  \label{tab:overview_dataset2}}
+	\end{table*}
+
 \vgenome (VG, \newcite{krishna2016visualgenome}) is one of the most densely and richly annotated resources currently available in L\&V; here, we focus on aspects immediately relevant to object naming.
 %In the following, we will focus on describing aspects immediately relevant to object naming only, but many other annotations are available as well (e.g. questions, paragraphs, etc.)
 %\paragraph{Collection and annotation procedure}
@@ -119,30 +166,11 @@ Note that in contrast, even though RefCOCO has much less annotations per object,
 
 \subsection{Discussion}
 
-While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
+While some existing resources do provide naming data for objects in context, they do not provide enough data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
 The VG data, to the contrary, seems to indicate that the vast majority of objects should only be associated with a single name, but it is difficult to estimate to what extent this finding results from problems with annotation (partial linking).
 This shows that to be able to analyze object naming in more detail, it is crucial to have naming data from many subjects for the same objects. 
 Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
 These are the motivations for our dataset, ManyNames, and for building it on top of \vg, as discussed next.
-
-\begin{figure}
-\begin{center}
-%\fbox{\parbox{6cm}{
-%This is a figure with a caption.}}
-\includegraphics[scale=0.2]{figures/vulture.png} 
-\begin{tabular}{lp{6.2cm}}
-object id & linked region descriptions\\
-\hline
-3595788 & the \textbf{bird} is black in color, nose of the \textbf{bird}, a \textbf{bird} relaxing in stand, small white beak of \textbf{bird}, large black talon of \textbf{bird}, a \textbf{bird} on a green pole, a green bar under \textbf{bird}, black \textbf{bird} on green rail, small black eye of \textbf{bird}\\
-2286017 & large black \textbf{vulture} on fence, a vulture on bar\\
-%2385747 & small white beak of \textbf{bird}\\
-2681429 & a semi \textbf{long beak}\\  
-2346210 & a black and gray \textbf{vulture}\\
- \end{tabular}
-\caption{Bounding boxes, names and region descriptions for an object in VisualGenome}
-\label{fig:bird}
-\end{center}
-\end{figure}
 
 %%% Local Variables:
 %%% mode: latex
