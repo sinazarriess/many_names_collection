@@ -29,8 +29,8 @@ Specifically, questions that need addressing regarding object naming are (1)~how
 In this paper, we present a new dataset, ManyNames, to provide richer possibilities for both analysis and modeling of human naming behavior. 
 %We start by surveying existing resources in L\&V that provide object names, assessing their potential to contribute to the study of object naming.
 %While these resources can be exploited for this area of inquiry to some extent (as detailed in Section~\ref{sec:survey})\cs{how remove dot?}, we argue that the low number of annotations per item prevents reliable assessment of \textbf{naming preferences}, on the one hand, and \textbf{variation}, on the other. 
-Existing resources in L\&V that provide object names can be exploited for this area of inquiry to a limited extent only, as we will detail in Section~\ref{sec:survey}\cs{how remove dot?}, because their low number of annotations per item prevents reliable assessment of \textbf{naming preferences}, on the one hand, and \textbf{variation}, on the other. 
-We chose a creation methodology for ManyNames to overcome these shortcomings in particular.
+Existing resources in L\&V that provide object names can be exploited for this area of inquiry to a limited extent only, as we will detail in Section~\ref{sec:survey}, because their low number of annotations per item prevents reliable assessment of \textbf{naming preferences}, on the one hand, and \textbf{variation}, on the other. 
+We chose a creation methodology for ManyNames that overcome these shortcomings in particular.
 %This motivates the development of ManyNames, as well as our design choices for it. 
 
 
@@ -40,12 +40,11 @@ We chose a creation methodology for ManyNames to overcome these shortcomings in 
 % Consequently, a reliable assessment of inter-annotator agreement, speaker preferences, and a deeper linguistic analysis of the observed variation is mostly not possible with available data collections in  L\&V.
 % At the same time, these datasets have much potential for research on these topics, as they provide more realistic images of real-world objects and scenes than the idealized drawings used in picture naming norms (see Figure \ref{fig:cake}), as well as a wider coverage of object categories.
 % A more systematic understanding of the factors influencing the choice of object names could inform theoretical work on language grounding and pragmatics \cite{rohde2012communicating,graf2016animal}, as well as the design of models and architectures (e.g.,~Lazaridou et al.~\shortcite{lazaridou-dinu-baroni:2015:ACL-IJCNLP}; Ordonez et al.,~\shortcite{Ordonez:2016}; Zhao et al.,~\shortcite{zhao2017open}).
-ManyNames~v.1 contains $36$ crowd-sourced names for $25$K object instances from \vgenome \cite{krishna2016visualgenome}.%
-\footnote{Available at \url{https://github.com/amore-upf/manynames}.}
-It is inspired in picture naming norms as developed in Psycholinguistics~\cite{snodgrass,rossion2004revisiting}, which is the field that has devoted the most attention to object naming to date.
+ManyNames~v.1\footnote{Available at \url{https://github.com/amore-upf/manynames}.} contains $36$ crowd-sourced names for $25$K object instances from \vgenome \cite{krishna2016visualgenome}. 
+It is inspired by picture naming norms as developed in Psycholinguistics~\cite{snodgrass,rossion2004revisiting}, which is the field that has devoted the most attention to object naming to date.
 %\gbt{Is it ``picture naming norms'', or ``naming norms''?}
 % Naming norms record naming responses for dozens or hundreds of speakers for the same object.
-Picture naming norms are typically small ($500$-$1$K~images) and use idealized drawings (Figure~\ref{fig:cake}, right; but see, e.g.,~\cite{brodeur2014bank} for exceptions); ManyNames is much larger and uses real-world images of objects in complex visual contexts, which makes it suitable for research in L\&V.
+Picture naming norms are typically small ($500$-$1$K~images) and use idealized drawings (Figure~\ref{fig:cake}, right; but see, e.g.,~Brodeur et al.,~\shortcite{brodeur2014bank} for exceptions); ManyNames is much larger and uses real-world images of objects in complex visual contexts, which makes it suitable for research in L\&V.
 %\gbt{should we add footnote citing the naming norms that have real images? (See commented-out tex; \cite{brodeur2014bank} is the ref for the BOSS database.)}
 %\cs{see the addition in ref to Figure}
 
@@ -82,7 +81,7 @@ Picture naming norms are typically small ($500$-$1$K~images) and use idealized d
 \begin{tabular}{p{4.3cm}p{2cm}}
 %VisualGenome+ManyNames & \cite{snodgrass}\\
 \centering
-\includegraphics[scale=0.15]{figures/2390077_1254219_supercat_unique.png} &
+\includegraphics[scale=0.14]{figures/2390077_1254219_supercat_unique.png} &
 \includegraphics[scale=0.4]{figures/snodgrass_vanderwart_cake_042.png}\\
  cake\ (53),  food\ (19), bread\ (8), burger\ (6), dessert\ (6), snacks\ (3), muffin\ (3),  pastry\ (3) & \hspace{.9cm} cake (83)
 \end{tabular}

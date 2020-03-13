@@ -1,7 +1,7 @@
 \subsection{Object Naming as a Linguistic Phenomenon}
 \label{subsec:rosch}
 
-The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \word{dog}'', ``the white \word{dog} to the left'').\cs{rephrase}
+The act of naming an object amounts to that of picking out a nominal to be employed to refer to it (e.g., ``the \word{dog}'', ``the white \word{dog} to the left''). 
 Since an object is simultaneously a member of multiple categories (e.g., a young beagle belongs to the categories \cat{dog}, \cat{beagle}, \cat{animal}, \cat{puppy}, \cat{pet}, etc.), all the various names that lexicalize these constitute a valid alternative, meaning that the same object can be called by different names \cite{brown1958shall,murphy2004big}.
 
 Seminal work by \newcite{rosch1976basic} inspired a taxonomic view of object naming, in which names exhibit a preferred level of specificity or abstraction called the ``entry-level'' \cite{jolicoeur1984pictures}. 
@@ -30,7 +30,7 @@ Our task is inspired by picture naming, but uses real-world images showing objec
 In Computer Vision, object recognition is often modeled as a classification task where state-of-the-art systems identify objects by classifying them into thousands of different categories  \cite{googlenet,ILSVRC15}. 
 Current recognition benchmarks use labels and images from the ImageNet \cite{imagenet_cvpr09} ontology, and typically assume a single ground-truth label. 
 The construction of ImageNet was set up as a two-stage procedure: (i) images for given categories in the ontology were automatically collected by querying search engines, (ii) crowd-workers then verified whether each candidate image is an instance of the given category.
-Other data collection efforts for object labels also used a predefined vocabulary and asked annotators to mark all instances of these categories in a set of images \cite{mscoco,OpenImages}.\cs{double-check latter} 
+Other data collection efforts for object labels also used a predefined vocabulary and asked annotators to mark all instances of these categories in a set of images \cite{mscoco,OpenImages}. 
 Recently, \newcite{pont2019natural} have argued for annotation of object labels using free form text though here this free vocabulary is then mapped to a set of underlying classes.
 Thus, even though object recognition benchmarks do provide images of objects and categories, they generally do not provide what we are interested in in this work, namely natural names of objects.
 
@@ -39,7 +39,7 @@ Previous work in L\&V has collected and used datasets where annotators produced 
 These datasets typically record utterances that are more complex than a single word, such as image captions \cite{fangetal:2015,devlin:imcaqui,Bernardietal:automatic}, referring expressions \cite{Kazemzadeh2014,mao15,Yu2016}, visual dialogues \cite{das2017visual,vries2017guesswhat} or image paragraphs \cite{krause2017hierarchical}. 
 While object names occur in all of these datasets, they are not necessarily marked up and linked to the corresponding image regions. The overview in Section \ref{sec:survey} will discuss corpora where the grounding of names of objects to their regions is given, as in the case of \vgenome \cite{krishna2016visualgenome}, or where it can be easily derived, as in the case of referring expressions.
 
-Our new collection, ManyNames, focusses on object names in isolation and is substantially more controlled than common L\&V datasets. This controlled collection procedure allowed us to elicit many names for the same object from different annotators, resulting in a dataset that is amenable to  studying systematically and on a large scale the core phenomena of object naming, viz. naming variation and preferences.\cs{rephrase}
+Our new collection, ManyNames, focusses on object names in isolation and is substantially more controlled than common L\&V datasets. This controlled collection procedure allowed us to elicit many names for the same object from different annotators, resulting in a dataset that is amenable to  studying systematically and on a large scale the core phenomena of object naming, viz. naming variation and preferences. 
 
 \begin{table*}[htb]
   \centering

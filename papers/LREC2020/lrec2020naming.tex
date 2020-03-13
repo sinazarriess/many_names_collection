@@ -21,6 +21,14 @@
 
 \usepackage{microtype}
 
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bf\center}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\SmallTitleFont\bf\raggedright}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bf\raggedright}{\thesubsubsection.}{1em}{}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
 \newcommand{\secref}[1]{\StrSubstitute{\getrefnumber{#1}}{.}{ }}
 
 \newcommand{\refexp}[1]{\textsl{#1}}
@@ -35,9 +43,9 @@
 \newcommand{\refcocop}{RefCOCO+\xspace}
 \newcommand{\flickr}{Flickr30k Entities\xspace}
 
-\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
-\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
-\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
+%\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+%\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
+%\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
 
 \definecolor{lightgray}{gray}{0.85}
 

@@ -13,13 +13,13 @@ a dataset of images of natural scenes of $91$~common object categories (e.g.,~\c
 The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
 Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object. 
 The matcher must click on the object she thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
-REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use location words, urging them to refer to the appearance of objects.
+REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use certain location words, urging them to refer to the appearance of objects.
  % \gbt{How come the naming vocabulary size is so large if RefCOCO contains only 80 categories? How did you compute these numbers, are they for names, or whole REs?} \sz{well, 80 categories doesn't mean much as the categories can be very general (like "human") ... and it nicely shows that natural names are much more variable than strict categories}
 % Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories.
 
 Table~\ref{tab:compare} shows that the multiple annotations ($2.8$~on average) actually contain a considerable amount of variation in naming (almost~$2$ different names on average per object). 
 %However, the small number of annotations per object does not allow for a reliable assessment of speaker agreement. 
-However, the small number of annotations per object does not allow to reliably infer object-specific naming preferences or assess speaker agreement. \cs{double-check formulation}
+However, the small number of annotations per object does not allow to reliably infer object-specific naming preferences or assess speaker agreement. 
 
 RefCOCO has been used to model and examine the effect of context on referring expression generation in general \cite{Yu2016}, though this work did not look at object names specifically. 
 A controlled analysis of the effect of context on choice in naming, as for instance in \cite{graf2016animal}, would require substantial further data annotation as not all objects of an image are annotated with REs and corresponding categories. Hence, so-called distractor objects  \cite{krahmer:2012} and their names cannot be analyzed systematically.
