@@ -39,8 +39,8 @@ We analyze the response sets obtained per object, that is, the set of names and 
 Our analysis of naming variation shows that, on the one hand, we have a fair bit of consistency in the names chosen for objects, and, on the other, also consistent variation.
 Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$.
 Without any frequency thresholding~\mbox{$t$=1}, that is, allowing names entered by only one annotator, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
-With a reasonable (based on data inspection; names entered by one annotator only have the most noise, which is to be expected) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
-This threshold is the one illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which shows names that have at least frequency 2.
+With a reasonable threshold of~$t$=$2$ (based on data inspection; names entered by one annotator only have the most noise, which is to be expected), a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
+This threshold is illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which shows names that have at least frequency 2.
 The average number of names with this threshold is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
 Hence, in our data, objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, but at the same time there is variation.
 
@@ -160,8 +160,7 @@ In a qualitative analysis, we found the following types of variation in the data
 \textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\word{robe/dress}, image not shown).
 %As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
 %
-%\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations}
-Our analysis 
+%\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations} 
 \begin{table}[t]
 %\small
 \centering
