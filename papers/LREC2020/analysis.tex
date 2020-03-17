@@ -39,8 +39,8 @@ We analyze the response sets obtained per object, that is, the set of names and 
 Our analysis of naming variation shows that, on the one hand, we have a fair bit of consistency in the names chosen for objects, and, on the other, also consistent variation.
 Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$.
 Without any frequency thresholding~\mbox{$t$=1}, that is, allowing names entered by only one annotator, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
-With a reasonable (based on data inspection; names entered by one annotator only have the most noise, which is to be expected) threshold of $t$=2, a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
-This threshold is the one illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which shows names that have at least frequency 2.
+With a reasonable threshold of $t$=2 (based on data inspection; names entered by one annotator only have the most noise, which is to be expected), a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
+This threshold is used in Fig.~\ref{fig:ex-high-low-agreement}, showing names that have at least frequency 2.
 The average number of names with this threshold is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
 Hence, in our data, objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, but at the same time there is variation.
 
@@ -71,6 +71,7 @@ Hence, in our data, objects tend to have a preferred name, as expected from work
 
 To further assess agreement on the object names, we check the following measures, computed with \mbox{$t$=$2$}, with results in Table~\ref{tab:agree}:
 \begin{itemize}
+  \setlength\itemsep{-0.5pt}
 \item \textbf{N}: the average number of types in the response set. %of ManyNames.
 \item \textbf{\% top}: the average relative frequency of the most frequent response (shown in percent).
 \item $\mathbf{H}$: the $H$ agreement measure from \cite{snodgrass}, where $0$~is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
@@ -134,7 +135,7 @@ To obtain these data, we exploited the synset annotation in the \vg names, and a
 \footnote{To detect hypernyms, we use the hypernym closure of the synset with a depth of $10$; the other relations are straightforward. The coverage of WordNet for our name data is satisfactory ($90$\%\ of the name types, accounting for $97$\%\ of the tokens).}
 As shown in the table, in the vast majority of cases, no hierarchical relation between the name and the synset can be retrieved from WordNet.
 Even factoring in the noise introduced by referential uncertainty, it is clear that a good portion of our data cannot be explained by variation in the level of abstraction of the chosen name. 
-Among the names that do have a taxonomic relation to the synset, hypernyms are the most frequent, meaning that our annotators often went for a more general name than the \vg annotators.
+Among the names that do have a taxonomic relation to the synset, hypernyms are the most frequent, meaning that our annotators often chose a more general name than the \vg annotators.
 %%In this section, we take a closer look at the lexical variation we observe in our data set. 
 %We analyze the data points where participants attributed different names to the same object and extract a set of  pairwise \textbf{naming variants}. These naming variants correspond to pairs of words that can be used interchangeably to name certain objects.
 %For each object, we extract the set of naming variants $s = \{ (w_{top},w_2), (w_{top},w_3), (w_{top},w_4),... \}$  where $w_{top}$ is the most frequent name annotated for the object and $w_2 ... w_n$ constitute the less frequent alternatives of $w_{top}$.  The  \textbf{type frequency} of a naming variant $(w_{top},w_x)$ corresponds to the number of objects where this variant occurs. The \textbf{token frequency} of $(w_{top},w_x)$ corresponds the count of all annotations where $w_x$ has been used instead of $w_{top}$.
@@ -153,14 +154,15 @@ Among the names that do have a taxonomic relation to the synset, hypernyms are t
 %\gbt{what do you mean, `` aggregated class-level response set''?}
 %\cs{Considering the track we are submitting to, one or two examples per relation in an additional column in the table wouldn't hurt.}
 
-In a qualitative analysis, we found the following types of variation in the data, illustrated with examples in Figure~\ref{fig:ex-high-low-agreement}.
+In a qualitative analysis, we found the following types of variation in the data, illustrated with examples in Figure~\ref{fig:ex-high-low-agreement}: 
 \textbf{Cross-classification}: a substantial group are names conceptualizing alternative aspects of the same object (e.g. \word{toast/dessert}, image C).
-\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers as to what an object is (\word{bed/bench}, images J).
+\textbf{Conceptual disagreement}: as we did not filter objects for prototypicality, our data mirrors a certain amount of disagreement between speakers as to what an object is (\word{bed/bench}, image J).
 \textbf{Metonymy}: we find examples reminiscent of metonymy discussed in the linguistic literature \cite{pustejovsky1991generative} where logically related parts of an object stand in as its name (\word{burger/basket}, image B). 
 \textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\word{robe/dress}, image not shown).
 %As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
 %
-\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations}
+%\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations}
+% Our analysis 
 \begin{table}[t]
 %\small
 \centering

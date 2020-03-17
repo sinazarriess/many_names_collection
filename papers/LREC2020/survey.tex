@@ -13,13 +13,13 @@ a dataset of images of natural scenes of $91$~common object categories (e.g.,~\c
 The REs were collected via crowdsourcing in a two-player reference game designed to obtain REs uniquely referring to the target object. 
 Specifically, a director and a matcher are presented with an image, and the director produces a RE for an outlined target object. 
 The matcher must click on the object she thinks the RE refers to. % (For more details on the datasets see \cite{Yu2016}). 
-REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use location words, urging them to refer to the appearance of objects.
+REs in \refcoco/+ were collected under the constraints that (i) all images contain at least two objects of the same category (80 COCO categories), which results in longer and more complex REs than just the object name, and (ii) in \refcocop the players cannot use certain location words, urging them to refer to the appearance of objects.
  % \gbt{How come the naming vocabulary size is so large if RefCOCO contains only 80 categories? How did you compute these numbers, are they for names, or whole REs?} \sz{well, 80 categories doesn't mean much as the categories can be very general (like "human") ... and it nicely shows that natural names are much more variable than strict categories}
 % Another critical property of the data is that, (iii), not all objects in an image were annotated with REs, may it due to the frequency constraint~(i), or due to the object not being part of the 80 COCO categories.
 
 Table~\ref{tab:compare} shows that the multiple annotations ($2.8$~on average) actually contain a considerable amount of variation in naming (almost~$2$ different names on average per object). 
 %However, the small number of annotations per object does not allow for a reliable assessment of speaker agreement. 
-However, the small number of annotations per object does not allow to reliably infer object-specific naming preferences or assess speaker agreement. \cs{double-check formulation}
+However, the small number of annotations per object does not allow to reliably infer object-specific naming preferences or assess speaker agreement. 
 
 RefCOCO has been used to model and examine the effect of context on referring expression generation in general \cite{Yu2016}, though this work did not look at object names specifically. 
 A controlled analysis of the effect of context on choice in naming, as for instance in \cite{graf2016animal}, would require substantial further data annotation as not all objects of an image are annotated with REs and corresponding categories. Hence, so-called distractor objects  \cite{krahmer:2012} and their names cannot be analyzed systematically.
@@ -87,6 +87,53 @@ This dataset is suitable to analyze object naming in descriptions, for a quite l
 \subsection{Visual Genome}
 \label{sec:vg-survey}
 
+\begin{figure}
+\begin{center}
+%\fbox{\parbox{6cm}{
+%This is a figure with a caption.}}
+\includegraphics[scale=0.2]{figures/vulture.png} 
+\small
+\begin{tabular}{lp{6.2cm}}
+object id & linked region descriptions\\
+\hline
+3595788 & the \textbf{bird} is black in color, nose of the \textbf{bird}, a \textbf{bird} relaxing in stand, small white beak of \textbf{bird}, large black talon of \textbf{bird}, a \textbf{bird} on a green pole, a green bar under \textbf{bird}, black \textbf{bird} on green rail, small black eye of \textbf{bird}\\
+2286017 & large black \textbf{vulture} on fence, a vulture on bar\\
+%2385747 & small white beak of \textbf{bird}\\
+2681429 & a semi \textbf{long beak}\\  
+2346210 & a black and gray \textbf{vulture}\\
+ \end{tabular}
+\caption{Bounding boxes, names and region descriptions for an object in VisualGenome}
+\label{fig:bird}
+\end{center}
+\end{figure}
+
+\begin{table*}[htbp]
+	\small
+	\centering
+	\begin{tabular}{lp{14cm}}
+			\toprule
+			Domain & \multicolumn{1}{c}{Collection synsets}\\
+			\midrule			
+			animals\_plants & ungulate$_1$ (2037), horse$_1$ (833), feline$_1$ (763), dog$_1$ (688)
+			bird$_1$ (389), flower$_1$ (44), rodent$_1$ (27), insect$_1$ (12), fish$_1$ (11)\\
+			buildings      &  house$_1$ (364), bridge$_1$ (297), shelter$_1$ (169), restaurant$_1$ (58),
+                                         outbuilding$_1$ (31), hotel$_1$ (19), housing$_1$ (17), place\_of\_worship$_1$ (12)     \\
+			clothing       &  shirt$_1$ (968), overgarment$_1$ (786), dress$_1$ (199), headdress$_1$ (135),
+                                         neckwear$_1$ (65), robe$_1$ (27), glove$_2$ (7), footwear$_1$ (5)    \\
+			food           &  dish$_2$ (812), baked\_goods$_1$ (770), foodstuff$_2$ (280), vegetable$_1$ (48),
+                                         edible\_fruit$_1$ (42), beverage$_1$ (23)   \\
+			home           &  furnishing$_2$ (5,355), vessel$_3$ (525), kitchen\_utensil$_1$ (132), crockery$_1$ (92),
+			cutlery$_2$ (82), tool$_1$ (72), lamp$_1$ (34)    \\
+			people         & woman$_1$ (1768), man$_1$ (1167), male\_child$_1$ (853), athlete$_1$ (396),
+			 child$_1$ (333), creator$_2$ (11), professional$_1$ (5)    \\
+			vehicles       &  aircraft$_1$ (1208), train$_1$ (957), car$_1$ (727), motorcycle$_1$ (564),
+                                         truck$_1$ (559), boat$_1$ (499), ship$_1$ (38)    \\
+			\bottomrule
+		\end{tabular}
+		\caption{Overview of the ManyNames dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses).
+                  \label{tab:overview_dataset2}}
+	\end{table*}
+
 \vgenome (VG, \newcite{krishna2016visualgenome}) is one of the most densely and richly annotated resources currently available in L\&V; here, we focus on aspects immediately relevant to object naming.
 %In the following, we will focus on describing aspects immediately relevant to object naming only, but many other annotations are available as well (e.g. questions, paragraphs, etc.)
 %\paragraph{Collection and annotation procedure}
@@ -119,30 +166,11 @@ Note that in contrast, even though RefCOCO has much less annotations per object,
 
 \subsection{Discussion}
 
-While some existing resources do provide naming data for objects in context, they do not provide \textit{enough} data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
+While some existing resources do provide naming data for objects in context, they do not provide enough data to systematically assess how variable or stable object naming really is. The RefCOCO data (and to some extent the Flickr30k data) suggests that for most objects there is more than one available name, but it is unclear which name most speakers would prefer or whether there is such a preferred name at all. 
 The VG data, to the contrary, seems to indicate that the vast majority of objects should only be associated with a single name, but it is difficult to estimate to what extent this finding results from problems with annotation (partial linking).
 This shows that to be able to analyze object naming in more detail, it is crucial to have naming data from many subjects for the same objects. 
 Also, dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,\ the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
 These are the motivations for our dataset, ManyNames, and for building it on top of \vg, as discussed next.
-
-\begin{figure}
-\begin{center}
-%\fbox{\parbox{6cm}{
-%This is a figure with a caption.}}
-\includegraphics[scale=0.2]{figures/vulture.png} 
-\begin{tabular}{lp{6.2cm}}
-object id & linked region descriptions\\
-\hline
-3595788 & the \textbf{bird} is black in color, nose of the \textbf{bird}, a \textbf{bird} relaxing in stand, small white beak of \textbf{bird}, large black talon of \textbf{bird}, a \textbf{bird} on a green pole, a green bar under \textbf{bird}, black \textbf{bird} on green rail, small black eye of \textbf{bird}\\
-2286017 & large black \textbf{vulture} on fence, a vulture on bar\\
-%2385747 & small white beak of \textbf{bird}\\
-2681429 & a semi \textbf{long beak}\\  
-2346210 & a black and gray \textbf{vulture}\\
- \end{tabular}
-\caption{Bounding boxes, names and region descriptions for an object in VisualGenome}
-\label{fig:bird}
-\end{center}
-\end{figure}
 
 %%% Local Variables:
 %%% mode: latex
