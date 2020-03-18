@@ -2,33 +2,6 @@
 % Number of object names:  450\\
 % Number of collection nodes (synsets):    52 \\
 
-\begin{table*}[htp]
-	\small
-	\centering
-	\begin{tabular}{lp{14cm}}
-			\toprule
-			Domain & \multicolumn{1}{c}{Collection synsets}\\
-			\midrule			
-			animals\_plants & ungulate$_1$ (2037), horse$_1$ (833), feline$_1$ (763), dog$_1$ (688)
-			bird$_1$ (389), flower$_1$ (44), rodent$_1$ (27), insect$_1$ (12), fish$_1$ (11)\\
-			buildings      &  house$_1$ (364), bridge$_1$ (297), shelter$_1$ (169), restaurant$_1$ (58),
-                                         outbuilding$_1$ (31), hotel$_1$ (19), housing$_1$ (17), place\_of\_worship$_1$ (12)     \\
-			clothing       &  shirt$_1$ (968), overgarment$_1$ (786), dress$_1$ (199), headdress$_1$ (135),
-                                         neckwear$_1$ (65), robe$_1$ (27), glove$_2$ (7), footwear$_1$ (5)    \\
-			food           &  dish$_2$ (812), baked\_goods$_1$ (770), foodstuff$_2$ (280), vegetable$_1$ (48),
-                                         edible\_fruit$_1$ (42), beverage$_1$ (23)   \\
-			home           &  furnishing$_2$ (5,355), vessel$_3$ (525), kitchen\_utensil$_1$ (132), crockery$_1$ (92),
-			cutlery$_2$ (82), tool$_1$ (72), lamp$_1$ (34)    \\
-			people         & woman$_1$ (1768), man$_1$ (1167), male\_child$_1$ (853), athlete$_1$ (396),
-			 child$_1$ (333), creator$_2$ (11), professional$_1$ (5)    \\
-			vehicles       &  aircraft$_1$ (1208), train$_1$ (957), car$_1$ (727), motorcycle$_1$ (564),
-                                         truck$_1$ (559), boat$_1$ (499), ship$_1$ (38)    \\
-			\bottomrule
-		\end{tabular}
-		\caption{Overview of the ManyNames dataset: Synset nodes for each domain (subscript indicates synset number; number of instances in parentheses).
-                  \label{tab:overview_dataset2}}
-	\end{table*}
-
 \iffalse
 \begin{table*}[htp]
 	\small
@@ -56,15 +29,10 @@
 \begin{figure*}[htp]
 	\centering
 	\includegraphics[scale=.8]{figures/distr_imgs-per-domain_VGMN_v2.png}
-	\caption{Cumulative histograms of the number of images and names per domain in ManyNames.}
+% WAS:	\caption{Cumulative histograms of the number of images and names per domain in ManyNames.}
+% But it's not really a cumulative histogram
+	\caption{Number of images and top responses (most frequent name per image), per domain. All high-frequency names are shown, as well as a few lower-frequency names.}
 	\label{fig:overview_dataset1}
-\end{figure*}
-
-\begin{figure*}[htp]
-  \centering
-  \includegraphics[width=1.5\columnwidth]{figures/round0_cropped.png}
-  \caption{Instructions for AMT annotators for the first round (whole instructions showed more examples, see Figure~\ref{fig:instructions2}).}
-  \label{fig:instructions1}
 \end{figure*}
 
 We take data from \vgenome~(VG) because its dense annotations of images can be beneficial to analyze the factors affecting naming (e.g.,~the category or salience of other objects), and how these impact the modeling of natural language in L\&V.
@@ -105,6 +73,20 @@ Because of the Zipfian distribution of names, and to balance the collection, we 
 Figure~\ref{fig:overview_dataset1} shows the distribution of images and names in ManyNames per domain. 
 %\gbt{If someone feels like it: It'd be good to use small caps for domains throughout, and also to have the same (alphabetical?) order for all domains in all tables.}
 
+\begin{figure*}[htp]
+  \centering
+  \includegraphics[width=1.5\columnwidth]{figures/round0_cropped.png}
+  \caption{Instructions for AMT annotators for the first round (whole instructions showed more examples, see Figure~\ref{fig:instructions2}).}
+  \label{fig:instructions1}
+\end{figure*}
+
+\begin{figure*}[htp]
+  \centering
+  \includegraphics[width=1\columnwidth]{figures/round1+_p1.png}
+  \caption{Instructions for AMT annotators for rounds~$2$ to~$4$.}% They were accompanied by the FAQ in Figure~\ref{fig:faq}}
+  \label{fig:instructions2}
+\end{figure*}
+
 \subsection{Elicitation Procedure}
 \label{ssec:elicitation}
 
@@ -121,13 +103,6 @@ We then did ~3~more collection rounds, obtaining a total of $36$~annotations per
 Figure~\ref{fig:instructions2} shows the instructions for these rounds; they were accompanied by a FAQ solving common issues. 
 We shuffled the set of images per task between rounds, and workers could only participate in one round, to avoid workers annotating an instance more than once.
 Overall $841$~workers\footnote{Participation was restricted to residents of the UK, USA, Canada, New Zealand, and Australia.} took part in the data elicitation, with a median of  $261$~instances \mbox{($\textrm{range}=[9,17K]$)} per worker.
-
-\begin{figure*}[htp]
-  \centering
-  \includegraphics[width=1\columnwidth]{figures/round1+_p1.png}
-  \caption{Instructions for AMT annotators for rounds~$2$ to~$4$.}% They were accompanied by the FAQ in Figure~\ref{fig:faq}}
-  \label{fig:instructions2}
-\end{figure*}
 
 % \begin{figure*}[htp]
 %   \centering

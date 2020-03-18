@@ -14,9 +14,9 @@
 \input{analysis_table_lrec2020}
 
 \begin{figure}
-\vspace{-4ex}
-\includegraphics[width=\columnwidth]{figures/types_instances.png}
- \caption{\label{fig:ntypes} Cumulative histograms for number of types in ManyNames, with frequency thresholds} 
+	\vspace{-4ex}
+	\includegraphics[width=\columnwidth]{figures/types_instances.png}
+	\caption{\label{fig:ntypes} Cumulative histograms for number of types in ManyNames, with frequency thresholds} 
 \end{figure}
 
 As shown in Table~\ref{tab:compare} above, ManyNames gathers many more names per object than previous datasets: $35.3$~on average, compared to~$1-7$.
@@ -39,44 +39,45 @@ We analyze the response sets obtained per object, that is, the set of names and 
 Our analysis of naming variation shows that, on the one hand, we have a fair bit of consistency in the names chosen for objects, and, on the other, also consistent variation.
 Figure \ref{fig:ntypes} shows the cumulative histograms for type counts, i.e.\ how many objects have at least $n$\ names, with different frequency thresholds~$t$.
 Without any frequency thresholding~\mbox{$t$=1}, that is, allowing names entered by only one annotator, the proportion of instances that have a single name annotated is very small, below\ $10\%$, and there is a long tail of datapoints with many names, up to 19. 
-With a reasonable threshold of~$t$=$2$ (based on data inspection; names entered by one annotator only have the most noise, which is to be expected), a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
-This threshold is illustrated in Fig.~\ref{fig:ex-high-low-agreement}, which shows names that have at least frequency 2.
+With a reasonable threshold of $t$=2 (based on data inspection; names entered by one annotator only have the most noise, which is to be expected), a bit over $20\%$\ of the objects have one name, almost $50\%$\ up to $3$\ names, and $100\%$\ up to $8$\ names.
+This threshold is used in Fig.~\ref{fig:ex-high-low-agreement}, showing names that have at least frequency 2.
 The average number of names with this threshold is\ $2.9$, and the most frequent name accounts on average for $75\%$\ of the responses for a given object (Table~\ref{tab:agree}, and see below).
 Hence, in our data, objects tend to have a preferred name, as expected from work in Psychology \cite{rosch1976basic,jolicoeur1984pictures}, but at the same time there is variation.
 
 \begin{table}
-\centering
-\small
-\begin{tabular}{lccccc}
-  \toprule
-% & \multicolumn{5}{c}{Instance-level agreement} \\
-  Domain &    N &         \%top (std) &          H (std) & t=VG &   \%VG \\
-  \midrule
-  all &  2.9 &  75.2 (21.9) &  0.9 (0.7) &   72.8 &  62.8 \\
-  \midrule
-  people &  4.3 &  59.0 (20.4) &  1.5 (0.7) &   49.8 &  36.3 \\
-  clothing &  3.2 &  70.1 (18.5) &  1.1 (0.6) &   70.2 &  57.4\\
-  home &  3.1 &  72.6 (20.7) &  1.0 (0.7) &   78.5 &  64.1 \\
-  buildings &  3.0 &  74.7 (20.7) &  1.0 (0.7) &   72.6 &  61.6\\
-  food &  2.9 &  76.4 (20.7) &  0.9 (0.7) &   62.9 &  55.2 \\
-  vehicles &  2.4 &  76.6 (19.8) &  0.8 (0.6) &   71.1 &  63.9 \\
-  animal\_plants &  1.5 &  94.5 (12.1) &  0.2 (0.4) &   93.8 &  91.0\\
-\bottomrule
-\end{tabular}
-\vspace{-0.3cm}
-\caption{Agreement in object naming, with a frequency threshold of~$2$.}
-% Domain `an\_pl' is animal\_plants.}
-\label{tab:agree}
+	\centering
+	\small
+	\begin{tabular}{lccccc}
+		\toprule
+		% & \multicolumn{5}{c}{Instance-level agreement} \\
+		Domain &    N &         \%top (std) &          H (std) & t=VG &   \%VG \\
+		\midrule
+		all &  2.9 &  75.2 (21.9) &  0.9 (0.7) &   72.8 &  62.8 \\
+		\midrule
+		people &  4.3 &  59.0 (20.4) &  1.5 (0.7) &   49.8 &  36.3 \\
+		clothing &  3.2 &  70.1 (18.5) &  1.1 (0.6) &   70.2 &  57.4\\
+		home &  3.1 &  72.6 (20.7) &  1.0 (0.7) &   78.5 &  64.1 \\
+		buildings &  3.0 &  74.7 (20.7) &  1.0 (0.7) &   72.6 &  61.6\\
+		food &  2.9 &  76.4 (20.7) &  0.9 (0.7) &   62.9 &  55.2 \\
+		vehicles &  2.4 &  76.6 (19.8) &  0.8 (0.6) &   71.1 &  63.9 \\
+		animal\_plants &  1.5 &  94.5 (12.1) &  0.2 (0.4) &   93.8 &  91.0\\
+		\bottomrule
+	\end{tabular}
+	\vspace{-0.3cm}
+	\caption{Agreement in object naming, with a frequency threshold of~$2$.}
+	% Domain `an\_pl' is animal\_plants.}
+	\label{tab:agree}
 \end{table}
 
 To further assess agreement on the object names, we check the following measures, computed with \mbox{$t$=$2$}, with results in Table~\ref{tab:agree}:
 \begin{itemize}
-\item \textbf{N}: the average number of types in the response set. %of ManyNames.
-\item \textbf{\% top}: the average relative frequency of the most frequent response (shown in percent).
-\item $\mathbf{H}$: the $H$ agreement measure from \cite{snodgrass}, where $0$~is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
-where $k$~denotes the number of name types and $p_i$~is the proportion of type~$i$ in the responses. 
-\item \textbf{t=VG}: the percentage of items where the top response in ManyNames is the \vg name.
-\item \textbf{\% VG}: the average relative frequency of the \vg name in the response set.
+	\setlength\itemsep{-0.5pt}
+	\item \textbf{N}: the average number of types in the response set. %of ManyNames.
+	\item \textbf{\% top}: the average relative frequency of the most frequent response (shown in percent).
+	\item $\mathbf{H}$: the $H$ agreement measure from \cite{snodgrass}, where $0$~is perfect agreement: \mbox{$H = \sum_{i=1}^k p_i~log_2\frac{1}{p_i}$}, 
+	where $k$~denotes the number of name types and $p_i$~is the proportion of type~$i$ in the responses. 
+	\item \textbf{t=VG}: the percentage of items where the top response in ManyNames is the \vg name.
+	\item \textbf{\% VG}: the average relative frequency of the \vg name in the response set.
 \end{itemize}
 
 Apart from the trends mentioned above, it is remarkable that only in $73$\%~of the cases the most frequent response coincides with the \vg name, and the \vg name accounts for $63$\%~of the responses on average.
@@ -160,29 +161,30 @@ In a qualitative analysis, we found the following types of variation in the data
 \textbf{Issues with WordNet}: due to WordNet's fine-grained hierarchy, it is difficult to retrieve certain loose synonyms or hypernyms (\word{robe/dress}, image not shown).
 %As it is non-trivial to separate these phenomena, we leave a quantitative analysis for future work.
 %
-%\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations} 
+%\cs{TO ADD: What does ManyNames provide, that WordNet can't: out-of-vocabulary words; we observe instance-based variation, WordNet is class-based: valid (co-)hyponyms, different most preferred name depending on instance, variations which are not due to taxonomic relations}
+% Our analysis 
 \begin{table}[t]
-%\small
-\centering
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{lcc|p{2.5cm}}
-\toprule
-         relation & \% types & \% tokens & \it ex: jacket \\
-\midrule
-% meronym &  0.1 &  0.2 \\
-% holonym &  0.1 &  0.4 \\
- word-not-covered &  10.6 &  2.6 & \it outdoor vest\\
-\midrule
- synonym &  1.1 &  1.1 & \it hoodie  \\
- hyponym &  2.2 &  3.8 & \it parka\\ %, blazer \\
- co-hyponym &  3.1 &  5.9 & \it raincoat\\
- hypernym &  10.5 &  27.7 & \it clothing \\%, coat\\
- rel-not-covered &  72.2 &  58.3 & \it sweatshirt\\%, man\\
-\bottomrule
-\end{tabular}
-\caption{Lexical relations of naming variants in ManyNames to annotated \vg synset, averaged over synsets, with examples of variants for \word{jacket}.}
-\label{tab:rel}
-\vspace{-0.5cm}
+	%\small
+	\centering
+	\setlength{\tabcolsep}{2pt}
+	\begin{tabular}{lcc|p{2.5cm}}
+		\toprule
+		relation & \% types & \% tokens & \it ex: jacket \\
+		\midrule
+		% meronym &  0.1 &  0.2 \\
+		% holonym &  0.1 &  0.4 \\
+		word-not-covered &  10.6 &  2.6 & \it outdoor vest\\
+		\midrule
+		synonym &  1.1 &  1.1 & \it hoodie  \\
+		hyponym &  2.2 &  3.8 & \it parka\\ %, blazer \\
+		co-hyponym &  3.1 &  5.9 & \it raincoat\\
+		hypernym &  10.5 &  27.7 & \it clothing \\%, coat\\
+		rel-not-covered &  72.2 &  58.3 & \it sweatshirt\\%, man\\
+		\bottomrule
+	\end{tabular}
+	\caption{Lexical relations of naming variants in ManyNames to annotated \vg synset, averaged over synsets, with examples of variants for \word{jacket}.}
+	\label{tab:rel}
+	\vspace{-0.5cm}
 \end{table}
 
 
@@ -232,5 +234,4 @@ See e.g.\ the ResNet which achieves a top-1 error rate of $25$\% on ILSVRC 2015.
 %%% mode: latex
 %%% TeX-master: "lrec2020naming"
 %%% End:
-
 
