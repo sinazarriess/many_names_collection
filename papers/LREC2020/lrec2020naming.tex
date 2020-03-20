@@ -21,6 +21,14 @@
 
 \usepackage{microtype}
 
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bf\center}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\SmallTitleFont\bf\raggedright}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bf\raggedright}{\thesubsubsection.}{1em}{}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
 \newcommand{\secref}[1]{\StrSubstitute{\getrefnumber{#1}}{.}{ }}
 
 \newcommand{\refexp}[1]{\textsl{#1}}
@@ -35,9 +43,9 @@
 \newcommand{\refcocop}{RefCOCO+\xspace}
 \newcommand{\flickr}{Flickr30k Entities\xspace}
 
-\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
-\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
-\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
+%\newcommand{\sz}[1]{\textcolor{blue}{\emph{//sz: #1//}}}
+%\newcommand{\gbt}[1]{\textcolor{orange}{\emph{//g: #1//}}}
+%\newcommand{\cs}[1]{\textcolor{green!60!black}{\emph{//cs: #1//}}}
 
 \definecolor{lightgray}{gray}{0.85}
 
@@ -56,7 +64,9 @@ People choose particular names for objects, such as \word{dog} or \word{puppy} f
 Object naming has been studied in Psycholinguistics, but has received relatively little attention in Computational Linguistics.
 We review resources from Language and Vision that could be used to study object naming on a large scale, discuss their shortcomings, and create a new dataset that affords more opportunities for analysis and modeling.
 Our dataset, ManyNames, provides 36 name annotations for each of 25K objects in images selected from VisualGenome.
-We highlight the challenges involved and provide a preliminary analysis of the ManyNames data showing that there is a high level of agreement in naming, on average. At the same time, the average number of name types associated with an object is much higher in our dataset than in existing corpora for Language and Vision, such that ManyNames provides a rich resource for studying phenomena like hierarchical variation (\word{chihuahua} vs.\ \word{dog}), which has been discussed a lot in the theoretical literature, and other less well studied phenomena like cross-classification (\word{cake} vs.\ \word{dessert}).
+We highlight the challenges involved and provide a preliminary analysis of the ManyNames data showing that there is a high level of agreement in naming, on average. At the same time, the average number of name types associated with an object is much higher in our dataset than in existing corpora for Language and Vision, such that ManyNames provides a rich resource for studying phenomena like hierarchical variation (\word{chihuahua} vs.\ \word{dog}), which has been discussed at length in the theoretical literature, and other less well studied phenomena like cross-classification
+%\cs{Should we keep this term? (@GBT cf. discussion with A. Maedebach)} 
+(\word{cake} vs.\ \word{dessert}).
 % may not be the main driver of diversity in naming behavior, \cs{sounds weird:}at least in our setup.\cs{in naming behavior on real-world objects (?)}
  \\ \newline \Keywords{object naming, language and vision, computer vision} }
 
@@ -75,7 +85,7 @@ We highlight the challenges involved and provide a preliminary analysis of the M
 \label{sec:rel-work}
 \input{background}
 
-\section{Object Names in Existing L\&V resources}
+\section{Object Names in Existing L\&V Resources}
 \label{sec:survey}
 \input{survey}
 
@@ -91,8 +101,17 @@ We highlight the challenges involved and provide a preliminary analysis of the M
 \label{sec:conc}
 \input{conclusion}
 
-%\section{Acknowledgements}
-
+\section{Acknowledgments}
+We thank the anonymous reviewers for their comments, and the AMT workers who participated in our crowdsourcing task.  
+ This project has received funding from the European Research Council~(ERC) under the European Union's Horizon~2020 research and innovation programme (grant agreement No715154) and by the Catalan government~(SGR 2017 1575).
+ % Spanish  State  Research  Agency~(AEI) and  the  European  Regional  Development  Fund~(FEDER, UE) (project PGC2018-094029-A-I00). 
+ This paper reflects the authors' view only,  and the EU is not responsible \mbox{for any use that may be made of the information it contains.}
+ %\hfill \includegraphics[scale=.03]{figures/LOGO_ERC-FLAG_EU_.jpg}
+ \begin{flushright}
+ 	\vspace{-2ex}
+ 	\includegraphics[scale=.03]{figures/LOGO_ERC-FLAG_EU_.jpg}
+ \end{flushright}
+ 
 % Place all acknowledgements (including those concerning research grants and
 % funding) in a separate section at the end of the article.
 
