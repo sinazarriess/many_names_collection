@@ -1,667 +1,922 @@
-('child', 'male_child.n.01') 430
-('kid', 'male_child.n.01') 322
-('man', 'athlete.n.01') 292
-('countertop', 'furnishing.n.02') 245
-('floor', 'furnishing.n.02') 232
-('player', 'woman.n.01') 222
-('tennis player', 'woman.n.01') 194
-('child', 'woman.n.01') 178
-('skateboarder', 'male_child.n.01') 172
-('skater', 'male_child.n.01') 165
-('player', 'man.n.01') 158
-('boy', 'child.n.01') 143
-('player', 'male_child.n.01') 125
-('girl', 'child.n.01') 119
-('skateboarder', 'man.n.01') 98
-('tennis player', 'man.n.01') 95
-('skater', 'man.n.01') 93
-('athlete', 'woman.n.01') 90
-('kid', 'woman.n.01') 71
-('baseball player', 'male_child.n.01') 58
-('athlete', 'man.n.01') 53
-('boy', 'athlete.n.01') 52
-('baby', 'child.n.01') 49
-('sandwich', 'baked_goods.n.01') 49
-('cupboard', 'furnishing.n.02') 48
-('sailboat', 'boat.n.01') 42
-('scooter', 'motorcycle.n.01') 40
-('kitten', 'feline.n.01') 37
-('desktop', 'furnishing.n.02') 37
-('skier', 'woman.n.01') 36
-('surfer', 'woman.n.01') 36
-('surfer', 'man.n.01') 35
-('human', 'woman.n.01') 35
-('soccer player', 'male_child.n.01') 34
-('locomotive', 'train.n.01') 34
-('lamb', 'ungulate.n.01') 34
-('blouse', 'shirt.n.01') 33
-('tennis player', 'male_child.n.01') 33
-('batter', 'male_child.n.01') 31
-('toddler', 'male_child.n.01') 31
-('shelf', 'furnishing.n.02') 30
-('baseball player', 'man.n.01') 29
-('human', 'man.n.01') 29
-('skateboarder', 'woman.n.01') 27
-('athlete', 'male_child.n.01') 25
-('dessert', 'baked_goods.n.01') 25
-('jacket', 'shirt.n.01') 25
-('skater', 'woman.n.01') 25
-('skier', 'child.n.01') 24
-('mat', 'furnishing.n.02') 24
-('sweatshirt', 'overgarment.n.01') 23
-('mug', 'crockery.n.01') 23
-('canopy', 'shelter.n.01') 23
-('vehicle', 'train.n.01') 23
-('bookshelf', 'furnishing.n.02') 23
-('teenager', 'male_child.n.01') 22
-('skier', 'man.n.01') 22
-('polo', 'shirt.n.01') 21
-('shirt', 'dress.n.01') 20
-('van', 'car.n.01') 19
-('soccer player', 'woman.n.01') 19
-('snowboarder', 'man.n.01') 19
-('bike', 'boat.n.01') 18
-('bread', 'dish.n.02') 17
-('human', 'male_child.n.01') 17
-('hotdog', 'baked_goods.n.01') 16
-('baby', 'male_child.n.01') 16
-('skateboarder', 'child.n.01') 15
-('counter top', 'furnishing.n.02') 15
-('slice', 'dish.n.02') 15
-('surfer', 'male_child.n.01') 15
-('motorcycle', 'boat.n.01') 15
-('mattress', 'furnishing.n.02') 15
-('skater', 'child.n.01') 14
-('island', 'furnishing.n.02') 14
-('computer mouse', 'rodent.n.01') 14
-('toddler', 'woman.n.01') 14
-('soccer player', 'man.n.01') 14
-('human', 'athlete.n.01') 14
-('vase', 'kitchen_utensil.n.01') 14
-('store', 'restaurant.n.01') 13
-('sweatshirt', 'shirt.n.01') 13
-('tuxedo', 'overgarment.n.01') 13
-('snowboarder', 'woman.n.01') 13
-('bus', 'truck.n.01') 13
-('woman', 'athlete.n.01') 12
-('pitcher', 'man.n.01') 12
-('tabletop', 'furnishing.n.02') 12
-('plate', 'vessel.n.03') 12
-('player', 'child.n.01') 12
-('moped', 'boat.n.01') 11
-('shelves', 'furnishing.n.02') 11
-('wine', 'vessel.n.03') 11
-('subway', 'train.n.01') 10
-('teen', 'male_child.n.01') 10
-('calf', 'ungulate.n.01') 10
-('top', 'shirt.n.01') 10
-('child', 'athlete.n.01') 10
-('kid', 'athlete.n.01') 10
-('plate', 'crockery.n.01') 9
-('drink', 'crockery.n.01') 9
-('batter', 'man.n.01') 9
-('man', 'child.n.01') 9
-('uniform', 'shirt.n.01') 9
-('futon', 'furnishing.n.02') 9
-('chef', 'man.n.01') 8
-('dress', 'shirt.n.01') 8
-('statue', 'ungulate.n.01') 8
-('blanket', 'furnishing.n.02') 8
-('lettuce', 'dish.n.02') 8
-('train', 'car.n.01') 8
-('outfit', 'dress.n.01') 8
-('pitcher', 'male_child.n.01') 8
-('glass', 'crockery.n.01') 8
-('batter', 'woman.n.01') 8
-('uniform', 'overgarment.n.01') 8
-('tray', 'kitchen_utensil.n.01') 8
-('engine', 'train.n.01') 7
-('raft', 'boat.n.01') 7
-('hutch', 'furnishing.n.02') 7
-('cruise ship', 'boat.n.01') 7
-('trailer', 'truck.n.01') 7
-('drink', 'vessel.n.03') 7
-('wood', 'furnishing.n.02') 7
-('planter', 'kitchen_utensil.n.01') 7
-('baseball player', 'child.n.01') 7
-('storefront', 'restaurant.n.01') 7
-('herd', 'ungulate.n.01') 7
-('vegetables', 'dish.n.02') 6
-('teenager', 'man.n.01') 6
-('kitchen island', 'furnishing.n.02') 6
-('screen', 'furnishing.n.02') 6
-('mom', 'woman.n.01') 6
-('blouse', 'dress.n.01') 6
-('bride', 'woman.n.01') 6
-('store front', 'restaurant.n.01') 6
-('cyclist', 'man.n.01') 6
-('skier', 'male_child.n.01') 6
-('awning', 'shelter.n.01') 6
-('batter', 'child.n.01') 6
-('bed sheet', 'furnishing.n.02') 6
-('container', 'crockery.n.01') 5
-('tablecloth', 'furnishing.n.02') 5
-('pottery', 'vessel.n.03') 5
-('cook', 'man.n.01') 5
-('bedding', 'furnishing.n.02') 5
-('shop', 'restaurant.n.01') 5
-('photographer', 'man.n.01') 5
-('baseball player', 'woman.n.01') 5
-('cook', 'woman.n.01') 5
-('meat', 'ungulate.n.01') 5
-('food', 'ungulate.n.01') 5
-('bicyclist', 'man.n.01') 5
-('vehicles', 'train.n.01') 5
-('teenager', 'woman.n.01') 5
-('photographer', 'woman.n.01') 5
-('flower pot', 'kitchen_utensil.n.01') 5
-('cake', 'foodstuff.n.02') 5
-('coat', 'shirt.n.01') 5
-('bed cover', 'furnishing.n.02') 5
-('kid', 'man.n.01') 4
-('tanker', 'truck.n.01') 4
-('girl', 'athlete.n.01') 4
-('cushion', 'furnishing.n.02') 4
-('sink', 'furnishing.n.02') 4
-('beer', 'vessel.n.03') 4
-('walkway', 'bridge.n.01') 4
-('rider', 'man.n.01') 4
-('chef', 'woman.n.01') 4
-('coffee', 'crockery.n.01') 4
-('flannel', 'shirt.n.01') 4
-('drawers', 'furnishing.n.02') 4
-('motorbike', 'boat.n.01') 4
-('sweet', 'baked_goods.n.01') 4
-('statue', 'horse.n.01') 4
-('sub', 'baked_goods.n.01') 4
-('table top', 'furnishing.n.02') 4
-('house', 'shelter.n.01') 4
-('truck bed', 'truck.n.01') 4
-('toilet', 'vessel.n.03') 4
-('guy', 'male_child.n.01') 4
-('soccer player', 'child.n.01') 4
-('noodles', 'dish.n.02') 4
-('toy', 'ungulate.n.01') 4
-('desk top', 'furnishing.n.02') 4
-('dessert', 'foodstuff.n.02') 4
-('sail boat', 'boat.n.01') 4
-('fence', 'shelter.n.01') 3
-('church', 'house.n.01') 3
-('uniform', 'dress.n.01') 3
-('pizza', 'foodstuff.n.02') 3
-('officer', 'man.n.01') 3
-('cyclist', 'woman.n.01') 3
-('dock', 'bridge.n.01') 3
-('umpire', 'man.n.01') 3
-('jacket', 'dress.n.01') 3
-('glass', 'athlete.n.01') 3
-('statue', 'dog.n.01') 3
-('railcar', 'train.n.01') 3
-('dancer', 'woman.n.01') 3
-('student', 'male_child.n.01') 3
-('businessman', 'man.n.01') 3
-('teen', 'man.n.01') 3
-('clothes', 'robe.n.01') 3
-('human', 'child.n.01') 3
-('tennis player', 'child.n.01') 3
-('lamp post', 'lamp.n.01') 3
-('statue', 'furnishing.n.02') 3
-('boy', 'woman.n.01') 3
-('vegetable', 'dish.n.02') 3
-('food', 'fish.n.01') 3
-('head', 'woman.n.01') 3
-('goalie', 'woman.n.01') 3
-('rose', 'flower.n.01') 3
-('snowboarder', 'male_child.n.01') 3
-('traveler', 'woman.n.01') 3
-('phone booth', 'furnishing.n.02') 3
-('road', 'bridge.n.01') 3
-('snack', 'baked_goods.n.01') 3
-('bear', 'baked_goods.n.01') 3
-('caboose', 'train.n.01') 3
-('athlete', 'child.n.01') 3
-('tower', 'place_of_worship.n.01') 3
-('shack', 'house.n.01') 3
-('worker', 'man.n.01') 3
-('catcher', 'male_child.n.01') 3
-('shed', 'shelter.n.01') 3
-('costume', 'dress.n.01') 3
-('mitt', 'glove.n.02') 3
-('baseball glove', 'glove.n.02') 3
-('flock', 'ungulate.n.01') 3
-('goalie', 'male_child.n.01') 3
-('wall', 'house.n.01') 3
-('bicyclist', 'woman.n.01') 3
-('appliance', 'kitchen_utensil.n.01') 3
-('bird', 'insect.n.01') 3
-('tram', 'train.n.01') 3
-('robe', 'dress.n.01') 3
-('phone', 'edible_fruit.n.01') 3
-('kimono', 'dress.n.01') 3
-('blouse', 'overgarment.n.01') 3
-('tank top', 'dress.n.01') 3
-('train', 'baked_goods.n.01') 3
-('water', 'vessel.n.03') 3
-('pit', 'shelter.n.01') 3
-('window', 'furnishing.n.02') 3
-('trolley', 'train.n.01') 3
-('railing', 'shelter.n.01') 2
-('farmer', 'man.n.01') 2
-('swimmer', 'woman.n.01') 2
-('lifeguard', 'man.n.01') 2
-('reflection', 'woman.n.01') 2
-('toy', 'bird.n.01') 2
-('breakfast', 'foodstuff.n.02') 2
-('bun', 'dish.n.02') 2
-('father', 'man.n.01') 2
-('juggler', 'man.n.01') 2
-('train', 'ship.n.01') 2
-('cup', 'athlete.n.01') 2
-('barn', 'outbuilding.n.01') 2
-('coat', 'robe.n.01') 2
-('ferry', 'ship.n.01') 2
-('child', 'man.n.01') 2
-('surfer', 'child.n.01') 2
-('pita', 'dish.n.02') 2
-('business', 'restaurant.n.01') 2
-('juice', 'crockery.n.01') 2
-('pizza', 'baked_goods.n.01') 2
-('barn', 'house.n.01') 2
-('costume', 'shirt.n.01') 2
-('pitcher', 'woman.n.01') 2
-('undershirt', 'shirt.n.01') 2
-('salad', 'vegetable.n.01') 2
-('motorcyclist', 'man.n.01') 2
-('worker', 'woman.n.01') 2
-('dad', 'man.n.01') 2
-('track', 'bridge.n.01') 2
-('monk', 'man.n.01') 2
-('pilot', 'man.n.01') 2
-('costume', 'overgarment.n.01') 2
-('steak', 'ungulate.n.01') 2
-('lamppost', 'lamp.n.01') 2
-('grandpa', 'man.n.01') 2
-('woman', 'child.n.01') 2
-('meat', 'fish.n.01') 2
-('face', 'woman.n.01') 2
-('shopper', 'woman.n.01') 2
-('kite', 'aircraft.n.01') 2
-('toast', 'dish.n.02') 2
-('display', 'furnishing.n.02') 2
-('leather jacket', 'overgarment.n.01') 2
-('telephone booth', 'furnishing.n.02') 2
-('soldier', 'woman.n.01') 2
-('wing', 'aircraft.n.01') 2
-('tunnel', 'bridge.n.01') 2
-('umbrella', 'headdress.n.01') 2
-('girl', 'male_child.n.01') 2
-('apartment building', 'housing.n.01') 2
-('food', 'bird.n.01') 2
-('salad bowl', 'vessel.n.03') 2
-('t-shirt', 'dress.n.01') 2
-('hut', 'outbuilding.n.01') 2
-('burger', 'baked_goods.n.01') 2
-('soldier', 'man.n.01') 2
-('castle', 'place_of_worship.n.01') 2
-('iris', 'flower.n.01') 2
-('potter', 'man.n.01') 2
-('tray', 'crockery.n.01') 2
-('baseball mitt', 'glove.n.02') 2
-('collar', 'shirt.n.01') 2
-('french toast', 'baked_goods.n.01') 2
-('vent', 'headdress.n.01') 2
-('range hood', 'headdress.n.01') 2
-('hut', 'house.n.01') 2
-('roof', 'shelter.n.01') 2
-('toppings', 'foodstuff.n.02') 2
-('cupboards', 'furnishing.n.02') 2
-('wine glass', 'crockery.n.01') 2
-('jacket', 'robe.n.01') 2
-('breakfast', 'baked_goods.n.01') 2
-('jug', 'kitchen_utensil.n.01') 2
-('urinal', 'vessel.n.03') 2
-('face', 'man.n.01') 2
-('head', 'man.n.01') 2
-('fountain', 'vessel.n.03') 2
-('cellphone', 'edible_fruit.n.01') 2
-('mobile', 'edible_fruit.n.01') 2
-('pie', 'dish.n.02') 2
-('dress', 'overgarment.n.01') 2
-('comforter', 'furnishing.n.02') 2
-('meat', 'bird.n.01') 2
-('coffee mug', 'crockery.n.01') 2
-('boardwalk', 'bridge.n.01') 2
-('rider', 'woman.n.01') 2
-('groom', 'man.n.01') 2
-('ramekin', 'vessel.n.03') 2
-('snack', 'dish.n.02') 2
-('ambulance', 'truck.n.01') 2
-('kitchen cabinet', 'furnishing.n.02') 2
-('swing', 'furnishing.n.02') 2
-('shop', 'truck.n.01') 2
-('bedspread', 'furnishing.n.02') 2
-('toy', 'car.n.01') 2
-('actress', 'woman.n.01') 2
-('bar', 'restaurant.n.01') 2
-('toy', 'aircraft.n.01') 2
-('bookshelves', 'furnishing.n.02') 2
-('server', 'woman.n.01') 2
-('pickup truck', 'car.n.01') 1
-('vanity', 'vessel.n.03') 1
-('cabinetry', 'furnishing.n.02') 1
-('cabana', 'furnishing.n.02') 1
-('desert', 'baked_goods.n.01') 1
-('guy', 'athlete.n.01') 1
-('archway', 'shelter.n.01') 1
-('alcove', 'shelter.n.01') 1
-('highway', 'bridge.n.01') 1
-('woman', 'male_child.n.01') 1
-('statue', 'vessel.n.03') 1
-('sculpture', 'vessel.n.03') 1
-('decoration', 'vessel.n.03') 1
-('horse head', 'horse.n.01') 1
-('toy', 'vessel.n.03') 1
-('chicken', 'vessel.n.03') 1
-('bird', 'vessel.n.03') 1
-('liquid', 'foodstuff.n.02') 1
-('baker', 'woman.n.01') 1
-('cowgirl', 'woman.n.01') 1
-('railway', 'bridge.n.01') 1
-('guitarist', 'male_child.n.01') 1
-('sinks', 'furnishing.n.02') 1
-('florist', 'man.n.01') 1
-('roadway', 'bridge.n.01') 1
-('plumber', 'man.n.01') 1
-('dip', 'dish.n.02') 1
-('tank', 'ship.n.01') 1
-('general', 'man.n.01') 1
-('cruise liner', 'boat.n.01') 1
-('drink', 'athlete.n.01') 1
-('figurine', 'dog.n.01') 1
-('food', 'child.n.01') 1
-('shelter', 'outbuilding.n.01') 1
-('plant', 'vegetable.n.01') 1
-('trike', 'motorcycle.n.01') 1
-('barge', 'ship.n.01') 1
-('reporter', 'man.n.01') 1
-('newscaster', 'man.n.01') 1
-('boxcars', 'train.n.01') 1
-('whiskey', 'vessel.n.03') 1
-('alcohol', 'vessel.n.03') 1
-('smoothie', 'crockery.n.01') 1
-('quilt', 'furnishing.n.02') 1
-('graduate', 'male_child.n.01') 1
-('hairdresser', 'woman.n.01') 1
-('pasta', 'foodstuff.n.02') 1
-('cloak', 'robe.n.01') 1
-('tracks', 'bridge.n.01') 1
-('railroad track', 'bridge.n.01') 1
-('tray', 'vessel.n.03') 1
-('platter', 'vessel.n.03') 1
-('blender', 'vessel.n.03') 1
-('sailboat', 'ship.n.01') 1
-('employee', 'man.n.01') 1
-('birdbath', 'kitchen_utensil.n.01') 1
-('bird bath', 'kitchen_utensil.n.01') 1
-('fountain', 'kitchen_utensil.n.01') 1
-('beverage', 'vessel.n.03') 1
-('juice', 'vessel.n.03') 1
-('soda', 'crockery.n.01') 1
-('pole', 'lamp.n.01') 1
-('coke', 'vessel.n.03') 1
-('gunman', 'man.n.01') 1
-('boxcar', 'train.n.01') 1
-('zombie', 'man.n.01') 1
-('harness', 'overgarment.n.01') 1
-('dinner', 'dish.n.02') 1
-('croissant', 'dish.n.02') 1
-('can', 'beverage.n.01') 1
-('woman', 'insect.n.01') 1
-('person', 'insect.n.01') 1
-('portrait', 'insect.n.01') 1
-('traveler', 'man.n.01') 1
-('tapestry', 'furnishing.n.02') 1
-('bartender', 'man.n.01') 1
-('apartment', 'house.n.01') 1
-('skirt', 'dress.n.01') 1
-('basketball player', 'male_child.n.01') 1
-('hoagie', 'baked_goods.n.01') 1
-('model', 'woman.n.01') 1
-('street', 'bridge.n.01') 1
-('bowl', 'kitchen_utensil.n.01') 1
-('gymnast', 'woman.n.01') 1
-('tux', 'overgarment.n.01') 1
-('singer', 'woman.n.01') 1
-('clothes', 'dress.n.01') 1
-('teddy bear', 'baked_goods.n.01') 1
-('covering', 'shelter.n.01') 1
-('orange juice', 'foodstuff.n.02') 1
-('food processor', 'kitchen_utensil.n.01') 1
-('processor', 'kitchen_utensil.n.01') 1
-('bus stop', 'shelter.n.01') 1
-('performer', 'man.n.01') 1
-('pyjamas', 'shirt.n.01') 1
-('photographer', 'male_child.n.01') 1
-('guitarist', 'man.n.01') 1
-('cabin', 'outbuilding.n.01') 1
-('breakfast', 'dish.n.02') 1
-('sign', 'baked_goods.n.01') 1
-('head', 'ungulate.n.01') 1
-('donkey', 'horse.n.01') 1
-('hiker', 'woman.n.01') 1
-('artist', 'man.n.01') 1
-('meal', 'crockery.n.01') 1
-('container', 'kitchen_utensil.n.01') 1
-('exhaust', 'headdress.n.01') 1
-('exhaust fan', 'headdress.n.01') 1
-('medic', 'woman.n.01') 1
-('scoreboard', 'shelter.n.01') 1
-('drinks', 'crockery.n.01') 1
-('toy', 'fish.n.01') 1
-('cardigan', 'shirt.n.01') 1
-('cart', 'beverage.n.01') 1
-('monorail', 'train.n.01') 1
-('pepperoni', 'foodstuff.n.02') 1
-('platter', 'kitchen_utensil.n.01') 1
-('plate', 'kitchen_utensil.n.01') 1
-('jug', 'athlete.n.01') 1
-('cathedral', 'house.n.01') 1
-('nun', 'woman.n.01') 1
-('icing', 'baked_goods.n.01') 1
-('tarp', 'shelter.n.01') 1
-('wall', 'male_child.n.01') 1
-('soup bowl', 'vessel.n.03') 1
-('raincoat', 'shirt.n.01') 1
-('handle', 'tool.n.01') 1
-('fruit', 'dish.n.02') 1
-('monk', 'male_child.n.01') 1
-('siding', 'house.n.01') 1
-('monorail', 'bridge.n.01') 1
-('tugboat', 'ship.n.01') 1
-('camper', 'truck.n.01') 1
-('ballerina', 'woman.n.01') 1
-('statue', 'bird.n.01') 1
-('taco', 'baked_goods.n.01') 1
-('palace', 'place_of_worship.n.01') 1
-('mirror', 'furnishing.n.02') 1
-('oil', 'vessel.n.03') 1
-('clothes', 'overgarment.n.01') 1
-('toilet seat', 'vessel.n.03') 1
-('lid', 'vessel.n.03') 1
-('blinds', 'furnishing.n.02') 1
-('box', 'foodstuff.n.02') 1
-('coat', 'dress.n.01') 1
-('tray', 'furnishing.n.02') 1
-('blanket', 'robe.n.01') 1
-('poncho', 'robe.n.01') 1
-('towel', 'robe.n.01') 1
-('cloth', 'robe.n.01') 1
-('game', 'furnishing.n.02') 1
-('speaker', 'man.n.01') 1
-('shampoo', 'vessel.n.03') 1
-('pie crust', 'foodstuff.n.02') 1
-('baked goods', 'foodstuff.n.02') 1
-('snowboarder', 'athlete.n.01') 1
-('cereal bowl', 'vessel.n.03') 1
-('dandelion', 'flower.n.01') 1
-('garbage can', 'vessel.n.03') 1
-('trash can', 'vessel.n.03') 1
-('pedestrian', 'woman.n.01') 1
-('construction worker', 'man.n.01') 1
-('veterinarian', 'woman.n.01') 1
-('crust', 'dish.n.02') 1
-('dough', 'dish.n.02') 1
-('pottery', 'crockery.n.01') 1
-('pot', 'crockery.n.01') 1
-('tulip', 'flower.n.01') 1
-('musician', 'man.n.01') 1
-('diver', 'man.n.01') 1
-('tin', 'kitchen_utensil.n.01') 1
-('cereal', 'beverage.n.01') 1
-('pin', 'insect.n.01') 1
-('broach', 'insect.n.01') 1
-('jewelry', 'insect.n.01') 1
-('singer', 'man.n.01') 1
-('shopper', 'man.n.01') 1
-('cowboy', 'creator.n.02') 1
-('jar', 'kitchen_utensil.n.01') 1
-('can', 'kitchen_utensil.n.01') 1
-('drizzle', 'foodstuff.n.02') 1
-('shack', 'outbuilding.n.01') 1
-('hiker', 'man.n.01') 1
-('hatch', 'car.n.01') 1
-('seating', 'furnishing.n.02') 1
-('stage', 'furnishing.n.02') 1
-('turf', 'furnishing.n.02') 1
-('ground', 'furnishing.n.02') 1
-('granola', 'foodstuff.n.02') 1
-('jockey', 'woman.n.01') 1
-('store', 'hotel.n.01') 1
-('snacks', 'foodstuff.n.02') 1
-('t-shirt', 'overgarment.n.01') 1
-('spoon', 'kitchen_utensil.n.01') 1
-('appliance', 'athlete.n.01') 1
-('soda', 'vessel.n.03') 1
-('pepsi', 'vessel.n.03') 1
-('bottle', 'crockery.n.01') 1
-('water bottle', 'crockery.n.01') 1
-('suv', 'truck.n.01') 1
-('tram', 'car.n.01') 1
-('boat house', 'house.n.01') 1
-('male', 'child.n.01') 1
-('lap', 'man.n.01') 1
-('drawer', 'furnishing.n.02') 1
-('roast', 'ungulate.n.01') 1
-('male', 'athlete.n.01') 1
-('flowerpot', 'kitchen_utensil.n.01') 1
-('costume', 'fish.n.01') 1
-('performer', 'woman.n.01') 1
-('display case', 'furnishing.n.02') 1
-('prisoner', 'man.n.01') 1
-('measuring cup', 'crockery.n.01') 1
-('cyclist', 'male_child.n.01') 1
-('parliament', 'house.n.01') 1
-('barbecue', 'restaurant.n.01') 1
-('planter', 'vessel.n.03') 1
-('pantry', 'furnishing.n.02') 1
-('backdrop', 'furnishing.n.02') 1
-('book shelf', 'furnishing.n.02') 1
-('valance', 'furnishing.n.02') 1
-('bed spread', 'furnishing.n.02') 1
-('house', 'boat.n.01') 1
-('boat house', 'boat.n.01') 1
-('cycle', 'motorcycle.n.01') 1
-('ledge', 'furnishing.n.02') 1
-('runner', 'man.n.01') 1
-('jogger', 'man.n.01') 1
-('antique', 'vessel.n.03') 1
-('shower', 'vessel.n.03') 1
-('parking lot', 'outbuilding.n.01') 1
-('holder', 'crockery.n.01') 1
-('bear', 'furnishing.n.02') 1
-('laptop', 'overgarment.n.01') 1
-('computer', 'overgarment.n.01') 1
-('bowl', 'foodstuff.n.02') 1
-('cleaner', 'vessel.n.03') 1
-('tent', 'housing.n.01') 1
-('truck', 'baked_goods.n.01') 1
-('bow', 'neckwear.n.01') 1
-('stand', 'shelter.n.01') 1
-('shed', 'house.n.01') 1
-('head', 'horse.n.01') 1
-('arugula', 'vegetable.n.01') 1
-('team', 'shelter.n.01') 1
-('santa', 'man.n.01') 1
-('utensil', 'cutlery.n.02') 1
-('garage', 'house.n.01') 1
-('fan', 'male_child.n.01') 1
-('clock tower', 'place_of_worship.n.01') 1
-('dress', 'robe.n.01') 1
-('pitcher', 'kitchen_utensil.n.01') 1
-('rider', 'male_child.n.01') 1
-('basketball player', 'child.n.01') 1
-('container', 'foodstuff.n.02') 1
-('tortilla', 'dish.n.02') 1
-('bow', 'headdress.n.01') 1
-('cover', 'motorcycle.n.01') 1
-('tarp', 'motorcycle.n.01') 1
-('cabinet', 'shelter.n.01') 1
-('dashboard', 'car.n.01') 1
-('deck', 'bridge.n.01') 1
-('tile', 'furnishing.n.02') 1
-('sweater', 'dress.n.01') 1
-('hut', 'housing.n.01') 1
-('doll', 'ungulate.n.01') 1
-('egg', 'dish.n.02') 1
-('whale', 'aircraft.n.01') 1
-('princess', 'woman.n.01') 1
-('cartoon', 'woman.n.01') 1
-('volleyball player', 'male_child.n.01') 1
-('food', 'crockery.n.01') 1
-('meat', 'crockery.n.01') 1
-('waitress', 'woman.n.01') 1
-('catcher', 'woman.n.01') 1
-('cell phone', 'edible_fruit.n.01') 1
-('tourist', 'male_child.n.01') 1
-('schoolgirl', 'woman.n.01') 1
-('traveler', 'male_child.n.01') 1
-('bathroom', 'outbuilding.n.01') 1
-('toilet', 'outbuilding.n.01') 1
-('closet', 'outbuilding.n.01') 1
-('water closet', 'outbuilding.n.01') 1
-('log', 'furnishing.n.02') 1
-('underpass', 'bridge.n.01') 1
-('taxi', 'truck.n.01') 1
-('donut', 'foodstuff.n.02') 1
-('utensils', 'cutlery.n.02') 1
-('aqueducts', 'bridge.n.01') 1
-('aqueduct', 'bridge.n.01') 1
-('passenger', 'woman.n.01') 1
-('clothes', 'shirt.n.01') 1
-('cloth', 'shirt.n.01') 1
-('cabana', 'house.n.01') 1
-('apartments', 'hotel.n.01') 1
-('cop', 'man.n.01') 1
-('policeman', 'man.n.01') 1
-('wall', 'bridge.n.01') 1
-('telephone', 'furnishing.n.02') 1
-('toy', 'train.n.01') 1
-('wall', 'housing.n.01') 1
-('home', 'shelter.n.01') 1
-('barn', 'shelter.n.01') 1
-('cabin', 'shelter.n.01') 1
-('spectator', 'man.n.01') 1
-('ornament', 'vessel.n.03') 1
-('art', 'vessel.n.03') 1
-('outfit', 'shirt.n.01') 1
-('teacher', 'man.n.01') 1
-('student', 'child.n.01') 1
-('chicken', 'fish.n.01') 1
-('statue', 'male_child.n.01') 1
-('tourist', 'man.n.01') 1
-('deck', 'boat.n.01') 1
-('prey', 'bird.n.01') 1
-('legs', 'athlete.n.01') 1
-('filet', 'fish.n.01') 1
-('cowboy', 'man.n.01') 1
-('rider', 'child.n.01') 1
+('child', 'boy') 429
+('kid', 'boy') 322
+('countertop', 'counter') 236
+('floor', 'carpet') 199
+('child', 'girl') 177
+('skateboarder', 'boy') 170
+('skater', 'boy') 163
+('player', 'boy') 125
+('player', 'woman') 116
+('player', 'man') 114
+('tennis player', 'woman') 108
+('girl', 'child') 104
+('man', 'batter') 90
+('tennis player', 'man') 78
+('boy', 'child') 76
+('player', 'girl') 75
+('kid', 'girl') 71
+('boy', 'kid') 60
+('man', 'skateboarder') 60
+('skateboarder', 'man') 60
+('skater', 'man') 59
+('baseball player', 'boy') 58
+('tennis player', 'girl') 55
+('athlete', 'woman') 50
+('cupboard', 'cabinet') 47
+('athlete', 'man') 43
+('sailboat', 'boat') 42
+('player', 'guy') 42
+('baby', 'child') 41
+('skateboarder', 'guy') 38
+('kitten', 'cat') 37
+('man', 'skier') 37
+('man', 'catcher') 35
+('skater', 'guy') 34
+('soccer player', 'boy') 34
+('locomotive', 'train') 34
+('desktop', 'desk') 34
+('tennis player', 'boy') 33
+('lamb', 'sheep') 33
+('blouse', 'shirt') 32
+('batter', 'boy') 31
+('sandwich', 'bread') 31
+('toddler', 'boy') 31
+('player', 'lady') 30
+('athlete', 'girl') 29
+('tennis player', 'lady') 28
+('athlete', 'boy') 25
+('jacket', 'shirt') 25
+('baseball player', 'man') 24
+('surfer', 'man') 24
+('boy', 'skateboarder') 23
+('human', 'man') 23
+('mug', 'cup') 23
+('vehicle', 'train') 23
+('bookshelf', 'bookcase') 23
+('teenager', 'boy') 22
+('man', 'skater') 22
+('canopy', 'tent') 22
+('scooter', 'moped') 22
+('sweatshirt', 'jacket') 21
+('floor', 'rug') 21
+('polo', 'shirt') 21
+('skier', 'man') 20
+('skateboarder', 'girl') 20
+('man', 'athlete') 19
+('skater', 'girl') 19
+('human', 'woman') 19
+('skier', 'child') 18
+('shirt', 'dress') 18
+('bike', 'scooter') 18
+('shelf', 'bookcase') 18
+('man', 'pitcher') 17
+('skier', 'woman') 17
+('surfer', 'woman') 17
+('tennis player', 'guy') 17
+('soccer player', 'girl') 17
+('mat', 'rug') 17
+('human', 'boy') 16
+('sandwich', 'bun') 16
+('slice', 'pizza') 15
+('surfer', 'boy') 15
+('motorcycle', 'scooter') 15
+('baby', 'boy') 15
+('mattress', 'bed') 15
+('computer mouse', 'mouse') 14
+('counter top', 'counter') 14
+('vase', 'pot') 14
+('skateboarder', 'kid') 13
+('island', 'counter') 13
+('sweatshirt', 'shirt') 13
+('human', 'girl') 13
+('toddler', 'girl') 13
+('hotdog', 'bun') 13
+('snowboarder', 'man') 13
+('skater', 'kid') 12
+('floor', 'carpeting') 12
+('bread', 'sandwich') 12
+('plate', 'bowl') 12
+('surfer', 'girl') 12
+('pitcher', 'man') 11
+('skier', 'girl') 11
+('moped', 'scooter') 11
+('van', 'car') 11
+('girl', 'kid') 11
+('athlete', 'lady') 11
+('dessert', 'cake') 11
+('boy', 'batter') 11
+('wine', 'bottle') 11
+('store', 'restaurant') 11
+('woman', 'skier') 10
+('subway', 'train') 10
+('teen', 'boy') 10
+('calf', 'cow') 10
+('scooter', 'motorcycle') 10
+('top', 'shirt') 10
+('shelves', 'bookcase') 10
+('soccer player', 'man') 9
+('plate', 'dish') 9
+('drink', 'cup') 9
+('uniform', 'shirt') 9
+('athlete', 'guy') 9
+('surfer', 'guy') 8
+('dress', 'shirt') 8
+('blanket', 'bed') 8
+('skier', 'lady') 8
+('lettuce', 'salad') 8
+('train', 'car') 8
+('outfit', 'dress') 8
+('pitcher', 'boy') 8
+('scooter', 'motorbike') 8
+('glass', 'cup') 8
+('tray', 'pan') 8
+('engine', 'train') 7
+('tabletop', 'table') 7
+('hutch', 'cabinet') 7
+('chef', 'man') 7
+('cruise ship', 'boat') 7
+('boy', 'skater') 7
+('batter', 'man') 7
+('trailer', 'truck') 7
+('drink', 'bottle') 7
+('boy', 'toddler') 7
+('man', 'kid') 7
+('planter', 'pot') 7
+('surfer', 'lady') 7
+('bus', 'truck') 7
+('player', 'kid') 7
+('countertop', 'table') 7
+('snowboarder', 'woman') 7
+('vegetables', 'salad') 6
+('kitchen island', 'counter') 6
+('skateboarder', 'woman') 6
+('raft', 'boat') 6
+('dessert', 'pie') 6
+('tuxedo', 'jacket') 6
+('screen', 'curtain') 6
+('blouse', 'dress') 6
+('store front', 'restaurant') 6
+('human', 'guy') 6
+('child', 'batter') 6
+('human', 'skier') 6
+('skier', 'boy') 6
+('futon', 'couch') 6
+('uniform', 'jacket') 6
+('storefront', 'restaurant') 6
+('mat', 'carpet') 6
+('herd', 'sheep') 6
+('bed sheet', 'bed') 6
+('bus', 'van') 6
+('skater', 'woman') 5
+('skier', 'kid') 5
+('shelf', 'cabinet') 5
+('cook', 'man') 5
+('bedding', 'bed') 5
+('baby', 'kid') 5
+('shop', 'restaurant') 5
+('human', 'skateboarder') 5
+('baseball player', 'girl') 5
+('meat', 'beef') 5
+('food', 'beef') 5
+('vehicles', 'train') 5
+('teenager', 'girl') 5
+('kid', 'skateboarder') 5
+('batter', 'girl') 5
+('snowboarder', 'guy') 5
+('van', 'minivan') 5
+('awning', 'tent') 5
+('tuxedo', 'coat') 5
+('flower pot', 'pot') 5
+('soccer player', 'guy') 5
+('cake', 'pastry') 5
+('coat', 'shirt') 5
+('player', 'child') 5
+('bed cover', 'bed') 5
+('teenager', 'guy') 4
+('tanker', 'truck') 4
+('sink', 'counter') 4
+('beer', 'bottle') 4
+('walkway', 'bridge') 4
+('coffee', 'cup') 4
+('flannel', 'shirt') 4
+('snowboarder', 'girl') 4
+('drawers', 'dresser') 4
+('container', 'dish') 4
+('girl', 'toddler') 4
+('motorbike', 'scooter') 4
+('photographer', 'man') 4
+('cyclist', 'man') 4
+('tablecloth', 'table') 4
+('statue', 'horse') 4
+('mom', 'woman') 4
+('wood', 'bench') 4
+('baby', 'toddler') 4
+('guy', 'boy') 4
+('batter', 'child') 4
+('baseball player', 'child') 4
+('kid', 'batter') 4
+('desk top', 'desk') 4
+('statue', 'cow') 4
+('dessert', 'pastry') 4
+('sail boat', 'boat') 4
+('fence', 'dugout') 3
+('church', 'castle') 3
+('uniform', 'dress') 3
+('pottery', 'vase') 3
+('cushion', 'couch') 3
+('bread', 'pizza') 3
+('dock', 'bridge') 3
+('umpire', 'man') 3
+('jacket', 'dress') 3
+('tabletop', 'desk') 3
+('bride', 'woman') 3
+('statue', 'dog') 3
+('chef', 'woman') 3
+('railcar', 'train') 3
+('baseball player', 'guy') 3
+('student', 'boy') 3
+('businessman', 'man') 3
+('batter', 'woman') 3
+('clothes', 'robe') 3
+('cook', 'lady') 3
+('sweet', 'donut') 3
+('bicyclist', 'man') 3
+('lamp post', 'lamp') 3
+('boy', 'girl') 3
+('vegetable', 'salad') 3
+('house', 'hut') 3
+('food', 'fish') 3
+('human', 'lady') 3
+('man', 'hitter') 3
+('truck bed', 'pickup') 3
+('toilet', 'bowl') 3
+('rose', 'flower') 3
+('hotdog', 'bread') 3
+('snowboarder', 'boy') 3
+('boy', 'pitcher') 3
+('phone booth', 'booth') 3
+('dessert', 'donut') 3
+('road', 'bridge') 3
+('sub', 'bread') 3
+('caboose', 'train') 3
+('soccer player', 'kid') 3
+('rider', 'man') 3
+('tower', 'cathedral') 3
+('man', 'goalie') 3
+('skateboarder', 'child') 3
+('skater', 'child') 3
+('shack', 'house') 3
+('worker', 'man') 3
+('catcher', 'boy') 3
+('boy', 'athlete') 3
+('costume', 'dress') 3
+('baseball player', 'kid') 3
+('mitt', 'glove') 3
+('baseball glove', 'glove') 3
+('flock', 'sheep') 3
+('goalie', 'boy') 3
+('wall', 'house') 3
+('desktop', 'table') 3
+('boy', 'catcher') 3
+('bird', 'peacock') 3
+('tram', 'train') 3
+('phone', 'blackberry') 3
+('kimono', 'dress') 3
+('tank top', 'dress') 3
+('train', 'cake') 3
+('pit', 'dugout') 3
+('window', 'curtain') 3
+('photographer', 'woman') 3
+('trolley', 'train') 3
+('table top', 'table') 3
+('railing', 'dugout') 2
+('kid', 'guy') 2
+('store', 'cafe') 2
+('girl', 'skier') 2
+('statue', 'giraffe') 2
+('pizza', 'dough') 2
+('mom', 'lady') 2
+('father', 'man') 2
+('train', 'tanker') 2
+('shelf', 'desk') 2
+('dessert', 'cookie') 2
+('barn', 'shed') 2
+('coat', 'robe') 2
+('ferry', 'ship') 2
+('surfer', 'kid') 2
+('kid', 'man') 2
+('sweatshirt', 'coat') 2
+('business', 'restaurant') 2
+('juice', 'cup') 2
+('barn', 'house') 2
+('costume', 'shirt') 2
+('pitcher', 'girl') 2
+('undershirt', 'shirt') 2
+('motorcyclist', 'man') 2
+('cook', 'woman') 2
+('worker', 'woman') 2
+('dad', 'man') 2
+('track', 'bridge') 2
+('costume', 'jacket') 2
+('shelf', 'table') 2
+('steak', 'beef') 2
+('human', 'kid') 2
+('human', 'child') 2
+('man', 'child') 2
+('lamppost', 'lamp') 2
+('officer', 'man') 2
+('grandpa', 'man') 2
+('statue', 'chair') 2
+('meat', 'fish') 2
+('soccer player', 'woman') 2
+('bicyclist', 'guy') 2
+('cyclist', 'guy') 2
+('shopper', 'woman') 2
+('goalie', 'girl') 2
+('toast', 'sandwich') 2
+('skier', 'guy') 2
+('child', 'pitcher') 2
+('leather jacket', 'jacket') 2
+('traveler', 'lady') 2
+('telephone booth', 'booth') 2
+('soldier', 'woman') 2
+('tunnel', 'bridge') 2
+('umbrella', 'hat') 2
+('girl', 'boy') 2
+('bear', 'cake') 2
+('athlete', 'kid') 2
+('noodles', 'soup') 2
+('teenager', 'man') 2
+('salad bowl', 'bowl') 2
+('t-shirt', 'dress') 2
+('hut', 'shed') 2
+('burger', 'bun') 2
+('iris', 'flower') 2
+('potter', 'man') 2
+('tray', 'dish') 2
+('batter', 'kid') 2
+('baseball mitt', 'glove') 2
+('vent', 'hood') 2
+('range hood', 'hood') 2
+('hut', 'house') 2
+('tuxedo', 'blazer') 2
+('roof', 'tent') 2
+('noodles', 'pasta') 2
+('cyclist', 'woman') 2
+('bicyclist', 'woman') 2
+('cupboards', 'cabinet') 2
+('glass', 'pitcher') 2
+('man', 'ballplayer') 2
+('wine glass', 'cup') 2
+('toy', 'cow') 2
+('appliance', 'blender') 2
+('jug', 'pot') 2
+('robe', 'gown') 2
+('shirt', 'gown') 2
+('cellphone', 'blackberry') 2
+('mobile', 'blackberry') 2
+('blouse', 'jacket') 2
+('comforter', 'bed') 2
+('snowboarder', 'lady') 2
+('coffee mug', 'cup') 2
+('water', 'bottle') 2
+('teen', 'man') 2
+('boardwalk', 'bridge') 2
+('ramekin', 'bowl') 2
+('batter', 'guy') 2
+('woman', 'skateboarder') 2
+('ambulance', 'truck') 2
+('kitchen cabinet', 'cabinet') 2
+('swing', 'bench') 2
+('bride', 'lady') 2
+('shop', 'truck') 2
+('bedspread', 'bed') 2
+('toy', 'car') 2
+('wood', 'table') 2
+('countertop', 'desk') 2
+('tennis player', 'player') 2
+('bar', 'restaurant') 2
+('bookshelves', 'bookcase') 2
+('pickup truck', 'car') 1
+('farmer', 'man') 1
+('man', 'goalkeeper') 1
+('vanity', 'basin') 1
+('chef', 'guy') 1
+('container', 'cup') 1
+('dessert', 'cheesecake') 1
+('swimmer', 'woman') 1
+('counter top', 'table') 1
+('tablecloth', 'counter') 1
+('cabinetry', 'cabinet') 1
+('lifeguard', 'man') 1
+('reflection', 'girl') 1
+('toy', 'parrot') 1
+('cabana', 'bed') 1
+('breakfast', 'rice') 1
+('desert', 'cupcake') 1
+('guy', 'skateboarder') 1
+('archway', 'shelter') 1
+('alcove', 'shelter') 1
+('highway', 'bridge') 1
+('woman', 'boy') 1
+('surfer', 'dude') 1
+('van', 'taxi') 1
+('statue', 'vase') 1
+('sculpture', 'vase') 1
+('decoration', 'vase') 1
+('horse head', 'head') 1
+('toy', 'jar') 1
+('chicken', 'jar') 1
+('bird', 'jar') 1
+('officer', 'guy') 1
+('cyclist', 'girl') 1
+('liquid', 'sauce') 1
+('baker', 'lady') 1
+('bun', 'cheeseburger') 1
+('cowgirl', 'woman') 1
+('tennis player', 'person') 1
+('railway', 'bridge') 1
+('guitarist', 'boy') 1
+('sinks', 'counter') 1
+('juggler', 'guy') 1
+('florist', 'man') 1
+('roadway', 'bridge') 1
+('plumber', 'guy') 1
+('dessert', 'cupcake') 1
+('dip', 'soup') 1
+('tank', 'tanker') 1
+('general', 'man') 1
+('cruise liner', 'boat') 1
+('cup', 'tumbler') 1
+('glass', 'tumbler') 1
+('drink', 'tumbler') 1
+('figurine', 'dog') 1
+('food', 'brat') 1
+('shelter', 'shed') 1
+('rider', 'guy') 1
+('plant', 'cabbage') 1
+('trike', 'motorcycle') 1
+('tennis player', 'body') 1
+('player', 'body') 1
+('barge', 'ship') 1
+('child', 'guy') 1
+('reporter', 'man') 1
+('newscaster', 'man') 1
+('boxcars', 'train') 1
+('whiskey', 'bottle') 1
+('alcohol', 'bottle') 1
+('mat', 'bed') 1
+('pottery', 'bowl') 1
+('pita', 'gyro') 1
+('human', 'athlete') 1
+('smoothie', 'cup') 1
+('quilt', 'bed') 1
+('shelves', 'cabinet') 1
+('dancer', 'lady') 1
+('graduate', 'boy') 1
+('pizza', 'pie') 1
+('hairdresser', 'woman') 1
+('salad', 'vegetable') 1
+('pizza', 'flatbread') 1
+('girl', 'batter') 1
+('teen', 'guy') 1
+('pasta', 'sauce') 1
+('farmer', 'gentleman') 1
+('cloak', 'robe') 1
+('tracks', 'bridge') 1
+('railroad track', 'bridge') 1
+('monk', 'guy') 1
+('pilot', 'guy') 1
+('snowboarder', 'dude') 1
+('tray', 'bowl') 1
+('platter', 'bowl') 1
+('blender', 'jar') 1
+('sailboat', 'ship') 1
+('employee', 'man') 1
+('boy', 'goalkeeper') 1
+('child', 'goalkeeper') 1
+('kid', 'goalkeeper') 1
+('sub', 'bun') 1
+('birdbath', 'pot') 1
+('bird bath', 'pot') 1
+('fountain', 'pot') 1
+('beverage', 'bottle') 1
+('juice', 'bottle') 1
+('soda', 'cup') 1
+('tennis player', 'child') 1
+('table top', 'desk') 1
+('pole', 'lamp') 1
+('coke', 'bottle') 1
+('gunman', 'guy') 1
+('boxcar', 'train') 1
+('zombie', 'guy') 1
+('woman', 'child') 1
+('harness', 'jacket') 1
+('lifeguard', 'guy') 1
+('head', 'girl') 1
+('face', 'girl') 1
+('dinner', 'soup') 1
+('croissant', 'sandwich') 1
+('kite', 'airplane') 1
+('can', 'beer') 1
+('woman', 'queen') 1
+('person', 'queen') 1
+('portrait', 'queen') 1
+('traveler', 'man') 1
+('tapestry', 'drape') 1
+('bartender', 'man') 1
+('bread', 'hamburger') 1
+('apartment', 'house') 1
+('display', 'table') 1
+('skier', 'toddler') 1
+('skirt', 'dress') 1
+('basketball player', 'boy') 1
+('head', 'woman') 1
+('skateboarder', 'dude') 1
+('skater', 'dude') 1
+('wing', 'airplane') 1
+('hoagie', 'bread') 1
+('bride', 'girl') 1
+('model', 'woman') 1
+('street', 'bridge') 1
+('bowl', 'pot') 1
+('dancer', 'woman') 1
+('gymnast', 'woman') 1
+('photographer', 'girl') 1
+('van', 'suv') 1
+('pizza', 'cheese') 1
+('tux', 'jacket') 1
+('singer', 'girl') 1
+('snack', 'bagel') 1
+('clothes', 'dress') 1
+('teddy bear', 'cake') 1
+('woman', 'kid') 1
+('goalie', 'woman') 1
+('child', 'woman') 1
+('apartment building', 'apartment') 1
+('canopy', 'shelter') 1
+('covering', 'shelter') 1
+('awning', 'shelter') 1
+('orange juice', 'juice') 1
+('food processor', 'blender') 1
+('processor', 'blender') 1
+('bus stop', 'shelter') 1
+('toddler', 'child') 1
+('food', 'bird') 1
+('pita', 'pizza') 1
+('performer', 'man') 1
+('pyjamas', 'shirt') 1
+('photographer', 'boy') 1
+('guitarist', 'man') 1
+('cabin', 'shed') 1
+('breakfast', 'pizza') 1
+('soldier', 'man') 1
+('shed', 'shelter') 1
+('pitcher', 'guy') 1
+('sign', 'donut') 1
+('salad', 'veggie') 1
+('castle', 'cathedral') 1
+('head', 'giraffe') 1
+('donkey', 'horse') 1
+('hiker', 'girl') 1
+('toy', 'giraffe') 1
+('artist', 'man') 1
+('meal', 'dish') 1
+('collar', 'shirt') 1
+('container', 'pot') 1
+('french toast', 'bread') 1
+('raft', 'barge') 1
+('exhaust', 'hood') 1
+('exhaust fan', 'hood') 1
+('medic', 'woman') 1
+('scoreboard', 'marquee') 1
+('drinks', 'cup') 1
+('toy', 'fish') 1
+('cardigan', 'shirt') 1
+('cart', 'sidecar') 1
+('monorail', 'train') 1
+('pepperoni', 'cheese') 1
+('platter', 'pan') 1
+('plate', 'pan') 1
+('jug', 'pitcher') 1
+('cathedral', 'castle') 1
+('blouse', 't-shirt') 1
+('nun', 'lady') 1
+('icing', 'cake') 1
+('tarp', 'tent') 1
+('wall', 'fence') 1
+('toppings', 'cheese') 1
+('soup bowl', 'bowl') 1
+('raincoat', 'shirt') 1
+('handle', 'knife') 1
+('fruit', 'salad') 1
+('monk', 'boy') 1
+('siding', 'house') 1
+('athlete', 'child') 1
+('monorail', 'bridge') 1
+('uniform', 'blazer') 1
+('tugboat', 'ship') 1
+('child', 'kid') 1
+('toppings', 'sauce') 1
+('camper', 'van') 1
+('ballerina', 'girl') 1
+('statue', 'bird') 1
+('appliance', 'pot') 1
+('man', 'instructor') 1
+('human', 'instructor') 1
+('jacket', 'bathrobe') 1
+('player', 'pitcher') 1
+('athlete', 'pitcher') 1
+('baseball player', 'pitcher') 1
+('futon', 'sofa') 1
+('soldier', 'guy') 1
+('taco', 'tortilla') 1
+('sandwich', 'toast') 1
+('castle', 'abbey') 1
+('palace', 'abbey') 1
+('mirror', 'cabinet') 1
+('breakfast', 'pancake') 1
+('oil', 'bottle') 1
+('clothes', 'coat') 1
+('skateboarder', 'lady') 1
+('skater', 'lady') 1
+('toilet', 'basin') 1
+('urinal', 'basin') 1
+('toilet seat', 'bowl') 1
+('lid', 'bowl') 1
+('traveler', 'woman') 1
+('lamb', 'goat') 1
+('face', 'guy') 1
+('head', 'guy') 1
+('blinds', 'curtain') 1
+('fountain', 'bath') 1
+('cupboard', 'wardrobe') 1
+('box', 'cereal') 1
+('coat', 'gown') 1
+('tray', 'table') 1
+('blanket', 'robe') 1
+('poncho', 'robe') 1
+('towel', 'robe') 1
+('cloth', 'robe') 1
+('pilot', 'man') 1
+('shed', 'shack') 1
+('game', 'booth') 1
+('pie', 'souffle') 1
+('pie', 'pizza') 1
+('robe', 'dress') 1
+('speaker', 'man') 1
+('shampoo', 'bottle') 1
+('truck bed', 'truck') 1
+('pie crust', 'dough') 1
+('baked goods', 'dough') 1
+('dress', 'jacket') 1
+('snowboarder', 'skier') 1
+('cereal bowl', 'bowl') 1
+('tennis player', 'kid') 1
+('dandelion', 'flower') 1
+('garbage can', 'bucket') 1
+('trash can', 'bucket') 1
+('pedestrian', 'lady') 1
+('construction worker', 'man') 1
+('food', 'turkey') 1
+('meat', 'turkey') 1
+('veterinarian', 'woman') 1
+('crust', 'pizza') 1
+('dough', 'pizza') 1
+('pottery', 'cup') 1
+('pot', 'cup') 1
+('tulip', 'flower') 1
+('musician', 'man') 1
+('diver', 'guy') 1
+('surfer', 'person') 1
+('tin', 'pan') 1
+('cereal', 'milk') 1
+('pin', 'butterfly') 1
+('broach', 'butterfly') 1
+('jewelry', 'butterfly') 1
+('meat', 'poultry') 1
+('herd', 'zebra') 1
+('breakfast', 'bread') 1
+('tabletop', 'counter') 1
+('singer', 'man') 1
+('shopper', 'man') 1
+('bear', 'cookie') 1
+('cowboy', 'farmer') 1
+('french toast', 'toast') 1
+('jar', 'pot') 1
+('can', 'pot') 1
+('wing', 'aircraft') 1
+('juggler', 'man') 1
+('head', 'lady') 1
+('snack', 'cookie') 1
+('drizzle', 'sauce') 1
+('shack', 'shed') 1
+('hiker', 'man') 1
+('hatch', 'hatchback') 1
+('seating', 'sectional') 1
+('stage', 'carpet') 1
+('turf', 'carpet') 1
+('ground', 'carpet') 1
+('human', 'catcher') 1
+('granola', 'cereal') 1
+('shelf', 'furniture') 1
+('display', 'furniture') 1
+('rider', 'lady') 1
+('jockey', 'lady') 1
+('groom', 'guy') 1
+('sweet', 'bread') 1
+('store', 'building') 1
+('snack', 'donut') 1
+('snacks', 'pastry') 1
+('t-shirt', 'jacket') 1
+('spoon', 'spatula') 1
+('snack', 'pizza') 1
+('snack', 'sandwich') 1
+('collar', 'top') 1
+('appliance', 'pitcher') 1
+('girl', 'skateboarder') 1
+('soda', 'bottle') 1
+('pepsi', 'bottle') 1
+('bottle', 'cup') 1
+('water bottle', 'cup') 1
+('storefront', 'cafe') 1
+('suv', 'truck') 1
+('tram', 'car') 1
+('cup', 'pitcher') 1
+('boat house', 'house') 1
+('male', 'kid') 1
+('lap', 'man') 1
+('rider', 'woman') 1
+('monk', 'man') 1
+('drawer', 'dresser') 1
+('wood', 'counter') 1
+('roast', 'beef') 1
+('male', 'skateboarder') 1
+('flowerpot', 'pot') 1
+('statue', 'bench') 1
+('costume', 'shark') 1
+('performer', 'woman') 1
+('display case', 'cabinet') 1
+('prisoner', 'man') 1
+('baseball player', 'infielder') 1
+('player', 'infielder') 1
+('measuring cup', 'cup') 1
+('van', 'automobile') 1
+('photographer', 'lady') 1
+('cyclist', 'boy') 1
+('parliament', 'palace') 1
+('barbecue', 'grill') 1
+('urinal', 'bowl') 1
+('planter', 'vase') 1
+('pantry', 'cabinet') 1
+('backdrop', 'curtain') 1
+('book shelf', 'bookcase') 1
+('valance', 'curtain') 1
+('futon', 'bed') 1
+('tabletop', 'countertop') 1
+('bed spread', 'bed') 1
+('house', 'boat') 1
+('boat house', 'boat') 1
+('cycle', 'motorbike') 1
+('cushion', 'chair') 1
+('shelf', 'counter') 1
+('ledge', 'counter') 1
+('runner', 'man') 1
+('jogger', 'man') 1
+('shelf', 'bookshelf') 1
+('antique', 'vase') 1
+('futon', 'furniture') 1
+('shower', 'bath') 1
+('fountain', 'birdbath') 1
+('parking lot', 'garage') 1
+('holder', 'cup') 1
+('pottery', 'jar') 1
+('breakfast', 'cereal') 1
+('bear', 'chair') 1
+('chef', 'lady') 1
+('laptop', 'mac') 1
+('computer', 'mac') 1
+('bowl', 'rice') 1
+('cleaner', 'bottle') 1
+('tent', 'teepee') 1
+('truck', 'cake') 1
+('bow', 'bowtie') 1
+('stand', 'tent') 1
+('man', 'pro') 1
+('shed', 'house') 1
+('swimmer', 'girl') 1
+('head', 'horse') 1
+('man', 'player') 1
+('arugula', 'vegetable') 1
+('team', 'dugout') 1
+('santa', 'guy') 1
+('utensil', 'fork') 1
+('garage', 'house') 1
+('fan', 'boy') 1
+('face', 'man') 1
+('head', 'man') 1
+('clock tower', 'cathedral') 1
+('dress', 'kimono') 1
+('pitcher', 'teapot') 1
+('child', 'man') 1
+('rider', 'boy') 1
+('basketball player', 'kid') 1
+('dancer', 'girl') 1
+('container', 'yogurt') 1
+('apartment building', 'condominium') 1
+('bread', 'burrito') 1
+('tortilla', 'burrito') 1
+('bow', 'hat') 1
+('toy', 'duck') 1
+('shed', 'pavilion') 1
+('sandwich', 'croissant') 1
+('cover', 'motorcycle') 1
+('tarp', 'motorcycle') 1
+('cabinet', 'hutch') 1
+('dashboard', 'car') 1
+('deck', 'bridge') 1
+('tile', 'counter') 1
+('actress', 'woman') 1
+('sweater', 'dress') 1
+('hut', 'dwelling') 1
+('surfer', 'teen') 1
+('toy', 'hippopotamus') 1
+('doll', 'hippopotamus') 1
+('statue', 'bull') 1
+('dress', 'blouse') 1
+('egg', 'omelette') 1
+('kite', 'balloon') 1
+('whale', 'balloon') 1
+('princess', 'cinderella') 1
+('cartoon', 'cinderella') 1
+('volleyball player', 'boy') 1
+('dessert', 'torte') 1
+('food', 'dish') 1
+('meat', 'dish') 1
+('waitress', 'girl') 1
+('toy', 'plane') 1
+('jacket', 'robe') 1
+('bun', 'sandwich') 1
+('catcher', 'woman') 1
+('cell phone', 'blackberry') 1
+('blouse', 'shawl') 1
+('tourist', 'boy') 1
+('schoolgirl', 'girl') 1
+('traveler', 'boy') 1
+('reflection', 'woman') 1
+('face', 'woman') 1
+('bathroom', 'outhouse') 1
+('toilet', 'outhouse') 1
+('closet', 'outhouse') 1
+('water closet', 'outhouse') 1
+('log', 'bench') 1
+('island', 'table') 1
+('underpass', 'bridge') 1
+('server', 'girl') 1
+('taxi', 'truck') 1
+('toy', 'aircraft') 1
+('donut', 'pastry') 1
+('utensils', 'fork') 1
+('aqueducts', 'bridge') 1
+('aqueduct', 'bridge') 1
+('passenger', 'girl') 1
+('boy', 'ballplayer') 1
+('soccer player', 'child') 1
+('clothes', 't-shirt') 1
+('cloth', 't-shirt') 1
+('cabana', 'house') 1
+('apartments', 'hotel') 1
+('bicyclist', 'girl') 1
+('cop', 'man') 1
+('policeman', 'man') 1
+('wall', 'bridge') 1
+('photographer', 'guy') 1
+('telephone', 'booth') 1
+('water', 'aquarium') 1
+('toy', 'train') 1
+('wall', 'housing') 1
+('house', 'shack') 1
+('home', 'shack') 1
+('barn', 'shack') 1
+('cabin', 'shack') 1
+('spectator', 'man') 1
+('ornament', 'vase') 1
+('art', 'vase') 1
+('outfit', 'shirt') 1
+('teacher', 'guy') 1
+('student', 'child') 1
+('chicken', 'fish') 1
+('statue', 'boy') 1
+('uniform', 'coat') 1
+('tourist', 'man') 1
+('deck', 'boat') 1
+('prey', 'bird') 1
+('actress', 'lady') 1
+('child', 'skateboarder') 1
+('legs', 'skater') 1
+('filet', 'fish') 1
+('cowboy', 'man') 1
+('groom', 'man') 1
+('rider', 'child') 1
+('statue', 'zebra') 1
+('server', 'lady') 1

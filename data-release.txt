@@ -1,0 +1,55 @@
+created gbt Feb 21 2020
+
+[the following was decided in a meeting by Carina and Gemma]
+
+repo: https://github.com/amore-upf/manynames
+
+- long-term: searchable interface (someone hired for it) @Gemma: see if we can hire someone from web design for this (probably need to do amendment to project), or it’s assigned to the future PhD student
+
+- for now: simply downloadable data + scripts + documentation. In two places:
+  - github repo
+  - UPF's e-repository @Gemma: find out how it works.
+- deadline: March 27 (Friday of week before Easter).
+  - reminder that LREC conference is May 13-15, and the data should be there by then (in case we don't make it by March 27, which we will :)
+
+DATA to release:
+
+- VG images (without bounding boxes) @Carina
+
+- original (anonymized) crowdsourced data for ManyNames v.1 (LREC version, naming data)
+[FUTURE? or already now? - original (anonymized) crowdsourced data for ManyNames v.2 (verification data)]
+
+- aggregate version for ManyNames v.2
+  - note that this INCLUDES verification data. Reason: otherwise people may give up using ManyNames if they only see v.1, because of the noise; and hopefully we'll get the verification data paper published soon (crossing fingers).
+  - reminder to still call the dataset "ManyNames v.1" [which spelling? v1, v.1, v. 1?] in LREC final version, for clarity. In the documentation for the v.2 release, mention that v.1 is subsumed in the csv (simply deleting one/several columns).
+
+SCRIPTS to release:
+
+- original2aggregate-v1 @Carina chef, coordinates with @Sina
+- v1_to_v2 @Matthijs chef, coordinates with @Carina
+- data_loader4manynames @Carina chef and coordinates with herself 
+- script that produces all our results from the LREC paper @Sina chef, coordinates with the rest
+
+DOCUMENTATION to release:
+
+Note for all of us: let's include only the information that is necessary to use the data/scripts and is not included in the paper (refer to the paper as often as we can for info when it is there, i.e. let's not duplicate info).
+
+- @Gemma coordinates [and probably provides overall description in the main readme]
+
+- documentation of scripts and how to use them: the chef of each of them
+
+- data files: the chef of the corresponding script
+
+- VG images: @Carina
+  - Note from Gemma: VG is licensed under CC-BY, so we should provide the info required by the license, see here, section "Under the following terms": https://creativecommons.org/licenses/by/4.0/
+
+--- end of part agreed with Carina
+
+REPO STRUCTURE proposed by G (@all, ok, or changes?)
+
+- data folder, with
+  - a readme
+  - the csv files (see above)
+  - a compressed file with the imgs
+
+- scripts folder, with the scripts and a readme

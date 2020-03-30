@@ -1,0 +1,17 @@
+\begin{itemize}
+\item We're interested in modeling human naming behavior [motivate]
+\item names are sometimes used as labels for object classification in CV
+\item usually: single-label evaluation scheme
+  \begin{enumerate}
+  \item if a single-label evaluation scheme is used, the target name should be the one that is most naturally used for the object. [Here we need a bit of background saying that it has been shown in Psycholing that people tend to agree in the name they give to objects.] To estimate this ``natural name'' (need better term), we need a reasonable sample.
+  \item however, a single-label evaluation scheme assumes object names are unique (cf.\ evaluation; any other response is counted as incorrect). But alternative names are in fact possible.
+  \end{enumerate}
+\item (thanks to ManyNames,) we train models on the task of providing natural names; existing models, fine-tuned models 
+\item and we analyze the consequences of evaluating them on a single-label scheme vs.\ one that allows for naming variants
+\item (TBD: and we compare their errors/behavior to the human errors/behavior)
+\end{itemize}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "acl2020_main"
+%%% End:
