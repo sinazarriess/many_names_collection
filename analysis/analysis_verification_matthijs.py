@@ -484,10 +484,12 @@ def adequacy_against_frequency():
         freqs = row['spellchecked_min2'].values()
         total = sum(freqs)
         max_freq = max(freqs) / total
+        top_name = row['spellchecked_min2'].most_common(1)[0][0]
         for name in row['verified']:
             freq = row['spellchecked_min2'][name] / total
             adeq = row['verified'][name]['adequacy']
             top = "top" if freq == max_freq else "other"
+            same_obj_as_top_name = top_name in row['verified'][name]['can_be_same_object']
 
             # freq = math.ceil(10*(row['spellchecked_min2'][name]/total))/10
             # adeq = math.ceil(6*row['verified'][name]['adequacy'])/6
@@ -496,13 +498,13 @@ def adequacy_against_frequency():
             # adeq = max(1/6, adeq)
 
             if freq != 0:
-                datapoints.append([freq, adeq, top, 1])
+                datapoints.append([freq, adeq, same_obj_as_top_name, top, 1])
 
-    datapoints = pd.DataFrame(datapoints, columns=["frequency", "adequacy", "name", "count"])
+    datapoints = pd.DataFrame(datapoints, columns=["frequency", "adequacy", "same_obj_as_top_name", "name", "count"])
 
     # Heatmap attempt 1:
     if False:
-        datapoints = datapoints.groupby(["frequency", "adequacy"]).count().unstack(level=-1)['count']
+        datapoints = datapoints[["frequency", "adequacy", "name", "count"]].groupby(["frequency", "adequacy"]).count().unstack(level=-1)['count']
 
         ax = sns.heatmap(datapoints, square=True)
         ax.set_ylim(0, 10)  # to fix bug due to matplotlib
@@ -519,14 +521,23 @@ def adequacy_against_frequency():
         plt.hist2d(data=datapoints, x="adequacy", y="frequency", bins=[7, 36])
         plt.show()
 
-    print(spearmanr(datapoints['frequency'], datapoints['adequacy']))
-
-    # Scatterplot:
+    # Scatterplot adequacy/frequency:
     if True:
         sns.lmplot(data=datapoints, x='frequency', y='adequacy', hue='name', x_jitter=.03, y_jitter=.07, truncate=True,
                    scatter_kws={'alpha': .05})
         plt.show()
 
+    # Scatterplot same_obj/frequency
+    if False:
+        sns.lmplot(data=datapoints.loc[datapoints['name'] == "other"], x='frequency', y='same_obj_as_top_name', hue='name', x_jitter=.03, y_jitter=.2, truncate=True,
+                   scatter_kws={'alpha': .05})
+        plt.show()
+
+    # Scatterplot same_obj/adequacy
+    if False:
+        sns.lmplot(data=datapoints.loc[datapoints['name'] == "other"], x='adequacy', y='same_obj_as_top_name', hue='name', x_jitter=.07, y_jitter=.2, truncate=True,
+                   scatter_kws={'alpha': .05})
+        plt.show()
 
 def inter_rater_agreement():
     verification_data_path = '../verification_phase0/1_crowdsourced/results/merged_1-2-3-4-5-6-7-8_redone/name_annotations_filtered_ANON.csv'
@@ -582,13 +593,13 @@ if __name__ == "__main__":
     if False:
         basic_stats()
 
-    if True:
+    if False:
         inter_rater_agreement()
         # Adequacy: Krippendorff's alpha (ordinal) = 0.7067100617783595
         # Inadequacy type: Krippendorff's alpha (nominal) = 0.6734359534740075
         # Same-object: Krippendorff's alpha (nominal) = 0.8332111041592695
 
-    if False:
+    if True:
         adequacy_against_frequency()
 
     if False:
