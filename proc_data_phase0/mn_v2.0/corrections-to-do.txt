@@ -1,0 +1,25 @@
+- put manynames-related columns first, vg last (I know it's equivalent for programming approaches, but it's important for me that we focus on MN)
+
+- for vg_inadequacy, we get e.g.
+
+{'visual': 0.3, nan: 0.7}
+
+==> we had 3 raters, so I guess it should be 0.33 and 0.66? (It's not a big deal but I'm surprised you rounded to 1 digit only). Inadequacy for manynames doesn't seem to have been rounded to 1 digit. 
+
+- 'responses' column: put as dictionary, not Counter
+
+- I found this for the first item, 'incorrect' column:
+
+{'helmet':
+	{'count': 2,
+	'adequacy_mean': 0.5,
+	'inadequacy_type': {'bounding box': 1.0},
+	'same_object': {'man': 0.0, 'person': 0.0, 'batter': 0.0, 'player': 0.0, 'helmet': 1.0, 'baseball player': 0.0}
+	},
+'boy':
+	{'count': 1},
+'uniform': {'count': 1},
+'bat': {'count': 1}
+}
+
+==> 'helmet' appears in the 'same_object' results for 'helmet'; why? 
