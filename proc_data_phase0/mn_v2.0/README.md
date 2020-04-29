@@ -4,8 +4,8 @@
 ## Version 2.0 of dataset (completed as of 20 April 2020)
 
 ### Notation
-**MN** abbreviation for ManyNames  
-**VG** bbreviation for VisualGenome  
+**MN** Abbreviation for ManyNames  
+**VG** Abbreviation for VisualGenome  
 **domain** The MN categorisation of objects into  
    * people
    * animals_plants
@@ -15,7 +15,7 @@
    * buildings
    * clothing
    
-**verif-annos** abbreviation for the annotations collected in the verification crowd-sourcing, includes:  
+**verif-annos** Abbreviation for the annotations collected in the verification crowd-sourcing, includes:  
     * adequacy of the name, given a target object
     * if inadequate, what could be the possible source of error  
         (bounding box, visual, linguistic, other)  
