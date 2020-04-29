@@ -40,12 +40,12 @@
 | vg_domain | str | The MN domain of the VG name |
 | vg_synset | str | The VG synset of the object |
 | vg_cat | str | The WordNet hypernym of the VG synset |
-| vg_same_object | dict (str:float) | The MN names which refer to the same object that the VG name identifies. and the normalised counts of the samoe-obj-votes |
+| vg_same_object | dict (str:float) | The MN names which refer to the same object that the VG name identifies, and the normalised counts of the same-obj votes |
 | vg_adequacy_mean | float | The mean adequacy score of the VG name |
 | vg_inadequacy_type | dict (str:float)| The distribution of the inadequacy types of the VG name (mean score across verif-annos) |
 
 
 #### Notes
-   * A name is considered correct if its mean adequacy score > 0.4
+   * A name is considered correct if it refers to the same object as the modal response (mn_topname) and its mean adequacy score > 0.4
    * Names are considered to refer to the same object if their pairwise mean same-object score > 0
    * The `incorrect` column contains all incorrect names, together with the MN annotations: their count, mean adequacy, inadequacy_types, same_object information
