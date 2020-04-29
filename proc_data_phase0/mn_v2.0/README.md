@@ -15,7 +15,7 @@
    * buildings
    * clothing
    
-**verif-annos** abbreviation for the annotations collected in the verification crowd-sourcing, includes:
+**verif-annos** abbreviation for the annotations collected in the verification crowd-sourcing, includes:  
     * adequacy of the name, given a target object
     * if inadequate, what could be the possible source of error  
         (bounding box, visual, linguistic, other)  
