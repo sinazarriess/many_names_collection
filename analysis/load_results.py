@@ -9,8 +9,33 @@ import sys
 
 import numpy as np
 import pandas as pd
+from numpy import nan
 #from spellchecker import SpellChecker
 #from nltk.stem.wordnet import WordNetLemmatizer
+
+def load_cleaned_results(filename, sep="\t", index_col=None):
+    resdf = pd.read_csv(filename, sep=sep, index_col=index_col)
+    # integrate with old csv format
+    if "verified" in resdf.columns:
+        return load_cleaned_results_old(filename, sep=sep, index_col=index_col)
+    
+    for col in ['spellchecked', 'spellchecked_min2', 'clean', 'canon']:
+        if col in resdf:
+            resdf[col] = resdf[col].apply(lambda x: Counter(eval(x)))
+
+    # remove any old index columns
+    columns = [col for col in resdf.columns if not col.startswith("Unnamed")]
+    resdf = resdf[columns]
+
+    # eval verified column if present
+    """ columns: adequacy_mean	inadequacy_type	same_object	vg_adequacy_mean	vg_inadequacy_type	vg_same_object """
+    if 'adequacy_mean' in resdf:
+        for verif_type in ['adequacy_mean', 'inadequacy_type', 'same_object',  'vg_inadequacy_type', 'vg_same_object']:
+            resdf[verif_type] = resdf[verif_type].apply(lambda x: eval(x))
+    if 'incorrect' in resdf: # MNv2.0
+        resdf[verif_type] = resdf[verif_type].apply(lambda x: eval(x))
+
+    return resdf
 
 def load_verified_results(datafile_csv="../proc_data_phase0/spellchecking/all_responses_round0-3_cleaned.csv",
                           veriffile_csv="../many_names_collection/verification_phase0/1_crowdsourced/results/merged_1-2-3-4-5-6-7-8/name_annotations_ANON.csv",
@@ -73,7 +98,11 @@ def load_preprocessed_results_csv(datafile_csv):
             df[[dict_col]] = df[dict_col].apply(lambda a: eval(a))
     return df
 
-def load_cleaned_results(filename, sep="\t", index_col=None):
+def load_cleaned_results_old(filename, sep="\t", index_col=None):
+    """
+    @deprecated
+    """
+    sys.stderr.write("\nInformation in %s is outdated. Please consider using updated csv.\n"%filename)
     resdf = pd.read_csv(filename, sep=sep, index_col=index_col)
     resdf['spellchecked'] = resdf['spellchecked'].apply(lambda x: Counter(eval(x)))
     resdf['clean'] = resdf['clean'].apply(lambda x: Counter(eval(x)))
