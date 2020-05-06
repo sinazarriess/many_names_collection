@@ -1,1 +1,4 @@
+
 - 'responses' column: put as dictionary, not Counter
+
+- add "n_valid_responses", "perc_topname", "n_name_types" columns
