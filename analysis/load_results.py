@@ -33,7 +33,7 @@ def load_cleaned_results(filename, sep="\t", index_col=None):
         for verif_type in ['adequacy_mean', 'inadequacy_type', 'same_object',  'vg_inadequacy_type', 'vg_same_object']:
             resdf[verif_type] = resdf[verif_type].apply(lambda x: eval(x))
     if 'incorrect' in resdf: # MNv2.0
-        resdf[verif_type] = resdf[verif_type].apply(lambda x: eval(x))
+        resdf['incorrect'] = resdf['incorrect'].apply(lambda x: eval(x))
 
     return resdf
 
