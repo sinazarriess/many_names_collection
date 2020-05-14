@@ -28,7 +28,7 @@ Below we describe the data that is availabe for download in this repository.
    * buildings
    * clothing
 
-For each domain, there exists at least one WordNet category out of *article of clothing*, *instrumentality, instrumentation*, *person*, *tableware*, *ware*, *food, nutrient*, *structure, construction*, *animal*, *tool*, *food, solid food*, *plant, flora, plant life*, *vehicle*.
+For each domain, there exists at least one WordNet category (`vg_cat' columns below) out of *article of clothing*, *instrumentality, instrumentation*, *person*, *tableware*, *ware*, *food, nutrient*, *structure, construction*, *animal*, *tool*, *food, solid food*, *plant, flora, plant life*, *vehicle*.
    
 #### Data file: manynames-v1.0.tsv
 
@@ -40,7 +40,7 @@ For each domain, there exists at least one WordNet category out of *article of c
 | mn_topname | str | The most frequent name in the MN responses |
 | mn_domain | str | The MN domain of the MN object |
 | N | float | The number of types in the MN responses |
-| %top | float | The relative frequency of the most frequent response (in percent) |
+| perc_top | float | The relative frequency of the most frequent MN response (in percent) |
 | H | float | The H agreement measure from (Snodgrass and Vanderwart, 1980) |
 | responses | Counter | The collected MN names and their counts, i.e., the number of annotators responding them |
 | incorrect | dict | Complex data, see below. |
