@@ -30,7 +30,7 @@ COL_ORDER = ['vg_image_id',
 COL_MAP = {
         'vg_img_id': 'vg_image_id', 
         'object_id': 'vg_object_id', 
-        #'cat': 'vg_cat',
+        'cat': 'vg_cat',
         'synset': 'vg_synset',
         'spellchecked': 'responses',       
         'mn_topname': 'topname',

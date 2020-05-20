@@ -10,8 +10,41 @@ import numpy as np
 from numpy import nan
 from itertools import chain, combinations
 
-from analysis import load_results
+import load_results
 
+COL_ORDER = ['vg_image_id', 
+                'vg_object_id', 
+                'url', 
+                'topname', 
+                'domain', 
+                'responses', 
+                'same_object', 
+                'adequacy_mean', 
+                'inadequacy_type',                
+                'incorrect', 
+                'singletons', 
+                'vg_obj_name', 
+                'vg_domain', 
+                'vg_synset', 
+                #'vg_cat',
+                'vg_same_object', 
+                'vg_adequacy_mean', 
+                'vg_inadequacy_type']
+
+COL_MAP = {
+        'vg_img_id': 'vg_image_id', 
+        'object_id': 'vg_object_id', 
+        'cat': 'vg_cat',
+        'synset': 'vg_synset',
+        'spellchecked': 'responses',       
+        'mn_topname': 'topname',
+        'mn_domain': 'domain'
+        }           
+
+#### Streamline column names for MN v1.0 and v2.0
+def streamline_columns(mn_df):
+    mn_df.rename(columns=COL_MAP, inplace=True)
+    mn_df.sort_values(by=["vg_image_id"], inplace=True)
 
 #### Functions for preprocessing MN+verifications  ####
 def nm2domain_map(df):
@@ -111,11 +144,11 @@ def make_filtered_df_publish(df, invalid_names_df, min_count=2):
     invalid_names (pandas DataFrame):    img_id | invalid_names 
     """
     instances_changed = 0
-    all_cols = ['vg_image_id', 'url', 'vg_object_id', 'vg_obj_name', 'synset', 'cat', 'vg_domain', 
+    all_cols = ['vg_image_id', 'url', 'vg_object_id', 'vg_obj_name', 'synset', 'vg_domain', 
                 'vg_adequacy_mean', 'vg_inadequacy_type', 'vg_same_object', 
-                'mn_topname', 'mn_domain', 'spellchecked',  
+                'mn_topname', 'mn_domain', 'spellchecked',   
                 'adequacy_mean', 'inadequacy_type', 'same_object',
-                'incorrect'] # incorrect: new column (dict): {name --> {count (int), adequacy_mean (float), 
+                'incorrect', 'singletons'] # incorrect: new column (dict): {name --> {count (int), adequacy_mean (float), 
                              #                                inadequacy_type (dict), same_object (dict)}, ...}
     valid_data = defaultdict(list)
     for (_, row) in df.iterrows():
@@ -126,6 +159,7 @@ def make_filtered_df_publish(df, invalid_names_df, min_count=2):
         #inval_names = invalid_names.get(image_id, None)
         topMN = row['spellchecked'].most_common()[0][0]
         incorrect_col = dict()
+        singleton_col = dict()
         
         if len(inval_names) == 0:
             for col in all_cols:
@@ -133,14 +167,18 @@ def make_filtered_df_publish(df, invalid_names_df, min_count=2):
                     valid_data['mn_topname'].append(topMN)
                 elif col == 'incorrect':
                     valid_data[col].append(incorrect_col)
+                elif col == 'singletons':
+                    valid_data[col].append(singleton_col)
                 else:
                     valid_data[col].append(row[col])
             continue
             
         instances_changed += 1
         # copy data columns which are not changed
-        for dtype in ['vg_image_id', 'url', 'vg_object_id', 'vg_obj_name', 'synset', 'cat', 'vg_domain', 
-                      'vg_adequacy_mean', 'vg_inadequacy_type', 'vg_same_object', 'mn_topname', 'mn_domain']:
+        for dtype in ['vg_image_id', 'url', 'vg_object_id', 
+                      'vg_obj_name', 'synset', 'vg_domain',
+                      'vg_adequacy_mean', 'vg_inadequacy_type',
+                      'vg_same_object', 'mn_topname', 'mn_domain']:
             if dtype == 'mn_topname':
                 valid_data['mn_topname'].append(topMN)
             elif dtype == 'vg_same_object':
@@ -160,6 +198,8 @@ def make_filtered_df_publish(df, invalid_names_df, min_count=2):
                 nm_cnt = row['spellchecked'][nm]
                 if nm not in inval_names and nm_cnt >= min_count: # remove also names with count < 2
                     new_dict[nm] = val
+                elif nm_cnt == 1:
+                    singleton_col[nm] = nm_cnt
                 else:
                     incorrect_col.setdefault(nm, dict())
                     incorrect_col[nm][col2change.replace('spellchecked', 'count')] = val
@@ -179,23 +219,26 @@ def make_filtered_df_publish(df, invalid_names_df, min_count=2):
                 incorrect_col[nm]['same_object'] = oth_nms
         valid_data['same_object'].append(dict(new_same_obj))
         valid_data['incorrect'].append(incorrect_col)
+        valid_data['singletons'].append(singleton_col)
         
-    return dict(valid_data)
+    return pd.DataFrame.from_dict(dict(valid_data))
 
 if __name__=="__main__":
-    many_names_path = "../proc_data_phase0/verification/all_responses_round0-3_verified_new.csv"
-    manynames = load_results.load_cleaned_results(many_names_path)
-    manynames["mn_domain"] = add_mn_domains(manynames)   
-
+    target_dir = os.path.join("..", "proc_data_phase0", "mn_v1.0/")
+    
     # Set cutoff to adequacy_mean<=X
     adequ_threshold = 0.4
     same_obj_threshold = 0.0
     min_count = 2
-    mnv2_path = "../proc_data_phase0/mn_v2.0/manynames-v2.0_valid_responses_ad%.2f_cnt%d.csv" % (adequ_threshold, min_count)
+    mnv2_outpath = os.path.join("..", "proc_data_phase0", "mn_v2.0", "manynames-v2.0_valid_responses_ad%.2f_cnt%d.tsv" % (adequ_threshold, min_count))
+    
+    # Load ManyNames with verification data
+    manynames_verif_path = os.path.join("..", "proc_data_phase0", "verification", "all_responses_round0-3_verified_new.csv")
+    relevant_cols = ['vg_image_id', 'synset', 'vg_obj_name', 'vg_domain', 'url',  'vg_object_id', 'spellchecked', 'spellchecked_min2', 'adequacy_mean', 'inadequacy_type', 'same_object', 'vg_adequacy_mean', 'vg_inadequacy_type', 'vg_same_object']
+    manynames = load_results.load_cleaned_results(manynames_verif_path)[relevant_cols]
+    manynames["mn_domain"] = add_mn_domains(manynames)
 
-
-    # Create new MN DataFrame
-
+    # Create new MN DataFrame, applying the adequacy_mean and same_object criteria
     name_df = get_name_df(manynames)
     other_names = name_df[name_df["is_top_name"]==False]
 
@@ -204,13 +247,13 @@ if __name__=="__main__":
     inds_invalid = set(indices_inadequate).union(set(indices_other_object))
     invalid_names_df = name_df.iloc[list(inds_invalid)][["vg_image_id", "mn_obj_name"]]
 
+    manynames_v2 = make_filtered_df_publish(manynames, invalid_names_df, min_count)
+    streamline_columns(manynames_v2)
+
     # Save new DataFrame
-    cols_ordered = ['vg_image_id', 'vg_object_id', 'url', 
-                    'mn_topname', 'mn_domain', 'responses', 'same_object', 'adequacy_mean', 'inadequacy_type', 'incorrect', 
-                    'vg_obj_name', 'vg_domain', 'vg_synset', 'vg_cat', 'vg_same_object', 'vg_adequacy_mean', 'vg_inadequacy_type']
-    colname_map = {'spellchecked': 'responses', 'synset': 'vg_synset', 'cat': 'vg_cat'}
-    new_valid_data = make_filtered_df_publish(manynames, invalid_names_df, min_count)
-    new_df = pd.DataFrame.from_dict(new_valid_data)
-    new_df.rename(columns=colname_map, inplace=True)
-    new_df[cols_ordered].to_csv(mnv2_path, sep="\t", index=False)
+    if mnv2_outpath is  not None:
+        manynames_v2[COL_ORDER].to_csv(mnv2_outpath, sep="\t", index=False)
+        sys.stdout.write("Manynames_v2.0 written to %s.\n" % mnv2_outpath)
+    else:
+        manynames_v2 = manynames_v2[COL_ORDER]
 
