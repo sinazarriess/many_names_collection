@@ -24,12 +24,13 @@ COL_ORDER = ['vg_image_id',
              'vg_obj_name', 
              'vg_domain', 
              'vg_synset', 
-             'vg_cat']
+             #'vg_cat'
+             ]
 
 COL_MAP = {
         'vg_img_id': 'vg_image_id', 
         'object_id': 'vg_object_id', 
-        'cat': 'vg_cat',
+        #'cat': 'vg_cat',
         'synset': 'vg_synset',
         'spellchecked': 'responses',       
         'mn_topname': 'topname',
@@ -107,7 +108,7 @@ if __name__=="__main__":
     manynamesv0_path = os.path.join("..", "proc_data_phase0", "spellchecking", "all_responses_round0-3_cleaned.csv")
     manynames_v0 = load_results.load_cleaned_results(manynamesv0_path)
  
-    manynames_v0 = manynames_v0[['vg_img_id', 'cat', 'synset', 'vg_obj_name', 'vg_domain', 'url', 'vg_object_id', 'spellchecked']]
+    manynames_v0 = manynames_v0[['vg_img_id', 'synset', 'vg_obj_name', 'vg_domain', 'url', 'vg_object_id', 'spellchecked']]
 
     convert_manynames_v0_to_v1(manynames_v0)
     streamline_columns(manynames_v0)
