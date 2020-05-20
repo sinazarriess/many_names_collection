@@ -19,11 +19,11 @@
    * clothing
    
 **verif-annos** abbreviation for the annotations collected in the verification crowd-sourcing, includes:  
-    * adequacy of the name, given a target object
-    * if inadequate, what could be the possible source of error  
+   * adequacy of the name, given a target object
+   * if inadequate, what could be the possible source of error  
         (bounding box, visual, linguistic, other)  
         if adequate, the inadequacy_type is "nan"
-    * same-object: set of names referring to the same object
+   * same-object: set of names referring to the same object
 
 #### Data file: manynames-v2.0_public.csv
 
