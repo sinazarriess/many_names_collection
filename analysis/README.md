@@ -1,4 +1,46 @@
-** For COLING2020 **
+**@Carina, the part below 'Confusion matrix' doesn't belong in the readme -- move somewhere else or delete?**
+
+**@all please either document in this README or delete or move the files assigned to you (feel free to re-assign if needed, did the assignment as best as I could)**
+
+Matthijs:
+
+analyse_verification_pilot.py
+analysis_verification_matthijs.py
+analysis_verification_phase.ipynb
+
+Sina:
+
+compare_humans_system.ipynb
+compare_humans_system_sina.ipynb
+plot_adequacy_sina.ipynb
+wordnet_analysis.ipynb
+wordnet_analysis.py
+wordnet_analysis_verified.py
+
+Carina:
+
+create_manynames_v1.py
+create_manynames_v2.py
+domains_names_pairs_relations_v2.csv
+load_results.py
+objects_vocab-442_aliasmap.txt
+pairs-annotation
+plot_verif_data_carina.ipynb
+rel-not-covered-verified.txt
+vg_manynames.ipynb
+visualise.py
+agreement_table.py
+aliased_MN442.txt
+alt_objects.ipynb
+
+
+Gemma:
+
+explore.ipynb
+old
+
+**For COLING2020**
+
 * ../plot_verif_data_carina
   - Still in need to be cleand up.
 
@@ -23,9 +65,9 @@ Example: {'man': {'cluster': ('baseball player', 'batter', 'man', 'person', 'pla
 
 **Scripts**
 
-
 **Confusion matrix**<br>
 (see analysis/results/domains_confusion_matrix.csv for the full table, including collected names which were not automatically mapped to domains (marked by $))
+
   - rows: domains of collected object names
   - columns: domains of vg object names
   - Distribution: (normalised) counts of objects <br>
