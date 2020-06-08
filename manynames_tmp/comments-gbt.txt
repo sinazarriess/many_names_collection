@@ -1,15 +1,18 @@
+- new: why do we have an 'incorrect' column for v1?
+CS: renamed to "singletons", format: {name: 1, ...}
 
 - "? add file with (VG) urls of image files instead of images?": I'd do both. 
 CS: ok
 
-- vg_image_id duplicated in the readme.
-CS: I can't find the duplicates
-
 - I'd use "topname" and "domain" instead of "mn_..."; MN is the default, so only need to mark it in the vg cases (e.g. "vg_domain").
-CS: I'd do it the way with "mn" for greater clarity, but can change it, of course. 
+CS: I'd do it the way with "mn" for greater clarity, but can change it, of course.
+G: I find it annoying when typing (reading data in, etc.), and it's clear in the documentation (also it's clear that if there's one column 'vg_domain' and one 'domain', the latter is mn). 
+CS: done
 
 - "vg_cat ... The WordNet hypernym of the VG synset": which depth? Or criterion? Also, maybe we can put it in only one of the tsv files (now it's in both the images and manynames files)
 CS: These were the original categories to be considered, and obtained manually, before you introduced the 7 MN domains which subsume the categories. TODO
+G: Ok. 
 
 - "bbox_xywh": I'd put "bbox_coords", for clarity
 CS: coords is not clearer, there are different ways to give the bounding box, e.g., [x,y,width,height], or [x_min,y_min,x_max,Y_max].
+G: Ok. 

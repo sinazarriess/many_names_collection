@@ -2,14 +2,17 @@
 
 Repository for the ManyNames dataset
 
-**UNDER CONSTRUCTION**; release expected by 12 May 2020
+
 
 **TODOs**:
-* [ ] upload scripts to (i) load manyname (ii) compute results@LREC paper
-* [ ] ? add file with (VG) urls of image files instead of images?
-* [ ] describe usage of scripts
-* [ ] double-check bbox ccordinates
-* [ ] add preproc scripts + raw data from computer@UPF
+
+- [ ] add file with (VG) urls of image files; add VG images
+- [ ] add and describe script for WN relations@LREC paper
+- [x] double-check bbox ccordinates
+- [ ] add preproc scripts + raw data from computer@UPF
+- [x] change incorrect column to singletons, also for MNv2.0
+- [ ] column VG_cat only in MNv1.0
+- [x] remove prefix from MN columns
 
 ## ManyNames dataset Version 1.0
 ###### ManyNames_v1.0 completed as of 8 January 2020
@@ -37,17 +40,16 @@ For each domain, there exists at least one WordNet category out of *article of c
 | vg_image_id | int | The VG id of the image |
 | vg_object_id | int | The VG id of the object |
 | url | str | The url to the image, with the object marked |
-| mn_topname | str | The most frequent name in the MN responses |
-| mn_domain | str | The MN domain of the MN object |
+| topname | str | The most frequent name in the MN responses |
+| domain | str | The MN domain of the MN object |
 | N | float | The number of types in the MN responses |
-| %top | float | The relative frequency of the most frequent response (in percent) |
+| perc_top | float | The relative frequency of the most frequent response (in percent) |
 | H | float | The H agreement measure from (Snodgrass and Vanderwart, 1980) |
 | responses | Counter | The collected MN names and their counts, i.e., the number of annotators responding them |
-| incorrect | dict | Complex data, see below. |
+| singletons | dict | Contains all names which were given only once, i.e., with count=1. <br>Example: `{'sofa': 1, 'armchair': 1}` |
 | vg_obj_name | str | The VG name of the object |
-| vg_domain | str | The MN domain of the VG name, which may be a superset of its WN category (vg_cat). <br>Example: The MN domain *food* subsumes the WN categories *food, solid food* and *food, nutrient*. |
+| vg_domain | str | The MN domain of the VG name, which may be a superset of its WN category (vg_cat, see `images.tsv`). <br>Example: The MN domain *food* subsumes the WN categories *food, solid food* and *food, nutrient*. |
 | vg_synset | str | The WN synset of the object, provided by VG |
-| vg_cat | str | The WordNet hypernym of the VG synset, corresponds roughly to one of the 7 MN domains (see also column vg_domain). |
 
 #### Data file: images.tsv
 | Column | Type | Description |
@@ -56,12 +58,12 @@ For each domain, there exists at least one WordNet category out of *article of c
 | vg_image_name | str | The name of the VG image |
 | vg_object_id | int | The VG id of the object |
 | vg_obj_name | str | The VG name of the object |
-| bbox_xywh | list | The coordinates of the object in the image: XXX [x, y, width, height] |
+| bbox_xywh | list | The coordinates of the object in the image: [left x, bottom y, width, height] <br>(y=0 is at the top of the image)|
 | vg_synset | str | The WN synset of the object, provided by VG |
 | vg_cat | str | The WordNet hypernym of the VG synset, corresponds roughly to one of the 7 MN domains.  |
 
 ### Subfolders:
-imgs/
+images/
 scripts/
 raw_data/
 
@@ -69,21 +71,25 @@ raw_data/
 ###### Package Requirements:
   * `pandas`
   * `numpy`
-  * `matplotlib.pyplot` (for `agreement_table.py`)
+  * `matplotlib.pyplot` (for `agreement_table.py` and `visualise.py`)
   * `nltk` and `nltk.corpus` (for `wordnet_analysis.py`,   `agreement_table.py`)
+  * `skimage` (for `visualise.py`)
 
 ###### Usage:
 All scripts can be given as optional argument the path to the ManyNames dataset: 
 `python <script-name> [$MANYNAMESROOT/manynames_v1.0.tsv]`
 By default, `$MANYNAMESROOT` is `../` from the script directory.
 * **`manynames.py`**
-  *Loads the MN data into a pandas DataFrame.*
+  *Loads the MN data into a pandas DataFrame.*<br>
   `python manynames.py [$MANYNAMESROOT/manynames_v1.0.tsv]`
+* **`visualise.py`**
+  *Provides a function to draw a bounding box around an object and label it with its MN object names (and VG name).*
+  You can run a demo of it with `python visualise.py`
 * **`agreement_table.py`**
-  *Creates a table (in tex format) of the agreement in object naming of MN. (Table 3 in the [paper](https://github.com/amore-upf/manynames/lrec2020naming.pdf)).*
+  *Creates a table (in tex format) of the agreement in object naming of MN. (Table 3 in the [paper](https://github.com/amore-upf/manynames/lrec2020naming.pdf)).*<br>
   `python agreement_table.py [$MANYNAMESROOT/manynames_v1.0.tsv]`
 * **`plot_distr_topnames.py`**
-  *Creates a stacked box plot, showing the distribution of top MN names per domain (Figure 3 in the [paper](https://github.com/amore-upf/manynames/lrec2020naming.pdf)).*
+  *Creates a stacked box plot, showing the distribution of top MN names per domain (Figure 3 in the [paper](https://github.com/amore-upf/manynames/lrec2020naming.pdf)).*<br>
   `python plot_distr_topnames.py [$MANYNAMESROOT/manynames_v1.0.tsv]`
 * `wordnet_analysis.py`
   TODO
