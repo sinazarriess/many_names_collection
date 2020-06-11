@@ -383,9 +383,7 @@ def compute_stability_stochastic(auxfile):
 
         df.to_csv(auxfile)
 
-    df = pd.read_csv(auxfile,
-                     converters={'stabilities_' + set: lambda x: eval(x.replace('nan', 'np.nan')) for set in
-                                 settings})
+    df = pd.read_csv(auxfile, converters={'stabilities_' + set: lambda x: eval(x.replace('nan', 'np.nan')) for set in settings})
 
     for set in settings:
         del df[set]
@@ -475,7 +473,7 @@ def n_names_for_prob_majority(probs, threshold=.9, max_n_names=38, increment=2):
     return 99
 
 
-def adequacy_against_frequency():
+def plot_adequacy_against_frequency():
     csvfile = '../proc_data_phase0/verification/all_responses_round0-3_verified.csv'
     df = load_results.load_cleaned_results(csvfile)
 
@@ -600,15 +598,15 @@ if __name__ == "__main__":
         # Same-object: Krippendorff's alpha (nominal) = 0.8332111041592695
 
     if True:
-        adequacy_against_frequency()
+        plot_adequacy_against_frequency()
 
     if False:
-        do_analytic = not input("Analytic or stochastic? A/s").lower().startswith('s')
+        compute_stability_analytically = not input("Analytic or stochastic? A/s").lower().startswith('s')
 
         auxfile = 'aux/stability_samples_{}_{}_{}_{}{}'.format(ADEQUACY_THRESHOLD, CANONICAL_THRESHOLD, NUM_SAMPLES_FOR_STABILITY, SUBSAMPLE, "_analytic" if do_analytic else "")
         os.makedirs('aux', exist_ok=True)
 
-        if do_analytic:
+        if compute_stability_analytically:
             compute_stability_analytic(auxfile)
         else:
             compute_stability_stochastic(auxfile)
