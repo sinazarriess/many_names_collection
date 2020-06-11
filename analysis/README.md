@@ -15,11 +15,16 @@ filter_and_show.py
 Sina:
 
 compare_humans_system.ipynb
-compare_humans_system_sina.ipynb
-plot_adequacy_sina.ipynb
-wordnet_analysis.ipynb
+- analysis notebook for comparing object naming errors between system (bottom-up) and humans on ManyNames
+
 wordnet_analysis.py
+- a couple of utility functions for retrieving WordNet relations between pairs of names
+- computing statistics for WordNet relations on naming alternatives in the original ManyNames data
+
 wordnet_analysis_verified.py
+- a couple of utility functions for retrieving WordNet relations between pairs of names
+- computing statistics for WordNet relations on naming alternatives in the verified ManyNames data
+
 
 Carina:
 
