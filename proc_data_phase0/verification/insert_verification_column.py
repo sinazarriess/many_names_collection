@@ -73,6 +73,25 @@ scores_per_name['same_object'] = scores_per_name['same_object'].apply(lambda x: 
 scores_per_name['adequacy_mean'] = scores_per_name['adequacy'].apply(lambda x: (2-(sum(x)/len(x)))/2)
 scores_per_name['inadequacy_type_majority'] = scores_per_name['inadequacy_type'].apply(lambda x: Counter(x).most_common(1)[0][0]) # TODO What if no option has majority?
 
+if False:
+    # Some results Gemma was interested in:
+    cases_for_gemma = 0
+    cases_total = 0
+    for i, row in scores_per_name.iterrows():
+        adequacy_judgments = row['adequacy']
+        ones = adequacy_judgments.count(0)
+        halves = adequacy_judgments.count(1)
+        zeros = adequacy_judgments.count(2)
+        if ones == len(adequacy_judgments)-1 and halves == 0 and zeros == 1:
+            cases_for_gemma += 1
+        if ones == len(adequacy_judgments):
+            cases_total += 1
+
+    print("cases_for_gemma", cases_for_gemma, "/", len(scores_per_name), ' | ', cases_total)
+    # One adequate, all others very inadequate: 505 / 69356
+    # One very inadequate, all others adequate:
+
+
 print(scores_per_name[:10].to_string())
 
 def cluster_from_similarity_matrix(similarities):
