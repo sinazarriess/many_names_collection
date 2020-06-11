@@ -45,4 +45,4 @@ plot_verif_data_carina.ipynb  **@Carina, can we remove this? If not, move somewh
 - amt_phase0/ @Carina add short README.md
 - analysis/ @Carina, @Sina, @Matthijs, there are to-dos for you inside the README for this folder
 - dataset_creation/ @Carina, is this folder needed? If so, add short README.md?
-- verification_phase/ @Matthijs write text in existing blank README.md :) 
+- [DONE] verification_phase/ @Matthijs write text in existing blank README.md :) 
