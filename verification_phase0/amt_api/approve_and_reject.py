@@ -72,7 +72,7 @@ def main():
     # quit()
 
     # r = mturk.send_bonus(
-    #     WorkerId='A3MF8KW2U865HE',
+    #     WorkerId='XXX',
     #     BonusAmount=BONUS_AMOUNT,
     #     AssignmentId='3XIQGXAUMC8JFUFV9A0Z6XUS1XZ7X2',
     #     Reason=BONUS_FEEDBACK,

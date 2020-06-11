@@ -191,7 +191,7 @@ if False:
     # Inspect workers who requester feedback:
     print()
     print("Workers to pay attention to:")
-    PAY_ATTENTION_TO_WORKERS = ['AO33H4GL9KZX9']
+    PAY_ATTENTION_TO_WORKERS = ['']
     by_selected_workers = assignments.loc[assignments['workerid'].isin(PAY_ATTENTION_TO_WORKERS)].sort_values(by='workerid')
     prev_worker = ""
     for i, row in by_selected_workers.iterrows():

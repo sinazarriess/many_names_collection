@@ -27,7 +27,7 @@ TODO
 - Check if any non-approved assignments remain
 
 
-[DONE] - Email from Sean; AO33H4GL9KZX9 -- what did he do wrong?
+[DONE] - Email from Sean; XXX -- what did he do wrong?
 [DONE] - Check which assignments to REDO
 
 FOR TESTING: Qualification 3MB2PB6RSCC1WGB1DI1BAP62WCU4Y3 assigned to worker A2CEUA8RLKEP25 (myself)
@@ -160,7 +160,7 @@ req: 3STE4BH37SOL3ZPT67OGASS6OZBHYA
 
 
 To be improved after pre-pilot2:
-[DONE] - ASTY1XNJS7RSV: get back to her after results; "I can't figure out which one(s) could possibly be wrong. Any insight?"
+[DONE] - XXX: get back to her after results; "I can't figure out which one(s) could possibly be wrong. Any insight?"
 [DONE] - better instructions color task, add picture
 [DONE] - explain bonus policy
 [DONE] - friendlier warnings
