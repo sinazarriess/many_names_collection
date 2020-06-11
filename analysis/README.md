@@ -2,11 +2,15 @@
 
 **@all please either document in this README or delete or move the files assigned to you (feel free to re-assign if needed, did the assignment as best as I could)**
 
-Matthijs:
-
-analyse_verification_pilot.py
 analysis_verification_matthijs.py
-analysis_verification_phase.ipynb
+- basic_stats()
+- inter_rater_agreement() a la Krippendorff
+- plot_adequacy_against_frequency()
+- compute_stability_stochastic(), compute_stability_analytic(): two ways of computing and plotting the stability of the most frequent name 
+
+filter_and_show.py
+- allows you to specify rules for filtering verified names (e.g., based on adequacy and same object)
+- outputs a html with a sample of the objects affected by that rule.
 
 Sina:
 
@@ -32,10 +36,10 @@ visualise.py
 agreement_table.py
 aliased_MN442.txt
 alt_objects.ipynb
-
+analyse_verification_pilot.py
 
 Gemma:
-
+analysis_verification_phase.ipynb
 explore.ipynb
 old
 
