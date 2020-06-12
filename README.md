@@ -34,7 +34,7 @@ exploration/
 
 manynames_tmp/
 
-- folder to prepare the public data release(s) of ManyNames
+- folder to prepare the public data and script release(s) of ManyNames
 
 papers/
 
