@@ -1,10 +1,3 @@
-**[CS] @Sina, this is yours, I think:**
-**domains_names_pairs_relations_v2.csv**
-
-**[gbt] @Sina, this is yours, I think:** 
-
-**alt_objects.ipynb**
-
 ### Folders:
 
 visual-relationships-errors/
@@ -39,6 +32,10 @@ wordnet_analysis.py
 wordnet_analysis_verified.py
 - a couple of utility functions for retrieving WordNet relations between pairs of names
 - computing statistics for WordNet relations on naming alternatives in the verified ManyNames data
+
+alt_objects.ipynb
+- notebook for exploring the bounding box issue with VisualGenome: the same object can have many different boxes
+- functions for plotting boxes, computing iou, finding candidates for the same-obj-diff-box pattern 
 
 Carina:
 
