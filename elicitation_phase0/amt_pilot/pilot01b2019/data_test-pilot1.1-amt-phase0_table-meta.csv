@@ -1,0 +1,41 @@
+item_id	image_id	object_id	obj_names	category	synset	sample_type
+item-0	2389064	507067	['footstool', '--0.43-A0.87-B0.46--1-YES']	instrumentality, instrumentation	furnishing.n.02	ambiguous_synset
+item-1	2316226	1055203	['jet', '--0.27-A0.97-B0.27--2-YES']	vehicle	aircraft.n.01	ambiguous_synset
+item-2	2398812	1175558	['head', '--0.38-A0.73-B0.44--4-YES']	animal	horse.n.01	ambiguous_synset
+item-3	2403052	383993	['baby', '--0.34-A0.46-B0.56--4-YES']	animal	ungulate.n.01	ambiguous_synset
+item-4	2393917	1215702	['sunflower', '--0.39-A0.39-B0.96--5-YES']	plant, flora, plant life	flower.n.01	singleton_category
+item-5	2363125	2056940	['jacket', '--0.90-A0.93-B0.96--5-YES']	article of clothing	overgarment.n.01	singleton_category
+item-6	2356851	3120857	['flower', '--0.52-A1.00-B0.52--8-YES']	plant, flora, plant life	flower.n.01	singleton_obj
+item-7	2405320	654642	['wrap', '--0.63-A0.99-B0.64--4-YES']	article of clothing	overgarment.n.01	ambiguous_category
+item-8	2393669	1217850	['sedan', '--0.36-A0.62-B0.46--5-YES']	vehicle	car.n.01	ambiguous_category
+item-9	2330865	2895016	['rug', '--0.15-A0.58-B0.17--1-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_category
+item-0	2417401	2805653	['bull', '--0.95-A0.95-B1.00--7-YES']	animal	ungulate.n.01	ambiguous_synset
+item-1	2362871	2391867	['ship', '--0.73-A0.99-B0.74--4-YES']	vehicle	ship.n.01	ambiguous_category
+item-2	2385325	1298357	['sofa', '--0.37-A0.65-B0.46--5-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_category
+item-3	2403323	354473	['horse', '--0.29-A0.29-B1.00--2-YES']	animal	horse.n.01	singleton_obj
+item-4	2367161	2481329	['necktie', '--0.34-A0.39-B0.70--2-YES']	article of clothing	neckwear.n.01	ambiguous_synset
+item-5	2408164	266906	['penguin', '--0.34-A0.74-B0.38--5-YES']	animal	bird.n.01	singleton_category
+item-6	4070	1556532	['carpeting', '--0.95-A0.95-B1.00--4-YES']	instrumentality, instrumentation	furnishing.n.02	ambiguous_synset
+item-7	2384721	1305893	['windbreaker', '--0.58-A0.75-B0.72--6-YES']	article of clothing	overgarment.n.01	singleton_category
+item-8	2327756	2739137	['bonnet', '--0.77-A0.98-B0.78--4-YES']	article of clothing	headdress.n.01	singleton_obj
+item-9	2373806	1986195	['suv', '--0.96-A0.97-B0.98--7-YES']	vehicle	car.n.01	ambiguous_synset
+item-0	2365594	2254805	['balloon', '--0.51-A0.88-B0.55--21-YES']	vehicle	aircraft.n.01	singleton_category
+item-1	2316079	3206535	['bowtie', '--0.22-A0.99-B0.22--4-YES']	article of clothing	neckwear.n.01	ambiguous_synset
+item-2	2417043	3198072	['taxi', '--0.69-A0.69-B1.00--3-YES']	vehicle	car.n.01	ambiguous_category
+item-3	2370234	1757900	['bird', '--0.44-A0.44-B1.00--6-YES']	animal	bird.n.01	singleton_category
+item-4	2397143	436817	['desk', '--0.32-A0.35-B0.82--2-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_obj
+item-5	2370214	605402	['poncho', '--0.50-A1.00-B0.50--7-YES']	article of clothing	overgarment.n.01	singleton_category
+item-6	2390817	1246716	['curtain', '--0.70-A0.88-B0.78--6-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_category
+item-7	2319108	1004620	['gazelle', '--0.30-A0.45-B0.46--1-YES']	animal	ungulate.n.01	ambiguous_synset
+item-8	2333895	3489083	['sheep', '--0.32-A0.81-B0.35--4-YES']	animal	ungulate.n.01	singleton_category
+item-9	2343599	921837	['helmet', '--0.22-A0.99-B0.22--1-YES']	article of clothing	headdress.n.01	ambiguous_category
+item-0	2391964	484515	['flamingo', '--0.29-A0.30-B0.92--4-YES']	animal	bird.n.01	ambiguous_synset
+item-1	2349445	874713	['bench', '--0.31-A0.46-B0.49--3-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_category
+item-2	2350885	864652	['furniture', '--0.54-A0.54-B1.00--4-YES']	instrumentality, instrumentation	furnishing.n.02	singleton_category
+item-3	2356284	1694677	['rowboat', '--0.91-A0.93-B0.98--2-YES']	vehicle	boat.n.01	ambiguous_synset
+item-4	2363673	763118	['seagull', '--0.60-A0.85-B0.67--12-YES']	animal	bird.n.01	ambiguous_synset
+item-5	2382025	1331957	['airplane', '--0.42-A1.00-B0.42--4-YES']	vehicle	aircraft.n.01	singleton_obj
+item-6	2346998	894511	['train', '--0.35-A0.36-B0.97--5-YES']	vehicle	train.n.01	singleton_obj
+item-7	2379445	552755	['buffalo', '--0.46-A0.76-B0.54--1-YES']	animal	ungulate.n.01	ambiguous_synset
+item-8	2341107	3656954	['hat', '--0.41-A0.99-B0.41--4-YES']	article of clothing	headdress.n.01	singleton_category
+item-9	2349587	2162340	['parrot', '--0.77-A0.95-B0.80--8-YES']	animal	bird.n.01	ambiguous_synset

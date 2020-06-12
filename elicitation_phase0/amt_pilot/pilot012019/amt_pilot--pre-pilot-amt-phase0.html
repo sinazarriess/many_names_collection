@@ -1,0 +1,334 @@
+<!-- HIT template: ImageTagging-v3.0 --><!-- Bootstrap v3.0.3 --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /><!-- The following snippet enables the 'responsive' behavior on smaller screens -->
+<meta content="width=device-width,initial-scale=1" name="viewport" /><!-- Instructions -->
+<section class="container" id="TaggingOfAnImage">
+<div class="row">
+<div class="col-xs-12 col-md-12">
+
+<!-- Instructions -->
+<div class="panel panel-primary">
+<!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature -->
+<a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+<strong>YouNameIt Instructions</strong> 
+<span class="collapse-text">(Click to expand)</span> </a>
+<div class="panel-body" id="instructionBody">
+
+<p><strong>How would you call the object highlighted in the red frame?</strong></p>
+
+<p>Please type this word into the text box <em>object name</em>.</p>
+
+<p><u>But beware:</u></p>
+
+<ul>
+	<li>The name should have <span style="color:#FF0000;">at least 3 letters</span>.</li>
+	<li>If you cannot think of another name for some reason, click one of the options below the textbox. <i> </i></li>
+</ul>
+<br>
+<u>Examples:</u>
+<table style="width:100%" cellpadding="1" cellspacing="1">
+<tbody>	
+        <!--Ex 1 -->
+        <tr>
+	<td style="text-align: center;">
+	<img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/2318834_3359240_ambiguous_category.png" alt="2318834_3359240_ambiguous_category.png" style="width:175px;height:200px;"></td>
+	<td>
+	<table style="width:100%" cellpadding="8" cellspacing="10">
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex0" NAME="inputbox_objname-ex0" VALUE="cat" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the named object is not the highlighted one</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:
+                <INPUT TYPE="text" ID="inputbox_objname-ex1" NAME="inputbox_objname-ex1" VALUE="blue" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the chosen word is not a name</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex2" NAME="inputbox_objname-ex2" VALUE="dish" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="green"><b>GOOD</b></font><font color="black"><i></i></font>
+            </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        <!--Ex 2 -->
+        <tr>
+	<td style="text-align: center;">
+	<img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/2358476_802308_ambiguous_category.png" alt="2351111_3490533_ambiguous_synset.png" style="width:200px;height:150px;"></td>
+	<td>
+	<table style="width:100%" cellpadding="8" cellspacing="10">
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex3" NAME="inputbox_objname-ex3" VALUE="tomato" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the named object is in the red box, but it is not the highlighted one</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex4" NAME="inputbox_objname-ex4" VALUE="pickle" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="green"><b>GOOD</b></font><font color="black"><i></i></font>
+            </td>
+			</tr>
+			<tr>
+			<td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex5" NAME="inputbox_objname-ex4" VALUE="gherkin" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="green"><b>GOOD</b></font><font color="black"><i></i></font>
+            </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- End Instructions -->
+
+<!-- Object Naming Layout -->
+
+<div class="row" id="workContent">
+<table style="width:100%" cellpadding="10" cellspacing="10" frame="box">
+<tbody>	<tr>
+	<td width="50"><img src="${img_0_url}" alt="2391841_1236887_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-0" NAME="inputbox_objname-0" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(0)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-0" NAME="optout-0" Value="occlusion" onClick="clear_textbox(0)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-0" NAME="optout-0" Value="bbox" onClick="clear_textbox(0)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-0" NAME="optout-0" Value="other" onClick="clear_textbox(0)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-0" NAME="other_reasons-0" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(0)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_1_url}" alt="2355516_1850502_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-1" NAME="inputbox_objname-1" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(1)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-1" NAME="optout-1" Value="occlusion" onClick="clear_textbox(1)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-1" NAME="optout-1" Value="bbox" onClick="clear_textbox(1)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-1" NAME="optout-1" Value="other" onClick="clear_textbox(1)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-1" NAME="other_reasons-1" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(1)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_2_url}" alt="2338246_3491340_ambiguous_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-2" NAME="inputbox_objname-2" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(2)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-2" NAME="optout-2" Value="occlusion" onClick="clear_textbox(2)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-2" NAME="optout-2" Value="bbox" onClick="clear_textbox(2)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-2" NAME="optout-2" Value="other" onClick="clear_textbox(2)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-2" NAME="other_reasons-2" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(2)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_3_url}" alt="2415689_3313513_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-3" NAME="inputbox_objname-3" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(3)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-3" NAME="optout-3" Value="occlusion" onClick="clear_textbox(3)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-3" NAME="optout-3" Value="bbox" onClick="clear_textbox(3)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-3" NAME="optout-3" Value="other" onClick="clear_textbox(3)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-3" NAME="other_reasons-3" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(3)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_4_url}" alt="884_1637760_singleton_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-4" NAME="inputbox_objname-4" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(4)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-4" NAME="optout-4" Value="occlusion" onClick="clear_textbox(4)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-4" NAME="optout-4" Value="bbox" onClick="clear_textbox(4)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-4" NAME="optout-4" Value="other" onClick="clear_textbox(4)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-4" NAME="other_reasons-4" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(4)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_5_url}" alt="2381209_706387_singleton_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-5" NAME="inputbox_objname-5" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(5)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-5" NAME="optout-5" Value="occlusion" onClick="clear_textbox(5)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-5" NAME="optout-5" Value="bbox" onClick="clear_textbox(5)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-5" NAME="optout-5" Value="other" onClick="clear_textbox(5)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-5" NAME="other_reasons-5" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(5)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_6_url}" alt="2357137_814606_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-6" NAME="inputbox_objname-6" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(6)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-6" NAME="optout-6" Value="occlusion" onClick="clear_textbox(6)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-6" NAME="optout-6" Value="bbox" onClick="clear_textbox(6)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-6" NAME="optout-6" Value="other" onClick="clear_textbox(6)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-6" NAME="other_reasons-6" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(6)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_7_url}" alt="2363996_3339443_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-7" NAME="inputbox_objname-7" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(7)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-7" NAME="optout-7" Value="occlusion" onClick="clear_textbox(7)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-7" NAME="optout-7" Value="bbox" onClick="clear_textbox(7)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-7" NAME="optout-7" Value="other" onClick="clear_textbox(7)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-7" NAME="other_reasons-7" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(7)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_8_url}" alt="2338898_2232134_singleton_obj.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-8" NAME="inputbox_objname-8" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(8)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-8" NAME="optout-8" Value="occlusion" onClick="clear_textbox(8)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-8" NAME="optout-8" Value="bbox" onClick="clear_textbox(8)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-8" NAME="optout-8" Value="other" onClick="clear_textbox(8)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-8" NAME="other_reasons-8" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(8)">                		<P><br><BR></div></td>
+	
+	<tr>
+	<td width="50"><img src="${img_9_url}" alt="3947_1070734_ambiguous_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><br><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-9" NAME="inputbox_objname-9" VALUE="" SIZE=35 autofocus placeholder="Enter an object name" onClick="uncheck_radios(9)"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br>
+        		<p>Image quality:  
+<br>        		&emsp;<INPUT TYPE="radio" ID="optout_occl-9" NAME="optout-9" Value="occlusion" onClick="clear_textbox(9)">Object occluded / not recognizable<BR>
+        		&emsp;<INPUT TYPE="radio" ID="optout_bbox-9" NAME="optout-9" Value="bbox" onClick="clear_textbox(9)">Bounding box is false or misleading<BR></p>
+        		<INPUT TYPE="radio" ID="optout_other-9" NAME="optout-9" Value="other" onClick="clear_textbox(9)">Other: 
+        		<INPUT TYPE="text" ID="other_reasons-9" NAME="other_reasons-9" VALUE="" placeholder="Please specify the reasons" SIZE=35 onClick="check_radio(9)">                		<P><br><BR></div></td>
+	
+</tbody></table>
+<br>We appreciate any comment you may have:<br>
+<TEXTAREA NAME="comments" COLS="40" ROWS="5" VALUE="">
+</TEXTAREA><br>
+
+</div>
+</div>
+</div>
+</section>
+<!-- End Object naming Layout --><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+#submitButton{
+  white-space: normal;
+}
+.image{
+  margin-bottom: 15px;
+}
+.radio:first-of-type{
+  margin-top: -5px;
+}
+</style>
+<!-- Close internal style sheet --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script>
+<script>
+  window.onload = function(){
+    document.getElementById('submitButton').setAttribute('onclick', 'return notEmpty(document, 10)'); 
+    }
+  $(document).ready(
+  function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('(Click to collapse)');
+      }else{
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+  });
+  
+  
+  function uncheck_radios(ItemNo) {
+    document.getElementById('optout_occl-' + ItemNo.toString()).checked = false;
+    document.getElementById('optout_bbox-' + ItemNo.toString()).checked = false;
+    document.getElementById('optout_other-' + ItemNo.toString()).checked = false;
+    document.getElementById('other_reasons-' + ItemNo.toString()).value = "";
+  }
+  function check_radio(ItemNo) {
+    document.getElementById('optout_other-' + ItemNo.toString()).checked = true;
+    clear_textbox(ItemNo);
+  }
+  function clear_textbox(ItemNo) {
+    document.getElementById('inputbox_objname-' + ItemNo.toString()).value = "";
+  }
+  function notEmpty(document, numItems){
+    //elem = document.getElementById('annotator_name')
+    //if(elem.value.length == 0){
+    //    alert('Please enter your name');
+    //    elem.focus();
+    //    return false;
+    //}
+    var num_optOuts = 0;
+    var max_optOuts = (numItems / 2);
+    for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
+        Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
+        Objectname = Objectname.toLowerCase();
+        //var tabooElement = document.getElementById('taboolist-' + ItemNo.toString());
+        if (Objectname.length < 3) {
+            if (document.getElementById('optout_occl-' + ItemNo.toString()).checked)
+            {
+                num_optOuts++;
+                continue;
+            }
+            if (document.getElementById('optout_bbox-' + ItemNo.toString()).checked)
+            {
+                num_optOuts++;
+                continue;
+            }
+            if (document.getElementById('optout_other-' + ItemNo.toString()).checked)
+            {
+                if(document.getElementById('other_reasons-' + ItemNo.toString()).value.length <= 4)
+                {
+                    document.getElementById('other_reasons-' + ItemNo.toString()).focus();
+                    alert('Please specify the reasons (at least 5 letters) for opting out (object ' + (ItemNo+1).toString() + ').');
+                    return false;
+                }
+                num_optOuts++;
+                continue;
+            }
+            document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+            alert ('Missing: object name (object ' + (ItemNo+1).toString() + '). If you opt put please give the reason for it.');
+            return false;
+        }
+    }
+    if (num_optOuts > max_optOuts) {
+        alert("Too many opt-outs.");
+        return false;
+    }
+    return true;
+  }
+</script>

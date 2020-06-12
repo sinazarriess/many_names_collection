@@ -16,23 +16,33 @@ This repo contains a bunch of scripts for
 
 Folders:
 
-amt_phase0/
+elicitation_phase0/
 
-amt_pilot/	just for legacy purposes
+- initial naming data gathering via AMT
 
 analysis/
 
+- ?
+
 dataset_creation/
+
+- @Carina, please rename more transparently and put where it belongs
 
 exploration/
 
-manynames_tmp/	folder to prepare the public data release(s) of ManyNames
+- ?
 
-papers/	contains, well, aeh..., papers. :) 
+manynames_tmp/
 
-proc_data_phase0/	contains processed data and scripts to process it. Goes from raw_data to ManyNames (**@Carina, correct me if I'm wrong**). Includes scripts to add verification column. File `all_results_files_preprocessed_rounds0-3.csv' is essentially the basic ManyNames dataset.
+- folder to prepare the public data release(s) of ManyNames
 
-raw_data_phase0/	raw data collected from AMT (all individual judgements)
+papers/
+
+- contains, well, aeh..., papers. :) 
+
+proc_data_phase0/
+
+- contains processed data and scripts to process it. Goes from raw_data to ManyNames (**@Carina, correct me if I'm wrong**). Includes scripts to add verification column. File `all_results_files_preprocessed_rounds0-3.csv' is essentially the basic ManyNames dataset.
 
 verification_phase0/	scripts and data from the verifcation phase. 
 
@@ -42,7 +52,7 @@ plot_verif_data_carina.ipynb  **@Carina, can we remove this? If not, move somewh
 
 **TO-DOs:**
 
-- amt_phase0/ @Carina add short README.md
+- elicitation_phase0/amt_phase0/ @Carina add short README.md
 - analysis/ @Carina, @Sina, @Matthijs, there are to-dos for you inside the README for this folder
 - dataset_creation/ @Carina, is this folder needed? If so, add short README.md?
 - [DONE] verification_phase/ @Matthijs write text in existing blank README.md :) 

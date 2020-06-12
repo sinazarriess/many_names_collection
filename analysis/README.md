@@ -1,6 +1,20 @@
-**@all please either document in this README or delete or move the files assigned to you (feel free to re-assign if needed, did the assignment as best as I could)**
+**[CS] @Sina, this is yours, I think:**
+**domains_names_pairs_relations_v2.csv**
+
+**[gbt] @Sina, this is yours, I think:** 
+
+**alt_objects.ipynb**
+
+### Folders:
+
+visual-relationships-errors/
+
+- manual exploration of the relationship between alternative objects being named in ManyNames v.1. Deprecated -- here for legacy purposes and in case someone wants to retake it at some point.
+
+### Files:
 
 analysis_verification_matthijs.py
+
 - basic_stats()
 - inter_rater_agreement() a la Krippendorff
 - plot_adequacy_against_frequency()
@@ -10,12 +24,15 @@ filter_and_show.py
 - allows you to specify rules for filtering verified names (e.g., based on adequacy and same object)
 - outputs a html with a sample of the objects affected by that rule.
 
-Sina:
-
 compare_humans_system.ipynb
 - analysis notebook for comparing object naming errors between system (bottom-up) and humans on ManyNames
 
+gemmas_analysis_verified_data.ipynb
+
+- contains some stats and plots of the verified data, pre ManyNames v. 2, most notably distribution of adequacy, distribution of raw number of adequate names, distribution of the frequency of the entry-level name in the canonical object. 
+
 wordnet_analysis.py
+
 - a couple of utility functions for retrieving WordNet relations between pairs of names
 - computing statistics for WordNet relations on naming alternatives in the original ManyNames data
 
@@ -23,34 +40,24 @@ wordnet_analysis_verified.py
 - a couple of utility functions for retrieving WordNet relations between pairs of names
 - computing statistics for WordNet relations on naming alternatives in the verified ManyNames data
 
-[CS] @Sina, this is yours, I think:
-domains_names_pairs_relations_v2.csv
-
 Carina:
 
 create_manynames_v1.py
 create_manynames_v2.py
 load_results.py  [CS] @all: this will be replaced partially by manynames.py (see manynames_tmp/), so, for loading manynames in your scripts, see manynames.py
 objects_vocab-442_aliasmap.txt
-?? pairs-annotation
 plot_verif_data_carina.ipynb
-?? rel-not-covered-verified.txt
 vg_manynames.ipynb
 visualise.py
 agreement_table.py
 aliased_MN442.txt
-?? alt_objects.ipynb
-analyse_verification_pilot.py
 
-Gemma:
-analysis_verification_phase.ipynb
-explore.ipynb
-old
+analyse_verification_pilot.py
 
 **For COLING2020**
 
 * ../plot_verif_data_carina
-  - Still in need to be cleand up.
+  - Still in need to be cleaned up.
 
 
 **Data**

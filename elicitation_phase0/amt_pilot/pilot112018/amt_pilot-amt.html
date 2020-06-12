@@ -1,0 +1,259 @@
+<!-- HIT template: ImageTagging-v3.0 --><!-- Bootstrap v3.0.3 --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /><!-- The following snippet enables the 'responsive' behavior on smaller screens -->
+<meta content="width=device-width,initial-scale=1" name="viewport" /><!-- Instructions -->
+<section class="container" id="TaggingOfAnImage">
+<div class="row">
+<div class="col-xs-12 col-md-12">
+
+<!-- Instructions -->
+<div class="panel panel-primary">
+<!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature -->
+<a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+<strong>YouNameIt Instructions</strong> 
+<span class="collapse-text">(Click to expand)</span> </a>
+<div class="panel-body" id="instructionBody">
+
+<p><strong>How would you call the object highlighted in the red frame?</strong></p>
+
+<p>Please type this word into the text box <em>object name</em>.</p>
+
+<p><u>But beware:</u></p>
+
+<ul>
+	<li>You are<span style="color:#FF0000;"> not</span> allowed to <span style="color:#FF0000;">use</span> one of the<span style="color:#FF0000;"> taboo words</span> given on the right!</li>
+	<li>The name should have <span style="color:#FF0000;">at least 3 letters</span>.</li>
+	<li>If you cannot think of another name for some reason, click one of the options below the textbox. <i> </i></li>
+</ul>
+<br>
+<u>Examples:</u>
+<table style="width:100%" cellpadding="1" cellspacing="1">
+<tbody>	
+        <!--Ex 1 -->
+        <tr>
+	<td style="text-align: center;">
+	<img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/2318834_3359240_ambiguous_category.png" alt="2318834_3359240_ambiguous_category.png" style="width:175px;height:200px;"></td>
+	<td>
+	<table style="width:100%" cellpadding="8" cellspacing="10">
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex0" NAME="inputbox_objname-ex0" VALUE="cat" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td width="120" rowspan="3"><font color="grey"><b>Taboo Words:</b><br>bowl</font></td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the named object is not the highlighted one</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:
+                <INPUT TYPE="text" ID="inputbox_objname-ex1" NAME="inputbox_objname-ex1" VALUE="blue" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the chosen word is not a name</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex2" NAME="inputbox_objname-ex2" VALUE="dish" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="green"><b>GOOD</b></font><font color="black"><i></i></font>
+            </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        <!--Ex 2 -->
+        <tr>
+	<td style="text-align: center;">
+	<img src="http://www.coli.uni-saarland.de/~carina/object_naming/amt_images/2351111_3490533_ambiguous_synset.png" alt="2351111_3490533_ambiguous_synset.png" style="width:200px;height:150px;"></td>
+	<td>
+	<table style="width:100%" cellpadding="8" cellspacing="10">
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex3" NAME="inputbox_objname-ex3" VALUE="beans" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td width="120" rowspan="2"><font color="grey"><b>Taboo Words:</b><br>broccoli</font></td>
+            <td>
+                <font color="red"><b>BAD</b></font><font color="black"><i>---the named object is not the one indicated by the taboo word</i></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="position" valign="position" width="100">
+                <div style="background-color:#ffff99"><b>Object Name</b>:  
+                <INPUT TYPE="text" ID="inputbox_objname-ex4" NAME="inputbox_objname-ex4" VALUE="cabbage" SIZE="12" autofocus readonly="readonly"></div>
+            </td>
+            <td>
+                <font color="green"><b>GOOD</b></font><font color="black"><i></i></font>
+            </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- End Instructions -->
+
+<!-- Object Naming Layout -->
+
+<div class="row" id="workContent">
+
+<table style="width:100%" cellpadding="10" cellspacing="10" frame="box">
+<tbody>	<tr>
+	<td width="50"><img src="${img_0_url}" alt="3947_1070734_ambiguous_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-0" NAME="inputbox_objname-0" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br><br>
+        		<INPUT TYPE="radio" ID="optout_exh-0" NAME="optout-0" Value="exhausted" onClick=0>All the names I know are on the taboo list<BR>
+        		<INPUT TYPE="radio" ID="optout_qual-0" NAME="optout-0" Value="quality" onClick=0>Cannot recognize the object (e.g., too tiny, occluded)<BR>
+        		<INPUT TYPE="radio" ID="optout_bbox-0" NAME="optout-0" Value="bbox" onClick=0>Bounding box is false or misleading<BR>
+        		<INPUT TYPE="radio" ID="optout_other-0" NAME="optout-0" Value="other" onClick=0>Other: 
+        		<INPUT TYPE="text" ID="other_reasons-0" NAME="other_reasons-0" VALUE="" placeholder="Please specify the reasons" SIZE=35>                		<P><br><BR></div></td>
+	    <td width="170"><font color="grey"><b>Taboo Words</b><br><br>${taboolist_0}</font></td>
+	</tr>
+	
+	<tr>
+	<td width="50"><img src="${img_1_url}" alt="2378437_1857761_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-1" NAME="inputbox_objname-1" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br><br>
+        		<INPUT TYPE="radio" ID="optout_exh-1" NAME="optout-1" Value="exhausted" onClick=0>All the names I know are on the taboo list<BR>
+        		<INPUT TYPE="radio" ID="optout_qual-1" NAME="optout-1" Value="quality" onClick=0>Cannot recognize the object (e.g., too tiny, occluded)<BR>
+        		<INPUT TYPE="radio" ID="optout_bbox-1" NAME="optout-1" Value="bbox" onClick=0>Bounding box is false or misleading<BR>
+        		<INPUT TYPE="radio" ID="optout_other-1" NAME="optout-1" Value="other" onClick=0>Other: 
+        		<INPUT TYPE="text" ID="other_reasons-1" NAME="other_reasons-1" VALUE="" placeholder="Please specify the reasons" SIZE=35>                		<P><br><BR></div></td>
+	    <td width="170"><font color="grey"><b>Taboo Words</b><br><br>${taboolist_1}</font></td>
+	</tr>
+	
+	<tr>
+	<td width="50"><img src="${img_2_url}" alt="2384848_1304092_ambiguous_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-2" NAME="inputbox_objname-2" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br><br>
+        		<INPUT TYPE="radio" ID="optout_exh-2" NAME="optout-2" Value="exhausted" onClick=0>All the names I know are on the taboo list<BR>
+        		<INPUT TYPE="radio" ID="optout_qual-2" NAME="optout-2" Value="quality" onClick=0>Cannot recognize the object (e.g., too tiny, occluded)<BR>
+        		<INPUT TYPE="radio" ID="optout_bbox-2" NAME="optout-2" Value="bbox" onClick=0>Bounding box is false or misleading<BR>
+        		<INPUT TYPE="radio" ID="optout_other-2" NAME="optout-2" Value="other" onClick=0>Other: 
+        		<INPUT TYPE="text" ID="other_reasons-2" NAME="other_reasons-2" VALUE="" placeholder="Please specify the reasons" SIZE=35>                		<P><br><BR></div></td>
+	    <td width="170"><font color="grey"><b>Taboo Words</b><br><br>${taboolist_2}</font></td>
+	</tr>
+	
+	<tr>
+	<td width="50"><img src="${img_3_url}" alt="2363996_3339443_ambiguous_synset.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-3" NAME="inputbox_objname-3" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br><br>
+        		<INPUT TYPE="radio" ID="optout_exh-3" NAME="optout-3" Value="exhausted" onClick=0>All the names I know are on the taboo list<BR>
+        		<INPUT TYPE="radio" ID="optout_qual-3" NAME="optout-3" Value="quality" onClick=0>Cannot recognize the object (e.g., too tiny, occluded)<BR>
+        		<INPUT TYPE="radio" ID="optout_bbox-3" NAME="optout-3" Value="bbox" onClick=0>Bounding box is false or misleading<BR>
+        		<INPUT TYPE="radio" ID="optout_other-3" NAME="optout-3" Value="other" onClick=0>Other: 
+        		<INPUT TYPE="text" ID="other_reasons-3" NAME="other_reasons-3" VALUE="" placeholder="Please specify the reasons" SIZE=35>                		<P><br><BR></div></td>
+	    <td width="170"><font color="grey"><b>Taboo Words</b><br><br>${taboolist_3}</font></td>
+	</tr>
+	
+	<tr>
+	<td width="50"><img src="${img_4_url}" alt="2338246_3491340_ambiguous_category.png" style="width:350px;height:350px;"></td>
+	    <td align="position" valign="position" width="400"><div style="background-color:#ffff99"><b>Object Name</b>:  
+        	  <INPUT TYPE="text" ID="inputbox_objname-4" NAME="inputbox_objname-4" VALUE="" SIZE=35 autofocus placeholder="Enter an object name"><P><br>
+        	  <i>If you cannot name the object, please specify the reason:</i><br><br>
+        		<INPUT TYPE="radio" ID="optout_exh-4" NAME="optout-4" Value="exhausted" onClick=0>All the names I know are on the taboo list<BR>
+        		<INPUT TYPE="radio" ID="optout_qual-4" NAME="optout-4" Value="quality" onClick=0>Cannot recognize the object (e.g., too tiny, occluded)<BR>
+        		<INPUT TYPE="radio" ID="optout_bbox-4" NAME="optout-4" Value="bbox" onClick=0>Bounding box is false or misleading<BR>
+        		<INPUT TYPE="radio" ID="optout_other-4" NAME="optout-4" Value="other" onClick=0>Other: 
+        		<INPUT TYPE="text" ID="other_reasons-4" NAME="other_reasons-4" VALUE="" placeholder="Please specify the reasons" SIZE=35>                		<P><br><BR></div></td>
+	    <td width="170"><font color="grey"><b>Taboo Words</b><br><br>${taboolist_4}</font></td>
+	</tr>
+	
+</tbody></table>
+<br>We appreciate any comment you may have:<br>
+<TEXTAREA NAME="comments" COLS="40" ROWS="5" VALUE="">
+</TEXTAREA><br>
+
+</div>
+</div>
+</div>
+</section>
+<!-- End Object naming Layout --><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+#submitButton{
+  white-space: normal;
+}
+.image{
+  margin-bottom: 15px;
+}
+.radio:first-of-type{
+  margin-top: -5px;
+}
+</style>
+<!-- Close internal style sheet --><!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script>
+<script>
+  window.onload = function(){
+    document.getElementById('submitButton').setAttribute('onclick', 'return notEmpty(document, 5)'); 
+    }
+  $(document).ready(
+  function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('(Click to collapse)');
+      }else{
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+  });
+  function notEmpty(document, numItems){
+    //alert(document.getElementById('inputbox_objname-4').value);
+    for (ItemNo = 0; ItemNo < numItems; ItemNo++) {
+        Objectname = document.getElementById('inputbox_objname-' + ItemNo.toString()).value;
+        if (Objectname.length > 2) { 
+            continue; 
+        } else {
+            if (document.getElementById('optout_qual-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_exh-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_bbox-' + ItemNo.toString()).checked)
+            {
+                continue;
+            }
+            if (document.getElementById('optout_other-' + ItemNo.toString()).checked)
+            {
+                if(document.getElementById('other_reasons-' + ItemNo.toString()).value.length <= 4)
+                {
+                    document.getElementById('other_reasons-' + ItemNo.toString()).focus();
+                    alert('Please specify the reasons (at least 5 letters) for opting out (object ' + (ItemNo+1).toString() + ').');
+                    return false;
+                }
+                continue;
+            }
+            document.getElementById('inputbox_objname-' + ItemNo.toString()).focus();
+            alert ('Missing: object name (object ' + (ItemNo+1).toString() + '). If you opt put please give the reason for it.');
+            return false;
+        }
+    }
+    return true;
+  }
+</script>
