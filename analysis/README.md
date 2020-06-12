@@ -1,5 +1,3 @@
-**@Carina, the part below 'Confusion matrix' doesn't belong in the readme -- move somewhere else or delete?**
-
 **@all please either document in this README or delete or move the files assigned to you (feel free to re-assign if needed, did the assignment as best as I could)**
 
 analysis_verification_matthijs.py
@@ -32,7 +30,7 @@ Carina:
 
 create_manynames_v1.py
 create_manynames_v2.py
-load_results.py  This will be replaced partially by manynames.py (see manynames_tmp/)
+load_results.py  [CS] @all: this will be replaced partially by manynames.py (see manynames_tmp/), so, for loading manynames in your scripts, see manynames.py
 objects_vocab-442_aliasmap.txt
 ?? pairs-annotation
 plot_verif_data_carina.ipynb
