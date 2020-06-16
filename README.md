@@ -21,10 +21,9 @@ elicitation_phase0/
 - initial naming data gathering via AMT, 
 - including the creation of the data to be annotated and the annotation html csv and html file
 
-scripts/
+evaluation/
 
-- to load and analyse ManyNames v1.0, v2.0, and the cleaned, crowd-sourced and data (excluding or including the verification annotations)
-
+- to evaluate an object naming model (Bottom-Up) on MN v2.0
 
 exploration/
 
@@ -41,6 +40,10 @@ papers/
 proc_data_phase0/
 
 - contains processed data and scripts to process it. Goes from raw_data to ManyNames (**@Carina, correct me if I'm wrong**). Includes scripts to add verification column. File `all_results_files_preprocessed_rounds0-3.csv' is essentially the basic ManyNames dataset.
+
+scripts/
+
+- to load and analyse ManyNames v1.0, v2.0, and the cleaned, crowd-sourced and data (excluding or including the verification annotations)
 
 verification_phase0/	scripts and data from the verifcation phase. 
 
