@@ -18,19 +18,17 @@ Folders:
 
 elicitation_phase0/
 
-- initial naming data gathering via AMT
+- initial naming data gathering via AMT, 
+- including the creation of the data to be annotated and the annotation html csv and html file
 
-analysis/
+scripts/
 
-- ?
+- to load and analyse ManyNames v1.0, v2.0, and the cleaned, crowd-sourced and data (excluding or including the verification annotations)
 
-dataset_creation/
-
-- @Carina, please rename more transparently and put where it belongs
 
 exploration/
 
-- ?
+- to explore different datasets of referring expressions and object names
 
 manynames_tmp/
 
@@ -48,7 +46,7 @@ verification_phase0/	scripts and data from the verifcation phase.
 
 Files:
 
-plot_verif_data_carina.ipynb  **@Carina, can we remove this? If not, move somewhere else?**
+[TODO CS] plot_verif_data_carina.ipynb  **@Carina, can we remove this? If not, move somewhere else?**
 
 **TO-DOs:**
 

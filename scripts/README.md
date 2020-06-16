@@ -1,10 +1,21 @@
 ### Folders:
 
-visual-relationships-errors/
+#### analysis/
+A set of scripts and jupyter notebooks for analysing ManyNames (v1.0 und v2.0) and its verification annotations. 
 
-- manual exploration of the relationship between alternative objects being named in ManyNames v.1. Deprecated -- here for legacy purposes and in case someone wants to retake it at some point.
+##### Files:
 
-### Files:
+[TODO CS] Carina:
+
+[TODO CS] plot_verif_data_carina.ipynb
+
+[TODO CS] vg_manynames.ipynb
+
+[TODO CS] agreement_table.py
+- Computes the agreement table that is given in Silberer et al., (LREC, 2020).
+
+[TODO CS] analyse_verification_pilot.py
+
 
 analysis_verification_matthijs.py
 
@@ -37,28 +48,39 @@ alt_objects.ipynb
 - notebook for exploring the bounding box issue with VisualGenome: the same object can have many different boxes
 - functions for plotting boxes, computing iou, finding candidates for the same-obj-diff-box pattern 
 
-Carina:
+
+#### visual-relationships-errors/
+
+- manual exploration of the relationship between alternative objects being named in ManyNames v.1. Deprecated -- here for legacy purposes and in case someone wants to retake it at some point.
+
+### Files:
+
+[TODO CS] load_results.py  / manynames.py
+  [CS] @all: this will be replaced partially by manynames.py (see manynames_tmp/), so, for loading manynames in your scripts, see manynames.py
+
+- Loads ManyNames v1.0 or v2.0, or the cleaned MN, containing the cerification annotations etc.  
+
 
 create_manynames_v1.py
-create_manynames_v2.py
-load_results.py  [CS] @all: this will be replaced partially by manynames.py (see manynames_tmp/), so, for loading manynames in your scripts, see manynames.py
-objects_vocab-442_aliasmap.txt
-plot_verif_data_carina.ipynb
-vg_manynames.ipynb
-visualise.py
-agreement_table.py
-aliased_MN442.txt
 
-analyse_verification_pilot.py
+create_manynames_v2.py
+
+visualise.py
+
 
 **For COLING2020**
 
 * ../plot_verif_data_carina
-  - Still in need to be cleaned up.
+[TODO CS]  - Still in need to be cleaned up.
 
 
 **Data**
 
+- objects_vocab-442_aliasmap.txt
+    - Mapping of the 442 MN entry-level names to the aliased object names of VisualGenome, which were used for Bottom-Up (Anderson et al., 20XX).
+
+- aliased_MN442.txt
+    - The list of VG-aliased 442 MN entry-level names (see objects_vocab-442_aliasmap.txt)
 
 * see `raw_data_phase0` for raw data collected from AMT
 * see `proc_data_phase0`for preprocessed data
