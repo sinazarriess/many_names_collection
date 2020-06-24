@@ -138,9 +138,9 @@ if __name__=="__main__":
     if len(sys.argv) > 1:
         fn = sys.argv[1]
     elif MN_V2 is True:
-        fn = '../manynames-v2.0.tsv'
+        fn = '../manynames-data/manynames-v2.0.tsv'
     else:
-        fn = "../manynames_v1.0.tsv"
+        fn = "../manynames-data/manynames_v1.0.tsv"
         
     print("Loading ManyNames from", fn)
     manynames = load_cleaned_results(fn)

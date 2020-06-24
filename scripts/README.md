@@ -1,3 +1,5 @@
+**@Sina, @Matthijs, @Gemma: adapt paths of remaining scripts to the new folder structure of the repo**
+
 ### Folders:
 
 #### analysis/

@@ -8,13 +8,7 @@ This repo contains a bunch of scripts for
 * scripts on progress on verifying the collecting data
 * and some papers, which where mostly rejected :-)
 
-
-
-**@Carina please add a short description for the folders; mark those that it would be better to delete or reorganize. **
-
-**@all, I'm adding to-dos for each folder, with a proposal of who does what.**
-
-Folders:
+### Folders:
 
 elicitation_phase0/
 
@@ -27,7 +21,7 @@ evaluation/
 
 exploration/
 
-- to explore different datasets of referring expressions and object names
+- to explore different datasets of referring expressions and object names (what we did in the beginning when we were deciding where to get images, names from)
 
 manynames_tmp/
 
@@ -53,7 +47,10 @@ Files:
 
 **TO-DOs:**
 
-- elicitation_phase0/amt_phase0/ @Carina add short README.md
-- analysis/ @Carina, @Sina, @Matthijs, there are to-dos for you inside the README for this folder
-- dataset_creation/ @Carina, is this folder needed? If so, add short README.md?
-- [DONE] verification_phase/ @Matthijs write text in existing blank README.md :) 
+- elicitation_phase0/amt_phase0/ @Carina verifies that all files are the latest version and adds short README.md
+- elicitation_phase0/dataset_creation/  @Carina verifies that all files are the latest version and adds short README.md
+- evaluation/ @Carina adds data files and fixes minor bug
+- proc_data_phase0/ @Carina checks that all files are latest version, possibly adapts paths
+- scripts/ see readme there for @Carina's to-dos.
+- @Carina checks to-dos for manynames_tmp (see README.md there)
+- **@Sina, @Matthijs, @Gemma: adapt paths of remaining scripts to the new folder structure of the repo**

@@ -37,8 +37,8 @@ def show_objects(img_name, bbox, objname, img_dir="../images", block_display=Tru
 
         
 if __name__=="__main__":
-    imagedata = mn.load_images("../images.tsv")
-    manynames = mn.load_cleaned_results("../manynames_v1.0.tsv")
+    imagedata = mn.load_images("../manynames-data/images.tsv")
+    manynames = mn.load_cleaned_results("../manynames-data/manynames_v1.tsv")
     
     for image_id in [2417690, 2417892, 2388484, 2417993, 2388471, 65, 413, 2417452]:
         mn_item = manynames[manynames["vg_image_id"]==image_id]
